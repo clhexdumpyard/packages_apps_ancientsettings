@@ -517,4 +517,7 @@
     <!-- NavBar Visibility -->
     <string name="navbar_visibility">Enable Navigation Bar</string>
 
+    <!-- AOSP Gesture -->
+    <string name="aosp_gesture_title">AOSP Gestures</string>
+
 </resources>
