@@ -529,4 +529,9 @@
     <string name="lockscreen_tuner_title">Lockscreen shortcuts</string>
     <string name="lockscreen_tuner_summary">Modify the shortcuts shown in the lockscreen</string>
 
+    <!-- Themes -->
+    <string name="theming_title">Styles &amp; Wallpapers</string>
+    <string name="theme_select_title">Themes</string>
+    <string name="theme_select_summary">Browse and select installed themes</string>
+
 </resources>
