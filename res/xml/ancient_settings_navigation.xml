@@ -26,6 +26,16 @@
             android:key="navbar_visibility"
             android:title="@string/navbar_visibility" />
 
+    <!-- Navbar Style -->
+    <com.ancient.settings.preferences.SystemSettingListPreference
+        android:key="navbar_style"
+        android:icon="@drawable/ic_toggle_navbar"
+        android:title="@string/navbar_style_title"
+        android:dialogTitle="@string/navbar_style_title"
+        android:entries="@array/navbar_style_entries"
+        android:entryValues="@array/navbar_style_values"
+        android:defaultValue="0" />
+
         <!--<Preference
             android:title="@string/nav_bar_tuner_title"
             android:summary="@string/nav_bar_tuner_summary">

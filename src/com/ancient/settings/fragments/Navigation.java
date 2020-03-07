@@ -68,6 +68,13 @@ public class Navigation extends SettingsPreferenceFragment
         mHandler = new Handler();
     }
 
+        public static void reset(Context mContext) {
+        ContentResolver resolver = mContext.getContentResolver();
+        Settings.System.putIntForUser(resolver,
+                Settings.System.NAVBAR_STYLE, 0, UserHandle.USER_CURRENT);
+
+    }
+
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         if (preference.equals(mNavbarVisibility)) {
