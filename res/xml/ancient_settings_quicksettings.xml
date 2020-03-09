@@ -18,6 +18,13 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/quicksettings_title" >
 
+    <!-- QS Tint -->
+    <com.ancient.settings.preferences.SystemSettingSwitchPreference
+        android:key="qs_panel_bg_use_new_tint"
+        android:title="@string/qs_bg_use_new_tint"
+        android:summary="@string/qs_bg_use_new_tint_summary"
+        android:defaultValue="true" />
+
     <!-- Battery percent -->
     <com.ancient.settings.preferences.SystemSettingListPreference
         android:key="qs_show_battery_percent"
