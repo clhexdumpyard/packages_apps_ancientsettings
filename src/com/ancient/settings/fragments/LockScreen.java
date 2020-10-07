@@ -23,27 +23,16 @@ import android.content.res.Resources;
 import android.hardware.fingerprint.FingerprintManager;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.UserHandle;
 import android.provider.Settings;
 import androidx.preference.*;
-import android.content.pm.PackageManager;
 
 import com.android.internal.logging.nano.MetricsProto;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
-import com.ancient.settings.fragments.LockScreenWeather;
-
 public class LockScreen extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
-
-    private static final String FINGERPRINT_VIB = "fingerprint_success_vib";
-    private static final String FOD_ICON_PICKER_CATEGORY = "fod_icon_picker";
-
-    private FingerprintManager mFingerprintManager;
-    private SwitchPreference mFingerprintVib;
-    private PreferenceCategory mFODIconPickerCategory;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -51,41 +40,10 @@ public class LockScreen extends SettingsPreferenceFragment implements
         addPreferencesFromResource(R.xml.ancient_settings_lockscreen);
         final PreferenceScreen prefScreen = getPreferenceScreen();
         Resources resources = getResources();
-        PreferenceScreen prefSet = getPreferenceScreen();
-        Context mContext = getContext();
-
-        ContentResolver resolver = getActivity().getContentResolver();
-        mFingerprintManager = (FingerprintManager) getActivity().getSystemService(Context.FINGERPRINT_SERVICE);
-        mFingerprintVib = (SwitchPreference) findPreference(FINGERPRINT_VIB);
-        if (mFingerprintManager == null){
-            prefScreen.removePreference(mFingerprintVib);
-        } else {
-        mFingerprintVib.setChecked((Settings.System.getInt(getContentResolver(),
-                Settings.System.FINGERPRINT_SUCCESS_VIB, 1) == 1));
-        mFingerprintVib.setOnPreferenceChangeListener(this);
-        }
-        mFODIconPickerCategory = (PreferenceCategory) findPreference(FOD_ICON_PICKER_CATEGORY);
-        if (mFODIconPickerCategory != null
-                && !getResources().getBoolean(com.android.internal.R.bool.config_supportsInDisplayFingerprint)) {
-            prefScreen.removePreference(mFODIconPickerCategory);
-        }
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        ContentResolver resolver = getActivity().getContentResolver();
-        if (preference == mFingerprintVib) {
-            boolean value = (Boolean) newValue;
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.FINGERPRINT_SUCCESS_VIB, value ? 1 : 0);
-            return true;
-        }
         return false;
-    }
-
-    public static void reset(Context mContext) {
-        ContentResolver resolver = mContext.getContentResolver();
-        Settings.System.putIntForUser(resolver,
-                Settings.System.LOCKSCREEN_LOCK_ICON, 1, UserHandle.USER_CURRENT);
     }
 
     @Override

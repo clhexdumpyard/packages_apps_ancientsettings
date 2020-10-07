@@ -17,11 +17,9 @@ package com.ancient.settings.fragments;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.ContentResolver;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.os.UserHandle;
 import android.provider.Settings;
 import androidx.preference.*;
 
@@ -29,21 +27,11 @@ import com.android.internal.logging.nano.MetricsProto;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.Utils;
-
-import com.ancient.settings.preferences.SystemSettingMasterSwitchPreference;
-import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
 public class Notifications extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener {
 
     public static final String TAG = "Notifications";
-
-    private static final String FORCE_EXPANDED_NOTIFICATIONS = "force_expanded_notifications";
-    private static final String PULSE_AMBIENT_LIGHT = "pulse_ambient_light";
-
-    private SwitchPreference mForceExpanded;
-    private SystemSettingMasterSwitchPreference mEdgePulse;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -51,44 +39,11 @@ public class Notifications extends SettingsPreferenceFragment
         addPreferencesFromResource(R.xml.ancient_settings_notifications);
         PreferenceScreen prefScreen = getPreferenceScreen();
         final Resources res = getResources();
-
-        mForceExpanded = (SwitchPreference) findPreference(FORCE_EXPANDED_NOTIFICATIONS);
-        mForceExpanded.setChecked((Settings.System.getInt(getContentResolver(),
-                Settings.System.FORCE_EXPANDED_NOTIFICATIONS, 0) == 1));
-
-        mEdgePulse = (SystemSettingMasterSwitchPreference) findPreference(PULSE_AMBIENT_LIGHT);
-        mEdgePulse.setOnPreferenceChangeListener(this);
-        int edgePulse = Settings.System.getInt(getContentResolver(),
-                PULSE_AMBIENT_LIGHT, 0);
-        mEdgePulse.setChecked(edgePulse != 0);
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object objValue) {
-        final String key = preference.getKey();
-        if (preference == mForceExpanded) {
-            boolean checked = ((SwitchPreference)preference).isChecked();
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.FORCE_EXPANDED_NOTIFICATIONS, checked ? 1 : 0);
-            return true;
-        } else if (preference == mEdgePulse) {
-            boolean value = (Boolean) objValue;
-            Settings.System.putInt(getContentResolver(),
-                    PULSE_AMBIENT_LIGHT, value ? 1 : 0);
-            return true;
-        }
         return false;
-    }
-
-    public static void reset(Context mContext) {
-        ContentResolver resolver = mContext.getContentResolver();
-
-        Settings.System.putIntForUser(resolver,
-                Settings.System.STATUS_BAR_SHOW_TICKER, 0, UserHandle.USER_CURRENT);
-        Settings.System.putIntForUser(resolver,
-                Settings.System.STATUS_BAR_TICKER_ANIMATION_MODE, 1, UserHandle.USER_CURRENT);
-        Settings.System.putIntForUser(resolver,
-                Settings.System.STATUS_BAR_TICKER_TICK_DURATION, 3000, UserHandle.USER_CURRENT);
     }
 
     @Override
