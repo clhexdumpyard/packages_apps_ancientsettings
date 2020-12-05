@@ -30,6 +30,8 @@
     <string name="navigation_title">Navigation Bar</string>
     <string name="notifications_title">Notifications</string>
     <string name="panels_title">Panels</string>
+    <string name="powermenu_title">Power menu</string>
+    <string name="powermenu_items_title">Power menu items</string>
     <string name="quicksettings_title">Quick Settings</string>
     <string name="statusbar_title">Status Bar</string>
     <string name="battery_title">Battery</string>
