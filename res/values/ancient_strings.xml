@@ -130,4 +130,8 @@
     <string name="icon_manager_title">Icon manager</string>
     <string name="icon_manager_summary">Control visibility of status bar icons</string>
 
+    <!-- Double tap-to-sleep -->
+    <string name="doubletap_statusbar_title">Double tap to sleep on statusbar</string>
+    <string name="doubletap_statusbar_summary">Double tap on statusbar to switch the screen off</string>
+
 </resources>
