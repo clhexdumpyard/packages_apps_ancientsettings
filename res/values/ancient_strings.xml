@@ -134,4 +134,10 @@
     <string name="doubletap_statusbar_title">Double tap to sleep on statusbar</string>
     <string name="doubletap_statusbar_summary">Double tap on statusbar to switch the screen off</string>
 
+    <!-- Double Tap -->
+    <string name="dtts_category_header">Double tap to sleep</string>
+    <!-- Double Tap Lockscreen to Sleep -->
+    <string name="double_tap_to_sleep_lockscreen_title">Lockscreen</string>
+    <string name="double_tap_to_sleep_lockscreen_summary">Double tap on the lock screen to put the device to sleep</string>
+
 </resources>
