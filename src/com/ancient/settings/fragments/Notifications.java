@@ -32,6 +32,9 @@ public class Notifications extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener {
 
     public static final String TAG = "Notifications";
+    private static final String KEY_CHARGING_LIGHT = "charging_light";
+
+    private Preference mChargingLeds;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -39,6 +42,13 @@ public class Notifications extends SettingsPreferenceFragment
         addPreferencesFromResource(R.xml.ancient_settings_notifications);
         PreferenceScreen prefScreen = getPreferenceScreen();
         final Resources res = getResources();
+
+        mChargingLeds = findPreference(KEY_CHARGING_LIGHT);
+        if (mChargingLeds != null
+                && !getResources().getBoolean(
+                        com.android.internal.R.bool.config_intrusiveBatteryLed)) {
+            prefScreen.removePreference(mChargingLeds);
+        }
     }
 
     @Override
