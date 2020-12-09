@@ -243,4 +243,10 @@
     <string name="navigation_bar_title">Navigation bar</string>
     <string name="system_navigation_summary">Choose which system navigation style to use</string>
 
+    <!-- Screen off animation -->
+    <string name="screen_off_animation_title">Screen off animation</string>
+    <string name="screen_off_animation_default">Default</string>
+    <string name="screen_off_animation_crt">CRT</string>
+    <string name="screen_off_animation_scale">Scale</string>
+
 </resources>
