@@ -28,6 +28,12 @@
             android:fragment="com.ancient.settings.fragments.NetworkTrafficSettings" />
 
         <Preference
+            android:key="statusbar_battery"
+            android:title="@string/battery_percent_title"
+            android:summary="@string/battery_percent_summary"
+            android:fragment="com.ancient.settings.fragments.StatusbarBatterySettings"/>
+
+        <Preference
             android:title="@string/icon_manager_title"
             android:summary="@string/icon_manager_summary">
             <intent android:action="android.intent.action.MAIN"
