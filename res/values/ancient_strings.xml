@@ -100,6 +100,7 @@
 
     <!-- Category -->
     <string name="statusbar_icons_title">Statusbar Icons</string>
+    <string name="dev_options_title">Developer Options</string>
 
     <!-- Network traffic -->
     <string name="traffic_title">Traffic indicators</string>
@@ -258,5 +259,9 @@
     <string name="incall_vibrate_connect_title">Vibrate on connect</string>
     <string name="incall_vibrate_call_wait_title">Vibrate on call waiting</string>
     <string name="incall_vibrate_disconnect_title">Vibrate on disconnect</string>
+
+    <!-- USB -->
+    <string name="usb_default_config_title">USB configuration</string>
+    <string name="usb_default_config_summary">Choose the default behavior when connected to a device via USB</string>
 
 </resources>
