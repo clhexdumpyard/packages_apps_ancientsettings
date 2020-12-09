@@ -18,12 +18,6 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/quicksettings_title" >
 
-    <com.ancient.settings.preferences.SecureSettingSwitchPreference
-        android:key="qs_show_brightness"
-        android:title="@string/qs_show_brightness_title"
-        android:summary="@string/qs_show_brightness_summary"
-        android:defaultValue="true" />
-
     <com.ancient.settings.preferences.SystemSettingSwitchPreference
         android:key="qs_tile_title_visibility"
         android:title="@string/qs_tile_title_visibility_title"
@@ -66,5 +60,26 @@
             settings:units="" />
 
         </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="string/qs_brightness_category"
+        android:title="@string/qs_brightness_category_title">
+
+        <com.ancient.settings.preferences.SecureSettingListPreference
+            android:key="qs_show_brightness_slider"
+            android:title="@string/qs_show_brightness_slider_title"
+            android:summary="%s"
+            android:dialogTitle="@string/qs_show_brightness_slider_title"
+            android:entries="@array/qs_show_brightness_slider_entries"
+            android:entryValues="@array/qs_show_brightness_slider_values"
+            android:defaultValue="1" />
+
+        <com.ancient.settings.preferences.SecureSettingSwitchPreference
+            android:key="qs_show_auto_brightness"
+            android:title="@string/qs_show_auto_brightness_title"
+            android:summary="@string/qs_show_auto_brightness_summary"
+            android:defaultValue="true" />
+
+    </PreferenceCategory>
 
 </PreferenceScreen>
