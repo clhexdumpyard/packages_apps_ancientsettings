@@ -16,14 +16,21 @@
 package com.ancient.settings.fragments;
 
 import android.app.Activity;
+import android.app.Dialog;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.os.UserHandle;
 import android.provider.Settings;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ListView;
 import androidx.preference.*;
 
 import com.android.internal.logging.nano.MetricsProto; 
+import com.android.internal.util.ancient.AncientUtils;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -34,6 +41,7 @@ public class Notifications extends SettingsPreferenceFragment
     public static final String TAG = "Notifications";
     private static final String KEY_CHARGING_LIGHT = "charging_light";
     private static final String LED_CATEGORY = "led";
+    private static final String INCALL_VIB_OPTIONS = "incall_vib_options";
 
     private Preference mChargingLeds;
     private PreferenceCategory mLedCategory;
@@ -57,6 +65,11 @@ public class Notifications extends SettingsPreferenceFragment
         } else {
             mLedCategory = findPreference(LED_CATEGORY);
             mLedCategory.setVisible(false);
+        }
+
+        PreferenceCategory incallVibCategory = (PreferenceCategory) findPreference(INCALL_VIB_OPTIONS);
+        if (!AncientUtils.isVoiceCapable(getActivity())) {
+            prefScreen.removePreference(incallVibCategory);
         }
     }
 
