@@ -37,7 +37,7 @@
 
     </PreferenceCategory>
 
-    <PreferenceCategory
+    <!--<PreferenceCategory
         android:key="navbar_key"
         android:title="@string/navigation_bar_title">
 
@@ -49,6 +49,6 @@
                 android:targetClass="com.android.systemui.tuner.NavBarActivity" />
         </Preference>
 
-    </PreferenceCategory>
+    </PreferenceCategory>-->
 
 </PreferenceScreen>
