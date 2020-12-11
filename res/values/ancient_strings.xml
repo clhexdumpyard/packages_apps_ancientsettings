@@ -103,6 +103,7 @@
     <string name="dev_options_title">Developer Options</string>
     <string name="lockscreen_info_title">Lockscreen Info</string>
     <string name="statusbar_items_categories_title">Statusbar item</string>
+    <string name="general_title">General</string>
 
     <!-- Network traffic -->
     <string name="traffic_title">Traffic indicators</string>
@@ -408,5 +409,9 @@
     <!-- Heads up options -->
     <string name="less_boring_heads_up_title">Make heads up less annoying</string>
     <string name="less_boring_heads_up_summary">Show heads up only for dialer or messaging app if they are not in foreground</string>
+
+    <!-- Notification guts kill app button -->
+    <string name="notification_guts_kill_app_button_title">Kill app button</string>
+    <string name="notification_guts_kill_app_button_summary">Show a kill app button in the notification\'s longpress menu</string>
 
 </resources>
