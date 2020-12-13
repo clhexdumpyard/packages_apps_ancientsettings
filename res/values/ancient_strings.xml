@@ -519,6 +519,7 @@
 
     <!-- AOSP Gesture -->
     <string name="aosp_gesture_title">AOSP Gestures</string>
+    <string name="aosp_setting_title">AOSP Settings</string>
 
     <!-- Launch music player when headset is connected -->
     <string name="headset_connect_player_title">Launch music app on headset connection</string>
