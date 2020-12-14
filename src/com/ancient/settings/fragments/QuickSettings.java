@@ -73,9 +73,9 @@ public class QuickSettings extends SettingsPreferenceFragment
         if (footerString != null && footerString != "")
             mFooterString.setText(footerString);
         else {
-            mFooterString.setText("#CraftWithHeart");
+            mFooterString.setText("CraftWithHeart");
             Settings.System.putString(getActivity().getContentResolver(),
-                    Settings.System.FOOTER_TEXT_STRING, "#CraftWithHeart");
+                    Settings.System.FOOTER_TEXT_STRING, "CraftWithHeart");
         }
     }
 
@@ -93,9 +93,9 @@ public class QuickSettings extends SettingsPreferenceFragment
                 Settings.System.putString(getActivity().getContentResolver(),
                         Settings.System.FOOTER_TEXT_STRING, value);
             else {
-                mFooterString.setText("#CraftWithHeart");
+                mFooterString.setText("CraftWithHeart");
                 Settings.System.putString(getActivity().getContentResolver(),
-                        Settings.System.FOOTER_TEXT_STRING, "#CraftWithHeart");
+                        Settings.System.FOOTER_TEXT_STRING, "CraftWithHeart");
             }
             return true;
         }
