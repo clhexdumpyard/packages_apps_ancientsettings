@@ -18,6 +18,12 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
 	android:title="@string/misc_title" >
 
+    <Preference
+        android:key="gaming_mode"
+        android:fragment="com.ancient.settings.fragments.GamingMode"
+        android:title="@string/gaming_mode_title"
+        android:summary="@string/gaming_mode_summary" />
+
     <com.ancient.settings.preferences.SystemSettingSwitchPreference
         android:key="charging_animation"
         android:title="@string/charging_animation_title"
