@@ -18,24 +18,38 @@
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="ancient_settings_title">Ancient Features</string>
+    <string name="ancient_settings_summary">Loremipsum</string>
     <string name="ancient_dashboard_summary">Ancient dedicated</string>
 	
     <!-- Categories -->
     <string name="about_title">About</string>
+    <string name="about_summary">loremipsum</string>
     <string name="animations_title">Animations</string>
+    <string name="animations_summary">Customize your system animations</string>
     <string name="buttons_title">Buttons</string>
+    <string name="buttons_summary">Change your hardware button settings</string>
     <string name="gestures_title">Gestures</string>
+    <string name="gestures_summary">Customize system gesture</string>
     <string name="lockscreen_title">Lock Screen</string>
+    <string name="lockscreen_summary">Some lockscreen extra customization</string>
     <string name="misc_title">Miscellaneous</string>
+    <string name="misc_summary">Some more extra stuff</string>
     <string name="navigation_title">Navigation Bar</string>
+    <string name="navigation_summary">Navigation Bar feature</string>
     <string name="notifications_title">Notifications</string>
+    <string name="notifications_summary">More notif feature</string>
     <string name="panels_title">Panels</string>
     <string name="powermenu_title">Power menu</string>
+    <string name="powermenu_summary">Power menu customizations</string>
     <string name="powermenu_items_title">Power menu items</string>
     <string name="quicksettings_title">Quick Settings</string>
+    <string name="quicksettings_summary">Quick Settings customization</string>
     <string name="statusbar_title">Status Bar</string>
+    <string name="statusbar_summary">Status Bar customization</string>
     <string name="battery_title">Battery</string>
-    <string name="interface_title">Themes</string>
+    <string name="battery_summary">Some battery addons</string>
+    <string name="interface_title">Interface</string>
+    <string name="interface_summary">Custom system interface</string>
 
     <!-- About -->
     <string name="developers_category_title">Developers</string>

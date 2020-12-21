@@ -6,20 +6,20 @@
     android:viewportHeight="100">
 
     <path
-        android:strokeColor="?android:attr/colorAccent"
+        android:strokeColor="@color/ancient_statusbar_color"
         android:strokeWidth="10.5181"
         android:strokeMiterLimit="10"
         android:strokeLineCap="round"
         android:pathData="M82.6,34.1H87c3.2,0,5.8,2.6,5.8,5.8v17.4c0,3.2-2.6,5.8-5.8,5.8H13c-3.2,0-5.8-2.6-5.8-5.8V39.9 c0-3.2,2.6-5.8,5.8-5.8h39.7" />
     <path
-        android:strokeColor="?android:attr/colorAccent"
+        android:strokeColor="@color/ancient_statusbar_color"
         android:strokeWidth="10.5181"
         android:strokeMiterLimit="10"
         android:strokeLineCap="round"
         android:pathData="M 70.1 34.1 L 64.9 34.1" />
     <path
-        android:fillColor="?android:attr/colorAccent"
-        android:strokeColor="?android:attr/colorAccent"
+        android:fillColor="@color/ancient_statusbar_color"
+        android:strokeColor="@color/ancient_statusbar_color"
         android:strokeWidth="4"
         android:strokeMiterLimit="10"
         android:strokeLineCap="round"

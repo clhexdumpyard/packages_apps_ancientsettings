@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
      Copyright (C) 2018-19 The Devilian OS Project
+     Copyright (C) 2020 xyzprjkt
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,5 +16,40 @@
      limitations under the License.
 -->
 <resources>
+
+<!-- 
+     Ancient Features
+     Color pallete was generated online by : https://coolors.co
+-->
+
+     <!-- Ancient Feature Icons Colors -->
+     <color name="ancient_interface_color">#ABE188</color>
+     <color name="ancient_statusbar_color">#F7EF99</color>
+     <color name="ancient_notification_color">#F1BB87</color>
+     <color name="ancient_lockscreen_color">#F78E69</color>
+     <color name="ancient_gesture_color">#AEA4BF</color>
+     <color name="ancient_powermenu_color">#BCC1BA</color>
+     <color name="ancient_button_color">#9FB7B9</color>
+     <color name="ancient_about_color">#DDD78D</color>
+     <color name="ancient_quicksettings_color">#AEA4BF</color>
+     <color name="ancient_navigation_color">#BCC1BA</color>
+     <color name="ancient_animation_color">#9FB7B9</color>
+     <color name="ancient_battery_color">#DDD78D</color>
+     <color name="ancient_misc_color">#F1BB87</color>
+
+     <!-- Ancient Feature Cardview Colors -->
+     <color name="ancient_interface_cardcolor">@color/ancient_cardview</color>
+     <color name="ancient_statusbar_cardcolor">@color/ancient_cardview</color>
+     <color name="ancient_notification_cardcolor">@color/ancient_cardview</color>
+     <color name="ancient_lockscreen_cardcolor">@color/ancient_cardview</color>
+     <color name="ancient_gesture_cardcolor">@color/ancient_cardview</color>
+     <color name="ancient_powermenu_cardcolor">@color/ancient_cardview</color>
+     <color name="ancient_button_cardcolor">@color/ancient_cardview</color>
+     <color name="ancient_about_cardcolor">@color/ancient_cardview</color>
+     <color name="ancient_quicksettings_cardcolor">@color/ancient_cardview</color>
+     <color name="ancient_navigation_cardcolor">@color/ancient_cardview</color>
+     <color name="ancient_animation_cardcolor">@color/ancient_cardview</color>
+     <color name="ancient_battery_cardcolor">@color/ancient_cardview</color>
+     <color name="ancient_misc_cardcolor">@color/ancient_cardview</color>
 
 </resources>

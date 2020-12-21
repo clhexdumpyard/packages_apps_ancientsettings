@@ -18,6 +18,10 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/quicksettings_title" >
 
+    <Preference
+        android:layout="@layout/ancient_quicksettings_header"
+        android:selectable="false"/>
+
     <!-- Battery percent -->
     <com.ancient.settings.preferences.SystemSettingListPreference
         android:key="qs_show_battery_percent"

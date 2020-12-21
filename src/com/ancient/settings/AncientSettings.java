@@ -1,44 +1,258 @@
 /*
- *  Copyright (C) 2018 Rebellion-OS
- *  Copyright (C) 2019 Ancient-OS
+ * Copyright (C) 2020 The Pure Nexus Project
+ * used for Project ancient
  *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 2 of the License, or
- * (at your option) any later version.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
  *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
+ *      http://www.apache.org/licenses/LICENSE-2.0
  *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
+
 package com.ancient.settings;
 
 import com.android.internal.logging.nano.MetricsProto;
 
+import androidx.appcompat.app.AppCompatActivity;
 import android.app.Activity;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.Surface;
-import androidx.preference.Preference;
+import android.preference.Preference;
+import android.widget.GridLayout;
+import android.widget.GridView;
+import android.widget.Toast;
+import android.view.View;
+import android.util.Log;
+
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.fragment.app.FragmentManager;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
+import android.content.ComponentName;
+import com.google.android.material.card.MaterialCardView;
 
 import com.android.settings.R;
+import com.ancient.settings.fragments.Interface;
+import com.ancient.settings.fragments.StatusBar;
+import com.ancient.settings.fragments.QuickSettings;
+import com.ancient.settings.fragments.LockScreen;
+import com.ancient.settings.fragments.PowerMenuSettings;
+import com.ancient.settings.fragments.Gestures;
+import com.ancient.settings.fragments.Notifications;
+import com.ancient.settings.fragments.Buttons;
+import com.ancient.settings.fragments.Navigation;
+import com.ancient.settings.fragments.Animations;
+import com.ancient.settings.fragments.Battery;
+import com.ancient.settings.fragments.Misc;
+import com.ancient.settings.fragments.About;
+
 import com.android.settings.SettingsPreferenceFragment;
 
-public class AncientSettings extends SettingsPreferenceFragment {
+public class AncientSettings extends SettingsPreferenceFragment implements View.OnClickListener {
+
+    MaterialCardView mInterfaceCard;
+    MaterialCardView mStatusBarCard;
+    MaterialCardView mQuickSettingsCard;
+    MaterialCardView mLockScreenCard;
+    MaterialCardView mPowerMenuSettingsCard;
+    MaterialCardView mGesturesCard;
+    MaterialCardView mNotificationsCard;
+    MaterialCardView mButtonCard;
+    MaterialCardView mNavigationCard;
+    MaterialCardView mAnimationsCard;
+    MaterialCardView mBatteryCard;
+    MaterialCardView mMiscCard;
+    MaterialCardView mAboutCard;
 
     @Override
-    public void onCreate(Bundle icicle) {
-        super.onCreate(icicle);
-        addPreferencesFromResource(R.xml.ancient_settings);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+        return inflater.inflate(R.layout.ancient_settings, container, false);
     }
 
     @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+            getActivity().getActionBar().hide();
+
+        mInterfaceCard = (MaterialCardView) view.findViewById(R.id.interface_card);
+        mInterfaceCard.setOnClickListener(this);
+
+        mStatusBarCard = (MaterialCardView) view.findViewById(R.id.statusbar_card);
+        mStatusBarCard.setOnClickListener(this);
+
+        mQuickSettingsCard = (MaterialCardView) view.findViewById(R.id.quicksettings_card);
+        mQuickSettingsCard.setOnClickListener(this);
+
+        mLockScreenCard = (MaterialCardView) view.findViewById(R.id.lockscreen_card);
+        mLockScreenCard.setOnClickListener(this);
+
+        mPowerMenuSettingsCard = (MaterialCardView) view.findViewById(R.id.powermenu_card);
+        mPowerMenuSettingsCard.setOnClickListener(this);
+
+        mGesturesCard = (MaterialCardView) view.findViewById(R.id.gesture_card);
+        mGesturesCard.setOnClickListener(this);
+
+        mNotificationsCard = (MaterialCardView) view.findViewById(R.id.notification_card);
+        mNotificationsCard.setOnClickListener(this);
+
+        mButtonCard = (MaterialCardView) view.findViewById(R.id.button_card);
+        mButtonCard.setOnClickListener(this);
+
+        mNavigationCard = (MaterialCardView) view.findViewById(R.id.navigation_card);
+        mNavigationCard.setOnClickListener(this);
+
+        mAnimationsCard = (MaterialCardView) view.findViewById(R.id.animations_card);
+        mAnimationsCard.setOnClickListener(this);
+
+        mBatteryCard = (MaterialCardView) view.findViewById(R.id.battery_card);
+        mBatteryCard.setOnClickListener(this);
+
+        mMiscCard = (MaterialCardView) view.findViewById(R.id.misc_card);
+        mMiscCard.setOnClickListener(this);
+
+        mAboutCard = (MaterialCardView) view.findViewById(R.id.about_card);
+        mAboutCard.setOnClickListener(this);
+
+        }
+
+    @Override
+    public void onClick(View view) {
+        int id = view.getId();
+            if (id == R.id.interface_card)
+              {
+                Interface interfacefragment = new Interface();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+                transaction.replace(this.getId(), interfacefragment);
+                transaction.addToBackStack(null);
+                transaction.commit();
+               }
+            if (id == R.id.statusbar_card)
+              {
+                StatusBar statusbarfragment = new StatusBar();
+                FragmentTransaction transaction1 = getFragmentManager().beginTransaction();
+                transaction1.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+                transaction1.replace(this.getId(), statusbarfragment);
+                transaction1.addToBackStack(null);
+                transaction1.commit();
+              }
+            if (id == R.id.lockscreen_card)
+              {
+               LockScreen lockscreenfragment = new LockScreen();
+                FragmentTransaction transaction2 = getFragmentManager().beginTransaction();
+                transaction2.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+                transaction2.replace(this.getId(), lockscreenfragment);
+                transaction2.addToBackStack(null);
+                transaction2.commit();
+               }
+            if (id == R.id.powermenu_card)
+              {
+                PowerMenuSettings powermenusettingsfragment = new PowerMenuSettings();
+                FragmentTransaction transaction3 = getFragmentManager().beginTransaction();
+                transaction3.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+                transaction3.replace(this.getId(), powermenusettingsfragment);
+                transaction3.addToBackStack(null);
+                transaction3.commit();
+               }
+            if (id == R.id.gesture_card)
+              {
+                Gestures gesturesfragment = new Gestures();
+                FragmentTransaction transaction4 = getFragmentManager().beginTransaction();
+                transaction4.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+                transaction4.replace(this.getId(), gesturesfragment);
+                transaction4.addToBackStack(null);
+                transaction4.commit();
+              }
+            if (id == R.id.notification_card)
+              {
+                Notifications notificationsfragment = new Notifications();
+                FragmentTransaction transaction5 = getFragmentManager().beginTransaction();
+                transaction5.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+                transaction5.replace(this.getId(), notificationsfragment);
+                transaction5.addToBackStack(null);
+                transaction5.commit();
+               }
+            if (id == R.id.button_card)
+              {
+                Buttons buttonfragment = new Buttons();
+                FragmentTransaction transaction6 = getFragmentManager().beginTransaction();
+                transaction6.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+                transaction6.replace(this.getId(), buttonfragment);
+                transaction6.addToBackStack(null);
+                transaction6.commit();
+               }
+            if (id == R.id.about_card)
+              {
+                About aboutfragment = new About();
+                FragmentTransaction transaction7 = getFragmentManager().beginTransaction();
+                transaction7.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+                transaction7.replace(this.getId(), aboutfragment);
+                transaction7.addToBackStack(null);
+                transaction7.commit();
+               }
+            if (id == R.id.quicksettings_card)
+              {
+                QuickSettings quicksettingsfragment = new QuickSettings();
+                FragmentTransaction transaction8 = getFragmentManager().beginTransaction();
+                transaction8.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+                transaction8.replace(this.getId(), quicksettingsfragment);
+                transaction8.addToBackStack(null);
+                transaction8.commit();
+               }
+            if (id == R.id.navigation_card)
+              {
+                Navigation navigationfragment = new Navigation();
+                FragmentTransaction transaction9 = getFragmentManager().beginTransaction();
+                transaction9.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+                transaction9.replace(this.getId(), navigationfragment);
+                transaction9.addToBackStack(null);
+                transaction9.commit();
+               }
+            if (id == R.id.animations_card)
+              {
+                Animations animationsfragment = new Animations();
+                FragmentTransaction transaction10 = getFragmentManager().beginTransaction();
+                transaction10.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+                transaction10.replace(this.getId(), animationsfragment);
+                transaction10.addToBackStack(null);
+                transaction10.commit();
+               }
+            if (id == R.id.battery_card)
+              {
+                Battery batteryfragment = new Battery();
+                FragmentTransaction transaction11 = getFragmentManager().beginTransaction();
+                transaction11.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+                transaction11.replace(this.getId(), batteryfragment);
+                transaction11.addToBackStack(null);
+                transaction11.commit();
+               }
+            if (id == R.id.misc_card)
+              {
+                Misc miscfragment = new Misc();
+                FragmentTransaction transaction12 = getFragmentManager().beginTransaction();
+                transaction12.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+                transaction12.replace(this.getId(), miscfragment);
+                transaction12.addToBackStack(null);
+                transaction12.commit();
+               }
+        }
+        
+    @Override           
     public int getMetricsCategory() {
         return MetricsProto.MetricsEvent.ANCIENT_SETTINGS;
     }

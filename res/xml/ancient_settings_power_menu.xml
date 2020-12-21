@@ -21,6 +21,10 @@
     android:title="@string/powermenu_title">
 
     <Preference
+        android:layout="@layout/ancient_powermenu_header"
+        android:selectable="false"/>
+
+    <Preference
         android:key="gesture_power_menu_summary"
         android:title="@string/aosp_setting_title"
         android:summary="@string/power_menu_cards_passes_device_controls"
