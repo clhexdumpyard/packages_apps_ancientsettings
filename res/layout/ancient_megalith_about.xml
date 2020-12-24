@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?android:attr/colorPrimary"
+    android:orientation="vertical"
+    android:layout_marginTop="125dp"
+    android:layout_marginBottom="150dp"
+    android:layout_marginStart="50dp"
+    android:layout_marginEnd="50dp"
+    tools:context="com.ancient.settings.AncientSettings">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/about_title"
+        style="@style/ancient_cardview_text_primary"
+        android:textSize="28sp"/>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/about_megalith"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        app:cardBackgroundColor="@color/ancient_interface_cardcolor"
+        app:cardCornerRadius="@dimen/ancient_settings_cardview_cornerRadius"
+        app:cardElevation="@dimen/ancient_settings_cardview_cardElevation">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:src="@drawable/about_ancientsettings"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ancient_settings_title"
+                    android:textSize="25dp"
+                    style="@style/ancient_cardview_text_primary"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/megalith_version"
+                    android:textSize="20dp"
+                    style="@style/ancient_cardview_text_primary"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/megalith_copyright"
+                    android:textSize="20dp"
+                    style="@style/ancient_cardview_text_primary"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/megalith_date"
+                    android:textSize="20dp"
+                    style="@style/ancient_cardview_text_primary"/>
+                
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

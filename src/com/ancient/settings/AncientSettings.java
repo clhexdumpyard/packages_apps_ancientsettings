@@ -43,7 +43,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.ComponentName;
-import com.google.android.material.card.MaterialCardView;
+import androidx.cardview.widget.CardView;;
 
 import com.android.settings.R;
 import com.ancient.settings.fragments.Interface;
@@ -58,25 +58,25 @@ import com.ancient.settings.fragments.Navigation;
 import com.ancient.settings.fragments.Animations;
 import com.ancient.settings.fragments.Battery;
 import com.ancient.settings.fragments.Misc;
-import com.ancient.settings.fragments.About;
+import com.ancient.settings.fragments.MegalithAbout;
 
 import com.android.settings.SettingsPreferenceFragment;
 
 public class AncientSettings extends SettingsPreferenceFragment implements View.OnClickListener {
 
-    MaterialCardView mInterfaceCard;
-    MaterialCardView mStatusBarCard;
-    MaterialCardView mQuickSettingsCard;
-    MaterialCardView mLockScreenCard;
-    MaterialCardView mPowerMenuSettingsCard;
-    MaterialCardView mGesturesCard;
-    MaterialCardView mNotificationsCard;
-    MaterialCardView mButtonCard;
-    MaterialCardView mNavigationCard;
-    MaterialCardView mAnimationsCard;
-    MaterialCardView mBatteryCard;
-    MaterialCardView mMiscCard;
-    MaterialCardView mAboutCard;
+    CardView mInterfaceCard;
+    CardView mStatusBarCard;
+    CardView mQuickSettingsCard;
+    CardView mLockScreenCard;
+    CardView mPowerMenuSettingsCard;
+    CardView mGesturesCard;
+    CardView mNotificationsCard;
+    CardView mButtonCard;
+    CardView mNavigationCard;
+    CardView mAnimationsCard;
+    CardView mBatteryCard;
+    CardView mMiscCard;
+    CardView mMegalithAboutCard;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -87,46 +87,46 @@ public class AncientSettings extends SettingsPreferenceFragment implements View.
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-            getActivity().getActionBar().hide();
+            getActivity();
 
-        mInterfaceCard = (MaterialCardView) view.findViewById(R.id.interface_card);
+        mInterfaceCard = (CardView) view.findViewById(R.id.interface_card);
         mInterfaceCard.setOnClickListener(this);
 
-        mStatusBarCard = (MaterialCardView) view.findViewById(R.id.statusbar_card);
+        mStatusBarCard = (CardView) view.findViewById(R.id.statusbar_card);
         mStatusBarCard.setOnClickListener(this);
 
-        mQuickSettingsCard = (MaterialCardView) view.findViewById(R.id.quicksettings_card);
+        mQuickSettingsCard = (CardView) view.findViewById(R.id.quicksettings_card);
         mQuickSettingsCard.setOnClickListener(this);
 
-        mLockScreenCard = (MaterialCardView) view.findViewById(R.id.lockscreen_card);
+        mLockScreenCard = (CardView) view.findViewById(R.id.lockscreen_card);
         mLockScreenCard.setOnClickListener(this);
 
-        mPowerMenuSettingsCard = (MaterialCardView) view.findViewById(R.id.powermenu_card);
+        mPowerMenuSettingsCard = (CardView) view.findViewById(R.id.powermenu_card);
         mPowerMenuSettingsCard.setOnClickListener(this);
 
-        mGesturesCard = (MaterialCardView) view.findViewById(R.id.gesture_card);
+        mGesturesCard = (CardView) view.findViewById(R.id.gesture_card);
         mGesturesCard.setOnClickListener(this);
 
-        mNotificationsCard = (MaterialCardView) view.findViewById(R.id.notification_card);
+        mNotificationsCard = (CardView) view.findViewById(R.id.notification_card);
         mNotificationsCard.setOnClickListener(this);
 
-        mButtonCard = (MaterialCardView) view.findViewById(R.id.button_card);
+        mButtonCard = (CardView) view.findViewById(R.id.button_card);
         mButtonCard.setOnClickListener(this);
 
-        mNavigationCard = (MaterialCardView) view.findViewById(R.id.navigation_card);
+        mNavigationCard = (CardView) view.findViewById(R.id.navigation_card);
         mNavigationCard.setOnClickListener(this);
 
-        mAnimationsCard = (MaterialCardView) view.findViewById(R.id.animations_card);
+        mAnimationsCard = (CardView) view.findViewById(R.id.animations_card);
         mAnimationsCard.setOnClickListener(this);
 
-        mBatteryCard = (MaterialCardView) view.findViewById(R.id.battery_card);
+        mBatteryCard = (CardView) view.findViewById(R.id.battery_card);
         mBatteryCard.setOnClickListener(this);
 
-        mMiscCard = (MaterialCardView) view.findViewById(R.id.misc_card);
+        mMiscCard = (CardView) view.findViewById(R.id.misc_card);
         mMiscCard.setOnClickListener(this);
 
-        mAboutCard = (MaterialCardView) view.findViewById(R.id.about_card);
-        mAboutCard.setOnClickListener(this);
+        mMegalithAboutCard = (CardView) view.findViewById(R.id.megalith_about_card);
+        mMegalithAboutCard.setOnClickListener(this);
 
         }
 
@@ -196,12 +196,12 @@ public class AncientSettings extends SettingsPreferenceFragment implements View.
                 transaction6.addToBackStack(null);
                 transaction6.commit();
                }
-            if (id == R.id.about_card)
+            if (id == R.id.megalith_about_card)
               {
-                About aboutfragment = new About();
+                MegalithAbout megalithaboutfragment = new MegalithAbout();
                 FragmentTransaction transaction7 = getFragmentManager().beginTransaction();
                 transaction7.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
-                transaction7.replace(this.getId(), aboutfragment);
+                transaction7.replace(this.getId(), megalithaboutfragment);
                 transaction7.addToBackStack(null);
                 transaction7.commit();
                }

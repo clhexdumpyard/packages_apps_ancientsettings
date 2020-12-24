@@ -27,6 +27,7 @@
 
     <!-- Ancient Settings Cardview -->
     <dimen name="ancient_settings_cardview">150dp</dimen>
+    <dimen name="ancient_settings_cardview_margin">10dp</dimen>
     <dimen name="ancient_settings_cardview_cardElevation">0dp</dimen>
     <dimen name="ancient_settings_cardview_cornerRadius">24dp</dimen>
 

@@ -2,6 +2,7 @@
 <!--
     Copyright © 2018-19 The rebellion OS Project
     Copyright © 2019 Ancient OS Project
+    Copyright 2020 xyzprjkt
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -17,13 +18,17 @@
 -->
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="ancient_settings_title">Ancient Features</string>
-    <string name="ancient_settings_summary">Loremipsum</string>
+    <!-- MegalithXI -->
+    <string name="ancient_settings_title">MegalithXI</string>
+    <string name="ancient_settings_summary">Welcome to our primeval zone.</string>
     <string name="ancient_dashboard_summary">Ancient dedicated</string>
+    <string name="megalith_version">/megalithic//rev.1.0-public.release</string>
+    <string name="megalith_copyright">a property of xyzprjkt | ancientOS</string>
+    <string name="megalith_date">2021</string>
 	
     <!-- Categories -->
     <string name="about_title">About</string>
-    <string name="about_summary">loremipsum</string>
+    <string name="about_summary">Let u know about MegalithXI</string>
     <string name="animations_title">Animations</string>
     <string name="animations_summary">Customize your system animations</string>
     <string name="buttons_title">Buttons</string>
