@@ -18,10 +18,6 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
 	android:title="@string/navigation_title" >
 
-    <Preference
-        android:layout="@layout/ancient_navbar_header"
-        android:selectable="false"/>
-
     <PreferenceCategory
         android:key="navbar_key"
         android:title="@string/navigation_bar_title">

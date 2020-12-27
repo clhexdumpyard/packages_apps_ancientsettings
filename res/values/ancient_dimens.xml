@@ -30,6 +30,9 @@
     <dimen name="ancient_settings_cardview_margin">10dp</dimen>
     <dimen name="ancient_settings_cardview_cardElevation">0dp</dimen>
     <dimen name="ancient_settings_cardview_cornerRadius">24dp</dimen>
+    <dimen name="ancient_settings_cardview_width">160dp</dimen>
+    <dimen name="ancient_settings_cardview_about_width">340dp</dimen>
+    <dimen name="ancient_settings_cardview_about_height">125dp</dimen>
 
     <!-- Color Picker -->
     <dimen name="picker_circle_preview_size">26dp</dimen>

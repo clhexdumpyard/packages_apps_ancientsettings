@@ -18,10 +18,6 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/lockscreen_title" >
 
-        <Preference
-        android:layout="@layout/ancient_lockscreen_header"
-        android:selectable="false"/>
-
         <com.ancient.settings.preferences.SecureSettingSwitchPreference
             android:key="lock_screen_transparent_notifications_enabled"
             android:title="@string/transparent_lockscreen_notification_title"

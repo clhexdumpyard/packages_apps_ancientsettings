@@ -22,20 +22,23 @@
      Color pallete was generated online by : https://coolors.co
 -->
 
+     <!-- Static Colors -->
+     <color name="main_colors">#000000</color>
+
      <!-- Ancient Feature Icons Colors -->
-     <color name="ancient_interface_color">#ABE188</color>
-     <color name="ancient_statusbar_color">#F7EF99</color>
-     <color name="ancient_notification_color">#F1BB87</color>
-     <color name="ancient_lockscreen_color">#F78E69</color>
-     <color name="ancient_gesture_color">#AEA4BF</color>
-     <color name="ancient_powermenu_color">#BCC1BA</color>
-     <color name="ancient_button_color">#9FB7B9</color>
-     <color name="ancient_about_color">#DDD78D</color>
-     <color name="ancient_quicksettings_color">#AEA4BF</color>
-     <color name="ancient_navigation_color">#BCC1BA</color>
-     <color name="ancient_animation_color">#9FB7B9</color>
-     <color name="ancient_battery_color">#DDD78D</color>
-     <color name="ancient_misc_color">#F1BB87</color>
+     <color name="ancient_interface_color">@color/main_colors</color>
+     <color name="ancient_statusbar_color">@color/main_colors</color>
+     <color name="ancient_notification_color">@color/main_colors</color>
+     <color name="ancient_lockscreen_color">@color/main_colors</color>
+     <color name="ancient_gesture_color">@color/main_colors</color>
+     <color name="ancient_powermenu_color">@color/main_colors</color>
+     <color name="ancient_button_color">@color/main_colors</color>
+     <color name="ancient_about_color">@color/main_colors</color>
+     <color name="ancient_quicksettings_color">@color/main_colors</color>
+     <color name="ancient_navigation_color">@color/main_colors</color>
+     <color name="ancient_animation_color">@color/main_colors</color>
+     <color name="ancient_battery_color">@color/main_colors</color>
+     <color name="ancient_misc_color">@color/main_colors</color>
 
      <!-- Ancient Feature Cardview Colors -->
      <color name="ancient_interface_cardcolor">@color/ancient_cardview</color>
@@ -51,5 +54,9 @@
      <color name="ancient_animation_cardcolor">@color/ancient_cardview</color>
      <color name="ancient_battery_cardcolor">@color/ancient_cardview</color>
      <color name="ancient_misc_cardcolor">@color/ancient_cardview</color>
+
+     <!-- Megalith Gradient -->
+     <color name="colorMegalithStart">#F4D362</color>
+     <color name="colorMegalithEnd">#C99738</color>
 
 </resources>

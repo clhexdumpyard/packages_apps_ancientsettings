@@ -18,8 +18,4 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/battery_title" >
 
-    <Preference
-        android:layout="@layout/ancient_battery_header"
-        android:selectable="false"/>
-
 </PreferenceScreen>

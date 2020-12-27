@@ -19,10 +19,6 @@
 	android:title="@string/misc_title" >
 
     <Preference
-        android:layout="@layout/ancient_misc_header"
-        android:selectable="false"/>
-
-    <Preference
         android:key="gaming_mode"
         android:fragment="com.ancient.settings.fragments.GamingMode"
         android:title="@string/gaming_mode_title"

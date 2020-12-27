@@ -8,8 +8,8 @@
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
-	android:background="?android:attr/colorPrimary"
 	android:layout_height="match_parent"
+	android:background="?android:attr/colorPrimary"
 	tools:context="com.ancient.settings.AncientSettings">
 
 	<!-- Dashboard Title -->
@@ -34,22 +34,35 @@
 			android:textSize="20sp"
 			android:layout_marginBottom="25dp"/>
 
+<!-- Main Preferences -->
+<GridLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:rowCount="1"
+    android:columnCount="1"
+    android:alignmentMode="alignMargins"
+    android:layout_gravity="center_horizontal"
+    android:columnOrderPreserved="false">
+
 	<!-- About Card -->
 	<androidx.cardview.widget.CardView
 		android:id="@+id/megalith_about_card"
-		android:layout_width="match_parent"
-		android:layout_height="100dp"
+		android:layout_width="@dimen/ancient_settings_cardview_about_width"
+		android:layout_height="@dimen/ancient_settings_cardview_about_height"
 		android:layout_margin="@dimen/ancient_settings_cardview_margin"
 		app:cardBackgroundColor="@color/ancient_interface_cardcolor"
 		app:cardCornerRadius="@dimen/ancient_settings_cardview_cornerRadius"
 		app:cardElevation="@dimen/ancient_settings_cardview_cardElevation">
 		<LinearLayout
+			android:id="@+id/megalith_bg_anim"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@drawable/megalith_bg_anim"
             android:orientation="horizontal">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginTop="25dp"
                	android:layout_marginLeft="20dp"
 				android:orientation="vertical"
 				android:gravity="left|center">
@@ -58,15 +71,15 @@
 					android:layout_height="wrap_content"
 					android:text="@string/about_title"
 					android:textColor="@color/ancient_about_color"
-					android:textSize="20dp"
-					style="@style/ancient_cardview_text_primary"/>
+					android:textSize="15dp"
+					style="@style/ancient_cardview_text_secondary"/>
 				<TextView
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					android:text="@string/about_summary"
 					android:textColor="@color/ancient_about_color"
-					android:textSize="15dp"
-					style="@style/ancient_cardview_text_secondary"/>
+					android:textSize="20dp"
+					style="@style/ancient_cardview_text_primary"/>
             </LinearLayout>
 			<LinearLayout
                 android:layout_width="wrap_content"
@@ -80,11 +93,13 @@
             </LinearLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
+</GridLayout>
 
     <!-- Main Preferences -->
     <GridLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
         android:rowCount="6"
         android:columnCount="2"
         android:alignmentMode="alignMargins"
@@ -93,7 +108,7 @@
 
 			<androidx.cardview.widget.CardView
 			android:id="@+id/interface_card"
-			android:layout_width="@dimen/ancient_settings_cardview"
+			android:layout_width="@dimen/ancient_settings_cardview_width"
 			android:layout_height="@dimen/ancient_settings_cardview"
 			android:layout_margin="@dimen/ancient_settings_cardview_margin"
 			app:cardBackgroundColor="@color/ancient_interface_cardcolor"
@@ -128,7 +143,7 @@
 
 			<androidx.cardview.widget.CardView
 				android:id="@+id/statusbar_card"
-				android:layout_width="@dimen/ancient_settings_cardview"
+				android:layout_width="@dimen/ancient_settings_cardview_width"
 				android:layout_height="@dimen/ancient_settings_cardview"
 				android:layout_margin="@dimen/ancient_settings_cardview_margin"
 				app:cardBackgroundColor="@color/ancient_statusbar_cardcolor"
@@ -163,7 +178,7 @@
 
 			<androidx.cardview.widget.CardView
 				android:id="@+id/notification_card"
-				android:layout_width="@dimen/ancient_settings_cardview"
+				android:layout_width="@dimen/ancient_settings_cardview_width"
 				android:layout_height="@dimen/ancient_settings_cardview"
 				android:layout_margin="@dimen/ancient_settings_cardview_margin"
 				app:cardBackgroundColor="@color/ancient_notification_cardcolor"
@@ -198,7 +213,7 @@
 
 			<androidx.cardview.widget.CardView
 				android:id="@+id/quicksettings_card"
-				android:layout_width="@dimen/ancient_settings_cardview"
+				android:layout_width="@dimen/ancient_settings_cardview_width"
 				android:layout_height="@dimen/ancient_settings_cardview"
 				android:layout_margin="@dimen/ancient_settings_cardview_margin"
 				app:cardBackgroundColor="@color/ancient_quicksettings_cardcolor"
@@ -232,7 +247,7 @@
 
 			<androidx.cardview.widget.CardView
 			android:id="@+id/gesture_card"
-			android:layout_width="@dimen/ancient_settings_cardview"
+			android:layout_width="@dimen/ancient_settings_cardview_width"
 			android:layout_height="@dimen/ancient_settings_cardview"
 			android:layout_margin="@dimen/ancient_settings_cardview_margin"
 			app:cardBackgroundColor="@color/ancient_gesture_cardcolor"
@@ -266,7 +281,7 @@
 
 			<androidx.cardview.widget.CardView
 				android:id="@+id/powermenu_card"
-				android:layout_width="@dimen/ancient_settings_cardview"
+				android:layout_width="@dimen/ancient_settings_cardview_width"
 				android:layout_height="@dimen/ancient_settings_cardview"
 				android:layout_margin="@dimen/ancient_settings_cardview_margin"
 				app:cardBackgroundColor="@color/ancient_powermenu_cardcolor"
@@ -300,7 +315,7 @@
 
 			<androidx.cardview.widget.CardView
 				android:id="@+id/navigation_card"
-				android:layout_width="@dimen/ancient_settings_cardview"
+				android:layout_width="@dimen/ancient_settings_cardview_width"
 				android:layout_height="@dimen/ancient_settings_cardview"
 				android:layout_margin="@dimen/ancient_settings_cardview_margin"
 				app:cardBackgroundColor="@color/ancient_navigation_cardcolor"
@@ -334,7 +349,7 @@
 
 			<androidx.cardview.widget.CardView
 				android:id="@+id/animations_card"
-				android:layout_width="@dimen/ancient_settings_cardview"
+				android:layout_width="@dimen/ancient_settings_cardview_width"
 				android:layout_height="@dimen/ancient_settings_cardview"
 				android:layout_margin="@dimen/ancient_settings_cardview_margin"
 				app:cardBackgroundColor="@color/ancient_animation_cardcolor"
@@ -368,7 +383,7 @@
 
 			<androidx.cardview.widget.CardView
 				android:id="@+id/button_card"
-				android:layout_width="@dimen/ancient_settings_cardview"
+				android:layout_width="@dimen/ancient_settings_cardview_width"
 				android:layout_height="@dimen/ancient_settings_cardview"
 				android:layout_margin="@dimen/ancient_settings_cardview_margin"
 				app:cardBackgroundColor="@color/ancient_button_cardcolor"
@@ -402,7 +417,7 @@
 
 			<androidx.cardview.widget.CardView
 				android:id="@+id/battery_card"
-				android:layout_width="@dimen/ancient_settings_cardview"
+				android:layout_width="@dimen/ancient_settings_cardview_width"
 				android:layout_height="@dimen/ancient_settings_cardview"
 				android:layout_margin="@dimen/ancient_settings_cardview_margin"
 				app:cardBackgroundColor="@color/ancient_about_cardcolor"
@@ -436,7 +451,7 @@
 
 			<androidx.cardview.widget.CardView
 				android:id="@+id/misc_card"
-				android:layout_width="@dimen/ancient_settings_cardview"
+				android:layout_width="@dimen/ancient_settings_cardview_width"
 				android:layout_height="@dimen/ancient_settings_cardview"
 				android:layout_margin="@dimen/ancient_settings_cardview_margin"
 				app:cardBackgroundColor="@color/ancient_misc_cardcolor"
@@ -470,7 +485,7 @@
 
 			<androidx.cardview.widget.CardView
 				android:id="@+id/lockscreen_card"
-				android:layout_width="@dimen/ancient_settings_cardview"
+				android:layout_width="@dimen/ancient_settings_cardview_width"
 				android:layout_height="@dimen/ancient_settings_cardview"
 				android:layout_margin="@dimen/ancient_settings_cardview_margin"
 				app:cardBackgroundColor="@color/ancient_lockscreen_cardcolor"

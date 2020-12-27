@@ -20,7 +20,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- MegalithXI -->
     <string name="ancient_settings_title">MegalithXI</string>
-    <string name="ancient_settings_summary">Welcome to our primeval zone.</string>
+    <string name="ancient_settings_summary">Welcome to our prehistoric zone.</string>
     <string name="ancient_dashboard_summary">Ancient dedicated</string>
     <string name="megalith_version">/megalithic//rev.1.0-public.release</string>
     <string name="megalith_copyright">a property of xyzprjkt | ancientOS</string>

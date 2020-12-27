@@ -43,7 +43,10 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.ComponentName;
-import androidx.cardview.widget.CardView;;
+import androidx.cardview.widget.CardView;
+import androidx.appcompat.widget.Toolbar;
+import android.graphics.drawable.AnimationDrawable;
+import android.widget.LinearLayout;
 
 import com.android.settings.R;
 import com.ancient.settings.fragments.Interface;
@@ -80,7 +83,6 @@ public class AncientSettings extends SettingsPreferenceFragment implements View.
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
         return inflater.inflate(R.layout.ancient_settings, container, false);
     }
 
@@ -88,6 +90,13 @@ public class AncientSettings extends SettingsPreferenceFragment implements View.
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
             getActivity();
+
+        // Megalith Animated Background
+        LinearLayout linearlayout = view.findViewById(R.id.megalith_bg_anim);
+        AnimationDrawable animationDrawable = (AnimationDrawable) linearlayout.getBackground();
+        animationDrawable.setEnterFadeDuration(2000);
+        animationDrawable.setExitFadeDuration(4000);
+        animationDrawable.start();
 
         mInterfaceCard = (CardView) view.findViewById(R.id.interface_card);
         mInterfaceCard.setOnClickListener(this);
