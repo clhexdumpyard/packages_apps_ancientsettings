@@ -67,9 +67,9 @@
     <string name="ancient_developers_septian126" translatable="false">* Developer</string>
     <string name="ancient_developers_kubilhadinata" translatable="false">* Developer</string> 
     <string name="ancient_developers_xyzuan" translatable="false">* Developer</string>
-    <string name="ancient_support_ominous" translatable="false">* Designer</string>
-    <string name="ancient_support_vern" translatable="false">* Theming 1</string>
-    <string name="ancient_support_idontcare" translatable="false">* Theming 2</string>
+    <string name="ancient_support_ominous" translatable="false">* Lead AncientOS Designer</string>
+    <string name="ancient_support_vern" translatable="false">* Designer</string>
+    <string name="ancient_support_idontcare" translatable="false">* Designer</string>
     <string name="ancient_support_maxander" translatable="false">* Pencari Tytyd</string>
     <string name="ancient_support_fadly" translatable="false">* Translator Patchid</string>
     <string name="ancient_support_johan" translatable="false">* Papa Genit</string>
