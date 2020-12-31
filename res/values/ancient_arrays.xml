@@ -561,5 +561,26 @@
         <item>16</item>
         <item>17</item>
     </string-array>
+     
+    <!-- QS clock styles -->
+    <string-array name="qs_clock_entries" translatable="false">
+        <item>@string/qsclock_default</item>
+        <item>@string/qsclock_anci1</item>
+        <item>@string/qsclock_anci2</item>
+        <item>@string/qsclock_anci3</item>
+        <item>@string/qsclock_anci4</item>
+        <item>@string/qsclock_anci5</item>
+        <item>@string/qsclock_anci6</item>
+    </string-array>
+
+    <string-array name="qs_clock_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+    </string-array>
 
 </resources>
