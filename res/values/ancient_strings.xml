@@ -727,4 +727,14 @@
     <string name="qstile_oos">Oxygen</string>
     <string name="qstile_triangles">Triangle</string>
 
+    <!-- QS clock styles -->
+    <string name="qs_clock_style_title">QS clock style</string>
+    <string name="qsclock_default">Default</string>
+    <string name="qsclock_anci1">Center</string>
+    <string name="qsclock_anci2">Right</string>
+    <string name="qsclock_anci3">Ancient 1</string>
+    <string name="qsclock_anci4">Ancient 2</string>
+    <string name="qsclock_anci5">Ancient 3</string>
+    <string name="qsclock_anci6">Ancient 4</string>
+
 </resources>

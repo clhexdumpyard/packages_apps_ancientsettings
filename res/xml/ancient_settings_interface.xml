@@ -74,6 +74,13 @@
             android:entries="@array/qs_selector_entries"
             android:entryValues="@array/qs_selector_values" />
 
+        <ListPreference
+            android:key="qs_clock_style"
+            android:title="@string/qs_clock_style_title"
+            android:persistent="false"
+            android:entries="@array/qs_clock_entries"
+            android:entryValues="@array/qs_clock_values" />
+
         <com.ancient.settings.preferences.SystemSettingSwitchPreference
             android:key="qs_panel_bg_use_new_tint"
             android:title="@string/qs_bg_use_new_tint"

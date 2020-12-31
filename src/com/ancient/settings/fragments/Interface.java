@@ -29,6 +29,7 @@ import com.android.settingslib.core.lifecycle.Lifecycle;
 
 import com.ancient.settings.display.AccentColorPreferenceController;
 import com.ancient.settings.display.QsTileStylePreferenceController;
+import com.ancient.settings.display.QsClockStylePreferenceController;
 
 import com.android.settings.R;
 
@@ -71,6 +72,7 @@ public class Interface extends DashboardFragment {
         controllers.add(new OverlayCategoryPreferenceController(context,
                 "android.theme.customization.icon_pack.android"));
         controllers.add(new QsTileStylePreferenceController(context));
+        controllers.add(new QsClockStylePreferenceController(context));
         return controllers;
     }
 }
