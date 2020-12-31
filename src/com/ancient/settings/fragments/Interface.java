@@ -27,6 +27,8 @@ import com.android.settings.display.OverlayCategoryPreferenceController;
 import com.android.settingslib.core.AbstractPreferenceController;
 import com.android.settingslib.core.lifecycle.Lifecycle;
 
+import com.ancient.settings.display.QsTileStylePreferenceController;
+
 import com.android.settings.R;
 
 import java.util.ArrayList;
@@ -64,6 +66,7 @@ public class Interface extends DashboardFragment {
                 "android.theme.customization.font"));
         controllers.add(new OverlayCategoryPreferenceController(context,
                 "android.theme.customization.adaptive_icon_shape"));
+        controllers.add(new QsTileStylePreferenceController(context));
         return controllers;
     }
 }
