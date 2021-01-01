@@ -102,6 +102,7 @@
     <string name="save">Save</string>
     <string name="edit_hint">Value</string>
     <string name="seek_value_edit_label">Set value</string>
+    <string name="default_string">Default</string>
 
     <!-- Color Picker -->
     <string name="dialog_color_picker">Color Picker</string>
