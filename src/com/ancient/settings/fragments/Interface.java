@@ -30,6 +30,7 @@ import com.android.settingslib.core.lifecycle.Lifecycle;
 import com.ancient.settings.display.AccentColorPreferenceController;
 import com.ancient.settings.display.QsTileStylePreferenceController;
 import com.ancient.settings.display.QsClockStylePreferenceController;
+import com.ancient.settings.display.DgCornerStylePreferenceController;
 
 import com.android.settings.R;
 
@@ -73,6 +74,7 @@ public class Interface extends DashboardFragment {
                 "android.theme.customization.icon_pack.android"));
         controllers.add(new QsTileStylePreferenceController(context));
         controllers.add(new QsClockStylePreferenceController(context));
+        controllers.add(new DgCornerStylePreferenceController(context));
         return controllers;
     }
 }
