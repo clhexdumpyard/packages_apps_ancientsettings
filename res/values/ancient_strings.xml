@@ -691,4 +691,10 @@
     <string name="qsclock_anci5">Ancient 3</string>
     <string name="qsclock_anci6">Ancient 4</string>
 
+    <!-- Dialog Corner Radius styles -->
+    <string name="dgcorner_style_title">Dialog Corner Radius style</string>
+    <string name="dgcorner_default">Default</string>
+    <string name="dgcorner_type1">1dp</string>
+    <string name="dgcorner_type2">20dp</string>
+
 </resources>

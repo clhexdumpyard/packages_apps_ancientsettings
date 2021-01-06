@@ -583,4 +583,17 @@
         <item>6</item>
     </string-array>
 
+    <!-- diag corner styles -->
+    <string-array name="diagcorner_entries" translatable="false">
+        <item>@string/dgcorner_default</item>
+        <item>@string/dgcorner_type1</item>
+        <item>@string/dgcorner_type2</item>
+    </string-array>
+
+    <string-array name="diagcorner_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
 </resources>
