@@ -670,4 +670,17 @@
         <item>2</item>
     </string-array>
 
+    <!-- Sb Height styles -->
+    <string-array name="statusheight_entries" translatable="false">
+        <item>@string/sbheight_default</item>
+        <item>@string/sbheight_type1</item>
+        <item>@string/sbheight_type2</item>
+    </string-array>
+
+    <string-array name="statusheight_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
 </resources>

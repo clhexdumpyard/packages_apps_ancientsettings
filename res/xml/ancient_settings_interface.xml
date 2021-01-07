@@ -58,6 +58,13 @@
             android:title="@string/theme_customization_icon_shape_title"/>
 
         <ListPreference
+            android:key="statusheight_style"
+            android:title="@string/sbheight_style_title"
+            android:persistent="false"
+            android:entries="@array/statusheight_entries"
+            android:entryValues="@array/statusheight_values" />
+
+        <ListPreference
             android:key="diagcorner_style"
             android:title="@string/dgcorner_style_title"
             android:persistent="false"
