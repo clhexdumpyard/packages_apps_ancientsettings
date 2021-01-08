@@ -760,5 +760,6 @@
     <string name="theme_type_du_pitchblack">Pitch black</string>
     <string name="theme_type_dark_grey">Dark Grey</string>
     <string name="theme_type_material_ocean">Material Ocean</string>
+    <string name="theme_type_ancient_clear">Ancient Clear</string>
 
 </resources>
