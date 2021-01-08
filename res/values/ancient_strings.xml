@@ -703,4 +703,11 @@
     <string name="sbheight_type1">35dp</string>
     <string name="sbheight_type2">50dp</string>
 
+    <!-- Themes -->
+    <string name="theme_type_title">System theme</string>
+    <string name="theme_type_summary">Select theme</string>
+    <string name="theme_type_light">Light</string>
+    <string name="theme_type_pitch_black">Google Dark</string>
+    <string name="theme_type_solarized_dark">Solarized dark</string>
+
 </resources>
