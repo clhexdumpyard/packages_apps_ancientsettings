@@ -89,6 +89,12 @@
     <PreferenceCategory
         android:title="@string/statusbar_items_categories_title">
 
+        <com.ancient.settings.preferences.SystemSettingSwitchPreference
+            android:key="statusbar_dual_row"
+            android:title="@string/statusbar_dual_row_title"
+            android:summary="@string/statusbar_dual_row_summary"
+            android:defaultValue="false" />
+
         <Preference
             android:key="battery_bar_category"
             android:title="@string/battery_bar_title"

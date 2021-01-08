@@ -716,4 +716,8 @@
     <string name="theme_type_material_ocean">Material Ocean</string>
     <string name="theme_type_ancient_clear">Ancient Clear</string>
 
+    <!-- Statusbar dual row -->
+    <string name="statusbar_dual_row_title">Dual Row</string>
+    <string name="statusbar_dual_row_summary">Enable dual row statusbar for notifications</string>
+
 </resources>
