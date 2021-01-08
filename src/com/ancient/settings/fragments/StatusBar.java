@@ -30,18 +30,37 @@ import com.android.internal.logging.nano.MetricsProto;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
+import com.android.internal.util.ancient.AncientUtils;
+import com.ancient.settings.preferences.SystemSettingSwitchPreference;
+
 public class StatusBar extends SettingsPreferenceFragment implements
     Preference.OnPreferenceChangeListener {
+
+    private static final String STATUSBAR_DUAL_ROW = "statusbar_dual_row";
+
+    private SystemSettingSwitchPreference mStatusbarDualRow;
 
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
         addPreferencesFromResource(R.xml.ancient_settings_statusbar);
         PreferenceScreen prefSet = getPreferenceScreen();
+
+        mStatusbarDualRow = (SystemSettingSwitchPreference) findPreference(STATUSBAR_DUAL_ROW);
+        mStatusbarDualRow.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.STATUSBAR_DUAL_ROW, 0) == 1));
+        mStatusbarDualRow.setOnPreferenceChangeListener(this);
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
+        if (preference == mStatusbarDualRow) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.STATUSBAR_DUAL_ROW, value ? 1 : 0);
+            AncientUtils.showSystemUiRestartDialog(getContext());
+            return true;
+        }
         return false;
     }
 
