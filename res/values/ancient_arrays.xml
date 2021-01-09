@@ -634,4 +634,17 @@
         <item>9</item>
     </string-array>
 
+    <!-- Statusbar Logos -->
+    <string-array name="status_bar_logo_style_entries">
+        <item>Default (Ancient)</item>
+        <item>Cannabis</item>
+        <item>Smoking</item>
+    </string-array>
+
+    <string-array name="status_bar_logo_style_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
 </resources>

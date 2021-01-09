@@ -731,5 +731,6 @@
     <!-- Ancient logo -->
     <string name="ancient_logo_title">Ancient logo</string>
     <string name="ancient_logo_summary">Enable ancient logo</string>
+    <string name="status_bar_logo_style_title">Custom logo</string>
 
 </resources>
