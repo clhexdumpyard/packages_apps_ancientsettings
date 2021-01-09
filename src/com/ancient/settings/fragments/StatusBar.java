@@ -22,8 +22,10 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.Bundle;
 import android.os.UserHandle;
+import android.provider.SearchIndexableResource;
 import android.provider.Settings;
 import androidx.preference.*;
+import androidx.preference.ListPreference;
 import androidx.preference.SwitchPreference;
 
 import com.android.internal.logging.nano.MetricsProto;
@@ -33,6 +35,8 @@ import com.android.settings.SettingsPreferenceFragment;
 
 import com.android.internal.util.ancient.AncientUtils;
 import com.ancient.settings.preferences.SystemSettingSwitchPreference;
+import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settingslib.search.SearchIndexable;
 
 public class StatusBar extends SettingsPreferenceFragment implements
     Preference.OnPreferenceChangeListener {
@@ -42,6 +46,7 @@ public class StatusBar extends SettingsPreferenceFragment implements
 
     private SystemSettingSwitchPreference mStatusbarDualRow;
     private SwitchPreference mShowAncientLogo;
+    private ListPreference mLogoStyle;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -58,6 +63,14 @@ public class StatusBar extends SettingsPreferenceFragment implements
         mShowAncientLogo.setChecked((Settings.System.getInt(getContentResolver(),
              Settings.System.STATUS_BAR_LOGO, 0) == 1));
         mShowAncientLogo.setOnPreferenceChangeListener(this);
+
+        mLogoStyle = (ListPreference) findPreference("status_bar_logo_style");
+        int logoStyle = Settings.System.getIntForUser(getContentResolver(),
+                Settings.System.STATUS_BAR_LOGO_STYLE,
+                0, UserHandle.USER_CURRENT);
+        mLogoStyle.setValue(String.valueOf(logoStyle));
+        mLogoStyle.setSummary(mLogoStyle.getEntry());
+        mLogoStyle.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -72,6 +85,14 @@ public class StatusBar extends SettingsPreferenceFragment implements
             boolean value = (Boolean) newValue;
             Settings.System.putInt(getContentResolver(),
                     Settings.System.STATUS_BAR_LOGO, value ? 1 : 0);
+            return true;
+        } else if (preference.equals(mLogoStyle)) {
+            int logoStyle = Integer.parseInt(((String) newValue).toString());
+            Settings.System.putIntForUser(getContentResolver(),
+                    Settings.System.STATUS_BAR_LOGO_STYLE, logoStyle, UserHandle.USER_CURRENT);
+            int index = mLogoStyle.findIndexOfValue((String) newValue);
+            mLogoStyle.setSummary(
+                    mLogoStyle.getEntries()[index]);
             return true;
         }
         return false;
