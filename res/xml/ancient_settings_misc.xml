@@ -51,6 +51,12 @@
     <PreferenceCategory
         android:title="@string/dev_options_title">
 
+        <com.ancient.settings.preferences.GlobalSettingSwitchPreference
+            android:key="allow_signature_fake"
+            android:title="@string/allow_signature_fake"
+            android:summary="@string/allow_signature_fake_summary"
+            android:defaultValue="false" />
+
         <ListPreference
             android:key="ringtone_focus_mode"
             android:title="@string/ringtone_focus_mode_title"
