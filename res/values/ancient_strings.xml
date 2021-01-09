@@ -774,4 +774,8 @@
     <string name="qs_edit_title">Edit Icon</string>
     <string name="qs_edit_summary">Enable the tile edit icon in the footer</string>
 
+    <!-- Ancient logo -->
+    <string name="ancient_logo_title">Ancient logo</string>
+    <string name="ancient_logo_summary">Enable ancient logo</string>
+
 </resources>
