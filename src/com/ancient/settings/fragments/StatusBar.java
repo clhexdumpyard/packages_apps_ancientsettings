@@ -24,6 +24,7 @@ import android.os.Bundle;
 import android.os.UserHandle;
 import android.provider.Settings;
 import androidx.preference.*;
+import androidx.preference.SwitchPreference;
 
 import com.android.internal.logging.nano.MetricsProto;
 
@@ -37,8 +38,10 @@ public class StatusBar extends SettingsPreferenceFragment implements
     Preference.OnPreferenceChangeListener {
 
     private static final String STATUSBAR_DUAL_ROW = "statusbar_dual_row";
+    private static final String KEY_STATUS_BAR_LOGO = "status_bar_logo";
 
     private SystemSettingSwitchPreference mStatusbarDualRow;
+    private SwitchPreference mShowAncientLogo;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -50,6 +53,11 @@ public class StatusBar extends SettingsPreferenceFragment implements
         mStatusbarDualRow.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.STATUSBAR_DUAL_ROW, 0) == 1));
         mStatusbarDualRow.setOnPreferenceChangeListener(this);
+
+        mShowAncientLogo = (SwitchPreference) findPreference(KEY_STATUS_BAR_LOGO);
+        mShowAncientLogo.setChecked((Settings.System.getInt(getContentResolver(),
+             Settings.System.STATUS_BAR_LOGO, 0) == 1));
+        mShowAncientLogo.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -59,6 +67,11 @@ public class StatusBar extends SettingsPreferenceFragment implements
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.STATUSBAR_DUAL_ROW, value ? 1 : 0);
             AncientUtils.showSystemUiRestartDialog(getContext());
+            return true;
+        } else if  (preference == mShowAncientLogo) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.STATUS_BAR_LOGO, value ? 1 : 0);
             return true;
         }
         return false;
