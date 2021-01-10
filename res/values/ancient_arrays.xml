@@ -646,5 +646,39 @@
         <item>1</item>
         <item>2</item>
     </string-array>
+     
+    <!-- brightness styles -->
+    <string-array name="bright_entries" translatable="false">
+        <item>@string/bright_default</item>
+        <item>@string/bright_type1</item>
+        <item>@string/bright_type2</item>
+        <item>@string/bright_type3</item> 
+    </string-array>
+
+    <string-array name="bright_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item> 
+    </string-array>
+
+    <!-- navmek styles -->
+    <string-array name="nav_entries" translatable="false">
+        <item>@string/nav_default</item>
+        <item>@string/nav_type1</item>
+        <item>@string/nav_type2</item>
+        <item>@string/nav_type3</item> 
+        <item>@string/nav_type4</item>
+        <item>@string/nav_type5</item>  
+    </string-array>
+
+    <string-array name="nav_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item> 
+        <item>4</item>
+        <item>5</item>  
+    </string-array>
 
 </resources>
