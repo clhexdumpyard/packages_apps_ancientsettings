@@ -746,7 +746,7 @@
     <string name="nav_type1">Type 1</string>
     <string name="nav_type2">Type 2</string>
     <string name="nav_type3">Type 3</string>
-    <string name="nav_type2">Type 4</string>
-    <string name="nav_type3">Type 5</string>
+    <string name="nav_type4">Type 4</string>
+    <string name="nav_type5">Type 5</string>
 
 </resources>
