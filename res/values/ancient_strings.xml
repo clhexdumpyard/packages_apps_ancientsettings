@@ -732,5 +732,21 @@
     <string name="ancient_logo_title">Ancient logo</string>
     <string name="ancient_logo_summary">Enable ancient logo</string>
     <string name="status_bar_logo_style_title">Custom logo</string>
+	
+    <!-- Brightness styles -->
+    <string name="bright_style_title">Brightness style</string>
+    <string name="bright_default">Default</string>
+    <string name="bright_type1">Type 1</string>
+    <string name="bright_type2">Type 2</string>
+    <string name="bright_type3">Type 3</string>
+	
+    <!-- Navmek styles -->
+    <string name="nav_style_title">Brightness style</string>
+    <string name="nav_default">Default</string>
+    <string name="nav_type1">Type 1</string>
+    <string name="nav_type2">Type 2</string>
+    <string name="nav_type3">Type 3</string>
+    <string name="nav_type2">Type 4</string>
+    <string name="nav_type3">Type 5</string>
 
 </resources>
