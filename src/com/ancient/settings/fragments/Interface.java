@@ -80,11 +80,13 @@ public class Interface extends DashboardFragment implements
 
     private static final String TAG = "Interface";
     private static final String PREF_THEME_SWITCH = "theme_switch";
+    private static final String SWITCH_STYLE = "switch_style";    
 
     private IOverlayManager mOverlayService;
     private UiModeManager mUiModeManager;
 
     private ListPreference mThemeSwitch;
+    private ListPreference mSwitchStyle;    
 
     @Override
     protected String getLogTag() {
@@ -106,6 +108,14 @@ public class Interface extends DashboardFragment implements
                 .asInterface(ServiceManager.getService(Context.OVERLAY_SERVICE));
 
         setupThemeSwitchPref();
+            
+        mSwitchStyle = (ListPreference) findPreference(SWITCH_STYLE);
+        int switchStyle = Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.SWITCH_STYLE, 1);
+        int valueIndex = mSwitchStyle.findIndexOfValue(String.valueOf(switchStyle));
+        mSwitchStyle.setValueIndex(valueIndex >= 0 ? valueIndex : 0);
+        mSwitchStyle.setSummary(mSwitchStyle.getEntry());
+        mSwitchStyle.setOnPreferenceChangeListener(this);    
     }
 
     @Override
@@ -227,7 +237,12 @@ public class Interface extends DashboardFragment implements
                  mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
             } catch (RemoteException ignored) {
             }
-        }
+        } else if (preference == mSwitchStyle) {
+                String value = (String) objValue;
+                Settings.System.putInt(mContext.getContentResolver(), Settings.System.SWITCH_STYLE, Integer.valueOf(value));
+                int valueIndex = mSwitchStyle.findIndexOfValue(value);
+                mSwitchStyle.setSummary(mSwitchStyle.getEntries()[valueIndex]);
+	}
         return true;
     }
 
