@@ -34,16 +34,20 @@ import com.android.internal.util.ancient.fod.FodUtils;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
+import com.ancient.settings.preferences.CustomSeekBarPreference;
+
 public class LockScreen extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
     private static final String FINGERPRINT_VIB = "fingerprint_success_vib";
     private static final String FOD_ANIMATION_CATEGORY = "fod_animations";
     private static final String FOD_ICON_PICKER_CATEGORY = "fod_icon_picker";
+    private static final String LOCKSCREEN_MAX_NOTIF_CONFIG = "lockscreen_max_notif_cofig";
 
     private FingerprintManager mFingerprintManager;
     private SwitchPreference mFingerprintVib;
     private PreferenceCategory mFODIconPickerCategory;
+    private CustomSeekBarPreference mMaxKeyguardNotifConfig;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -80,6 +84,12 @@ public class LockScreen extends SettingsPreferenceFragment implements
         if (!isFodAnimationResources) {
             prefScreen.removePreference(fodCat);
         }
+
+        mMaxKeyguardNotifConfig = (CustomSeekBarPreference) findPreference(LOCKSCREEN_MAX_NOTIF_CONFIG);
+        int kgconf = Settings.System.getInt(getContentResolver(),
+                Settings.System.LOCKSCREEN_MAX_NOTIF_CONFIG, 3);
+        mMaxKeyguardNotifConfig.setValue(kgconf);
+        mMaxKeyguardNotifConfig.setOnPreferenceChangeListener(this);
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -88,6 +98,11 @@ public class LockScreen extends SettingsPreferenceFragment implements
             boolean value = (Boolean) newValue;
             Settings.System.putInt(resolver,
                     Settings.System.FINGERPRINT_SUCCESS_VIB, value ? 1 : 0);
+            return true;
+        } else if (preference == mMaxKeyguardNotifConfig) {
+            int kgconf = (Integer) newValue;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.LOCKSCREEN_MAX_NOTIF_CONFIG, kgconf);
             return true;
         }
         return false;

@@ -18,6 +18,22 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/lockscreen_title" >
 
+        <com.ancient.settings.preferences.SystemSettingSwitchPreference
+            android:key="lock_screen_custom_notif"
+            android:title="@string/lockscreen_maxnotif_title"
+            android:summary="@string/lockscreen_maxnotif_sumary"
+            android:defaultValue="false" />
+
+        <com.ancient.settings.preferences.CustomSeekBarPreference
+            android:key="lockscreen_max_notif_cofig"
+            android:title="@string/lockscreen_maxnotif_config"
+            android:max="6"
+            settings:min="1"
+            settings:unitsLeft=""
+            settings:unitsRight=""
+            android:persistent="false"
+            android:dependency="lock_screen_custom_notif" />
+
         <com.ancient.settings.preferences.SecureSettingSwitchPreference
             android:key="lock_screen_transparent_notifications_enabled"
             android:title="@string/transparent_lockscreen_notification_title"
