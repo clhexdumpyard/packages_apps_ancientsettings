@@ -740,6 +740,10 @@
     <string name="fod_pressed_color_realme_green">Realme Green</string>
     <string name="fod_pressed_color_light_yellow">Light Yellow</string>
 
+    <!-- FOD on doze -->
+    <string name="fod_on_doze_title">FOD on doze</string>
+    <string name="fod_on_doze_summary">Show fingerprint on display during ambient display and AoD. This only hides the icon and will not disable functionality.</string>
+
     <!-- Headset ringtone audio focus -->
     <string name="ringtone_focus_mode_title">Where to play ringtones from</string>
     <string name="ringtone_focus_mode_dynamic">From headset if connected and playing music</string>
