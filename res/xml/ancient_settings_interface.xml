@@ -84,6 +84,13 @@
             android:key="android.theme.customization.icon_pack.android"
             android:title="@string/theme_customization_sysui_icon_title"/>
 
+        <ListPreference
+            android:key="nav_style"
+            android:title="@string/nav_style_title"
+            android:persistent="false"
+            android:entries="@array/nav_entries"
+            android:entryValues="@array/nav_values" /> 
+
     </PreferenceCategory>
 
     <PreferenceCategory

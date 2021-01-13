@@ -788,4 +788,16 @@
     <string name="status_bar_notif_count_title">Show notification count</string>
     <string name="status_bar_notif_count_summary">Display the number of pending notifications</string>
 
+    <!-- Navbar styles -->
+    <string name="nav_style_title">NavBar Icon Style</string>
+    <string name="nav_default">Default</string>
+    <string name="nav_type1">Asus</string>
+    <string name="nav_type2">Moto</string>
+    <string name="nav_type3">Nexus</string>
+    <string name="nav_type4">Old</string>
+    <string name="nav_type5">OOS</string>
+    <string name="nav_type6">OneUI</string>
+    <string name="nav_type7">Sammy</string>
+    <string name="nav_type8">Techno</string>
+
 </resources>
