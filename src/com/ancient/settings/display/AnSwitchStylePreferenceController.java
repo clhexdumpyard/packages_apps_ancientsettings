@@ -72,7 +72,7 @@ public class AnSwitchStylePreferenceController extends AbstractPreferenceControl
             int anSwitchStyleValue = Integer.valueOf((String) newValue);
             Settings.System.putIntForUser(mContext.getContentResolver(),
                     Settings.System.SWITCH_STYLE, anSwitchStyleValue, UserHandle.USER_CURRENT);
-            anSwitchStyle.setSummary(mSbNavStyle.getEntries()[anSwitchStyleValue]);
+            mAnSwitchStyle.setSummary(mAnSwitchStyle.getEntries()[anSwitchStyleValue]);
             return true;
         }
         return false;
