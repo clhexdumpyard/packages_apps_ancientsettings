@@ -800,4 +800,14 @@
     <string name="nav_type7">Sammy</string>
     <string name="nav_type8">Techno</string>
 
+    <!-- Switch styles -->
+    <string name="switch_style_title">Switch appearance</string>
+    <string name="switch_default">Default</string>
+    <string name="switch_oneplus">OnePlus</string>
+    <string name="switch_narrow">Narrow</string>
+    <string name="switch_contained">Contained</string>
+    <string name="switch_md2">MD2</string>
+    <string name="switch_retro">Retro</string>
+    <string name="switch_telegram">Telegram</string>
+
 </resources>
