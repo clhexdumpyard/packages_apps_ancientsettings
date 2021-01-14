@@ -896,5 +896,15 @@
     <string name="screenshot_type_title">Screenshot type</string>
     <string name="screenshot_type_fullscreen">Take fullscreen screenshots</string>
     <string name="screenshot_type_partial">Drag selection on the area you want to take as a screenshot</string>
+	
+    <!-- QS tile styles -->
+    <string name="aclock_style_title">Analog Clock style</string>
+    <string name="aclock_default">Default</string>
+    <string name="aclock_anci1">anci1</string>
+    <string name="aclock_anci2">anci2</string>
+    <string name="aclock_anci3">anci3</string>
+    <string name="aclock_anci4">anci4</string>
+    <string name="aclock_anci5">anci5</string>
+	
 
 </resources>
