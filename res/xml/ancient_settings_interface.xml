@@ -102,8 +102,8 @@
             android:key="aclock_style"
             android:title="@string/aclock_style_title"
             android:persistent="false"
-            android:entries="@array/aclock_style_entries"
-            android:entryValues="@array/aclock_style_values" />  
+            android:entries="@array/aclock_entries"
+            android:entryValues="@array/aclock_values" />  
 
     </PreferenceCategory>
 
