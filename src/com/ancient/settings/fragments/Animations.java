@@ -67,6 +67,7 @@ public class Animations extends SettingsPreferenceFragment
     private static final String WALLPAPER_CLOSE = "wallpaper_close";
     private static final String WALLPAPER_INTRA_OPEN = "wallpaper_intra_open";
     private static final String WALLPAPER_INTRA_CLOSE = "wallpaper_intra_close";
+    private static final String KEY_TOAST_ANIMATION = "toast_animation";
 
     private ListPreference mScrollingCachePref;
     private ListPreference mTileAnimationStyle;
@@ -83,6 +84,7 @@ public class Animations extends SettingsPreferenceFragment
     private ListPreference mWallpaperClose;
     private ListPreference mWallpaperIntraOpen;
     private ListPreference mWallpaperIntraClose;
+    private ListPreference mToastAnimation;
 
     private int[] mAnimations;
     private String[] mAnimationsStrings;
@@ -96,6 +98,13 @@ public class Animations extends SettingsPreferenceFragment
         ContentResolver resolver = getActivity().getContentResolver();
         final PreferenceScreen prefScreen = getPreferenceScreen();
         mContext = getActivity();
+
+        mToastAnimation = (ListPreference) findPreference(KEY_TOAST_ANIMATION);
+        mToastAnimation.setSummary(mToastAnimation.getEntry());
+        int CurrentToastAnimation = Settings.Global.getInt(getContentResolver(), Settings.Global.TOAST_ANIMATION, 1);
+        mToastAnimation.setValueIndex(CurrentToastAnimation); //set to index of default value
+        mToastAnimation.setSummary(mToastAnimation.getEntries()[CurrentToastAnimation]);
+        mToastAnimation.setOnPreferenceChangeListener(this);
 
         // QS animation
         mTileAnimationStyle = (ListPreference) findPreference(PREF_TILE_ANIM_STYLE);
@@ -204,7 +213,13 @@ public class Animations extends SettingsPreferenceFragment
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         ContentResolver resolver = getActivity().getContentResolver();
-        if (preference == mTileAnimationStyle) {
+        if (preference == mToastAnimation) {
+            int index = mToastAnimation.findIndexOfValue((String) newValue);
+            Settings.Global.putString(getContentResolver(), Settings.Global.TOAST_ANIMATION, (String) newValue);
+            mToastAnimation.setSummary(mToastAnimation.getEntries()[index]);
+            Toast.makeText(mContext, "Toast Test", Toast.LENGTH_SHORT).show();
+            return true;
+        } else if (preference == mTileAnimationStyle) {
             int tileAnimationStyle = Integer.valueOf((String) newValue);
             Settings.System.putIntForUser(resolver, Settings.System.ANIM_TILE_STYLE,
                     tileAnimationStyle, UserHandle.USER_CURRENT);
