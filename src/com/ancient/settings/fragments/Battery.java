@@ -23,6 +23,15 @@ import android.os.Bundle;
 import android.os.UserHandle;
 import android.provider.Settings;
 import androidx.preference.*;
+import androidx.preference.ListPreference;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceCategory;
+import androidx.preference.PreferenceFragment;
+import androidx.preference.PreferenceManager;
+import androidx.preference.SwitchPreference;
+import androidx.preference.PreferenceGroup;
+import androidx.preference.PreferenceScreen;
+import androidx.preference.Preference.OnPreferenceChangeListener;
 
 import com.android.internal.logging.nano.MetricsProto; 
 
@@ -38,6 +47,14 @@ public class Battery extends SettingsPreferenceFragment
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.ancient_settings_battery);
+        final PreferenceScreen prefScreen = getPreferenceScreen();
+
+        boolean enableSmartPixels = getContext().getResources().
+                getBoolean(com.android.internal.R.bool.config_enableSmartPixels);
+        Preference SmartPixels = findPreference("smart_pixels"); if
+        (!enableSmartPixels){
+            getPreferenceScreen().removePreference(SmartPixels);
+        }
     }
 
     @Override
