@@ -729,6 +729,16 @@
     <string name="qstile_neonlike">Neon Light</string>
     <string name="qstile_oos">Oxygen</string>
     <string name="qstile_triangles">Triangle</string>
+    <string name="qstile_anc1">anci1</string>
+    <string name="qstile_anc2">anci2</string>
+    <string name="qstile_anc3">anci3</string>
+    <string name="qstile_anc4">anci4</string>
+    <string name="qstile_anc5">anci5</string>
+    <string name="qstile_anc6">anci6</string>
+    <string name="qstile_anc7">anci7</string>
+    <string name="qstile_anc8">anci8</string>
+    <string name="qstile_anc9">anci9</string>
+    <string name="qstile_anc10">anci10</string>
 
     <!-- QS clock styles -->
     <string name="qs_clock_style_title">QS clock style</string>
@@ -739,6 +749,9 @@
     <string name="qsclock_anci4">Ancient 2</string>
     <string name="qsclock_anci5">Ancient 3</string>
     <string name="qsclock_anci6">Ancient 4</string>
+    <string name="qsclock_anci7">Ancient 5</string>
+    <string name="qsclock_anci8">Ancient 6</string>
+    <string name="qsclock_anci9">Ancient 7</string>
 
     <!-- Dialog Corner Radius styles -->
     <string name="dgcorner_style_title">Dialog Corner Radius style</string>
@@ -794,14 +807,20 @@
     <!-- Navbar styles -->
     <string name="nav_style_title">NavBar Icon Style</string>
     <string name="nav_default">Default</string>
-    <string name="nav_type1">Asus</string>
-    <string name="nav_type2">Moto</string>
-    <string name="nav_type3">Nexus</string>
-    <string name="nav_type4">Old</string>
-    <string name="nav_type5">OOS</string>
-    <string name="nav_type6">OneUI</string>
-    <string name="nav_type7">Sammy</string>
-    <string name="nav_type8">Techno</string>
+    <string name="nav_type1">Android</string>
+    <string name="nav_type2">Asus</string>
+    <string name="nav_type3">Moto</string>
+    <string name="nav_type4">Nexus</string>
+    <string name="nav_type5">Old</string>
+    <string name="nav_type6">OOS</string>
+    <string name="nav_type7">OneUI</string>
+    <string name="nav_type8">Sammy</string>
+    <string name="nav_type9">Techno</string>
+    <string name="nav_type10">Anci 1</string>
+    <string name="nav_type11">Anci 2</string>
+    <string name="nav_type12">Anci 3</string>
+    <string name="nav_type13">Anci 4</string>
+    <string name="nav_type14">Anci 5</string>
 
     <!-- Switch styles -->
     <string name="switch_style_title">Switch appearance</string>
@@ -812,6 +831,7 @@
     <string name="switch_md2">MD2</string>
     <string name="switch_retro">Retro</string>
     <string name="switch_telegram">Telegram</string>
+    <string name="switch_square">Square</string>
 
     <!-- AOKP custom system animations -->
     <string name="animation_settings_title">Animations</string>
