@@ -104,6 +104,13 @@
             android:persistent="false"
             android:entries="@array/aclock_entries"
             android:entryValues="@array/aclock_values" />  
+         
+        <ListPreference
+            android:key="settings_style"
+            android:title="@string/settings_style_title"
+            android:persistent="false"
+            android:entries="@array/settings_style_entries"
+            android:entryValues="@array/settings_style_values" />  
 
     </PreferenceCategory>
 
