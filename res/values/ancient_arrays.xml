@@ -926,5 +926,23 @@
         <item>4</item>
         <item>5</item>
     </string-array> 
+     
+    <!-- Settings styles -->
+    <string-array name="settings_style_entries" translatable="false">
+        <item>@string/settings_default</item>
+        <item>@string/settings_anci1</item>
+        <item>@string/settings_anci2</item>
+        <item>@string/settings_anci3</item>
+        <item>@string/settings_anci4</item>
+        <item>@string/settings_anci5</item>
+    </string-array>
+
+    <string-array name="settings_style_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
 
 </resources>
