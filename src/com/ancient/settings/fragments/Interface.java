@@ -135,7 +135,7 @@ public class Interface extends DashboardFragment implements
         controllers.add(new SbNavStylePreferenceController(context));
         controllers.add(new AnSwitchStylePreferenceController(context));
         controllers.add(new AnAclockStylePreferenceController(context));  
-        controllers.add(new AnSettingstylePreferenceController(context));     
+        controllers.add(new AnSettingsStylePreferenceController(context));     
         return controllers;
     }
 
