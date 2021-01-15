@@ -906,5 +906,13 @@
     <string name="aclock_anci4">anci4</string>
     <string name="aclock_anci5">anci5</string>
 	
-
+    <!-- Settings styles -->
+    <string name="settings_style_title">Settings Theme and Style</string>
+    <string name="settings_default">Default</string>
+    <string name="settings_anci1">Ancient 1</string>
+    <string name="settings_anci2">Ancient 2</string>
+    <string name="settings_anci3">Ancient 3</string>
+    <string name="settings_anci4">Ancient 4</string>
+    <string name="settings_anci5">Ancient 5</string>
+	
 </resources>
