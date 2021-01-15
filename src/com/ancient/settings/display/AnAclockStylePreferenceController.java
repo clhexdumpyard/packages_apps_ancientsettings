@@ -57,7 +57,7 @@ public class AnAclockStylePreferenceController extends AbstractPreferenceControl
     @Override
     public void displayPreference(PreferenceScreen screen) {
         super.displayPreference(screen);
-        mAnAclockStyle = screen.findPreference(SWITCH_STYLE);
+        mAnAclockStyle = screen.findPreference(ACLOCK_STYLE);
         int anAclockStyle = Settings.System.getIntForUser(mContext.getContentResolver(),
                 Settings.System.ACLOCK_STYLE, 0, UserHandle.USER_CURRENT);
         int valueIndex = mAnAclockStyle.findIndexOfValue(String.valueOf(anAclockStyle));
