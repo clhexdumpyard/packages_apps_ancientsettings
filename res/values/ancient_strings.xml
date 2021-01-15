@@ -803,6 +803,11 @@
     <string name="nav_type7">OneUI</string>
     <string name="nav_type8">Sammy</string>
     <string name="nav_type9">Techno</string>
+    <string name="nav_type10">Ancient 1</string>
+    <string name="nav_type11">Ancient 2</string>
+    <string name="nav_type12">Ancient 3</string>
+    <string name="nav_type13">Ancient 4</string>
+    <string name="nav_type14">Ancient 5</string>
 
     <!-- Switch styles -->
     <string name="switch_style_title">Switch appearance</string>

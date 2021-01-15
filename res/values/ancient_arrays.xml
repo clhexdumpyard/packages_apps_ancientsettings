@@ -739,6 +739,11 @@
         <item>@string/nav_type7</item>
         <item>@string/nav_type8</item>
         <item>@string/nav_type9</item>
+        <item>@string/nav_type10</item>
+        <item>@string/nav_type11</item>
+        <item>@string/nav_type12</item>
+        <item>@string/nav_type13</item>
+        <item>@string/nav_type14</item>
     </string-array>
 
     <string-array name="nav_values" translatable="false">
@@ -752,6 +757,11 @@
         <item>7</item>
         <item>8</item>
         <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
     </string-array>
 
     <!-- Switch styles -->
