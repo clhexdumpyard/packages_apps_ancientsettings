@@ -893,4 +893,8 @@
     <string name="vibrate_on_notifications_title">Vibrate for notifications</string>
     <string name="vibrate_on_notifications_summary">Toogle for disable vibrate notification</string>
 
+    <!-- QS data usage -->
+    <string name="qs_datausage_title">Show data usage in qs header</string>
+    <string name="qs_datausage_subtitle">Shows data usage in quick settings header of sim used for data</string>
+
 </resources>
