@@ -914,5 +914,9 @@
     <string name="settings_anci3">Ancient 3</string>
     <string name="settings_anci4">Ancient 4</string>
     <string name="settings_anci5">Ancient 5</string>
-	
+
+    <!-- QS data usage -->
+    <string name="qs_datausage_title">Show data usage in qs header</string>
+    <string name="qs_datausage_subtitle">Shows data usage in quick settings header of sim used for data</string>
+
 </resources>
