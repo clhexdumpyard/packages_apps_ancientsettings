@@ -705,6 +705,10 @@
     <string name="powermenu_advanced_reboot_title">Advanced reboot</string>
     <string name="powermenu_advanced_reboot_summary">Enables access to recovery and bootloader</string>
 
+    <!-- Screenshot -->
+    <string name="global_actions_screenshot_title">Screenshot</string>
+    <string name="global_actions_screenshot_summary">Add Screenshot toggle to Power Menu</string>
+
     <!-- QS themes -->
     <string name="qs_themes_category_title">QS Themes</string>
     <string name="qs_bg_use_new_tint">Tint QS tiles using accent color</string>
