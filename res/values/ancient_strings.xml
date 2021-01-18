@@ -899,4 +899,8 @@
     <string name="qs_datausage_daily">Daily usage</string>
     <string name="qs_datausage_monthly">Monthly usage</string>
 
+    <!-- Show old style mobile data icon -->
+    <string name="use_old_mobiletype_title">Use old style mobile data icons</string>
+    <string name="use_old_mobiletype_summary">Use pre-p mobiletype icons for signal</string>
+
 </resources>
