@@ -739,6 +739,16 @@
     <string name="qstile_neonlike">Neon Light</string>
     <string name="qstile_oos">Oxygen</string>
     <string name="qstile_triangles">Triangle</string>
+    <string name="qstile_anc1">Ancient 1</string>
+    <string name="qstile_anc2">Ancient 2</string>
+    <string name="qstile_anc3">Ancient 3</string>
+    <string name="qstile_anc4">Ancient 4</string>
+    <string name="qstile_anc5">Ancient 5</string>
+    <string name="qstile_anc6">Ancient 6</string>
+    <string name="qstile_anc7">Ancient 7</string>
+    <string name="qstile_anc8">Ancient 8</string>
+    <string name="qstile_anc9">Ancient 9</string>
+    <string name="qstile_anc10">Ancient 10</string>
 
     <!-- QS clock styles -->
     <string name="qs_clock_style_title">QS clock style</string>
@@ -749,6 +759,9 @@
     <string name="qsclock_anci4">Ancient 2</string>
     <string name="qsclock_anci5">Ancient 3</string>
     <string name="qsclock_anci6">Ancient 4</string>
+    <string name="qsclock_anci7">Ancient 5</string>
+    <string name="qsclock_anci8">Ancient 6</string>
+    <string name="qsclock_anci9">Ancient 7</string>
 
     <!-- Dialog Corner Radius styles -->
     <string name="dgcorner_style_title">Dialog Corner Radius style</string>
@@ -828,6 +841,7 @@
     <string name="switch_md2">MD2</string>
     <string name="switch_retro">Retro</string>
     <string name="switch_telegram">Telegram</string>
+    <string name="switch_square">Square</string>
 
     <!-- AOKP custom system animations -->
     <string name="animation_settings_title">Animations</string>
