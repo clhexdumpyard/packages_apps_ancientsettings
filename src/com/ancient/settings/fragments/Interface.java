@@ -65,6 +65,7 @@ import com.ancient.settings.display.SbHeightStylePreferenceController;
 import com.ancient.settings.display.SbNavStylePreferenceController;
 import com.ancient.settings.display.AnSwitchStylePreferenceController;
 import com.ancient.settings.display.AnAclockStylePreferenceController;
+import com.ancient.settings.display.AnSettingsStylePreferenceController;
 
 import com.android.internal.util.ancient.ThemesUtils;
 import com.android.internal.util.ancient.AncientUtils;
@@ -134,6 +135,7 @@ public class Interface extends DashboardFragment implements
         controllers.add(new SbNavStylePreferenceController(context));
         controllers.add(new AnSwitchStylePreferenceController(context));
         controllers.add(new AnAclockStylePreferenceController(context));
+        controllers.add(new AnSettingsStylePreferenceController(context));
         return controllers;
     }
 
