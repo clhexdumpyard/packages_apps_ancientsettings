@@ -928,4 +928,8 @@
     <string name="theming_settings_dashboard_icons_accent_bg_random">Icon Accent Bg Random</string>
     <string name="theming_settings_dashboard_icons_default_oneplus">OnePlus</string>
 
+    <!-- Screen record -->
+    <string name="global_actions_screenrecord_title">Screen Record</string>
+    <string name="global_actions_screenrecord_summary">Add Screen Record toggle to Power Menu</string>
+
 </resources>
