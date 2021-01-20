@@ -932,4 +932,8 @@
     <string name="global_actions_screenrecord_title">Screen Record</string>
     <string name="global_actions_screenrecord_summary">Add Screen Record toggle to Power Menu</string>
 
+    <!-- Navbar options -->
+    <string name="navbar_invert_layout_title">Invert layout</string>
+    <string name="navbar_invert_layout_summary">Swap appswitch and back button position</string>
+
 </resources>
