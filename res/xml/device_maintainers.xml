@@ -160,7 +160,7 @@
             android:title="@string/device_miatoll">
             <intent
                 android:action="android.intent.action.VIEW"
-                android:data="https://t.me/HaSSaN_MoHl" />
+                android:data="https://t.me/ThisIsTag" />
           </Preference>
 
           <Preference
