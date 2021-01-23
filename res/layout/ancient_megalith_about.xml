@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?android:attr/colorPrimary"
+    android:background="@color/ancient_top_settings_color_bg"
     android:orientation="vertical"
     android:layout_marginTop="125dp"
     android:layout_marginBottom="150dp"
