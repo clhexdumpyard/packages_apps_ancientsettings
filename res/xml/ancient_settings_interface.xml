@@ -19,10 +19,12 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
     <PreferenceCategory
-        android:key="category_theming"
-        android:title="@string/theming_title">
+        android:layout="@layout/ancient_cardpreference_category"
+        android:key="megalith_theming"
+        android:title="@string/megalith_theming_center_category">
 
         <Preference
+            android:layout="@layout/ancient_cardpreference_top"
             android:key="theme_select_activity"
             android:title="@string/theme_select_title"
             android:summary="@string/theme_select_summary"
@@ -32,46 +34,8 @@
                     android:targetClass="com.android.customization.picker.CustomizationPickerActivity" />
         </Preference>
 
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:key="theme_customization_category"
-        android:title="@string/theme_customization_category">
-
-        <net.margaritov.preference.colorpicker.ColorPickerPreference
-            android:key="accent_color"
-            android:title="@string/accent_color_title"
-            android:defaultValue="0xFF1A73E8"
-            settings:showReset="true"
-            android:persistent="false" />
-
         <ListPreference
-            android:key="android.theme.customization.accent_color"
-            android:title="@string/theme_customization_accent_color_title"/>
-
-        <ListPreference
-            android:key="android.theme.customization.font"
-            android:title="@string/theme_customization_font_title"/>
-
-        <ListPreference
-            android:key="android.theme.customization.adaptive_icon_shape"
-            android:title="@string/theme_customization_icon_shape_title"/>
-
-        <ListPreference
-            android:key="statusheight_style"
-            android:title="@string/sbheight_style_title"
-            android:persistent="false"
-            android:entries="@array/statusheight_entries"
-            android:entryValues="@array/statusheight_values" />
-
-        <ListPreference
-            android:key="diagcorner_style"
-            android:title="@string/dgcorner_style_title"
-            android:persistent="false"
-            android:entries="@array/diagcorner_entries"
-            android:entryValues="@array/diagcorner_values" />
-
-        <ListPreference
+            android:layout="@layout/ancient_cardpreference_middle"
             android:key="theme_switch"
             android:title="@string/theme_type_title"
             android:summary="%s"
@@ -80,11 +44,56 @@
             android:entryValues="@array/theme_type_values"
             android:defaultValue="1"/>
 
-        <ListPreference
-            android:key="android.theme.customization.icon_pack.android"
-            android:title="@string/theme_customization_sysui_icon_title"/>
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:layout="@layout/ancient_cardpreference_twotarget"
+            android:key="accent_color"
+            android:title="@string/accent_color_title"
+            android:defaultValue="0xFF1A73E8"
+            settings:showReset="true"
+            android:persistent="false" />
 
         <ListPreference
+            android:layout="@layout/ancient_cardpreference_middle"
+            android:key="android.theme.customization.accent_color"
+            android:title="@string/theme_customization_accent_color_title"/>
+
+        <ListPreference
+            android:layout="@layout/ancient_cardpreference_bottom"
+            android:key="settings_style"
+            android:title="@string/settings_style_title"
+            android:persistent="false"
+            android:entries="@array/settings_style_entries"
+            android:entryValues="@array/settings_style_values" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:layout="@layout/ancient_cardpreference_category"
+        android:key="megalith_font"
+        android:title="@string/megalith_font_center_category">
+
+        <ListPreference
+            android:layout="@layout/ancient_cardpreference_single"
+            android:key="android.theme.customization.font"
+            android:title="@string/theme_customization_font_title"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:layout="@layout/ancient_cardpreference_category"
+        android:key="megalith_system_icons"
+        android:title="@string/megalith_system_icons_center_category">
+
+        <ListPreference
+            android:layout="@layout/ancient_cardpreference_top"
+            android:key="android.theme.customization.adaptive_icon_shape"
+            android:title="@string/theme_customization_icon_shape_title"/>
+
+        <ListPreference
+            android:layout="@layout/ancient_cardpreference_middle"
+            android:key="android.theme.customization.icon_pack.android"
+            android:title="@string/theme_customization_sysui_icon_title"/>
+        
+        <ListPreference
+            android:layout="@layout/ancient_cardpreference_middle"
             android:key="nav_style"
             android:title="@string/nav_style_title"
             android:persistent="false"
@@ -92,26 +101,44 @@
             android:entryValues="@array/nav_values" /> 
 
         <ListPreference
+            android:layout="@layout/ancient_cardpreference_bottom"
             android:key="switch_style"
             android:title="@string/switch_style_title"
             android:persistent="false"
             android:entries="@array/switch_style_entries"
             android:entryValues="@array/switch_style_values" /> 
+    </PreferenceCategory>
+    
+    <PreferenceCategory
+        android:layout="@layout/ancient_cardpreference_category"
+        android:key="megalith_dimensions"
+        android:title="@string/megalith_dimensions_center_category">
 
         <ListPreference
-            android:key="settings_style"
-            android:title="@string/settings_style_title"
+            android:layout="@layout/ancient_cardpreference_top"
+            android:key="statusheight_style"
+            android:title="@string/sbheight_style_title"
             android:persistent="false"
-            android:entries="@array/settings_style_entries"
-            android:entryValues="@array/settings_style_values" />
+            android:entries="@array/statusheight_entries"
+            android:entryValues="@array/statusheight_values" />
+
+        <ListPreference
+            android:layout="@layout/ancient_cardpreference_bottom"
+            android:key="diagcorner_style"
+            android:title="@string/dgcorner_style_title"
+            android:persistent="false"
+            android:entries="@array/diagcorner_entries"
+            android:entryValues="@array/diagcorner_values"/>
 
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:key="quick_settings_category"
-        android:title="@string/qs_themes_category_title">
+        android:layout="@layout/ancient_cardpreference_category"
+        android:key="megalith_qs_themes"
+        android:title="@string/megalith_qs_themes_center_category">
 
         <ListPreference
+            android:layout="@layout/ancient_cardpreference_top"
             android:key="qs_tile_style"
             android:title="@string/qs_tile_style_title"
             android:persistent="false"
@@ -119,6 +146,7 @@
             android:entryValues="@array/qs_selector_values" />
 
         <ListPreference
+            android:layout="@layout/ancient_cardpreference_middle"
             android:key="qs_clock_style"
             android:title="@string/qs_clock_style_title"
             android:persistent="false"
@@ -126,6 +154,7 @@
             android:entryValues="@array/qs_clock_values" />
 
         <ListPreference
+            android:layout="@layout/ancient_cardpreference_middle"
             android:key="aclock_style"
             android:title="@string/aclock_style_title"
             android:persistent="false"
@@ -133,12 +162,14 @@
             android:entryValues="@array/aclock_values" />
 
         <com.ancient.settings.preferences.SystemSettingSwitchPreference
+            android:layout="@layout/ancient_cardpreference_middle"
             android:key="qs_panel_bg_use_new_tint"
             android:title="@string/qs_bg_use_new_tint"
             android:summary="@string/qs_bg_use_new_tint_summary"
             android:defaultValue="true" />
 
         <com.ancient.settings.preferences.SystemSettingSwitchPreference
+            android:layout="@layout/ancient_cardpreference_bottom"
             android:key="qs_tiles_bg_disco"
             android:title="@string/qs_bg_use_disco"
             android:summary="@string/qs_bg_use_disco_summary"

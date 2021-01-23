@@ -25,6 +25,22 @@
     <string name="megalith_version">/megalithic//rev.2.0-public.release</string>
     <string name="megalith_copyright">a property of xyzprjkt | ancientOS</string>
     <string name="megalith_date">2021</string>
+
+    <!-- Megalith Interfaces -->
+    <string name="megalith_theming_center_category">Theming zone</string>
+    <string name="megalith_font_center_category">Font zone</string>
+    <string name="megalith_system_icons_center_category">System icons zone</string>
+    <string name="megalith_dimensions_center_category">Dimensions zone</string>
+    <string name="megalith_qs_themes_center_category">Quick settings zone</string>
+
+    <!-- Megalith Statusbar -->
+    <string name="megalith_statusbar_items_center">General icons</string>
+    <string name="megalith_network_icon">Network icons</string>
+
+    <!-- Megalith Notification -->
+    <string name="megalith_light_center">Light zone</string>
+    <string name="megalith_ambient_light_center">AmbienceLight zone</string>
+    <string name="megalith_general_notification_center">General notifications</string>
 	
     <!-- Categories -->
     <string name="about_title">About</string>
