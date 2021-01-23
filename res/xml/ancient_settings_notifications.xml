@@ -20,9 +20,11 @@
 
     <PreferenceCategory
         android:key="led"
-        android:title="@string/light_settings_header">
+        android:layout="@layout/ancient_cardpreference_category"
+        android:title="@string/megalith_light_center">
 
         <Preference
+            android:layout="@layout/ancient_cardpreference_top"
             android:key="notification_light"
             android:fragment="com.android.settings.applications.manageapplications.ManageApplications"
             android:title="@string/notification_light_settings">
@@ -32,6 +34,7 @@
         </Preference>
 
         <Preference
+            android:layout="@layout/ancient_cardpreference_bottom"
             android:key="charging_light"
             android:title="@string/battery_light_settings"
             android:summary="@string/battery_light_summary"
@@ -40,85 +43,26 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:key="incall_vib_options"
-        android:title="@string/incall_vibration_category">
-
-        <com.ancient.settings.preferences.SystemSettingSwitchPreference
-            android:key="vibrate_on_connect"
-            android:title="@string/incall_vibrate_connect_title"
-            android:defaultValue="true" />
-
-        <com.ancient.settings.preferences.SystemSettingSwitchPreference
-            android:key="vibrate_on_callwaiting"
-            android:title="@string/incall_vibrate_call_wait_title"
-            android:defaultValue="true" />
-
-        <com.ancient.settings.preferences.SystemSettingSwitchPreference
-            android:key="vibrate_on_disconnect"
-            android:title="@string/incall_vibrate_disconnect_title"
-            android:defaultValue="true" />
-
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:key="notifications_general_category"
-        android:title="@string/general_title">
-
-        <com.ancient.settings.preferences.SystemSettingSwitchPreference
-           android:key="vibrate_on_notifications"
-           android:title="@string/vibrate_on_notifications_title"
-           android:summary="@string/vibrate_on_notifications_summary"
-           android:defaultValue="true"/>
-
-        <com.ancient.settings.preferences.SystemSettingSwitchPreference
-           android:key="status_bar_notif_count"
-           android:title="@string/status_bar_notif_count_title"
-           android:summary="@string/status_bar_notif_count_summary"
-           android:defaultValue="false" />
-
-        <com.ancient.settings.preferences.SystemSettingSwitchPreference
-           android:key="notification_guts_kill_app_button"
-           android:title="@string/notification_guts_kill_app_button_title"
-           android:summary="@string/notification_guts_kill_app_button_summary"
-           android:defaultValue="false" />
-
-        <com.ancient.settings.preferences.SystemSettingSwitchPreference
-            android:key="notification_sound_vib_screen_on"
-            android:title="@string/notification_sound_vib_screen_on_title"
-            android:summary="@string/notification_sound_vib_screen_on_summary"
-            android:defaultValue="true" />
-
-        <com.ancient.settings.preferences.SystemSettingSwitchPreference
-            android:key="notification_headers"
-            android:title="@string/notification_headers_title"
-            android:summary="@string/notification_headers_summary"
-            android:defaultValue="true" />
-
-        <!-- Heads up -->
-        <Preference
-            android:key="heads_up_notifications"
-            android:title="@string/heads_up_notifications"
-            android:fragment="com.ancient.settings.fragments.HeadsUpSettings" />
-
-    </PreferenceCategory>
-
-    <PreferenceCategory
+        android:layout="@layout/ancient_cardpreference_category"
         android:key="pulse_ambient_light_category"
-        android:title="@string/pulse_ambient_light_category">
+        android:title="@string/megalith_ambient_light_center">
 
         <com.ancient.settings.preferences.SystemSettingSwitchPreference
+            android:layout="@layout/ancient_cardpreference_top"
             android:key="pulse_ambient_light"
             android:title="@string/pulse_ambient_light_title"
             android:summary="@string/pulse_ambient_light_summary"
             android:defaultValue="false" />
 
         <com.ancient.settings.preferences.SystemSettingSwitchPreference
+            android:layout="@layout/ancient_cardpreference_middle"
             android:key="ambient_notification_light_enabled"
             android:title="@string/ambient_notification_light_enabled_title"
             android:summary="@string/ambient_notification_light_enabled_summary"
             android:defaultValue="false" />
 
         <com.ancient.settings.preferences.SystemSettingSwitchPreference
+            android:layout="@layout/ancient_cardpreference_middle"
             android:key="ambient_notification_light_hide_aod"
             android:title="@string/ambient_notification_light_hide_aod_title"
             android:summary="@string/ambient_notification_light_hide_aod_summary"
@@ -126,6 +70,7 @@
             android:dependency="ambient_notification_light_enabled"/>
 
         <com.ancient.settings.preferences.SystemSettingListPreference
+            android:layout="@layout/ancient_cardpreference_middle"
             android:key="ambient_notification_light_timeout"
             android:dialogTitle="@string/ambient_notification_light_timeout_title"
             android:title="@string/ambient_notification_light_timeout_title"
@@ -136,6 +81,7 @@
             android:summary="%s" />
 
         <ListPreference
+            android:layout="@layout/ancient_cardpreference_middle"
             android:key="ambient_notification_light_color_mode"
             android:title="@string/ambient_notification_light_color_mode_title"
             android:persistent="false"
@@ -144,6 +90,7 @@
             android:defaultValue="2" />
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:layout="@layout/ancient_cardpreference_middle"
             android:key="ambient_notification_light_color"
             android:summary="@string/ambient_notification_light_color_summary"
             android:title="@string/ambient_notification_light_color_title"
@@ -151,6 +98,7 @@
             android:defaultValue="0xFF1A73E8" />
 
         <com.ancient.settings.preferences.SystemSettingSeekBarPreference
+            android:layout="@layout/ancient_cardpreference_seekbar"
             android:key="ambient_light_duration"
             android:title="@string/pulse_ambient_light_duration_title"
             android:summary="@string/pulse_ambient_light_duration_summary"
@@ -163,6 +111,7 @@
             android:dependency="pulse_ambient_light" />
 
         <com.ancient.settings.preferences.SystemSettingSeekBarPreference
+            android:layout="@layout/ancient_cardpreference_seekbar"
             android:key="ambient_light_repeat_count"
             android:title="@string/pulse_ambient_light_repeat_count_title"
             android:summary="@string/pulse_ambient_light_repeat_count_summary"
@@ -172,6 +121,88 @@
             settings:min="0"
             settings:interval="1"
             android:dependency="pulse_ambient_light" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:layout="@layout/ancient_cardpreference_category"
+        android:key="incall_vib_options"
+        android:title="@string/incall_vibration_category">
+
+        <com.ancient.settings.preferences.SystemSettingSwitchPreference
+            android:layout="@layout/ancient_cardpreference_top"
+            android:key="vibrate_on_connect"
+            android:title="@string/incall_vibrate_connect_title"
+            android:defaultValue="true" />
+
+        <com.ancient.settings.preferences.SystemSettingSwitchPreference
+            android:layout="@layout/ancient_cardpreference_middle"
+            android:key="vibrate_on_callwaiting"
+            android:title="@string/incall_vibrate_call_wait_title"
+            android:defaultValue="true" />
+
+        <com.ancient.settings.preferences.SystemSettingSwitchPreference
+            android:layout="@layout/ancient_cardpreference_bottom"
+            android:key="vibrate_on_disconnect"
+            android:title="@string/incall_vibrate_disconnect_title"
+            android:defaultValue="true" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:layout="@layout/ancient_cardpreference_category"
+        android:key="notifications_general_category"
+        android:title="@string/megalith_general_notification_center">
+
+        <com.ancient.settings.preferences.SystemSettingSwitchPreference
+            android:layout="@layout/ancient_cardpreference_single"
+            android:key="notification_headers"
+            android:title="@string/notification_headers_title"
+            android:summary="@string/notification_headers_summary"
+            android:defaultValue="true" />
+
+        <Preference 
+            android:layout="@layout/ancient_cardview_divider" 
+            android:selectable="false"/>
+
+        <com.ancient.settings.preferences.SystemSettingSwitchPreference
+           android:layout="@layout/ancient_cardpreference_top"
+           android:key="vibrate_on_notifications"
+           android:title="@string/vibrate_on_notifications_title"
+           android:summary="@string/vibrate_on_notifications_summary"
+           android:defaultValue="true"/>
+
+        <com.ancient.settings.preferences.SystemSettingSwitchPreference
+            android:layout="@layout/ancient_cardpreference_middle"
+           android:key="status_bar_notif_count"
+           android:title="@string/status_bar_notif_count_title"
+           android:summary="@string/status_bar_notif_count_summary"
+           android:defaultValue="false" />
+
+        <com.ancient.settings.preferences.SystemSettingSwitchPreference
+            android:layout="@layout/ancient_cardpreference_middle"
+           android:key="notification_guts_kill_app_button"
+           android:title="@string/notification_guts_kill_app_button_title"
+           android:summary="@string/notification_guts_kill_app_button_summary"
+           android:defaultValue="false" />
+
+        <com.ancient.settings.preferences.SystemSettingSwitchPreference
+            android:layout="@layout/ancient_cardpreference_bottom"
+            android:key="notification_sound_vib_screen_on"
+            android:title="@string/notification_sound_vib_screen_on_title"
+            android:summary="@string/notification_sound_vib_screen_on_summary"
+            android:defaultValue="true" />
+
+        <Preference 
+            android:layout="@layout/ancient_cardview_divider" 
+            android:selectable="false"/>
+
+        <!-- Heads up -->
+        <Preference
+            android:layout="@layout/ancient_cardpreference_single"
+            android:key="heads_up_notifications"
+            android:title="@string/heads_up_notifications"
+            android:fragment="com.ancient.settings.fragments.HeadsUpSettings" />
 
     </PreferenceCategory>
 
