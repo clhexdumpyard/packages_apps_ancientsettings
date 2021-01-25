@@ -984,4 +984,8 @@
     <string name="settings_anci4">Ancient 4</string>
     <string name="settings_anci5">Ancient 5</string>
 
+    <!-- Bottom QS Brightness -->
+    <string name="qs_brightness_position_bottom_title">Brightness slider at bottom</string>
+    <string name="qs_brightness_position_bottom_summary">Show the brightness slider on bottom quick settings</string>
+
 </resources>
