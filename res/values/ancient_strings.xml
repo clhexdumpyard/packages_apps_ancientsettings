@@ -967,6 +967,11 @@
     <!-- Navbar options -->
     <string name="navbar_invert_layout_title">Invert layout</string>
     <string name="navbar_invert_layout_summary">Swap appswitch and back button position</string>
+    <string name="navbar_layout_title">Layout</string>
+    <string name="navbar_layout_normal">Normal</string>
+    <string name="navbar_layout_compact">Compact</string>
+    <string name="navbar_layout_leftleaning">Left-leaning</string>
+    <string name="navbar_layout_rightleaning">Right-leaning</string>
 
     <!-- QS tile styles -->
     <string name="aclock_style_title">Analog Clock style(Need QS Clock 5, 6 or 7)</string>
