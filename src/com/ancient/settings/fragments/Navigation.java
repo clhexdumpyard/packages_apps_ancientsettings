@@ -45,8 +45,12 @@ public class Navigation extends SettingsPreferenceFragment
 
     public static final String TAG = "Navigation";
     private static final String NAVBAR_VISIBILITY = "navbar_visibility";
+    private static final String LAYOUT_SETTINGS = "navbar_layout_views";
+    private static final String NAVIGATION_BAR_INVERSE = "navbar_inverse_layout";
 
     private SwitchPreference mNavbarVisibility;
+    private Preference mLayoutSettings;
+    private SwitchPreference mSwapNavButtons;
 
     private boolean mIsNavSwitchingMode = false;
     private Handler mHandler;
@@ -55,6 +59,7 @@ public class Navigation extends SettingsPreferenceFragment
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.ancient_settings_navigation);
+        final Resources res = getResources();
 
         mNavbarVisibility = (SwitchPreference) findPreference(NAVBAR_VISIBILITY);
 
@@ -64,6 +69,9 @@ public class Navigation extends SettingsPreferenceFragment
                 defaultToNavigationBar ? 1 : 0) != 0;
         updateBarVisibleAndUpdatePrefs(showing);
         mNavbarVisibility.setOnPreferenceChangeListener(this);
+
+        mLayoutSettings = findPreference(LAYOUT_SETTINGS);
+        mSwapNavButtons = findPreference(NAVIGATION_BAR_INVERSE);
 
         mHandler = new Handler();
     }

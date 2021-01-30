@@ -26,8 +26,16 @@
             android:key="navbar_visibility"
             android:title="@string/navbar_visibility" />
 
+        <com.ancient.settings.preferences.SecureSettingListPreference
+            android:key="navbar_layout_views"
+            android:title="@string/navbar_layout_title"
+            android:summary="%s"
+            android:entries="@array/navbar_layout_entries"
+            android:entryValues="@array/navbar_layout_values"
+            android:defaultValue="default" />
+
         <com.ancient.settings.preferences.SecureSettingSwitchPreference
-            android:key="sysui_nav_bar_inverse"
+            android:key="navbar_inverse_layout"
             android:title="@string/navbar_invert_layout_title"
             android:summary="@string/navbar_invert_layout_summary"
             android:defaultValue="false" />
