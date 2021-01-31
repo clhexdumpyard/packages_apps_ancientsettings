@@ -47,10 +47,12 @@ public class Navigation extends SettingsPreferenceFragment
     private static final String NAVBAR_VISIBILITY = "navbar_visibility";
     private static final String LAYOUT_SETTINGS = "navbar_layout_views";
     private static final String NAVIGATION_BAR_INVERSE = "navbar_inverse_layout";
+    private static final String PULSE_CATEGORY = "pulse_category";
 
     private SwitchPreference mNavbarVisibility;
     private Preference mLayoutSettings;
     private SwitchPreference mSwapNavButtons;
+    private Preference mPulse;
 
     private boolean mIsNavSwitchingMode = false;
     private Handler mHandler;
@@ -72,6 +74,11 @@ public class Navigation extends SettingsPreferenceFragment
 
         mLayoutSettings = findPreference(LAYOUT_SETTINGS);
         mSwapNavButtons = findPreference(NAVIGATION_BAR_INVERSE);
+
+        Preference mPulse = findPreference(PULSE_CATEGORY);
+        if (!getResources().getBoolean(R.bool.pulse_category_isVisible)) {
+            getPreferenceScreen().removePreference(mPulse);
+        }
 
         mHandler = new Handler();
     }

@@ -40,6 +40,12 @@
             android:summary="@string/navbar_invert_layout_summary"
             android:defaultValue="false" />
 
+        <Preference
+            android:key="pulse_category"
+            android:fragment="com.ancient.settings.fragments.PulseSettings"
+            android:title="@string/pulse_cat_title"
+            android:summary="@string/pulse_settings_summary" />
+
         <!--<Preference
             android:title="@string/nav_bar_tuner_title"
             android:summary="@string/nav_bar_tuner_summary">
