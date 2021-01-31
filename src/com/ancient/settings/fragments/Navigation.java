@@ -75,9 +75,12 @@ public class Navigation extends SettingsPreferenceFragment
         mLayoutSettings = findPreference(LAYOUT_SETTINGS);
         mSwapNavButtons = findPreference(NAVIGATION_BAR_INVERSE);
 
-        Preference mPulse = findPreference(PULSE_CATEGORY);
+        mPulse = findPreference(PULSE_CATEGORY);
         if (!getResources().getBoolean(R.bool.pulse_category_isVisible)) {
             getPreferenceScreen().removePreference(mPulse);
+            mPulse = null;
+        } else {
+            updatePulseEnablement(showing);
         }
 
         mHandler = new Handler();
@@ -94,6 +97,7 @@ public class Navigation extends SettingsPreferenceFragment
             Settings.System.putInt(getContentResolver(), Settings.System.FORCE_SHOW_NAVBAR,
                     showing ? 1 : 0);
             updateBarVisibleAndUpdatePrefs(showing);
+            updatePulseEnablement(showing);
             mHandler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
@@ -107,6 +111,17 @@ public class Navigation extends SettingsPreferenceFragment
 
     private void updateBarVisibleAndUpdatePrefs(boolean showing) {
         mNavbarVisibility.setChecked(showing);
+    }
+
+    private void updatePulseEnablement(boolean navBarShowing) {
+        if (mPulse == null) return;
+        if (!navBarShowing) {
+            mPulse.setEnabled(false);
+            mPulse.setSummary(R.string.pulse_unavailable_no_navbar);
+        } else {
+            mPulse.setEnabled(true);
+            mPulse.setSummary(R.string.pulse_settings_summary);
+        }
     }
 
     @Override
