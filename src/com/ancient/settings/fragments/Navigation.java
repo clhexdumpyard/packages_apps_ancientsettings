@@ -35,7 +35,7 @@ import android.provider.Settings;
 import androidx.preference.*;
 
 import com.android.internal.logging.nano.MetricsProto; 
-import com.android.internal.util.ancient.AncientUtils;
+import com.android.internal.util.hwkeys.ActionUtils;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -68,10 +68,9 @@ public class Navigation extends SettingsPreferenceFragment
 
         mNavbarVisibility = (SwitchPreference) findPreference(NAVBAR_VISIBILITY);
 
-        boolean defaultToNavigationBar = AncientUtils.deviceSupportNavigationBar(getActivity());
         boolean showing = Settings.System.getInt(getContentResolver(),
                 Settings.System.FORCE_SHOW_NAVBAR,
-                defaultToNavigationBar ? 1 : 0) != 0;
+                ActionUtils.hasNavbarByDefault(getActivity()) ? 1 : 0) != 0;
         updateBarVisibleAndUpdatePrefs(showing);
         mNavbarVisibility.setOnPreferenceChangeListener(this);
 
