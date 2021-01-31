@@ -15,6 +15,8 @@
  */
 package com.ancient.settings.fragments;
 
+import static android.view.WindowManagerPolicyConstants.NAV_BAR_MODE_GESTURAL;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -38,6 +40,7 @@ import com.android.internal.util.ancient.AncientUtils;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
+import com.ancient.settings.preferences.SystemSettingListPreference;
 import com.ancient.settings.preferences.SystemSettingSwitchPreference;
 
 public class Navigation extends SettingsPreferenceFragment
@@ -74,6 +77,14 @@ public class Navigation extends SettingsPreferenceFragment
 
         mLayoutSettings = findPreference(LAYOUT_SETTINGS);
         mSwapNavButtons = findPreference(NAVIGATION_BAR_INVERSE);
+        int navMode = res.getInteger(
+                com.android.internal.R.integer.config_navBarInteractionMode);
+        if (navMode == NAV_BAR_MODE_GESTURAL) {
+            mSwapNavButtons.setEnabled(false);
+            mSwapNavButtons.setSummary(R.string.navbar_gesture_enabled);
+            mLayoutSettings.setEnabled(false);
+            mLayoutSettings.setSummary(R.string.navbar_gesture_enabled);
+        }
 
         mPulse = findPreference(PULSE_CATEGORY);
         if (!getResources().getBoolean(R.bool.pulse_category_isVisible)) {
