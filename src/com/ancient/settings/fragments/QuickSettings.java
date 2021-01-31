@@ -40,6 +40,7 @@ import androidx.preference.*;
 import com.android.internal.logging.nano.MetricsProto; 
 
 import com.ancient.settings.preferences.SystemSettingEditTextPreference;
+import com.ancient.settings.preferences.SystemSettingMasterSwitchPreference;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -49,9 +50,11 @@ public class QuickSettings extends SettingsPreferenceFragment
 
     private static final String PREF_SMART_PULLDOWN = "smart_pulldown";
     private static final String FOOTER_TEXT_STRING = "footer_text_string";
+    private static final String STATUS_BAR_CUSTOM_HEADER = "status_bar_custom_header";
 
     private ListPreference mSmartPulldown;
     private SystemSettingEditTextPreference mFooterString;
+    private SystemSettingMasterSwitchPreference mCustomHeader;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -77,6 +80,12 @@ public class QuickSettings extends SettingsPreferenceFragment
             Settings.System.putString(getActivity().getContentResolver(),
                     Settings.System.FOOTER_TEXT_STRING, "CraftWithHeart");
         }
+
+        mCustomHeader = (SystemSettingMasterSwitchPreference) findPreference(STATUS_BAR_CUSTOM_HEADER);
+        int qsHeader = Settings.System.getInt(resolver,
+                Settings.System.STATUS_BAR_CUSTOM_HEADER, 0);
+        mCustomHeader.setChecked(qsHeader != 0);
+        mCustomHeader.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -97,6 +106,11 @@ public class QuickSettings extends SettingsPreferenceFragment
                 Settings.System.putString(getActivity().getContentResolver(),
                         Settings.System.FOOTER_TEXT_STRING, "CraftWithHeart");
             }
+            return true;
+        } else if (preference == mCustomHeader) {
+            boolean header = (Boolean) newValue;
+            Settings.System.putInt(resolver,
+                    Settings.System.STATUS_BAR_CUSTOM_HEADER, header ? 1 : 0);
             return true;
         }
         return false;
