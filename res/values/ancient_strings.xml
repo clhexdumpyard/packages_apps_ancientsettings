@@ -1043,4 +1043,9 @@
     <string name="file_header_select_summary">Select an image from internal storage</string>
     <string name="status_bar_custom_header_shadow_title">Darken image</string>
 
+    <!-- QS Media -->
+    <string name="qs_media_player_title">QS Media player</string>
+    <string name="qs_media_player_summary_on">Show media player in QS.\nRequires a SystemUI restart</string>
+    <string name="qs_media_player_summary_off">Show media player as a notification.\nRequires a SystemUI restart</string>
+
 </resources>
