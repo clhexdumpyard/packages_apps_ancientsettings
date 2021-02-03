@@ -780,6 +780,9 @@
     <string name="qsclock_anci7">Ancient 5</string>
     <string name="qsclock_anci8">Ancient 6</string>
     <string name="qsclock_anci9">Ancient 7</string>
+    <string name="qsclock_anci10">YAAPON CLOCK LEFT</string>
+    <string name="qsclock_anci11">YAAPON CLOCK CENTER</string>
+    <string name="qsclock_anci12">YAAPON CLOCK RIGHT</string>
 
     <!-- Dialog Corner Radius styles -->
     <string name="dgcorner_style_title">Dialog Corner Radius style</string>
