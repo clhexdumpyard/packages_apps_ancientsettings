@@ -233,8 +233,9 @@ public class Interface extends DashboardFragment implements
                  mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
             } catch (RemoteException ignored) {
             }
+            return true;
         }
-        return true;
+        return false;
     }
 
     private void setupThemeSwitchPref() {
@@ -280,4 +281,29 @@ public class Interface extends DashboardFragment implements
     public int getMetricsCategory() {
         return MetricsEvent.ANCIENT_SETTINGS;
     }
+
+    /**
+     * For Search.
+     */
+
+    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+            new BaseSearchIndexProvider() {
+                @Override
+                public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
+                        boolean enabled) {
+                    ArrayList<SearchIndexableResource> result =
+                            new ArrayList<SearchIndexableResource>();
+
+                    SearchIndexableResource sir = new SearchIndexableResource(context);
+                    sir.xmlResId = R.xml.ancient_settings_interface;
+                    result.add(sir);
+                    return result;
+                }
+
+                @Override
+                public List<String> getNonIndexableKeys(Context context) {
+                    List<String> keys = super.getNonIndexableKeys(context);
+                    return keys;
+                }
+    };
 }

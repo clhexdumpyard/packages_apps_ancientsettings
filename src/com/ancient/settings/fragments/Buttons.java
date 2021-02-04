@@ -54,9 +54,12 @@ import com.android.settingslib.search.SearchIndexable;
 import com.ancient.settings.preferences.ActionFragment;
 import com.ancient.settings.preferences.CustomSeekBarPreference;
 
+import java.util.Arrays;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.UUID;
+import java.util.Objects;
 
 @SearchIndexable(forTarget = SearchIndexable.ALL & ~SearchIndexable.ARC)
 public class Buttons extends ActionFragment implements OnPreferenceChangeListener {

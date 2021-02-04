@@ -33,13 +33,24 @@ import androidx.preference.PreferenceGroup;
 import androidx.preference.PreferenceScreen;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 
+import android.provider.SearchIndexableResource;
+import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settingslib.search.Indexable;
+import com.android.settingslib.search.SearchIndexable;
+
 import com.android.internal.logging.nano.MetricsProto; 
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Objects;
+
 public class Battery extends SettingsPreferenceFragment
-        implements Preference.OnPreferenceChangeListener {
+        implements Preference.OnPreferenceChangeListener, Indexable {
 
     public static final String TAG = "Battery";
 
@@ -66,4 +77,29 @@ public class Battery extends SettingsPreferenceFragment
     public int getMetricsCategory() {
         return MetricsProto.MetricsEvent.ANCIENT_SETTINGS;
     }
+
+    /**
+     * For Search.
+     */
+
+    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+            new BaseSearchIndexProvider() {
+
+                @Override
+                public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
+                        boolean enabled) {
+                    ArrayList<SearchIndexableResource> result =
+                            new ArrayList<SearchIndexableResource>();
+                    SearchIndexableResource sir = new SearchIndexableResource(context);
+                    sir.xmlResId = R.xml.ancient_settings_battery;
+                    result.add(sir);
+                    return result;
+                }
+
+                @Override
+                public List<String> getNonIndexableKeys(Context context) {
+                    List<String> keys = super.getNonIndexableKeys(context);
+                    return keys;
+                }
+    };
 }
