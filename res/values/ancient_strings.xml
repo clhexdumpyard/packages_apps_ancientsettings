@@ -203,6 +203,10 @@
     <string name="fod_recog_animation_rog_fusion">Fusion</string>
     <string name="fod_recog_animation_rog_pulsar">Pulsar</string>
     <string name="fod_recog_animation_rog_supernova">Supernova</string>
+    <string name="fod_recog_animation_oppo_shine">Shine</string>
+    <string name="fod_recog_animation_realme_quantum">Quantum</string>
+    <string name="fod_recog_animation_realme_smoke">Smoke</string>
+    <string name="fod_recog_animation_realme_strings">Strings</string>
 
     <!-- Status bar Icon Manager -->
     <string name="icon_manager_title">Icon manager</string>
