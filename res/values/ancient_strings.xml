@@ -1072,15 +1072,15 @@
     <string name="show_clipboard_toast_summary">Display a toast when an app tries to access the clipboard</string>
 
     <!-- Tooltip styles -->
-    <string name="Tooltip_style_title">Big Clock Height Settings</string>
-    <string name="Tooltip_default">Default</string>
-    <string name="Tooltip_medium">Medium</string>
-    <string name="Tooltip_large">Large</string>
+    <string name="tooltip_style_title">Big Clock Height Settings</string>
+    <string name="tooltip_default">Default</string>
+    <string name="tooltip_medium">Medium</string>
+    <string name="tooltip_large">Large</string>
 	
     <!-- Topad styles -->
-    <string name="Topad_style_title">Top Area Padding Settings</string>
-    <string name="Topad_default">Default</string>
-    <string name="Topad_medium">Medium</string>
-    <string name="Topad_large">Large</string>
+    <string name="topad_style_title">Top Area Padding Settings</string>
+    <string name="topad_default">Default</string>
+    <string name="topad_medium">Medium</string>
+    <string name="topad_large">Large</string>
 	
 </resources>
