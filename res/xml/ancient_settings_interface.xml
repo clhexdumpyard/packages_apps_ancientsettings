@@ -123,12 +123,28 @@
             android:entryValues="@array/statusheight_values" />
 
         <ListPreference
-            android:layout="@layout/ancient_cardpreference_bottom"
+            android:layout="@layout/ancient_cardpreference_middle" 
             android:key="diagcorner_style"
             android:title="@string/dgcorner_style_title"
             android:persistent="false"
             android:entries="@array/diagcorner_entries"
             android:entryValues="@array/diagcorner_values"/>
+         
+         <ListPreference
+            android:key="tooltip_style"
+            android:layout="@layout/ancient_cardpreference_middle"             
+            android:title="@string/tooltip_style_title"
+            android:persistent="false"
+            android:entries="@array/tooltip_style_entries"
+            android:entryValues="@array/tooltip_style_values" />
+
+          <ListPreference
+            android:key="topad_style"   
+            android:layout="@layout/ancient_cardpreference_bottom"            
+            android:title="@string/topad_style_title"
+            android:persistent="false"
+            android:entries="@array/topad_style_entries"
+            android:entryValues="@array/topad_style_values" />
 
     </PreferenceCategory>
 
