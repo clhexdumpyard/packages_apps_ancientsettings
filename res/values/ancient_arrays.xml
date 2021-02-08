@@ -1064,4 +1064,30 @@
         <item>@string/file_header_provider</item>
     </string-array>
 
+    <!-- Tooltip styles -->
+    <string-array name="tooltip_style_entries" translatable="false">
+        <item>@string/tooltip_default</item>
+        <item>@string/tooltip_medium</item>
+        <item>@string/tooltip_large</item>
+    </string-array>
+
+    <string-array name="tooltip_style_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array> 
+
+    <!-- Topad styles -->
+    <string-array name="topad_style_entries" translatable="false">
+        <item>@string/topad_default</item>
+        <item>@string/topad_medium</item>
+        <item>@string/topad_large</item>
+    </string-array>
+
+    <string-array name="topad_style_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>  
+
 </resources>
