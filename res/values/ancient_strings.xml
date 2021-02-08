@@ -783,6 +783,9 @@
     <string name="qsclock_anci10">YAAPON CLOCK LEFT</string>
     <string name="qsclock_anci11">YAAPON CLOCK CENTER</string>
     <string name="qsclock_anci12">YAAPON CLOCK RIGHT</string>
+    <string name="qsclock_anci13">GRADIENT CLOCK LEFT</string>
+    <string name="qsclock_anci14">GRADIENT CLOCK CENTER</string>
+    <string name="qsclock_anci15">GRADIENT CLOCK RIGHT</string>
 
     <!-- Dialog Corner Radius styles -->
     <string name="dgcorner_style_title">Dialog Corner Radius style</string>
