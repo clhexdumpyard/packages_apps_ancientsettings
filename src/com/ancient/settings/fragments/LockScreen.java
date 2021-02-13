@@ -49,12 +49,14 @@ import java.util.Objects;
 public class LockScreen extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener, Indexable {
 
+    private static final String FINGERPRINT_ERROR_VIB = "fingerprint_error_vib";
     private static final String FINGERPRINT_VIB = "fingerprint_success_vib";
     private static final String FOD_ANIMATION_CATEGORY = "fod_animations";
     private static final String FOD_ICON_PICKER_CATEGORY = "fod_icon_picker";
     private static final String LOCKSCREEN_MAX_NOTIF_CONFIG = "lockscreen_max_notif_cofig";
 
     private FingerprintManager mFingerprintManager;
+    private SwitchPreference mFingerprintErrorVib;
     private SwitchPreference mFingerprintVib;
     private PreferenceCategory mFODIconPickerCategory;
     private CustomSeekBarPreference mMaxKeyguardNotifConfig;
@@ -80,6 +82,21 @@ public class LockScreen extends SettingsPreferenceFragment implements
             }
         } else {
            prefScreen.removePreference(mFingerprintVib);
+        }
+
+        mFingerprintManager = (FingerprintManager) getActivity().getSystemService(Context.FINGERPRINT_SERVICE);
+        mFingerprintErrorVib = (SwitchPreference) findPreference(FINGERPRINT_ERROR_VIB);
+        if (mPm.hasSystemFeature(PackageManager.FEATURE_FINGERPRINT) &&
+                 mFingerprintManager != null) {
+            if (!mFingerprintManager.isHardwareDetected()){
+                prefScreen.removePreference(mFingerprintErrorVib);
+            } else {
+                mFingerprintErrorVib.setChecked((Settings.System.getInt(getContentResolver(),
+                        Settings.System.FINGERPRINT_ERROR_VIB, 1) == 1));
+                mFingerprintErrorVib.setOnPreferenceChangeListener(this);
+            }
+        } else {
+            prefScreen.removePreference(mFingerprintErrorVib);
         }
 
         mFODIconPickerCategory = findPreference(FOD_ICON_PICKER_CATEGORY);
@@ -113,6 +130,11 @@ public class LockScreen extends SettingsPreferenceFragment implements
             int kgconf = (Integer) newValue;
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.LOCKSCREEN_MAX_NOTIF_CONFIG, kgconf);
+            return true;
+        } else if (preference == mFingerprintErrorVib) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(resolver,
+                    Settings.System.FINGERPRINT_ERROR_VIB, value ? 1 : 0);
             return true;
         }
         return false;

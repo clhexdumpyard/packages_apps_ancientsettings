@@ -259,8 +259,10 @@
     <string name="three_finger_gesture_summary">Swipe down with three fingers to take a screenshot</string>
 
     <!-- Fingerprint authentication vibration -->
-    <string name="fprint_sucess_vib_title">Fingerprint authentication vibration</string>
-    <string name="fprint_sucess_vib_summary">Vibrate on successful fingerprint authentication</string>
+    <string name="fprint_error_vib_title">Fingerprint error vibration</string>
+    <string name="fprint_error_vib_summary">Vibrate on error fingerprint authentication</string>
+    <string name="fprint_success_vib_title">Fingerprint authentication vibration</string>
+    <string name="fprint_success_vib_summary">Vibrate on successful fingerprint authentication</string>
 
     <!-- Battery Styles -->
     <string name="battery_percent_title">Statusbar battery indicator</string>
