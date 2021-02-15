@@ -20,4 +20,7 @@
     <!-- Pulse -->
     <bool name="pulse_category_isVisible">true</bool>
 
+    <!-- Whether to display carrier label category -->
+    <bool name="has_carrier_label">true</bool>
+
 </resources>
