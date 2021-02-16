@@ -208,7 +208,7 @@
 
     <!-- Double tap-to-sleep -->
     <string name="doubletap_statusbar_title">Double tap to sleep on statusbar</string>
-    <string name="doubletap_statusbar_summary">Double tap on statusbar to switch the screen off</string>
+    <string name="doubletap_statusbar_summary">Double tap on statusbar to switch the screen off.\nRequires a SystemUI restart</string>
 
     <!-- Double Tap -->
     <string name="dtts_category_header">Double tap to sleep</string>
@@ -488,7 +488,7 @@
 
     <!-- Brightness control -->
     <string name="status_bar_toggle_brightness">Brightness control</string>
-    <string name="status_bar_toggle_brightness_summary">Adjust brightness by sliding across the status bar</string>
+    <string name="status_bar_toggle_brightness_summary">Adjust brightness by sliding across the status bar.\nRequires a SystemUI restart</string>
 
     <!-- Heads up options -->
     <string name="less_boring_heads_up_title">Less boring heads up</string>
