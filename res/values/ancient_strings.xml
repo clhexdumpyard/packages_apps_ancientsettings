@@ -1105,5 +1105,23 @@
     <string name="sensor_block_app_picker_title">Block sensors for these apps</string>
     <string name="add_sensor_block_package_title">Add apps for Sensor block</string>
     <string name="add_sensor_block_package_summary">Significant motion, accelerometer, linear acceleration sensors will be blocked for these apps</string>
+	
+    <!-- Brightn styles -->
+    <string name="brightn_style_title">Brightness Style</string>
+    <string name="brightn_default">Default</string>
+    <string name="brightn_type1">Anci 1</string>
+    <string name="brightn_type2">Anci 2</string>
+    <string name="brightn_type3">Anci 3</string>
+    <string name="brightn_type4">Anci 4</string>
+    <string name="brightn_type5">Anci 5</string>
+	
+    <!-- qsbg styles -->
+    <string name="qsbg_style_title">QsPanel n Notif Background Style</string>
+    <string name="qsbg_default">Default</string>
+    <string name="qsbg_type1">Anci 1</string>
+    <string name="qsbg_type2">Anci 2</string>
+    <string name="qsbg_type3">Anci 3</string>
+    <string name="qsbg_type4">Anci 4</string>
+    <string name="qsbg_type5">Anci 5</string>
 
 </resources>
