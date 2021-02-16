@@ -1123,5 +1123,9 @@
     <string name="qsbg_type3">Anci 3</string>
     <string name="qsbg_type4">Anci 4</string>
     <string name="qsbg_type5">Anci 5</string>
+	
+    <!-- Settings Icon button -->
+    <string name="qqs_settings_icon_title">Qqs Setting Icon</string>
+    <string name="qqs_settings_icon_summary">Enable the Settings Icon in Quick Header</string>
 
 </resources>
