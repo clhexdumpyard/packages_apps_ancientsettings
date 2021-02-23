@@ -790,6 +790,9 @@
     <string name="qsclock_anci13">GRADIENT CLOCK LEFT</string>
     <string name="qsclock_anci14">GRADIENT CLOCK CENTER</string>
     <string name="qsclock_anci15">GRADIENT CLOCK RIGHT</string>
+    <string name="qsclock_anci16">Stock all center</string>
+    <string name="qsclock_anci17">GRADIENT CLOCK ALL CENTER</string>
+    <string name="qsclock_anci18">YAAPON CLOCK ALL CENTER</string>
 
     <!-- Dialog Corner Radius styles -->
     <string name="dgcorner_style_title">Dialog Corner Radius style</string>
@@ -1120,10 +1123,7 @@
     <string name="qsbg_default">Default</string>
     <string name="qsbg_type1">Anci 1</string>
     <string name="qsbg_type2">Anci 2</string>
-    <string name="qsbg_type3">Anci 3</string>
-    <string name="qsbg_type4">Anci 4</string>
-    <string name="qsbg_type5">Anci 5</string>
-	
+            
     <!-- Settings Icon button -->
     <string name="qqs_settings_icon_title">Qqs Setting Icon</string>
     <string name="qqs_settings_icon_summary">Enable the Settings Icon in Quick Header</string>
