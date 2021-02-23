@@ -1141,4 +1141,8 @@
     <string name="qsbg_type1">Ancient 1</string>
     <string name="qsbg_type2">Ancient 2</string>
 
+    <!-- Settings Icon button -->
+    <string name="qqs_settings_icon_title">Qqs Setting Icon</string>
+    <string name="qqs_settings_icon_summary">Enable the Settings Icon in Quick Header</string>
+
 </resources>

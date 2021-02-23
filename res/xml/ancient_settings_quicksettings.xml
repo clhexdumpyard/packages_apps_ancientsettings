@@ -122,6 +122,12 @@
         android:summary="@string/quick_settings_vibrate_summary"
         android:defaultValue="false" />
 
+    <com.ancient.settings.preferences.SystemSettingSwitchPreference 
+        android:key="qqs_settings_icon_toggle" 
+        android:title="@string/qqs_settings_icon_title" 
+        android:summary="@string/qqs_settings_icon_summary"
+        android:defaultValue="false" />
+
     <com.ancient.settings.preferences.SystemSettingSwitchPreference
         android:key="qs_tile_title_visibility"
         android:title="@string/qs_tile_title_visibility_title"
