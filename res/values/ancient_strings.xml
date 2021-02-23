@@ -1126,4 +1126,19 @@
     <string name="qs_running_services_title">Running Services Icon</string>
     <string name="qs_running_services_summary">Enable the running services icon in the footer</string>
 
+    <!-- Brightn styles -->
+    <string name="brightn_style_title">Brightness Style</string>
+    <string name="brightn_default">Default</string>
+    <string name="brightn_type1">Ancient 1</string>
+    <string name="brightn_type2">Ancient 2</string>
+    <string name="brightn_type3">Ancient 3</string>
+    <string name="brightn_type4">Ancient 4</string>
+    <string name="brightn_type5">Ancient 5</string>
+
+    <!-- qsbg styles -->
+    <string name="qsbg_style_title">QsPanel n Notif Background Style</string>
+    <string name="qsbg_default">Default</string>
+    <string name="qsbg_type1">Ancient 1</string>
+    <string name="qsbg_type2">Ancient 2</string>
+
 </resources>

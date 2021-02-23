@@ -1104,4 +1104,36 @@
         <item>3</item>
     </string-array>
 
+    <!-- brightness styles -->
+    <string-array name="brightn_entries" translatable="false">
+        <item>@string/brightn_default</item>
+        <item>@string/brightn_type1</item>
+        <item>@string/brightn_type2</item>
+        <item>@string/brightn_type3</item>
+        <item>@string/brightn_type4</item>
+        <item>@string/brightn_type5</item>
+    </string-array>
+
+    <string-array name="brightn_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array> 
+
+    <!-- qsbg styles -->
+    <string-array name="qsbg_entries" translatable="false">
+        <item>@string/qsbg_default</item>
+        <item>@string/qsbg_type1</item>
+        <item>@string/qsbg_type2</item>
+    </string-array>
+
+    <string-array name="qsbg_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>  
+
 </resources>

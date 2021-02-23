@@ -100,6 +100,22 @@
             android:entries="@array/nav_entries"
             android:entryValues="@array/nav_values" /> 
 
+         <ListPreference
+            android:layout="@layout/ancient_cardpreference_middle"
+            android:key="brightness_style"
+            android:title="@string/brightn_style_title"
+            android:persistent="false"
+            android:entries="@array/brightn_entries"
+            android:entryValues="@array/brightn_values" /> 
+
+         <ListPreference
+            android:layout="@layout/ancient_cardpreference_middle"
+            android:key="qsbg_style"
+            android:title="@string/qsbg_style_title"
+            android:persistent="false"
+            android:entries="@array/qsbg_entries"
+            android:entryValues="@array/qsbg_values" /> 
+
         <ListPreference
             android:layout="@layout/ancient_cardpreference_bottom"
             android:key="switch_style"
