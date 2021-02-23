@@ -680,6 +680,9 @@
         <item>@string/qsclock_anci13</item>
         <item>@string/qsclock_anci14</item>
         <item>@string/qsclock_anci15</item> 
+        <item>@string/qsclock_anci16</item>
+        <item>@string/qsclock_anci17</item>
+        <item>@string/qsclock_anci18</item>
     </string-array>
 
     <string-array name="qs_clock_values" translatable="false">
@@ -699,6 +702,9 @@
         <item>13</item>
         <item>14</item>
         <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item> 
     </string-array>
 
     <!-- diag corner styles -->
