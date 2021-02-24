@@ -63,6 +63,7 @@ public class Notifications extends SettingsPreferenceFragment
     private static final String NOTIFICATION_PULSE_DURATION = "notification_pulse_duration";
     private static final String NOTIFICATION_PULSE_REPEATS = "notification_pulse_repeats";
     private static final String PULSE_COLOR_MODE_PREF = "ambient_notification_light_color_mode";
+    private static final String NOTIFICATION_MATERIAL_DISMISS = "notification_material_dismiss";
 
     private ColorPickerPreference mEdgeLightColorPreference;
     private CustomSeekBarPreference mEdgeLightDurationPreference;
@@ -71,6 +72,7 @@ public class Notifications extends SettingsPreferenceFragment
     private Preference mChargingLeds;
     private PreferenceCategory mLedCategory;
     private SystemSettingSwitchPreference mNotificationHeader;
+    private SystemSettingSwitchPreference mNotificationmaterialDismiss;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -103,6 +105,11 @@ public class Notifications extends SettingsPreferenceFragment
         mNotificationHeader.setChecked((Settings.System.getInt(resolver,
                 Settings.System.NOTIFICATION_HEADERS, 1) == 1));
         mNotificationHeader.setOnPreferenceChangeListener(this);
+        
+        mNotificationmaterialDismiss = findPreference(NOTIFICATION_MATERIAL_DISMISS);
+        mNotificationmaterialDismiss.setChecked((Settings.System.getInt(resolver,
+                Settings.System.NOTIFICATION_MATERIAL_DISMISS, 1) == 1));
+        mNotificationmaterialDismiss.setOnPreferenceChangeListener(this);
 
         mEdgeLightRepeatCountPreference = (CustomSeekBarPreference) findPreference(NOTIFICATION_PULSE_REPEATS);
         mEdgeLightRepeatCountPreference.setOnPreferenceChangeListener(this);
@@ -157,6 +164,12 @@ public class Notifications extends SettingsPreferenceFragment
                     Settings.System.NOTIFICATION_HEADERS, value ? 1 : 0);
             AncientUtils.showSystemUiRestartDialog(getContext());
             return true;
+        } else if (preference == mNotificationmaterialDismiss) {
+            boolean value = (Boolean) objValue;
+            Settings.System.putInt(resolver,
+                    Settings.System.NOTIFICATION_MATERIAL_DISMISS, value ? 1 : 0);
+            AncientUtils.showSystemUiRestartDialog(getContext());
+            return true;    
         } else if (preference == mEdgeLightColorPreference) {
             String hex = ColorPickerPreference.convertToARGB(
                     Integer.valueOf(String.valueOf(objValue)));
