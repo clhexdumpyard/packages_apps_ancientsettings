@@ -180,18 +180,24 @@
            android:defaultValue="true"/>
 
         <com.ancient.settings.preferences.SystemSettingSwitchPreference
-            android:layout="@layout/ancient_cardpreference_middle"
+           android:layout="@layout/ancient_cardpreference_middle"
            android:key="status_bar_notif_count"
            android:title="@string/status_bar_notif_count_title"
            android:summary="@string/status_bar_notif_count_summary"
            android:defaultValue="false" />
 
         <com.ancient.settings.preferences.SystemSettingSwitchPreference
-            android:layout="@layout/ancient_cardpreference_middle"
+           android:layout="@layout/ancient_cardpreference_middle"
            android:key="notification_guts_kill_app_button"
            android:title="@string/notification_guts_kill_app_button_title"
            android:summary="@string/notification_guts_kill_app_button_summary"
            android:defaultValue="false" />
+	    
+	<com.ancient.settings.preferences.SystemSettingSwitchPreference
+	    android:layout="@layout/ancient_cardpreference_middle"							
+            android:key="notification_material_dismiss"
+            android:title="@string/notification_material_dismiss_button_title"
+            android:summary="@string/notification_material_dismiss_button_summary" />      
 
         <com.ancient.settings.preferences.SystemSettingSwitchPreference
             android:layout="@layout/ancient_cardpreference_bottom"
