@@ -59,6 +59,7 @@ public class Notifications extends SettingsPreferenceFragment
     private static final String LED_CATEGORY = "led";
     private static final String INCALL_VIB_OPTIONS = "incall_vib_options";
     private static final String NOTIFICATION_HEADERS = "notification_headers";
+    private static final String CENTER_NOTIFICATION_HEADER = "center_notification_headers";
     private static final String NOTIFICATION_PULSE_COLOR = "ambient_notification_light_color";
     private static final String NOTIFICATION_PULSE_DURATION = "notification_pulse_duration";
     private static final String NOTIFICATION_PULSE_REPEATS = "notification_pulse_repeats";
@@ -72,6 +73,7 @@ public class Notifications extends SettingsPreferenceFragment
     private Preference mChargingLeds;
     private PreferenceCategory mLedCategory;
     private SystemSettingSwitchPreference mNotificationHeader;
+    private SystemSettingSwitchPreference mCenterNotificationHeader;
     private SystemSettingSwitchPreference mNotificationmaterialDismiss;
 
     @Override
@@ -105,6 +107,11 @@ public class Notifications extends SettingsPreferenceFragment
         mNotificationHeader.setChecked((Settings.System.getInt(resolver,
                 Settings.System.NOTIFICATION_HEADERS, 1) == 1));
         mNotificationHeader.setOnPreferenceChangeListener(this);
+
+        mCenterNotificationHeader = (SystemSettingSwitchPreference) findPreference(CENTER_NOTIFICATION_HEADER);
+        mCenterNotificationHeader.setChecked((Settings.System.getInt(resolver,
+                Settings.System.CENTER_NOTIFICATION_HEADERS, 0) == 1));
+        mCenterNotificationHeader.setOnPreferenceChangeListener(this);
 
         mNotificationmaterialDismiss = findPreference(NOTIFICATION_MATERIAL_DISMISS);
         mNotificationmaterialDismiss.setChecked((Settings.System.getInt(resolver,
@@ -162,6 +169,12 @@ public class Notifications extends SettingsPreferenceFragment
             boolean value = (Boolean) objValue;
             Settings.System.putInt(resolver,
                     Settings.System.NOTIFICATION_HEADERS, value ? 1 : 0);
+            AncientUtils.showSystemUiRestartDialog(getContext());
+            return true;
+        } else if (preference == mCenterNotificationHeader) {
+            boolean value = (Boolean) objValue;
+            Settings.System.putInt(resolver,
+                    Settings.System.CENTER_NOTIFICATION_HEADERS, value ? 0 : 1);
             AncientUtils.showSystemUiRestartDialog(getContext());
             return true;
         } else if (preference == mEdgeLightColorPreference) {
