@@ -36,6 +36,7 @@ import com.android.settings.SettingsPreferenceFragment;
 
 import com.android.internal.util.ancient.AncientUtils;
 import com.ancient.settings.preferences.SystemSettingSwitchPreference;
+import com.ancient.settings.preferences.SystemSettingListPreference;
 import android.provider.SearchIndexableResource;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.Indexable;
@@ -52,8 +53,10 @@ public class StatusBar extends SettingsPreferenceFragment implements
 
     private static final String STATUSBAR_DUAL_ROW = "statusbar_dual_row";
     private static final String KEY_STATUS_BAR_LOGO = "status_bar_logo";
+    private static final String STATUSBAR_DUAL_STYLE = "statusbar_dual_style";
 
     private SystemSettingSwitchPreference mStatusbarDualRow;
+    private SystemSettingListPreference mStatusbarDualStyle;
     private SwitchPreference mShowAncientLogo;
     private ListPreference mLogoStyle;
 
@@ -72,6 +75,14 @@ public class StatusBar extends SettingsPreferenceFragment implements
         mShowAncientLogo.setChecked((Settings.System.getInt(getContentResolver(),
              Settings.System.STATUS_BAR_LOGO, 0) == 1));
         mShowAncientLogo.setOnPreferenceChangeListener(this);
+        
+        mStatusbarDualStyle = (SystemSettingSwitchPreference) findPreference("statusbar_dual_style");
+        int StatusbarDualStyle = Settings.System.getIntForUser(getContentResolver(),
+                Settings.System.STATUSBAR_DUAL_STYLE,
+                0, UserHandle.USER_CURRENT);
+        mStatusbarDualStyle.setValue(String.valueOf(logoStyle));
+        mStatusbarDualStyle.setSummary(mStatusbarDualStyle.getEntry());
+        mStatusbarDualStyle.setOnPreferenceChangeListener(this);
 
         mLogoStyle = (ListPreference) findPreference("status_bar_logo_style");
         int logoStyle = Settings.System.getIntForUser(getContentResolver(),
@@ -95,6 +106,15 @@ public class StatusBar extends SettingsPreferenceFragment implements
             Settings.System.putInt(getContentResolver(),
                     Settings.System.STATUS_BAR_LOGO, value ? 1 : 0);
             return true;
+        } else if (preference.equals(mStatusbarDualStyle)) {
+            int StatusbarDualStyle = Integer.parseInt(((String) newValue).toString());
+            Settings.System.putIntForUser(getContentResolver(),
+                    Settings.System.STATUSBAR_DUAL_STYLE, StatusbarDualStyle, UserHandle.USER_CURRENT);
+            int index = mStatusbarDualStyle.findIndexOfValue((String) newValue);
+            mStatusbarDualStyle.setSummary(
+                    mStatusbarDualStyle.getEntries()[index]);
+            AncientUtils.showSystemUiRestartDialog(getContext());
+            return true;    
         } else if (preference.equals(mLogoStyle)) {
             int logoStyle = Integer.parseInt(((String) newValue).toString());
             Settings.System.putIntForUser(getContentResolver(),
