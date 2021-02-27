@@ -76,11 +76,11 @@ public class StatusBar extends SettingsPreferenceFragment implements
              Settings.System.STATUS_BAR_LOGO, 0) == 1));
         mShowAncientLogo.setOnPreferenceChangeListener(this);
         
-        mStatusbarDualStyle = (SystemSettingSwitchPreference) findPreference("statusbar_dual_style");
+        mStatusbarDualStyle = (SystemSettingListPreference) findPreference("statusbar_dual_style");
         int StatusbarDualStyle = Settings.System.getIntForUser(getContentResolver(),
                 Settings.System.STATUSBAR_DUAL_STYLE,
                 0, UserHandle.USER_CURRENT);
-        mStatusbarDualStyle.setValue(String.valueOf(logoStyle));
+        mStatusbarDualStyle.setValue(String.valueOf(StatusbarDualStyle));
         mStatusbarDualStyle.setSummary(mStatusbarDualStyle.getEntry());
         mStatusbarDualStyle.setOnPreferenceChangeListener(this);
 
