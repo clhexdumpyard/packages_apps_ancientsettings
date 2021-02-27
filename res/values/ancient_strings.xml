@@ -1153,5 +1153,13 @@
     <!-- OOS style material dismiss all button for notifications -->
     <string name="notification_material_dismiss_button_title">Material dimiss button</string>
     <string name="notification_material_dismiss_button_summary">Replace clear all notification text with floating button</string>
+	
+    <!-- sb styles -->
+    <string name="statusbar_dual_style_title">StatusBar layout style</string>
+    <string name="statusbar_dual_style_summary">Choose style</string>
+    <string name="statusbar_dual_style_def">Default</string>
+    <string name="statusbar_dual_style_1">Ancient 1</string>
+    <string name="statusbar_dual_style_2">Ancient 2</string>
+    <string name="statusbar_dual_style_3">Ancient 3</string>
 
 </resources>
