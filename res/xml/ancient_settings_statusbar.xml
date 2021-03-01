@@ -39,7 +39,9 @@
             android:entries="@array/statusbar_dual_style_entries"
             android:entryValues="@array/statusbar_dual_style_values"                                                          
             android:title="@string/statusbar_dual_style_title"
-            android:summary="@string/statusbar_dual_style_summary" />
+            android:summary="@string/statusbar_dual_style_summary"
+            android:dependency="statusbar_dual_row"                                                          
+            />
 
         <Preference 
             android:layout="@layout/ancient_cardview_divider" 
