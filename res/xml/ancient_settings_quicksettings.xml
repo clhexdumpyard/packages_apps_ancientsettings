@@ -189,6 +189,12 @@
             android:title="@string/qs_show_auto_brightness_title"
             android:summary="@string/qs_show_auto_brightness_summary"
             android:defaultValue="true" />
+         
+        <com.ancient.settings.preferences.SystemSettingSwitchPreference
+            android:key="AncientTextBrightness"
+            android:title="@string/ancient_brightness_text"
+            android:summary="@string/ancient_brightness_text_summary"                                                                
+            android:defaultValue="true" /> 
 
         <!--com.ancient.settings.preferences.SecureSettingSwitchPreference
             android:key="qs_brightness_position_bottom"
