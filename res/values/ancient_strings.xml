@@ -1161,5 +1161,9 @@
     <string name="statusbar_dual_style_1">Ancient 1</string>
     <string name="statusbar_dual_style_2">Ancient 2</string>
     <string name="statusbar_dual_style_3">Ancient 3</string>
-
+	
+    <!-- Brightness text -->
+    <string name="ancient_brightness_text">Brightness Progress Text</string>
+    <string name="ancient_brightness_text_summary">Hide and Show Brigthness Text</string>
+	
 </resources>
