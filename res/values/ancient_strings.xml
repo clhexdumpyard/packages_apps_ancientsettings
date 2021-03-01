@@ -1157,10 +1157,10 @@
     <!-- sb styles -->
     <string name="statusbar_dual_style_title">StatusBar layout style</string>
     <string name="statusbar_dual_style_summary">Choose style</string>
-    <string name="statusbar_dual_style_def">Default</string>
-    <string name="statusbar_dual_style_1">Ancient 1</string>
-    <string name="statusbar_dual_style_2">Ancient 2</string>
-    <string name="statusbar_dual_style_3">Ancient 3</string>
+    <string name="statusbar_dual_style_def">DualBar Default</string>
+    <string name="statusbar_dual_style_1">Ios Style </string>
+    <string name="statusbar_dual_style_2">DualBar Style With Left Analog</string>
+    <string name="statusbar_dual_style_3">DualBar Style With Center Analog</string>
 	
     <!-- Brightness text -->
     <string name="ancient_brightness_text">Brightness Progress Text</string>
