@@ -129,4 +129,7 @@
     <string name="device_surya" translatable="false">POCO X3 NFC</string>
     <string name="device_surya_summary" translatable="false">surya\nKubilHadinata</string>
 
+    <string name="device_RMX1971" translatable="false">Realme 5 Pro</string>
+    <string name="device_RMX1971_summary" translatable="false">RMX1971\nAhmed (LuckYVii)</string>
+
 </resources>
