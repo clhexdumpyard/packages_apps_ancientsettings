@@ -1125,7 +1125,8 @@
     <string name="show_carrier_disabled">Disabled</string>
     <string name="show_carrier_keyguard">Lockscreen</string>
     <string name="show_carrier_statusbar">Status bar</string>
-    <string name="show_carrier_enabled">Both</string>
+    <string name="show_carrier_footer">QS Footer</string>
+    <string name="show_carrier_enabled">All</string>
 
     <!-- Running Services button -->
     <string name="qs_running_services_title">Running Services Icon</string>
