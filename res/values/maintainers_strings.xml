@@ -135,4 +135,7 @@
     <string name="device_sakura" translatable="false">Xiaomi Redmi 6 Pro</string>
     <string name="device_sakura_summary" translatable="false">sakura\nSoumyajit Paul (soumyajit007-creator)</string>
 
+    <string name="device_payton" translatable="false">Moto X4</string>
+    <string name="device_payton_summary" translatable="false">payton\nYukki159</string>
+
 </resources>
