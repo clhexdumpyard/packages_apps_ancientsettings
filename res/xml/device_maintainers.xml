@@ -343,6 +343,16 @@
                 android:data="https://t.me/TailanCunha" />
         </Preference>
 
+        <Preference
+            android:id="@+id/device_payton"
+            android:icon="@drawable/ancient_device"
+            android:summary="@string/device_payton_summary"
+            android:title="@string/device_payton" >
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://t.me/Yukki159" />
+        </Preference>
+
      </PreferenceCategory>
 
     <PreferenceCategory
