@@ -1166,4 +1166,8 @@
     <string name="ancient_brightness_text">Brightness Progress Text</string>
     <string name="ancient_brightness_text_summary">Hide and Show Brigthness Text</string>
 	
+    <!-- Quick settings media player orientation -->
+    <string name="quick_settings_player_layout_title">Ignore layout change</string>
+    <string name="quick_settings_player_layout_summary">Use same player layout irrespective of orientation</string>
+	
 </resources>
