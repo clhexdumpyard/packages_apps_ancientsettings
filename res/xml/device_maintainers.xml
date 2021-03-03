@@ -183,6 +183,16 @@
                 android:data="https://t.me/Soumyajitpaul007" />
           </Preference>
 
+          <Preference
+            android:id="@+id/device_phoenix"
+            android:icon="@drawable/ancient_device"
+            android:summary="@string/device_phoenix_summary"
+            android:title="@string/device_phoenix" >
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://t.me/bibindasb" />
+          </Preference>
+
      </PreferenceCategory>
 
      <PreferenceCategory
