@@ -44,8 +44,6 @@ import com.android.settings.SettingsPreferenceFragment;
 import com.android.settingslib.search.SearchIndexable;
 import com.android.settings.search.BaseSearchIndexProvider;
 
-import com.android.internal.util.ancient.AncientUtils;
-
 @SearchIndexable
 public class FooterCarrierLabel extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener {
@@ -69,16 +67,6 @@ public class FooterCarrierLabel extends SettingsPreferenceFragment
         mShowCarrierLabel = (ListPreference) findPreference(KEY_STATUS_BAR_SHOW_CARRIER);
         showCarrierLabel = Settings.System.getInt(resolver,
                 "STATUS_BAR_SHOW_FOOTERCARRIER", 1);
-        CharSequence[] NonNotchEntries = { getResources().getString(R.string.show_carrier_disabled), 
-                                           getResources().getString(R.string.show_carrier_footer),
-                                           getResources().getString(R.string.show_carrier_enabled) };        
-        CharSequence[] NotchEntries = { getResources().getString(R.string.show_carrier_disabled),
-                                        getResources().getString(R.string.show_carrier_footer),
-                                        getResources().getString(R.string.show_carrier_enabled) };
-        CharSequence[] NonNotchValues = {"0", "1"};
-        CharSequence[] NotchValues = {"0", "1"};
-        mShowCarrierLabel.setEntries(AncientUtils.hasNotch(getActivity()) ? NotchEntries : NonNotchEntries);
-        mShowCarrierLabel.setEntryValues(AncientUtils.hasNotch(getActivity()) ? NotchValues : NonNotchValues);
         mShowCarrierLabel.setValue(String.valueOf(showCarrierLabel));
         mShowCarrierLabel.setSummary(mShowCarrierLabel.getEntry());
         mShowCarrierLabel.setOnPreferenceChangeListener(this);
