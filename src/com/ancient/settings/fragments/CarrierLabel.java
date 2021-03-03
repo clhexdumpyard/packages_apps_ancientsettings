@@ -72,13 +72,14 @@ public class CarrierLabel extends SettingsPreferenceFragment
         CharSequence[] NonNotchEntries = { getResources().getString(R.string.show_carrier_disabled),
                 getResources().getString(R.string.show_carrier_keyguard),
                 getResources().getString(R.string.show_carrier_statusbar),
-                getResources().getString(R.string.show_carrier_footer), getResources().getString(
+                getResources().getString(R.string.show_carrier_footer),
+                getResources().getString(R.string.show_carrier_keyfooter), getResources().getString(
                 R.string.show_carrier_enabled) };
         CharSequence[] NotchEntries = { getResources().getString(R.string.show_carrier_disabled),
                 getResources().getString(R.string.show_carrier_keyguard),
                 getResources().getString(R.string.show_carrier_footer), 
                 getResources().getString(R.string.show_carrier_keyfooter) };
-        CharSequence[] NonNotchValues = {"0", "1" , "2", "3" ,"5"};
+        CharSequence[] NonNotchValues = {"0", "1" , "2", "3", "4", "5"};
         CharSequence[] NotchValues = {"0", "1" , "3" ,"4"};
         mShowCarrierLabel.setEntries(AncientUtils.hasNotch(getActivity()) ? NotchEntries : NonNotchEntries);
         mShowCarrierLabel.setDefaultValue("4");
