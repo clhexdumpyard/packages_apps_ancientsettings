@@ -1126,6 +1126,7 @@
     <string name="show_carrier_keyguard">Lockscreen</string>
     <string name="show_carrier_statusbar">Status bar</string>
     <string name="show_carrier_footer">QS Footer</string>
+	<string name="show_carrier_keyfooter">All</string>
     <string name="show_carrier_enabled">All</string>
 
     <!-- Running Services button -->
