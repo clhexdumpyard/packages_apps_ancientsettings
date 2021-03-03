@@ -82,7 +82,7 @@ public class CarrierLabel extends SettingsPreferenceFragment
         CharSequence[] NonNotchValues = {"0", "1" , "2", "3", "4", "5"};
         CharSequence[] NotchValues = {"0", "1" , "3" ,"4"};
         mShowCarrierLabel.setEntries(AncientUtils.hasNotch(getActivity()) ? NotchEntries : NonNotchEntries);
-        mShowCarrierLabel.setDefaultValue("4");
+        mShowCarrierLabel.setDefaultValue("3");
         mShowCarrierLabel.setEntryValues(AncientUtils.hasNotch(getActivity()) ? NotchValues : NonNotchValues);
         mShowCarrierLabel.setValue(String.valueOf(showCarrierLabel));
         mShowCarrierLabel.setSummary(mShowCarrierLabel.getEntry());
