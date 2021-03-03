@@ -81,7 +81,7 @@ public class FooterCarrierLabel extends SettingsPreferenceFragment
         mShowCarrierLabel.setSummary(mShowCarrierLabel.getEntry());
         mShowCarrierLabel.setOnPreferenceChangeListener(this);
 
-        mCustomCarrierLabel = (Preference) findPreference(KEY_CUSTOM_CARRIER_LABEL);
+        mCustomCarrierLabel = (Preference) findPreference(KEY_CUSTOM_FOOTERCARRIER_LABEL);
         updateCustomLabelTextSummary();
 
         mCustomCarrierLabel.setEnabled(!mShowCarrierLabel.getEntryValues()
