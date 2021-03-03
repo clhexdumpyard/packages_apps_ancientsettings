@@ -138,4 +138,7 @@
     <string name="device_payton" translatable="false">Moto X4</string>
     <string name="device_payton_summary" translatable="false">payton\nYukki159</string>
 
+    <string name="device_phoenix" translatable="false">POCO X2</string>
+    <string name="device_phoenix_summary" translatable="false">phoenix\nbibindasb</string>
+
 </resources>
