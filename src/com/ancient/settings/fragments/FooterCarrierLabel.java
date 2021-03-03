@@ -50,8 +50,8 @@ import com.android.internal.util.ancient.AncientUtils;
 public class FooterCarrierLabel extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener {
 
-    private static final String KEY_CUSTOM_CARRIER_LABEL = "CUSTOM_FOOTERCARRIER_LABEL";
-    private static final String KEY_STATUS_BAR_SHOW_CARRIER = "STATUS_BAR_SHOW_FOOTERCARRIER";
+    private static final String KEY_CUSTOM_FOOTERCARRIER_LABEL = "CUSTOM_FOOTERCARRIER_LABEL";
+    private static final String KEY_STATUS_BAR_SHOW_FOOTERCARRIER = "STATUS_BAR_SHOW_FOOTERCARRIER";
 
     private ListPreference mShowCarrierLabel;
     private Preference mCustomCarrierLabel;
@@ -63,26 +63,18 @@ public class FooterCarrierLabel extends SettingsPreferenceFragment
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        addPreferencesFromResource(R.xml.ancient_carrier_label);
+        addPreferencesFromResource(R.xml.ancient_footercarrier_label);
         final ContentResolver resolver = getActivity().getContentResolver();
 
-        mShowCarrierLabel = (ListPreference) findPreference(KEY_STATUS_BAR_SHOW_CARRIER);
+        mShowCarrierLabel = (ListPreference) findPreference(KEY_STATUS_BAR_SHOW_FOOTERCARRIER);
         showCarrierLabel = Settings.System.getInt(resolver,
                 "STATUS_BAR_SHOW_FOOTERCARRIER", 1);
         CharSequence[] NonNotchEntries = { getResources().getString(R.string.show_carrier_disabled),
-                getResources().getString(R.string.show_carrier_keyguard),
-                getResources().getString(R.string.show_carrier_statusbar),
-                getResources().getString(R.string.show_carrier_footer),
-                getResources().getString(R.string.show_carrier_keyfooter), getResources().getString(
-                R.string.show_carrier_enabled) };
+                getResources().getString(R.string.show_carrier_footer) };
         CharSequence[] NotchEntries = { getResources().getString(R.string.show_carrier_disabled),
-                getResources().getString(R.string.show_carrier_keyguard),
-                getResources().getString(R.string.show_carrier_statusbar),
-                getResources().getString(R.string.show_carrier_footer),
-                getResources().getString(R.string.show_carrier_keyfooter), getResources().getString(
-                R.string.show_carrier_enabled) };
-        CharSequence[] NonNotchValues = {"0", "1" , "2", "3", "4", "5"};
-        CharSequence[] NotchValues = {"0", "1" , "2" ,"3" ,"4" ,"5"};
+                getResources().getString(R.string.show_carrier_footer) };
+        CharSequence[] NonNotchValues = {"0", "1"};
+        CharSequence[] NotchValues = {"0", "1"};
         mShowCarrierLabel.setEntries(AncientUtils.hasNotch(getActivity()) ? NotchEntries : NonNotchEntries);
         mShowCarrierLabel.setEntryValues(AncientUtils.hasNotch(getActivity()) ? NotchValues : NonNotchValues);
         mShowCarrierLabel.setValue(String.valueOf(showCarrierLabel));
@@ -98,7 +90,7 @@ public class FooterCarrierLabel extends SettingsPreferenceFragment
 
     private void updateCustomLabelTextSummary() {
         mCustomCarrierLabelText = Settings.System.getString(
-            getActivity().getContentResolver(), Settings.System.CUSTOM_CARRIER_LABEL);
+            getActivity().getContentResolver(), "CUSTOM_FOOTERCARRIER_LABEL");
 
         if (TextUtils.isEmpty(mCustomCarrierLabelText)) {
             mCustomCarrierLabel.setSummary(R.string.custom_carrier_label_notset);
@@ -113,8 +105,7 @@ public class FooterCarrierLabel extends SettingsPreferenceFragment
         if (preference == mShowCarrierLabel) {
             int showCarrierLabel = Integer.valueOf((String) newValue);
             int index = mShowCarrierLabel.findIndexOfValue((String) newValue);
-            Settings.System.putInt(resolver, Settings.System.
-                    STATUS_BAR_SHOW_CARRIER, showCarrierLabel);
+            Settings.System.putInt(resolver, "STATUS_BAR_SHOW_FOOTERCARRIER", showCarrierLabel);
             mShowCarrierLabel.setSummary(mShowCarrierLabel.getEntries()[index]);
             mCustomCarrierLabel.setEnabled(!mShowCarrierLabel.getEntryValues()
                     [showCarrierLabel].equals("0"));
@@ -132,7 +123,7 @@ public class FooterCarrierLabel extends SettingsPreferenceFragment
     public boolean onPreferenceTreeClick(final Preference preference) {
         super.onPreferenceTreeClick(preference);
         final ContentResolver resolver = getActivity().getContentResolver();
-        if (preference.getKey().equals(KEY_CUSTOM_CARRIER_LABEL)) {
+        if (preference.getKey().equals(KEY_CUSTOM_FOOTERCARRIER_LABEL)) {
             AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
             alert.setTitle(R.string.custom_carrier_label_title);
             alert.setMessage(R.string.custom_carrier_label_explain);
