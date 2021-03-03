@@ -70,8 +70,10 @@ public class FooterCarrierLabel extends SettingsPreferenceFragment
         showCarrierLabel = Settings.System.getInt(resolver,
                 "STATUS_BAR_SHOW_FOOTERCARRIER", 1);
         CharSequence[] NonNotchEntries = { getResources().getString(R.string.show_carrier_disabled), 
+                                           getResources().getString(R.string.show_carrier_footer),
                                            getResources().getString(R.string.show_carrier_enabled) };        
         CharSequence[] NotchEntries = { getResources().getString(R.string.show_carrier_disabled),
+                                        getResources().getString(R.string.show_carrier_footer),
                                         getResources().getString(R.string.show_carrier_enabled) };
         CharSequence[] NonNotchValues = {"0", "1"};
         CharSequence[] NotchValues = {"0", "1"};
