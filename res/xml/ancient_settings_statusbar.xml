@@ -104,8 +104,8 @@
        <Preference
             android:layout="@layout/ancient_cardpreference_middle"
             android:key="footercarrier_label_category"
-            android:title="@string/carrier_label_title"
-            android:summary="@string/carrier_label_summary"
+            android:title="@string/footercarrier_label_title"
+            android:summary="@string/footercarrier_label_summary"
             android:fragment="com.ancient.settings.fragments.FooterCarrierLabel" />  
 
         <Preference
