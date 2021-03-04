@@ -69,10 +69,10 @@ public class FooterCarrierLabel extends SettingsPreferenceFragment
         mShowCarrierLabel = (ListPreference) findPreference(KEY_STATUS_BAR_SHOW_FOOTERCARRIER);
         showCarrierLabel = Settings.System.getInt(resolver,
                 "STATUS_BAR_SHOW_FOOTERCARRIER", 1);
-        CharSequence[] NonNotchEntries = { getResources().getString(R.string.show_carrier_disabled),
-                getResources().getString(R.string.show_carrier_footer) };
-        CharSequence[] NotchEntries = { getResources().getString(R.string.show_carrier_disabled),
-                getResources().getString(R.string.show_carrier_footer) };
+        CharSequence[] NonNotchEntries = { getResources().getString(R.string.show_footercarrier_disabled),
+                getResources().getString(R.string.show_footercarrier_footer) };
+        CharSequence[] NotchEntries = { getResources().getString(R.string.show_footercarrier_disabled),
+                getResources().getString(R.string.show_footercarrier_footer) };
         CharSequence[] NonNotchValues = {"0", "1"};
         CharSequence[] NotchValues = {"0", "1"};
         mShowCarrierLabel.setEntries(AncientUtils.hasNotch(getActivity()) ? NotchEntries : NonNotchEntries);
@@ -93,7 +93,7 @@ public class FooterCarrierLabel extends SettingsPreferenceFragment
             getActivity().getContentResolver(), "CUSTOM_FOOTERCARRIER_LABEL");
 
         if (TextUtils.isEmpty(mCustomCarrierLabelText)) {
-            mCustomCarrierLabel.setSummary(R.string.custom_carrier_label_notset);
+            mCustomCarrierLabel.setSummary(R.string.custom_footercarrier_label_notset);
         } else {
             mCustomCarrierLabel.setSummary(mCustomCarrierLabelText);
         }
@@ -125,8 +125,8 @@ public class FooterCarrierLabel extends SettingsPreferenceFragment
         final ContentResolver resolver = getActivity().getContentResolver();
         if (preference.getKey().equals(KEY_CUSTOM_FOOTERCARRIER_LABEL)) {
             AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
-            alert.setTitle(R.string.custom_carrier_label_title);
-            alert.setMessage(R.string.custom_carrier_label_explain);
+            alert.setTitle(R.string.custom_footercarrier_label_title);
+            alert.setMessage(R.string.custom_footercarrier_label_explain);
 
             LinearLayout container = new LinearLayout(getActivity());
             container.setOrientation(LinearLayout.VERTICAL);
@@ -164,5 +164,5 @@ public class FooterCarrierLabel extends SettingsPreferenceFragment
     }
 
     public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-            new BaseSearchIndexProvider(R.xml.ancient_carrier_label);
+            new BaseSearchIndexProvider(R.xml.ancient_footercarrier_label);
 }
