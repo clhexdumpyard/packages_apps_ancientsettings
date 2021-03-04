@@ -203,11 +203,11 @@
             android:summary="@string/ancient_brightness_text_summary"                                                                
             android:defaultValue="true" /> 
 
-        <!--com.ancient.settings.preferences.SecureSettingSwitchPreference
+        <com.ancient.settings.preferences.SecureSettingSwitchPreference
             android:key="qs_brightness_position_bottom"
             android:title="@string/qs_brightness_position_bottom_title"
             android:summary="@string/qs_brightness_position_bottom_summary"
-            android:defaultValue="false" />-->
+            android:defaultValue="false" />
 
     </PreferenceCategory>
 
