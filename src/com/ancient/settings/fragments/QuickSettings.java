@@ -107,7 +107,7 @@ public class QuickSettings extends SettingsPreferenceFragment
         mCustomHeader.setChecked(qsHeader != 0);
         mCustomHeader.setOnPreferenceChangeListener(this);
         
-        mQsMedia = (SystemSettingSwitchPreference) findPreference(QS_MEDIA_PLAYER);
+        mQsMedia = (SystemSettingSwitchPreference) findPreference(PREF_QS_MEDIA_PLAYER);
         mQsMedia.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.QS_MEDIA_PLAYER, 0) == 1));
         mQsMedia.setOnPreferenceChangeListener(this);
