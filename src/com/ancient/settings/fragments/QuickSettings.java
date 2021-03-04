@@ -141,7 +141,6 @@ public class QuickSettings extends SettingsPreferenceFragment
             boolean value = (Boolean) newValue;
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.QS_MEDIA_PLAYER, value ? 1 : 0);
-            mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
             try {
                  mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
              } catch (RemoteException ignored) {
