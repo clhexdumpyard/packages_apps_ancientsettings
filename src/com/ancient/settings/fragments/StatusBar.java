@@ -24,6 +24,8 @@ import android.content.om.OverlayInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.Bundle;
+import android.os.RemoteException;
+import android.os.SystemProperties;
 import android.os.ServiceManager;
 import android.os.UserHandle;
 import android.provider.SearchIndexableResource;
@@ -105,7 +107,10 @@ public class StatusBar extends SettingsPreferenceFragment implements
             boolean value = (Boolean) newValue;
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.STATUSBAR_DUAL_ROW, value ? 1 : 0);
-            mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
+            try {
+                 mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
+             } catch (RemoteException ignored) {
+             }
             return true;
         } else if  (preference == mShowAncientLogo) {
             boolean value = (Boolean) newValue;
@@ -119,7 +124,10 @@ public class StatusBar extends SettingsPreferenceFragment implements
             int index = mStatusbarDualStyle.findIndexOfValue((String) newValue);
             mStatusbarDualStyle.setSummary(
                     mStatusbarDualStyle.getEntries()[index]);
-            mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
+            try {
+                 mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
+             } catch (RemoteException ignored) {
+             }
             return true;    
         } else if (preference.equals(mLogoStyle)) {
             int logoStyle = Integer.parseInt(((String) newValue).toString());
