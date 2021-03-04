@@ -19,6 +19,8 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.content.om.IOverlayManager;
+import android.content.om.OverlayInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.Bundle;
@@ -59,12 +61,15 @@ public class StatusBar extends SettingsPreferenceFragment implements
     private SystemSettingListPreference mStatusbarDualStyle;
     private SwitchPreference mShowAncientLogo;
     private ListPreference mLogoStyle;
+    private IOverlayManager mOverlayService;
 
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
         addPreferencesFromResource(R.xml.ancient_settings_statusbar);
         PreferenceScreen prefSet = getPreferenceScreen();
+        mOverlayService = IOverlayManager.Stub
+                .asInterface(ServiceManager.getService(Context.OVERLAY_SERVICE));
 
         mStatusbarDualRow = (SystemSettingSwitchPreference) findPreference(STATUSBAR_DUAL_ROW);
         mStatusbarDualRow.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
@@ -99,7 +104,7 @@ public class StatusBar extends SettingsPreferenceFragment implements
             boolean value = (Boolean) newValue;
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.STATUSBAR_DUAL_ROW, value ? 1 : 0);
-            AncientUtils.showSystemUiRestartDialog(getContext());
+            mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
             return true;
         } else if  (preference == mShowAncientLogo) {
             boolean value = (Boolean) newValue;
@@ -113,7 +118,7 @@ public class StatusBar extends SettingsPreferenceFragment implements
             int index = mStatusbarDualStyle.findIndexOfValue((String) newValue);
             mStatusbarDualStyle.setSummary(
                     mStatusbarDualStyle.getEntries()[index]);
-            AncientUtils.showSystemUiRestartDialog(getContext());
+            mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
             return true;    
         } else if (preference.equals(mLogoStyle)) {
             int logoStyle = Integer.parseInt(((String) newValue).toString());
