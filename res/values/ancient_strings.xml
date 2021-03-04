@@ -1126,7 +1126,7 @@
     <string name="show_carrier_keyguard">Lockscreen</string>
     <string name="show_carrier_statusbar">Status bar</string>
     <string name="show_carrier_footer">QS Footer</string>
-	<string name="show_carrier_keyfooter">All</string>
+    <string name="show_carrier_keyfooter">All</string>
     <string name="show_carrier_enabled">All</string>
 
     <!-- Running Services button -->
@@ -1172,4 +1172,17 @@
     <string name="quick_settings_player_layout_title">Ignore layout change</string>
     <string name="quick_settings_player_layout_summary">Use same player layout irrespective of orientation</string>
 	
+    <!-- custo footer carrir label -->
+    <string name="footercarrier_label_title">Footer Carrier label</string>
+    <string name="footercarrier_label_summary">Customize the Footer carrier label</string>
+    <string name="footercarrier_options">Select display locations</string>
+    <string name="show_status_bar_footercarrier_title">Footer carrier</string>
+    <string name="show_status_bar_footercarrier_summary">Show carrier in footer</string>
+    <string name="custom_footercarrier_label_title">Custom carrier label</string>
+    <string name="custom_footercarrier_label_explain">Enter a custom label. Leave blank to use your network name</string>
+    <string name="custom_footercarrier_label_notset">Custom label currently not set</string>
+    <string name="show_footercarrier_title">Carrier label</string>
+    <string name="show_footercarrier_disabled">Disabled</string>
+    <string name="show_footercarrier_footer">QS Footer</string>
+    <string name="show_footercarrier_enabled">All</string>
 </resources>
