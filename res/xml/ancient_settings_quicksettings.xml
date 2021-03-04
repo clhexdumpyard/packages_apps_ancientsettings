@@ -24,13 +24,6 @@
         android:summaryOn="@string/qs_media_player_summary_on"
         android:summaryOff="@string/qs_media_player_summary_off"
         android:defaultValue="false" />
-     
-    <com.ancient.settings.preferences.SystemSettingSwitchPreference
-        android:key="QS_MEDIAPLAYER_IGNORE_LAYOUT_CHANGE"
-        android:title="@string/quick_settings_player_layout_title"
-        android:summary="@string/quick_settings_player_layout_summary"
-        android:dependency="qs_media_player"                                                             
-        android:defaultValue="false" /> 
 
     <com.ancient.settings.preferences.SystemSettingListPreference
         android:key="qs_datausage"
