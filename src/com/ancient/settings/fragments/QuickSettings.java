@@ -54,6 +54,8 @@ import com.ancient.settings.preferences.SystemSettingSwitchPreference;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
+import com.android.internal.util.ancient.AncientUtils;
+
 import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.HashSet;
