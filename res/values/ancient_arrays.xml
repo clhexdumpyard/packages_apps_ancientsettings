@@ -1161,10 +1161,10 @@
      
     <!-- Collapsestyle type -->
     <string-array name="collapsed_style_entries" translatable="false">
-        <item>@string/colapse_style_1</item>
-        <item>@string/colapse_style_2</item>
-        <item>@string/colapse_style_3</item>
-        <item>@string/colapse_style_4</item>
+        <item>@string/collapse_style_1</item>
+        <item>@string/collapse_style_2</item>
+        <item>@string/collapse_style_3</item>
+        <item>@string/collapse_style_4</item>
     </string-array>
 
     <string-array name="collapsed_style_values" translatable="false">
