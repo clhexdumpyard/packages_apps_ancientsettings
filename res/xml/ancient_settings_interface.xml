@@ -56,6 +56,14 @@
             android:layout="@layout/ancient_cardpreference_middle"
             android:key="android.theme.customization.accent_color"
             android:title="@string/theme_customization_accent_color_title"/>
+         
+        <ListPreference
+            android:layout="@layout/ancient_cardpreference_middle"
+            android:key="AvatarViewVis"
+            android:entries="@array/collapsed_style_entries"
+            android:summary="@string/collapsed_dual_style_summary"            
+            android:entryValues="@array/collapsed_style_values"             
+            android:title="@string/collapsed_style_title"/> 
 
         <ListPreference
             android:layout="@layout/ancient_cardpreference_bottom"
