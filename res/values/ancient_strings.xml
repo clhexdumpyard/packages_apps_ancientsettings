@@ -1197,9 +1197,9 @@
     <!-- sb styles -->
     <string name="collapsed_style_title">Showing Account as style</string>
     <string name="collapsed_dual_style_summary">Choose style</string>
-    <string name="collapse_dual_style_1">Icon Toolbar</string>
-    <string name="collapse_dual_style_2">Preference</string>
-    <string name="collapse_dual_style_3">Showing all</string>
-    <string name="collapse_dual_style_4">Hide all</string>
+    <string name="collapse_style_1">Icon Toolbar</string>
+    <string name="collapse_style_2">Preference</string>
+    <string name="collapse_style_3">Showing all</string>
+    <string name="collapse_style_4">Hide all</string>
 	
 </resources>
