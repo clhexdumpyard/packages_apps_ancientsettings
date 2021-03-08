@@ -254,6 +254,7 @@ public class Interface extends DashboardFragment implements
             }
             return true;
         } else if (preference.equals(mAvatarViewVis)) {
+            boolean value = (Boolean) newValue;    
             int AvatarViewVis = Integer.parseInt(((String) newValue).toString());
             Settings.System.putIntForUser(getContentResolver(),
                     "AvatarViewVis", AvatarViewVis, UserHandle.USER_CURRENT);
