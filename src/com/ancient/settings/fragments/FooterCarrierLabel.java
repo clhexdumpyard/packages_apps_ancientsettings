@@ -72,11 +72,8 @@ public class FooterCarrierLabel extends SettingsPreferenceFragment
                     resolver, "STATUS_BAR_SHOW_FOOTERCARRIER", 0) == 1));
         mStatusBarCarrier.setOnPreferenceChangeListener(this);
         
-        mCustomCarrierLabel = (Preference) findPreference(KEY_CUSTOM_FOOTERCARRIER_LABEL);
+        mCustomCarrierLabel = (PreferenceScreen) prefSet.findPreference(KEY_CUSTOM_FOOTERCARRIER_LABEL);
         updateCustomLabelTextSummary();
-
-        mCustomCarrierLabel.setEnabled(!mStatusBarCarrier.getEntryValues()
-                [mStatusBarCarrier].equals("0"));
     }
 
     private void updateCustomLabelTextSummary() {
