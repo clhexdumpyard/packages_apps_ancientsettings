@@ -117,12 +117,8 @@ public class Interface extends DashboardFragment implements
 
         setupThemeSwitchPref();
             
-        mAvatarViewVis = (SystemSettingListPreference) findPreference("AvatarViewVis");
-        int AvatarViewVis = Settings.System.getIntForUser(getContentResolver(),
-                "AvatarViewVis",0, UserHandle.USER_CURRENT);
-        mAvatarViewVis.setValue(String.valueOf(AvatarViewVis));
-        mAvatarViewVis.setSummary(mAvatarViewVis.getEntry());
-        mAvatarViewVis.setOnPreferenceChangeListener(this); 
+        mAvatarViewVis = (SystemSettingListPreference) findPreference("AvatarViewVis"); 
+        mAvatarViewVis.setOnPreferenceChangeListener(this);
             
     }
 
@@ -254,12 +250,6 @@ public class Interface extends DashboardFragment implements
             }
             return true;
         } else if (preference.equals(mAvatarViewVis)) {  
-            int AvatarViewVis = Integer.parseInt(((String) newValue).toString());
-            Settings.System.putIntForUser(getContentResolver(),
-                    "AvatarViewVis", AvatarViewVis, UserHandle.USER_CURRENT);
-            int index = mAvatarViewVis.findIndexOfValue((String) newValue);
-            mAvatarViewVis.setSummary(
-                    mAvatarViewVis.getEntries()[index]);
             try {
                  mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
              } catch (RemoteException ignored) {
