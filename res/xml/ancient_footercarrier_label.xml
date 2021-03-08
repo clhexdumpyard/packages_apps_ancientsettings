@@ -15,11 +15,10 @@
             xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
             android:title="@string/footercarrier_label_title" >
 
-    <SwitchPreference
+    <com.ancient.settings.preferences.SystemSettingSwitchPreference
         android:key="STATUS_BAR_SHOW_FOOTERCARRIER"
-        android:summary="@string/show_status_bar_footercarrier_summary"              
         android:title="@string/show_footercarrier_title"
-        android:defaultValue="false" />
+        android:dialogTitle="@string/carrier_options" />
 
     <Preference
         android:key="CUSTOM_FOOTERCARRIER_LABEL"
