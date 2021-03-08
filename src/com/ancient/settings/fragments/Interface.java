@@ -70,6 +70,7 @@ import com.ancient.settings.display.AnTooltipStylePreferenceController;
 import com.ancient.settings.display.AnTopadStylePreferenceController;
 import com.ancient.settings.display.SbBrightnStylePreferenceController;
 import com.ancient.settings.display.SbQsbgStylePreferenceController;
+import com.ancient.settings.preferences.SystemSettingListPreference;
 
 import com.android.internal.util.ancient.ThemesUtils;
 import com.android.internal.util.ancient.AncientUtils;
@@ -87,10 +88,12 @@ public class Interface extends DashboardFragment implements
 
     private static final String TAG = "Interface";
     private static final String PREF_THEME_SWITCH = "theme_switch";
+    private static final String AVATARVIEWVIS = "AvatarViewVis";    
 
     private IOverlayManager mOverlayService;
     private UiModeManager mUiModeManager;
 
+    private SystemSettingListPreference mAvatarViewVis;    
     private ListPreference mThemeSwitch;
 
     @Override
@@ -113,6 +116,14 @@ public class Interface extends DashboardFragment implements
                 .asInterface(ServiceManager.getService(Context.OVERLAY_SERVICE));
 
         setupThemeSwitchPref();
+            
+        mAvatarViewVis = (SystemSettingListPreference) findPreference("AvatarViewVis");
+        int AvatarViewVis = Settings.System.getIntForUser(getContentResolver(),
+                "AvatarViewVis",0, UserHandle.USER_CURRENT);
+        mAvatarViewVis.setValue(String.valueOf(AvatarViewVis));
+        mAvatarViewVis.setSummary(mAvatarViewVis.getEntry());
+        mAvatarViewVis.setOnPreferenceChangeListener(this); 
+            
     }
 
     @Override
@@ -242,7 +253,19 @@ public class Interface extends DashboardFragment implements
             } catch (RemoteException ignored) {
             }
             return true;
-        }
+        } else if (preference.equals(mAvatarViewVis)) {
+            int AvatarViewVis = Integer.parseInt(((String) newValue).toString());
+            Settings.System.putIntForUser(getContentResolver(),
+                    "AvatarViewVis", AvatarViewVis, UserHandle.USER_CURRENT);
+            int index = mAvatarViewVis.findIndexOfValue((String) newValue);
+            mAvatarViewVis.setSummary(
+                    mAvatarViewVis.getEntries()[index]);
+            try {
+                 mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
+             } catch (RemoteException ignored) {
+             }
+            return true;   
+        }        
         return false;
     }
 
