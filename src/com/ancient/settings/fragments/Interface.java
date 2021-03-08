@@ -253,8 +253,7 @@ public class Interface extends DashboardFragment implements
             } catch (RemoteException ignored) {
             }
             return true;
-        } else if (preference.equals(mAvatarViewVis)) {
-            boolean value = (Boolean) newValue;    
+        } else if (preference.equals(mAvatarViewVis)) {  
             int AvatarViewVis = Integer.parseInt(((String) newValue).toString());
             Settings.System.putIntForUser(getContentResolver(),
                     "AvatarViewVis", AvatarViewVis, UserHandle.USER_CURRENT);
