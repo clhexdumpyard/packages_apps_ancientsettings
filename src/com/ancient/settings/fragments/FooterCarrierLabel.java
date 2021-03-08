@@ -53,7 +53,7 @@ public class FooterCarrierLabel extends SettingsPreferenceFragment
     private static final String KEY_CUSTOM_FOOTERCARRIER_LABEL = "CUSTOM_FOOTERCARRIER_LABEL";
     private static final String KEY_STATUS_BAR_SHOW_FOOTERCARRIER = "STATUS_BAR_SHOW_FOOTERCARRIER";
 
-    private ListPreference mShowCarrierLabel;
+    private SwitchPreference mStatusBarCarrier;
     private Preference mCustomCarrierLabel;
 
     private String mCustomCarrierLabelText;
@@ -64,23 +64,14 @@ public class FooterCarrierLabel extends SettingsPreferenceFragment
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.ancient_footercarrier_label);
+        final PreferenceScreen prefSet = getPreferenceScreen();
         final ContentResolver resolver = getActivity().getContentResolver();
 
-        mShowCarrierLabel = (ListPreference) findPreference(KEY_STATUS_BAR_SHOW_FOOTERCARRIER);
-        showCarrierLabel = Settings.System.getInt(resolver,
-                "STATUS_BAR_SHOW_FOOTERCARRIER", 1);
-        CharSequence[] NonNotchEntries = { getResources().getString(R.string.show_footercarrier_disabled),
-                getResources().getString(R.string.show_footercarrier_footer) };
-        CharSequence[] NotchEntries = { getResources().getString(R.string.show_footercarrier_disabled),
-                getResources().getString(R.string.show_footercarrier_footer) };
-        CharSequence[] NonNotchValues = {"0", "1"};
-        CharSequence[] NotchValues = {"0", "1"};
-        mShowCarrierLabel.setEntries(AncientUtils.hasNotch(getActivity()) ? NotchEntries : NonNotchEntries);
-        mShowCarrierLabel.setEntryValues(AncientUtils.hasNotch(getActivity()) ? NotchValues : NonNotchValues);
-        mShowCarrierLabel.setValue(String.valueOf(showCarrierLabel));
-        mShowCarrierLabel.setSummary(mShowCarrierLabel.getEntry());
-        mShowCarrierLabel.setOnPreferenceChangeListener(this);
-
+        mStatusBarCarrier = (SwitchPreference) prefSet.findPreference(STATUS_BAR_CARRIER);
+        mStatusBarCarrier.setChecked((Settings.System.getInt(
+                    "STATUS_BAR_SHOW_FOOTERCARRIER", 0) == 1));
+        mStatusBarCarrier.setOnPreferenceChangeListener(this);
+        
         mCustomCarrierLabel = (Preference) findPreference(KEY_CUSTOM_FOOTERCARRIER_LABEL);
         updateCustomLabelTextSummary();
 
@@ -102,13 +93,9 @@ public class FooterCarrierLabel extends SettingsPreferenceFragment
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         final ContentResolver resolver = getActivity().getContentResolver();
-        if (preference == mShowCarrierLabel) {
-            int showCarrierLabel = Integer.valueOf((String) newValue);
-            int index = mShowCarrierLabel.findIndexOfValue((String) newValue);
-            Settings.System.putInt(resolver, "STATUS_BAR_SHOW_FOOTERCARRIER", showCarrierLabel);
-            mShowCarrierLabel.setSummary(mShowCarrierLabel.getEntries()[index]);
-            mCustomCarrierLabel.setEnabled(!mShowCarrierLabel.getEntryValues()
-                    [showCarrierLabel].equals("0"));
+        if (preference == mStatusBarCarrier) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(resolver, "STATUS_BAR_SHOW_FOOTERCARRIER", value ? 1 : 0);
             return true;
          }
         return false;
