@@ -67,16 +67,16 @@ public class FooterCarrierLabel extends SettingsPreferenceFragment
         final PreferenceScreen prefSet = getPreferenceScreen();
         final ContentResolver resolver = getActivity().getContentResolver();
 
-        mStatusBarCarrier = (SwitchPreference) prefSet.findPreference(STATUS_BAR_CARRIER);
+        mStatusBarCarrier = (SwitchPreference) prefSet.findPreference(KEY_STATUS_BAR_SHOW_FOOTERCARRIER);
         mStatusBarCarrier.setChecked((Settings.System.getInt(
-                    "STATUS_BAR_SHOW_FOOTERCARRIER", 0) == 1));
+                    resolver, "STATUS_BAR_SHOW_FOOTERCARRIER", 0) == 1));
         mStatusBarCarrier.setOnPreferenceChangeListener(this);
         
         mCustomCarrierLabel = (Preference) findPreference(KEY_CUSTOM_FOOTERCARRIER_LABEL);
         updateCustomLabelTextSummary();
 
-        mCustomCarrierLabel.setEnabled(!mShowCarrierLabel.getEntryValues()
-                [showCarrierLabel].equals("0"));
+        mCustomCarrierLabel.setEnabled(!mStatusBarCarrier.getEntryValues()
+                [mStatusBarCarrier].equals("0"));
     }
 
     private void updateCustomLabelTextSummary() {
