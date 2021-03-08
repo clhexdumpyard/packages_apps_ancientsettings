@@ -249,7 +249,7 @@ public class Interface extends DashboardFragment implements
             } catch (RemoteException ignored) {
             }
             return true;
-        } else if (preference.equals(mAvatarViewVis)) {  
+        } else if (preference == mAvatarViewVis) { 
             try {
                  mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
              } catch (RemoteException ignored) {
