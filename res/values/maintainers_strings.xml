@@ -141,4 +141,7 @@
     <string name="device_phoenix" translatable="false">POCO X2</string>
     <string name="device_phoenix_summary" translatable="false">phoenix\nbibindasb</string>
 
+    <string name="device_rmx2020" translatable="false">Realme C3/Narzo 10A</string>
+    <string name="device_rmx2020_summary" translatable="false">rmx2020\nSarthak Roy (sarthakroy2002)</string>
+
 </resources>
