@@ -70,7 +70,7 @@
             android:title="@string/device_violet" > 
             <intent
                  android:action="android.intent.action.VIEW" 
-                 android:data="https://t.me/mavji007" />
+                 android:data="https://t.me/brucetech" />
          </Preference>
 
          <Preference 
@@ -173,6 +173,36 @@
                 android:data="https://t.me/ehkagetgue" />
           </Preference>
 
+          <Preference
+            android:id="@+id/device_sakura"
+            android:icon="@drawable/ancient_device"
+            android:summary="@string/device_sakura_summary"
+            android:title="@string/device_sakura" >
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://t.me/Soumyajitpaul007" />
+          </Preference>
+
+          <Preference
+            android:id="@+id/device_phoenix"
+            android:icon="@drawable/ancient_device"
+            android:summary="@string/device_phoenix_summary"
+            android:title="@string/device_phoenix" >
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://t.me/bibindasb" />
+          </Preference>
+
+          <Preference
+            android:id="@+id/device_lava"
+            android:icon="@drawable/ancient_device"
+            android:summary="@string/device_lava_summary"
+            android:title="@string/device_lava">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://t.me/henloboi" />
+          </Preference>
+
      </PreferenceCategory>
 
      <PreferenceCategory
@@ -271,6 +301,26 @@
                 android:data="https://t.me/hellohoneybunny" />
         </Preference>
 
+        <Preference
+            android:id="@+id/device_RMX1971"
+            android:icon="@drawable/ancient_device"
+            android:summary="@string/device_RMX1971_summary"
+            android:title="@string/device_RMX1971" >
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://t.me/LuckyVii" />
+        </Preference>
+
+        <Preference
+            android:id="@+id/device_rmx2020"
+            android:icon="@drawable/ancient_device"
+            android:summary="@string/device_rmx2020_summary"
+            android:title="@string/device_rmx2020" >
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://t.me/sarthakroy2002" />
+        </Preference>
+
      </PreferenceCategory>
 
      <PreferenceCategory
@@ -321,6 +371,16 @@
             <intent
                 android:action="android.intent.action.VIEW"
                 android:data="https://t.me/TailanCunha" />
+        </Preference>
+
+        <Preference
+            android:id="@+id/device_payton"
+            android:icon="@drawable/ancient_device"
+            android:summary="@string/device_payton_summary"
+            android:title="@string/device_payton" >
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://t.me/Yukki159" />
         </Preference>
 
      </PreferenceCategory>
