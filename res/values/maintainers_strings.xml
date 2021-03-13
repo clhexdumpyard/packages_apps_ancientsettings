@@ -144,4 +144,7 @@
     <string name="device_rmx2020" translatable="false">Realme C3/Narzo 10A</string>
     <string name="device_rmx2020_summary" translatable="false">rmx2020\nSarthak Roy (sarthakroy2002)</string>
 
+    <string name="device_lava" translatable="false">Redmi 9 / Poco M2 </string>
+    <string name="device_lava_summary" translatable="false">lava\nhenloboi</string>
+
 </resources>
