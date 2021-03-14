@@ -273,6 +273,7 @@
     <string name="status_bar_battery_style_circle">Circle</string>
     <string name="status_bar_battery_style_dotted_circle">Dotted circle</string>
     <string name="status_bar_battery_style_filled_circle">Filled circle</string>
+    <string name="status_bar_battery_style_landscape">LandScape</string>
     <string name="status_bar_battery_style_text">Text</string>
     <string name="status_bar_battery_style_hidden">Hidden</string>
 
@@ -1123,7 +1124,9 @@
     <string name="show_carrier_disabled">Disabled</string>
     <string name="show_carrier_keyguard">Lockscreen</string>
     <string name="show_carrier_statusbar">Status bar</string>
-    <string name="show_carrier_enabled">Both</string>
+    <string name="show_carrier_footer">QS Footer</string>
+    <string name="show_carrier_keyfooter">All</string>
+    <string name="show_carrier_enabled">All</string>
 
     <!-- Running Services button -->
     <string name="qs_running_services_title">Running Services Icon</string>
@@ -1151,5 +1154,48 @@
     <!-- OOS style material dismiss all button for notifications -->
     <string name="notification_material_dismiss_button_title">Material dimiss button</string>
     <string name="notification_material_dismiss_button_summary">Replace clear all notification text with floating button</string>
-
+	
+    <!-- sb styles -->
+    <string name="statusbar_dual_style_title">StatusBar layout style</string>
+    <string name="statusbar_dual_style_summary">Choose style</string>
+    <string name="statusbar_dual_style_def">DualBar Default</string>
+    <string name="statusbar_dual_style_1">Ios Style </string>
+    <string name="statusbar_dual_style_2">DualBar Style With Left Analog</string>
+    <string name="statusbar_dual_style_3">DualBar Style With Center Analog</string>
+	
+    <!-- Brightness text -->
+    <string name="ancient_brightness_text">Brightness Progress Text</string>
+    <string name="ancient_brightness_text_summary">Hide and Show Brigthness Text</string>
+	
+    <!-- Custom footer carrier label -->
+    <string name="footercarrier_label_title">Footer Carrier label</string>
+    <string name="footercarrier_label_summary">Customize the Footer carrier label</string>
+    <string name="footercarrier_options">Select display locations</string>
+    <string name="show_status_bar_footercarrier_title">Footer carrier</string>
+    <string name="show_status_bar_footercarrier_summary">Show Footercarrier in footer</string>
+    <string name="custom_footercarrier_label_title">Custom Footercarrier label</string>
+    <string name="custom_footercarrier_label_explain">Enter a custom label. Leave blank to use your network name</string>
+    <string name="custom_footercarrier_label_notset">Custom label currently not set</string>
+    <string name="show_footercarrier_title">Footer Carrier label</string>
+    <string name="show_footercarrier_disabled">Disabled</string>
+    <string name="show_footercarrier_footer">QS Footer</string>
+    <string name="show_footercarrier_enabled">All</string>
+	
+    <!-- Audio Panel view  -->
+    <string name="audio_panel_view">Audio panel</string>
+    <string name="audio_panel_view_media_title">Media</string>
+    <string name="audio_panel_view_ringer_title">Ring</string>
+    <string name="audio_panel_view_notification_title">Notification</string>
+    <string name="audio_panel_view_alarm_title">Alarm</string>
+    <string name="audio_panel_view_voice_title">Voice</string>
+    <string name="audio_panel_view_bt_sco_title">Bluetooth</string>	
+	
+    <!-- sb styles -->
+    <string name="collapsed_style_title">Showing Account as style</string>
+    <string name="collapsed_dual_style_summary">Choose style</string>
+    <string name="collapse_style_1">Icon Toolbar</string>
+    <string name="collapse_style_2">Preference</string>
+    <string name="collapse_style_3">Showing all</string>
+    <string name="collapse_style_4">Hide all</string>
+	
 </resources>
