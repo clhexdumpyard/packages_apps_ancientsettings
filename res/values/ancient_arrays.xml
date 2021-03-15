@@ -1175,8 +1175,8 @@
     </string-array>
      
     <string-array name="collapsed_base_style_entries" translatable="false">
-        <item>@string/collapse_style_1</item>
-        <item>@string/collapse_style_2</item>
+        <item>@string/collapse_base_style_1</item>
+        <item>@string/collapse_base_style_2</item>
     </string-array>
 
     <string-array name="collapsed_base_style_values" translatable="false">
