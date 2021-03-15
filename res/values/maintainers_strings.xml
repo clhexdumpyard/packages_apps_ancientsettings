@@ -43,7 +43,7 @@
     <string name="device_mido_summary" translatable="false">mido\nSmokey (smokey_18)</string>
 
     <string name="device_violet" translatable="false">Xiaomi Redmi Note 7 Pro</string> 
-    <string name="device_violet_summary" translatable="false">violet\nvishwas7 </string>
+    <string name="device_violet_summary" translatable="false">violet\nBrucetech</string>
 
     <string name="device_tulip" translatable="false">Xiaomi Redmi Note 6 Pro</string> 
     <string name="device_tulip_summary" translatable="false">tulip\nNiteshkumar</string>
@@ -128,5 +128,23 @@
 
     <string name="device_surya" translatable="false">POCO X3 NFC</string>
     <string name="device_surya_summary" translatable="false">surya\nKubilHadinata</string>
+
+    <string name="device_RMX1971" translatable="false">Realme 5 Pro</string>
+    <string name="device_RMX1971_summary" translatable="false">RMX1971\nAhmed (LuckYVii)</string>
+
+    <string name="device_sakura" translatable="false">Xiaomi Redmi 6 Pro</string>
+    <string name="device_sakura_summary" translatable="false">sakura\nSoumyajit Paul (soumyajit007-creator)</string>
+
+    <string name="device_payton" translatable="false">Moto X4</string>
+    <string name="device_payton_summary" translatable="false">payton\nYukki159</string>
+
+    <string name="device_phoenix" translatable="false">POCO X2</string>
+    <string name="device_phoenix_summary" translatable="false">phoenix\nbibindasb</string>
+
+    <string name="device_rmx2020" translatable="false">Realme C3/Narzo 10A</string>
+    <string name="device_rmx2020_summary" translatable="false">rmx2020\nSarthak Roy (sarthakroy2002)</string>
+
+    <string name="device_lava" translatable="false">Redmi 9 / Poco M2 </string>
+    <string name="device_lava_summary" translatable="false">lava\nhenloboi</string>
 
 </resources>
