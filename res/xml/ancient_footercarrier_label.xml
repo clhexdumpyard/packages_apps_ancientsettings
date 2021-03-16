@@ -15,7 +15,7 @@
             xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
             android:title="@string/footercarrier_label_title" >
 
-    <com.ancient.settings.preferences.SystemSettingSwitchPreference
+    <com.ancient.settings.preferences.SystemSettingListPreference
         android:key="STATUS_BAR_SHOW_FOOTERCARRIER"
         android:title="@string/show_footercarrier_title"
         android:dialogTitle="@string/carrier_options" />
