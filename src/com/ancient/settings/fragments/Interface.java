@@ -88,12 +88,14 @@ public class Interface extends DashboardFragment implements
 
     private static final String TAG = "Interface";
     private static final String PREF_THEME_SWITCH = "theme_switch";
-    private static final String AVATARVIEWVIS = "AvatarViewVis";    
+    private static final String AVATARVIEWVIS = "AvatarViewVis"; 
+    private static final String ANCIENT_COLLAPSED_BASE_STYLE = "ancient_collapsed_base_style";     
 
     private IOverlayManager mOverlayService;
     private UiModeManager mUiModeManager;
 
-    private SystemSettingListPreference mAvatarViewVis;    
+    private SystemSettingListPreference mAvatarViewVis; 
+    private SystemSettingListPreference mAncientCollapsedBaseStyle;    
     private ListPreference mThemeSwitch;
 
     @Override
@@ -119,6 +121,8 @@ public class Interface extends DashboardFragment implements
             
         mAvatarViewVis = (SystemSettingListPreference) findPreference("AvatarViewVis"); 
         mAvatarViewVis.setOnPreferenceChangeListener(this);
+        mAncientCollapsedBaseStyle = (SystemSettingListPreference) findPreference("ancient_collapsed_base_style"); 
+        mAncientCollapsedBaseStyle.setOnPreferenceChangeListener(this);    
             
     }
 
@@ -255,7 +259,13 @@ public class Interface extends DashboardFragment implements
              } catch (RemoteException ignored) {
              }
             return true;   
-        }        
+        } else if (preference == mAncientCollapsedBaseStyle) { 
+            try {
+                 mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
+             } catch (RemoteException ignored) {
+             }
+            return true;   
+        }           
         return false;
     }
 

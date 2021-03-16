@@ -1190,12 +1190,16 @@
     <string name="audio_panel_view_voice_title">Voice</string>
     <string name="audio_panel_view_bt_sco_title">Bluetooth</string>	
 	
-    <!-- sb styles -->
+    <!-- col styles -->
     <string name="collapsed_style_title">Showing Account as style</string>
     <string name="collapsed_dual_style_summary">Choose style</string>
     <string name="collapse_style_1">Icon Toolbar</string>
     <string name="collapse_style_2">Preference</string>
     <string name="collapse_style_3">Showing all</string>
     <string name="collapse_style_4">Hide all</string>
+    <string name="collapsed_base_style_title">Subsettings Collapsed style</string>
+    <string name="collapsed_base_style_summary">Choose style</string>
+    <string name="collapse_base_style_1">A12</string>
+    <string name="collapse_base_style_2">ONEUI</string>
 	
 </resources>
