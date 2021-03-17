@@ -71,6 +71,7 @@ import com.ancient.settings.display.AnTopadStylePreferenceController;
 import com.ancient.settings.display.SbBrightnStylePreferenceController;
 import com.ancient.settings.display.SbQsbgStylePreferenceController;
 import com.ancient.settings.preferences.SystemSettingListPreference;
+import com.ancient.settings.preferences.SystemSettingSwitchPreference;
 
 import com.android.internal.util.ancient.ThemesUtils;
 import com.android.internal.util.ancient.AncientUtils;
@@ -89,13 +90,15 @@ public class Interface extends DashboardFragment implements
     private static final String TAG = "Interface";
     private static final String PREF_THEME_SWITCH = "theme_switch";
     private static final String AVATARVIEWVIS = "AvatarViewVis"; 
-    private static final String ANCIENT_COLLAPSED_BASE_STYLE = "ancient_collapsed_base_style";     
+    private static final String ANCIENT_COLLAPSED_BASE_STYLE = "ancient_collapsed_base_style";   
+    private static final String COLLAPSEONOFF = "collapseonoff";       
 
     private IOverlayManager mOverlayService;
     private UiModeManager mUiModeManager;
 
     private SystemSettingListPreference mAvatarViewVis; 
-    private SystemSettingListPreference mAncientCollapsedBaseStyle;    
+    private SystemSettingListPreference mAncientCollapsedBaseStyle;
+    private SystemSettingSwitchPreference mAncientCollapsedOnoff;        
     private ListPreference mThemeSwitch;
 
     @Override
@@ -122,7 +125,9 @@ public class Interface extends DashboardFragment implements
         mAvatarViewVis = (SystemSettingListPreference) findPreference("AvatarViewVis"); 
         mAvatarViewVis.setOnPreferenceChangeListener(this);
         mAncientCollapsedBaseStyle = (SystemSettingListPreference) findPreference("ancient_collapsed_base_style"); 
-        mAncientCollapsedBaseStyle.setOnPreferenceChangeListener(this);    
+        mAncientCollapsedBaseStyle.setOnPreferenceChangeListener(this);
+        mAncientCollapsedOnoff = (SystemSettingSwitchPreference) findPreference("collapseonoff"); 
+        mAncientCollapsedOnoff.setOnPreferenceChangeListener(this);        
             
     }
 
@@ -265,7 +270,13 @@ public class Interface extends DashboardFragment implements
              } catch (RemoteException ignored) {
              }
             return true;   
-        }           
+        } else if (preference == mAncientCollapsedOnoff) { 
+            try {
+                 mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
+             } catch (RemoteException ignored) {
+             }
+            return true;   
+        }               
         return false;
     }
 
