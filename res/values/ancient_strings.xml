@@ -1205,5 +1205,7 @@
     <string name="collapsed_base_style_summary">Choose style</string>
     <string name="collapse_base_style_1">A12</string>
     <string name="collapse_base_style_2">ONEUI</string>
+    <string name="collapsed_switch_title">Subsettings Collapsed Switch</string>
+    <string name="collapsed_switch_summary">switch it on to enable collapse</string>
 	
 </resources>
