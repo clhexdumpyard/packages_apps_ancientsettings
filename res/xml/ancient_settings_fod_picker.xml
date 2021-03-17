@@ -25,4 +25,9 @@
         android:layout="@layout/fod_picker_preference"
         android:selectable="false"/>
 
+    <com.android.settingslib.widget.FooterPreference
+        android:key="fod_icon_footer"
+        android:selectable="false"
+        settings:searchable="false" />
+
 </PreferenceScreen>
