@@ -65,9 +65,16 @@
             android:entryValues="@array/collapsed_style_values"             
             android:title="@string/collapsed_style_title"/> 
          
+        <com.ancient.settings.preferences.SystemSettingSwitchPreference
+            android:layout="@layout/ancient_cardpreference_middle"
+            android:key="collapseonoff"
+            android:summary="@string/collapsed_switch_summary"             
+            android:title="@string/collapsed_switch_title"/>  
+         
         <com.ancient.settings.preferences.SystemSettingListPreference
             android:layout="@layout/ancient_cardpreference_middle"
             android:key="ancient_collapsed_base_style"
+            android:dependency="collapseonoff"                                                          
             android:entries="@array/collapsed_base_style_entries"
             android:summary="@string/collapsed_base_style_summary"            
             android:entryValues="@array/collapsed_base_style_values"             
