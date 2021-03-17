@@ -718,6 +718,7 @@
     <string name="fod_pressed_color_yellow">Yellow</string>
     <string name="fod_pressed_color_realme_white">Realme White</string>
     <string name="fod_pressed_color_realme_green">Realme Green</string>
+    <string name="fod_pressed_color_light_yellow">Light Yellow</string>
 
     <!-- Headset ringtone audio focus -->
     <string name="ringtone_focus_mode_title">Where to play ringtones from</string>
