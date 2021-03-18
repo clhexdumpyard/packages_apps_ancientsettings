@@ -67,6 +67,13 @@
          
         <com.ancient.settings.preferences.SystemSettingSwitchPreference
             android:layout="@layout/ancient_cardpreference_middle"
+            android:key="ancient_style_transparant"
+            android:defaultValue="0"
+            android:summary="@string/setting_transparan_summary"             
+            android:title="@string/setting_transparan_title"/>   
+         
+        <com.ancient.settings.preferences.SystemSettingSwitchPreference
+            android:layout="@layout/ancient_cardpreference_middle"
             android:key="collapseonoff"
             android:defaultValue="0"
             android:summary="@string/collapsed_switch_summary"             
