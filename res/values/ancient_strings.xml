@@ -1212,4 +1212,8 @@
     <string name="collapsed_switch_title">Subsettings Collapsed Switch</string>
     <string name="collapsed_switch_summary">switch it on to enable collapse</string>
 	
+    <!-- trans setting -->
+    <string name="setting_transparan_title">Transparent Settings</string>
+    <string name="setting_transparan_summary">switch it on to make settings transparent</string>
+	
 </resources>
