@@ -65,6 +65,10 @@
         <item>@string/status_bar_battery_style_dotted_circle</item>
         <item>@string/status_bar_battery_style_filled_circle</item>
         <item>@string/status_bar_battery_style_landscape</item> 
+        <item>@string/status_bar_battery_style_landscapea</item> 
+        <item>@string/status_bar_battery_style_landscapeb</item> 
+        <item>@string/status_bar_battery_style_landscapec</item> 
+        <item>@string/status_bar_battery_style_landscaped</item> 
         <item>@string/status_bar_battery_style_text</item>
         <item>@string/status_bar_battery_style_hidden</item>
     </string-array>
@@ -77,6 +81,10 @@
         <item>4</item>
         <item>5</item>
         <item>6</item> 
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>  
     </string-array>
 
     <string-array name="qs_show_brightness_slider_entries" translatable="false">
