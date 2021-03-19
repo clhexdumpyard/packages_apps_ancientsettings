@@ -53,24 +53,24 @@
             android:persistent="false" />
 
         <ListPreference
-            android:layout="@layout/ancient_cardpreference_middle"
+            android:layout="@layout/ancient_cardpreference_bottom"
             android:key="android.theme.customization.accent_color"
             android:title="@string/theme_customization_accent_color_title"/>
          
+       </PreferenceCategory>  
+         
+        <PreferenceCategory
+        android:layout="@layout/ancient_cardpreference_category"
+        android:key="megalith_setings"
+        android:title="@string/setting_megalith_zone_title"> 
+         
         <com.ancient.settings.preferences.SystemSettingListPreference
-            android:layout="@layout/ancient_cardpreference_middle"
+            android:layout="@layout/ancient_cardpreference_top"
             android:key="AvatarViewVis"
             android:entries="@array/collapsed_style_entries"
             android:summary="@string/collapsed_dual_style_summary"            
             android:entryValues="@array/collapsed_style_values"             
-            android:title="@string/collapsed_style_title"/> 
-         
-        <com.ancient.settings.preferences.SystemSettingSwitchPreference
-            android:layout="@layout/ancient_cardpreference_middle"
-            android:key="ancient_style_transparant"
-            android:defaultValue="0"
-            android:summary="@string/setting_transparan_summary"             
-            android:title="@string/setting_transparan_title"/>   
+            android:title="@string/collapsed_style_title"/>  
          
         <com.ancient.settings.preferences.SystemSettingSwitchPreference
             android:layout="@layout/ancient_cardpreference_middle"
