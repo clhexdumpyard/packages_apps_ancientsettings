@@ -1214,4 +1214,19 @@
 
     <string name="setting_megalith_zone_title">Settings Zone</string>
 	
+    <!-- setbg styles -->
+    <string name="seetingsbg_style_entries">Settings Hompage Background</string>
+    <string name="seetingsbg_style_summary">Choose style</string>
+    <string name="seetingsbg_style_1">Default Transparent</string>
+    <string name="seetingsbg_style_2">Style 1</string>
+    <string name="seetingsbg_style_3">Style 2</string>
+    <string name="seetingsbg_style_4">Batik (from Ancient 4)</string>
+    <string name="seetingsbg_style_5">Style 4</string>
+    <string name="seetingsbg_style_6">Style 5</string>
+    <string name="seetingsbg_style_7">Style 6</string>
+    <string name="seetingsbg_style_8">Style 7</string>
+    <string name="seetingsbg_style_9">Style 8</string>
+    <string name="seetingsbg_style_10">Style 9</string>
+    <string name="seetingsbg_style_11">Style 10</string>
+	
 </resources>
