@@ -134,7 +134,7 @@ public class Interface extends DashboardFragment implements
         mAncientCollapsedOnoff.setOnPreferenceChangeListener(this);
         mAncientHomepageBackground = (ListPreference) findPreference("ancient_homepage_background"); 
         mAncientHomepageBackground.setOnPreferenceChangeListener(this);
-        mAncientCollapseHeader = (SystemSettingSwitchPreference) findPreference("ancient_collapse_header"); 
+        mAncientCollapseHeader = (SystemSettingListPreference) findPreference("ancient_collapse_header"); 
         mAncientCollapseHeader.setOnPreferenceChangeListener(this);      
             
     }
