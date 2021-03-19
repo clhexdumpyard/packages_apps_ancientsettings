@@ -1215,7 +1215,7 @@
     <string name="setting_megalith_zone_title">Settings Zone</string>
 	
     <!-- setbg styles -->
-    <string name="seetingsbg_style_entries">Settings Hompage Background</string>
+    <string name="seetingsbg_style_title">Settings Hompage Background</string>
     <string name="seetingsbg_style_summary">Choose style</string>
     <string name="seetingsbg_style_1">Default Transparent</string>
     <string name="seetingsbg_style_2">Style 1</string>
