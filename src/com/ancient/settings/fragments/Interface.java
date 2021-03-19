@@ -91,16 +91,14 @@ public class Interface extends DashboardFragment implements
     private static final String PREF_THEME_SWITCH = "theme_switch";
     private static final String AVATARVIEWVIS = "AvatarViewVis"; 
     private static final String ANCIENT_COLLAPSED_BASE_STYLE = "ancient_collapsed_base_style";   
-    private static final String COLLAPSEONOFF = "collapseonoff";  
-    private static final String ANCIENT_STYLE_TRANSPARANT = "ancient_style_transparant";      
+    private static final String COLLAPSEONOFF = "collapseonoff";     
 
     private IOverlayManager mOverlayService;
     private UiModeManager mUiModeManager;
 
     private SystemSettingListPreference mAvatarViewVis; 
     private SystemSettingListPreference mAncientCollapsedBaseStyle;
-    private SystemSettingSwitchPreference mAncientCollapsedOnoff;   
-    private SystemSettingSwitchPreference mAncientStyleTransparant;      
+    private SystemSettingSwitchPreference mAncientCollapsedOnoff;       
     private ListPreference mThemeSwitch;
 
     @Override
@@ -129,9 +127,7 @@ public class Interface extends DashboardFragment implements
         mAncientCollapsedBaseStyle = (SystemSettingListPreference) findPreference("ancient_collapsed_base_style"); 
         mAncientCollapsedBaseStyle.setOnPreferenceChangeListener(this);
         mAncientCollapsedOnoff = (SystemSettingSwitchPreference) findPreference("collapseonoff"); 
-        mAncientCollapsedOnoff.setOnPreferenceChangeListener(this);    
-        mAncientStyleTransparant = (SystemSettingSwitchPreference) findPreference("ancient_style_transparant"); 
-        mAncientStyleTransparant.setOnPreferenceChangeListener(this);      
+        mAncientCollapsedOnoff.setOnPreferenceChangeListener(this);        
             
     }
 
@@ -275,12 +271,6 @@ public class Interface extends DashboardFragment implements
              }
             return true;   
         } else if (preference == mAncientCollapsedOnoff) { 
-            try {
-                 mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
-             } catch (RemoteException ignored) {
-             }
-            return true;   
-        } else if (preference == mAncientStyleTransparant) { 
             try {
                  mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
              } catch (RemoteException ignored) {
