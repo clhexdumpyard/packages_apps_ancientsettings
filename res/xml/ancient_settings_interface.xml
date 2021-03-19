@@ -88,9 +88,10 @@
             android:entryValues="@array/collapsed_base_style_values"             
             android:title="@string/collapsed_base_style_title"/> 
 
-        <ListPreference
+        <com.ancient.settings.preferences.SystemSettingListPreference
             android:layout="@layout/ancient_cardpreference_bottom"
             android:key="ancient_homepage_background"
+            android:defaultValue="0"                                                          
             android:title="@string/seetingsbg_style_title"
             android:entries="@array/seetingsbg_style_entries"
             android:entryValues="@array/seetingsbg_style_values" />
