@@ -1242,6 +1242,8 @@
     <string name="ancicolepbg_style_8">Style 7</string>
     <string name="ancicolepbg_style_9">Style 8</string>
     <string name="ancicolepbg_style_10">Style 9</string>
-    <string name="ancicolepbg_style_11">Style 10</string>	
+    <string name="ancicolepbg_style_11">Style 10</string>
+    <string name="collapsed_home_switch_title">Settings Homepage Collapsed Switch</string>
+    <string name="collapsed_home_switch_summary">switch it on to enable collapse</string>
 	
 </resources>
