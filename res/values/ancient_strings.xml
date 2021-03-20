@@ -266,7 +266,7 @@
     <string name="fprint_success_vib_summary">Vibrate on successful fingerprint authentication</string>
 
     <!-- Battery Styles -->
-    <string name="battery_percent_title">Statusbar battery indicator</string>
+    <string name="battery_percent_title">Battery indicator</string>
     <string name="battery_percent_summary">Configure icon and text styles for the statusbar battery indicator</string>
     <string name="status_bar_battery_style_title">Battery style</string>
     <string name="status_bar_battery_style_icon_portrait">Icon portrait</string>
