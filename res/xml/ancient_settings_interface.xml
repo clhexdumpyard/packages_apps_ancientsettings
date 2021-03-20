@@ -63,10 +63,18 @@
         android:layout="@layout/ancient_cardpreference_category"
         android:key="megalith_setings"
         android:title="@string/setting_megalith_zone_title"> 
+             
+        <com.ancient.settings.preferences.SystemSettingSwitchPreference
+            android:layout="@layout/ancient_cardpreference_top"
+            android:key="homecollapseonoff"                             
+            android:defaultValue="0"
+            android:summary="@string/collapsed_home_switch_summary"             
+            android:title="@string/collapsed_home_switch_title"/>       
          
         <com.ancient.settings.preferences.SystemSettingListPreference
-            android:layout="@layout/ancient_cardpreference_top"
+            android:layout="@layout/ancient_cardpreference_middle"                                                          
             android:key="AvatarViewVis"
+            android:dependency="homecollapseonoff"  
             android:defaultValue="0"                                                          
             android:entries="@array/collapsed_style_entries"           
             android:entryValues="@array/collapsed_style_values"             
