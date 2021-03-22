@@ -1246,4 +1246,8 @@
     <string name="collapsed_home_switch_title">Settings Homepage Collapsed Switch</string>
     <string name="collapsed_home_switch_summary">switch it on to enable collapse</string>
 	
+    <!-- flip it -->
+    <string name="flip_batre_title">Battery Layout</string>
+    <string name="flip_batre_summary">flip the battery layout</string>	
+	
 </resources>
