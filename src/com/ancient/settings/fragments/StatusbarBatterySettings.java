@@ -66,6 +66,8 @@ public class StatusbarBatterySettings extends SettingsPreferenceFragment impleme
     private SystemSettingSwitchPreference mFlipLayoutBatre;    
 
     private int mBatteryPercentValue;
+        
+    private IOverlayManager mOverlayService;    
 
     private static final int BATTERY_STYLE_PORTRAIT = 0;
     private static final int BATTERY_STYLE_TEXT = 9;
