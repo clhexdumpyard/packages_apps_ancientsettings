@@ -10,7 +10,6 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-	android:background="@color/ancient_top_settings_color_bg"
 	tools:context="com.ancient.settings.AncientSettings"
 	app:layout_behavior="com.ancient.nabil_aba.overscroll.OverScrollBounceBehavior">
 
