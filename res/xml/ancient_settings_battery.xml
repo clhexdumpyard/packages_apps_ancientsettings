@@ -31,4 +31,10 @@
         android:summary="@string/sensor_block_summary"
         android:fragment="com.ancient.settings.fragments.SensorBlock"/>
 
+    <Preference
+        android:key="aggressive_battery"
+        android:title="@string/aggressive_battery_title"
+        android:summary="@string/aggressive_battery_summary"
+        android:fragment="com.ancient.settings.fragments.AggressiveBattery" />
+
 </PreferenceScreen>
