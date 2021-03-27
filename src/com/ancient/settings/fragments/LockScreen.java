@@ -49,6 +49,7 @@ import java.util.Objects;
 public class LockScreen extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener, Indexable {
 
+    private static final String AOD_SCHEDULE_KEY = "always_on_display_schedule";
     private static final String FINGERPRINT_ERROR_VIB = "fingerprint_error_vib";
     private static final String FINGERPRINT_VIB = "fingerprint_success_vib";
     private static final String FOD_ANIMATION_CATEGORY = "fod_animations";
@@ -60,6 +61,8 @@ public class LockScreen extends SettingsPreferenceFragment implements
     private SwitchPreference mFingerprintVib;
     private PreferenceCategory mFODIconPickerCategory;
     private CustomSeekBarPreference mMaxKeyguardNotifConfig;
+
+    Preference mAODPref;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -117,6 +120,32 @@ public class LockScreen extends SettingsPreferenceFragment implements
                 Settings.System.LOCKSCREEN_MAX_NOTIF_CONFIG, 3);
         mMaxKeyguardNotifConfig.setValue(kgconf);
         mMaxKeyguardNotifConfig.setOnPreferenceChangeListener(this);
+
+        mAODPref = findPreference(AOD_SCHEDULE_KEY);
+        updateAlwaysOnSummary();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        updateAlwaysOnSummary();
+    }
+
+    private void updateAlwaysOnSummary() {
+        if (mAODPref == null) return;
+        int mode = Settings.Secure.getIntForUser(getActivity().getContentResolver(),
+                Settings.Secure.DOZE_ALWAYS_ON_AUTO_MODE, 0, UserHandle.USER_CURRENT);
+        switch (mode) {
+            case 0:
+                mAODPref.setSummary(R.string.disabled);
+                break;
+            case 1:
+                mAODPref.setSummary(R.string.night_display_auto_mode_twilight);
+                break;
+            case 2:
+                mAODPref.setSummary(R.string.night_display_auto_mode_custom);
+                break;
+        }
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {

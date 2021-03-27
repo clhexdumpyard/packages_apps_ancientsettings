@@ -119,6 +119,7 @@
     <string name="edit_hint">Value</string>
     <string name="seek_value_edit_label">Set value</string>
     <string name="default_string">Default</string>
+    <string name="disabled">Disabled</string>
 
     <!-- Color Picker -->
     <string name="dialog_color_picker">Color Picker</string>
@@ -1163,5 +1164,10 @@
     <string name="aggressive_standby_summary">Restrict apps from running the background</string>
     <string name="aggressive_battery_saver_title">Auto-enable on battery saver</string>
     <string name="aggressive_battery_saver_summary">Enable Aggressive Battery automatically when using battery saver</string>
+
+    <!-- AOD Schedule -->
+    <string name="always_on_display_schedule_title">AOD schedule</string>
+    <string name="always_on_display_schedule_sunset">Sunset</string>
+    <string name="always_on_display_schedule_sunrise">Sunrise</string>
 
 </resources>
