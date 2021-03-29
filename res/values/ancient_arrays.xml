@@ -1287,5 +1287,19 @@
         <item>19</item>
         <item>20</item>   
     </string-array>  
+     
+    <string-array name="ancicoleptoolbg_style_entries" translatable="false">
+        <item>@string/ancicoleptoolbg_style_1</item>
+        <item>@string/ancicoleptoolbg_style_2</item>
+        <item>@string/ancicoleptoolbg_style_3</item>
+        <item>@string/ancicoleptoolbg_style_4</item>  
+    </string-array>   
+
+    <string-array name="ancicoleptoolbg_style_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item> 
+    </string-array>   
 
 </resources>
