@@ -1203,7 +1203,17 @@
         <item>@string/seetingsbg_style_8</item> 
         <item>@string/seetingsbg_style_9</item>
         <item>@string/seetingsbg_style_10</item>
-        <item>@string/seetingsbg_style_11</item>   
+        <item>@string/seetingsbg_style_11</item>
+        <item>@string/seetingsbg_style_12</item>
+        <item>@string/seetingsbg_style_13</item>
+        <item>@string/seetingsbg_style_14</item>
+        <item>@string/seetingsbg_style_15</item>
+        <item>@string/seetingsbg_style_16</item>
+        <item>@string/seetingsbg_style_17</item>
+        <item>@string/seetingsbg_style_18</item> 
+        <item>@string/seetingsbg_style_19</item>
+        <item>@string/seetingsbg_style_20</item>
+        <item>@string/seetingsbg_style_21</item> 
     </string-array>   
 
     <string-array name="seetingsbg_style_values" translatable="false">
@@ -1217,7 +1227,17 @@
         <item>7</item>
         <item>8</item>
         <item>9</item>
-        <item>10</item>  
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item> 
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+        <item>20</item>   
     </string-array> 
      
     <string-array name="ancicolepbg_style_entries" translatable="false">
@@ -1231,7 +1251,17 @@
         <item>@string/ancicolepbg_style_8</item> 
         <item>@string/ancicolepbg_style_9</item>
         <item>@string/ancicolepbg_style_10</item>
-        <item>@string/ancicolepbg_style_11</item>   
+        <item>@string/ancicolepbg_style_11</item>
+         <item>@string/ancicolepbg_style_12</item>
+        <item>@string/ancicolepbg_style_13</item>
+        <item>@string/ancicolepbg_style_14</item>
+        <item>@string/ancicolepbg_style_15</item>
+        <item>@string/ancicolepbg_style_16</item>
+        <item>@string/ancicolepbg_style_17</item>
+        <item>@string/ancicolepbg_style_18</item> 
+        <item>@string/ancicolepbg_style_19</item>
+        <item>@string/ancicolepbg_style_20</item>
+        <item>@string/ancicolepbg_style_21</item>   
     </string-array>   
 
     <string-array name="ancicolepbg_style_values" translatable="false">
@@ -1245,7 +1275,17 @@
         <item>7</item>
         <item>8</item>
         <item>9</item>
-        <item>10</item>  
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item> 
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+        <item>20</item>   
     </string-array>  
 
 </resources>
