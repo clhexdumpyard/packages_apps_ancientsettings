@@ -1266,6 +1266,13 @@
     <string name="collapsed_home_switch_title">Settings Homepage Collapsed Switch</string>
     <string name="collapsed_home_switch_summary">switch it on to enable collapse</string>
 	
+    <!-- coleptoolbg styles -->
+    <string name="ancicoleptoolbg_style_title">ActionBar on Collapsed Background</string>
+    <string name="ancicoleptoolbg_style_1">Default Window Background</string>
+    <string name="ancicoleptoolbg_style_2">Accent</string>
+    <string name="ancicoleptoolbg_style_3">Device Default Light</string>
+    <string name="ancicoleptoolbg_style_4">Transparent</string>	
+	
     <!-- flip it -->
     <string name="flip_batre_title">Battery Layout</string>
     <string name="flip_batre_summary">flip the battery layout</string>	
