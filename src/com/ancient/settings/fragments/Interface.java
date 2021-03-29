@@ -94,7 +94,8 @@ public class Interface extends DashboardFragment implements
     private static final String COLLAPSEONOFF = "collapseonoff";
     private static final String ANCIENT_HOMEPAGE_BACKGROUND = "ancient_homepage_background";  
     private static final String ANCIENT_COLLAPSE_HEADER = "ancient_collapse_header";  
-    private static final String HOMECOLLAPSEONOFF = "homecollapseonoff";    
+    private static final String HOMECOLLAPSEONOFF = "homecollapseonoff";   
+    private static final String ANCIENT_COLLAPSETOOL_BG = "ancient_collapsetool_bg";     
 
     private IOverlayManager mOverlayService;
     private UiModeManager mUiModeManager;
@@ -104,7 +105,8 @@ public class Interface extends DashboardFragment implements
     private SystemSettingSwitchPreference mAncientCollapsedOnoff;  
     private ListPreference mAncientHomepageBackground; 
     private SystemSettingListPreference mAncientCollapseHeader;   
-    private SystemSettingSwitchPreference mAncientHomeCollapsedOnoff;      
+    private SystemSettingSwitchPreference mAncientHomeCollapsedOnoff;   
+    private SystemSettingListPreference mAncientCollapseToolBg;     
     private ListPreference mThemeSwitch;
 
     @Override
@@ -139,7 +141,9 @@ public class Interface extends DashboardFragment implements
         mAncientCollapseHeader = (SystemSettingListPreference) findPreference("ancient_collapse_header"); 
         mAncientCollapseHeader.setOnPreferenceChangeListener(this);  
         mAncientHomeCollapsedOnoff = (SystemSettingSwitchPreference) findPreference("homecollapseonoff"); 
-        mAncientHomeCollapsedOnoff.setOnPreferenceChangeListener(this);    
+        mAncientHomeCollapsedOnoff.setOnPreferenceChangeListener(this); 
+        mAncientCollapseToolBg = (SystemSettingListPreference) findPreference("ancient_collapsetool_bg"); 
+        mAncientCollapseToolBg.setOnPreferenceChangeListener(this);      
             
     }
 
@@ -305,7 +309,13 @@ public class Interface extends DashboardFragment implements
              } catch (RemoteException ignored) {
              }
             return true;           
-        }                                    
+        }  else if (preference == mAncientCollapseToolBg) { 
+            try {
+                 mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
+             } catch (RemoteException ignored) {
+             }
+            return true;           
+        }                                      
         return false;
     }
 
