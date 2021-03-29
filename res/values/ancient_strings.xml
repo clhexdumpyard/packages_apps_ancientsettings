@@ -1228,6 +1228,16 @@
     <string name="seetingsbg_style_9">Style 8</string>
     <string name="seetingsbg_style_10">Style 9</string>
     <string name="seetingsbg_style_11">Style 10</string>
+    <string name="seetingsbg_style_12">Style 11</string>
+    <string name="seetingsbg_style_13">Style 12</string>
+    <string name="seetingsbg_style_14">Style 13</string>
+    <string name="seetingsbg_style_15">Style 14</string>
+    <string name="seetingsbg_style_16">Style 15</string>
+    <string name="seetingsbg_style_17">Style 16</string>
+    <string name="seetingsbg_style_18">Style 17</string>
+    <string name="seetingsbg_style_19">Style 18</string>
+    <string name="seetingsbg_style_20">Style 19</string>
+    <string name="seetingsbg_style_21">Style 20</string>
 	
     <!-- colepbg styles -->
     <string name="ancicolepbg_style_title">Collapse Background</string>
@@ -1243,6 +1253,16 @@
     <string name="ancicolepbg_style_9">Style 8</string>
     <string name="ancicolepbg_style_10">Style 9</string>
     <string name="ancicolepbg_style_11">Style 10</string>
+    <string name="ancicolepbg_style_12">Style 11</string>
+    <string name="ancicolepbg_style_13">Style 12</string>
+    <string name="ancicolepbg_style_14">Style 13</string>
+    <string name="ancicolepbg_style_15">Style 14</string>
+    <string name="ancicolepbg_style_16">Style 15</string>
+    <string name="ancicolepbg_style_17">Style 16</string>
+    <string name="ancicolepbg_style_18">Style 17</string>
+    <string name="ancicolepbg_style_19">Style 18</string>
+    <string name="ancicolepbg_style_20">Style 19</string>
+    <string name="ancicolepbg_style_21">Style 20</string>	
     <string name="collapsed_home_switch_title">Settings Homepage Collapsed Switch</string>
     <string name="collapsed_home_switch_summary">switch it on to enable collapse</string>
 	
