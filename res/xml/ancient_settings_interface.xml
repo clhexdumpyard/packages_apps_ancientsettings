@@ -103,15 +103,23 @@
             android:defaultValue="0"                                                          
             android:title="@string/ancicolepbg_style_title"
             android:entries="@array/ancicolepbg_style_entries"
-            android:entryValues="@array/ancicolepbg_style_values" />      
+            android:entryValues="@array/ancicolepbg_style_values" />   
 
         <com.ancient.settings.preferences.SystemSettingListPreference
-            android:layout="@layout/ancient_cardpreference_bottom"
+            android:layout="@layout/ancient_cardpreference_middle"
             android:key="ancient_homepage_background"
             android:defaultValue="0"                                                          
             android:title="@string/seetingsbg_style_title"
             android:entries="@array/seetingsbg_style_entries"
             android:entryValues="@array/seetingsbg_style_values" />
+             
+        <com.ancient.settings.preferences.SystemSettingListPreference
+            android:layout="@layout/ancient_cardpreference_bottom"
+            android:key="ancient_collapsetool_bg"
+            android:defaultValue="0"                                                          
+            android:title="@string/ancicoleptoolbg_style_title"
+            android:entries="@array/ancicoleptoolbg_style_entries"
+            android:entryValues="@array/ancicoleptoolbg_style_values" />     
     </PreferenceCategory>
 
     <PreferenceCategory
