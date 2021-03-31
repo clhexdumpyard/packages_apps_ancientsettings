@@ -157,10 +157,7 @@ public class QuickSettings extends SettingsPreferenceFragment
             AncientUtils.showSystemUiRestartDialog(getContext());
             return true;
         }  else if (preference == mQsBlurBg) { 
-            try {
-                 mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
-             } catch (RemoteException ignored) {
-             }
+            AncientUtils.showSystemUiRestartDialog(getContext());
             return true;         
         }
         return false;
