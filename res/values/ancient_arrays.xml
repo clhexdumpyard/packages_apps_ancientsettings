@@ -1304,7 +1304,7 @@
      
     <string-array name="qs_blur_bg_entries" translatable="false">
         <item>@string/qs_blur_bg_style1</item>
-        <item>@string/qs_blur_bg_style</item>  
+        <item>@string/qs_blur_bg_style2</item>  
     </string-array>   
 
     <string-array name="qs_blur_bg_values" translatable="false">
