@@ -16,6 +16,7 @@
 package com.ancient.settings.fragments;
 
 import android.app.Activity;
+import android.app.UiModeManager;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
