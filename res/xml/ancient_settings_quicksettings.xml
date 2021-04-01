@@ -42,13 +42,13 @@
             android:defaultValue="100"
             android:dependency="QS_BLUR" /> 
      
-    <----com.ancient.settings.preferences.SystemSettingListPreference
+    <!--<com.ancient.settings.preferences.SystemSettingListPreference
         android:key="QS_BLUR_BG"
         android:title="@string/qs_blur_bg_title"
         android:entries="@array/qs_blur_bg_entries"
         android:entryValues="@array/qs_blur_bg_values"
         android:defaultValue="0"
-        android:dependency="QS_BLUR" /---->  
+        android:dependency="QS_BLUR" /-->  
 
     <com.ancient.settings.preferences.SystemSettingSwitchPreference
         android:key="qs_media_player"
