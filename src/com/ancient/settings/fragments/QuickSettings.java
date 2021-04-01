@@ -72,7 +72,7 @@ public class QuickSettings extends SettingsPreferenceFragment
     private static final String FOOTER_TEXT_STRING = "footer_text_string";
     private static final String STATUS_BAR_CUSTOM_HEADER = "status_bar_custom_header";
     private static final String PREF_QS_MEDIA_PLAYER = "qs_media_player";
-    private static final String QS_BLUR_BG = "QS_BLUR_BG";  
+    //private static final String QS_BLUR_BG = "QS_BLUR_BG";  
     
     private UiModeManager mUiModeManager;
 
@@ -80,7 +80,7 @@ public class QuickSettings extends SettingsPreferenceFragment
     private SystemSettingEditTextPreference mFooterString;
     private SystemSettingMasterSwitchPreference mCustomHeader;
     private SystemSettingSwitchPreference mQsMedia;
-    private SystemSettingListPreference mQsBlurBg;   
+    //private SystemSettingListPreference mQsBlurBg;   
     private IOverlayManager mOverlayService;
 
     @Override
@@ -122,8 +122,8 @@ public class QuickSettings extends SettingsPreferenceFragment
                 Settings.System.QS_MEDIA_PLAYER, 0) == 1));
         mQsMedia.setOnPreferenceChangeListener(this);
         
-        mQsBlurBg = (SystemSettingListPreference) findPreference("QS_BLUR_BG"); 
-        mQsBlurBg.setOnPreferenceChangeListener(this);
+        //mQsBlurBg = (SystemSettingListPreference) findPreference("QS_BLUR_BG"); 
+        //mQsBlurBg.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -156,9 +156,9 @@ public class QuickSettings extends SettingsPreferenceFragment
                     Settings.System.QS_MEDIA_PLAYER, value ? 1 : 0);
             AncientUtils.showSystemUiRestartDialog(getContext());
             return true;
-        }  else if (preference == mQsBlurBg) { 
-            AncientUtils.showSystemUiRestartDialog(getContext());
-            return true;         
+        //}  else if (preference == mQsBlurBg) { 
+            //AncientUtils.showSystemUiRestartDialog(getContext());
+            //return true;         
         }
         return false;
     }
