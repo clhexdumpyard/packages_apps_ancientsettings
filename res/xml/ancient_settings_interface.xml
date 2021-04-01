@@ -255,6 +255,13 @@
             android:title="@string/qs_bg_use_new_tint"
             android:summary="@string/qs_bg_use_new_tint_summary"
             android:defaultValue="true" />
+         
+        <com.ancient.settings.preferences.SystemSettingSwitchPreference
+            android:layout="@layout/ancient_cardpreference_middle"
+            android:key="QS_PANEL_BG_DISABLED_TINT"
+            android:title="@string/qs_bg_disable_tint"
+            android:summary="@string/qs_bg_disable_summary"
+            android:defaultValue="true" /> 
 
         <com.ancient.settings.preferences.SystemSettingSwitchPreference
             android:layout="@layout/ancient_cardpreference_bottom"
