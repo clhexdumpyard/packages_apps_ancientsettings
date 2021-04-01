@@ -744,7 +744,7 @@
     <string name="qs_bg_use_disco">QS tile disco</string>
     <string name="qs_bg_use_disco_summary">Make your QS Tiles colorful!</string>
     <string name="qs_bg_disable_tint">Tint QS Tile Background using accent color</string>
-    <string name="qs_bg_disable_tint_summary">Enable the accent color tint on the QS tiles Bg</string>
+    <string name="qs_bg_disable_summary">Enable the accent color tint on the QS tiles Bg</string>
 
     <!-- Accent color picker -->
     <string name="accent_color_title">Accent color picker</string>
