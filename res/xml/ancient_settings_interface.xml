@@ -258,10 +258,19 @@
          
         <com.ancient.settings.preferences.SystemSettingSwitchPreference
             android:layout="@layout/ancient_cardpreference_middle"
+            android:key="QS_PANEL_BG_ACTIVE_TINT"
+            android:title="@string/qs_bg_act_new_tint"
+            android:summary="@string/qs_bg_act_new_tint_summary"
+            android:defaultValue="false" /> 
+         
+        <com.ancient.settings.preferences.SystemSettingListPreference
+            android:layout="@layout/ancient_cardpreference_middle"
             android:key="QS_PANEL_BG_DISABLED_TINT"
             android:title="@string/qs_bg_disable_tint"
+            android:entries="@array/qs_tile_bg_entries"
+            android:entryValues="@array/qs_tile_bg_values"                                                          
             android:summary="@string/qs_bg_disable_summary"
-            android:defaultValue="true" /> 
+            android:defaultValue="0" /> 
 
         <com.ancient.settings.preferences.SystemSettingSwitchPreference
             android:layout="@layout/ancient_cardpreference_bottom"
