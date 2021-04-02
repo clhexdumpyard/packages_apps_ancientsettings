@@ -743,8 +743,13 @@
     <string name="qs_bg_use_new_tint_summary">Enable the accent color tint on the QS tiles</string>
     <string name="qs_bg_use_disco">QS tile disco</string>
     <string name="qs_bg_use_disco_summary">Make your QS Tiles colorful!</string>
-    <string name="qs_bg_disable_tint">Tint QS Tile Background using accent color</string>
-    <string name="qs_bg_disable_summary">Enable the accent color tint on the QS tiles Bg</string>
+    <string name="qs_bg_disable_tint">Tint QS Tile Disabled Background Style</string>
+    <string name="qs_bg_disable_summary">Choose one</string>
+    <string name="qs_tile_bg_style1">Default</string>
+    <string name="qs_tile_bg_style2">Accent</string>
+    <string name="qs_tile_bg_style3">Rainbow</string>
+    <string name="qs_bg_act_new_tint">Tint QS Tile Active Background using primary color</string>
+    <string name="qs_bg_act_new_tint_summary">swicth it on to get it</string>
 
     <!-- Accent color picker -->
     <string name="accent_color_title">Accent color picker</string>
@@ -1290,6 +1295,5 @@
     <string name="qs_blur_bg_summary">Choose one</string>
     <string name="qs_blur_bg_style1">Default</string>
     <string name="qs_blur_bg_style2">Accent</string>
-	
 	
 </resources>
