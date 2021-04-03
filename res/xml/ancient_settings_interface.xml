@@ -268,9 +268,24 @@
             android:key="QS_PANEL_BG_DISABLED_TINT"
             android:title="@string/qs_bg_disable_tint"
             android:entries="@array/qs_tile_bg_entries"
-            android:entryValues="@array/qs_tile_bg_values"                                                          
-            android:summary="@string/qs_bg_disable_summary"
-            android:defaultValue="0" /> 
+            android:entryValues="@array/qs_tile_bg_values"  
+            android:defaultValue="0" />
+         
+        <com.ancient.settings.preferences.SystemSettingListPreference
+            android:layout="@layout/ancient_cardpreference_middle"
+            android:key="QS_TILE_RAINBOW_TINT"
+            android:title="@string/qs_tile_random_title"
+            android:entries="@array/qs_tile_random_entries"
+            android:entryValues="@array/qs_tile_random_values" 
+            android:defaultValue="0" />
+         
+        <com.ancient.settings.preferences.SystemSettingListPreference
+            android:layout="@layout/ancient_cardpreference_middle"
+            android:key="QS_TITLE_RAINBOW_TINT"
+            android:title="@string/qs_title_random_title"
+            android:entries="@array/qs_title_random_entries"
+            android:entryValues="@array/qs_title_random_values" 
+            android:defaultValue="0" />  
 
         <com.ancient.settings.preferences.SystemSettingSwitchPreference
             android:layout="@layout/ancient_cardpreference_bottom"
