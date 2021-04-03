@@ -1300,12 +1300,12 @@
     <string name="qs_tile_random_title">Rainbow Tile Icon</string>
     <string name="qs_tile_random_summary">Choose one</string>
     <string name="qs_tile_random_style1">Disable</string>
-    <string name="qs_tile_random_style2">Random All</string>
-    <string name="qs_tile_random_style3">Random Active Color Only</string>
+    <string name="qs_tile_random_style2">Rainbow All</string>
+    <string name="qs_tile_random_style3">Rainbow Active Color Only</string>
     <string name="qs_title_random_title">Rainbow Tile Title</string>
     <string name="qs_title_random_summary">Choose one</string>
     <string name="qs_title_random_style1">Disable</string>
-    <string name="qs_title_random_style2">Random All</string>
-    <string name="qs_title_random_style3">Random Active Color Only</string>
+    <string name="qs_title_random_style2">Rainbow All</string>
+    <string name="qs_title_random_style3">Rainbow Active Color Only</string>
 	
 </resources>
