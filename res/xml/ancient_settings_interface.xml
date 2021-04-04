@@ -263,6 +263,20 @@
             android:summary="@string/qs_bg_act_new_tint_summary"
             android:defaultValue="false" /> 
          
+        <com.ancient.settings.preferences.SystemSettingSwitchPreference
+            android:layout="@layout/ancient_cardpreference_middle"                                                            
+            android:key="qs_tiles_bg_disco"
+            android:title="@string/qs_bg_use_disco"
+            android:summary="@string/qs_bg_use_disco_summary"
+            android:defaultValue="false" /> 
+         
+        <com.ancient.settings.preferences.SystemSettingSwitchPreference
+            android:layout="@layout/ancient_cardpreference_middle"                                                            
+            android:key="FOOTER_RAINBOW"
+            android:title="@string/qs_footer_rainbow"
+            android:summary="@string/qs_footer_rainbow_summary"
+            android:defaultValue="false" />  
+         
         <com.ancient.settings.preferences.SystemSettingListPreference
             android:layout="@layout/ancient_cardpreference_middle"
             android:key="QS_PANEL_BG_DISABLED_TINT"
@@ -280,19 +294,12 @@
             android:defaultValue="0" />
          
         <com.ancient.settings.preferences.SystemSettingListPreference
-            android:layout="@layout/ancient_cardpreference_middle"
+            android:layout="@layout/ancient_cardpreference_bottom"
             android:key="QS_TITLE_RAINBOW_TINT"
             android:title="@string/qs_title_random_title"
             android:entries="@array/qs_title_random_entries"
             android:entryValues="@array/qs_title_random_values" 
             android:defaultValue="0" />  
-
-        <com.ancient.settings.preferences.SystemSettingSwitchPreference
-            android:layout="@layout/ancient_cardpreference_bottom"
-            android:key="qs_tiles_bg_disco"
-            android:title="@string/qs_bg_use_disco"
-            android:summary="@string/qs_bg_use_disco_summary"
-            android:defaultValue="false" />
 
     </PreferenceCategory>
 
