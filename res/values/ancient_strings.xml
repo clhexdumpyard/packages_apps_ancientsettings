@@ -1307,5 +1307,7 @@
     <string name="qs_title_random_style1">Disable</string>
     <string name="qs_title_random_style2">Rainbow All</string>
     <string name="qs_title_random_style3">Rainbow Active Color Only</string>
+    <string name="qs_footer_rainbow">Footer Icon Rainbow</string>
+    <string name="qs_footer_rainbow_summary">Make footer icon colourfull</string>
 	
 </resources>
