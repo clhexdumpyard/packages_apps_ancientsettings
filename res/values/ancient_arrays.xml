@@ -1346,6 +1346,30 @@
         <item>0</item>
         <item>1</item>
         <item>2</item> 
+    </string-array>
+     
+    <string-array name="qs_footer_random_entries" translatable="false">
+        <item>@string/qs_footer_random_style1</item>
+        <item>@string/qs_footer_random_style2</item>  
+        <item>@string/qs_footer_random_style3</item>   
+    </string-array>   
+
+    <string-array name="qs_footer_random_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item> 
+    </string-array>  
+     
+    <string-array name="qs_tile_bg_actip_entries" translatable="false">
+        <item>@string/qs_tile_bg_actip_style1</item>
+        <item>@string/qs_tile_bg_actip_style2</item>  
+        <item>@string/qs_tile_bg_actip_style3</item>   
+    </string-array>   
+
+    <string-array name="qs_tile_bg_actip_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item> 
     </string-array> 
 
 </resources>
