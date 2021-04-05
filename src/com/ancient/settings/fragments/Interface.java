@@ -67,7 +67,6 @@ import com.ancient.settings.display.AnSwitchStylePreferenceController;
 import com.ancient.settings.display.AnAclockStylePreferenceController;
 import com.ancient.settings.display.AnSettingsStylePreferenceController;
 import com.ancient.settings.display.AnTooltipStylePreferenceController;
-import com.ancient.settings.display.AnTopadStylePreferenceController;
 import com.ancient.settings.display.SbBrightnStylePreferenceController;
 import com.ancient.settings.display.SbQsbgStylePreferenceController;
 import com.ancient.settings.preferences.SystemSettingListPreference;
@@ -177,7 +176,6 @@ public class Interface extends DashboardFragment implements
         controllers.add(new AnSwitchStylePreferenceController(context));
         controllers.add(new AnAclockStylePreferenceController(context));
         controllers.add(new AnTooltipStylePreferenceController(context));
-        controllers.add(new AnTopadStylePreferenceController(context));
         controllers.add(new SbBrightnStylePreferenceController(context));
         controllers.add(new SbQsbgStylePreferenceController(context));
         return controllers;
