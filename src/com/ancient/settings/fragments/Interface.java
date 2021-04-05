@@ -72,6 +72,7 @@ import com.ancient.settings.display.SbBrightnStylePreferenceController;
 import com.ancient.settings.display.SbQsbgStylePreferenceController;
 import com.ancient.settings.preferences.SystemSettingListPreference;
 import com.ancient.settings.preferences.SystemSettingSwitchPreference;
+import com.ancient.settings.preferences.SystemSettingSeekBarPreference;
 
 import com.android.internal.util.ancient.ThemesUtils;
 import com.android.internal.util.ancient.AncientUtils;
@@ -96,6 +97,7 @@ public class Interface extends DashboardFragment implements
     private static final String ANCIENT_COLLAPSE_HEADER = "ancient_collapse_header";  
     private static final String HOMECOLLAPSEONOFF = "homecollapseonoff";   
     private static final String ANCIENT_COLLAPSETOOL_BG = "ancient_collapsetool_bg";     
+    private static final String ANCI_TOP_PAD = "ANCI_TOP_PAD";     
 
     private IOverlayManager mOverlayService;
     private UiModeManager mUiModeManager;
@@ -106,7 +108,8 @@ public class Interface extends DashboardFragment implements
     private ListPreference mAncientHomepageBackground; 
     private SystemSettingListPreference mAncientCollapseHeader;   
     private SystemSettingSwitchPreference mAncientHomeCollapsedOnoff;   
-    private SystemSettingListPreference mAncientCollapseToolBg;     
+    private SystemSettingListPreference mAncientCollapseToolBg;
+    private SystemSettingSeekBarPreference mAnciTopPad;    
     private ListPreference mThemeSwitch;
 
     @Override
@@ -143,7 +146,9 @@ public class Interface extends DashboardFragment implements
         mAncientHomeCollapsedOnoff = (SystemSettingSwitchPreference) findPreference("homecollapseonoff"); 
         mAncientHomeCollapsedOnoff.setOnPreferenceChangeListener(this); 
         mAncientCollapseToolBg = (SystemSettingListPreference) findPreference("ancient_collapsetool_bg"); 
-        mAncientCollapseToolBg.setOnPreferenceChangeListener(this);      
+        mAncientCollapseToolBg.setOnPreferenceChangeListener(this);
+        mAnciTopPad = (SystemSettingSeekBarPreference) findPreference("ANCI_TOP_PAD"); 
+        mAnciTopPad.setOnPreferenceChangeListener(this);
             
     }
 
@@ -309,13 +314,19 @@ public class Interface extends DashboardFragment implements
              } catch (RemoteException ignored) {
              }
             return true;           
-        }  else if (preference == mAncientCollapseToolBg) { 
+        } else if (preference == mAncientCollapseToolBg) { 
             try {
                  mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
              } catch (RemoteException ignored) {
              }
             return true;           
-        }                                      
+        } else if (preference == mAnciTopPad) { 
+            try {
+                 mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
+             } catch (RemoteException ignored) {
+             }
+            return true;           
+        }                                    
         return false;
     }
 
