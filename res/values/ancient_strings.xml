@@ -748,7 +748,7 @@
     <string name="qs_tile_bg_style1">Default</string>
     <string name="qs_tile_bg_style2">Accent</string>
     <string name="qs_tile_bg_style3">Rainbow</string>
-    <string name="qs_bg_act_new_tint">Tint QS Tile Active Background using primary color</string>
+    <string name="qs_bg_act_new_tint">QS Tile Active Background Style</string>
     <string name="qs_bg_act_new_tint_summary">swicth it on to get it</string>
 
     <!-- Accent color picker -->
@@ -1309,5 +1309,12 @@
     <string name="qs_title_random_style3">Rainbow Active Color Only</string>
     <string name="qs_footer_rainbow">Footer Icon Rainbow</string>
     <string name="qs_footer_rainbow_summary">Make footer icon colourfull</string>
+	
+    <string name="qs_footer_random_style1">Disable</string>
+    <string name="qs_footer_random_style2">Rainbow</string>
+    <string name="qs_footer_random_style3">Accent</string>
+    <string name="qs_tile_bg_actip_style1">Disable</string>
+    <string name="qs_tile_bg_actip_style2">Primary</string>
+    <string name="qs_tile_bg_actip_style3">Rainbow</string>
 	
 </resources>
