@@ -204,19 +204,19 @@
 
          <ListPreference
             android:key="tooltip_style"
-            android:layout="@layout/ancient_cardpreference_middle"             
+            android:layout="@layout/ancient_cardpreference_bottom"             
             android:title="@string/tooltip_style_title"
             android:persistent="false"
             android:entries="@array/tooltip_style_entries"
             android:entryValues="@array/tooltip_style_values" />
          
          <com.ancient.settings.preferences.SystemSettingSeekBarPreference
-        android:key="ANCI_TOP_PAD"
-        android:title="@string/topad_style_title"
-        android:max="50"
-        settings:min="0"
-        android:defaultValue="1"
-        settings:units="dp" />
+            android:key="ANCI_TOP_PAD"
+            android:title="@string/topad_style_title"
+            android:max="50"
+            settings:min="0"
+            android:defaultValue="1"
+            settings:units="dp" />
          
     </PreferenceCategory>
 
