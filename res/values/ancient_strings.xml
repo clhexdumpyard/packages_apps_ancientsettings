@@ -1317,6 +1317,9 @@
     <string name="qs_tile_bg_actip_style1">Disable</string>
     <string name="qs_tile_bg_actip_style2">Primary</string>
     <string name="qs_tile_bg_actip_style3">Rainbow</string>
-    <string name="topad_style_summary">note : expanded qs to see the change</string>
+    <string name="topad_style_summary">note : expand qs to see the change</string>
+    <string name="tooltip_style_sum">note : 0dp will make clock gone</string>
+    <string name="tooltip_height_title">QS Expanded Padding</string>
+    <string name="tooltip_height_sum">note : set as you want </string>	
 	
 </resources>
