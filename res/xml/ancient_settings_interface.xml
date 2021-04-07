@@ -216,7 +216,8 @@
             android:max="50"
             settings:min="0"
             android:defaultValue="1"
-            settings:units="dp" />
+            settings:units="dp"
+            android:summary="@string/topad_style_summary"   />
          
     </PreferenceCategory>
 
