@@ -1321,5 +1321,7 @@
     <string name="tooltip_style_sum">note : 0dp will make clock gone</string>
     <string name="tooltip_height_title">QS Expanded Padding</string>
     <string name="tooltip_height_sum">note : set as you want </string>	
+    <string name="footer_page_ind_title">Footer Page Indicator</string>
+    <string name="footer_page_ind_sum">switch off to kick it</string>
 	
 </resources>
