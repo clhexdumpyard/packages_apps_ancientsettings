@@ -97,7 +97,7 @@
             android:defaultValue="2" />
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference
-            android:layout="@layout/ancient_cardpreference_middle"
+            android:layout="@layout/ancient_cardpreference_bottom"
             android:key="ambient_notification_light_color"
             android:summary="@string/ambient_notification_light_color_summary"
             android:title="@string/ambient_notification_light_color_title"
