@@ -65,7 +65,7 @@ public class AccentColorPreferenceController extends AbstractPreferenceControlle
         String hexColor = String.format("#%08x", (0xff1a73e8 & intColor));
         if (hexColor.equals("#ff1a73e8")) {
             mAccentColor.setSummary(R.string.default_string);
-            mAccentOverlay.setEnabled(false);
+            mAccentOverlay.setEnabled(true);
         } else {
             mAccentColor.setSummary(hexColor);
             mAccentOverlay.setEnabled(false);
@@ -83,7 +83,7 @@ public class AccentColorPreferenceController extends AbstractPreferenceControlle
                     Integer.valueOf(String.valueOf(newValue)));
             if (hex.equals("#ff1a73e8")) {
                 mAccentColor.setSummary(R.string.default_string);
-                mAccentOverlay.setEnabled(false);
+                mAccentOverlay.setEnabled(true);
             } else {
                 mAccentColor.setSummary(hex);
                 mAccentOverlay.setEnabled(false);
