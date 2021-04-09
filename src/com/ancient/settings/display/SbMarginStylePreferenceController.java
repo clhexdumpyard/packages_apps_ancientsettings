@@ -77,12 +77,12 @@ public class SbMarginStylePreferenceController extends AbstractPreferenceControl
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        if (preference == mSbMarginStyle) {
+    if (preference == mSbMarginStyle) {
             int sbMarginStyleValue = Integer.valueOf((String) newValue);
             Settings.System.putIntForUser(mContext.getContentResolver(),
                     "ANCI_QS_MARGIN", sbMarginStyleValue, UserHandle.USER_CURRENT);
             mSbMarginStyle.setSummary(mSbMarginStyle.getEntries()[sbMarginStyleValue]);
-            AncientUtils.showSystemUiRestartDialog((Context));
+            AncientUtils.showSystemUiRestartDialog(Context());
             return true;
         }
         return false;
