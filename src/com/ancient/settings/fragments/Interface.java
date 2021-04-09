@@ -147,7 +147,12 @@ public class Interface extends DashboardFragment implements
         mAncientCollapseToolBg = (SystemSettingListPreference) findPreference("ancient_collapsetool_bg"); 
         mAncientCollapseToolBg.setOnPreferenceChangeListener(this);
         mSbMarginStyle = (SystemSettingListPreference) findPreference("ANCI_QS_MARGIN"); 
-        mSbMarginStyle.setOnPreferenceChangeListener(this);   
+        int sbMarginStyle = Settings.System.getIntForUser(mContext.getContentResolver(),
+                "ANCI_QS_MARGIN", 0, UserHandle.USER_CURRENT);
+        int valueIndex = mSbMarginStyle.findIndexOfValue(String.valueOf(sbMarginStyle));
+        mSbMarginStyle.setValueIndex(valueIndex >= 0 ? valueIndex : 0);
+        mSbMarginStyle.setSummary(mSbMarginStyle.getEntry());
+        mSbMarginStyle.setOnPreferenceChangeListener(this);
             
     }
 
@@ -320,6 +325,10 @@ public class Interface extends DashboardFragment implements
              }
             return true;          
         } else if (preference == mSbMarginStyle) { 
+            int sbMarginStyleValue = Integer.valueOf((String) newValue);
+            Settings.System.putIntForUser(mContext.getContentResolver(),
+                    "ANCI_QS_MARGIN", sbMarginStyleValue, UserHandle.USER_CURRENT);
+            mSbMarginStyle.setSummary(mSbMarginStyle.getEntries()[sbMarginStyleValue]);
             AncientUtils.showSystemUiRestartDialog(getContext());
             return true;          
         }                                  
