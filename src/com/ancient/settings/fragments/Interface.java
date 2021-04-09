@@ -73,7 +73,6 @@ import com.ancient.settings.display.SbMarginStylePreferenceController;
 import com.ancient.settings.preferences.SystemSettingListPreference;
 import com.ancient.settings.preferences.SystemSettingSwitchPreference;
 
-import com.android.systemui.idc.ancient.TestUtils;
 import com.android.internal.util.ancient.ThemesUtils;
 import com.android.internal.util.ancient.AncientUtils;
 
