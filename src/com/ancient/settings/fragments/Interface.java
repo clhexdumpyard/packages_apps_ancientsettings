@@ -68,9 +68,12 @@ import com.ancient.settings.display.AnAclockStylePreferenceController;
 import com.ancient.settings.display.AnSettingsStylePreferenceController;
 import com.ancient.settings.display.SbBrightnStylePreferenceController;
 import com.ancient.settings.display.SbQsbgStylePreferenceController;
+import com.ancient.settings.display.SbPaddingStylePreferenceController;
+import com.ancient.settings.display.SbMarginStylePreferenceController;
 import com.ancient.settings.preferences.SystemSettingListPreference;
 import com.ancient.settings.preferences.SystemSettingSwitchPreference;
 
+import com.android.systemui.idc.ancient.TestUtils;
 import com.android.internal.util.ancient.ThemesUtils;
 import com.android.internal.util.ancient.AncientUtils;
 
@@ -171,6 +174,8 @@ public class Interface extends DashboardFragment implements
         controllers.add(new AnAclockStylePreferenceController(context));
         controllers.add(new SbBrightnStylePreferenceController(context));
         controllers.add(new SbQsbgStylePreferenceController(context));
+        controllers.add(new SbPaddingStylePreferenceController(context));
+        controllers.add(new SbMarginStylePreferenceController(context));    
         return controllers;
     }
 
