@@ -147,7 +147,7 @@ public class Interface extends DashboardFragment implements
         mAncientCollapseToolBg = (SystemSettingListPreference) findPreference("ancient_collapsetool_bg"); 
         mAncientCollapseToolBg.setOnPreferenceChangeListener(this);
         mSbMarginStyle = (SystemSettingListPreference) findPreference("ANCI_QS_MARGIN"); 
-        int sbMarginStyle = Settings.System.getIntForUser(mContext.getContentResolver(),
+        int sbMarginStyle = Settings.System.getIntForUser(getContentResolver(),
                 "ANCI_QS_MARGIN", 0, UserHandle.USER_CURRENT);
         int valueIndex = mSbMarginStyle.findIndexOfValue(String.valueOf(sbMarginStyle));
         mSbMarginStyle.setValueIndex(valueIndex >= 0 ? valueIndex : 0);
@@ -325,11 +325,15 @@ public class Interface extends DashboardFragment implements
              }
             return true;          
         } else if (preference == mSbMarginStyle) { 
-            int sbMarginStyleValue = Integer.valueOf((String) newValue);
-            Settings.System.putIntForUser(mContext.getContentResolver(),
+            int sbMarginStyleValue = Integer.valueOf((String) objValue);
+            Settings.System.putIntForUser(getContentResolver(),
                     "ANCI_QS_MARGIN", sbMarginStyleValue, UserHandle.USER_CURRENT);
             mSbMarginStyle.setSummary(mSbMarginStyle.getEntries()[sbMarginStyleValue]);
             AncientUtils.showSystemUiRestartDialog(getContext());
+            try {
+                 mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
+            } catch (RemoteException ignored) {
+            }   
             return true;          
         }                                  
         return false;
