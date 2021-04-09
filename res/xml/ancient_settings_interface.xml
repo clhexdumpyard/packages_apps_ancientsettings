@@ -202,7 +202,7 @@
             android:entries="@array/sb_padding_entries"
             android:entryValues="@array/sb_padding_values"/>
          
-        <ListPreference
+        <com.ancient.settings.preferences.SystemSettingListPreference
             android:layout="@layout/ancient_cardpreference_middle"
             android:key="ANCI_QS_MARGIN"
             android:title="@string/qs_margin_style_title"
