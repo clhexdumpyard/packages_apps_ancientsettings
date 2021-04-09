@@ -193,6 +193,22 @@
             android:persistent="false"
             android:entries="@array/statusheight_entries"
             android:entryValues="@array/statusheight_values" />
+         
+        <ListPreference
+            android:layout="@layout/ancient_cardpreference_middle"
+            android:key="ANCI_SB_PADDING"
+            android:title="@string/sb_padding_style_title"
+            android:persistent="false"
+            android:entries="@array/sb_padding_entries"
+            android:entryValues="@array/sb_padding_values"/>
+         
+        <ListPreference
+            android:layout="@layout/ancient_cardpreference_middle"
+            android:key="ANCI_QS_MARGIN"
+            android:title="@string/qs_margin_style_title"
+            android:persistent="false"
+            android:entries="@array/qs_margin_entries"
+            android:entryValues="@array/qs_margin_values"/> 
 
         <ListPreference
             android:layout="@layout/ancient_cardpreference_bottom"
