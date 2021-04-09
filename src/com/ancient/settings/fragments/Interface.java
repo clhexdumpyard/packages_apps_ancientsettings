@@ -69,7 +69,7 @@ import com.ancient.settings.display.AnSettingsStylePreferenceController;
 import com.ancient.settings.display.SbBrightnStylePreferenceController;
 import com.ancient.settings.display.SbQsbgStylePreferenceController;
 import com.ancient.settings.display.SbPaddingStylePreferenceController;
-import com.ancient.settings.display.SbMarginStylePreferenceController;
+//import com.ancient.settings.display.SbMarginStylePreferenceController;
 import com.ancient.settings.preferences.SystemSettingListPreference;
 import com.ancient.settings.preferences.SystemSettingSwitchPreference;
 
@@ -96,6 +96,7 @@ public class Interface extends DashboardFragment implements
     private static final String ANCIENT_COLLAPSE_HEADER = "ancient_collapse_header";  
     private static final String HOMECOLLAPSEONOFF = "homecollapseonoff";   
     private static final String ANCIENT_COLLAPSETOOL_BG = "ancient_collapsetool_bg";    
+    private static final String ANCI_QS_MARGIN = "ANCI_QS_MARGIN";    
 
     private IOverlayManager mOverlayService;
     private UiModeManager mUiModeManager;
@@ -107,6 +108,7 @@ public class Interface extends DashboardFragment implements
     private SystemSettingListPreference mAncientCollapseHeader;   
     private SystemSettingSwitchPreference mAncientHomeCollapsedOnoff;   
     private SystemSettingListPreference mAncientCollapseToolBg;  
+    private SystemSettingListPreference mSbMarginStyle;  
     private ListPreference mThemeSwitch;
 
     @Override
@@ -144,6 +146,8 @@ public class Interface extends DashboardFragment implements
         mAncientHomeCollapsedOnoff.setOnPreferenceChangeListener(this); 
         mAncientCollapseToolBg = (SystemSettingListPreference) findPreference("ancient_collapsetool_bg"); 
         mAncientCollapseToolBg.setOnPreferenceChangeListener(this);
+        mSbMarginStyle = (SystemSettingListPreference) findPreference("ANCI_QS_MARGIN"); 
+        mSbMarginStyle.setOnPreferenceChangeListener(this);   
             
     }
 
@@ -174,7 +178,7 @@ public class Interface extends DashboardFragment implements
         controllers.add(new SbBrightnStylePreferenceController(context));
         controllers.add(new SbQsbgStylePreferenceController(context));
         controllers.add(new SbPaddingStylePreferenceController(context));
-        controllers.add(new SbMarginStylePreferenceController(context));    
+        //controllers.add(new SbMarginStylePreferenceController(context));    
         return controllers;
     }
 
@@ -315,7 +319,10 @@ public class Interface extends DashboardFragment implements
              } catch (RemoteException ignored) {
              }
             return true;          
-        }                                    
+        } else if (preference == mSbMarginStyle) { 
+            AncientUtils.showSystemUiRestartDialog(getContext());
+            return true;          
+        }                                  
         return false;
     }
 
