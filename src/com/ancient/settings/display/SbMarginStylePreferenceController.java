@@ -16,6 +16,8 @@
 
 package com.ancient.settings.display;
 
+import android.app.Activity;
+import android.app.Dialog;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.om.IOverlayManager;
@@ -77,11 +79,13 @@ public class SbMarginStylePreferenceController extends AbstractPreferenceControl
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
+    ContentResolver resolver = getActivity().getContentResolver();
     if (preference == mSbMarginStyle) {
             int sbMarginStyleValue = Integer.valueOf((String) newValue);
             Settings.System.putIntForUser(mContext.getContentResolver(),
                     "ANCI_QS_MARGIN", sbMarginStyleValue, UserHandle.USER_CURRENT);
             mSbMarginStyle.setSummary(mSbMarginStyle.getEntries()[sbMarginStyleValue]);
+            AncientUtils.showSystemUiRestartDialog(getContext());
             return true;
         }
         return false;
