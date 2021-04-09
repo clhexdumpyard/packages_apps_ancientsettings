@@ -18,8 +18,15 @@ package com.ancient.settings.display;
 
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.om.IOverlayManager;
+import android.content.om.OverlayInfo;
+import android.os.RemoteException;
 import android.os.Bundle;
 import android.os.UserHandle;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
+import android.os.Handler;
+import android.os.RemoteException;
 import android.provider.Settings;
 import android.text.TextUtils;
 
@@ -30,6 +37,8 @@ import androidx.preference.PreferenceScreen;
 import com.android.settings.R;
 import com.android.settingslib.core.AbstractPreferenceController;
 
+import com.android.internal.util.ancient.AncientUtils;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,9 +48,13 @@ public class SbMarginStylePreferenceController extends AbstractPreferenceControl
     private static final String ANCI_QS_MARGIN = "ANCI_QS_MARGIN";
 
     private ListPreference mSbMarginStyle;
+    private IOverlayManager mOverlayService;   
 
     public SbMarginStylePreferenceController(Context context) {
         super(context);
+        mOverlayService = IOverlayManager.Stub
+                .asInterface(ServiceManager.getService(Context.OVERLAY_SERVICE));
+  
     }
 
     @Override
@@ -73,6 +86,10 @@ public class SbMarginStylePreferenceController extends AbstractPreferenceControl
             Settings.System.putIntForUser(mContext.getContentResolver(),
                     "ANCI_QS_MARGIN", sbMarginStyleValue, UserHandle.USER_CURRENT);
             mSbMarginStyle.setSummary(mSbMarginStyle.getEntries()[sbMarginStyleValue]);
+            try {
+                 mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
+             } catch (RemoteException ignored) {
+             }    
             return true;
         }
         return false;
