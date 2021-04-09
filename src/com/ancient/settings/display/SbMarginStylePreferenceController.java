@@ -82,7 +82,7 @@ public class SbMarginStylePreferenceController extends AbstractPreferenceControl
             Settings.System.putIntForUser(mContext.getContentResolver(),
                     "ANCI_QS_MARGIN", sbMarginStyleValue, UserHandle.USER_CURRENT);
             mSbMarginStyle.setSummary(mSbMarginStyle.getEntries()[sbMarginStyleValue]);
-            AncientUtils.showSystemUiRestartDialog(getContext());
+            AncientUtils.showSystemUiRestartDialog(mContext());
             return true;
         }
         return false;
