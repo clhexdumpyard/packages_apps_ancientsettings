@@ -145,6 +145,13 @@ public class Interface extends DashboardFragment implements
         mAncientHomeCollapsedOnoff.setOnPreferenceChangeListener(this);
         mAncientCollapseToolBg = (SystemSettingListPreference) findPreference("ancient_collapsetool_bg");
         mAncientCollapseToolBg.setOnPreferenceChangeListener(this);
+        mSbMarginStyle = (SystemSettingListPreference) findPreference("ANCI_QS_MARGIN");
+        int sbMarginStyle = Settings.System.getIntForUser(getContentResolver(),
+                "ANCI_QS_MARGIN", 0, UserHandle.USER_CURRENT);
+        int valueIndex = mSbMarginStyle.findIndexOfValue(String.valueOf(sbMarginStyle));
+        mSbMarginStyle.setValueIndex(valueIndex >= 0 ? valueIndex : 0);
+        mSbMarginStyle.setSummary(mSbMarginStyle.getEntry());
+        mSbMarginStyle.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -174,6 +181,7 @@ public class Interface extends DashboardFragment implements
         controllers.add(new AnSettingsStylePreferenceController(context));
         controllers.add(new SbBrightnStylePreferenceController(context));
         controllers.add(new SbQsbgStylePreferenceController(context));
+        controllers.add(new SbPaddingStylePreferenceController(context));
         return controllers;
     }
 
@@ -313,6 +321,17 @@ public class Interface extends DashboardFragment implements
                  mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
              } catch (RemoteException ignored) {
              }
+            return true;
+        } else if (preference == mSbMarginStyle) {
+            int sbMarginStyleValue = Integer.valueOf((String) objValue);
+            Settings.System.putIntForUser(getContentResolver(),
+                    "ANCI_QS_MARGIN", sbMarginStyleValue, UserHandle.USER_CURRENT);
+            mSbMarginStyle.setSummary(mSbMarginStyle.getEntries()[sbMarginStyleValue]);
+            AncientUtils.showSystemUiRestartDialog(getContext());
+            try {
+                 mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
+            } catch (RemoteException ignored) {
+            }
             return true;
         }
         return false;

@@ -18,10 +18,15 @@ package com.ancient.settings.fragments;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.Resources;
+import android.content.om.IOverlayManager;
+import android.content.om.OverlayInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.content.res.Resources;
 import android.os.Bundle;
+import android.os.RemoteException;
+import android.os.SystemProperties;
+import android.os.ServiceManager;
 import android.os.UserHandle;
 import android.provider.SearchIndexableResource;
 import android.provider.Settings;
@@ -36,6 +41,7 @@ import com.android.settings.SettingsPreferenceFragment;
 
 import com.android.internal.util.ancient.AncientUtils;
 import com.ancient.settings.preferences.SystemSettingSwitchPreference;
+import com.ancient.settings.preferences.SystemSettingListPreference;
 import android.provider.SearchIndexableResource;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.Indexable;
@@ -52,16 +58,21 @@ public class StatusBar extends SettingsPreferenceFragment implements
 
     private static final String STATUSBAR_DUAL_ROW = "statusbar_dual_row";
     private static final String KEY_STATUS_BAR_LOGO = "status_bar_logo";
+    private static final String STATUSBAR_DUAL_STYLE = "statusbar_dual_style";
 
     private SystemSettingSwitchPreference mStatusbarDualRow;
+    private SystemSettingListPreference mStatusbarDualStyle;
     private SwitchPreference mShowAncientLogo;
     private ListPreference mLogoStyle;
+    private IOverlayManager mOverlayService;
 
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
         addPreferencesFromResource(R.xml.ancient_settings_statusbar);
         PreferenceScreen prefSet = getPreferenceScreen();
+        mOverlayService = IOverlayManager.Stub
+                .asInterface(ServiceManager.getService(Context.OVERLAY_SERVICE));
 
         mStatusbarDualRow = (SystemSettingSwitchPreference) findPreference(STATUSBAR_DUAL_ROW);
         mStatusbarDualRow.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
@@ -72,6 +83,14 @@ public class StatusBar extends SettingsPreferenceFragment implements
         mShowAncientLogo.setChecked((Settings.System.getInt(getContentResolver(),
              Settings.System.STATUS_BAR_LOGO, 0) == 1));
         mShowAncientLogo.setOnPreferenceChangeListener(this);
+
+        mStatusbarDualStyle = (SystemSettingListPreference) findPreference("statusbar_dual_style");
+        int StatusbarDualStyle = Settings.System.getIntForUser(getContentResolver(),
+                Settings.System.STATUSBAR_DUAL_STYLE,
+                0, UserHandle.USER_CURRENT);
+        mStatusbarDualStyle.setValue(String.valueOf(StatusbarDualStyle));
+        mStatusbarDualStyle.setSummary(mStatusbarDualStyle.getEntry());
+        mStatusbarDualStyle.setOnPreferenceChangeListener(this);
 
         mLogoStyle = (ListPreference) findPreference("status_bar_logo_style");
         int logoStyle = Settings.System.getIntForUser(getContentResolver(),
@@ -88,12 +107,27 @@ public class StatusBar extends SettingsPreferenceFragment implements
             boolean value = (Boolean) newValue;
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.STATUSBAR_DUAL_ROW, value ? 1 : 0);
-            AncientUtils.showSystemUiRestartDialog(getContext());
+            try {
+                 mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
+             } catch (RemoteException ignored) {
+             }
             return true;
         } else if  (preference == mShowAncientLogo) {
             boolean value = (Boolean) newValue;
             Settings.System.putInt(getContentResolver(),
                     Settings.System.STATUS_BAR_LOGO, value ? 1 : 0);
+            return true;
+        } else if (preference.equals(mStatusbarDualStyle)) {
+            int StatusbarDualStyle = Integer.parseInt(((String) newValue).toString());
+            Settings.System.putIntForUser(getContentResolver(),
+                    Settings.System.STATUSBAR_DUAL_STYLE, StatusbarDualStyle, UserHandle.USER_CURRENT);
+            int index = mStatusbarDualStyle.findIndexOfValue((String) newValue);
+            mStatusbarDualStyle.setSummary(
+                    mStatusbarDualStyle.getEntries()[index]);
+            try {
+                 mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
+             } catch (RemoteException ignored) {
+             }
             return true;
         } else if (preference.equals(mLogoStyle)) {
             int logoStyle = Integer.parseInt(((String) newValue).toString());
