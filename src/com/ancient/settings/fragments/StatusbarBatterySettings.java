@@ -19,7 +19,15 @@ package com.ancient.settings.fragments;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.RemoteException;
+import android.os.ServiceManager;
+import android.os.SystemProperties;
 import android.os.UserHandle;
+import android.os.RemoteException;
+import android.os.ServiceManager;
+import android.content.om.IOverlayManager;
+import android.content.om.OverlayInfo;
 import android.provider.SearchIndexableResource;
 import android.provider.Settings;
 
@@ -37,6 +45,11 @@ import com.android.settings.Utils;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
 
+import com.ancient.settings.preferences.SystemSettingSwitchPreference;
+
+import com.android.internal.util.ancient.ThemesUtils;
+import com.android.internal.util.ancient.AncientUtils;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,15 +59,19 @@ public class StatusbarBatterySettings extends SettingsPreferenceFragment impleme
 
     private static final String STATUS_BAR_BATTERY_STYLE = "status_bar_battery_style";
     private static final String STATUS_BAR_SHOW_BATTERY_PERCENT = "status_bar_show_battery_percent";
+    private static final String FlipLayoutBatre = "fliplayoutbatre";    
 
     private ListPreference mBatteryPercent;
     private ListPreference mBatteryStyle;
+    private SystemSettingSwitchPreference mFlipLayoutBatre;    
 
     private int mBatteryPercentValue;
+        
+    private IOverlayManager mOverlayService;    
 
     private static final int BATTERY_STYLE_PORTRAIT = 0;
-    private static final int BATTERY_STYLE_TEXT = 4;
-    private static final int BATTERY_STYLE_HIDDEN = 5;
+    private static final int BATTERY_STYLE_TEXT = 9;
+    private static final int BATTERY_STYLE_HIDDEN = 10;
     private static final int BATTERY_PERCENT_HIDDEN = 0;
     //private static final int BATTERY_PERCENT_SHOW_INSIDE = 1;
     //private static final int BATTERY_PERCENT_SHOW_OUTSIDE = 2;
@@ -63,6 +80,9 @@ public class StatusbarBatterySettings extends SettingsPreferenceFragment impleme
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.ancient_settings_statusbar_battery);
+            
+        mOverlayService = IOverlayManager.Stub
+                .asInterface(ServiceManager.getService(Context.OVERLAY_SERVICE));    
 
         int batterystyle = Settings.System.getIntForUser(getContentResolver(),
                 Settings.System.STATUS_BAR_BATTERY_STYLE, BATTERY_STYLE_PORTRAIT, UserHandle.USER_CURRENT);
@@ -79,6 +99,8 @@ public class StatusbarBatterySettings extends SettingsPreferenceFragment impleme
         mBatteryPercent.setOnPreferenceChangeListener(this);
         mBatteryPercent.setEnabled(
                 batterystyle != BATTERY_STYLE_TEXT && batterystyle != BATTERY_STYLE_HIDDEN);
+        mFlipLayoutBatre = (SystemSettingSwitchPreference) findPreference("fliplayoutbatre"); 
+        mFlipLayoutBatre.setOnPreferenceChangeListener(this);       
     }
 
     @Override
@@ -102,7 +124,13 @@ public class StatusbarBatterySettings extends SettingsPreferenceFragment impleme
             int index = mBatteryPercent.findIndexOfValue((String) newValue);
             mBatteryPercent.setSummary(mBatteryPercent.getEntries()[index]);
             return true;
-        }
+        } else if (preference == mFlipLayoutBatre) { 
+            try {
+                 mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
+             } catch (RemoteException ignored) {
+             }
+            return true;           
+        }      
         return false;
     }
 
