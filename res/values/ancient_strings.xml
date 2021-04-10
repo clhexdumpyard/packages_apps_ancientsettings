@@ -745,6 +745,13 @@
     <string name="qs_bg_use_new_tint_summary">Enable the accent color tint on the QS tiles</string>
     <string name="qs_bg_use_disco">QS tile disco</string>
     <string name="qs_bg_use_disco_summary">Make your QS Tiles colorful!</string>
+    <string name="qs_bg_disable_tint">Tint QS Tile Disabled Background Style</string>
+    <string name="qs_bg_disable_summary">Choose one</string>
+    <string name="qs_tile_bg_style1">Default</string>
+    <string name="qs_tile_bg_style2">Accent</string>
+    <string name="qs_tile_bg_style3">Rainbow</string>
+    <string name="qs_bg_act_new_tint">QS Tile Active Background Style</string>
+    <string name="qs_bg_act_new_tint_summary">swicth it on to get it</string>
 
     <!-- Accent color picker -->
     <string name="accent_color_title">Accent color picker</string>
@@ -1290,5 +1297,33 @@
     <string name="ancicoleptoolbg_style_2">Accent</string>
     <string name="ancicoleptoolbg_style_3">Device Default Light</string>
     <string name="ancicoleptoolbg_style_4">Transparent</string>
+
+    <!-- QS random -->
+    <string name="qs_tile_random_title">Rainbow Tile Icon</string>
+    <string name="qs_tile_random_summary">Choose one</string>
+    <string name="qs_tile_random_style1">Disable</string>
+    <string name="qs_tile_random_style2">Rainbow All</string>
+    <string name="qs_tile_random_style3">Rainbow Active Color Only</string>
+    <string name="qs_tile_random_style4">Rainbow InActive Color Only</string>
+    <string name="qs_title_random_title">Rainbow Tile Title</string>
+    <string name="qs_title_random_summary">Choose one</string>
+    <string name="qs_title_random_style1">Disable</string>
+    <string name="qs_title_random_style2">Rainbow All</string>
+    <string name="qs_title_random_style3">Rainbow Active Color Only</string>
+    <string name="qs_footer_rainbow">Footer Icon Tint Style</string>
+    <string name="qs_footer_rainbow_summary">Make footer icon colourfull</string>
+
+    <string name="qs_footer_random_style1">Disable</string>
+    <string name="qs_footer_random_style2">Rainbow</string>
+    <string name="qs_footer_random_style3">Accent</string>
+    <string name="qs_tile_bg_actip_style1">Disable</string>
+    <string name="qs_tile_bg_actip_style2">Primary</string>
+    <string name="qs_tile_bg_actip_style3">Rainbow</string>
+    <string name="topad_style_summary">note : expand qs to see the change</string>
+    <string name="tooltip_style_sum">note : 0dp will make clock gone</string>
+    <string name="tooltip_height_title">QS Expanded Padding</string>
+    <string name="tooltip_height_sum">note : set as you want </string>	
+    <string name="footer_page_ind_title">Footer Page Indicator</string>
+    <string name="footer_page_ind_sum">switch off to kick it</string>
 
 </resources>
