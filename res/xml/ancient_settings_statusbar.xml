@@ -102,6 +102,13 @@
             android:title="@string/status_bar_logo_style_title" />
 
         <Preference
+            android:layout="@layout/ancient_cardpreference_middle"
+            android:key="footercarrier_label_category"
+            android:title="@string/footercarrier_label_title"
+            android:summary="@string/footercarrier_label_summary"
+            android:fragment="com.ancient.settings.fragments.FooterCarrierLabel" />
+
+        <Preference
             android:layout="@layout/ancient_cardpreference_bottom"
             android:key="carrier_label_category"
             android:title="@string/carrier_label_title"

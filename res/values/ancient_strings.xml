@@ -1137,7 +1137,9 @@
     <string name="show_carrier_disabled">Disabled</string>
     <string name="show_carrier_keyguard">Lockscreen</string>
     <string name="show_carrier_statusbar">Status bar</string>
-    <string name="show_carrier_enabled">Both</string>
+    <string name="show_carrier_footer">QS Footer</string>
+    <string name="show_carrier_keyfooter">All</string>
+    <string name="show_carrier_enabled">All</string>
 
     <!-- Running Services button -->
     <string name="qs_running_services_title">Running Services Icon</string>
@@ -1339,5 +1341,19 @@
     <string name="sb_padding_style1">Default</string>
     <string name="sb_padding_style2">Small</string>
     <string name="sb_padding_style3">Large</string>
+
+    <!-- custo footer carrir label -->
+    <string name="footercarrier_label_title">Footer Carrier label</string>
+    <string name="footercarrier_label_summary">Customize the Footer carrier label</string>
+    <string name="footercarrier_options">Select display locations</string>
+    <string name="show_status_bar_footercarrier_title">Footer carrier</string>
+    <string name="show_status_bar_footercarrier_summary">Show Footercarrier in footer</string>
+    <string name="custom_footercarrier_label_title">Custom Footercarrier label</string>
+    <string name="custom_footercarrier_label_explain">Enter a custom label. Leave blank to use your network name</string>
+    <string name="custom_footercarrier_label_notset">Custom label currently not set</string>
+    <string name="show_footercarrier_title">Footer Carrier label</string>
+    <string name="show_footercarrier_disabled">Disabled</string>
+    <string name="show_footercarrier_footer">QS Footer</string>
+    <string name="show_footercarrier_enabled">All</string>
 
 </resources>
