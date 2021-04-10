@@ -202,21 +202,21 @@
             android:entries="@array/diagcorner_entries"
             android:entryValues="@array/diagcorner_values"/>
 
-         <ListPreference
-            android:key="tooltip_style"
-            android:layout="@layout/ancient_cardpreference_middle"             
-            android:title="@string/tooltip_style_title"
+        <ListPreference
+            android:layout="@layout/ancient_cardpreference_middle"
+            android:key="ANCI_SB_PADDING"
+            android:title="@string/sb_padding_style_title"
             android:persistent="false"
-            android:entries="@array/tooltip_style_entries"
-            android:entryValues="@array/tooltip_style_values" />
+            android:entries="@array/sb_padding_entries"
+            android:entryValues="@array/sb_padding_values"/>
 
-          <ListPreference
-            android:key="topad_style"   
-            android:layout="@layout/ancient_cardpreference_bottom"            
-            android:title="@string/topad_style_title"
+        <com.ancient.settings.preferences.SystemSettingListPreference
+            android:layout="@layout/ancient_cardpreference_bottom"
+            android:key="ANCI_QS_MARGIN"
+            android:title="@string/qs_margin_style_title"
             android:persistent="false"
-            android:entries="@array/topad_style_entries"
-            android:entryValues="@array/topad_style_values" />
+            android:entries="@array/qs_margin_entries"
+            android:entryValues="@array/qs_margin_values"/>
 
         <com.ancient.settings.preferences.SystemSettingSeekBarPreference
             android:key="ANCI_PANNELTOP_PAD"
