@@ -52,18 +52,74 @@
             settings:showReset="true"
             android:persistent="false" />
 
-        <ListPreference
-            android:layout="@layout/ancient_cardpreference_middle"
+        <com.ancient.settings.preferences.SystemSettingListPreference
+            android:layout="@layout/ancient_cardpreference_bottom"
             android:key="android.theme.customization.accent_color"
             android:title="@string/theme_customization_accent_color_title"/>
 
-        <ListPreference
-            android:layout="@layout/ancient_cardpreference_bottom"
-            android:key="settings_style"
-            android:title="@string/settings_style_title"
-            android:persistent="false"
-            android:entries="@array/settings_style_entries"
-            android:entryValues="@array/settings_style_values" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:layout="@layout/ancient_cardpreference_category"
+        android:key="megalith_setings"
+        android:title="@string/setting_megalith_zone_title"> 
+
+        <com.ancient.settings.preferences.SystemSettingSwitchPreference
+            android:layout="@layout/ancient_cardpreference_top"
+            android:key="homecollapseonoff"                             
+            android:defaultValue="0"
+            android:summary="@string/collapsed_home_switch_summary"             
+            android:title="@string/collapsed_home_switch_title"/>       
+
+        <com.ancient.settings.preferences.SystemSettingListPreference
+            android:layout="@layout/ancient_cardpreference_middle"                                                          
+            android:key="AvatarViewVis"
+            android:dependency="homecollapseonoff"  
+            android:defaultValue="0"                                                          
+            android:entries="@array/collapsed_style_entries"           
+            android:entryValues="@array/collapsed_style_values"             
+            android:title="@string/collapsed_style_title"/>  
+
+        <com.ancient.settings.preferences.SystemSettingSwitchPreference
+            android:layout="@layout/ancient_cardpreference_middle"
+            android:key="collapseonoff"
+            android:defaultValue="0"
+            android:summary="@string/collapsed_switch_summary"             
+            android:title="@string/collapsed_switch_title"/>  
+
+        <com.ancient.settings.preferences.SystemSettingListPreference
+            android:layout="@layout/ancient_cardpreference_middle"
+            android:key="ancient_collapsed_base_style"
+            android:dependency="collapseonoff"                                                          
+            android:entries="@array/collapsed_base_style_entries" 
+            android:defaultValue="0"                                                          
+            android:entryValues="@array/collapsed_base_style_values"             
+            android:title="@string/collapsed_base_style_title"/> 
+
+       <com.ancient.settings.preferences.SystemSettingListPreference
+            android:layout="@layout/ancient_cardpreference_middle"
+            android:key="ancient_collapse_header"
+            android:dependency="collapseonoff"                                                         
+            android:defaultValue="0"                                                          
+            android:title="@string/ancicolepbg_style_title"
+            android:entries="@array/ancicolepbg_style_entries"
+            android:entryValues="@array/ancicolepbg_style_values" />
+
+        <com.ancient.settings.preferences.SystemSettingListPreference
+            android:layout="@layout/ancient_cardpreference_middle"
+            android:key="ancient_homepage_background"
+            android:defaultValue="0"                                                          
+            android:title="@string/seetingsbg_style_title"
+            android:entries="@array/seetingsbg_style_entries"
+            android:entryValues="@array/seetingsbg_style_values" />
+
+        <com.ancient.settings.preferences.SystemSettingListPreference
+            android:key="ancient_collapsetool_bg"
+            android:defaultValue="0"                                                          
+            android:title="@string/ancicoleptoolbg_style_title"
+            android:entries="@array/ancicoleptoolbg_style_entries"
+            android:entryValues="@array/ancicoleptoolbg_style_values" /> 
+
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -71,7 +127,7 @@
         android:key="megalith_font"
         android:title="@string/megalith_font_center_category">
 
-        <ListPreference
+        <com.ancient.settings.preferences.SystemSettingListPreference
             android:layout="@layout/ancient_cardpreference_single"
             android:key="android.theme.customization.font"
             android:title="@string/theme_customization_font_title"/>
@@ -82,12 +138,12 @@
         android:key="megalith_system_icons"
         android:title="@string/megalith_system_icons_center_category">
 
-        <ListPreference
+        <com.ancient.settings.preferences.SystemSettingListPreference
             android:layout="@layout/ancient_cardpreference_top"
             android:key="android.theme.customization.adaptive_icon_shape"
             android:title="@string/theme_customization_icon_shape_title"/>
 
-        <ListPreference
+        <com.ancient.settings.preferences.SystemSettingListPreference
             android:layout="@layout/ancient_cardpreference_middle"
             android:key="android.theme.customization.icon_pack.android"
             android:title="@string/theme_customization_sysui_icon_title"/>
