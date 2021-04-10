@@ -317,7 +317,18 @@ public class Interface extends DashboardFragment implements
              } catch (RemoteException ignored) {
              }
             return true;          
-        }
+        } else if (preference == mSbMarginStyle) { 
+            int sbMarginStyleValue = Integer.valueOf((String) objValue);
+            Settings.System.putIntForUser(getContentResolver(),
+                    "ANCI_QS_MARGIN", sbMarginStyleValue, UserHandle.USER_CURRENT);
+            mSbMarginStyle.setSummary(mSbMarginStyle.getEntries()[sbMarginStyleValue]);
+            AncientUtils.showSystemUiRestartDialog(getContext());
+            try {
+                 mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
+            } catch (RemoteException ignored) {
+            }   
+            return true;          
+        }     
         return false;
     }
 
