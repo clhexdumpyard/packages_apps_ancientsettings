@@ -214,6 +214,31 @@
             android:title="@string/swap_volume_buttons_title"
             android:summary="@string/swap_volume_buttons_summary"
             android:defaultValue="false" />
+         
+        <com.ancient.settings.preferences.SystemSettingSwitchPreference
+            android:key="AUDIO_PANEL_VIEW_RINGER"
+            android:title="@string/audio_panel_view_ringer_title"
+            android:defaultValue="true" /> 
+
+        <com.ancient.settings.preferences.SystemSettingSwitchPreference
+            android:key="AUDIO_PANEL_VIEW_NOTIFICATION"
+            android:title="@string/audio_panel_view_notification_title"
+            android:defaultValue="false" />
+
+        <com.ancient.settings.preferences.SystemSettingSwitchPreference
+            android:key="AUDIO_PANEL_VIEW_ALARM"
+            android:title="@string/audio_panel_view_alarm_title"
+            android:defaultValue="true" />
+
+        <com.ancient.settings.preferences.SystemSettingSwitchPreference
+            android:key="AUDIO_PANEL_VIEW_VOICE"
+            android:title="@string/audio_panel_view_voice_title"
+            android:defaultValue="false" />
+
+        <com.ancient.settings.preferences.SystemSettingSwitchPreference
+            android:key="AUDIO_PANEL_VIEW_BT_SCO"
+            android:title="@string/audio_panel_view_bt_sco_title"
+            android:defaultValue="false" /> 
 
     </PreferenceCategory>
 
