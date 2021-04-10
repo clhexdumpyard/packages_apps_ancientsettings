@@ -144,7 +144,14 @@ public class Interface extends DashboardFragment implements
         mAncientHomeCollapsedOnoff = (SystemSettingSwitchPreference) findPreference("homecollapseonoff"); 
         mAncientHomeCollapsedOnoff.setOnPreferenceChangeListener(this); 
         mAncientCollapseToolBg = (SystemSettingListPreference) findPreference("ancient_collapsetool_bg"); 
-        mAncientCollapseToolBg.setOnPreferenceChangeListener(this);    
+        mAncientCollapseToolBg.setOnPreferenceChangeListener(this); 
+        mSbMarginStyle = (SystemSettingListPreference) findPreference("ANCI_QS_MARGIN"); 
+        int sbMarginStyle = Settings.System.getIntForUser(getContentResolver(),
+                "ANCI_QS_MARGIN", 0, UserHandle.USER_CURRENT);
+        int valueIndex = mSbMarginStyle.findIndexOfValue(String.valueOf(sbMarginStyle));
+        mSbMarginStyle.setValueIndex(valueIndex >= 0 ? valueIndex : 0);
+        mSbMarginStyle.setSummary(mSbMarginStyle.getEntry());
+        mSbMarginStyle.setOnPreferenceChangeListener(this);    
     }
 
     @Override
