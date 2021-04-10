@@ -16,14 +16,18 @@
 package com.ancient.settings.fragments;
 
 import android.app.Activity;
+import android.app.UiModeManager;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
+import android.content.om.IOverlayManager;
+import android.content.om.OverlayInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.RemoteException;
+import android.os.SystemProperties;
 import android.os.ServiceManager;
 import android.os.SystemProperties;
 import android.os.UserHandle;
@@ -46,9 +50,14 @@ import com.android.settingslib.search.SearchIndexable;
 
 import com.ancient.settings.preferences.SystemSettingEditTextPreference;
 import com.ancient.settings.preferences.SystemSettingMasterSwitchPreference;
+import com.ancient.settings.preferences.SystemSettingSwitchPreference;
+import com.ancient.settings.preferences.SystemSettingListPreference;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
+
+import com.android.internal.util.ancient.ThemesUtils;
+import com.android.internal.util.ancient.AncientUtils;
 
 import java.util.Arrays;
 import java.util.ArrayList;
@@ -62,16 +71,24 @@ public class QuickSettings extends SettingsPreferenceFragment
     private static final String PREF_SMART_PULLDOWN = "smart_pulldown";
     private static final String FOOTER_TEXT_STRING = "footer_text_string";
     private static final String STATUS_BAR_CUSTOM_HEADER = "status_bar_custom_header";
+    private static final String PREF_QS_MEDIA_PLAYER = "qs_media_player";
+    
+    private UiModeManager mUiModeManager;
 
     private ListPreference mSmartPulldown;
     private SystemSettingEditTextPreference mFooterString;
     private SystemSettingMasterSwitchPreference mCustomHeader;
+    private SystemSettingSwitchPreference mQsMedia; 
+    private IOverlayManager mOverlayService;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.ancient_settings_quicksettings);  
         final ContentResolver resolver = getActivity().getContentResolver();
+        mUiModeManager = getContext().getSystemService(UiModeManager.class);
+        mOverlayService = IOverlayManager.Stub
+                .asInterface(ServiceManager.getService(Context.OVERLAY_SERVICE));
 
         mSmartPulldown = (ListPreference) findPreference(PREF_SMART_PULLDOWN);
         mSmartPulldown.setOnPreferenceChangeListener(this);
@@ -97,6 +114,11 @@ public class QuickSettings extends SettingsPreferenceFragment
                 Settings.System.STATUS_BAR_CUSTOM_HEADER, 0);
         mCustomHeader.setChecked(qsHeader != 0);
         mCustomHeader.setOnPreferenceChangeListener(this);
+        
+        mQsMedia = (SystemSettingSwitchPreference) findPreference(PREF_QS_MEDIA_PLAYER);
+        mQsMedia.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.QS_MEDIA_PLAYER, 0) == 1));
+        mQsMedia.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -123,6 +145,12 @@ public class QuickSettings extends SettingsPreferenceFragment
             Settings.System.putInt(resolver,
                     Settings.System.STATUS_BAR_CUSTOM_HEADER, header ? 1 : 0);
             return true;
+        } else if (preference == mQsMedia) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.QS_MEDIA_PLAYER, value ? 1 : 0);
+            AncientUtils.showSystemUiRestartDialog(getContext());
+            return true;    
         }
         return false;
     }
