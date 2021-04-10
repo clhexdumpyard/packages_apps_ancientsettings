@@ -1200,6 +1200,16 @@
         <item>1</item>
         <item>2</item>
         <item>3</item>
-    </string-array>  
+    </string-array>
+     
+    <string-array name="qs_blur_bg_entries" translatable="false">
+        <item>@string/qs_blur_bg_style1</item>
+        <item>@string/qs_blur_bg_style2</item>  
+    </string-array>   
+
+    <string-array name="qs_blur_bg_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+    </string-array>   
 
 </resources>
