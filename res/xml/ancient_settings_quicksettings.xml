@@ -17,6 +17,30 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/quicksettings_title" >
+     
+    <com.ancient.settings.preferences.SystemSettingSwitchPreference
+            android:key="QS_BLUR"
+            android:title="@string/blur_quicksettings"
+            android:summary="@string/blur_quicksettings_subtitle"
+            android:defaultValue="true" />
+
+        <com.ancient.settings.preferences.SystemSettingSeekBarPreference
+            android:key="QS_BLUR_ALPHA"
+            android:title="@string/qs_blur_alpha_title"
+            android:summary="@string/qs_blur_alpha_summary"
+            android:max="100"
+            settings:min="1"
+            android:defaultValue="100"
+            android:dependency="QS_BLUR" />
+
+        <com.ancient.settings.preferences.SystemSettingSeekBarPreference
+            android:key="QS_BLUR_INTENSITY"
+            android:title="@string/qs_blur_intensity_title"
+            android:summary="@string/qs_blur_intensity_summary"
+            android:max="100"
+            settings:min="1"
+            android:defaultValue="100"
+            android:dependency="QS_BLUR" />  
 
     <com.ancient.settings.preferences.SystemSettingSwitchPreference
         android:key="qs_media_player"
