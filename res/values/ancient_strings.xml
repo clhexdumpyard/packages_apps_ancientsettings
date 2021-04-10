@@ -1325,5 +1325,19 @@
     <string name="tooltip_height_sum">note : set as you want </string>	
     <string name="footer_page_ind_title">Footer Page Indicator</string>
     <string name="footer_page_ind_sum">switch off to kick it</string>
+	
+    <!-- flip it -->
+    <string name="flip_batre_title">Battery Layout</string>
+    <string name="flip_batre_summary">flip the battery layout</string>
+	
+    <!-- just overlays -->
+    <string name="qs_margin_style_title">Simple QS Panel Margin</string>
+    <string name="qs_margin_style1">Default</string>
+    <string name="qs_margin_style2">Medium</string>
+    <string name="qs_margin_style3">Large</string>
+    <string name="sb_padding_style_title">Simple StatusBar Padding</string>
+    <string name="sb_padding_style1">Default</string>
+    <string name="sb_padding_style2">Small</string>
+    <string name="sb_padding_style3">Large</string>
 
 </resources>
