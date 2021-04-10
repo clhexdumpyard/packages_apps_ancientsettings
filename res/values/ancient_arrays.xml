@@ -1187,4 +1187,19 @@
         <item>600</item>
     </string-array>
 
+    <!-- sb type -->
+    <string-array name="statusbar_dual_style_entries" translatable="false">
+        <item>@string/statusbar_dual_style_def</item>
+        <item>@string/statusbar_dual_style_1</item>
+        <item>@string/statusbar_dual_style_2</item>
+        <item>@string/statusbar_dual_style_3</item>
+    </string-array>
+
+    <string-array name="statusbar_dual_style_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
 </resources>
