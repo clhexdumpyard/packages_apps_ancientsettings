@@ -23,6 +23,8 @@
     android:paddingStart="?android:attr/listPreferredItemPaddingStart"
     android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
     android:clickable="false"
+    android:background="@drawable/ancient_cardview_bg_single_ripple"
+    android:layout_marginTop="7dp"
     android:orientation="horizontal">
 
     <LinearLayout

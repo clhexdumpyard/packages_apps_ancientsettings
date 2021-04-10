@@ -4,14 +4,14 @@
 	 Bought to you for Megalith Zone
 	 in research by xyzuan
 -->
-<ScrollView
+<androidx.core.widget.NestedScrollView
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-	android:background="@color/ancient_top_settings_color_bg"
-	tools:context="com.ancient.settings.AncientSettings">
+	tools:context="com.ancient.settings.AncientSettings"
+	app:layout_behavior="com.ancient.nabil_aba.overscroll.OverScrollBounceBehavior">
 
 	<RelativeLayout
 		android:layout_width="match_parent"
@@ -41,7 +41,7 @@
 			android:layout_marginBottom="25dp"/>
 	</LinearLayout>
 
-<include layout="@layout/ancient_settings_content"/>
+	<include layout="@layout/ancient_settings_content"/>
 
-</RelativeLayout>
-</ScrollView>
+    </RelativeLayout>
+</androidx.core.widget.NestedScrollView>
