@@ -1195,5 +1195,13 @@
     <string name="audio_panel_view_alarm_title">Alarm</string>
     <string name="audio_panel_view_voice_title">Voice</string>
     <string name="audio_panel_view_bt_sco_title">Bluetooth</string>	
+	
+    <!-- sb styles -->
+    <string name="statusbar_dual_style_title">StatusBar layout style</string>
+    <string name="statusbar_dual_style_summary">Choose style</string>
+    <string name="statusbar_dual_style_def">DualBar Default</string>
+    <string name="statusbar_dual_style_1">Ios Style </string>
+    <string name="statusbar_dual_style_2">DualBar Style With Left Analog</string>
+    <string name="statusbar_dual_style_3">DualBar Style With Center Analog</string>
 
 </resources>
