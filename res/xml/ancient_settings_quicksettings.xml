@@ -151,6 +151,12 @@
         android:title="@string/qqs_settings_icon_title" 
         android:summary="@string/qqs_settings_icon_summary"
         android:defaultValue="false" />
+     
+    <com.ancient.settings.preferences.SystemSettingSwitchPreference 
+        android:key="FOOTER_SHOW_BOTTOM" 
+        android:title="@string/footer_page_ind_title" 
+        android:summary="@string/footer_page_ind_sum"
+        android:defaultValue="true" />  
 
     <com.ancient.settings.preferences.SystemSettingSwitchPreference
         android:key="qs_tile_title_visibility"
@@ -214,11 +220,11 @@
             android:summary="@string/qs_show_auto_brightness_summary"
             android:defaultValue="true" />
 
-        <!--com.ancient.settings.preferences.SecureSettingSwitchPreference
+        <com.ancient.settings.preferences.SecureSettingSwitchPreference
             android:key="qs_brightness_position_bottom"
             android:title="@string/qs_brightness_position_bottom_title"
             android:summary="@string/qs_brightness_position_bottom_summary"
-            android:defaultValue="false" />-->
+            android:defaultValue="false" />
 
     </PreferenceCategory>
 
