@@ -66,10 +66,11 @@ import com.ancient.settings.display.SbNavStylePreferenceController;
 import com.ancient.settings.display.AnSwitchStylePreferenceController;
 import com.ancient.settings.display.AnAclockStylePreferenceController;
 import com.ancient.settings.display.AnSettingsStylePreferenceController;
-import com.ancient.settings.display.AnTooltipStylePreferenceController;
-import com.ancient.settings.display.AnTopadStylePreferenceController;
 import com.ancient.settings.display.SbBrightnStylePreferenceController;
 import com.ancient.settings.display.SbQsbgStylePreferenceController;
+import com.ancient.settings.display.SbPaddingStylePreferenceController;
+import com.ancient.settings.preferences.SystemSettingListPreference;
+import com.ancient.settings.preferences.SystemSettingSwitchPreference;
 
 import com.android.internal.util.ancient.ThemesUtils;
 import com.android.internal.util.ancient.AncientUtils;
@@ -87,10 +88,26 @@ public class Interface extends DashboardFragment implements
 
     private static final String TAG = "Interface";
     private static final String PREF_THEME_SWITCH = "theme_switch";
+    private static final String AVATARVIEWVIS = "AvatarViewVis"; 
+    private static final String ANCIENT_COLLAPSED_BASE_STYLE = "ancient_collapsed_base_style";   
+    private static final String COLLAPSEONOFF = "collapseonoff";
+    private static final String ANCIENT_HOMEPAGE_BACKGROUND = "ancient_homepage_background";  
+    private static final String ANCIENT_COLLAPSE_HEADER = "ancient_collapse_header";  
+    private static final String HOMECOLLAPSEONOFF = "homecollapseonoff";   
+    private static final String ANCIENT_COLLAPSETOOL_BG = "ancient_collapsetool_bg";    
+    private static final String ANCI_QS_MARGIN = "ANCI_QS_MARGIN";        
 
     private IOverlayManager mOverlayService;
     private UiModeManager mUiModeManager;
-
+        
+    private SystemSettingListPreference mAvatarViewVis; 
+    private SystemSettingListPreference mAncientCollapsedBaseStyle;
+    private SystemSettingSwitchPreference mAncientCollapsedOnoff;  
+    private ListPreference mAncientHomepageBackground; 
+    private SystemSettingListPreference mAncientCollapseHeader;   
+    private SystemSettingSwitchPreference mAncientHomeCollapsedOnoff;   
+    private SystemSettingListPreference mAncientCollapseToolBg;  
+    private SystemSettingListPreference mSbMarginStyle;  
     private ListPreference mThemeSwitch;
 
     @Override
@@ -113,6 +130,21 @@ public class Interface extends DashboardFragment implements
                 .asInterface(ServiceManager.getService(Context.OVERLAY_SERVICE));
 
         setupThemeSwitchPref();
+            
+        mAvatarViewVis = (SystemSettingListPreference) findPreference("AvatarViewVis"); 
+        mAvatarViewVis.setOnPreferenceChangeListener(this);
+        mAncientCollapsedBaseStyle = (SystemSettingListPreference) findPreference("ancient_collapsed_base_style"); 
+        mAncientCollapsedBaseStyle.setOnPreferenceChangeListener(this);
+        mAncientCollapsedOnoff = (SystemSettingSwitchPreference) findPreference("collapseonoff"); 
+        mAncientCollapsedOnoff.setOnPreferenceChangeListener(this);
+        mAncientHomepageBackground = (ListPreference) findPreference("ancient_homepage_background"); 
+        mAncientHomepageBackground.setOnPreferenceChangeListener(this);
+        mAncientCollapseHeader = (SystemSettingListPreference) findPreference("ancient_collapse_header"); 
+        mAncientCollapseHeader.setOnPreferenceChangeListener(this);  
+        mAncientHomeCollapsedOnoff = (SystemSettingSwitchPreference) findPreference("homecollapseonoff"); 
+        mAncientHomeCollapsedOnoff.setOnPreferenceChangeListener(this); 
+        mAncientCollapseToolBg = (SystemSettingListPreference) findPreference("ancient_collapsetool_bg"); 
+        mAncientCollapseToolBg.setOnPreferenceChangeListener(this);    
     }
 
     @Override
@@ -242,6 +274,48 @@ public class Interface extends DashboardFragment implements
             } catch (RemoteException ignored) {
             }
             return true;
+        } else if (preference == mAvatarViewVis) { 
+            try {
+                 mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
+             } catch (RemoteException ignored) {
+             }
+            return true;   
+        } else if (preference == mAncientCollapsedBaseStyle) { 
+            try {
+                 mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
+             } catch (RemoteException ignored) {
+             }
+            return true;   
+        } else if (preference == mAncientCollapsedOnoff) { 
+            try {
+                 mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
+             } catch (RemoteException ignored) {
+             }
+            return true;   
+        } else if (preference == mAncientHomepageBackground) { 
+            try {
+                 mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
+             } catch (RemoteException ignored) {
+             }
+            return true;   
+        } else if (preference == mAncientCollapseHeader) { 
+            try {
+                 mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
+             } catch (RemoteException ignored) {
+             }
+            return true;
+        } else if (preference == mAncientHomeCollapsedOnoff) { 
+            try {
+                 mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
+             } catch (RemoteException ignored) {
+             }
+            return true;           
+        } else if (preference == mAncientCollapseToolBg) { 
+            try {
+                 mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
+             } catch (RemoteException ignored) {
+             }
+            return true;          
         }
         return false;
     }
