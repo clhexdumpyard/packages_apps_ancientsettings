@@ -1356,5 +1356,9 @@
     <string name="show_footercarrier_disabled">Disabled</string>
     <string name="show_footercarrier_footer">QS Footer</string>
     <string name="show_footercarrier_enabled">All</string>
+	
+    <!-- Brightness text -->
+    <string name="ancient_brightness_text">Brightness Progress Text</string>
+    <string name="ancient_brightness_text_summary">Hide and Show Brigthness Text</string>
 
 </resources>
