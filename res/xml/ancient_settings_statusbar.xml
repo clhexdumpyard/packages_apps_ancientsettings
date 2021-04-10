@@ -32,6 +32,20 @@
         <Preference 
             android:layout="@layout/ancient_cardview_divider" 
             android:selectable="false"/>
+         
+        <com.ancient.settings.preferences.SystemSettingListPreference
+            android:layout="@layout/ancient_cardpreference_single"
+            android:key="statusbar_dual_style"
+            android:entries="@array/statusbar_dual_style_entries"
+            android:entryValues="@array/statusbar_dual_style_values"                                                          
+            android:title="@string/statusbar_dual_style_title"
+            android:summary="@string/statusbar_dual_style_summary"
+            android:dependency="statusbar_dual_row"                                                          
+            />
+
+        <Preference 
+            android:layout="@layout/ancient_cardview_divider" 
+            android:selectable="false"/>  
 
         <Preference
             android:layout="@layout/ancient_cardpreference_single"
