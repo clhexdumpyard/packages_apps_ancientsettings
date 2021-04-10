@@ -267,13 +267,18 @@
     <string name="fprint_success_vib_summary">Vibrate on successful fingerprint authentication</string>
 
     <!-- Battery Styles -->
-    <string name="battery_percent_title">Statusbar battery indicator</string>
+    <string name="battery_percent_title">Battery indicator</string>
     <string name="battery_percent_summary">Configure icon and text styles for the statusbar battery indicator</string>
     <string name="status_bar_battery_style_title">Battery style</string>
     <string name="status_bar_battery_style_icon_portrait">Icon portrait</string>
     <string name="status_bar_battery_style_circle">Circle</string>
     <string name="status_bar_battery_style_dotted_circle">Dotted circle</string>
     <string name="status_bar_battery_style_filled_circle">Filled circle</string>
+    <string name="status_bar_battery_style_landscape">LandScape Default</string>
+    <string name="status_bar_battery_style_landscapea">LandScape Style 1</string>
+    <string name="status_bar_battery_style_landscapeb">LandScape Style 2</string>
+    <string name="status_bar_battery_style_landscapec">LandScape Style 3</string>
+    <string name="status_bar_battery_style_landscaped">LandScape Style 4</string>
     <string name="status_bar_battery_style_text">Text</string>
     <string name="status_bar_battery_style_hidden">Hidden</string>
 
