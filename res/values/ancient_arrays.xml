@@ -1399,4 +1399,28 @@
         <item>2</item> 
     </string-array> 
      
+    <string-array name="sb_padding_entries" translatable="false">
+        <item>@string/sb_padding_style1</item>
+        <item>@string/sb_padding_style2</item>  
+        <item>@string/sb_padding_style3</item>   
+    </string-array>   
+
+    <string-array name="sb_padding_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item> 
+    </string-array>
+
+    <string-array name="qs_margin_entries" translatable="false">
+        <item>@string/qs_margin_style1</item>
+        <item>@string/qs_margin_style2</item>  
+        <item>@string/qs_margin_style3</item>   
+    </string-array>   
+
+    <string-array name="qs_margin_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item> 
+    </string-array>   
+     
 </resources>
