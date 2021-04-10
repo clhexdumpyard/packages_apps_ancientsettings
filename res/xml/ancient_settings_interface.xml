@@ -202,22 +202,49 @@
             android:entries="@array/diagcorner_entries"
             android:entryValues="@array/diagcorner_values"/>
 
-         <ListPreference
-            android:key="tooltip_style"
-            android:layout="@layout/ancient_cardpreference_middle"             
-            android:title="@string/tooltip_style_title"
+        <ListPreference
+            android:layout="@layout/ancient_cardpreference_middle"
+            android:key="ANCI_SB_PADDING"
+            android:title="@string/sb_padding_style_title"
             android:persistent="false"
-            android:entries="@array/tooltip_style_entries"
-            android:entryValues="@array/tooltip_style_values" />
+            android:entries="@array/sb_padding_entries"
+            android:entryValues="@array/sb_padding_values"/>
 
-          <ListPreference
-            android:key="topad_style"   
-            android:layout="@layout/ancient_cardpreference_bottom"            
-            android:title="@string/topad_style_title"
+        <com.ancient.settings.preferences.SystemSettingListPreference
+            android:layout="@layout/ancient_cardpreference_bottom"
+            android:key="ANCI_QS_MARGIN"
+            android:title="@string/qs_margin_style_title"
             android:persistent="false"
-            android:entries="@array/topad_style_entries"
-            android:entryValues="@array/topad_style_values" />
-
+            android:entries="@array/qs_margin_entries"
+            android:entryValues="@array/qs_margin_values"/> 
+         
+        <com.ancient.settings.preferences.SystemSettingSeekBarPreference
+            android:key="ANCI_PANNELTOP_PAD"
+            android:title="@string/tooltip_height_title"
+            android:max="300"
+            android:min="70"                                                             
+            settings:min="0"
+            android:defaultValue="170"
+            settings:units="dp"
+            android:summary="@string/tooltip_height_sum" />  
+         
+         <com.ancient.settings.preferences.SystemSettingSeekBarPreference
+            android:key="ANCI_BI_CLOCK"
+            android:title="@string/tooltip_style_title" 
+            android:max="110"
+            settings:min="0"
+            android:defaultValue="70"
+            settings:units="dp"
+            android:summary="@string/tooltip_style_sum" />  
+         
+         <com.ancient.settings.preferences.SystemSettingSeekBarPreference
+            android:key="ANCI_TOP_PAD"
+            android:max="50"
+            settings:min="0"
+            android:defaultValue="1"
+            settings:units="dp"
+            android:summary="@string/topad_style_summary" />
+         
     </PreferenceCategory>
 
     <PreferenceCategory
