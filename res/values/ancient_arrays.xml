@@ -1421,6 +1421,44 @@
         <item>0</item>
         <item>1</item>
         <item>2</item> 
+    </string-array>
+     
+    <string-array name="anci_staticon_entries" translatable="false">
+        <item>@string/anci_staticon_style1</item>
+        <item>@string/anci_staticon_style2</item>  
+        <item>@string/anci_staticon_style3</item>
+        <item>@string/anci_staticon_style4</item>
+        <item>@string/anci_staticon_style5</item>  
+        <item>@string/anci_staticon_style6</item> 
+        <item>@string/anci_staticon_style7</item>
+        <item>@string/anci_staticon_style8</item>  
+        <item>@string/anci_staticon_style9</item> 
+        <item>@string/anci_staticon_style10</item>
+        <item>@string/anci_staticon_style11</item>  
+        <item>@string/anci_staticon_style12</item> 
+        <item>@string/anci_staticon_style13</item>
+        <item>@string/anci_staticon_style14</item>  
+        <item>@string/anci_staticon_style15</item>
+        <item>@string/anci_staticon_style16</item>   
     </string-array>   
+
+    <string-array name="anci_staticon_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item> 
+        <item>6</item>
+        <item>7</item>
+        <item>8</item> 
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item> 
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>  
+    </string-array>    
      
 </resources>
