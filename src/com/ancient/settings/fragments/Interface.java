@@ -95,7 +95,8 @@ public class Interface extends DashboardFragment implements
     private static final String ANCIENT_COLLAPSE_HEADER = "ancient_collapse_header";  
     private static final String HOMECOLLAPSEONOFF = "homecollapseonoff";   
     private static final String ANCIENT_COLLAPSETOOL_BG = "ancient_collapsetool_bg";    
-    private static final String ANCI_QS_MARGIN = "ANCI_QS_MARGIN";        
+    private static final String ANCI_QS_MARGIN = "ANCI_QS_MARGIN"; 
+    private static final String ANCI_STATUSBAR_ICON = "ANCI_STATUSBAR_ICON";    
 
     private IOverlayManager mOverlayService;
     private UiModeManager mUiModeManager;
@@ -107,7 +108,8 @@ public class Interface extends DashboardFragment implements
     private SystemSettingListPreference mAncientCollapseHeader;   
     private SystemSettingSwitchPreference mAncientHomeCollapsedOnoff;   
     private SystemSettingListPreference mAncientCollapseToolBg;  
-    private SystemSettingListPreference mSbMarginStyle;  
+    private SystemSettingListPreference mSbMarginStyle;
+    private SystemSettingListPreference mSbStatbarIconStyle ;      
     private ListPreference mThemeSwitch;
 
     @Override
@@ -152,6 +154,13 @@ public class Interface extends DashboardFragment implements
         mSbMarginStyle.setValueIndex(valueIndex >= 0 ? valueIndex : 0);
         mSbMarginStyle.setSummary(mSbMarginStyle.getEntry());
         mSbMarginStyle.setOnPreferenceChangeListener(this);    
+        mSbStatbarIconStyle = (SystemSettingListPreference) findPreference("ANCI_STATUSBAR_ICON"); 
+        int sbStatbarIconStyle = Settings.System.getIntForUser(getContentResolver(),
+                "ANCI_STATUSBAR_ICON", 0, UserHandle.USER_CURRENT);
+        int valueIndex = mSbStatbarIconStyle.findIndexOfValue(String.valueOf(sbStatbarIconStyle));
+        mSbStatbarIconStyle.setValueIndex(valueIndex >= 0 ? valueIndex : 0);
+        mSbStatbarIconStyle.setSummary(mSbStatbarIconStyle.getEntry());
+        mSbStatbarIconStyle.setOnPreferenceChangeListener(this);    
     }
 
     @Override
@@ -334,7 +343,18 @@ public class Interface extends DashboardFragment implements
                  mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
             } catch (RemoteException ignored) {
             }   
-            return true;          
+            return true;
+        } else if (preference == mSbStatbarIconStyle) { 
+            int sbStatbarIconStyleValue = Integer.valueOf((String) objValue);
+            Settings.System.putIntForUser(getContentResolver(),
+                    "ANCI_QS_MARGIN", sbStatbarIconStyleValue, UserHandle.USER_CURRENT);
+            mSbStatbarIconStyle.setSummary(mSbStatbarIconStyle.getEntries()[sbStatbarIconStyleValue]);
+            try {
+                 mOverlayService.reloadAndroidAssets(UserHandle.USER_CURRENT);   
+                 mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
+            } catch (RemoteException ignored) {
+            }   
+            return true;            
         }     
         return false;
     }
