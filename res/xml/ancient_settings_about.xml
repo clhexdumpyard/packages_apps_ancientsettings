@@ -83,6 +83,11 @@
             android:icon="@drawable/ancient_support"/>
 
         <Preference
+            android:title="Nabilaba"
+            android:summary="@string/ancient_support_nabilaba"
+            android:icon="@drawable/ancient_support"/>
+
+        <Preference
             android:title="Maxander"
             android:summary="@string/ancient_support_maxander"
             android:icon="@drawable/ancient_support"/>
