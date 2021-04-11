@@ -1361,4 +1361,23 @@
     <string name="ancient_brightness_text">Brightness Progress Text</string>
     <string name="ancient_brightness_text_summary">Hide and Show Brigthness Text</string>
 
+    <!-- sb icon -->
+    <string name="anci_staticon_title">Status Bar Icon</string>
+    <string name="anci_staticon_style1">Default</string>
+    <string name="anci_staticon_style2">Circular</string>
+    <string name="anci_staticon_style3">Filled</string>
+    <string name="anci_staticon_style4">Kai</string>
+    <string name="anci_staticon_style5">Rounded</string>
+    <string name="anci_staticon_style6">Sam</string>
+    <string name="anci_staticon_style7">Victor</string>
+    <string name="anci_staticon_style8">Electro</string>
+    <string name="anci_staticon_style9">Stripe</string>
+    <string name="anci_staticon_style10">Egg</string>
+    <string name="anci_staticon_style11">Fence</string>
+    <string name="anci_staticon_style12">Ios</string>
+    <string name="anci_staticon_style13">TextBlock</string>
+    <string name="anci_staticon_style14">Satelite</string>
+    <string name="anci_staticon_style15">Line</string>
+    <string name="anci_staticon_style16">Leaf</string>
+
 </resources>

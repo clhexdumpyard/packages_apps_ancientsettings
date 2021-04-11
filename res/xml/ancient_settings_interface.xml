@@ -143,10 +143,19 @@
             android:key="android.theme.customization.adaptive_icon_shape"
             android:title="@string/theme_customization_icon_shape_title"/>
 
-        <com.ancient.settings.preferences.SystemSettingListPreference
+        <!--<com.ancient.settings.preferences.SystemSettingListPreference
             android:layout="@layout/ancient_cardpreference_middle"
             android:key="android.theme.customization.icon_pack.android"
-            android:title="@string/theme_customization_sysui_icon_title"/>
+            android:title="@string/theme_customization_sysui_icon_title"/>-->
+
+        <com.ancient.settings.preferences.SystemSettingListPreference
+            android:layout="@layout/ancient_cardpreference_middle"
+            android:key="ANCI_STATUSBAR_ICON"
+            android:title="@string/anci_staticon_title"
+            android:persistent="false"
+            android:defaultValue="0"
+            android:entries="@array/anci_staticon_entries"
+            android:entryValues="@array/anci_staticon_values"/>
         
         <ListPreference
             android:layout="@layout/ancient_cardpreference_middle"

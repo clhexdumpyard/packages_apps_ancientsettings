@@ -95,6 +95,7 @@ public class Interface extends DashboardFragment implements
     private static final String HOMECOLLAPSEONOFF = "homecollapseonoff";
     private static final String ANCIENT_COLLAPSETOOL_BG = "ancient_collapsetool_bg";
     private static final String ANCI_QS_MARGIN = "ANCI_QS_MARGIN";
+    private static final String ANCI_STATUSBAR_ICON = "ANCI_STATUSBAR_ICON";
 
     private IOverlayManager mOverlayService;
     private UiModeManager mUiModeManager;
@@ -108,6 +109,7 @@ public class Interface extends DashboardFragment implements
     private SystemSettingSwitchPreference mAncientHomeCollapsedOnoff;
     private SystemSettingListPreference mAncientCollapseToolBg;
     private SystemSettingListPreference mSbMarginStyle;
+    private SystemSettingListPreference mSbStatbarIconStyle;
 
     @Override
     protected String getLogTag() {
@@ -144,6 +146,7 @@ public class Interface extends DashboardFragment implements
         mAncientHomeCollapsedOnoff.setOnPreferenceChangeListener(this);
         mAncientCollapseToolBg = (SystemSettingListPreference) findPreference("ancient_collapsetool_bg");
         mAncientCollapseToolBg.setOnPreferenceChangeListener(this);
+
         mSbMarginStyle = (SystemSettingListPreference) findPreference("ANCI_QS_MARGIN");
         int sbMarginStyle = Settings.System.getIntForUser(getContentResolver(),
                 "ANCI_QS_MARGIN", 0, UserHandle.USER_CURRENT);
@@ -151,6 +154,14 @@ public class Interface extends DashboardFragment implements
         mSbMarginStyle.setValueIndex(valueIndex >= 0 ? valueIndex : 0);
         mSbMarginStyle.setSummary(mSbMarginStyle.getEntry());
         mSbMarginStyle.setOnPreferenceChangeListener(this);
+
+        mSbStatbarIconStyle = (SystemSettingListPreference) findPreference("ANCI_STATUSBAR_ICON");
+        int sbStatbarIconStyle = Settings.System.getIntForUser(getContentResolver(),
+                "ANCI_STATUSBAR_ICON", 0, UserHandle.USER_CURRENT);
+        int valueIndexIcon = mSbStatbarIconStyle.findIndexOfValue(String.valueOf(sbStatbarIconStyle));
+        mSbStatbarIconStyle.setValueIndex(valueIndexIcon >= 0 ? valueIndexIcon : 0);
+        mSbStatbarIconStyle.setSummary(mSbStatbarIconStyle.getEntry());
+        mSbStatbarIconStyle.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -326,6 +337,16 @@ public class Interface extends DashboardFragment implements
                     "ANCI_QS_MARGIN", sbMarginStyleValue, UserHandle.USER_CURRENT);
             mSbMarginStyle.setSummary(mSbMarginStyle.getEntries()[sbMarginStyleValue]);
             AncientUtils.showSystemUiRestartDialog(getContext());
+            try {
+                 mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
+            } catch (RemoteException ignored) {
+            }
+            return true;
+        } else if (preference == mSbStatbarIconStyle) {
+            int sbStatbarIconStyleValue = Integer.valueOf((String) objValue);
+            Settings.System.putIntForUser(getContentResolver(),
+                    "ANCI_STATUSBAR_ICON", sbStatbarIconStyleValue, UserHandle.USER_CURRENT);
+            mSbStatbarIconStyle.setSummary(mSbStatbarIconStyle.getEntries()[sbStatbarIconStyleValue]);
             try {
                  mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
             } catch (RemoteException ignored) {
