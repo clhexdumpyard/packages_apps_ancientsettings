@@ -1459,6 +1459,30 @@
         <item>13</item>
         <item>14</item>
         <item>15</item>  
-    </string-array>    
+    </string-array>   
+     
+    <string-array name="anci_shapeicon_entries" translatable="false">
+        <item>@string/anci_shapeicon_style1</item>
+        <item>@string/anci_shapeicon_style2</item>  
+        <item>@string/anci_shapeicon_style3</item>
+        <item>@string/anci_shapeicon_style4</item>
+        <item>@string/anci_shapeicon_style5</item>  
+        <item>@string/anci_shapeicon_style6</item> 
+        <item>@string/anci_shapeicon_style7</item>
+        <item>@string/anci_shapeicon_style8</item>  
+        <item>@string/anci_shapeicon_style9</item>   
+    </string-array>   
+
+    <string-array name="anci_shapeicon_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item> 
+        <item>6</item>
+        <item>7</item>
+        <item>8</item> 
+    </string-array>     
      
 </resources>
