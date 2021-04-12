@@ -169,7 +169,6 @@ public class Notifications extends SettingsPreferenceFragment
             boolean value = (Boolean) objValue;
             Settings.System.putInt(resolver,
                     Settings.System.NOTIFICATION_HEADERS, value ? 1 : 0);
-            AncientUtils.showSystemUiRestartDialog(getContext());
             return true;
         } else if (preference == mCenterNotificationHeader) {
             boolean value = (Boolean) objValue;
@@ -224,7 +223,6 @@ public class Notifications extends SettingsPreferenceFragment
             boolean value = (Boolean) objValue;
             Settings.System.putInt(resolver,
                     Settings.System.NOTIFICATION_MATERIAL_DISMISS, value ? 1 : 0);
-            AncientUtils.showSystemUiRestartDialog(getContext());
             return true;
         }
         return false;
