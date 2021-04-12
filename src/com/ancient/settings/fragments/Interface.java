@@ -157,8 +157,8 @@ public class Interface extends DashboardFragment implements
         mSbStatbarIconStyle = (SystemSettingListPreference) findPreference("ANCI_STATUSBAR_ICON"); 
         int sbStatbarIconStyle = Settings.System.getIntForUser(getContentResolver(),
                 "ANCI_STATUSBAR_ICON", 0, UserHandle.USER_CURRENT);
-        int valueIndex = mSbStatbarIconStyle.findIndexOfValue(String.valueOf(sbStatbarIconStyle));
-        mSbStatbarIconStyle.setValueIndex(valueIndex >= 0 ? valueIndex : 0);
+        int valueIndexIcon = mSbStatbarIconStyle.findIndexOfValue(String.valueOf(sbStatbarIconStyle));
+        mSbStatbarIconStyle.setValueIndex(valueIndexIcon >= 0 ? valueIndexIcon : 0);
         mSbStatbarIconStyle.setSummary(mSbStatbarIconStyle.getEntry());
         mSbStatbarIconStyle.setOnPreferenceChangeListener(this);    
     }
