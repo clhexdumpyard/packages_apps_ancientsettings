@@ -1380,4 +1380,16 @@
     <string name="anci_staticon_style15">Line</string>
     <string name="anci_staticon_style16">Leaf</string>
 	
+    <!-- shape icon -->
+    <string name="anci_shapeicon_title">Icon Shape</string>
+    <string name="anci_shapeicon_style1">Default</string>
+    <string name="anci_shapeicon_style2">Heart</string>
+    <string name="anci_shapeicon_style3">Pebble</string>
+    <string name="anci_shapeicon_style4">RoundedRect</string>
+    <string name="anci_shapeicon_style5">Square</string>
+    <string name="anci_shapeicon_style6">Squircle</string>
+    <string name="anci_shapeicon_style7">Taperedrect</string>
+    <string name="anci_shapeicon_style8">Teardrop</string>
+    <string name="anci_shapeicon_style9">Vessel</string>
+	
 </resources>
