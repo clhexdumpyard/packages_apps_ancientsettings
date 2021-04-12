@@ -349,8 +349,7 @@ public class Interface extends DashboardFragment implements
             Settings.System.putIntForUser(getContentResolver(),
                     "ANCI_STATUSBAR_ICON", sbStatbarIconStyleValue, UserHandle.USER_CURRENT);
             mSbStatbarIconStyle.setSummary(mSbStatbarIconStyle.getEntries()[sbStatbarIconStyleValue]);
-            try {
-                 mOverlayService.reloadAndroidAssets(UserHandle.USER_CURRENT);   
+            try { 
                  mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
             } catch (RemoteException ignored) {
             }   
