@@ -96,7 +96,8 @@ public class Interface extends DashboardFragment implements
     private static final String HOMECOLLAPSEONOFF = "homecollapseonoff";   
     private static final String ANCIENT_COLLAPSETOOL_BG = "ancient_collapsetool_bg";    
     private static final String ANCI_QS_MARGIN = "ANCI_QS_MARGIN"; 
-    private static final String ANCI_STATUSBAR_ICON = "ANCI_STATUSBAR_ICON";    
+    private static final String ANCI_STATUSBAR_ICON = "ANCI_STATUSBAR_ICON";  
+    private static final String ANCI_SHAPE_ICON = "ANCI_SHAPE_ICON";    
 
     private IOverlayManager mOverlayService;
     private UiModeManager mUiModeManager;
@@ -109,7 +110,8 @@ public class Interface extends DashboardFragment implements
     private SystemSettingSwitchPreference mAncientHomeCollapsedOnoff;   
     private SystemSettingListPreference mAncientCollapseToolBg;  
     private SystemSettingListPreference mSbMarginStyle;
-    private SystemSettingListPreference mSbStatbarIconStyle ;      
+    private SystemSettingListPreference mSbStatbarIconStyle ;  
+    private SystemSettingListPreference mSbShapeIconStyle ;    
     private ListPreference mThemeSwitch;
 
     @Override
@@ -160,7 +162,14 @@ public class Interface extends DashboardFragment implements
         int valueIndexIcon = mSbStatbarIconStyle.findIndexOfValue(String.valueOf(sbStatbarIconStyle));
         mSbStatbarIconStyle.setValueIndex(valueIndexIcon >= 0 ? valueIndexIcon : 0);
         mSbStatbarIconStyle.setSummary(mSbStatbarIconStyle.getEntry());
-        mSbStatbarIconStyle.setOnPreferenceChangeListener(this);    
+        mSbStatbarIconStyle.setOnPreferenceChangeListener(this);  
+        mSbShapeIconStyle = (SystemSettingListPreference) findPreference("ANCI_SHAPE_ICON"); 
+        int sbShapeIconStyle = Settings.System.getIntForUser(getContentResolver(),
+                "ANCI_SHAPE_ICON", 0, UserHandle.USER_CURRENT);
+        int valueIndexShape = mSbShapeIconStyle.findIndexOfValue(String.valueOf(sbShapeIconStyle));
+        mSbShapeIconStyle.setValueIndex(valueIndexShape >= 0 ? valueIndexShape : 0);
+        mSbShapeIconStyle.setSummary(mSbShapeIconStyle.getEntry());
+        mSbShapeIconStyle.setOnPreferenceChangeListener(this);     
     }
 
     @Override
@@ -354,7 +363,19 @@ public class Interface extends DashboardFragment implements
             } catch (RemoteException ignored) {
             }   
             return true;            
-        }     
+        } else if (preference == mSbShapeIconStyle) { 
+            int sbShapeIconStyleValue = Integer.valueOf((String) objValue);
+            Settings.System.putIntForUser(getContentResolver(),
+                    "ANCI_SHAPE_ICON", sbShapeIconStyleValue, UserHandle.USER_CURRENT);
+            mSbShapeIconStyle.setSummary(mSbShapeIconStyle.getEntries()[sbShapeIconStyleValue]);
+            try { 
+                 mOverlayService.reloadAndroidAssets(UserHandle.USER_CURRENT);   
+                 mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
+                 mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);   
+            } catch (RemoteException ignored) {
+            }   
+            return true;            
+        }          
         return false;
     }
 
