@@ -242,7 +242,7 @@
             android:title="@string/tooltip_style_title" 
             android:max="110"
             settings:min="0"
-            android:defaultValue="70"
+            android:defaultValue="90"
             settings:units="dp"
             android:summary="@string/tooltip_style_sum" />  
 
