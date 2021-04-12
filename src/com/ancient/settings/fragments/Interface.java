@@ -347,7 +347,7 @@ public class Interface extends DashboardFragment implements
         } else if (preference == mSbStatbarIconStyle) { 
             int sbStatbarIconStyleValue = Integer.valueOf((String) objValue);
             Settings.System.putIntForUser(getContentResolver(),
-                    "ANCI_QS_MARGIN", sbStatbarIconStyleValue, UserHandle.USER_CURRENT);
+                    "ANCI_STATUSBAR_ICON", sbStatbarIconStyleValue, UserHandle.USER_CURRENT);
             mSbStatbarIconStyle.setSummary(mSbStatbarIconStyle.getEntries()[sbStatbarIconStyleValue]);
             try {
                  mOverlayService.reloadAndroidAssets(UserHandle.USER_CURRENT);   
