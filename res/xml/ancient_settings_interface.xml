@@ -138,15 +138,24 @@
         android:key="megalith_system_icons"
         android:title="@string/megalith_system_icons_center_category">
 
-        <com.ancient.settings.preferences.SystemSettingListPreference
+        <!--<com.ancient.settings.preferences.SystemSettingListPreference
             android:layout="@layout/ancient_cardpreference_top"
             android:key="android.theme.customization.adaptive_icon_shape"
-            android:title="@string/theme_customization_icon_shape_title"/>
+            android:title="@string/theme_customization_icon_shape_title"/>-->
 
         <!--<com.ancient.settings.preferences.SystemSettingListPreference
             android:layout="@layout/ancient_cardpreference_middle"
             android:key="android.theme.customization.icon_pack.android"
             android:title="@string/theme_customization_sysui_icon_title"/>-->
+
+        <com.ancient.settings.preferences.SystemSettingListPreference
+            android:layout="@layout/ancient_cardpreference_top"
+            android:key="ANCI_SHAPE_ICON"
+            android:title="@string/anci_shapeicon_title"
+            android:persistent="false"
+            android:defaultValue="0"
+            android:entries="@array/anci_shapeicon_entries"
+            android:entryValues="@array/anci_shapeicon_values"/>
 
         <com.ancient.settings.preferences.SystemSettingListPreference
             android:layout="@layout/ancient_cardpreference_middle"
