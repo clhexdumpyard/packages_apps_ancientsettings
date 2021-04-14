@@ -97,6 +97,8 @@ public class Interface extends DashboardFragment implements
     private static final String ANCI_QS_MARGIN = "ANCI_QS_MARGIN";
     private static final String ANCI_STATUSBAR_ICON = "ANCI_STATUSBAR_ICON";
     private static final String ANCI_SHAPE_ICON = "ANCI_SHAPE_ICON";
+    private static final String BOUNCYONOFF = "bouncyonoff";
+    private static final String HOMEBOLDONOFF = "homeboldonoff";
 
     private IOverlayManager mOverlayService;
     private UiModeManager mUiModeManager;
@@ -112,6 +114,8 @@ public class Interface extends DashboardFragment implements
     private SystemSettingListPreference mSbMarginStyle;
     private SystemSettingListPreference mSbStatbarIconStyle;
     private SystemSettingListPreference mSbShapeIconStyle;
+    private SystemSettingSwitchPreference mAncientBouncyOnoff;
+    private SystemSettingSwitchPreference mAncientBoldOnoff;
 
     @Override
     protected String getLogTag() {
@@ -172,6 +176,12 @@ public class Interface extends DashboardFragment implements
         mSbShapeIconStyle.setValueIndex(valueIndexShape >= 0 ? valueIndexShape : 0);
         mSbShapeIconStyle.setSummary(mSbShapeIconStyle.getEntry());
         mSbShapeIconStyle.setOnPreferenceChangeListener(this);
+
+        mAncientBouncyOnoff = (SystemSettingSwitchPreference) findPreference("bouncyonoff");
+        mAncientBouncyOnoff.setOnPreferenceChangeListener(this);
+
+        mAncientBoldOnoff = (SystemSettingSwitchPreference) findPreference("homeboldonoff");
+        mAncientBoldOnoff.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -370,6 +380,18 @@ public class Interface extends DashboardFragment implements
             try {
                  mOverlayService.reloadAndroidAssets(UserHandle.USER_CURRENT);
                  mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
+                 mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
+            } catch (RemoteException ignored) {
+            }
+            return true;
+        } else if (preference == mAncientBouncyOnoff) {
+            try {
+                 mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
+            } catch (RemoteException ignored) {
+            }
+            return true;
+        } else if (preference == mAncientBoldOnoff) {
+            try {
                  mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
             } catch (RemoteException ignored) {
             }

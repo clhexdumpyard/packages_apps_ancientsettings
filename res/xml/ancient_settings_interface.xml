@@ -69,7 +69,15 @@
             android:key="homecollapseonoff"                             
             android:defaultValue="0"
             android:summary="@string/collapsed_home_switch_summary"             
-            android:title="@string/collapsed_home_switch_title"/>       
+            android:title="@string/collapsed_home_switch_title"/>
+
+       <com.ancient.settings.preferences.SystemSettingSwitchPreference
+            android:layout="@layout/ancient_cardpreference_middle"
+            android:key="homeboldonoff"
+            android:dependency="homecollapseonoff"
+            android:defaultValue="0"
+            android:summary="@string/collapsed_bold_summary"             
+            android:title="@string/collapsed_bold_title"/>
 
         <com.ancient.settings.preferences.SystemSettingListPreference
             android:layout="@layout/ancient_cardpreference_middle"                                                          
@@ -86,6 +94,14 @@
             android:defaultValue="0"
             android:summary="@string/collapsed_switch_summary"             
             android:title="@string/collapsed_switch_title"/>  
+
+        <com.ancient.settings.preferences.SystemSettingSwitchPreference
+            android:layout="@layout/ancient_cardpreference_middle"
+            android:key="bouncyonoff"
+            android:defaultValue="0"
+            android:dependency="collapseonoff"
+            android:summary="@string/collapsed_bouncy_summary"             
+            android:title="@string/collapsed_bouncy_title"/>
 
         <com.ancient.settings.preferences.SystemSettingListPreference
             android:layout="@layout/ancient_cardpreference_middle"
@@ -115,7 +131,8 @@
 
         <com.ancient.settings.preferences.SystemSettingListPreference
             android:key="ancient_collapsetool_bg"
-            android:defaultValue="0"                                                          
+            android:defaultValue="0"
+            android:layout="@layout/ancient_cardpreference_bottom"
             android:title="@string/ancicoleptoolbg_style_title"
             android:entries="@array/ancicoleptoolbg_style_entries"
             android:entryValues="@array/ancicoleptoolbg_style_values" /> 

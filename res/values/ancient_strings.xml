@@ -1239,11 +1239,15 @@
     <string name="collapse_base_style_2">ONEUI by Ancient</string>
     <string name="collapsed_switch_title">Subsettings Collapsed Switch</string>
     <string name="collapsed_switch_summary">switch it on to enable collapse</string>
+    <string name="collapsed_bouncy_title">Bouncy</string>
+    <string name="collapsed_bouncy_summary">switch it on to enable bouncy</string>
+    <string name="collapsed_bold_title">UnBold Tittle</string>
+    <string name="collapsed_bold_summary">switch it on to normal text style</string>
 
     <string name="setting_megalith_zone_title">Settings Zone</string>
 
     <!-- setbg styles -->
-    <string name="seetingsbg_style_title">Settings Hompage Background</string>
+    <string name="seetingsbg_style_title">Settings Homepage Background</string>
     <string name="seetingsbg_style_summary">Choose style</string>
     <string name="seetingsbg_style_1">Default Transparent</string>
     <string name="seetingsbg_style_2">Style 1</string>
