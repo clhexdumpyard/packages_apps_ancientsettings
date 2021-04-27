@@ -1395,5 +1395,12 @@
     <string name="anci_shapeicon_style7">Taperedrect</string>
     <string name="anci_shapeicon_style8">Teardrop</string>
     <string name="anci_shapeicon_style9">Vessel</string>
+	
+    <!-- tile icon -->
+    <string name="custom_tile_size_title">QS Tile Icon Size</string>
+    <string name="custom_tile_size_small">Snall</string>
+    <string name="custom_tile_size_medium">Medium</string>
+    <string name="custom_tile_size_default">Default</string>
+    <string name="custom_tile_size_big">Big</string>	
 
 </resources>
