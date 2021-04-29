@@ -27,6 +27,7 @@
     <com.ancient.settings.preferences.SystemSettingListPreference
         android:key="QS_BG_LIST"
         android:title="@string/custom_bg_qs_title"
+        android:dependency="QS_BLUR"                                                          
         android:entries="@array/custom_bg_qs_entries"
         android:entryValues="@array/custom_bg_qs_values"
         android:defaultValue="0" /> 
