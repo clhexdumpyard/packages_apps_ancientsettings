@@ -1414,9 +1414,9 @@
     <string name="custom_bg_qs_title">QS Panel Background Custom</string>
     <string name="custom_bg_qs_default">Default Blur</string>
     <string name="custom_bg_qs_accent">Accent V1</string>
-    <string name="custom_bg_qs_accent">Accent V2</string>
+    <string name="custom_bg_qs_accent2">Accent V2</string>
     <string name="custom_bg_qs_primary">Background Primary</string>
     <string name="custom_bg_qs_wallpaper">Wallpaper Color</string>
-    <string name="custom_bg_qs_wallpaper">Random (with disco while swipe panel)</string>	
+    <string name="custom_bg_qs_random">Disco</string>	
 
 </resources>
