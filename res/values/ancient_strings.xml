@@ -1412,7 +1412,7 @@
     <string name="qs_bgful_alpha_title">QS Panel Background Opacy</string>
     <string name="qs_bgful_alpha_summary">set the opacy of qs panel background full</string>
     <string name="custom_bg_qs_title">QS Panel Background Custom</string>
-    <string name="custom_bg_qs_default">White</string>
+    <string name="custom_bg_qs_default">Default Transparent</string>
     <string name="custom_bg_qs_accent">Accent V1</string>
     <string name="custom_bg_qs_accent2">Accent V2</string>
     <string name="custom_bg_qs_primary">Background Primary</string>
