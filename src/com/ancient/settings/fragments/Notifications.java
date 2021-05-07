@@ -228,6 +228,12 @@ public class Notifications extends SettingsPreferenceFragment
         return false;
     }
     
+    public static void reset(Context mContext) {
+        ContentResolver resolver = mContext.getContentResolver();
+        Settings.System.putIntForUser(resolver,
+                "NOTIFICATION_BG_ALPHA", 255, UserHandle.USER_CURRENT);
+    }
+    
     @Override
     public int getMetricsCategory() {
         return MetricsProto.MetricsEvent.ANCIENT_SETTINGS;
