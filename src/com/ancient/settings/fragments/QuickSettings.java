@@ -72,6 +72,7 @@ public class QuickSettings extends SettingsPreferenceFragment
     private static final String FOOTER_TEXT_STRING = "footer_text_string";
     private static final String STATUS_BAR_CUSTOM_HEADER = "status_bar_custom_header";
     private static final String PREF_QS_MEDIA_PLAYER = "qs_media_player";
+    private static final String QS_BG_FUL = "QS_BG_FUL";
 
     private UiModeManager mUiModeManager;
 
@@ -79,6 +80,7 @@ public class QuickSettings extends SettingsPreferenceFragment
     private SystemSettingEditTextPreference mFooterString;
     private SystemSettingMasterSwitchPreference mCustomHeader;
     private SystemSettingSwitchPreference mQsMedia;
+    private SystemSettingSwitchPreference mQsBgFul;
     private IOverlayManager mOverlayService;
 
     @Override
@@ -119,6 +121,11 @@ public class QuickSettings extends SettingsPreferenceFragment
         mQsMedia.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.QS_MEDIA_PLAYER, 0) == 1));
         mQsMedia.setOnPreferenceChangeListener(this);
+        
+        mQsBgFul = (SystemSettingSwitchPreference) findPreference(QS_BG_FUL);
+        mQsBgFul.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
+                "QS_BG_FUL", 0) == 1));
+        mQsBgFul.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -151,6 +158,15 @@ public class QuickSettings extends SettingsPreferenceFragment
                     Settings.System.QS_MEDIA_PLAYER, value ? 1 : 0);
             AncientUtils.showSystemUiRestartDialog(getContext());
             return true;
+        } else if (preference == mQsBgFul) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    "QS_BG_FUL", value ? 1 : 0);
+            try {
+                 mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
+            } catch (RemoteException ignored) {
+            }
+            return true;    
         }
         return false;
     }
