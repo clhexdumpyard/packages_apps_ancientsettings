@@ -1407,10 +1407,16 @@
     <string name="notification_alpha_title">Notification background opacity</string>	
 	
     <!-- qs bg cus -->
+    <string name="bgfull_quicksettings">QS Panel Background </string>
+    <string name="bgfull_quicksettings_subtitle">Enable qs panel background full</string>
+    <string name="qs_bgful_alpha_title">QS Panel Background Opacy</string>
+    <string name="qs_bgful_alpha_summary">set the opacy of qs panel background full</string>
     <string name="custom_bg_qs_title">QS Panel Background Custom</string>
     <string name="custom_bg_qs_default">Default Blur</string>
-    <string name="custom_bg_qs_accent">Accent</string>
+    <string name="custom_bg_qs_accent">Accent V1</string>
+    <string name="custom_bg_qs_accent">Accent V2</string>
     <string name="custom_bg_qs_primary">Background Primary</string>
-    <string name="custom_bg_qs_wallpaper">Wallpaper</string>
+    <string name="custom_bg_qs_wallpaper">Wallpaper Color</string>
+    <string name="custom_bg_qs_wallpaper">Random (with disco while swipe panel)</string>	
 
 </resources>
