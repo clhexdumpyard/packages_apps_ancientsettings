@@ -193,7 +193,8 @@ public class LockScreen extends SettingsPreferenceFragment implements
     public static void reset(Context mContext) {
         ContentResolver resolver = mContext.getContentResolver();   
         Settings.System.putIntForUser(resolver,
-                "LOCKSCREEN_BLUR", 0, UserHandle.USER_CURRENT);    
+                "LOCKSCREEN_BLUR", 0, UserHandle.USER_CURRENT);  
+    }       
 
     @Override
     public int getMetricsCategory() {
