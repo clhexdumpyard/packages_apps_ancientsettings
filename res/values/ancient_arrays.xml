@@ -1557,4 +1557,16 @@
         <item>3</item>
     </string-array>
 
+    <string-array name="anc_ctoplevel_entries" translatable="false">
+        <item>@string/anc_ctoplevel_style1</item>
+        <item>@string/anc_ctoplevel_style2</item>
+        <item>@string/anc_ctoplevel_style3</item>
+    </string-array>
+
+    <string-array name="anc_ctoplevel_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
 </resources>

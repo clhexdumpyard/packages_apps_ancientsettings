@@ -99,6 +99,7 @@ public class Interface extends DashboardFragment implements
     private static final String ANCI_SHAPE_ICON = "ANCI_SHAPE_ICON";
     private static final String BOUNCYONOFF = "bouncyonoff";
     private static final String HOMEBOLDONOFF = "homeboldonoff";
+    private static final String ANCI_CUSTOM_TOPLEVEL = "ANCI_CUSTOM_TOPLEVEL";
 
     private IOverlayManager mOverlayService;
     private UiModeManager mUiModeManager;
@@ -116,6 +117,7 @@ public class Interface extends DashboardFragment implements
     private SystemSettingListPreference mSbShapeIconStyle;
     private SystemSettingSwitchPreference mAncientBouncyOnoff;
     private SystemSettingSwitchPreference mAncientBoldOnoff;
+    private SystemSettingListPreference mAncientCusTop;
 
     @Override
     protected String getLogTag() {
@@ -182,6 +184,14 @@ public class Interface extends DashboardFragment implements
 
         mAncientBoldOnoff = (SystemSettingSwitchPreference) findPreference("homeboldonoff");
         mAncientBoldOnoff.setOnPreferenceChangeListener(this);
+
+        mAncientCusTop = (SystemSettingListPreference) findPreference("ANCI_CUSTOM_TOPLEVEL");
+        int sbSeetingStyle  = Settings.System.getIntForUser(getContentResolver(),
+                "ANCI_CUSTOM_TOPLEVEL", 0, UserHandle.USER_CURRENT);
+        int valueIndexSeet = mAncientCusTop.findIndexOfValue(String.valueOf(sbSeetingStyle ));
+        mAncientCusTop.setValueIndex(valueIndexSeet >= 0 ? valueIndexSeet : 0);
+        mAncientCusTop.setSummary(mAncientCusTop.getEntry());
+        mAncientCusTop.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -391,6 +401,16 @@ public class Interface extends DashboardFragment implements
             }
             return true;
         } else if (preference == mAncientBoldOnoff) {
+            try {
+                 mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
+            } catch (RemoteException ignored) {
+            }
+            return true;
+        } else if (preference == mAncientCusTop) {
+            int sbSeetingStyleValue = Integer.valueOf((String) objValue);
+            Settings.System.putIntForUser(getContentResolver(),
+                    "ANCI_CUSTOM_TOPLEVEL", sbSeetingStyleValue, UserHandle.USER_CURRENT);
+            mAncientCusTop.setSummary(mAncientCusTop.getEntries()[sbSeetingStyleValue]);
             try {
                  mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
             } catch (RemoteException ignored) {
