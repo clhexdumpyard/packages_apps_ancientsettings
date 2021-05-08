@@ -135,7 +135,7 @@ public class LockScreen extends SettingsPreferenceFragment implements
             
         mLockscreenBlur = (Preference) findPreference(LOCKSCREEN_BLUR);
         if (!DeviceUtils.isBlurSupported()) {
-            prefSet.removePreference(mLockscreenBlur);
+            prefScreen.removePreference(mLockscreenBlur);
         }    
     }
 
