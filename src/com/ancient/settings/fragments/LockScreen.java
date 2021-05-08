@@ -39,6 +39,7 @@ import com.android.settingslib.search.Indexable;
 import com.android.settingslib.search.SearchIndexable;
 
 import com.ancient.settings.preferences.CustomSeekBarPreference;
+import com.ancient.settings.utils.DeviceUtils;
 
 import java.util.Arrays;
 import java.util.ArrayList;
@@ -55,12 +56,14 @@ public class LockScreen extends SettingsPreferenceFragment implements
     private static final String FOD_ANIMATION_CATEGORY = "fod_animations";
     private static final String FOD_ICON_PICKER_CATEGORY = "fod_icon_picker";
     private static final String LOCKSCREEN_MAX_NOTIF_CONFIG = "lockscreen_max_notif_cofig";
+    private static final String LOCKSCREEN_BLUR = "LOCKSCREEN_BLUR";    
 
     private FingerprintManager mFingerprintManager;
     private SwitchPreference mFingerprintErrorVib;
     private SwitchPreference mFingerprintVib;
     private PreferenceCategory mFODIconPickerCategory;
     private CustomSeekBarPreference mMaxKeyguardNotifConfig;
+    private Preference mLockscreenBlur;    
 
     static final int MODE_DISABLED = 0;
     static final int MODE_NIGHT = 1;
@@ -129,6 +132,11 @@ public class LockScreen extends SettingsPreferenceFragment implements
 
         mAODPref = findPreference(AOD_SCHEDULE_KEY);
         updateAlwaysOnSummary();
+            
+        mLockscreenBlur = (Preference) findPreference(LOCKSCREEN_BLUR);
+        if (!DeviceUtils.isBlurSupported()) {
+            prefSet.removePreference(mLockscreenBlur);
+        }    
     }
 
     @Override
@@ -181,6 +189,11 @@ public class LockScreen extends SettingsPreferenceFragment implements
         }
         return false;
     }
+        
+    public static void reset(Context mContext) {
+        ContentResolver resolver = mContext.getContentResolver();   
+        Settings.System.putIntForUser(resolver,
+                "LOCKSCREEN_BLUR", 0, UserHandle.USER_CURRENT);    
 
     @Override
     public int getMetricsCategory() {
@@ -208,6 +221,11 @@ public class LockScreen extends SettingsPreferenceFragment implements
                 @Override
                 public List<String> getNonIndexableKeys(Context context) {
                     List<String> keys = super.getNonIndexableKeys(context);
+                    
+                    if (!DeviceUtils.isBlurSupported()) {
+                        keys.add(LOCKSCREEN_BLUR);
+                    }    
+                        
                     return keys;
                 }
     };
