@@ -1429,4 +1429,9 @@
     <!-- Lockscreen blur -->
     <string name="lockscreen_blur_title">Background blur</string>
     <string name="lockscreen_blur_summary">Blur lock screen background</string>
+	
+    <!-- toplevel -->
+    <string name="anc_ctoplevel_title">Top Level Style</string>
+    <string name="anc_ctoplevel_style1">Default</string>
+    <string name="anc_ctoplevel_style2">Style 1</string>
 </resources>
