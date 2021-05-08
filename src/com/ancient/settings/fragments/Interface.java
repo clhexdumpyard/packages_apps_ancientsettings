@@ -99,6 +99,7 @@ public class Interface extends DashboardFragment implements
     private static final String ANCI_SHAPE_ICON = "ANCI_SHAPE_ICON";
     private static final String BOUNCYONOFF = "bouncyonoff";
     private static final String HOMEBOLDONOFF = "homeboldonoff";
+    private static final String ANCI_CUSTOM_TOPLEVEL = "ANCI_CUSTOM_TOPLEVEL";    
 
     private IOverlayManager mOverlayService;
     private UiModeManager mUiModeManager;
@@ -116,6 +117,7 @@ public class Interface extends DashboardFragment implements
     private SystemSettingListPreference mSbShapeIconStyle;
     private SystemSettingSwitchPreference mAncientBouncyOnoff;
     private SystemSettingSwitchPreference mAncientBoldOnoff;
+    private SystemSettingSwitchPreference mAncientCusTop;    
 
     @Override
     protected String getLogTag() {
@@ -182,6 +184,9 @@ public class Interface extends DashboardFragment implements
 
         mAncientBoldOnoff = (SystemSettingSwitchPreference) findPreference("homeboldonoff");
         mAncientBoldOnoff.setOnPreferenceChangeListener(this);
+            
+        mAncientCusTop = (SystemSettingListPreference) findPreference("ANCI_CUSTOM_TOPLEVEL");
+        mAncientCusTop.setOnPreferenceChangeListener(this);    
     }
 
     @Override
@@ -396,6 +401,12 @@ public class Interface extends DashboardFragment implements
             } catch (RemoteException ignored) {
             }
             return true;
+        } else if (preference == mAncientCusTop) {
+            try {
+                 mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
+            } catch (RemoteException ignored) {
+            }
+            return true;        
         }
         return false;
     }
