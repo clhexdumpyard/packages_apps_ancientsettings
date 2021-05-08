@@ -162,10 +162,7 @@ public class QuickSettings extends SettingsPreferenceFragment
             boolean value = (Boolean) newValue;
             Settings.System.putInt(getActivity().getContentResolver(),
                     "QS_BG_FUL", value ? 1 : 0);
-            try {
-                 mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
-            } catch (RemoteException ignored) {
-            }
+            AncientUtils.showSystemUiRestartDialog(getContext());
             return true;    
         }
         return false;
