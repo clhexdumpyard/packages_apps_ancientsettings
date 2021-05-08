@@ -154,6 +154,15 @@
             android:entryValues="@array/lockscreen_charging_animation_values"
             android:defaultValue="1" />
 
+        <com.ancient.settings.preferences.SystemSettingSeekBarPreference
+            android:key="LOCKSCREEN_BLUR" 
+            android:title="@string/lockscreen_blur_title"
+            android:summary="@string/lockscreen_blur_summary"
+            android:defaultValue="0"
+            android:max="100"
+            settings:min="0"
+            settings:units="%" />
+
     </PreferenceCategory>
 
     <PreferenceCategory
