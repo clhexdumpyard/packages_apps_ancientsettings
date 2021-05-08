@@ -159,7 +159,6 @@
             android:title="@string/lockscreen_blur_title"
             android:summary="@string/lockscreen_blur_summary"
             android:defaultValue="0"
-            settings:defaultValueText="@string/disabled"
             android:max="100"
             settings:min="0"
             settings:units="%" />                                                      
