@@ -140,6 +140,7 @@
          <com.ancient.settings.preferences.SystemSettingListPreference
             android:key="ANCI_CUSTOM_TOPLEVEL"
             android:defaultValue="0"
+            android:persistent="false"                                                           
             android:layout="@layout/ancient_cardpreference_bottom"
             android:title="@string/anc_ctoplevel_title"
             android:entries="@array/anc_ctoplevel_entries"
