@@ -117,7 +117,7 @@ public class Interface extends DashboardFragment implements
     private SystemSettingListPreference mSbShapeIconStyle;
     private SystemSettingSwitchPreference mAncientBouncyOnoff;
     private SystemSettingSwitchPreference mAncientBoldOnoff;
-    private SystemSettingSwitchPreference mAncientCusTop;    
+    private SystemSettingListPreference mAncientCusTop;    
 
     @Override
     protected String getLogTag() {
