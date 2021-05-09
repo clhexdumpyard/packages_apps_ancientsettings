@@ -184,9 +184,15 @@ public class Interface extends DashboardFragment implements
 
         mAncientBoldOnoff = (SystemSettingSwitchPreference) findPreference("homeboldonoff");
         mAncientBoldOnoff.setOnPreferenceChangeListener(this);
-            
+             
         mAncientCusTop = (SystemSettingListPreference) findPreference("ANCI_CUSTOM_TOPLEVEL");
-        mAncientCusTop.setOnPreferenceChangeListener(this);    
+        int sbSeetingStyle  = Settings.System.getIntForUser(getContentResolver(),
+                "ANCI_CUSTOM_TOPLEVEL", 0, UserHandle.USER_CURRENT);
+        int valueIndexShape = mAncientCusTop.findIndexOfValue(String.valueOf(sbSeetingStyle ));
+        mAncientCusTop.setValueIndex(valueIndexShape >= 0 ? valueIndexShape : 0);
+        mAncientCusTop.setSummary(mAncientCusTop.getEntry());
+        mAncientCusTop.setOnPreferenceChangeListener(this); 
+            
     }
 
     @Override
@@ -402,11 +408,15 @@ public class Interface extends DashboardFragment implements
             }
             return true;
         } else if (preference == mAncientCusTop) {
+            int sbSeetingStyleValue = Integer.valueOf((String) objValue);
+            Settings.System.putIntForUser(getContentResolver(),
+                    "ANCI_CUSTOM_TOPLEVEL", sbSeetingStyleValue, UserHandle.USER_CURRENT);
+            mAncientCusTop.setSummary(mAncientCusTop.getEntries()[sbSeetingStyleValue]);
             try {
                  mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
             } catch (RemoteException ignored) {
             }
-            return true;        
+            return true;       
         }
         return false;
     }
