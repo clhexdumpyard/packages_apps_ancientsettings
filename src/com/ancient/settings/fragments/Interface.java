@@ -188,7 +188,7 @@ public class Interface extends DashboardFragment implements
         mAncientCusTop = (SystemSettingListPreference) findPreference("ANCI_CUSTOM_TOPLEVEL");
         int sbSeetingStyle  = Settings.System.getIntForUser(getContentResolver(),
                 "ANCI_CUSTOM_TOPLEVEL", 0, UserHandle.USER_CURRENT);
-        int valueIndexShape = mAncientCusTop.findIndexOfValue(String.valueOf(sbSeetingStyle ));
+        int valueIndexSeet = mAncientCusTop.findIndexOfValue(String.valueOf(sbSeetingStyle));
         mAncientCusTop.setValueIndex(valueIndexShape >= 0 ? valueIndexShape : 0);
         mAncientCusTop.setSummary(mAncientCusTop.getEntry());
         mAncientCusTop.setOnPreferenceChangeListener(this); 
