@@ -1423,6 +1423,7 @@
 	
     <!-- tile icon -->
     <string name="custom_bgtile_size_title">QS Tile Background Size</string>
+    <string name="custom_bgtile_size_zero">Hide</string>
     <string name="custom_bgtile_size_small">Small</string>
     <string name="custom_bgtile_size_medium">Medium</string>
     <string name="custom_bgtile_size_default">Default</string>
