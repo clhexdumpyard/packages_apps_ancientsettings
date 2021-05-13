@@ -160,6 +160,21 @@
         android:layout="@layout/ancient_cardpreference_category"
         android:key="notifications_general_category"
         android:title="@string/megalith_general_notification_center"> 
+	   
+	<com.ancient.settings.preferences.SystemSettingSwitchPreference
+            	android:layout="@layout/ancient_cardpreference_single"
+        	android:key="HEADER_ICONS_STYLE"
+        	android:title="@string/header_icons_style"
+        	android:summary="@string/header_icons_style_summary"
+        	android:defaultValue="true" />    
+	
+         
+        <com.ancient.settings.preferences.SystemSettingSwitchPreference
+            	android:layout="@layout/ancient_cardpreference_single"
+            	android:key="STATUSBAR_ICONS_STYLE"
+            	android:title="@string/statusbar_icons_style"
+            	android:summary="@string/statusbar_icons_style_summary"
+            	android:defaultValue="true" />     
 	    
     	<com.ancient.settings.preferences.SystemSettingSeekBarPreference
         	android:key="NOTIFICATION_BG_ALPHA"
