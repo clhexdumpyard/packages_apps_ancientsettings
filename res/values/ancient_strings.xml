@@ -1466,5 +1466,11 @@
     <string name="qqs_tile_4">4</string>
     <string name="qqs_tile_5">5</string>
     <string name="qqs_tile_7">7</string> 
+	
+    <!-- Colored Statusbar & Header Icons -->
+    <string name="statusbar_icons_style">Colored Statusbar Icons</string>
+    <string name="statusbar_icons_style_summary">Choose the style of your statusbar icons (requires SystemUI restart)</string>
+    <string name="header_icons_style">Colored Header Icons</string>
+    <string name="header_icons_style_summary">Choose the style of your notification headers icons (requires SystemUI restart)</string>
     
 </resources>
