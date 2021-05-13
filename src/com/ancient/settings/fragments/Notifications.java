@@ -65,6 +65,8 @@ public class Notifications extends SettingsPreferenceFragment
     private static final String NOTIFICATION_PULSE_REPEATS = "notification_pulse_repeats";
     private static final String PULSE_COLOR_MODE_PREF = "ambient_notification_light_color_mode";
     private static final String NOTIFICATION_MATERIAL_DISMISS = "notification_material_dismiss";
+    private static final String HEADER_ICONS_STYLE = "HEADER_ICONS_STYLE";
+    private static final String STATUSBAR_ICONS_STYLE = "STATUSBAR_ICONS_STYLE";
 
     private ColorPickerPreference mEdgeLightColorPreference;
     private CustomSeekBarPreference mEdgeLightDurationPreference;
@@ -75,6 +77,8 @@ public class Notifications extends SettingsPreferenceFragment
     private SystemSettingSwitchPreference mNotificationHeader;
     private SystemSettingSwitchPreference mCenterNotificationHeader;
     private SystemSettingSwitchPreference mNotificationmaterialDismiss;
+    private SystemSettingSwitchPreference mHeaderIcon;
+    private SystemSettingSwitchPreference mStatusbarIcon;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -117,6 +121,16 @@ public class Notifications extends SettingsPreferenceFragment
         mNotificationmaterialDismiss.setChecked((Settings.System.getInt(resolver,
                 Settings.System.NOTIFICATION_MATERIAL_DISMISS, 1) == 1));
         mNotificationmaterialDismiss.setOnPreferenceChangeListener(this);
+        
+        mHeaderIcon = findPreference(HEADER_ICONS_STYLE);
+        mHeaderIcon.setChecked((Settings.System.getInt(resolver,
+                "NOTIFICATION_MATERIAL_DISMISS", 1) == 1));
+        mHeaderIcon.setOnPreferenceChangeListener(this);
+        
+        mStatusbarIcon = findPreference(STATUSBAR_ICONS_STYLE);
+        mStatusbarIcon.setChecked((Settings.System.getInt(resolver,
+                "STATUSBAR_ICONS_STYLE", 1) == 1));
+        mStatusbarIcon.setOnPreferenceChangeListener(this);
 
         mEdgeLightRepeatCountPreference = (CustomSeekBarPreference) findPreference(NOTIFICATION_PULSE_REPEATS);
         mEdgeLightRepeatCountPreference.setOnPreferenceChangeListener(this);
@@ -176,6 +190,18 @@ public class Notifications extends SettingsPreferenceFragment
                     Settings.System.CENTER_NOTIFICATION_HEADERS, value ? 0 : 1);
             AncientUtils.showSystemUiRestartDialog(getContext());
             return true;
+        } else if (preference == mHeaderIcon) {
+            boolean value = (Boolean) objValue;
+            Settings.System.putInt(resolver,
+                    "NOTIFICATION_MATERIAL_DISMISS", value ? 1 : 0);
+            AncientUtils.showSystemUiRestartDialog(getContext());
+            return true;
+        } else if (preference == mStatusbarIcon) {
+            boolean value = (Boolean) objValue;
+            Settings.System.putInt(resolver,
+                    "STATUSBAR_ICONS_STYLE", value ? 1 : 0);
+            AncientUtils.showSystemUiRestartDialog(getContext());
+            return true;  
         } else if (preference == mEdgeLightColorPreference) {
             String hex = ColorPickerPreference.convertToARGB(
                     Integer.valueOf(String.valueOf(objValue)));
