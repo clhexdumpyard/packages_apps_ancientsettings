@@ -73,6 +73,7 @@ public class QuickSettings extends SettingsPreferenceFragment
     private static final String STATUS_BAR_CUSTOM_HEADER = "status_bar_custom_header";
     private static final String PREF_QS_MEDIA_PLAYER = "qs_media_player";
     private static final String QS_BG_FUL = "QS_BG_FUL";
+    private static final String QQS_TILE_STYLE = "QQS_TILE_STYLE";
 
     private UiModeManager mUiModeManager;
 
@@ -81,6 +82,7 @@ public class QuickSettings extends SettingsPreferenceFragment
     private SystemSettingMasterSwitchPreference mCustomHeader;
     private SystemSettingSwitchPreference mQsMedia;
     private SystemSettingSwitchPreference mQsBgFul;
+    private SystemSettingListPreference mQqsTile;
     private IOverlayManager mOverlayService;
 
     @Override
@@ -126,6 +128,14 @@ public class QuickSettings extends SettingsPreferenceFragment
         mQsBgFul.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
                 "QS_BG_FUL", 0) == 1));
         mQsBgFul.setOnPreferenceChangeListener(this);
+        
+        mQqsTile = (SystemSettingListPreference) findPreference("QQS_TILE_STYLE");
+        int sbQqstileStyle   = Settings.System.getIntForUser(getContentResolver(),
+                "QQS_TILE_STYLE", 0, UserHandle.USER_CURRENT);
+        int valueIndexQqstile = mQqsTile.findIndexOfValue(String.valueOf(sbQqstileStyle ));
+        mQqsTile.setValueIndex(valueIndexQqstile >= 0 ? valueIndexQqstile : 0);
+        mQqsTile.setSummary(mQqsTile.getEntry());
+        mQqsTile.setOnPreferenceChangeListener(this); 
     }
 
     @Override
@@ -163,7 +173,13 @@ public class QuickSettings extends SettingsPreferenceFragment
             Settings.System.putInt(getActivity().getContentResolver(),
                     "QS_BG_FUL", value ? 1 : 0);
             AncientUtils.showSystemUiRestartDialog(getContext());
-            return true;    
+            return true;
+        } else if (preference == mQqsTile) {
+            int sbQqstileStyleValue = Integer.valueOf((String) objValue);
+            Settings.System.putIntForUser(getContentResolver(),
+                    "QQS_TILE_STYLE", sbQqstileStyleValue, UserHandle.USER_CURRENT);
+            mQqsTile.setSummary(mQqsTile.getEntries()[sbQqstileStyleValue]);
+            return true;      
         }
         return false;
     }
