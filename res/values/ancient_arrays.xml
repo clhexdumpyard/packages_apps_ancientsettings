@@ -1606,5 +1606,19 @@
         <item>11</item>
         <item>12</item> 
     </string-array> 
+     
+    <string-array name="qqs_tile_style_entries" translatable="false">
+        <item>@string/qqs_tile_default</item>
+        <item>@string/qqs_tile_4</item>  
+        <item>@string/qqs_tile_5</item>
+        <item>@string/qqs_tile_7</item> 
+    </string-array>   
+
+    <string-array name="qqs_tile_style_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>  
 
 </resources>
