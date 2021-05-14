@@ -208,6 +208,13 @@
     <string name="fod_recog_animation_realme_smoke">Smoke</string>
     <string name="fod_recog_animation_realme_strings">Strings</string>
 
+    <!-- FOD icon animation -->
+    <string name="fod_icon_animation">Animated FOD icon</string>
+    <string name="fod_icon_animation_effect_title">Select FOD icon animation effect</string>
+    <string name="fod_icon_animation_summary">Animate the FOD icon when turning on the screen</string>
+    <string name="fod_icon_animation_oneui1">OneUI 1</string>
+    <string name="fod_icon_animation_oneui2">OneUI 2</string>
+
     <!-- Status bar Icon Manager -->
     <string name="icon_manager_title">Icon manager</string>
     <string name="icon_manager_summary">Control visibility of status bar icons</string>
