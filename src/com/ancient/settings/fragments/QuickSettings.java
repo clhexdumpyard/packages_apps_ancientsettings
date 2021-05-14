@@ -175,7 +175,7 @@ public class QuickSettings extends SettingsPreferenceFragment
             AncientUtils.showSystemUiRestartDialog(getContext());
             return true;
         } else if (preference == mQqsTile) {
-            int sbQqstileStyleValue = Integer.valueOf((String) objValue);
+            int sbQqstileStyleValue = Integer.valueOf((String) newValue);
             Settings.System.putIntForUser(getContentResolver(),
                     "QQS_TILE_STYLE", sbQqstileStyleValue, UserHandle.USER_CURRENT);
             mQqsTile.setSummary(mQqsTile.getEntries()[sbQqstileStyleValue]);
