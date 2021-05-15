@@ -37,8 +37,8 @@
         android:title="@string/qs_bgful_alpha_title"
         android:summary="@string/qs_bgful_alpha_summary"
         android:max="100"
-        settings:min="1"
-        android:defaultValue="100"
+        settings:min="0"
+        android:defaultValue="0"
         android:dependency="QS_BG_FUL" /> 
      
     <com.ancient.settings.preferences.SystemSettingSwitchPreference
