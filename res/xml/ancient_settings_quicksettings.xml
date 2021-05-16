@@ -17,6 +17,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/quicksettings_title" >
+     
+    <com.ancient.settings.preferences.SystemSettingSwitchPreference
+        android:key="SCRIM_BG_DISABLER"
+        android:title="@string/statusbar_scrim_disabler"
+        android:summary="@string/statusbar_scrim_disabler_summary"
+        android:defaultValue="true" /> 
 
     <com.ancient.settings.preferences.SystemSettingSwitchPreference
         android:key="QS_BG_FUL"
