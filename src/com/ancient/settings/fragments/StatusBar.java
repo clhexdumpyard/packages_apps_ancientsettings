@@ -47,6 +47,8 @@ import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.Indexable;
 import com.android.settingslib.search.SearchIndexable;
 
+import net.margaritov.preference.colorpicker.ColorPickerPreference;
+
 import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -59,7 +61,15 @@ public class StatusBar extends SettingsPreferenceFragment implements
     private static final String STATUSBAR_DUAL_ROW = "statusbar_dual_row";
     private static final String KEY_STATUS_BAR_LOGO = "status_bar_logo";
     private static final String STATUSBAR_DUAL_STYLE = "statusbar_dual_style";
+    private static final String NABIL_BACKGROUNDCLOCKSB_COLOR = "nabil_backgroundclocksb_color";
+    private static final String NABIL_BACKGROUNDCLOCKSB_GRADIENT1 = "nabil_backgroundclocksb_gradient1";
+    private static final String NABIL_BACKGROUNDCLOCKSB_GRADIENT2 = "nabil_backgroundclocksb_gradient2";
+    private static final String NABIL_BACKGROUNDCLOCKSB_STROKECOLOR = "nabil_backgroundclocksb_strokecolor";
 
+    private ColorPickerPreference mBacka;
+    private ColorPickerPreference mBackb;
+    private ColorPickerPreference mBackc;
+    private ColorPickerPreference mBackd;
     private SystemSettingSwitchPreference mStatusbarDualRow;
     private SystemSettingListPreference mStatusbarDualStyle;
     private SwitchPreference mShowAncientLogo;
@@ -99,6 +109,58 @@ public class StatusBar extends SettingsPreferenceFragment implements
         mLogoStyle.setValue(String.valueOf(logoStyle));
         mLogoStyle.setSummary(mLogoStyle.getEntry());
         mLogoStyle.setOnPreferenceChangeListener(this);
+
+        mBacka = (ColorPickerPreference) findPreference(NABIL_BACKGROUNDCLOCKSB_COLOR);
+        int mbacaColor = Settings.System.getInt(getContentResolver(),
+                "nabil_backgroundclocksb_color", 0xFFFF0000);
+        mBacka.setNewPreviewColor(mbacaColor);
+        mBacka.setAlphaSliderEnabled(true);
+        String mbacaColorHex = String.format("#%08x", (0xFFFF0000 & mbacaColor));
+        if (mbacaColorHex.equals("#ffff0000")) {
+            mBacka.setSummary(R.string.color_default);
+        } else {
+            mBacka.setSummary(mbacaColorHex);
+        }
+        mBacka.setOnPreferenceChangeListener(this);
+
+        mBackb = (ColorPickerPreference) findPreference(NABIL_BACKGROUNDCLOCKSB_GRADIENT1);
+        int mbacabColor = Settings.System.getInt(getContentResolver(),
+                "nabil_backgroundclocksb_gradient1", 0xFFFF0000);
+        mBackb.setNewPreviewColor(mbacabColor);
+        mBackb.setAlphaSliderEnabled(true);
+        String mbacabColorHex = String.format("#%08x", (0xFFFF0000 & mbacabColor));
+        if (mbacabColorHex.equals("#ffff0000")) {
+            mBackb.setSummary(R.string.color_default);
+        } else {
+            mBackb.setSummary(mbacabColorHex);
+        }
+        mBackb.setOnPreferenceChangeListener(this);
+
+        mBackc = (ColorPickerPreference) findPreference(NABIL_BACKGROUNDCLOCKSB_GRADIENT2);
+        int mbacacColor = Settings.System.getInt(getContentResolver(),
+                "nabil_backgroundclocksb_gradient2", 0xFFFF00C9);
+        mBackc.setNewPreviewColor(mbacacColor);
+        mBackc.setAlphaSliderEnabled(true);
+        String mbacacColorHex = String.format("#%08x", (0xFFFF00C9 & mbacacColor));
+        if (mbacacColorHex.equals("#ffff00c9")) {
+            mBackc.setSummary(R.string.color_default);
+        } else {
+            mBackc.setSummary(mbacacColorHex);
+        }
+        mBackc.setOnPreferenceChangeListener(this);
+
+        mBackd = (ColorPickerPreference) findPreference(NABIL_BACKGROUNDCLOCKSB_STROKECOLOR);
+        int mbacadColor = Settings.System.getInt(getContentResolver(),
+                "nabil_backgroundclocksb_strokecolor", 0xFFFFFFFF);
+        mBackd.setNewPreviewColor(mbacadColor);
+        mBackd.setAlphaSliderEnabled(true);
+        String mbacadColorHex = String.format("#%08x", (0xFFFFFFFF & mbacadColor));
+        if (mbacadColorHex.equals("#ffffffff")) {
+            mBackd.setSummary(R.string.color_default);
+        } else {
+            mBackd.setSummary(mbacadColorHex);
+        }
+        mBackd.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -136,6 +198,54 @@ public class StatusBar extends SettingsPreferenceFragment implements
             int index = mLogoStyle.findIndexOfValue((String) newValue);
             mLogoStyle.setSummary(
                     mLogoStyle.getEntries()[index]);
+            return true;
+        } else if (preference == mBacka) {
+            String hexa = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            if (hexa.equals("#ffff0000")) {
+                preference.setSummary(R.string.color_default);
+            } else {
+                preference.setSummary(hexa);
+            }
+            int intHexa = ColorPickerPreference.convertToColorInt(hexa);
+            Settings.System.putInt(getContentResolver(),
+                    "nabil_backgroundclocksb_color", intHexa);
+            return true;  
+        } else if (preference == mBackb) {
+            String hexb = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            if (hexb.equals("#ffff0000")) {
+                preference.setSummary(R.string.color_default);
+            } else {
+                preference.setSummary(hexb);
+            }
+            int intHexb = ColorPickerPreference.convertToColorInt(hexb);
+            Settings.System.putInt(getContentResolver(),
+                    "nabil_backgroundclocksb_gradient1", intHexb);
+            return true;   
+        } else if (preference == mBackc) {
+            String hexc = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            if (hexc.equals("#ffff00c9")) {
+                preference.setSummary(R.string.color_default);
+            } else {
+                preference.setSummary(hexc);
+            }
+            int intHexc = ColorPickerPreference.convertToColorInt(hexc);
+            Settings.System.putInt(getContentResolver(),
+                    "nabil_backgroundclocksb_gradient2", intHexc);
+            return true;
+        } else if (preference == mBackd) {
+            String hexd = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            if (hexd.equals("#ffffffff")) {
+                preference.setSummary(R.string.color_default);
+            } else {
+                preference.setSummary(hexd);
+            }
+            int intHexd = ColorPickerPreference.convertToColorInt(hexd);
+            Settings.System.putInt(getContentResolver(),
+                    "nabil_backgroundclocksb_strokecolor", intHexd);
             return true;
         }
         return false;

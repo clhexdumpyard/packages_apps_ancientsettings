@@ -1647,4 +1647,18 @@
         <item>3</item>
     </string-array>
 
+    <string-array name="bg_clock_entries" translatable="false">
+        <item>@string/bg_clock1</item>
+        <item>@string/bg_clock2</item>  
+        <item>@string/bg_clock3</item>
+        <item>@string/bg_clock4</item> 
+    </string-array>   
+
+    <string-array name="bg_clock_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
 </resources>
