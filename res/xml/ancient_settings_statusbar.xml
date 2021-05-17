@@ -228,7 +228,7 @@
 			android:key="nabil_backgroundclocksb_color" 
 			android:dependency="nabil_backgroundclocksb" 
 			android:defaultValue="0xFFFF0000" 
-			app:alphaSlider="true" />
+			settings:alphaSlider="true" />
      <Preference 
             android:layout="@layout/ancient_cardview_divider" 
             android:selectable="false"/> 
@@ -237,7 +237,7 @@
 			android:key="nabil_backgroundclocksb_gradient1" 
 			android:dependency="nabil_backgroundclocksb" 
 			android:defaultValue="0xFFFF0000" 
-			app:alphaSlider="true" />
+			settings:alphaSlider="true" />
      <Preference 
             android:layout="@layout/ancient_cardview_divider" 
             android:selectable="false"/> 
@@ -246,7 +246,7 @@
 			android:key="nabil_backgroundclocksb_gradient2" 
 			android:dependency="nabil_backgroundclocksb" 
 			android:defaultValue="0xFFFF00C9" 
-			app:alphaSlider="true" />
+			settings:alphaSlider="true" />
     <PreferenceCategory 
 		android:title="Stroke In Background" />
         <com.ancient.settings.preferences.SystemSettingSeekBarPreference 
@@ -263,7 +263,7 @@
 			android:key="nabil_backgroundclocksb_strokecolor" 
 			android:dependency="nabil_backgroundclocksb" 
 			android:defaultValue="0xFFFFFFFF" 
-			app:alphaSlider="true" />
+			settings:alphaSlider="true" />
     <PreferenceCategory 
 	    android:title="Padding Background" 
 		android:dependency="nabil_backgroundclocksb" />
