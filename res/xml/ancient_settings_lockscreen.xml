@@ -44,7 +44,7 @@
             android:selectable="false"/>   
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference
-            android:key="AMBIENT_ICONS_COLOR""
+            android:key="AMBIENT_ICONS_COLOR"
             android:dependency="AMBIENT_ICONS_LOCKSCREEN"                                                         
             android:title="@string/ambient_icons_color_title"
             android:defaultValue="0xFFFFFFFF" />
