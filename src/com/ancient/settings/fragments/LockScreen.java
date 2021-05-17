@@ -148,7 +148,7 @@ public class LockScreen extends SettingsPreferenceFragment implements
         }
             
         mAmbientIconsLockscreen = (SystemSettingSwitchPreference) findPreference(AMBIENT_ICONS_LOCKSCREEN);
-        mAmbientIconsLockscreen.setChecked((Settings.System.getInt(resolver,
+        mAmbientIconsLockscreen.setChecked((Settings.System.getInt(getContentResolver(),
                 "AMBIENT_ICONS_LOCKSCREEN", 0) == 1));
         mAmbientIconsLockscreen.setOnPreferenceChangeListener(this);
 
