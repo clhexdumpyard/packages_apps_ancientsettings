@@ -239,7 +239,7 @@ public class StatusBar extends SettingsPreferenceFragment implements
         } else if (preference == mBackd) {
             String hexd = ColorPickerPreference.convertToARGB(
                     Integer.valueOf(String.valueOf(objValue)));
-            if (hexd.equals("#ffff00c9")) {
+            if (hexd.equals("#ffffffff")) {
                 preference.setSummary(R.string.color_default);
             } else {
                 preference.setSummary(hexd);
