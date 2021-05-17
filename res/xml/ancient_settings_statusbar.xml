@@ -198,4 +198,84 @@
             android:summary="@string/use_old_mobiletype_summary"
             android:defaultValue="false" />
     </PreferenceCategory>
+     <PreferenceCategory 
+	    android:title="Custom Background Clock Statusbar" />
+        <com.ancient.settings.preferences.SystemSettingSwitchPreference 
+	        android:title="Background" 
+			android:key="nabil_backgroundclocksb" 
+			android:defaultValue="false" 
+			android:summaryOn="Custom Background Enabled" 
+			android:summaryOff="Custom Background Disabled" />
+        <com.ancient.settings.preferences.SystemSettingListPreference 
+		    android:entries="@array/bg_clock_entries" 
+			android:title="Style of Coloring" 
+			android:key="nabil_backgroundclocksb_list" 
+			android:summary="%s" 
+			android:dependency="nabil_backgroundclocksb" 
+			android:defaultValue="0" 
+			android:entryValues="@array/bg_clock_values" />
+        <com.ancient.settings.preferences.SystemSettingSeekBarPreference 
+		    android:max="30" 
+			android:title="Corner Radius" 
+			android:key="nabil_backgroundclocksb_corner" 
+			android:dependency="nabil_backgroundclocksb" 
+			android:defaultValue="15" />
+     <Preference 
+            android:layout="@layout/ancient_cardview_divider" 
+            android:selectable="false"/> 
+        <net.margaritov.preference.colorpicker.ColorPickerPreference 
+		    android:title="Custom One Color" 
+			android:key="nabil_backgroundclocksb_color" 
+			android:dependency="nabil_backgroundclocksb" 
+			android:defaultValue="0xFFFF0000" 
+			app:alphaSlider="true" />
+     <Preference 
+            android:layout="@layout/ancient_cardview_divider" 
+            android:selectable="false"/> 
+        <net.margaritov.preference.colorpicker.ColorPickerPreference 
+		    android:title="Custom Gradient Color 1" 
+			android:key="nabil_backgroundclocksb_gradient1" 
+			android:dependency="nabil_backgroundclocksb" 
+			android:defaultValue="0xFFFF0000" 
+			app:alphaSlider="true" />
+     <Preference 
+            android:layout="@layout/ancient_cardview_divider" 
+            android:selectable="false"/> 
+        <net.margaritov.preference.colorpicker.ColorPickerPreference 
+		    android:title="Custom Gradient Color 2" 
+			android:key="nabil_backgroundclocksb_gradient2" 
+			android:dependency="nabil_backgroundclocksb" 
+			android:defaultValue="0xFFFF00C9" 
+			app:alphaSlider="true" />
+    <PreferenceCategory 
+		android:title="Stroke In Background" />
+        <com.ancient.settings.preferences.SystemSettingSeekBarPreference 
+		    android:max="5" 
+			android:title="Stroke Width" 
+			android:key="nabil_backgroundclocksb_strokewidth" 
+			android:dependency="nabil_backgroundclocksb" 
+			android:defaultValue="2" />
+     <Preference 
+            android:layout="@layout/ancient_cardview_divider" 
+            android:selectable="false"/> 
+        <net.margaritov.preference.colorpicker.ColorPickerPreference 
+		    android:title="Stroke Color" 
+			android:key="nabil_backgroundclocksb_strokecolor" 
+			android:dependency="nabil_backgroundclocksb" 
+			android:defaultValue="0xFFFFFFFF" 
+			app:alphaSlider="true" />
+    <PreferenceCategory 
+	    android:title="Padding Background" 
+		android:dependency="nabil_backgroundclocksb" />
+        <com.ancient.settings.preferences.SystemSettingSeekBarPreference 
+		    android:max="20" android:title="Padding Top Bottom" 
+			android:key="nabil_backgroundclocksb_paddingtb" 
+			android:dependency="nabil_backgroundclocksb" 
+			android:defaultValue="5" />
+        <com.ancient.settings.preferences.SystemSettingSeekBarPreference 
+		    android:max="20" 
+			android:title="Padding Left Right" 
+			android:key="nabil_backgroundclocksb_paddinglr" 
+			android:dependency="nabil_backgroundclocksb" 
+			android:defaultValue="10" />
 </PreferenceScreen>
