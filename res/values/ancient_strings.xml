@@ -210,13 +210,13 @@
 
     <!-- Double tap-to-sleep -->
     <string name="doubletap_statusbar_title">Double tap to sleep on statusbar</string>
-    <string name="doubletap_statusbar_summary">Double tap on statusbar to switch the screen off.\nRequires a SystemUI restart</string>
+    <string name="doubletap_statusbar_summary">Double tap on statusbar to switch the screen off.\nNotes: Requires a SystemUI restart</string>
 
     <!-- Double Tap -->
     <string name="dtts_category_header">Double tap to sleep</string>
     <!-- Double Tap Lockscreen to Sleep -->
     <string name="double_tap_to_sleep_lockscreen_title">Lockscreen</string>
-    <string name="double_tap_to_sleep_lockscreen_summary">Double tap on the lock screen to put the device to sleep</string>
+    <string name="double_tap_to_sleep_lockscreen_summary">Double tap on the lock screen to put the device to sleep.\nNotes: Requires a SystemUI restart</string>
 
     <!-- Battery light -->
     <string name="light_settings_header">Light settings</string>
@@ -496,7 +496,7 @@
 
     <!-- Brightness control -->
     <string name="status_bar_toggle_brightness">Brightness control</string>
-    <string name="status_bar_toggle_brightness_summary">Adjust brightness by sliding across the status bar.\nRequires a SystemUI restart</string>
+    <string name="status_bar_toggle_brightness_summary">Adjust brightness by sliding across the status bar.\nNotes: Requires a SystemUI restart</string>
 
     <!-- Heads up options -->
     <string name="less_boring_heads_up_title">Less boring heads up</string>
@@ -936,7 +936,7 @@
     <string name="smart_pixels_title">Smart Pixels</string>
     <string name="smart_pixels_summary">Save battery by shutting off extra pixels</string>
     <string name="smart_pixels_enable_title">Enable Smart Pixels</string> 
-    <string name="smart_pixels_enable_summary">Shut off pixels to reduce power consumption</string>
+    <string name="smart_pixels_enable_summary">Shut off pixels to reduce power consumption.\nNotes: Permissions or installation APPS will be Disable</string>
     <string name="smart_pixels_on_power_save_title">Auto-enable on battery saver</string>
     <string name="smart_pixels_on_power_save_summary">Enable Smart Pixels when battery saver is enabled</string>
     <string name="smart_pixels_percent">Percent of pixels to disable</string>
@@ -1076,8 +1076,8 @@
 
     <!-- QS Media -->
     <string name="qs_media_player_title">QS Media player</string>
-    <string name="qs_media_player_summary_on">Show media player in QS.\nRequires a SystemUI restart</string>
-    <string name="qs_media_player_summary_off">Show media player as a notification.\nRequires a SystemUI restart</string>
+    <string name="qs_media_player_summary_on">Show media player in QS.\nNotes: Requires a SystemUI restart</string>
+    <string name="qs_media_player_summary_off">Show media player as a notification.\nNotes: Requires a SystemUI restart</string>
 
     <!-- Lock screen media blur -->
     <string name="lockscreen_media_blur_title">Media artwork blur level</string>
