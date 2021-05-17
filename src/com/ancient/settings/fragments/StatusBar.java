@@ -154,7 +154,7 @@ public class StatusBar extends SettingsPreferenceFragment implements
                 "nabil_backgroundclocksb_strokecolor", 0xFFFFFFFF);
         mBackd.setNewPreviewColor(mbacadColor);
         mBackd.setAlphaSliderEnabled(true);
-        String mbacacColorHex = String.format("#%08x", (0xFFFFFFFF & mbacadColor));
+        String mbacadColorHex = String.format("#%08x", (0xFFFFFFFF & mbacadColor));
         if (mbacadColorHex.equals("#ffffffff")) {
             mBackd.setSummary(R.string.color_default);
         } else {
@@ -202,7 +202,7 @@ public class StatusBar extends SettingsPreferenceFragment implements
             return true;
         } else if (preference == mBacka) {
             String hexa = ColorPickerPreference.convertToARGB(
-                    Integer.valueOf(String.valueOf(objValue)));
+                    Integer.valueOf(String.valueOf(newValue)));
             if (hexa.equals("#ffff0000")) {
                 preference.setSummary(R.string.color_default);
             } else {
@@ -214,7 +214,7 @@ public class StatusBar extends SettingsPreferenceFragment implements
             return true;  
         } else if (preference == mBackb) {
             String hexb = ColorPickerPreference.convertToARGB(
-                    Integer.valueOf(String.valueOf(objValue)));
+                    Integer.valueOf(String.valueOf(newValue)));
             if (hexb.equals("#ffff0000")) {
                 preference.setSummary(R.string.color_default);
             } else {
@@ -226,7 +226,7 @@ public class StatusBar extends SettingsPreferenceFragment implements
             return true;   
         } else if (preference == mBackc) {
             String hexc = ColorPickerPreference.convertToARGB(
-                    Integer.valueOf(String.valueOf(objValue)));
+                    Integer.valueOf(String.valueOf(newValue)));
             if (hexc.equals("#ffff00c9")) {
                 preference.setSummary(R.string.color_default);
             } else {
@@ -238,7 +238,7 @@ public class StatusBar extends SettingsPreferenceFragment implements
             return true;
         } else if (preference == mBackd) {
             String hexd = ColorPickerPreference.convertToARGB(
-                    Integer.valueOf(String.valueOf(objValue)));
+                    Integer.valueOf(String.valueOf(newValue)));
             if (hexd.equals("#ffffffff")) {
                 preference.setSummary(R.string.color_default);
             } else {
