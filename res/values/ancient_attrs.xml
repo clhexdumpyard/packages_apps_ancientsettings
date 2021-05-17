@@ -37,5 +37,7 @@
     <declare-styleable name="SystemSettingListPreference">
         <attr name="dependentValue" format="string"/>
     </declare-styleable>
+     
+    <attr name="allowEditText" format="boolean" /> 
 
 </resources>
