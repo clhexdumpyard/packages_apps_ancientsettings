@@ -1483,5 +1483,12 @@
     <string name="ambient_icons_lockscreen_summary">Replace notifications with AOD icons</string>
     <string name="ambient_icons_size_title">AOD icons size</string>
     <string name="ambient_icons_color_title">AOD icons color</string>
+	
+    <!-- Custom clock bg -->
+    <string name="bg_clock_title">Background</string>
+    <string name="bg_clock1">Accent</string>
+    <string name="bg_clock2">Single Color</string>
+    <string name="bg_clock3">Gradient Top to Bottom</string>
+    <string name="bg_clock4">Gradient Left to Right</string>
     
 </resources>
