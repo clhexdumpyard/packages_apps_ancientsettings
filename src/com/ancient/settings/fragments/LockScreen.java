@@ -19,12 +19,18 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.ContentResolver;
 import android.content.Intent;
+import android.content.om.IOverlayManager;
+import android.content.om.OverlayInfo;
 import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.hardware.fingerprint.FingerprintManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.RemoteException;
+import android.os.ServiceManager;
+import android.os.SystemProperties;
 import android.os.UserHandle;
 import android.provider.Settings;
 import androidx.preference.*;
@@ -32,6 +38,7 @@ import androidx.preference.*;
 import com.android.internal.logging.nano.MetricsProto;
 import com.android.internal.util.ancient.AncientUtils;
 import com.android.internal.util.ancient.fod.FodUtils;
+import com.android.internal.util.ancient.ThemesUtils;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import android.provider.SearchIndexableResource;
@@ -40,6 +47,7 @@ import com.android.settingslib.search.Indexable;
 import com.android.settingslib.search.SearchIndexable;
 
 import com.ancient.settings.preferences.CustomSeekBarPreference;
+import com.ancient.settings.preferences.SystemSettingSeekBarPreference;
 import com.ancient.settings.preferences.SystemSettingSwitchPreference;
 import com.ancient.settings.utils.DeviceUtils;
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
@@ -61,7 +69,11 @@ public class LockScreen extends SettingsPreferenceFragment implements
     private static final String LOCKSCREEN_MAX_NOTIF_CONFIG = "lockscreen_max_notif_cofig";
     private static final String LOCKSCREEN_BLUR = "LOCKSCREEN_BLUR";
     private static final String AMBIENT_ICONS_COLOR = "AMBIENT_ICONS_COLOR";
-    private static final String AMBIENT_ICONS_LOCKSCREEN = "AMBIENT_ICONS_LOCKSCREEN";    
+    private static final String AMBIENT_ICONS_LOCKSCREEN = "AMBIENT_ICONS_LOCKSCREEN"; 
+    private static final String AMBIENT_ICONS_SIZE = "AMBIENT_ICONS_SIZE";     
+        
+    private IOverlayManager mOverlayService;
+    private UiModeManager mUiModeManager;    
 
     private ColorPickerPreference mAmbientIconsColor;    
     private FingerprintManager mFingerprintManager;
@@ -70,7 +82,8 @@ public class LockScreen extends SettingsPreferenceFragment implements
     private PreferenceCategory mFODIconPickerCategory;
     private CustomSeekBarPreference mMaxKeyguardNotifConfig;
     private Preference mLockscreenBlur;  
-    private SystemSettingSwitchPreference mAmbientIconsLockscreen;    
+    private SystemSettingSwitchPreference mAmbientIconsLockscreen;
+    private SystemSettingSeekBarPreference mAmbeyenSize;    
 
     static final int MODE_DISABLED = 0;
     static final int MODE_NIGHT = 1;
@@ -89,6 +102,11 @@ public class LockScreen extends SettingsPreferenceFragment implements
         Resources resources = getResources();
         Context mContext = getContext();
         ContentResolver resolver = getActivity().getContentResolver();
+            
+        mUiModeManager = getContext().getSystemService(UiModeManager.class);
+
+        mOverlayService = IOverlayManager.Stub
+                .asInterface(ServiceManager.getService(Context.OVERLAY_SERVICE));    
 
         mFingerprintManager = (FingerprintManager) getActivity().getSystemService(Context.FINGERPRINT_SERVICE);
         mFingerprintVib = (SwitchPreference) findPreference(FINGERPRINT_VIB);
@@ -159,7 +177,13 @@ public class LockScreen extends SettingsPreferenceFragment implements
         String hexColor = String.format("#%08x", (0xffffffff & intColor));
         mAmbientIconsColor.setNewPreviewColor(intColor);
         mAmbientIconsColor.setSummary(hexColor);
-        mAmbientIconsColor.setOnPreferenceChangeListener(this);    
+        mAmbientIconsColor.setOnPreferenceChangeListener(this); 
+            
+        mAmbeyenSize = (SystemSettingSeekBarPreference) findPreference(AMBIENT_ICONS_SIZE);
+        int asconf = Settings.System.getInt(getContentResolver(),
+                "AMBIENT_ICONS_SIZE", 80);
+        mAmbeyenSize.setValue(asconf);
+        mAmbeyenSize.setOnPreferenceChangeListener(this);    
     }
 
     @Override
@@ -214,6 +238,10 @@ public class LockScreen extends SettingsPreferenceFragment implements
             Settings.System.putInt(resolver,
                     "AMBIENT_ICONS_LOCKSCREEN", value ? 1 : 0);
             AncientUtils.showSystemUiRestartDialog(getContext());
+            try {
+                 mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
+            } catch (RemoteException ignored) {
+            }          
             return true;
         } else if (preference == mAmbientIconsColor) {
             String hex = ColorPickerPreference.convertToARGB(Integer
@@ -222,6 +250,19 @@ public class LockScreen extends SettingsPreferenceFragment implements
             int intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(resolver,
                     "AMBIENT_ICONS_COLOR", intHex);
+            try {
+                 mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
+            } catch (RemoteException ignored) {
+            }      
+            return true;
+        } else if (preference == mAmbeyenSize) {
+            int asconf = (Integer) newValue;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    "AMBIENT_ICONS_SIZE", asconf);
+            try {
+                 mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
+            } catch (RemoteException ignored) {
+            }    
             return true;        
         }
         return false;
