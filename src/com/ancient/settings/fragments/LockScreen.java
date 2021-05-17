@@ -213,7 +213,7 @@ public class LockScreen extends SettingsPreferenceFragment implements
             boolean value = (Boolean) newValue;
             Settings.System.putInt(resolver,
                     "AMBIENT_ICONS_LOCKSCREEN", value ? 1 : 0);
-            SparkUtils.showSystemUiRestartDialog(getContext());
+            AncientUtils.showSystemUiRestartDialog(getContext());
             return true;
         } else if (preference == mAmbientIconsColor) {
             String hex = ColorPickerPreference.convertToARGB(Integer
