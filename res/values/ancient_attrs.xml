@@ -38,4 +38,11 @@
         <attr name="dependentValue" format="string"/>
     </declare-styleable>
 
+    <declare-styleable name="SeekBarPreference">
+        <!-- preference -->
+        <attr name="unitsLeft" format="string|reference" />
+        <attr name="unitsRight" format="string|reference" />
+        <attr name="interval" format="integer" />
+    </declare-styleable>
+
 </resources>
