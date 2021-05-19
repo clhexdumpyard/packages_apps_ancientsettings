@@ -168,12 +168,20 @@
             android:summary="@string/header_icons_style_summary"
             android:defaultValue="true" />    
 
+	 <Preference 
+            android:layout="@layout/ancient_cardview_divider" 
+            android:selectable="false"/>
+
         <com.ancient.settings.preferences.SystemSettingSwitchPreference
             android:layout="@layout/ancient_cardpreference_single"
             android:key="STATUSBAR_ICONS_STYLE"
             android:title="@string/statusbar_icons_style"
             android:summary="@string/statusbar_icons_style_summary"
             android:defaultValue="true" />
+
+	 <Preference 
+            android:layout="@layout/ancient_cardview_divider" 
+            android:selectable="false"/>
 
         <com.ancient.settings.preferences.SystemSettingSeekBarPreference
             android:key="NOTIFICATION_BG_ALPHA"
@@ -183,12 +191,20 @@
             settings:min="0"
             settings:units="" />
 
+	 <Preference 
+            android:layout="@layout/ancient_cardview_divider" 
+            android:selectable="false"/>
+
         <com.ancient.settings.preferences.SystemSettingSwitchPreference
             android:layout="@layout/ancient_cardpreference_single"
             android:key="notification_headers"
             android:title="@string/notification_headers_title"
             android:summary="@string/notification_headers_summary"
             android:defaultValue="true" />
+
+	 <Preference 
+            android:layout="@layout/ancient_cardview_divider" 
+            android:selectable="false"/>
 
 	<com.ancient.settings.preferences.SystemSettingSwitchPreference
             android:layout="@layout/ancient_cardpreference_single"
