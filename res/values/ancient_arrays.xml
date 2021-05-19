@@ -1528,8 +1528,10 @@
     <string-array name="custom_bg_qs_entries" translatable="false">
         <item>@string/custom_bg_qs_default</item>
         <item>@string/custom_bg_qs_accent</item>
+        <item>@string/custom_bg_qs_accent2</item>
         <item>@string/custom_bg_qs_primary</item>
         <item>@string/custom_bg_qs_wallpaper</item>
+        <item>@string/custom_bg_qs_random</item>
     </string-array>
 
     <string-array name="custom_bg_qs_values" translatable="false">
@@ -1537,6 +1539,8 @@
         <item>1</item>
         <item>2</item>
         <item>3</item>
+        <item>4</item>
+        <item>5</item>
     </string-array>
 
 </resources>
