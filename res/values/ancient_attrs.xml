@@ -45,4 +45,6 @@
         <attr name="interval" format="integer" />
     </declare-styleable>
 
+    <attr name="allowEditText" format="boolean" />
+
 </resources>

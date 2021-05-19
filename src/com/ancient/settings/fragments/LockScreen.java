@@ -21,6 +21,7 @@ import android.content.ContentResolver;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
+import android.graphics.Color;
 import android.hardware.fingerprint.FingerprintManager;
 import android.net.Uri;
 import android.os.Bundle;
@@ -39,7 +40,9 @@ import com.android.settingslib.search.Indexable;
 import com.android.settingslib.search.SearchIndexable;
 
 import com.ancient.settings.preferences.CustomSeekBarPreference;
+import com.ancient.settings.preferences.SystemSettingSwitchPreference;
 import com.ancient.settings.utils.DeviceUtils;
+import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
 import java.util.Arrays;
 import java.util.ArrayList;
@@ -57,13 +60,17 @@ public class LockScreen extends SettingsPreferenceFragment implements
     private static final String FOD_ICON_PICKER_CATEGORY = "fod_icon_picker";
     private static final String LOCKSCREEN_MAX_NOTIF_CONFIG = "lockscreen_max_notif_cofig";
     private static final String LOCKSCREEN_BLUR = "LOCKSCREEN_BLUR";
+    private static final String AMBIENT_ICONS_COLOR = "AMBIENT_ICONS_COLOR";
+    private static final String AMBIENT_ICONS_LOCKSCREEN = "AMBIENT_ICONS_LOCKSCREEN";
 
+    private ColorPickerPreference mAmbientIconsColor;
     private FingerprintManager mFingerprintManager;
     private SwitchPreference mFingerprintErrorVib;
     private SwitchPreference mFingerprintVib;
     private PreferenceCategory mFODIconPickerCategory;
     private CustomSeekBarPreference mMaxKeyguardNotifConfig;
     private Preference mLockscreenBlur;
+    private SystemSettingSwitchPreference mAmbientIconsLockscreen;
 
     static final int MODE_DISABLED = 0;
     static final int MODE_NIGHT = 1;
@@ -80,6 +87,8 @@ public class LockScreen extends SettingsPreferenceFragment implements
         final PreferenceScreen prefScreen = getPreferenceScreen();
         final PackageManager mPm = getActivity().getPackageManager();
         Resources resources = getResources();
+        Context mContext = getContext();
+        ContentResolver resolver = getActivity().getContentResolver();
 
         mFingerprintManager = (FingerprintManager) getActivity().getSystemService(Context.FINGERPRINT_SERVICE);
         mFingerprintVib = (SwitchPreference) findPreference(FINGERPRINT_VIB);
@@ -137,6 +146,20 @@ public class LockScreen extends SettingsPreferenceFragment implements
         if (!DeviceUtils.isBlurSupported()) {
             prefScreen.removePreference(mLockscreenBlur);
         }
+
+        mAmbientIconsLockscreen = (SystemSettingSwitchPreference) findPreference(AMBIENT_ICONS_LOCKSCREEN);
+        mAmbientIconsLockscreen.setChecked((Settings.System.getInt(getContentResolver(),
+                "AMBIENT_ICONS_LOCKSCREEN", 0) == 1));
+        mAmbientIconsLockscreen.setOnPreferenceChangeListener(this);
+
+        // Ambient Icons Color
+        mAmbientIconsColor = (ColorPickerPreference) findPreference(AMBIENT_ICONS_COLOR);
+        int intColor = Settings.System.getInt(getContentResolver(),
+                "AMBIENT_ICONS_COLOR", Color.WHITE);
+        String hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mAmbientIconsColor.setNewPreviewColor(intColor);
+        mAmbientIconsColor.setSummary(hexColor);
+        mAmbientIconsColor.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -185,6 +208,20 @@ public class LockScreen extends SettingsPreferenceFragment implements
             boolean value = (Boolean) newValue;
             Settings.System.putInt(resolver,
                     Settings.System.FINGERPRINT_ERROR_VIB, value ? 1 : 0);
+            return true;
+        } else if (preference == mAmbientIconsLockscreen) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(resolver,
+                    "AMBIENT_ICONS_LOCKSCREEN", value ? 1 : 0);
+            AncientUtils.showSystemUiRestartDialog(getContext());
+            return true;
+        } else if (preference == mAmbientIconsColor) {
+            String hex = ColorPickerPreference.convertToARGB(Integer
+                .parseInt(String.valueOf(newValue)));
+            mAmbientIconsColor.setSummary(hex);
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(resolver,
+                    "AMBIENT_ICONS_COLOR", intHex);
             return true;
         }
         return false;
