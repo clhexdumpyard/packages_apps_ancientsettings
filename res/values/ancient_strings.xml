@@ -1414,4 +1414,7 @@
     <string name="custom_tile_size_default">Default</string>
     <string name="custom_tile_size_big">Big</string>
 
+    <!-- Notification background opacity -->
+    <string name="notification_alpha_title">Notification background opacity</string>	
+
 </resources>
