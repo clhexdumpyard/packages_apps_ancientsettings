@@ -1409,7 +1409,7 @@
 
     <!-- tile icon -->
     <string name="custom_tile_size_title">QS Tile Icon Size</string>
-    <string name="custom_tile_size_small">Snall</string>
+    <string name="custom_tile_size_small">Small</string>
     <string name="custom_tile_size_medium">Medium</string>
     <string name="custom_tile_size_default">Default</string>
     <string name="custom_tile_size_big">Big</string>
@@ -1429,5 +1429,13 @@
     <string name="custom_bg_qs_primary">Background Primary</string>
     <string name="custom_bg_qs_wallpaper">Wallpaper Color</string>
     <string name="custom_bg_qs_random">Disco</string>
+
+    <!-- bgtile size icon -->
+    <string name="custom_bgtile_size_title">QS Tile Background Size</string>
+    <string name="custom_bgtile_size_zero">Smaller</string>
+    <string name="custom_bgtile_size_small">Small</string>
+    <string name="custom_bgtile_size_medium">Medium</string>
+    <string name="custom_bgtile_size_default">Default</string>
+    <string name="custom_bgtile_size_big">Big</string>
 
 </resources>
