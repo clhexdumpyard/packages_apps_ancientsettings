@@ -192,7 +192,7 @@
 
         <com.ancient.settings.preferences.SystemSettingListPreference
             android:key="CUSTOM_BGTILE_SIZE"
-            android:layout="@layout/ancient_cardpreference_single"                                                              
+            android:layout="@layout/ancient_cardpreference_top"                                                              
             android:title="@string/custom_bgtile_size_title"
             android:entries="@array/custom_bgtile_size_entries"
             android:entryValues="@array/custom_bgtile_size_values"
@@ -200,11 +200,19 @@
 
         <com.ancient.settings.preferences.SystemSettingListPreference
             android:key="CUSTOM_TILE_SIZE"
-            android:layout="@layout/ancient_cardpreference_single"                                                              
+            android:layout="@layout/ancient_cardpreference_middle"                                                              
             android:title="@string/custom_tile_size_title"
             android:entries="@array/custom_tile_size_entries"
             android:entryValues="@array/custom_tile_size_values"
             android:defaultValue="2" />
+
+        <com.ancient.settings.preferences.SystemSettingListPreference
+            android:layout="@layout/ancient_cardpreference_bottom"
+            android:key="QQS_TILE_STYLE"
+            android:title="@string/qqs_tile_style_title"
+            android:persistent="false"
+            android:entries="@array/qqs_tile_style_entries"
+            android:entryValues="@array/qqs_tile_style_values"/>
 
         <com.ancient.settings.preferences.CustomSystemSeekBarPreference
             android:key="qs_rows_portrait"

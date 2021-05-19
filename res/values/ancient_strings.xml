@@ -1471,4 +1471,11 @@
     <string name="anc_a12tile_style0i">Squircle</string> 
     <string name="anc_a12tile_style0a">Circle</string>
 
+    <!-- qqstile -->
+    <string name="qqs_tile_style_title">Quick QS Tile Colums</string>
+    <string name="qqs_tile_default">Default</string>
+    <string name="qqs_tile_4">4</string>
+    <string name="qqs_tile_5">5</string>
+    <string name="qqs_tile_7">7</string>
+
 </resources>
