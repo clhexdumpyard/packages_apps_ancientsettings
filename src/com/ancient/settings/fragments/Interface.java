@@ -99,7 +99,8 @@ public class Interface extends DashboardFragment implements
     private static final String ANCI_SHAPE_ICON = "ANCI_SHAPE_ICON";
     private static final String BOUNCYONOFF = "bouncyonoff";
     private static final String HOMEBOLDONOFF = "homeboldonoff";
-    private static final String ANCI_CUSTOM_TOPLEVEL = "ANCI_CUSTOM_TOPLEVEL";    
+    private static final String ANCI_CUSTOM_TOPLEVEL = "ANCI_CUSTOM_TOPLEVEL";
+    private static final String DATA_CON_STYLE = "DATA_CON_STYLE";        
 
     private IOverlayManager mOverlayService;
     private UiModeManager mUiModeManager;
@@ -117,7 +118,8 @@ public class Interface extends DashboardFragment implements
     private SystemSettingListPreference mSbShapeIconStyle;
     private SystemSettingSwitchPreference mAncientBouncyOnoff;
     private SystemSettingSwitchPreference mAncientBoldOnoff;
-    private SystemSettingListPreference mAncientCusTop;    
+    private SystemSettingListPreference mAncientCusTop;
+    private SystemSettingListPreference mAnciDatacon;      
 
     @Override
     protected String getLogTag() {
@@ -191,7 +193,15 @@ public class Interface extends DashboardFragment implements
         int valueIndexSeet = mAncientCusTop.findIndexOfValue(String.valueOf(sbSeetingStyle));
         mAncientCusTop.setValueIndex(valueIndexSeet >= 0 ? valueIndexSeet : 0);
         mAncientCusTop.setSummary(mAncientCusTop.getEntry());
-        mAncientCusTop.setOnPreferenceChangeListener(this); 
+        mAncientCusTop.setOnPreferenceChangeListener(this);
+            
+        mAnciDatacon = (SystemSettingListPreference) findPreference("DATA_CON_STYLE");
+        int sbDataconStyle  = Settings.System.getIntForUser(getContentResolver(),
+                "DATA_CON_STYLE", 0, UserHandle.USER_CURRENT);
+        int valueIndexDat = mAnciDatacon.findIndexOfValue(String.valueOf(sbDataconStyle));
+        mAnciDatacon.setValueIndex(valueIndexDat >= 0 ? valueIndexDat : 0);
+        mAnciDatacon.setSummary(mAnciDatacon.getEntry());
+        mAnciDatacon.setOnPreferenceChangeListener(this);     
             
     }
 
@@ -416,7 +426,17 @@ public class Interface extends DashboardFragment implements
                  mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
             } catch (RemoteException ignored) {
             }
-            return true;       
+            return true;    
+        } else if (preference == mAnciDatacon) {
+            int sbDataconStyleValue = Integer.valueOf((String) objValue);
+            Settings.System.putIntForUser(getContentResolver(),
+                    "DATA_CON_STYLE", sbDataconStyleValue, UserHandle.USER_CURRENT);
+            mAnciDatacon.setSummary(mAnciDatacon.getEntries()[sbDataconStyleValue]);
+            try {
+                 mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
+            } catch (RemoteException ignored) {
+            }
+            return true;          
         }
         return false;
     }
