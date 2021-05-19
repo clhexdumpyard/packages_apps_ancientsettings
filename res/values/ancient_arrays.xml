@@ -1573,4 +1573,68 @@
         <item>2</item>
     </string-array>
 
+    <string-array name="anc_active_a12tile_entries" translatable="false">
+        <item>@string/anc_a12tile_style0a</item>
+        <item>@string/anc_a12tile_style1</item>
+        <item>@string/anc_a12tile_style2</item> 
+        <item>@string/anc_a12tile_style3</item>
+        <item>@string/anc_a12tile_style4</item>
+        <item>@string/anc_a12tile_style5</item> 
+        <item>@string/anc_a12tile_style6</item>
+        <item>@string/anc_a12tile_style7</item> 
+        <item>@string/anc_a12tile_style8</item>
+        <item>@string/anc_a12tile_style9</item>
+        <item>@string/anc_a12tile_style10</item> 
+        <item>@string/anc_a12tile_style11</item>
+        <item>@string/anc_a12tile_style12a</item> 
+    </string-array>
+
+    <string-array name="anc_active_a12tile_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item> 
+        <item>3</item>
+        <item>4</item>
+        <item>5</item> 
+        <item>6</item>
+        <item>7</item> 
+        <item>8</item>
+        <item>9</item>
+        <item>10</item> 
+        <item>11</item>
+        <item>12</item> 
+    </string-array> 
+
+    <string-array name="anc_inactive_a12tile_entries" translatable="false">
+        <item>@string/anc_a12tile_style0i</item>
+        <item>@string/anc_a12tile_style1</item>
+        <item>@string/anc_a12tile_style2</item> 
+        <item>@string/anc_a12tile_style3</item>
+        <item>@string/anc_a12tile_style4</item>
+        <item>@string/anc_a12tile_style5</item> 
+        <item>@string/anc_a12tile_style6</item>
+        <item>@string/anc_a12tile_style7</item> 
+        <item>@string/anc_a12tile_style8</item>
+        <item>@string/anc_a12tile_style9</item>
+        <item>@string/anc_a12tile_style10</item> 
+        <item>@string/anc_a12tile_style11</item>
+        <item>@string/anc_a12tile_style12i</item> 
+    </string-array>
+
+    <string-array name="anc_inactive_a12tile_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item> 
+        <item>3</item>
+        <item>4</item>
+        <item>5</item> 
+        <item>6</item>
+        <item>7</item> 
+        <item>8</item>
+        <item>9</item>
+        <item>10</item> 
+        <item>11</item>
+        <item>12</item> 
+    </string-array>
+
 </resources>
