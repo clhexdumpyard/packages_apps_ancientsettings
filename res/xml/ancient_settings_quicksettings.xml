@@ -24,6 +24,14 @@
         android:summary="@string/blur_quicksettings_subtitle"
         android:defaultValue="true" />
 
+    <com.ancient.settings.preferences.SystemSettingListPreference
+        android:key="QS_BG_LIST"
+        android:title="@string/custom_bg_qs_title"
+        android:dependency="QS_BLUR"
+        android:entries="@array/custom_bg_qs_entries"
+        android:entryValues="@array/custom_bg_qs_values"
+        android:defaultValue="0" />
+
     <com.ancient.settings.preferences.SystemSettingSeekBarPreference
         android:key="QS_BLUR_ALPHA"
         android:title="@string/qs_blur_alpha_title"

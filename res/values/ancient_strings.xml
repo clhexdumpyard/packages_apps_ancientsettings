@@ -1417,4 +1417,11 @@
     <!-- Notification background opacity -->
     <string name="notification_alpha_title">Notification background opacity</string>	
 
+    <!-- qs bg cus -->
+    <string name="custom_bg_qs_title">QS Panel Background Custom</string>
+    <string name="custom_bg_qs_default">Default Blur</string>
+    <string name="custom_bg_qs_accent">Accent</string>
+    <string name="custom_bg_qs_primary">Background Primary</string>
+    <string name="custom_bg_qs_wallpaper">Wallpaper</string>
+
 </resources>
