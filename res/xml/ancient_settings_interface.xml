@@ -192,6 +192,15 @@
             android:defaultValue="0"
             android:entries="@array/anci_staticon_entries"
             android:entryValues="@array/anci_staticon_values"/>
+
+        <com.ancient.settings.preferences.SystemSettingListPreference
+            android:layout="@layout/ancient_cardpreference_middle"
+            android:key="DATA_CON_STYLE"
+            android:title="@string/data_con_title"
+            android:persistent="false"
+            android:defaultValue="0"
+            android:entries="@array/data_con_entries"
+            android:entryValues="@array/data_con_values"/>
         
         <ListPreference
             android:layout="@layout/ancient_cardpreference_middle"

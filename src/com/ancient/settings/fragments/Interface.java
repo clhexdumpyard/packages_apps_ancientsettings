@@ -100,6 +100,7 @@ public class Interface extends DashboardFragment implements
     private static final String BOUNCYONOFF = "bouncyonoff";
     private static final String HOMEBOLDONOFF = "homeboldonoff";
     private static final String ANCI_CUSTOM_TOPLEVEL = "ANCI_CUSTOM_TOPLEVEL";
+    private static final String DATA_CON_STYLE = "DATA_CON_STYLE";
 
     private IOverlayManager mOverlayService;
     private UiModeManager mUiModeManager;
@@ -118,6 +119,7 @@ public class Interface extends DashboardFragment implements
     private SystemSettingSwitchPreference mAncientBouncyOnoff;
     private SystemSettingSwitchPreference mAncientBoldOnoff;
     private SystemSettingListPreference mAncientCusTop;
+    private SystemSettingListPreference mAnciDatacon;
 
     @Override
     protected String getLogTag() {
@@ -192,6 +194,14 @@ public class Interface extends DashboardFragment implements
         mAncientCusTop.setValueIndex(valueIndexSeet >= 0 ? valueIndexSeet : 0);
         mAncientCusTop.setSummary(mAncientCusTop.getEntry());
         mAncientCusTop.setOnPreferenceChangeListener(this);
+
+        mAnciDatacon = (SystemSettingListPreference) findPreference("DATA_CON_STYLE");
+        int sbDataconStyle  = Settings.System.getIntForUser(getContentResolver(),
+                "DATA_CON_STYLE", 0, UserHandle.USER_CURRENT);
+        int valueIndexDat = mAnciDatacon.findIndexOfValue(String.valueOf(sbDataconStyle));
+        mAnciDatacon.setValueIndex(valueIndexDat >= 0 ? valueIndexDat : 0);
+        mAnciDatacon.setSummary(mAnciDatacon.getEntry());
+        mAnciDatacon.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -413,6 +423,16 @@ public class Interface extends DashboardFragment implements
             mAncientCusTop.setSummary(mAncientCusTop.getEntries()[sbSeetingStyleValue]);
             try {
                  mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
+            } catch (RemoteException ignored) {
+            }
+            return true;
+        } else if (preference == mAnciDatacon) {
+            int sbDataconStyleValue = Integer.valueOf((String) objValue);
+            Settings.System.putIntForUser(getContentResolver(),
+                    "DATA_CON_STYLE", sbDataconStyleValue, UserHandle.USER_CURRENT);
+            mAnciDatacon.setSummary(mAnciDatacon.getEntries()[sbDataconStyleValue]);
+            try {
+                 mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
             } catch (RemoteException ignored) {
             }
             return true;

@@ -1661,4 +1661,22 @@
         <item>3</item>
     </string-array>
 
+    <string-array name="data_con_entries" translatable="false">
+        <item>@string/data_con1</item>
+        <item>@string/data_con2</item>  
+        <item>@string/data_con3</item>
+        <item>@string/data_con4</item> 
+        <item>@string/data_con5</item>
+        <item>@string/data_con6</item> 
+    </string-array>   
+
+    <string-array name="data_con_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item> 
+    </string-array>
+
 </resources>
