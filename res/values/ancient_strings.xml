@@ -1407,4 +1407,11 @@
     <string name="ticker_animation_mode_scroll">Scroll</string>
     <string name="ticker_tick_duration_title">Ticker duration</string>
 
+    <!-- tile icon -->
+    <string name="custom_tile_size_title">QS Tile Icon Size</string>
+    <string name="custom_tile_size_small">Snall</string>
+    <string name="custom_tile_size_medium">Medium</string>
+    <string name="custom_tile_size_default">Default</string>
+    <string name="custom_tile_size_big">Big</string>
+
 </resources>
