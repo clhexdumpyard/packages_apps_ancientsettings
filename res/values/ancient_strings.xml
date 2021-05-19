@@ -1490,5 +1490,14 @@
     <string name="bg_clock2">Single Color</string>
     <string name="bg_clock3">Gradient Top to Bottom</string>
     <string name="bg_clock4">Gradient Left to Right</string>
+	
+    <!-- data con -->
+    <string name="data_con_title">Data Icon Style</string>
+    <string name="data_con1">Default</string>
+    <string name="data_con2">Style 1</string>
+    <string name="data_con3">Style 2</string>
+    <string name="data_con4">Style 3</string>
+    <string name="data_con5">Style 4</string>
+    <string name="data_con6">Style 5</string>
     
 </resources>
