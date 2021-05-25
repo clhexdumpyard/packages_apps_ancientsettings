@@ -1678,5 +1678,17 @@
         <item>4</item>
         <item>5</item> 
     </string-array>
+     
+    <string-array name="qqs_set_random_entries" translatable="false">
+        <item>@string/qqs_set_random_style1</item>
+        <item>@string/qqs_set_random_style2</item>  
+        <item>@string/qqs_set_random_style3</item>   
+    </string-array>   
+
+    <string-array name="qqs_set_random_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item> 
+    </string-array>   
 
 </resources>
