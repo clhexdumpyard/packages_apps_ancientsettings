@@ -70,6 +70,7 @@ import com.ancient.settings.display.SbQsbgStylePreferenceController;
 import com.ancient.settings.display.SbPaddingStylePreferenceController;
 import com.ancient.settings.preferences.SystemSettingListPreference;
 import com.ancient.settings.preferences.SystemSettingSwitchPreference;
+import com.ancient.settings.preferences.SystemSettingSeekBarPreference;
 
 import com.android.internal.util.ancient.ThemesUtils;
 import com.android.internal.util.ancient.AncientUtils;
