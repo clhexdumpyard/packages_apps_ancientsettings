@@ -1506,5 +1506,9 @@
     <string name="data_con4">Style 3</string>
     <string name="data_con5">Style 4</string>
     <string name="data_con6">Style 5</string>
+	
+     <!-- data con -->
+    <string name="statbar_padding_left">Left Padding Statusbar</string>
+    <string name="statbar_padding_right">Right Padding Statusbar</string>
 
 </resources>
