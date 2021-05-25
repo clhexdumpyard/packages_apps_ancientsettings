@@ -454,7 +454,7 @@ public class Interface extends DashboardFragment implements
             }
             return true;
         } else if (preference == mPkiri) {
-            int kirik = (Integer) newValue;
+            int kirik = (Integer) objValue;
             Settings.System.putInt(getActivity().getContentResolver(),
                     "JEMBT_LEBAT_KIRI", kirik);
             try {
@@ -463,7 +463,7 @@ public class Interface extends DashboardFragment implements
             }
             return true;   
         } else if (preference == mPkanan) {
-            int kuntul = (Integer) newValue;
+            int kuntul = (Integer) objValue;
             Settings.System.putInt(getActivity().getContentResolver(),
                     "JEMBT_LEBAT_KANAN", kuntul);
             try {
