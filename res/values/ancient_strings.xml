@@ -1511,8 +1511,8 @@
     <string name="statbar_padding_left">Left Padding Statusbar</string>
     <string name="statbar_padding_right">Right Padding Statusbar</string>
 	
-    <string name="qqs_set_rainbow">Footer Icon Tint Style</string>
-    <string name="qqs_set_rainbow_summary">Make footer icon colourfull</string>
+    <string name="qqs_set_rainbow">QQS Setting Icon Tint</string>
+    <string name="qqs_set_rainbow_summary">Make Qqs Settings icon colourfull</string>
     <string name="qqs_set_random_style1">Disable</string>
     <string name="qqs_set_random_style2">Rainbow</string>
     <string name="qqs_set_random_style3">Accent</string> 
