@@ -101,6 +101,8 @@ public class Interface extends DashboardFragment implements
     private static final String HOMEBOLDONOFF = "homeboldonoff";
     private static final String ANCI_CUSTOM_TOPLEVEL = "ANCI_CUSTOM_TOPLEVEL";
     private static final String DATA_CON_STYLE = "DATA_CON_STYLE";
+    private static final String JEMBT_LEBAT_KIRI = "JEMBT_LEBAT_KIRI";
+    private static final String JEMBT_LEBAT_KANAN = "JEMBT_LEBAT_KANAN";    
 
     private IOverlayManager mOverlayService;
     private UiModeManager mUiModeManager;
@@ -120,6 +122,8 @@ public class Interface extends DashboardFragment implements
     private SystemSettingSwitchPreference mAncientBoldOnoff;
     private SystemSettingListPreference mAncientCusTop;
     private SystemSettingListPreference mAnciDatacon;
+    private SystemSettingSeekBarPreference mPkiri;
+    private SystemSettingSeekBarPreference mPkanan;    
 
     @Override
     protected String getLogTag() {
@@ -202,8 +206,20 @@ public class Interface extends DashboardFragment implements
         mAnciDatacon.setValueIndex(valueIndexDat >= 0 ? valueIndexDat : 0);
         mAnciDatacon.setSummary(mAnciDatacon.getEntry());
         mAnciDatacon.setOnPreferenceChangeListener(this);
+            
+        mPkiri = (SystemSettingSeekBarPreference) findPreference(JEMBT_LEBAT_KIRI);
+        int kirik = Settings.System.getInt(getContentResolver(),
+                "JEMBT_LEBAT_KIRI", 0);
+        mPkiri.setValue(kirik);
+        mPkiri.setOnPreferenceChangeListener(this); 
+            
+        mPkanan = (SystemSettingSeekBarPreference) findPreference(JEMBT_LEBAT_KANAN);
+        int kuntul = Settings.System.getInt(getContentResolver(),
+                "JEMBT_LEBAT_KANAN", 0);
+        mPkanan.setValue(kuntul);
+        mPkanan.setOnPreferenceChangeListener(this);     
     }
-
+      
     @Override
     protected List<AbstractPreferenceController> createPreferenceControllers(Context context) {
         return buildPreferenceControllers(context, getSettingsLifecycle(), this);
@@ -436,6 +452,24 @@ public class Interface extends DashboardFragment implements
             } catch (RemoteException ignored) {
             }
             return true;
+        } else if (preference == mPkiri) {
+            int kirik = (Integer) newValue;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    "JEMBT_LEBAT_KIRI", kirik);
+            try {
+                 mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
+            } catch (RemoteException ignored) {
+            }
+            return true;   
+        } else if (preference == mPkanan) {
+            int kuntul = (Integer) newValue;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    "JEMBT_LEBAT_KANAN", kuntul);
+            try {
+                 mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
+            } catch (RemoteException ignored) {
+            }
+            return true;          
         }
         return false;
     }
