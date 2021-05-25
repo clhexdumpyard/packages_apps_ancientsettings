@@ -1510,5 +1510,16 @@
      <!-- data con -->
     <string name="statbar_padding_left">Left Padding Statusbar</string>
     <string name="statbar_padding_right">Right Padding Statusbar</string>
+	
+    <string name="qqs_set_rainbow">Footer Icon Tint Style</string>
+    <string name="qqs_set_rainbow_summary">Make footer icon colourfull</string>
+    <string name="qqs_set_random_style1">Disable</string>
+    <string name="qqs_set_random_style2">Rainbow</string>
+    <string name="qqs_set_random_style3">Accent</string> 
+	
+    <string name="qs_alarm_title">Alarm Qs Panel</string>    
+    <string name="qs_alarm_summary">alarm indicator disabler on qs panel</string>
+    <string name="qs_ringer_title">Alarm Qs Panel</string>    
+    <string name="qs_ringer_summary">alarm indicator disabler on qs panel</string>
 
 </resources>
