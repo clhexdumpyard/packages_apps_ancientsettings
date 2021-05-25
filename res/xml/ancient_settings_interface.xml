@@ -271,6 +271,20 @@
             android:persistent="false"
             android:entries="@array/qs_margin_entries"
             android:entryValues="@array/qs_margin_values"/>
+         
+        <com.ancient.settings.preferences.SystemSettingSeekBarPreference 
+            android:max="100" 
+            android:min="-10"                                                              
+            android:title="@string/statbar_padding_left" 
+            android:key="JEMBT_LEBAT_KIRI"  
+            android:defaultValue="0" /> 
+         
+        <com.ancient.settings.preferences.SystemSettingSeekBarPreference 
+            android:max="100" 
+            android:min="-10"                                                              
+            android:title="@string/statbar_padding_right" 
+            android:key="JEMBT_LEBAT_KANAN" 
+            android:defaultValue="0" />  
 
         <com.ancient.settings.preferences.SystemSettingSeekBarPreference
             android:key="ANCI_PANNELTOP_PAD"
