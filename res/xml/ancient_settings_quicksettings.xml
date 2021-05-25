@@ -174,6 +174,18 @@
         android:title="@string/qqs_settings_icon_title" 
         android:summary="@string/qqs_settings_icon_summary"
         android:defaultValue="false" />
+     
+    <com.ancient.settings.preferences.SystemSettingSwitchPreference 
+        android:key="PENGUSIR_ALARM" 
+        android:title="@string/qs_alarm_title" 
+        android:summary="@string/qs_alarm_summary"
+        android:defaultValue="false" /> 
+     
+    <com.ancient.settings.preferences.SystemSettingSwitchPreference 
+        android:key="PENGUSIR_RINGER" 
+        android:title="@string/qs_ringer_title" 
+        android:summary="@string/qs_ringer_summary"
+        android:defaultValue="false" />  
 
     <com.ancient.settings.preferences.SystemSettingSwitchPreference 
         android:key="FOOTER_SHOW_BOTTOM" 
