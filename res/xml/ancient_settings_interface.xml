@@ -374,6 +374,14 @@
             android:entries="@array/qs_footer_random_entries"
             android:entryValues="@array/qs_footer_random_values"
             android:defaultValue="0" />
+         
+        <com.ancient.settings.preferences.SystemSettingListPreference
+            android:layout="@layout/ancient_cardpreference_middle"
+            android:key="QQS_SETTINGS_RAINBOW"
+            android:title="@string/qqs_set_rainbow"
+            android:entries="@array/qqs_set_random_entries"
+            android:entryValues="@array/qqs_set_random_values"
+            android:defaultValue="0" /> 
 
         <com.ancient.settings.preferences.SystemSettingListPreference
             android:layout="@layout/ancient_cardpreference_middle"
