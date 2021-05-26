@@ -1684,5 +1684,9 @@
     <string name="qs_expanded_ancientui_clock_style5">Gradient Clock</string>
     <string name="qs_expanded_ancientui_clock_style6">Ancient A10 Clock</string>
     <string name="qs_expanded_ancientui_clock_style7">Analog Clock with Date</string>
-    
+
+    <!-- Volume App -->
+    <string name="show_app_volume_title">Show app volume</string>
+    <string name="show_app_volume_summary">Show app volume in volume panel</string>
+
 </resources>
