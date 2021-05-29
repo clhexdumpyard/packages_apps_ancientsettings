@@ -229,8 +229,8 @@ public class Interface extends DashboardFragment implements
         mPkanan.setOnPreferenceChangeListener(this); 
             
         rgbAccentPicker = (ColorPickerPreference) findPreference(PREF_RGB_ACCENT_PICKER);
-        String colorVal = Settings.System.getStringForUser(getContentResolver(),
-                Settings.System.ACCENT_COLOR, UserHandle.USER_CURRENT);
+        String colorVal = Settings.Secure.getStringForUser(getContentResolver(),
+                Settings.Secure.ACCENT_COLOR, UserHandle.USER_CURRENT);
         int color = (colorVal == null)
                 ? Color.WHITE
                 : Color.parseColor("#" + colorVal);
@@ -238,8 +238,8 @@ public class Interface extends DashboardFragment implements
         rgbAccentPicker.setOnPreferenceChangeListener(this);
             
         rgbLiAccentPicker = (ColorPickerPreference) findPreference(PREF_RGB_LIGHT_ACCENT_PICKER);
-        String colorVala = Settings.System.getStringForUser(getContentResolver(),
-                Settings.System.ACCENT_LIGHT, UserHandle.USER_CURRENT);
+        String colorVala = Settings.Secure.getStringForUser(getContentResolver(),
+                Settings.Secure.ACCENT_LIGHT, UserHandle.USER_CURRENT);
         int colora = (colorVala == null)
                 ? Color.WHITE
                 : Color.parseColor("#" + colorVala);
@@ -247,8 +247,8 @@ public class Interface extends DashboardFragment implements
         rgbLiAccentPicker.setOnPreferenceChangeListener(this);   
             
         rgbDaAccentPicker = (ColorPickerPreference) findPreference(PREF_RGB_DARK_ACCENT_PICKER);
-        String colorValb = Settings.System.getStringForUser(getContentResolver(),
-                Settings.System.ACCENT_DARK, UserHandle.USER_CURRENT);
+        String colorValb = Settings.Secure.getStringForUser(getContentResolver(),
+                Settings.Secure.ACCENT_DARK, UserHandle.USER_CURRENT);
         int colorb = (colorValb == null)
                 ? Color.WHITE
                 : Color.parseColor("#" + colorValb);
@@ -518,8 +518,8 @@ public class Interface extends DashboardFragment implements
         } else if (preference == rgbLiAccentPicker) {
             int colora = (Integer) objValue;
             String hexColora = String.format("%08X", (0xFFFFFFFF & colora));
-            Settings.System.putStringForUser(getContentResolver(),
-                        Settings.System.ACCENT_LIGHT,
+            Settings.Secure.putStringForUser(getContentResolver(),
+                        Settings.Secure.ACCENT_LIGHT,
                         hexColora, UserHandle.USER_CURRENT);
             try {
                  mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
@@ -530,8 +530,8 @@ public class Interface extends DashboardFragment implements
         } else if (preference == rgbDaAccentPicker) {
             int colorb = (Integer) objValue;
             String hexColorb = String.format("%08X", (0xFFFFFFFF & colorb));
-            Settings.System.putStringForUser(getContentResolver(),
-                        Settings.System.ACCENT_DARK,
+            Settings.Secure.putStringForUser(getContentResolver(),
+                        Settings.Secure.ACCENT_DARK,
                         hexColorb, UserHandle.USER_CURRENT);
             try {
                  mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
