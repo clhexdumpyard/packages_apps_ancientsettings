@@ -75,6 +75,8 @@ import com.ancient.settings.preferences.SystemSettingSeekBarPreference;
 import com.android.internal.util.ancient.ThemesUtils;
 import com.android.internal.util.ancient.AncientUtils;
 
+import net.margaritov.preference.colorpicker.ColorPickerPreference;
+
 import com.android.settings.R;
 
 import java.util.Arrays;
@@ -103,7 +105,10 @@ public class Interface extends DashboardFragment implements
     private static final String ANCI_CUSTOM_TOPLEVEL = "ANCI_CUSTOM_TOPLEVEL";
     private static final String DATA_CON_STYLE = "DATA_CON_STYLE";
     private static final String JEMBT_LEBAT_KIRI = "JEMBT_LEBAT_KIRI";
-    private static final String JEMBT_LEBAT_KANAN = "JEMBT_LEBAT_KANAN";    
+    private static final String JEMBT_LEBAT_KANAN = "JEMBT_LEBAT_KANAN"; 
+    private static final String PREF_RGB_ACCENT_PICKER = "rgb_accent_picker";
+    private static final String PREF_RGB_LIGHT_ACCENT_PICKER = "rgb_light_accent_picker";
+    private static final String PREF_RGB_DARK_ACCENT_PICKER = "rgb_dark_accent_picker";       
 
     private IOverlayManager mOverlayService;
     private UiModeManager mUiModeManager;
@@ -124,7 +129,10 @@ public class Interface extends DashboardFragment implements
     private SystemSettingListPreference mAncientCusTop;
     private SystemSettingListPreference mAnciDatacon;
     private SystemSettingSeekBarPreference mPkiri;
-    private SystemSettingSeekBarPreference mPkanan;    
+    private SystemSettingSeekBarPreference mPkanan; 
+    private ColorPickerPreference rgbAccentPicker;
+    private ColorPickerPreference rgbLiAccentPicker; 
+    private ColorPickerPreference rgbDaAccentPicker;    
 
     @Override
     protected String getLogTag() {
@@ -218,7 +226,34 @@ public class Interface extends DashboardFragment implements
         int kuntul = Settings.System.getInt(getContentResolver(),
                 "JEMBT_LEBAT_KANAN", 0);
         mPkanan.setValue(kuntul);
-        mPkanan.setOnPreferenceChangeListener(this);     
+        mPkanan.setOnPreferenceChangeListener(this); 
+            
+        rgbAccentPicker = (ColorPickerPreference) findPreference(PREF_RGB_ACCENT_PICKER);
+        String colorVal = Settings.System.getStringForUser(getContentResolver(),
+                Settings.System.ACCENT_COLOR, UserHandle.USER_CURRENT);
+        int color = (colorVal == null)
+                ? Color.WHITE
+                : Color.parseColor("#" + colorVal);
+        rgbAccentPicker.setNewPreviewColor(color);
+        rgbAccentPicker.setOnPreferenceChangeListener(this);
+            
+        rgbLiAccentPicker = (ColorPickerPreference) findPreference(PREF_RGB_LIGHT_ACCENT_PICKER);
+        String colorVala = Settings.System.getStringForUser(getContentResolver(),
+                Settings.System.ACCENT_LIGHT, UserHandle.USER_CURRENT);
+        int colora = (colorVala == null)
+                ? Color.WHITE
+                : Color.parseColor("#" + colorVala);
+        rgbLiAccentPicker.setNewPreviewColor(colora);
+        rgbLiAccentPicker.setOnPreferenceChangeListener(this);   
+            
+        rgbDaAccentPicker = (ColorPickerPreference) findPreference(PREF_RGB_DARK_ACCENT_PICKER);
+        String colorValb = Settings.System.getStringForUser(getContentResolver(),
+                Settings.System.ACCENT_DARK, UserHandle.USER_CURRENT);
+        int colorb = (colorValb == null)
+                ? Color.WHITE
+                : Color.parseColor("#" + colorValb);
+        rgbDaAccentPicker.setNewPreviewColor(colorb);
+        rgbDaAccentPicker.setOnPreferenceChangeListener(this);    
     }
       
     @Override
@@ -229,7 +264,6 @@ public class Interface extends DashboardFragment implements
     private static List<AbstractPreferenceController> buildPreferenceControllers(
             Context context, Lifecycle lifecycle, Fragment fragment) {
         final List<AbstractPreferenceController> controllers = new ArrayList<>();
-        controllers.add(new AccentColorPreferenceController(context));
         controllers.add(new OverlayCategoryPreferenceController(context,
                 "android.theme.customization.accent_color"));
         controllers.add(new OverlayCategoryPreferenceController(context,
@@ -340,7 +374,6 @@ public class Interface extends DashboardFragment implements
                     break;
             }
             try {
-                 mOverlayService.reloadAndroidAssets(UserHandle.USER_CURRENT);
                  mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
                  mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
             } catch (RemoteException ignored) {
@@ -415,7 +448,6 @@ public class Interface extends DashboardFragment implements
                     "ANCI_SHAPE_ICON", sbShapeIconStyleValue, UserHandle.USER_CURRENT);
             mSbShapeIconStyle.setSummary(mSbShapeIconStyle.getEntries()[sbShapeIconStyleValue]);
             try {
-                 mOverlayService.reloadAndroidAssets(UserHandle.USER_CURRENT);
                  mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
                  mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
             } catch (RemoteException ignored) {
@@ -470,7 +502,43 @@ public class Interface extends DashboardFragment implements
                  mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
             } catch (RemoteException ignored) {
             }
-            return true;          
+            return true;  
+        } else if (preference == rgbAccentPicker) {
+            int color = (Integer) objValue;
+            String hexColor = String.format("%08X", (0xFFFFFFFF & color));
+            Settings.System.putStringForUser(mContext.getContentResolver(),
+                        Settings.System.ACCENT_COLOR,
+                        hexColor, UserHandle.USER_CURRENT);
+            try {
+                 mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
+                 mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
+             } catch (RemoteException ignored) {
+             }
+            return true;   
+        } else if (preference == rgbLiAccentPicker) {
+            int colora = (Integer) objValue;
+            String hexColora = String.format("%08X", (0xFFFFFFFF & colora));
+            Settings.System.putStringForUser(mContext.getContentResolver(),
+                        Settings.System.ACCENT_LIGHT,
+                        hexColora, UserHandle.USER_CURRENT);
+            try {
+                 mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
+                 mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
+             } catch (RemoteException ignored) {
+             }
+            return true; 
+        } else if (preference == rgbDaAccentPicker) {
+            int colorb = (Integer) objValue;
+            String hexColorb = String.format("%08X", (0xFFFFFFFF & colorb));
+            Settings.System.putStringForUser(mContext.getContentResolver(),
+                        Settings.System.ACCENT_DARK,
+                        hexColorb, UserHandle.USER_CURRENT);
+            try {
+                 mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
+                 mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
+             } catch (RemoteException ignored) {
+             }
+            return true;         
         }
         return false;
     }
