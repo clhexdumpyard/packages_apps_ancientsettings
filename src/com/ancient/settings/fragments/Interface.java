@@ -240,7 +240,7 @@ public class Interface extends DashboardFragment implements
             
         rgbLiAccentPicker = (ColorPickerPreference) findPreference(PREF_RGB_LIGHT_ACCENT_PICKER);
         String colorVala = Settings.Secure.getStringForUser(getContentResolver(),
-                Settings.Secure.getUriFor("accent_light"), UserHandle.USER_CURRENT);
+                Settings.Secure.getStringForUser("accent_light"), UserHandle.USER_CURRENT);
         int colora = (colorVala == null)
                 ? Color.WHITE
                 : Color.parseColor("#" + colorVala);
@@ -249,7 +249,7 @@ public class Interface extends DashboardFragment implements
             
         rgbDaAccentPicker = (ColorPickerPreference) findPreference(PREF_RGB_DARK_ACCENT_PICKER);
         String colorValb = Settings.Secure.getStringForUser(getContentResolver(),
-                Settings.Secure.getUriFor("accent_dark"), UserHandle.USER_CURRENT);
+                Settings.Secure.getStringForUser("accent_dark"), UserHandle.USER_CURRENT);
         int colorb = (colorValb == null)
                 ? Color.WHITE
                 : Color.parseColor("#" + colorValb);
@@ -520,7 +520,7 @@ public class Interface extends DashboardFragment implements
             int colora = (Integer) objValue;
             String hexColora = String.format("%08X", (0xFFFFFFFF & colora));
             Settings.Secure.putStringForUser(getContentResolver(),
-                        Settings.Secure.ACCENT_LIGHT,
+                        Settings.Secure.getStringForUser("accent_light"),
                         hexColora, UserHandle.USER_CURRENT);
             try {
                  mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
@@ -532,7 +532,7 @@ public class Interface extends DashboardFragment implements
             int colorb = (Integer) objValue;
             String hexColorb = String.format("%08X", (0xFFFFFFFF & colorb));
             Settings.Secure.putStringForUser(getContentResolver(),
-                        Settings.Secure.ACCENT_DARK,
+                        Settings.Secure.getStringForUser("accent_dark"),
                         hexColorb, UserHandle.USER_CURRENT);
             try {
                  mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
