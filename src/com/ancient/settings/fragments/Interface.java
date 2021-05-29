@@ -107,7 +107,6 @@ public class Interface extends DashboardFragment implements
     private static final String DATA_CON_STYLE = "DATA_CON_STYLE";
     private static final String JEMBT_LEBAT_KIRI = "JEMBT_LEBAT_KIRI";
     private static final String JEMBT_LEBAT_KANAN = "JEMBT_LEBAT_KANAN"; 
-    private static final String PREF_RGB_ACCENT_PICKER = "rgb_accent_picker";
     private static final String PREF_RGB_LIGHT_ACCENT_PICKER = "rgb_light_accent_picker";
     private static final String PREF_RGB_DARK_ACCENT_PICKER = "rgb_dark_accent_picker";       
 
@@ -131,7 +130,6 @@ public class Interface extends DashboardFragment implements
     private SystemSettingListPreference mAnciDatacon;
     private SystemSettingSeekBarPreference mPkiri;
     private SystemSettingSeekBarPreference mPkanan; 
-    private ColorPickerPreference rgbAccentPicker;
     private ColorPickerPreference rgbLiAccentPicker; 
     private ColorPickerPreference rgbDaAccentPicker;    
 
@@ -228,15 +226,6 @@ public class Interface extends DashboardFragment implements
                 "JEMBT_LEBAT_KANAN", 0);
         mPkanan.setValue(kuntul);
         mPkanan.setOnPreferenceChangeListener(this); 
-            
-        rgbAccentPicker = (ColorPickerPreference) findPreference(PREF_RGB_ACCENT_PICKER);
-        String colorVal = Settings.System.getStringForUser(getContentResolver(),
-                Settings.System.ACCENT_COLOR, UserHandle.USER_CURRENT);
-        int color = (colorVal == null)
-                ? Color.WHITE
-                : Color.parseColor("#" + colorVal);
-        rgbAccentPicker.setNewPreviewColor(color);
-        rgbAccentPicker.setOnPreferenceChangeListener(this);
             
         rgbLiAccentPicker = (ColorPickerPreference) findPreference(PREF_RGB_LIGHT_ACCENT_PICKER);
         String colorVala = Settings.Secure.getStringForUser(getContentResolver(),
@@ -504,18 +493,6 @@ public class Interface extends DashboardFragment implements
             } catch (RemoteException ignored) {
             }
             return true;  
-        } else if (preference == rgbAccentPicker) {
-            int color = (Integer) objValue;
-            String hexColor = String.format("%08X", (0xFFFFFFFF & color));
-            Settings.System.putStringForUser(getContentResolver(),
-                        Settings.System.ACCENT_COLOR,
-                        hexColor, UserHandle.USER_CURRENT);
-            try {
-                 mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
-                 mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
-             } catch (RemoteException ignored) {
-             }
-            return true;   
         } else if (preference == rgbLiAccentPicker) {
             int colora = (Integer) objValue;
             String hexColora = String.format("%08X", (0xFFFFFFFF & colora));
