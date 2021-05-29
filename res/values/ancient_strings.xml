@@ -1216,6 +1216,12 @@
     <string name="statusbar_dual_style_1">Ios Style </string>
     <string name="statusbar_dual_style_2">DualBar Style With Left Analog</string>
     <string name="statusbar_dual_style_3">DualBar Style With Center Analog</string>
+    <string name="statusbar_dual_style_4">Style A</string>
+    <string name="statusbar_dual_style_5">Style B</string>
+    <string name="statusbar_dual_style_6">Style C</string>
+    <string name="statusbar_dual_style_7">Style D</string>
+    <string name="statusbar_dual_style_8">Style E</string>
+    <string name="statusbar_dual_style_9">Style F</string>
 
     <!-- QS Blur -->
     <string name="blur_quicksettings">Blur behind quick settings (beta)</string>
