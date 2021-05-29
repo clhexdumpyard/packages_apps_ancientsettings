@@ -45,14 +45,27 @@
             android:defaultValue="1"/>
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference
-            android:layout="@layout/ancient_cardpreference_twotarget"
-            android:key="accent_color"
-            android:title="@string/accent_color_title"
-            android:defaultValue="0xFF1A73E8"
-            settings:showReset="true"
-            android:persistent="false" />
+          android:key="rgb_accent_picker"
+          android:title="@string/rgb_accent_picker_title"
+          android:summary="@string/rgb_accent_picker_summary"
+          settings:showReset="true"                                                           
+          android:persistent="false" />
 
-        <com.ancient.settings.preferences.SystemSettingListPreference
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+          android:key="rgb_dark_accent_picker"
+          android:title="@string/rgb_dark_accent_picker_title"
+          android:summary="@string/rgb_accent_picker_summary"
+          settings:showReset="true"                                                           
+          android:persistent="false" />
+         
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+          android:key="rgb_light_accent_picker"
+          android:title="@string/rgb_light_accent_picker_title"
+          android:summary="@string/rgb_accent_picker_summary"
+          settings:showReset="true"                                                           
+          android:persistent="false" /> 
+         
+         <com.ancient.settings.preferences.SystemSettingListPreference
             android:layout="@layout/ancient_cardpreference_bottom"
             android:key="android.theme.customization.accent_color"
             android:title="@string/theme_customization_accent_color_title"/>
