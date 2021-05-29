@@ -53,6 +53,7 @@
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference
           android:key="rgb_dark_accent_picker"
+          android:defaultValue="0xFF1A73E8"                                                           
           android:title="@string/rgb_dark_accent_picker_title"
           android:summary="@string/rgb_accent_picker_summary"
           settings:showReset="true"                                                           
@@ -60,6 +61,7 @@
          
         <net.margaritov.preference.colorpicker.ColorPickerPreference
           android:key="rgb_light_accent_picker"
+          android:defaultValue="0xFF1A73E8"                                                           
           android:title="@string/rgb_light_accent_picker_title"
           android:summary="@string/rgb_accent_picker_summary"
           settings:showReset="true"                                                           
