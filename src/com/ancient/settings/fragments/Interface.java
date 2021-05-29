@@ -24,6 +24,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.net.Uri;
 import android.os.Handler;
 import android.os.RemoteException;
 import android.os.ServiceManager;
@@ -229,8 +230,8 @@ public class Interface extends DashboardFragment implements
         mPkanan.setOnPreferenceChangeListener(this); 
             
         rgbAccentPicker = (ColorPickerPreference) findPreference(PREF_RGB_ACCENT_PICKER);
-        String colorVal = Settings.Secure.getStringForUser(getContentResolver(),
-                Settings.Secure.ACCENT_COLOR, UserHandle.USER_CURRENT);
+        String colorVal = Settings.System.getStringForUser(getContentResolver(),
+                Settings.System.ACCENT_COLOR, UserHandle.USER_CURRENT);
         int color = (colorVal == null)
                 ? Color.WHITE
                 : Color.parseColor("#" + colorVal);
@@ -239,7 +240,7 @@ public class Interface extends DashboardFragment implements
             
         rgbLiAccentPicker = (ColorPickerPreference) findPreference(PREF_RGB_LIGHT_ACCENT_PICKER);
         String colorVala = Settings.Secure.getStringForUser(getContentResolver(),
-                Settings.Secure.ACCENT_LIGHT, UserHandle.USER_CURRENT);
+                Settings.Secure.getUriFor("accent_light"), UserHandle.USER_CURRENT);
         int colora = (colorVala == null)
                 ? Color.WHITE
                 : Color.parseColor("#" + colorVala);
@@ -248,7 +249,7 @@ public class Interface extends DashboardFragment implements
             
         rgbDaAccentPicker = (ColorPickerPreference) findPreference(PREF_RGB_DARK_ACCENT_PICKER);
         String colorValb = Settings.Secure.getStringForUser(getContentResolver(),
-                Settings.Secure.ACCENT_DARK, UserHandle.USER_CURRENT);
+                Settings.Secure.getUriFor("accent_dark"), UserHandle.USER_CURRENT);
         int colorb = (colorValb == null)
                 ? Color.WHITE
                 : Color.parseColor("#" + colorValb);
