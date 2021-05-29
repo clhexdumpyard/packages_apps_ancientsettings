@@ -506,7 +506,7 @@ public class Interface extends DashboardFragment implements
         } else if (preference == rgbAccentPicker) {
             int color = (Integer) objValue;
             String hexColor = String.format("%08X", (0xFFFFFFFF & color));
-            Settings.System.putStringForUser(mContext.getContentResolver(),
+            Settings.System.putStringForUser(getContentResolver(),
                         Settings.System.ACCENT_COLOR,
                         hexColor, UserHandle.USER_CURRENT);
             try {
@@ -518,7 +518,7 @@ public class Interface extends DashboardFragment implements
         } else if (preference == rgbLiAccentPicker) {
             int colora = (Integer) objValue;
             String hexColora = String.format("%08X", (0xFFFFFFFF & colora));
-            Settings.System.putStringForUser(mContext.getContentResolver(),
+            Settings.System.putStringForUser(getContentResolver(),
                         Settings.System.ACCENT_LIGHT,
                         hexColora, UserHandle.USER_CURRENT);
             try {
@@ -530,7 +530,7 @@ public class Interface extends DashboardFragment implements
         } else if (preference == rgbDaAccentPicker) {
             int colorb = (Integer) objValue;
             String hexColorb = String.format("%08X", (0xFFFFFFFF & colorb));
-            Settings.System.putStringForUser(mContext.getContentResolver(),
+            Settings.System.putStringForUser(getContentResolver(),
                         Settings.System.ACCENT_DARK,
                         hexColorb, UserHandle.USER_CURRENT);
             try {
