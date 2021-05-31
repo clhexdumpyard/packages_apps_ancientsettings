@@ -1533,7 +1533,17 @@
     <string name="rgb_light_accent_picker_title">RGB Light accent picker</string>
     <string name="rgb_accent_picker_summary">Choose the accent color yourself</string>
 	
+    <!-- Dot OS Monet Engine -->
     <string name="monet_switch_title">Monet Engine</string>
     <string name="monet_switch_summary">enable monet engine</string>
+    <string name="monet_seekbar_title">Monet Engine Colorfullness</string>
+    <string name="monet_pallete_title">Monet Engine Color Pallete</string>
+    <string name="monet_pallete_0">Vibrant (default)</string>
+    <string name="monet_pallete_1">Light Vibrant </string>
+    <string name="monet_pallete_2">Dark Vibrant </string>
+    <string name="monet_pallete_3">Dominant </string>
+    <string name="monet_pallete_4">Muted</string>
+    <string name="monet_pallete_5">Light Muted</string>
+    <string name="monet_pallete_6">Dark Muted </string>
 
 </resources>
