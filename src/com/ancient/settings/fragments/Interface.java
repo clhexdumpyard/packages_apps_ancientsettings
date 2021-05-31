@@ -113,8 +113,7 @@ public class Interface extends DashboardFragment implements
     private static final String PREF_RGB_LIGHT_ACCENT_PICKER = "rgb_light_accent_picker";
     private static final String PREF_RGB_DARK_ACCENT_PICKER = "rgb_dark_accent_picker";  
     private static final String MONET_ENGINE = "monet_engine";   
-    private static final String MONET_COLOR_GEN = "monet_color_gen";
-    
+  
     private IOverlayManager mOverlayService;
     private UiModeManager mUiModeManager;
 
@@ -138,7 +137,6 @@ public class Interface extends DashboardFragment implements
     private ColorPickerPreference rgbLiAccentPicker; 
     private ColorPickerPreference rgbDaAccentPicker;  
     private SecureSettingSwitchPreference mMonetOnoff; 
-    private SecureSettingSeekBarPreference mMonetColor; 
     
     @Override
     protected String getLogTag() {
@@ -257,12 +255,6 @@ public class Interface extends DashboardFragment implements
                 "monet_engine", 0) == 1));
         mMonetOnoff.setOnPreferenceChangeListener(this);    
 
-        mMonetColor = (SecureSettingSeekBarPreference) findPreference(MONET_COLOR_GEN);
-        int monetclr = Settings.Secure.getInt(getContentResolver(),
-                "monet_color_gen", 16);
-        mMonetColor.setValue(monetclr);
-        mMonetColor.setOnPreferenceChangeListener(this); 
-            
     }
       
     @Override
@@ -547,16 +539,6 @@ public class Interface extends DashboardFragment implements
              } catch (RemoteException ignored) {
              }
             return true;  
-        } else if (preference == mMonetColor) {
-            int monetclr = (Integer) objValue;
-            Settings.Secure.putInt(getActivity().getContentResolver(),
-                    "monet_color_gen", monetclr);
-            try {
-                 mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
-                 mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
-             } catch (RemoteException ignored) {
-            }
-            return true;   
         }
         return false;
     }
