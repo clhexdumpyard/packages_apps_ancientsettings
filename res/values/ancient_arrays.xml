@@ -1703,4 +1703,24 @@
         <item>2</item> 
     </string-array>   
 
+    <string-array name="monet_pallete_entries" translatable="false">
+        <item>@string/monet_pallete_0</item>
+        <item>@string/monet_pallete_1</item>  
+        <item>@string/monet_pallete_2</item>
+        <item>@string/monet_pallete_3</item> 
+        <item>@string/monet_pallete_4</item>
+        <item>@string/monet_pallete_5</item> 
+        <item>@string/monet_pallete_6</item> 
+    </string-array>   
+
+    <string-array name="monet_pallete_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item> 
+        <item>6</item> 
+    </string-array>
+
 </resources>
