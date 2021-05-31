@@ -33,6 +33,13 @@
                     android:targetPackage="com.android.wallpaper"
                     android:targetClass="com.android.customization.picker.CustomizationPickerActivity" />
         </Preference>
+         
+        <com.ancient.settings.preferences.SecureSettingSwitchPreference
+            android:layout="@layout/ancient_cardpreference_top"
+            android:key="monet_engine"                             
+            android:defaultValue="0"
+            android:summary="@string/monet_switch_summary"             
+            android:title="@string/monet_switch_title"/> 
 
         <ListPreference
             android:layout="@layout/ancient_cardpreference_middle"
