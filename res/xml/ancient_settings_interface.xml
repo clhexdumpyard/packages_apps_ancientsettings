@@ -35,7 +35,7 @@
         </Preference>
          
         <com.ancient.settings.preferences.SecureSettingSwitchPreference
-            android:layout="@layout/ancient_cardpreference_top"
+            android:layout="@layout/ancient_cardpreference_middle"
             android:key="monet_engine"                             
             android:defaultValue="0"
             android:summary="@string/monet_switch_summary"             
