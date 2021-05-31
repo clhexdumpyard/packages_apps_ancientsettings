@@ -73,6 +73,8 @@ import com.ancient.settings.preferences.SystemSettingListPreference;
 import com.ancient.settings.preferences.SystemSettingSwitchPreference;
 import com.ancient.settings.preferences.SystemSettingSeekBarPreference;
 import com.ancient.settings.preferences.SecureSettingSwitchPreference;
+import com.ancient.settings.preferences.SecureSettingSeekBarPreference;
+import com.ancient.settings.preferences.SecureSettingListPreference;
 
 import com.android.internal.util.ancient.ThemesUtils;
 import com.android.internal.util.ancient.AncientUtils;
@@ -110,7 +112,9 @@ public class Interface extends DashboardFragment implements
     private static final String JEMBT_LEBAT_KANAN = "JEMBT_LEBAT_KANAN"; 
     private static final String PREF_RGB_LIGHT_ACCENT_PICKER = "rgb_light_accent_picker";
     private static final String PREF_RGB_DARK_ACCENT_PICKER = "rgb_dark_accent_picker";  
-    private static final String MONET_ENGINE = "monet_engine";    
+    private static final String MONET_ENGINE = "monet_engine";   
+    private static final String MONET_COLOR_GEN = "monet_color_gen";
+    private static final String MONET_PALETTE = "monet_palette";
 
     private IOverlayManager mOverlayService;
     private UiModeManager mUiModeManager;
@@ -135,6 +139,8 @@ public class Interface extends DashboardFragment implements
     private ColorPickerPreference rgbLiAccentPicker; 
     private ColorPickerPreference rgbDaAccentPicker;  
     private SecureSettingSwitchPreference mMonetOnoff; 
+    private SecureSettingSeekBarPreference mMonetColor; 
+    private SecureSettingListPreference mMonetPallete; 
        
     @Override
     protected String getLogTag() {
@@ -252,6 +258,20 @@ public class Interface extends DashboardFragment implements
         mMonetOnoff.setChecked((Settings.Secure.getInt(getActivity().getContentResolver(),
                 "monet_engine", 0) == 1));
         mMonetOnoff.setOnPreferenceChangeListener(this);    
+
+        mMonetColor = (SecureSettingSeekBarPreference) findPreference(MONET_COLOR_GEN);
+        int monetclr = Settings.Secure.getInt(getContentResolver(),
+                "monet_color_gen", 16);
+        mMonetColor.setValue(monetclr);
+        mMonetColor.setOnPreferenceChangeListener(this); 
+            
+        mMonetPallete = (SecureSettingListPreference) findPreference("MONET_PALETTE");
+        int mnMonetPalleteStyle  = Settings.Secure.getIntForUser(getContentResolver(),
+                "monet_palette", 0, UserHandle.USER_CURRENT);
+        int valueIndexMon = mMonetPallete.findIndexOfValue(String.valueOf(mnMonetPalleteStyle));
+        mMonetPallete.setValueIndex(valueIndexMon >= 0 ? valueIndexMon : 0);
+        mMonetPallete.setSummary(mMonetPallete.getEntry());
+        mMonetPallete.setOnPreferenceChangeListener(this);
     
     }
       
@@ -536,7 +556,28 @@ public class Interface extends DashboardFragment implements
                  mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
              } catch (RemoteException ignored) {
              }
-            return true;        
+            return true;  
+        } else if (preference == mMonetColor) {
+            int monetclr = (Integer) objValue;
+            Settings.Secure.putInt(getActivity().getContentResolver(),
+                    "monet_color_gen", monetclr);
+            try {
+                 mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
+                 mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
+             } catch (RemoteException ignored) {
+            }
+            return true;   
+        } else if (preference == mMonetPallete) {
+            int mnMonetPalleteStyleValue = Integer.valueOf((String) objValue);
+            Settings.Secure.putIntForUser(getContentResolver(),
+                    "monet_palette", mnMonetPalleteStyleValue, UserHandle.USER_CURRENT);
+            mMonetPallete.setSummary(mMonetPallete.getEntries()[mnMonetPalleteStyleValue]);
+            try {
+                 mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
+                 mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
+             } catch (RemoteException ignored) {
+            }
+            return true;      
         }
         return false;
     }
