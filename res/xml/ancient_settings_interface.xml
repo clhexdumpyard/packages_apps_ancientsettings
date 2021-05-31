@@ -41,6 +41,24 @@
             android:summary="@string/monet_switch_summary"             
             android:title="@string/monet_switch_title"/> 
 
+        <com.ancient.settings.preferences.SecureSettingSeekBarPreference 
+            android:max="126" 
+            android:min="0"       
+            android:dependency="monet_engine"                                                      
+            android:title="@string/monet_seekbar_title" 
+            android:key="monet_color_gen"  
+            android:defaultValue="16" /> 
+         
+        <com.ancient.settings.preferences.SecureSettingListPreference
+            android:layout="@layout/ancient_cardpreference_middle"
+            android:key="monet_palette"
+            android:dependency="monet_engine"
+            android:title="@string/monet_pallete_title"
+            android:persistent="false"
+            android:defaultValue="0"
+            android:entries="@array/monet_pallete_entries"
+            android:entryValues="@array/monet_pallete_values"/>
+
         <ListPreference
             android:layout="@layout/ancient_cardpreference_middle"
             android:key="theme_switch"
