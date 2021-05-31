@@ -72,6 +72,7 @@ import com.ancient.settings.display.SbPaddingStylePreferenceController;
 import com.ancient.settings.preferences.SystemSettingListPreference;
 import com.ancient.settings.preferences.SystemSettingSwitchPreference;
 import com.ancient.settings.preferences.SystemSettingSeekBarPreference;
+import com.ancient.settings.preferences.SecureSettingSwitchPreference;
 
 import com.android.internal.util.ancient.ThemesUtils;
 import com.android.internal.util.ancient.AncientUtils;
@@ -108,7 +109,8 @@ public class Interface extends DashboardFragment implements
     private static final String JEMBT_LEBAT_KIRI = "JEMBT_LEBAT_KIRI";
     private static final String JEMBT_LEBAT_KANAN = "JEMBT_LEBAT_KANAN"; 
     private static final String PREF_RGB_LIGHT_ACCENT_PICKER = "rgb_light_accent_picker";
-    private static final String PREF_RGB_DARK_ACCENT_PICKER = "rgb_dark_accent_picker";       
+    private static final String PREF_RGB_DARK_ACCENT_PICKER = "rgb_dark_accent_picker";  
+    private static final String MONET_ENGINE = "monet_engine";    
 
     private IOverlayManager mOverlayService;
     private UiModeManager mUiModeManager;
@@ -131,8 +133,9 @@ public class Interface extends DashboardFragment implements
     private SystemSettingSeekBarPreference mPkiri;
     private SystemSettingSeekBarPreference mPkanan; 
     private ColorPickerPreference rgbLiAccentPicker; 
-    private ColorPickerPreference rgbDaAccentPicker;    
-
+    private ColorPickerPreference rgbDaAccentPicker;  
+    private SecureSettingSwitchPreference mMonetOnoff; 
+       
     @Override
     protected String getLogTag() {
         return TAG;
@@ -243,7 +246,13 @@ public class Interface extends DashboardFragment implements
                 ? Color.WHITE
                 : Color.parseColor("#" + colorValb);
         rgbDaAccentPicker.setNewPreviewColor(colorb);
-        rgbDaAccentPicker.setOnPreferenceChangeListener(this);    
+        rgbDaAccentPicker.setOnPreferenceChangeListener(this); 
+            
+        mMonetOnoff = (SecureSettingSwitchPreference) findPreference(MONET_ENGINE);
+        mMonetOnoff.setChecked((Settings.Secure.getInt(getActivity().getContentResolver(),
+                "monet_engine", 0) == 1));
+        mMonetOnoff.setOnPreferenceChangeListener(this);    
+    
     }
       
     @Override
@@ -516,7 +525,18 @@ public class Interface extends DashboardFragment implements
                  mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
              } catch (RemoteException ignored) {
              }
-            return true;         
+            return true;
+        
+        } else if (preference == mMonetOnoff) {
+            boolean value = (Boolean) objValue;
+            Settings.Secure.putInt(getActivity().getContentResolver(),
+                    "monet_engine", value ? 1 : 0);
+            try {
+                 mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
+                 mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
+             } catch (RemoteException ignored) {
+             }
+            return true;        
         }
         return false;
     }
