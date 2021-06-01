@@ -202,7 +202,7 @@ public class StatusBar extends SettingsPreferenceFragment implements
         } else if (preference == mBacka) {
             String hexa = ColorPickerPreference.convertToARGB(
                     Integer.valueOf(String.valueOf(newValue)));
-            if (hexa.equals("#ffff0000")) {
+            if (hexa.equals("#00000000")) {
                 preference.setSummary(R.string.color_default);
             } else {
                 preference.setSummary(hexa);
@@ -214,7 +214,7 @@ public class StatusBar extends SettingsPreferenceFragment implements
         } else if (preference == mBackb) {
             String hexb = ColorPickerPreference.convertToARGB(
                     Integer.valueOf(String.valueOf(newValue)));
-            if (hexb.equals("#ffff0000")) {
+            if (hexb.equals("#00000000")) {
                 preference.setSummary(R.string.color_default);
             } else {
                 preference.setSummary(hexb);
@@ -226,7 +226,7 @@ public class StatusBar extends SettingsPreferenceFragment implements
         } else if (preference == mBackc) {
             String hexc = ColorPickerPreference.convertToARGB(
                     Integer.valueOf(String.valueOf(newValue)));
-            if (hexc.equals("#ffff00c9")) {
+            if (hexc.equals("#00000000")) {
                 preference.setSummary(R.string.color_default);
             } else {
                 preference.setSummary(hexc);
@@ -238,7 +238,7 @@ public class StatusBar extends SettingsPreferenceFragment implements
         } else if (preference == mBackd) {
             String hexd = ColorPickerPreference.convertToARGB(
                     Integer.valueOf(String.valueOf(newValue)));
-            if (hexd.equals("#ffffffff")) {
+            if (hexd.equals("#00000000")) {
                 preference.setSummary(R.string.color_default);
             } else {
                 preference.setSummary(hexd);
