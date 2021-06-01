@@ -269,14 +269,6 @@
             android:entries="@array/diagcorner_entries"
             android:entryValues="@array/diagcorner_values"/>
 
-        <ListPreference
-            android:layout="@layout/ancient_cardpreference_middle"
-            android:key="ANCI_SB_PADDING"
-            android:title="@string/sb_padding_style_title"
-            android:persistent="false"
-            android:entries="@array/sb_padding_entries"
-            android:entryValues="@array/sb_padding_values"/>
-
         <com.ancient.settings.preferences.SystemSettingListPreference
             android:layout="@layout/ancient_cardpreference_bottom"
             android:key="ANCI_QS_MARGIN"
