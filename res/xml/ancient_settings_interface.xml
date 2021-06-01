@@ -34,21 +34,6 @@
                     android:targetClass="com.android.customization.picker.CustomizationPickerActivity" />
         </Preference>
          
-        <com.ancient.settings.preferences.SecureSettingSwitchPreference
-            android:layout="@layout/ancient_cardpreference_middle"
-            android:key="monet_engine"                             
-            android:defaultValue="0"
-            android:summary="@string/monet_switch_summary"             
-            android:title="@string/monet_switch_title"/> 
-
-        <com.ancient.settings.preferences.SecureSettingSeekBarPreference 
-            android:max="126" 
-            android:min="0"       
-            android:dependency="monet_engine"                                                      
-            android:title="@string/monet_seekbar_title" 
-            android:key="monet_color_gen"  
-            android:defaultValue="16" /> 
-         
         <com.ancient.settings.preferences.SecureSettingListPreference
             android:layout="@layout/ancient_cardpreference_middle"
             android:key="monet_palette"
