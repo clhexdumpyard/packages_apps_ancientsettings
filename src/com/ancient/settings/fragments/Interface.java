@@ -542,12 +542,22 @@ public class Interface extends DashboardFragment implements
             boolean value = (Boolean) objValue;
             Settings.Secure.putInt(getActivity().getContentResolver(),
                     Settings.Secure.MONET_ENGINE, value ? 1 : 0);
+            try {
+                 mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
+                 mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
+             } catch (RemoteException ignored) {
+            }    
             return true;  
         } else if (preference == mMonetPallete) {
             int mnMonetPalleteStyleValue = Integer.valueOf((String) objValue);
             Settings.Secure.putIntForUser(getContentResolver(),
                     Settings.Secure.MONET_PALETTE, mnMonetPalleteStyleValue, UserHandle.USER_CURRENT);
             mMonetPallete.setSummary(mMonetPallete.getEntries()[mnMonetPalleteStyleValue]);
+            try {
+                 mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
+                 mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
+             } catch (RemoteException ignored) {
+            }    
             return true;            
         }
         return false;
