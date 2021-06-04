@@ -113,7 +113,6 @@ public class Interface extends DashboardFragment implements
     private static final String PREF_RGB_LIGHT_ACCENT_PICKER = "rgb_light_accent_picker";
     private static final String PREF_RGB_DARK_ACCENT_PICKER = "rgb_dark_accent_picker";  
     private static final String PREF_MONET_ENGINE = "monet_engine";  
-    private static final String PREF_MONET_COLOR_GEN = "monet_color_gen";    
     private static final String PREF_MONET_PALETTE = "monet_palette";    
   
     private IOverlayManager mOverlayService;
@@ -139,7 +138,6 @@ public class Interface extends DashboardFragment implements
     private ColorPickerPreference rgbLiAccentPicker; 
     private ColorPickerPreference rgbDaAccentPicker;  
     private SecureSettingSwitchPreference mMonetOnoff; 
-    private SecureSettingSeekBarPreference mMonetColor;     
     private SecureSettingListPreference mMonetPallete;     
     
     @Override
@@ -258,9 +256,6 @@ public class Interface extends DashboardFragment implements
         mMonetOnoff.setChecked((Settings.Secure.getInt(getActivity().getContentResolver(),
                 Settings.Secure.MONET_ENGINE, 0) == 1));
         mMonetOnoff.setOnPreferenceChangeListener(this);  
-            
-        mMonetColor = (SecureSettingSeekBarPreference) findPreference(PREF_MONET_COLOR_GEN);
-        mMonetColor.setOnPreferenceChangeListener(this);     
             
         mMonetPallete = (SecureSettingListPreference) findPreference(PREF_MONET_PALETTE);
         mMonetPallete.setOnPreferenceChangeListener(this);    
@@ -547,12 +542,6 @@ public class Interface extends DashboardFragment implements
              } catch (RemoteException ignored) {
             }    
             return true; 
-        } else if (preference == mMonetColor) {
-            try {
-                 mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
-             } catch (RemoteException ignored) {
-            }
-            return true;           
         } else if (preference == mMonetPallete) {
             try {
                  mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
