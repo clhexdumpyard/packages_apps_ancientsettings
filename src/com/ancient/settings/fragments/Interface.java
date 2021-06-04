@@ -254,12 +254,12 @@ public class Interface extends DashboardFragment implements
             
         mMonetOnoff = (SecureSettingSwitchPreference) findPreference(MONET_ENGINE);
         mMonetOnoff.setChecked((Settings.Secure.getInt(getActivity().getContentResolver(),
-                "monet_engine", 0) == 1));
+                Settings.Secure.MONET_ENGINE, 0) == 1));
         mMonetOnoff.setOnPreferenceChangeListener(this);   
             
         mMonetPallete = (SecureSettingListPreference) findPreference("MONET_PALETTE");
         int mnMonetPalleteStyle  = Settings.Secure.getIntForUser(getContentResolver(),
-                "monet_palette", 0, UserHandle.USER_CURRENT);
+                Settings.Secure.MONET_PALETTE, 0, UserHandle.USER_CURRENT);
         int valueIndexMon = mMonetPallete.findIndexOfValue(String.valueOf(mnMonetPalleteStyle));
         mMonetPallete.setValueIndex(valueIndexMon >= 0 ? valueIndexMon : 0);
         mMonetPallete.setSummary(mMonetPallete.getEntry());
@@ -541,17 +541,12 @@ public class Interface extends DashboardFragment implements
         } else if (preference == mMonetOnoff) {
             boolean value = (Boolean) objValue;
             Settings.Secure.putInt(getActivity().getContentResolver(),
-                    "monet_engine", value ? 1 : 0);
-            try {
-                 mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
-                 mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
-             } catch (RemoteException ignored) {
-             }
+                    Settings.Secure.MONET_ENGINE, value ? 1 : 0);
             return true;  
         } else if (preference == mMonetPallete) {
             int mnMonetPalleteStyleValue = Integer.valueOf((String) objValue);
             Settings.Secure.putIntForUser(getContentResolver(),
-                    "monet_palette", mnMonetPalleteStyleValue, UserHandle.USER_CURRENT);
+                    Settings.Secure.MONET_PALETTE, mnMonetPalleteStyleValue, UserHandle.USER_CURRENT);
             mMonetPallete.setSummary(mMonetPallete.getEntries()[mnMonetPalleteStyleValue]);
             return true;            
         }
