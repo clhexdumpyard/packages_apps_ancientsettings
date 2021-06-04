@@ -112,8 +112,8 @@ public class Interface extends DashboardFragment implements
     private static final String JEMBT_LEBAT_KANAN = "JEMBT_LEBAT_KANAN"; 
     private static final String PREF_RGB_LIGHT_ACCENT_PICKER = "rgb_light_accent_picker";
     private static final String PREF_RGB_DARK_ACCENT_PICKER = "rgb_dark_accent_picker";  
-    private static final String MONET_ENGINE = "monet_engine";  
-    private static final String MONET_PALETTE = "monet_palette";    
+    private static final String PREF_MONET_ENGINE = "monet_engine";  
+    private static final String PREF_MONET_PALETTE = "monet_palette";    
   
     private IOverlayManager mOverlayService;
     private UiModeManager mUiModeManager;
@@ -252,12 +252,12 @@ public class Interface extends DashboardFragment implements
         rgbDaAccentPicker.setNewPreviewColor(colorb);
         rgbDaAccentPicker.setOnPreferenceChangeListener(this); 
             
-        mMonetOnoff = (SecureSettingSwitchPreference) findPreference(MONET_ENGINE);
+        mMonetOnoff = (SecureSettingSwitchPreference) findPreference(PREF_MONET_ENGINE);
         mMonetOnoff.setChecked((Settings.Secure.getInt(getActivity().getContentResolver(),
                 Settings.Secure.MONET_ENGINE, 0) == 1));
         mMonetOnoff.setOnPreferenceChangeListener(this);   
             
-        mMonetPallete = (SecureSettingListPreference) findPreference("MONET_PALETTE");
+        mMonetPallete = (SecureSettingListPreference) findPreference(PREF_MONET_PALETTE);
         int mnMonetPalleteStyle = Settings.Secure.getIntForUser(getContentResolver(),
                 Settings.Secure.MONET_PALETTE, 0, UserHandle.USER_CURRENT);
         int valueIndexMon = mMonetPallete.findIndexOfValue(String.valueOf(mnMonetPalleteStyle));
