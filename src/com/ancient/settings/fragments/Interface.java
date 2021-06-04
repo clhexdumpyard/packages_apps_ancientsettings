@@ -255,9 +255,23 @@ public class Interface extends DashboardFragment implements
         mMonetOnoff = (SecureSettingSwitchPreference) findPreference(PREF_MONET_ENGINE);
         mMonetOnoff.setChecked((Settings.Secure.getInt(getActivity().getContentResolver(),
                 Settings.Secure.MONET_ENGINE, 0) == 1));
+        int mMonetSwitch = Settings.Secure.getInt(getActivity().getContentResolver(),
+                Settings.Secure.MONET_ENGINE, 0);    
+        if (mMonetSwitch == 1) {
+            rgbLiAccentPicker.setEnabled(false);
+            rgbDaAccentPicker.setEnabled(false);
+        } else {
+            rgbLiAccentPicker.setEnabled(true);
+            rgbDaAccentPicker.setEnabled(true);
+        }    
         mMonetOnoff.setOnPreferenceChangeListener(this);  
             
         mMonetPallete = (SecureSettingListPreference) findPreference(PREF_MONET_PALETTE);
+        int mnMonetPalleteStyle = Settings.Secure.getIntForUser(getContentResolver(),
+                Settings.Secure.MONET_PALETTE, 0, UserHandle.USER_CURRENT);
+        int valueIndexMon = mMonetPallete.findIndexOfValue(String.valueOf(mnMonetPalleteStyle));
+        mMonetPallete.setValueIndex(valueIndexMon >= 0 ? valueIndexMon : 0);
+        mMonetPallete.setSummary(mMonetPallete.getEntry());    
         mMonetPallete.setOnPreferenceChangeListener(this);    
 
     }
@@ -540,14 +554,29 @@ public class Interface extends DashboardFragment implements
             try {
                  mOverlayService.reloadAssets("android", UserHandle.USER_CURRENT);
              } catch (RemoteException ignored) {
-            }    
+            }
+            int mMonetSwitch = Settings.Secure.getInt(getActivity().getContentResolver(),
+                Settings.Secure.MONET_ENGINE, 0);    
+            if (mMonetSwitch == 1) {
+                rgbLiAccentPicker.setEnabled(false);
+                rgbDaAccentPicker.setEnabled(false);
+            } else {
+                rgbLiAccentPicker.setEnabled(true);
+                rgbDaAccentPicker.setEnabled(true);
+            }       
             return true; 
         } else if (preference == mMonetPallete) {
+            int mnMonetPalleteStyleValue = Integer.valueOf((String) objValue);
+            Settings.Secure.putIntForUser(getContentResolver(),
+                    Settings.Secure.MONET_PALETTE, mnMonetPalleteStyleValue, UserHandle.USER_CURRENT);
+            mMonetPallete.setSummary(mMonetPallete.getEntries()[mnMonetPalleteStyleValue]);
             try {
-                 mOverlayService.reloadAssets("android", UserHandle.USER_CURRENT);
+                 mOverlayService.reloadAssets("android", UserHandle.USER_CURRENT);   
+                 mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
+                 mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
              } catch (RemoteException ignored) {
-            }    
-            return true;            
+            }   
+             return true;     
         }
         return false;
     }
