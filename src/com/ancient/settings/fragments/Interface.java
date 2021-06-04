@@ -258,7 +258,7 @@ public class Interface extends DashboardFragment implements
         mMonetOnoff.setOnPreferenceChangeListener(this);   
             
         mMonetPallete = (SecureSettingListPreference) findPreference("MONET_PALETTE");
-        int mnMonetPalleteStyle  = Settings.Secure.getIntForUser(getContentResolver(),
+        int mnMonetPalleteStyle = Settings.Secure.getIntForUser(getContentResolver(),
                 Settings.Secure.MONET_PALETTE, 0, UserHandle.USER_CURRENT);
         int valueIndexMon = mMonetPallete.findIndexOfValue(String.valueOf(mnMonetPalleteStyle));
         mMonetPallete.setValueIndex(valueIndexMon >= 0 ? valueIndexMon : 0);
