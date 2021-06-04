@@ -267,11 +267,11 @@ public class Interface extends DashboardFragment implements
         mMonetOnoff.setOnPreferenceChangeListener(this);  
             
         mMonetPallete = (SecureSettingListPreference) findPreference(PREF_MONET_PALETTE);
-        int mnMonetPalleteStyle = Settings.Secure.getIntForUser(getContentResolver(),
+        int paletteType = Settings.Secure.getIntForUser(getContentResolver(),
                 Settings.Secure.MONET_PALETTE, 0, UserHandle.USER_CURRENT);
-        int valueIndexMon = mMonetPallete.findIndexOfValue(String.valueOf(mnMonetPalleteStyle));
+        int valueIndexMon = mMonetPallete.findIndexOfValue(String.valueOf(paletteType));
         mMonetPallete.setValueIndex(valueIndexMon >= 0 ? valueIndexMon : 0);
-        mMonetPallete.setSummary(mMonetPallete.getEntry());    
+        mMonetPallete.setSummary(mMonetPallete.getEntry());          
         mMonetPallete.setOnPreferenceChangeListener(this);    
 
     }
@@ -566,46 +566,10 @@ public class Interface extends DashboardFragment implements
             }       
             return true; 
         } else if (preference == mMonetPallete) {
-            int mnMonetPalleteStyleValue = Integer.valueOf((String) objValue);
+            int paletteType = Integer.valueOf((String) objValue);
             Settings.Secure.putIntForUser(getContentResolver(),
-                    Settings.Secure.MONET_PALETTE, mnMonetPalleteStyleValue, UserHandle.USER_CURRENT);
-            mMonetPallete.setSummary(mMonetPallete.getEntries()[mnMonetPalleteStyleValue]);
-            int mnMonetPalleteStyleValue0 = Settings.Secure.putIntForUser(getContentResolver(),
-                    Settings.Secure.MONET_PALETTE, 0);
-            int mnMonetPalleteStyleValue1 = Settings.Secure.putIntForUser(getContentResolver(),
-                    Settings.Secure.MONET_PALETTE, 1);   
-            int mnMonetPalleteStyleValue2 = Settings.Secure.putIntForUser(getContentResolver(),
-                    Settings.Secure.MONET_PALETTE, 2);
-            int mnMonetPalleteStyleValue3 = Settings.Secure.putIntForUser(getContentResolver(),
-                    Settings.Secure.MONET_PALETTE, 3);
-            int mnMonetPalleteStyleValue4 = Settings.Secure.putIntForUser(getContentResolver(),
-                    Settings.Secure.MONET_PALETTE, 4);   
-            int mnMonetPalleteStyleValue5 = Settings.Secure.putIntForUser(getContentResolver(),
-                    Settings.Secure.MONET_PALETTE, 5);
-            int mnMonetPalleteStyleValue6 = Settings.Secure.putIntForUser(getContentResolver(),
-                    Settings.Secure.MONET_PALETTE, 6);         
-            if (mnMonetPalleteStyleValue == 0) {
-                Settings.Secure.putStringForUser(getContentResolver(), "accent_dark", mnMonetPalleteStyleValue0);
-                Settings.Secure.putStringForUser(getContentResolver(), "accent_dark", mnMonetPalleteStyleValue0);
-            } else if (mnMonetPalleteStyleValue == 1) {
-                Settings.Secure.putStringForUser(getContentResolver(), "accent_dark", mnMonetPalleteStyleValue1);
-                Settings.Secure.putStringForUser(getContentResolver(), "accent_dark", mnMonetPalleteStyleValue1);
-            } else if (mnMonetPalleteStyleValue == 2) {
-                Settings.Secure.putStringForUser(getContentResolver(), "accent_dark", mnMonetPalleteStyleValue2);
-                Settings.Secure.putStringForUser(getContentResolver(), "accent_dark", mnMonetPalleteStyleValue2);
-            } else if (mnMonetPalleteStyleValue == 3) {
-                Settings.Secure.putStringForUser(getContentResolver(), "accent_dark", mnMonetPalleteStyleValue3);
-                Settings.Secure.putStringForUser(getContentResolver(), "accent_dark", mnMonetPalleteStyleValue3);
-            } else if (mnMonetPalleteStyleValue == 4) {
-                Settings.Secure.putStringForUser(getContentResolver(), "accent_dark", mnMonetPalleteStyleValue4);
-                Settings.Secure.putStringForUser(getContentResolver(), "accent_dark", mnMonetPalleteStyleValue4); 
-            } else if (mnMonetPalleteStyleValue == 5) {
-                Settings.Secure.putStringForUser(getContentResolver(), "accent_dark", mnMonetPalleteStyleValue5);
-                Settings.Secure.putStringForUser(getContentResolver(), "accent_dark", mnMonetPalleteStyleValue5);
-            } else if (mnMonetPalleteStyleValue == 6) {
-                Settings.Secure.putStringForUser(getContentResolver(), "accent_dark", mnMonetPalleteStyleValue6);
-                Settings.Secure.putStringForUser(getContentResolver(), "accent_dark", mnMonetPalleteStyleValue6);    
-            }          
+                    Settings.Secure.MONET_PALETTE, paletteType, UserHandle.USER_CURRENT);
+            mMonetPallete.setSummary(mMonetPallete.getEntries()[paletteType]);          
             try {
                  mOverlayService.reloadAssets("android", UserHandle.USER_CURRENT);   
                  mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
