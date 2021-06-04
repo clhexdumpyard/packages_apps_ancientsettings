@@ -40,6 +40,16 @@
             android:defaultValue="0"
             android:summary="@string/monet_switch_summary"             
             android:title="@string/monet_switch_title"/> 
+         
+        <com.ancient.settings.preferences.SecureSettingListPreference
+            android:layout="@layout/ancient_cardpreference_middle"
+            android:key="monet_palette"
+            android:dependency="monet_engine"
+            android:title="@string/monet_pallete_title"
+            android:persistent="false"
+            android:defaultValue="0"
+            android:entries="@array/monet_pallete_entries"
+            android:entryValues="@array/monet_pallete_values"/> 
 
         <ListPreference
             android:layout="@layout/ancient_cardpreference_middle"
