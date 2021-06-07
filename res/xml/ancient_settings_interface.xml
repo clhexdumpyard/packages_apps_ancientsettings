@@ -76,8 +76,31 @@
           android:summary="@string/rgb_accent_picker_summary"
           settings:showReset="true"                                                           
           android:persistent="false" /> 
-
+         
+         <com.ancient.settings.preferences.SystemSettingListPreference
+            android:layout="@layout/ancient_cardpreference_bottom"                                                          
+            android:key="ACCENTER_STYLE" 
+            android:defaultValue="0"                                                          
+            android:entries="@array/accenter_style_entries"           
+            android:entryValues="@array/accenter_style_values"             
+            android:title="@string/accenter_style_title"/>  
+			
     </PreferenceCategory>
+     
+    <PreferenceCategory
+        android:layout="@layout/ancient_cardpreference_category"
+        android:key="megalith_pont"
+        android:title="Font Zone">  
+     
+    <com.ancient.settings.preferences.SystemSettingListPreference
+            android:layout="@layout/ancient_cardpreference_single"                                                          
+            android:key="FONTER_STYLE" 
+            android:defaultValue="0"                                                          
+            android:entries="@array/fonter_style_entries"           
+            android:entryValues="@array/fonter_style_values"             
+            android:title="@string/fonter_style_title"/> 
+         
+    </PreferenceCategory>     
 
     <PreferenceCategory
         android:layout="@layout/ancient_cardpreference_category"
