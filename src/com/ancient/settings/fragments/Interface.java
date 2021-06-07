@@ -264,11 +264,9 @@ public class Interface extends DashboardFragment implements
         if (mMonetSwitch == 1) {
             rgbLiAccentPicker.setEnabled(false);
             rgbDaAccentPicker.setEnabled(false);
-	    mAccenterStyle.setEnabled(false);
         } else {
             rgbLiAccentPicker.setEnabled(true);
             rgbDaAccentPicker.setEnabled(true);
-	    mAccenterStyle.setEnabled(true);
         }    
         mMonetOnoff.setOnPreferenceChangeListener(this); 
             
@@ -586,12 +584,10 @@ public class Interface extends DashboardFragment implements
                 Settings.Secure.MONET_ENGINE, 0);    
             if (mMonetSwitch == 1) {
                 rgbLiAccentPicker.setEnabled(false);
-                rgbDaAccentPicker.setEnabled(false);
-		mAccenterStyle.setEnabled(false);    
+                rgbDaAccentPicker.setEnabled(false);  
             } else {
                 rgbLiAccentPicker.setEnabled(true);
-                rgbDaAccentPicker.setEnabled(true);
-		mAccenterStyle.setEnabled(false);    
+                rgbDaAccentPicker.setEnabled(true);    
             }       
             return true; 
         } else if (preference == mMonetPallete) {
