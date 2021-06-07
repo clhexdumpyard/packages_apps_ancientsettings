@@ -281,12 +281,12 @@ public class Interface extends DashboardFragment implements
         mMonetPallete.setOnPreferenceChangeListener(this); 
             
         mAccenterStyle = (SystemSettingListPreference) findPreference("PREF_ACCENTER_STYLE");
-        int anAccenterStyle = Settings.System.getIntForUser(getContentResolver(),
+        int anAccentStyle = Settings.System.getIntForUser(getContentResolver(),
                 "ACCENTER_STYLE", 0, UserHandle.USER_CURRENT);
-        int valueIndexAccent = mAccenterStyle.findIndexOfValue(String.valueOf(anAccenterStyle));
-        mAccenterStyle.setValueIndex(valueIndexAccent >= 0 ? valueIndexAccent : 0);
+        int valueIndexAcc = mAccenterStyle.findIndexOfValue(String.valueOf(anAccentStyle));
+        mAccenterStyle.setValueIndex(valueIndexAcc >= 0 ? valueIndexAcc : 0);
         mAccenterStyle.setSummary(mAccenterStyle.getEntry());
-	if (valueIndexAccent == 0) {
+	if (anAccentStyle == 0) {
 	    rgbLiAccentPicker.setEnabled(true);
             rgbDaAccentPicker.setEnabled(true);
         } else {
