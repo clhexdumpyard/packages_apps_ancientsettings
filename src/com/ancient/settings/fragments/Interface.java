@@ -608,9 +608,7 @@ public class Interface extends DashboardFragment implements
                     "ACCENTER_STYLE", anAccenterStyle, UserHandle.USER_CURRENT);
             mAccenterStyle.setSummary(mAccenterStyle.getEntries()[anAccenterStyle]);
             try {
-                 mOverlayService.reloadAssets("android", UserHandle.USER_CURRENT);
-		 mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
-                 mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);   
+                 mOverlayService.reloadAssets("android", UserHandle.USER_CURRENT);   
             } catch (RemoteException ignored) {
             }
 	    if (anAccenterStyle == 0) {
