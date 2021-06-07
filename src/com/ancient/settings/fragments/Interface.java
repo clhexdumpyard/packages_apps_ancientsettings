@@ -245,8 +245,8 @@ public class Interface extends DashboardFragment implements
                 ? Color.WHITE
                 : Color.parseColor("#" + colorVala);
         rgbLiAccentPicker.setNewPreviewColor(colora);
-        String hexColorAccent = String.format("#%08x", (0xff1a73e8 & colora));
-        if (hexColor.equals("#ff1a73e8")) {
+	String hexColorAccenta = String.format("#%08x", (0xff1a73e8 & colora));   
+        if (hexColorAccenta.equals("#ff1a73e8")) {
             mAccenterStyle.setEnabled(true);
         } else {
             mAccenterStyle.setEnabled(false);
@@ -260,8 +260,8 @@ public class Interface extends DashboardFragment implements
                 ? Color.WHITE
                 : Color.parseColor("#" + colorValb);
         rgbDaAccentPicker.setNewPreviewColor(colorb);
-        String hexColorAccent = String.format("#%08x", (0xff1a73e8 & colora));
-        if (hexColor.equals("#ff1a73e8")) {
+        String hexColorAccentb = String.format("#%08x", (0xff1a73e8 & colorb));
+        if (hexColorAccentb.equals("#ff1a73e8")) {
             mAccenterStyle.setEnabled(true);
         } else {
             mAccenterStyle.setEnabled(false);
