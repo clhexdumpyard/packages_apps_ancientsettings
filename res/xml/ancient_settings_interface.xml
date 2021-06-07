@@ -89,21 +89,6 @@
      
     <PreferenceCategory
         android:layout="@layout/ancient_cardpreference_category"
-        android:key="megalith_pont"
-        android:title="Font Zone">  
-     
-    <com.ancient.settings.preferences.SystemSettingListPreference
-            android:layout="@layout/ancient_cardpreference_single"                                                          
-            android:key="FONTER_STYLE" 
-            android:defaultValue="0"                                                          
-            android:entries="@array/fonter_style_entries"           
-            android:entryValues="@array/fonter_style_values"             
-            android:title="@string/fonter_style_tittle"/> 
-         
-    </PreferenceCategory>     
-
-    <PreferenceCategory
-        android:layout="@layout/ancient_cardpreference_category"
         android:key="megalith_setings"
         android:title="@string/setting_megalith_zone_title"> 
 
@@ -195,12 +180,16 @@
     <PreferenceCategory
         android:layout="@layout/ancient_cardpreference_category"
         android:key="megalith_font"
-        android:title="@string/megalith_font_center_category">
+        android:title="@string/megalith_font_center_category">  
+     
+    <com.ancient.settings.preferences.SystemSettingListPreference
+            android:layout="@layout/ancient_cardpreference_single"                                                          
+            android:key="FONTER_STYLE" 
+            android:defaultValue="0"                                                          
+            android:entries="@array/fonter_style_entries"           
+            android:entryValues="@array/fonter_style_values"             
+            android:title="@string/fonter_style_tittle"/> 
 
-        <com.ancient.settings.preferences.SystemSettingListPreference
-            android:layout="@layout/ancient_cardpreference_single"
-            android:key="android.theme.customization.font"
-            android:title="@string/theme_customization_font_title"/>
     </PreferenceCategory>
 
     <PreferenceCategory
