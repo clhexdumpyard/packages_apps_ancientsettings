@@ -114,7 +114,6 @@ public class Interface extends DashboardFragment implements
     private static final String PREF_RGB_DARK_ACCENT_PICKER = "rgb_dark_accent_picker";  
     private static final String PREF_MONET_ENGINE = "monet_engine";  
     private static final String PREF_MONET_PALETTE = "monet_palette";  
-    private static final String PREF_ACCENTER_STYLE = "ACCENTER_STYLE";  
     private static final String PREF_FONTER_STYLE = "FONTER_STYLE";     
   
     private IOverlayManager mOverlayService;
@@ -141,7 +140,6 @@ public class Interface extends DashboardFragment implements
     private ColorPickerPreference rgbDaAccentPicker;  
     private SecureSettingSwitchPreference mMonetOnoff; 
     private SecureSettingListPreference mMonetPallete;
-    private SystemSettingListPreference mAccenterStyle;
     private SystemSettingListPreference mFonterStyle;    
     
     @Override
@@ -259,6 +257,15 @@ public class Interface extends DashboardFragment implements
         mMonetOnoff = (SecureSettingSwitchPreference) findPreference(PREF_MONET_ENGINE);
         mMonetOnoff.setChecked((Settings.Secure.getInt(getActivity().getContentResolver(),
                 Settings.Secure.MONET_ENGINE, 0) == 1));
+	int mMonetSwitch = Settings.Secure.getInt(getActivity().getContentResolver(),
+                Settings.Secure.MONET_ENGINE, 0);           
+        if (mMonetSwitch == 0) {
+	    rgbLiAccentPicker.setEnabled(true);
+            rgbDaAccentPicker.setEnabled(true);
+        } else {
+            rgbLiAccentPicker.setEnabled(false);
+            rgbDaAccentPicker.setEnabled(false);
+        }       
         mMonetOnoff.setOnPreferenceChangeListener(this); 
             
         mMonetPallete = (SecureSettingListPreference) findPreference(PREF_MONET_PALETTE);
@@ -268,23 +275,6 @@ public class Interface extends DashboardFragment implements
         mMonetPallete.setValueIndex(valueIndexMon >= 0 ? valueIndexMon : 0);
         mMonetPallete.setSummary(mMonetPallete.getEntry());          
         mMonetPallete.setOnPreferenceChangeListener(this); 
-            
-        mAccenterStyle = (SystemSettingListPreference) findPreference(PREF_ACCENTER_STYLE);
-        int anAccenterStyle = Settings.System.getIntForUser(getContentResolver(),
-                "ACCENTER_STYLE", 0, UserHandle.USER_CURRENT);
-        int valueIndexAccent = mAccenterStyle.findIndexOfValue(String.valueOf(anAccenterStyle));
-        mAccenterStyle.setValueIndex(valueIndexAccent >= 0 ? valueIndexAccent : 0);
-        mAccenterStyle.setSummary(mAccenterStyle.getEntry());
-	int mMonetSwitch = Settings.Secure.getInt(getActivity().getContentResolver(),
-                Settings.Secure.MONET_ENGINE, 0);           
-        if (valueIndexAccent == 0 || mMonetSwitch == 0) {
-	    rgbLiAccentPicker.setEnabled(true);
-            rgbDaAccentPicker.setEnabled(true);
-        } else {
-            rgbLiAccentPicker.setEnabled(false);
-            rgbDaAccentPicker.setEnabled(false);
-        }   
-        mAccenterStyle.setOnPreferenceChangeListener(this);
 
 	mFonterStyle = (SystemSettingListPreference) findPreference(PREF_FONTER_STYLE);
         int anFonterStyle = Settings.System.getIntForUser(getContentResolver(),
@@ -565,6 +555,15 @@ public class Interface extends DashboardFragment implements
                  mOverlayService.reloadAssets("android", UserHandle.USER_CURRENT);
              } catch (RemoteException ignored) {
             }
+	    int mMonetSwitch = Settings.Secure.getInt(getActivity().getContentResolver(),
+                Settings.Secure.MONET_ENGINE, 0);        
+	    if (mMonetSwitch == 0) {
+		rgbLiAccentPicker.setEnabled(true);
+		rgbDaAccentPicker.setEnabled(true);
+	    } else {
+		rgbLiAccentPicker.setEnabled(false);
+		rgbDaAccentPicker.setEnabled(false);
+	    }  
             return true; 
         } else if (preference == mMonetPallete) {
             int paletteType = Integer.valueOf((String) objValue);
@@ -578,25 +577,6 @@ public class Interface extends DashboardFragment implements
              } catch (RemoteException ignored) {
             }   
              return true; 
-        } else if (preference == mAccenterStyle) {
-            int anAccenterStyle = Integer.valueOf((String) objValue);
-            Settings.System.putIntForUser(getContentResolver(),
-                    "ACCENTER_STYLE", anAccenterStyle, UserHandle.USER_CURRENT);
-            mAccenterStyle.setSummary(mAccenterStyle.getEntries()[anAccenterStyle]);
-            try {
-                 mOverlayService.reloadAssets("android", UserHandle.USER_CURRENT);   
-            } catch (RemoteException ignored) {
-            }
-	    int mMonetSwitch = Settings.Secure.getInt(getActivity().getContentResolver(),
-                Settings.Secure.MONET_ENGINE, 0);        
-	    if (anAccenterStyle == 0 || mMonetSwitch == 0) {
-		rgbLiAccentPicker.setEnabled(true);
-		rgbDaAccentPicker.setEnabled(true);
-	    } else {
-		rgbLiAccentPicker.setEnabled(false);
-		rgbDaAccentPicker.setEnabled(false);
-	    }  
-            return true;
 	} else if (preference == mFonterStyle) {
             int anFonterStyle = Integer.valueOf((String) objValue);
             Settings.System.putIntForUser(getContentResolver(),
