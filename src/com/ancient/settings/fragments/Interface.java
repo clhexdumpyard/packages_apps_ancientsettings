@@ -245,6 +245,12 @@ public class Interface extends DashboardFragment implements
                 ? Color.WHITE
                 : Color.parseColor("#" + colorVala);
         rgbLiAccentPicker.setNewPreviewColor(colora);
+	String hexColorAccenta = String.format("#%08x", (0xff1a73e8 & colora));
+        if (hexColorAccenta.equals("#ff1a73e8")) {
+            mAccenterStyle.setEnabled(true);
+        } else {
+            mAccenterStyle.setEnabled(false);
+        }    
         rgbLiAccentPicker.setOnPreferenceChangeListener(this);   
             
         rgbDaAccentPicker = (ColorPickerPreference) findPreference(PREF_RGB_DARK_ACCENT_PICKER);
@@ -253,7 +259,13 @@ public class Interface extends DashboardFragment implements
         int colorb = (colorValb == null)
                 ? Color.WHITE
                 : Color.parseColor("#" + colorValb);
-        rgbDaAccentPicker.setNewPreviewColor(colorb);     
+        rgbDaAccentPicker.setNewPreviewColor(colorb);
+	String hexColorAccentb = String.format("#%08x", (0xff1a73e8 & colorb));
+        if (hexColorAccentb.equals("#ff1a73e8")) {
+            mAccenterStyle.setEnabled(true);
+        } else {
+            mAccenterStyle.setEnabled(false);
+        }        
         rgbDaAccentPicker.setOnPreferenceChangeListener(this); 
             
         mMonetOnoff = (SecureSettingSwitchPreference) findPreference(PREF_MONET_ENGINE);
@@ -280,13 +292,13 @@ public class Interface extends DashboardFragment implements
         mMonetPallete.setSummary(mMonetPallete.getEntry());          
         mMonetPallete.setOnPreferenceChangeListener(this); 
             
-        mAccenterStyle = (SystemSettingListPreference) findPreference("PREF_ACCENTER_STYLE");
-        int anAccentStyle = Settings.System.getIntForUser(getContentResolver(),
+        mAccenterStyle = (SystemSettingListPreference) findPreference(PREF_ACCENTER_STYLE);
+        int anAccenterStyle = Settings.System.getIntForUser(getContentResolver(),
                 "ACCENTER_STYLE", 0, UserHandle.USER_CURRENT);
-        int valueIndexAcc = mAccenterStyle.findIndexOfValue(String.valueOf(anAccentStyle));
-        mAccenterStyle.setValueIndex(valueIndexAcc >= 0 ? valueIndexAcc : 0);
+        int valueIndexAccent = mAccenterStyle.findIndexOfValue(String.valueOf(anAccenterStyle));
+        mAccenterStyle.setValueIndex(valueIndexAccent >= 0 ? valueIndexAccent : 0);
         mAccenterStyle.setSummary(mAccenterStyle.getEntry());
-	if (anAccentStyle == 0) {
+        if (valueIndexAccent == 0) {
 	    rgbLiAccentPicker.setEnabled(true);
             rgbDaAccentPicker.setEnabled(true);
         } else {
@@ -295,7 +307,7 @@ public class Interface extends DashboardFragment implements
         }   
         mAccenterStyle.setOnPreferenceChangeListener(this);
 
-	mFonterStyle = (SystemSettingListPreference) findPreference("PREF_FONTER_STYLE");
+	mFonterStyle = (SystemSettingListPreference) findPreference(PREF_FONTER_STYLE);
         int anFonterStyle = Settings.System.getIntForUser(getContentResolver(),
                 "FONTER_STYLE", 0, UserHandle.USER_CURRENT);
         int valueIndexFont = mFonterStyle.findIndexOfValue(String.valueOf(anFonterStyle));
@@ -560,7 +572,12 @@ public class Interface extends DashboardFragment implements
             try {
                  mOverlayService.reloadAssets("android", UserHandle.USER_CURRENT);
              } catch (RemoteException ignored) {
-             }   
+             }  
+             if (hexColora.equals("#ff1a73e8")) {
+            	mAccenterStyle.setEnabled(true);
+             } else {
+           	mAccenterStyle.setEnabled(false);
+             } 
             return true; 
         } else if (preference == rgbDaAccentPicker) {
             int colorb = (Integer) objValue;
@@ -571,7 +588,12 @@ public class Interface extends DashboardFragment implements
             try {
                  mOverlayService.reloadAssets("android", UserHandle.USER_CURRENT);
              } catch (RemoteException ignored) {
-             }    
+             }  
+	     if (hexColorb.equals("#ff1a73e8")) {
+            	mAccenterStyle.setEnabled(true);
+             } else {
+           	mAccenterStyle.setEnabled(false);
+             } 
             return true;
         
         } else if (preference == mMonetOnoff) {
