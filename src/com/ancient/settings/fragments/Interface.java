@@ -245,8 +245,7 @@ public class Interface extends DashboardFragment implements
                 ? Color.WHITE
                 : Color.parseColor("#" + colorVala);
         rgbLiAccentPicker.setNewPreviewColor(colora);
-	String hexColorAccenta = String.format("#%08x", (0xff1a73e8 & colora));
-        if (hexColorAccenta.equals("#ff1a73e8")) {
+        if (colorVala.equals("#ff1a73e8")) {
             mAccenterStyle.setEnabled(true);
         } else {
             mAccenterStyle.setEnabled(false);
@@ -260,8 +259,7 @@ public class Interface extends DashboardFragment implements
                 ? Color.WHITE
                 : Color.parseColor("#" + colorValb);
         rgbDaAccentPicker.setNewPreviewColor(colorb);
-	String hexColorAccentb = String.format("#%08x", (0xff1a73e8 & colorb));
-        if (hexColorAccentb.equals("#ff1a73e8")) {
+        if (colorValb.equals("#ff1a73e8")) {
             mAccenterStyle.setEnabled(true);
         } else {
             mAccenterStyle.setEnabled(false);
@@ -609,9 +607,11 @@ public class Interface extends DashboardFragment implements
             if (mMonetSwitch == 1) {
                 rgbLiAccentPicker.setEnabled(false);
                 rgbDaAccentPicker.setEnabled(false);
+		mAccenterStyle.setEnabled(false);    
             } else {
                 rgbLiAccentPicker.setEnabled(true);
                 rgbDaAccentPicker.setEnabled(true);
+		mAccenterStyle.setEnabled(false);    
             }       
             return true; 
         } else if (preference == mMonetPallete) {
@@ -633,6 +633,8 @@ public class Interface extends DashboardFragment implements
             mAccenterStyle.setSummary(mAccenterStyle.getEntries()[anAccenterStyle]);
             try {
                  mOverlayService.reloadAssets("android", UserHandle.USER_CURRENT);
+		 mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
+                 mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);   
             } catch (RemoteException ignored) {
             }
 	    if (anAccenterStyle == 0) {
