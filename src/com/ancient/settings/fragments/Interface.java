@@ -259,15 +259,6 @@ public class Interface extends DashboardFragment implements
         mMonetOnoff = (SecureSettingSwitchPreference) findPreference(PREF_MONET_ENGINE);
         mMonetOnoff.setChecked((Settings.Secure.getInt(getActivity().getContentResolver(),
                 Settings.Secure.MONET_ENGINE, 0) == 1));
-        int mMonetSwitch = Settings.Secure.getInt(getActivity().getContentResolver(),
-                Settings.Secure.MONET_ENGINE, 0);    
-        if (mMonetSwitch == 1) {
-            rgbLiAccentPicker.setEnabled(false);
-            rgbDaAccentPicker.setEnabled(false);
-        } else {
-            rgbLiAccentPicker.setEnabled(true);
-            rgbDaAccentPicker.setEnabled(true);
-        }    
         mMonetOnoff.setOnPreferenceChangeListener(this); 
             
         mMonetPallete = (SecureSettingListPreference) findPreference(PREF_MONET_PALETTE);
@@ -284,7 +275,9 @@ public class Interface extends DashboardFragment implements
         int valueIndexAccent = mAccenterStyle.findIndexOfValue(String.valueOf(anAccenterStyle));
         mAccenterStyle.setValueIndex(valueIndexAccent >= 0 ? valueIndexAccent : 0);
         mAccenterStyle.setSummary(mAccenterStyle.getEntry());
-        if (valueIndexAccent == 0) {
+	int mMonetSwitch = Settings.Secure.getInt(getActivity().getContentResolver(),
+                Settings.Secure.MONET_ENGINE, 0);           
+        if (valueIndexAccent == 0 || mMonetSwitch == 0) {
 	    rgbLiAccentPicker.setEnabled(true);
             rgbDaAccentPicker.setEnabled(true);
         } else {
@@ -572,15 +565,6 @@ public class Interface extends DashboardFragment implements
                  mOverlayService.reloadAssets("android", UserHandle.USER_CURRENT);
              } catch (RemoteException ignored) {
             }
-            int mMonetSwitch = Settings.Secure.getInt(getActivity().getContentResolver(),
-                Settings.Secure.MONET_ENGINE, 0);    
-            if (mMonetSwitch == 1) {
-                rgbLiAccentPicker.setEnabled(false);
-                rgbDaAccentPicker.setEnabled(false);  
-            } else {
-                rgbLiAccentPicker.setEnabled(true);
-                rgbDaAccentPicker.setEnabled(true);    
-            }       
             return true; 
         } else if (preference == mMonetPallete) {
             int paletteType = Integer.valueOf((String) objValue);
@@ -603,7 +587,9 @@ public class Interface extends DashboardFragment implements
                  mOverlayService.reloadAssets("android", UserHandle.USER_CURRENT);   
             } catch (RemoteException ignored) {
             }
-	    if (anAccenterStyle == 0) {
+	    int mMonetSwitch = Settings.Secure.getInt(getActivity().getContentResolver(),
+                Settings.Secure.MONET_ENGINE, 0);        
+	    if (anAccenterStyle == 0 || mMonetSwitch == 0) {
 		rgbLiAccentPicker.setEnabled(true);
 		rgbDaAccentPicker.setEnabled(true);
 	    } else {
