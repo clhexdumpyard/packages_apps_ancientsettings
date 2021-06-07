@@ -245,11 +245,6 @@ public class Interface extends DashboardFragment implements
                 ? Color.WHITE
                 : Color.parseColor("#" + colorVala);
         rgbLiAccentPicker.setNewPreviewColor(colora);
-        if (colorVala.equals("#ff1a73e8")) {
-            mAccenterStyle.setEnabled(true);
-        } else {
-            mAccenterStyle.setEnabled(false);
-        }    
         rgbLiAccentPicker.setOnPreferenceChangeListener(this);   
             
         rgbDaAccentPicker = (ColorPickerPreference) findPreference(PREF_RGB_DARK_ACCENT_PICKER);
@@ -258,12 +253,7 @@ public class Interface extends DashboardFragment implements
         int colorb = (colorValb == null)
                 ? Color.WHITE
                 : Color.parseColor("#" + colorValb);
-        rgbDaAccentPicker.setNewPreviewColor(colorb);
-        if (colorValb.equals("#ff1a73e8")) {
-            mAccenterStyle.setEnabled(true);
-        } else {
-            mAccenterStyle.setEnabled(false);
-        }        
+        rgbDaAccentPicker.setNewPreviewColor(colorb);     
         rgbDaAccentPicker.setOnPreferenceChangeListener(this); 
             
         mMonetOnoff = (SecureSettingSwitchPreference) findPreference(PREF_MONET_ENGINE);
@@ -571,11 +561,6 @@ public class Interface extends DashboardFragment implements
                  mOverlayService.reloadAssets("android", UserHandle.USER_CURRENT);
              } catch (RemoteException ignored) {
              }  
-             if (hexColora.equals("#ff1a73e8")) {
-            	mAccenterStyle.setEnabled(true);
-             } else {
-           	mAccenterStyle.setEnabled(false);
-             } 
             return true; 
         } else if (preference == rgbDaAccentPicker) {
             int colorb = (Integer) objValue;
@@ -587,11 +572,6 @@ public class Interface extends DashboardFragment implements
                  mOverlayService.reloadAssets("android", UserHandle.USER_CURRENT);
              } catch (RemoteException ignored) {
              }  
-	     if (hexColorb.equals("#ff1a73e8")) {
-            	mAccenterStyle.setEnabled(true);
-             } else {
-           	mAccenterStyle.setEnabled(false);
-             } 
             return true;
         
         } else if (preference == mMonetOnoff) {
