@@ -1589,5 +1589,9 @@
     <string name="fonter_style20">Roboto Condensed</string>
     <string name="fonter_style21">SamsungSans</string>
     <string name="fonter_style22">Simple Day</string>
+	
+    <!-- Anciui -->
+    <string name="anci_enabler_tittle">AncientUI</string>
+    <string name="anci_enabler_sum">enable ancientui(qsclock, qqsclock, and etc)</string>
 
 </resources>
