@@ -1525,8 +1525,8 @@
 	
     <string name="qs_alarm_title">Alarm Qs Panel</string>    
     <string name="qs_alarm_summary">alarm indicator disabler on qs panel</string>
-    <string name="qs_ringer_title">Alarm Qs Panel</string>    
-    <string name="qs_ringer_summary">alarm indicator disabler on qs panel</string>
+    <string name="qs_ringer_title">Ringer Qs Panel</string>    
+    <string name="qs_ringer_summary">ringer indicator disabler on qs panel</string>
 	
     <string name="rgb_dark_accent_picker_title">RGB Dark accent picker</string>
     <string name="rgb_accent_picker_title">RGB accent picker</string>
