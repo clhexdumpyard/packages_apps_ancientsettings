@@ -306,7 +306,8 @@
             android:key="ANCI_PANNELTOP_PAD"
             android:title="@string/tooltip_height_title"
             android:max="300"
-            android:min="70"                                                             
+            android:min="70" 
+	    android:dependency="QS_TO_STOCK"							 
             settings:min="0"
             android:defaultValue="170"
             settings:units="dp"
@@ -316,6 +317,7 @@
             android:key="ANCI_BI_CLOCK"
             android:title="@string/tooltip_style_title" 
             android:max="110"
+	    android:dependency="QS_TO_STOCK"							  
             settings:min="0"
             android:defaultValue="90"
             settings:units="dp"
@@ -326,6 +328,7 @@
             android:title="@string/topad_style_title"
             android:max="50"
             settings:min="0"
+	    android:dependency="QS_TO_STOCK"								  
             android:defaultValue="1"
             settings:units="dp"
             android:summary="@string/topad_style_summary" />
@@ -344,10 +347,18 @@
             android:persistent="false"
             android:entries="@array/qs_selector_entries"
             android:entryValues="@array/qs_selector_values" />
+	    
+	<com.ancient.settings.preferences.SystemSettingSwitchPreference
+            android:layout="@layout/ancient_cardpreference_middle"
+            android:key="QS_TO_STOCK"                             
+            android:defaultValue="0"
+            android:summary="@string/anci_enabler_sum"             
+            android:title="@string/anci_enabler_tittle"/>    
 
         <ListPreference
             android:layout="@layout/ancient_cardpreference_middle"
             android:key="qs_clock_style"
+	    android:dependency="QS_TO_STOCK"      	
             android:title="@string/qs_clock_style_title"
             android:persistent="false"
             android:entries="@array/qs_clock_entries"
