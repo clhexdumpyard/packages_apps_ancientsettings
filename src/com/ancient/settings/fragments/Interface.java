@@ -114,7 +114,8 @@ public class Interface extends DashboardFragment implements
     private static final String PREF_RGB_DARK_ACCENT_PICKER = "rgb_dark_accent_picker";  
     private static final String PREF_MONET_ENGINE = "monet_engine";  
     private static final String PREF_MONET_PALETTE = "monet_palette";  
-    private static final String PREF_FONTER_STYLE = "FONTER_STYLE";     
+    private static final String PREF_FONTER_STYLE = "FONTER_STYLE";
+    private static final String PREF_QS_TO_STOCK = "QS_TO_STOCK";     
   
     private IOverlayManager mOverlayService;
     private UiModeManager mUiModeManager;
@@ -140,7 +141,8 @@ public class Interface extends DashboardFragment implements
     private ColorPickerPreference rgbDaAccentPicker;  
     private SecureSettingSwitchPreference mMonetOnoff; 
     private SecureSettingListPreference mMonetPallete;
-    private SystemSettingListPreference mFonterStyle;    
+    private SystemSettingListPreference mFonterStyle; 
+    private SystemSettingSwitchPreference mAncientuiOnoff;
     
     @Override
     protected String getLogTag() {
@@ -282,7 +284,12 @@ public class Interface extends DashboardFragment implements
         int valueIndexFont = mFonterStyle.findIndexOfValue(String.valueOf(anFonterStyle));
         mFonterStyle.setValueIndex(valueIndexFont >= 0 ? valueIndexFont : 0);
         mFonterStyle.setSummary(mFonterStyle.getEntry());  
-        mFonterStyle.setOnPreferenceChangeListener(this);     
+        mFonterStyle.setOnPreferenceChangeListener(this); 
+	    
+	mAncientuiOnoff = (SystemSettingSwitchPreference) findPreference(PREF_QS_TO_STOCK);
+        mAncientuiOnoff.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
+                "QS_TO_STOCK", 0) == 1));     
+        mAncientuiOnoff.setOnPreferenceChangeListener(this);     
 
     }
       
@@ -586,7 +593,16 @@ public class Interface extends DashboardFragment implements
                  mOverlayService.reloadAssets("android", UserHandle.USER_CURRENT);
             } catch (RemoteException ignored) {
             } 
-            return true;	        
+            return true;
+	} else if (preference == mAncientuiOnoff) {
+            boolean value = (Boolean) objValue;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    "QS_TO_STOCK", value ? 1 : 0);
+            try {
+                 mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
+             } catch (RemoteException ignored) {
+            }
+            return true;     
         }
         return false;
     }
