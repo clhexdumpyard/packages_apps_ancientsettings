@@ -115,7 +115,8 @@ public class Interface extends DashboardFragment implements
     private static final String PREF_MONET_ENGINE = "monet_engine";  
     private static final String PREF_MONET_PALETTE = "monet_palette";  
     private static final String PREF_FONTER_STYLE = "FONTER_STYLE";
-    private static final String PREF_QS_TO_STOCK = "QS_TO_STOCK";     
+    private static final String PREF_QS_TO_STOCK = "QS_TO_STOCK"; 
+    private static final String PREF_QQS_CLOCKFAKE_SWITCH = "QQS_CLOCKFAKE_SWITCH";
   
     private IOverlayManager mOverlayService;
     private UiModeManager mUiModeManager;
@@ -143,6 +144,7 @@ public class Interface extends DashboardFragment implements
     private SecureSettingListPreference mMonetPallete;
     private SystemSettingListPreference mFonterStyle; 
     private SystemSettingSwitchPreference mAncientuiOnoff;
+    private SystemSettingSwitchPreference mAnciHeadclockOnoff;
     
     @Override
     protected String getLogTag() {
@@ -286,10 +288,22 @@ public class Interface extends DashboardFragment implements
         mFonterStyle.setSummary(mFonterStyle.getEntry());  
         mFonterStyle.setOnPreferenceChangeListener(this); 
 	    
+	mAnciHeadclockOnoff = (SystemSettingSwitchPreference) findPreference(PREF_QQS_CLOCKFAKE_SWITCH);
+        mAnciHeadclockOnoff.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
+                "QQS_CLOCKFAKE_SWITCH", 0) == 1));  
+        mAnciHeadclockOnoff.setOnPreferenceChangeListener(this);        
+	    
 	mAncientuiOnoff = (SystemSettingSwitchPreference) findPreference(PREF_QS_TO_STOCK);
         mAncientuiOnoff.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
-                "QS_TO_STOCK", 0) == 1));     
-        mAncientuiOnoff.setOnPreferenceChangeListener(this);     
+                "QS_TO_STOCK", 0) == 1)); 
+	int mAnciToStock = Settings.System.getInt(getActivity().getContentResolver(),
+                "QS_TO_STOCK", 0);   
+	if (mAnciToStock == 0) {
+	    mAnciHeadclockOnoff.setEnabled(true);
+        } else {
+            mAnciHeadclockOnoff.setEnabled(false);
+        }           
+        mAncientuiOnoff.setOnPreferenceChangeListener(this);  
 
     }
       
@@ -594,6 +608,16 @@ public class Interface extends DashboardFragment implements
             } catch (RemoteException ignored) {
             } 
             return true;
+	} else if (preference == mAnciHeadclockOnoff) {
+            boolean value = (Boolean) objValue;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    "QQS_CLOCKFAKE_SWITCH", value ? 1 : 0);
+            try {
+                 mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
+             } catch (RemoteException ignored) {
+            }
+            return true;     
+        }	
 	} else if (preference == mAncientuiOnoff) {
             boolean value = (Boolean) objValue;
             Settings.System.putInt(getActivity().getContentResolver(),
@@ -602,6 +626,13 @@ public class Interface extends DashboardFragment implements
                  mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
              } catch (RemoteException ignored) {
             }
+	    int mAnciToStock = Settings.System.getInt(getActivity().getContentResolver(),
+                "QS_TO_STOCK", 0);        
+	    if (mMonetSwitch == 0) {
+		mAnciHeadclockOnoff.setEnabled(true);
+	    } else {
+		mAnciHeadclockOnoff.setEnabled(false);
+	    }  
             return true;     
         }
         return false;
