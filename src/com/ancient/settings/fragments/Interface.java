@@ -627,7 +627,7 @@ public class Interface extends DashboardFragment implements
             }
 	    int mAnciToStock = Settings.System.getInt(getActivity().getContentResolver(),
                 "QS_TO_STOCK", 0);        
-	    if (mMonetSwitch == 0) {
+	    if (mAnciToStock == 0) {
 		mAnciHeadclockOnoff.setEnabled(true);
 	    } else {
 		mAnciHeadclockOnoff.setEnabled(false);
