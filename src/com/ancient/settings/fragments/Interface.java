@@ -616,8 +616,7 @@ public class Interface extends DashboardFragment implements
                  mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
              } catch (RemoteException ignored) {
             }
-            return true;     
-        }	
+            return true;   
 	} else if (preference == mAncientuiOnoff) {
             boolean value = (Boolean) objValue;
             Settings.System.putInt(getActivity().getContentResolver(),
