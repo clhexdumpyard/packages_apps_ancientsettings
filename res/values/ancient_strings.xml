@@ -1593,5 +1593,7 @@
     <!-- Anciui -->
     <string name="anci_enabler_tittle">AncientUI</string>
     <string name="anci_enabler_sum">enable ancientui(qsclock, qqsclock, and etc)</string>
+    <string name="anci_fake_clock_enabler_tittle">Header Clock</string>
+    <string name="anci_fake_clock_enabler_sum">enable header clock</string>
 
 </resources>
