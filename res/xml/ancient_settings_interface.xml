@@ -108,16 +108,18 @@
             android:entryValues="@array/collapsed_style_values"             
             android:title="@string/collapsed_style_title"/>  
 
-        <com.ancient.settings.preferences.SystemSettingListPreference
+        <com.ancient.settings.preferences.SystemSettingSwitchPreference
             android:layout="@layout/ancient_cardpreference_middle"
             android:key="collapseonoff"
-            android:defaultValue="0"            
+            android:defaultValue="0"   
+	    android:summary="@string/collapsed_switch_summary"   							
             android:title="@string/collapsed_switch_title"/>  
 
         <com.ancient.settings.preferences.SystemSettingSwitchPreference
             android:layout="@layout/ancient_cardpreference_middle"
             android:key="bouncyonoff"
             android:defaultValue="0"
+	    android:dependency="collapseonoff"							
             android:summary="@string/collapsed_bouncy_summary"             
             android:title="@string/collapsed_bouncy_title"/>
 
@@ -125,14 +127,16 @@
             android:layout="@layout/ancient_cardpreference_middle"
             android:key="ancient_collapsed_base_style"                                                        
             android:entries="@array/collapsed_base_style_entries" 
-            android:defaultValue="0"                                                          
+            android:defaultValue="0"   
+	    android:dependency="collapseonoff"						      
             android:entryValues="@array/collapsed_base_style_values"             
             android:title="@string/collapsed_base_style_title"/> 
 
        <com.ancient.settings.preferences.SystemSettingListPreference
             android:layout="@layout/ancient_cardpreference_middle"
             android:key="ancient_collapse_header"                                                       
-            android:defaultValue="0"                                                          
+            android:defaultValue="0" 
+	    android:dependency="collapseonoff"							     
             android:title="@string/ancicolepbg_style_title"
             android:entries="@array/ancicolepbg_style_entries"
             android:entryValues="@array/ancicolepbg_style_values" />
