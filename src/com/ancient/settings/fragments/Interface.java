@@ -124,7 +124,7 @@ public class Interface extends DashboardFragment implements
     private ListPreference mThemeSwitch;
     private SystemSettingListPreference mAvatarViewVis;
     private SystemSettingListPreference mAncientCollapsedBaseStyle;
-    private SystemSettingListPreference mAncientCollapsedOnoff;
+    private SystemSettingSwitchPreference mAncientCollapsedOnoff;
     private ListPreference mAncientHomepageBackground;
     private SystemSettingListPreference mAncientCollapseHeader;
     private SystemSettingSwitchPreference mAncientHomeCollapsedOnoff;
@@ -303,17 +303,7 @@ public class Interface extends DashboardFragment implements
         }           
         mAncientuiOnoff.setOnPreferenceChangeListener(this); 
 	     
-	mAncientCollapsedOnoff = (SystemSettingListPreference) findPreference("collapseonoff");
-	int idontcareaba = Settings.System.getInt(getActivity().getContentResolver(), "collapseonoff", 0);
-        if (idontcareaba == 2) {   
-	    mAncientBouncyOnoff.setEnabled(true);
-	    mAncientCollapsedBaseStyle.setEnabled(true);
-	    mAncientCollapseHeader.setEnabled(true);
-        } else {
-            mAncientBouncyOnoff.setEnabled(false);
-	    mAncientCollapsedBaseStyle.setEnabled(false);
-            mAncientCollapseHeader.setEnabled(false);
-        }         
+	mAncientCollapsedOnoff = (SystemSettingSwitchPreference) findPreference("collapseonoff");       
         mAncientCollapsedOnoff.setOnPreferenceChangeListener(this);       
 
     }
@@ -642,17 +632,7 @@ public class Interface extends DashboardFragment implements
             try {
                  mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
              } catch (RemoteException ignored) {
-             }
-	     int idontcareaba = Settings.System.getInt(getActivity().getContentResolver(), "collapseonoff", 0);
-             if (idontcareaba == 2) {   
-	    	mAncientBouncyOnoff.setEnabled(true);
-	    	mAncientCollapsedBaseStyle.setEnabled(true);
-	    	mAncientCollapseHeader.setEnabled(true);
-             } else {
-            	mAncientBouncyOnoff.setEnabled(false);
-	    	mAncientCollapsedBaseStyle.setEnabled(false);
-            	mAncientCollapseHeader.setEnabled(false);
-            }         
+             }        
             return true;	
         }
         return false;
