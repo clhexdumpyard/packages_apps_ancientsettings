@@ -1242,11 +1242,11 @@
     <string name="collapse_style_2">Preference</string>
     <string name="collapse_style_3">Showing all</string>
     <string name="collapse_style_4">Hide all</string>
-    <string name="collapsed_base_style_title">Subsettings Themed Collapsed style</string>
+    <string name="collapsed_base_style_title">Subsettings Collapsed style</string>
     <string name="collapsed_base_style_summary">Choose style</string>
     <string name="collapse_base_style_1">A12 by Ancient</string>
     <string name="collapse_base_style_2">ONEUI by Ancient</string>
-    <string name="collapsed_switch_title">Subsettings Style</string>
+    <string name="collapsed_switch_title">Subsettings Collapsed Switch</string>
     <string name="collapsed_switch_style1">Default (not collapse)</string>
     <string name="collapsed_switch_style2">Simple Collapse</string>
     <string name="collapsed_switch_style3">Themed Collapse</string>
