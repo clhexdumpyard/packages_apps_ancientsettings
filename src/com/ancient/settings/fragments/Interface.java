@@ -124,7 +124,7 @@ public class Interface extends DashboardFragment implements
     private ListPreference mThemeSwitch;
     private SystemSettingListPreference mAvatarViewVis;
     private SystemSettingListPreference mAncientCollapsedBaseStyle;
-    private SystemSettingSwitchPreference mAncientCollapsedOnoff;
+    private SystemSettingListPreference mAncientCollapsedOnoff;
     private ListPreference mAncientHomepageBackground;
     private SystemSettingListPreference mAncientCollapseHeader;
     private SystemSettingSwitchPreference mAncientHomeCollapsedOnoff;
@@ -171,8 +171,6 @@ public class Interface extends DashboardFragment implements
         mAvatarViewVis.setOnPreferenceChangeListener(this);
         mAncientCollapsedBaseStyle = (SystemSettingListPreference) findPreference("ancient_collapsed_base_style");
         mAncientCollapsedBaseStyle.setOnPreferenceChangeListener(this);
-        mAncientCollapsedOnoff = (SystemSettingSwitchPreference) findPreference("collapseonoff");
-        mAncientCollapsedOnoff.setOnPreferenceChangeListener(this);
         mAncientHomepageBackground = (ListPreference) findPreference("ancient_homepage_background");
         mAncientHomepageBackground.setOnPreferenceChangeListener(this);
         mAncientCollapseHeader = (SystemSettingListPreference) findPreference("ancient_collapse_header");
@@ -303,7 +301,20 @@ public class Interface extends DashboardFragment implements
         } else {
             mAnciHeadclockOnoff.setEnabled(false);
         }           
-        mAncientuiOnoff.setOnPreferenceChangeListener(this);  
+        mAncientuiOnoff.setOnPreferenceChangeListener(this); 
+	     
+	mAncientCollapsedOnoff = (SystemSettingListPreference) findPreference("collapseonoff");
+	int idontcareaba = Settings.System.getInt(getActivity().getContentResolver(), "collapseonoff", 0);
+        if (idontcareaba == 2) {   
+	    mAncientBouncyOnoff.setEnabled(true);
+	    mAncientCollapsedBaseStyle.setEnabled(true);
+	    mAncientCollapseHeader.setEnabled(true);
+        } else {
+            mAncientBouncyOnoff.setEnabled(false);
+	    mAncientCollapsedBaseStyle.setEnabled(false);
+            mAncientCollapseHeader.setEnabled(false);
+        }         
+        mAncientCollapsedOnoff.setOnPreferenceChangeListener(this);       
 
     }
       
@@ -428,12 +439,6 @@ public class Interface extends DashboardFragment implements
              }
             return true;
         } else if (preference == mAncientCollapsedBaseStyle) {
-            try {
-                 mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
-             } catch (RemoteException ignored) {
-             }
-            return true;
-        } else if (preference == mAncientCollapsedOnoff) {
             try {
                  mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
              } catch (RemoteException ignored) {
@@ -632,7 +637,23 @@ public class Interface extends DashboardFragment implements
 	    } else {
 		mAnciHeadclockOnoff.setEnabled(false);
 	    }  
-            return true;     
+            return true; 
+	 } else if (preference == mAncientCollapsedOnoff) {
+            try {
+                 mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
+             } catch (RemoteException ignored) {
+             }
+	     int idontcareaba = Settings.System.getInt(getActivity().getContentResolver(), "collapseonoff", 0);
+             if (idontcareaba == 2) {   
+	    	mAncientBouncyOnoff.setEnabled(true);
+	    	mAncientCollapsedBaseStyle.setEnabled(true);
+	    	mAncientCollapseHeader.setEnabled(true);
+             } else {
+            	mAncientBouncyOnoff.setEnabled(false);
+	    	mAncientCollapsedBaseStyle.setEnabled(false);
+            	mAncientCollapseHeader.setEnabled(false);
+            }         
+            return true;	
         }
         return false;
     }
