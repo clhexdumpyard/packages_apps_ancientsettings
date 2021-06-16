@@ -1812,5 +1812,17 @@
 	   <item>21</item>
         <item>22</item>
     </string-array> 
+	
+    <string-array name="collapsed_switch_entries" translatable="false">
+        <item>@string/collapsed_switch_style1</item>
+        <item>@string/collapsed_switch_style2</item>  
+        <item>@string/collapsed_switch_style3</item>   
+    </string-array>   
+
+    <string-array name="collapsed_switch_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item> 
+    </string-array>  
 
 </resources>
