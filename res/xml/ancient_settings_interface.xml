@@ -359,7 +359,16 @@
             android:key="QQS_CLOCKFAKE_SWITCH"                             
             android:defaultValue="0"
             android:summary="@string/anci_fake_clock_enabler_sum"             
-            android:title="@string/anci_fake_clock_enabler_tittle"/>     
+            android:title="@string/anci_fake_clock_enabler_tittle"/>    
+	    
+	<com.ancient.settings.preferences.SystemSettingSeekBarPreference
+            android:key="ANCI_HEADER_HEIGHT"
+            android:title="@string/anci_headsize_tittle"
+            android:max="100"
+            settings:min="25"							  
+            android:defaultValue="50"
+            settings:units="dp"
+            android:summary="@string/anci_headsize_sum" />
 
         <ListPreference
             android:layout="@layout/ancient_cardpreference_middle"
