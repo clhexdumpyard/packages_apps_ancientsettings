@@ -1598,5 +1598,7 @@
     <string name="anci_enabler_sum">enable ancientui(qsclock, qqsclock, and etc)</string>
     <string name="anci_fake_clock_enabler_tittle">Header Clock</string>
     <string name="anci_fake_clock_enabler_sum">enable header clock</string>
+    <string name="anci_headsize_tittle">QS Header Height</string>
+    <string name="anci_headsize_sum">customize header height(landscape mode not affected)</string>
 
 </resources>
