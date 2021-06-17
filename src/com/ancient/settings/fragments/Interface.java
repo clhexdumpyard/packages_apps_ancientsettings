@@ -117,7 +117,8 @@ public class Interface extends DashboardFragment implements
     private static final String PREF_FONTER_STYLE = "FONTER_STYLE";
     private static final String PREF_QS_TO_STOCK = "QS_TO_STOCK"; 
     private static final String PREF_QQS_CLOCKFAKE_SWITCH = "QQS_CLOCKFAKE_SWITCH";
-  
+    private static final String PREF_ANCI_HEADER_HEIGHT = "ANCI_HEADER_HEIGHT";
+	
     private IOverlayManager mOverlayService;
     private UiModeManager mUiModeManager;
 
@@ -145,6 +146,7 @@ public class Interface extends DashboardFragment implements
     private SystemSettingListPreference mFonterStyle; 
     private SystemSettingSwitchPreference mAncientuiOnoff;
     private SystemSettingSwitchPreference mAnciHeadclockOnoff;
+    private SystemSettingSeekBarPreference mAnciHeadSize;
     
     @Override
     protected String getLogTag() {
@@ -289,7 +291,10 @@ public class Interface extends DashboardFragment implements
 	mAnciHeadclockOnoff = (SystemSettingSwitchPreference) findPreference(PREF_QQS_CLOCKFAKE_SWITCH);
         mAnciHeadclockOnoff.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
                 "QQS_CLOCKFAKE_SWITCH", 0) == 1));  
-        mAnciHeadclockOnoff.setOnPreferenceChangeListener(this);        
+        mAnciHeadclockOnoff.setOnPreferenceChangeListener(this);  
+	    
+	mAnciHeadSize = (SystemSettingSeekBarPreference) findPreference(PREF_ANCI_HEADER_HEIGHT);       
+        mAnciHeadSize.setOnPreferenceChangeListener(this);        
 	    
 	mAncientuiOnoff = (SystemSettingSwitchPreference) findPreference(PREF_QS_TO_STOCK);
         mAncientuiOnoff.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
@@ -298,13 +303,15 @@ public class Interface extends DashboardFragment implements
                 "QS_TO_STOCK", 0);   
 	if (mAnciToStock == 0) {
 	    mAnciHeadclockOnoff.setEnabled(true);
+	    mAnciHeadSize.setEnabled(true);
         } else {
             mAnciHeadclockOnoff.setEnabled(false);
+	    mAnciHeadSize.setEnabled(false);
         }           
         mAncientuiOnoff.setOnPreferenceChangeListener(this); 
 	     
 	mAncientCollapsedOnoff = (SystemSettingSwitchPreference) findPreference("collapseonoff");       
-        mAncientCollapsedOnoff.setOnPreferenceChangeListener(this);       
+        mAncientCollapsedOnoff.setOnPreferenceChangeListener(this);
 
     }
       
@@ -611,7 +618,9 @@ public class Interface extends DashboardFragment implements
                  mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
              } catch (RemoteException ignored) {
             }
-            return true;   
+            return true;
+	} else if (preference == mAnciHeadSize) {
+            return true;	
 	} else if (preference == mAncientuiOnoff) {
             boolean value = (Boolean) objValue;
             Settings.System.putInt(getActivity().getContentResolver(),
@@ -624,8 +633,10 @@ public class Interface extends DashboardFragment implements
                 "QS_TO_STOCK", 0);        
 	    if (mAnciToStock == 0) {
 		mAnciHeadclockOnoff.setEnabled(true);
+		mAnciHeadSize.setEnabled(true);    
 	    } else {
 		mAnciHeadclockOnoff.setEnabled(false);
+		mAnciHeadSize.setEnabled(false);  
 	    }  
             return true; 
 	 } else if (preference == mAncientCollapsedOnoff) {
