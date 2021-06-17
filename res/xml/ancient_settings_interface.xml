@@ -365,7 +365,7 @@
             android:key="ANCI_HEADER_HEIGHT"
             android:title="@string/anci_headsize_tittle"
             android:max="100"
-            settings:min="25"							  
+            android:min="25"							  
             android:defaultValue="50"
             settings:units="dp"
             android:summary="@string/anci_headsize_sum" />
