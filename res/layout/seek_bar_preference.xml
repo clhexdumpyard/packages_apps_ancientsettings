@@ -9,6 +9,7 @@
     android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
     android:background="@drawable/ancient_cardview_bg_single_ripple"
     android:layout_marginTop="7dp" 
+    android:layout_marginBottom="3dp" 
     android:clipToPadding="false">
 
     <LinearLayout
