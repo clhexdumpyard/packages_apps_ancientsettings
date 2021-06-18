@@ -369,15 +369,32 @@
             android:defaultValue="50"
             settings:units="dp"
             android:summary="@string/anci_headsize_sum" />
-
-        <ListPreference
+	    
+	<com.ancient.settings.preferences.SystemSettingListPreference
             android:layout="@layout/ancient_cardpreference_top"
+            android:key="QS_CLOCK_WARNA"
+	    android:dependency="QQS_CLOCKFAKE_SWITCH" 						      
+            android:title="@string/jam_qspalsu_tittle"
+            android:persistent="false"
+            android:entries="@array/jam_qspalsu_entries"
+            android:entryValues="@array/jam_qspalsu_values"/>    
+
+	<net.margaritov.preference.colorpicker.ColorPickerPreference
+          android:key="QS_CLOCK_WARNA_BEBAS"
+          android:defaultValue="0xFFFFFFFF"                                                           
+          android:title="@string/jam_qspalsu_kolor_tittle"
+          android:summary="@string/jam_qspalsu_kolor_sum"
+          settings:showReset="true"                                                           
+          android:persistent="false" />  
+	    
+        <ListPreference
+            android:layout="@layout/ancient_cardpreference_middle"
             android:key="qs_clock_style"
 	    android:dependency="QS_TO_STOCK"      	
             android:title="@string/qs_clock_style_title"
             android:persistent="false"
             android:entries="@array/qs_clock_entries"
-            android:entryValues="@array/qs_clock_values" />
+            android:entryValues="@array/qs_clock_values" />   
 
         <ListPreference
             android:layout="@layout/ancient_cardpreference_middle"
