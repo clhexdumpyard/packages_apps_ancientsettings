@@ -216,6 +216,19 @@
         <Preference 
             android:layout="@layout/ancient_cardview_divider" 
             android:selectable="false"/>
+	    
+	<com.ancient.settings.preferences.SystemSettingListPreference
+            android:layout="@layout/ancient_cardpreference_single"
+            android:key="NOTIFICATION_HEADERTEXT_COLOR"
+            android:title="@string/header_textcolor_tittle"
+            android:persistent="false"
+            android:defaultValue="0"
+            android:entries="@array/header_textcolor_entries"
+            android:entryValues="@array/header_textcolor_values"/>  
+	    
+	<Preference 
+            android:layout="@layout/ancient_cardview_divider" 
+            android:selectable="false"/>    
 
         <com.ancient.settings.preferences.SystemSettingSwitchPreference
            android:layout="@layout/ancient_cardpreference_top"
