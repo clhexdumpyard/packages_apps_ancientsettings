@@ -20,8 +20,13 @@ import android.app.Dialog;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.om.IOverlayManager;
+import android.content.om.OverlayInfo;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.RemoteException;
+import android.os.ServiceManager;
 import android.os.UserHandle;
 import android.provider.Settings;
 import android.widget.AdapterView;
@@ -30,6 +35,7 @@ import android.widget.ListView;
 import androidx.preference.*;
 
 import com.android.internal.logging.nano.MetricsProto; 
+import com.android.internal.util.ancient.ThemesUtils;
 import com.android.internal.util.ancient.AncientUtils;
 
 import android.provider.SearchIndexableResource;
@@ -37,6 +43,7 @@ import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.Indexable;
 import com.android.settingslib.search.SearchIndexable;
 
+import com.ancient.settings.preferences.SystemSettingListPreference;
 import com.ancient.settings.preferences.SystemSettingSwitchPreference;
 import com.ancient.settings.preferences.CustomSeekBarPreference;
 
@@ -67,6 +74,9 @@ public class Notifications extends SettingsPreferenceFragment
     private static final String NOTIFICATION_MATERIAL_DISMISS = "notification_material_dismiss";
     private static final String HEADER_ICONS_STYLE = "HEADER_ICONS_STYLE";
     private static final String STATUSBAR_ICONS_STYLE = "STATUSBAR_ICONS_STYLE";
+    private static final String PREF_NOTIFICATION_HEADERTEXT_COLOR = "NOTIFICATION_HEADERTEXT_COLOR";
+
+    private IOverlayManager mOverlayService;
 
     private ColorPickerPreference mEdgeLightColorPreference;
     private CustomSeekBarPreference mEdgeLightDurationPreference;
@@ -79,6 +89,7 @@ public class Notifications extends SettingsPreferenceFragment
     private SystemSettingSwitchPreference mNotificationmaterialDismiss;
     private SystemSettingSwitchPreference mHeaderIcon;
     private SystemSettingSwitchPreference mStatusbarIcon;
+    private SystemSettingListPreference mHeaderTextColor;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -87,6 +98,9 @@ public class Notifications extends SettingsPreferenceFragment
         ContentResolver resolver = getActivity().getContentResolver();
         PreferenceScreen prefScreen = getPreferenceScreen();
         final Resources res = getResources();
+        
+        mOverlayService = IOverlayManager.Stub
+                .asInterface(ServiceManager.getService(Context.OVERLAY_SERVICE));
 
         boolean hasLED = res.getBoolean(
                 com.android.internal.R.bool.config_hasNotificationLed);
@@ -106,6 +120,14 @@ public class Notifications extends SettingsPreferenceFragment
         if (!AncientUtils.isVoiceCapable(getActivity())) {
             prefScreen.removePreference(incallVibCategory);
         }
+
+        mHeaderTextColor = (SystemSettingListPreference) findPreference(PREF_NOTIFICATION_HEADERTEXT_COLOR);
+        int mHeaderTextColor = Settings.System.getIntForUser(getContentResolver(),
+                "NOTIFICATION_HEADERTEXT_COLOR", 0, UserHandle.USER_CURRENT);
+        int valueIndexhed = mHeaderTextColor.findIndexOfValue(String.valueOf(mHeaderTextColor));
+        mHeaderTextColor.setValueIndex(valueIndexhed >= 0 ? valueIndexhed : 0);
+        mHeaderTextColor.setSummary(mHeaderTextColor.getEntry());
+        mHeaderTextColor.setOnPreferenceChangeListener(this);
 
         mNotificationHeader = findPreference(NOTIFICATION_HEADERS);
         mNotificationHeader.setChecked((Settings.System.getInt(resolver,
@@ -183,6 +205,16 @@ public class Notifications extends SettingsPreferenceFragment
             boolean value = (Boolean) objValue;
             Settings.System.putInt(resolver,
                     Settings.System.NOTIFICATION_HEADERS, value ? 1 : 0);
+            return true;
+        } else if (preference == mHeaderTextColor) {
+            int mHeaderTextColor = Integer.valueOf((String) objValue);
+            Settings.System.putIntForUser(getContentResolver(),
+                    "NOTIFICATION_HEADERTEXT_COLOR", mHeaderTextColor, UserHandle.USER_CURRENT);
+            mHeaderTextColor.setSummary(mHeaderTextColor.getEntries()[mHeaderTextColor]);
+            try {
+                 mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
+            } catch (RemoteException ignored) {
+            }
             return true;
         } else if (preference == mCenterNotificationHeader) {
             boolean value = (Boolean) objValue;
