@@ -89,7 +89,7 @@ public class Notifications extends SettingsPreferenceFragment
     private SystemSettingSwitchPreference mNotificationmaterialDismiss;
     private SystemSettingSwitchPreference mHeaderIcon;
     private SystemSettingSwitchPreference mStatusbarIcon;
-    private SystemSettingListPreference mHeaderTextColor;
+    private SystemSettingListPreference mHeaderTextColorCustom;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -121,13 +121,13 @@ public class Notifications extends SettingsPreferenceFragment
             prefScreen.removePreference(incallVibCategory);
         }
 
-        mHeaderTextColor = (SystemSettingListPreference) findPreference(PREF_NOTIFICATION_HEADERTEXT_COLOR);
+        mHeaderTextColorCustom = (SystemSettingListPreference) findPreference(PREF_NOTIFICATION_HEADERTEXT_COLOR);
         int mHeaderTextColor = Settings.System.getIntForUser(getContentResolver(),
                 "NOTIFICATION_HEADERTEXT_COLOR", 0, UserHandle.USER_CURRENT);
-        int valueIndexhed = mHeaderTextColor.findIndexOfValue(String.valueOf(mHeaderTextColor));
-        mHeaderTextColor.setValueIndex(valueIndexhed >= 0 ? valueIndexhed : 0);
-        mHeaderTextColor.setSummary(mHeaderTextColor.getEntry());
-        mHeaderTextColor.setOnPreferenceChangeListener(this);
+        int valueIndexhed = mHeaderTextColorCustom.findIndexOfValue(String.valueOf(mHeaderTextColor));
+        mHeaderTextColorCustom.setValueIndex(valueIndexhed >= 0 ? valueIndexhed : 0);
+        mHeaderTextColorCustom.setSummary(mHeaderTextColorCustom.getEntry());
+        mHeaderTextColorCustom.setOnPreferenceChangeListener(this);
 
         mNotificationHeader = findPreference(NOTIFICATION_HEADERS);
         mNotificationHeader.setChecked((Settings.System.getInt(resolver,
@@ -206,11 +206,11 @@ public class Notifications extends SettingsPreferenceFragment
             Settings.System.putInt(resolver,
                     Settings.System.NOTIFICATION_HEADERS, value ? 1 : 0);
             return true;
-        } else if (preference == mHeaderTextColor) {
+        } else if (preference == mHeaderTextColorCustom) {
             int mHeaderTextColor = Integer.valueOf((String) objValue);
             Settings.System.putIntForUser(getContentResolver(),
                     "NOTIFICATION_HEADERTEXT_COLOR", mHeaderTextColor, UserHandle.USER_CURRENT);
-            mHeaderTextColor.setSummary(mHeaderTextColor.getEntries()[mHeaderTextColor]);
+            mHeaderTextColorCustom.setSummary(mHeaderTextColorCustom.getEntries()[mHeaderTextColor]);
             try {
                  mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
             } catch (RemoteException ignored) {
