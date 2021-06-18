@@ -119,7 +119,6 @@ public class Interface extends DashboardFragment implements
     private static final String PREF_QQS_CLOCKFAKE_SWITCH = "QQS_CLOCKFAKE_SWITCH";
     private static final String PREF_ANCI_HEADER_HEIGHT = "ANCI_HEADER_HEIGHT";
     private static final String PREF_QS_CLOCK_WARNA = "QS_CLOCK_WARNA";
-    private static final String PREF_QS_CLOCK_WARNA_BEBAS = "QS_CLOCK_WARNA_BEBAS";
 	
     private IOverlayManager mOverlayService;
     private UiModeManager mUiModeManager;
@@ -149,7 +148,6 @@ public class Interface extends DashboardFragment implements
     private SystemSettingSwitchPreference mAncientuiOnoff;
     private SystemSettingSwitchPreference mAnciHeadclockOnoff;
     private SystemSettingSeekBarPreference mAnciHeadSize;
-    private ColorPickerPreference mWarnaJamPalsu;  
     private SystemSettingListPreference mJamPalsu;
 	
     @Override
@@ -298,28 +296,14 @@ public class Interface extends DashboardFragment implements
         mAnciHeadclockOnoff.setOnPreferenceChangeListener(this);  
 	    
 	mAnciHeadSize = (SystemSettingSeekBarPreference) findPreference(PREF_ANCI_HEADER_HEIGHT);       
-        mAnciHeadSize.setOnPreferenceChangeListener(this);   
-	    
-	mWarnaJamPalsu = (ColorPickerPreference) findPreference(PREF_QS_CLOCK_WARNA_BEBAS);
-        String colorValjam = Settings.System.getStringForUser(getContentResolver(),
-                "QS_CLOCK_WARNA_BEBAS", UserHandle.USER_CURRENT);
-        int colorjam = (colorValjam == null)
-                ? Color.WHITE
-                : Color.parseColor("#" + colorValjam);
-        mWarnaJamPalsu.setNewPreviewColor(colorjam);     
-        mWarnaJamPalsu.setOnPreferenceChangeListener(this); 
+        mAnciHeadSize.setOnPreferenceChangeListener(this);  
 	    
 	mJamPalsu = (SystemSettingListPreference) findPreference(PREF_QS_CLOCK_WARNA);
         int setWarna = Settings.System.getIntForUser(getContentResolver(),
                 "QS_CLOCK_WARNA", 0, UserHandle.USER_CURRENT);
         int valueIndexWarna = mJamPalsu.findIndexOfValue(String.valueOf(setWarna));
         mJamPalsu.setValueIndex(valueIndexWarna >= 0 ? valueIndexWarna : 0);
-        mJamPalsu.setSummary(mJamPalsu.getEntry()); 
-	if (setWarna == 4) {
-	    mWarnaJamPalsu.setEnabled(true);
-        } else {
-            mWarnaJamPalsu.setEnabled(false);
-        }       
+        mJamPalsu.setSummary(mJamPalsu.getEntry());       
         mJamPalsu.setOnPreferenceChangeListener(this);     
 	    
 	mAncientuiOnoff = (SystemSettingSwitchPreference) findPreference(PREF_QS_TO_STOCK);
@@ -647,23 +631,11 @@ public class Interface extends DashboardFragment implements
             return true;
 	} else if (preference == mAnciHeadSize) {
             return true;
-	} else if (preference == mWarnaJamPalsu) {
-            int colorjam = (Integer) objValue;
-            String hexColorjam = String.format("%08X", (0xFFFFFFFF & colorjam));
-            Settings.System.putStringForUser(getContentResolver(),
-                        "QS_CLOCK_WARNA_BEBAS",
-                        hexColorjam, UserHandle.USER_CURRENT);  
-            return true;
 	} else if (preference == mJamPalsu) {
             int setWarna = Integer.valueOf((String) objValue);
             Settings.System.putIntForUser(getContentResolver(),
                     "QS_CLOCK_WARNA", setWarna, UserHandle.USER_CURRENT);
             mJamPalsu.setSummary(mJamPalsu.getEntries()[setWarna]);
-            if (setWarna == 4) {
-	    	mWarnaJamPalsu.setEnabled(true);
-            } else {
-            	mWarnaJamPalsu.setEnabled(false);
-     	    }   
             return true;	 	
 	} else if (preference == mAncientuiOnoff) {
             boolean value = (Boolean) objValue;
