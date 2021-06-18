@@ -151,9 +151,7 @@ public class Interface extends DashboardFragment implements
     private SystemSettingSeekBarPreference mAnciHeadSize;
     private ColorPickerPreference mWarnaJamPalsu;  
     private SecureSettingListPreference mJamPalsu;
-	private static final String PREF_QS_CLOCK_WARNA = "QS_CLOCK_WARNA";
-    private static final String PREF_QS_CLOCK_WARNA_BEBAS = "QS_CLOCK_WARNA_BEBAS";
-    
+	
     @Override
     protected String getLogTag() {
         return TAG;
