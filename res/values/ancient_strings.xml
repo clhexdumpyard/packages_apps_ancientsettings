@@ -1600,5 +1600,15 @@
     <string name="anci_fake_clock_enabler_sum">enable header clock</string>
     <string name="anci_headsize_tittle">QS Header Height</string>
     <string name="anci_headsize_sum">customize header height(landscape mode not affected)</string>
+	
+    <!-- Jam Palsu -->
+    <string name="jam_qspalsu_tittle">Header Clock Color</string>
+    <string name="jam_qspalsu_kolor_tittle">Header Clock Color Picker</string>
+    <string name="jam_qspalsu_kolor_sum">custom coloring for header clock</string>
+    <string name="jam_qspalsu_style1">Default (primary color)</string>
+    <string name="jam_qspalsu_style2">Accent</string>
+    <string name="jam_qspalsu_style3">White Always</string>
+    <string name="jam_qspalsu_style4">Random</string>
+    <string name="jam_qspalsu_style5">Custom Color Picker</string>
 
 </resources>
