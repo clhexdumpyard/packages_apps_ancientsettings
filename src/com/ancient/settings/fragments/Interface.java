@@ -314,7 +314,7 @@ public class Interface extends DashboardFragment implements
                 "QS_CLOCK_WARNA", 0, UserHandle.USER_CURRENT);
         int valueIndexWarna = mJamPalsu.findIndexOfValue(String.valueOf(setWarna));
         mJamPalsu.setValueIndex(valueIndexWarna >= 0 ? valueIndexWarna : 0);
-        mJamPalsu.setSummary(setWarna.getEntry()); 
+        mJamPalsu.setSummary(mJamPalsu.getEntry()); 
 	if (setWarna == 4) {
 	    mWarnaJamPalsu.setEnabled(true);
         } else {
