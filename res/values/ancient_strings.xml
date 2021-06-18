@@ -1609,6 +1609,12 @@
     <string name="jam_qspalsu_style2">Accent</string>
     <string name="jam_qspalsu_style3">White Always</string>
     <string name="jam_qspalsu_style4">Random</string>
-    <string name="jam_qspalsu_style5">Custom Color Picker</string>
+	
+    <!-- notif header textcolor -->
+    <string name="header_textcolor_tittle">Header Clock Color</string>
+    <string name="header_textcolor_style1">Default (primary color)</string>
+    <string name="header_textcolor_style2">Wallpaper Text Color</string>
+    <string name="header_textcolor_style3">Accent</string>
+    <string name="header_textcolor_style4">Random</string>
 
 </resources>
