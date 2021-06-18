@@ -317,7 +317,6 @@ public class Interface extends DashboardFragment implements
         } else {
             mAnciHeadclockOnoff.setEnabled(false);
 	    mAnciHeadSize.setEnabled(false);
-	    mWarnaJamPalsu.setEnabled(false);
         }           
         mAncientuiOnoff.setOnPreferenceChangeListener(this); 
 	     
@@ -652,8 +651,7 @@ public class Interface extends DashboardFragment implements
 		mAnciHeadSize.setEnabled(true);    
 	    } else {
 		mAnciHeadclockOnoff.setEnabled(false);
-		mAnciHeadSize.setEnabled(false);
-		mWarnaJamPalsu.setEnabled(false);    
+		mAnciHeadSize.setEnabled(false);   
 	    }  
             return true; 
 	 } else if (preference == mAncientCollapsedOnoff) {
