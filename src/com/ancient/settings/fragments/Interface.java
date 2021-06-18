@@ -150,7 +150,7 @@ public class Interface extends DashboardFragment implements
     private SystemSettingSwitchPreference mAnciHeadclockOnoff;
     private SystemSettingSeekBarPreference mAnciHeadSize;
     private ColorPickerPreference mWarnaJamPalsu;  
-    private SecureSettingListPreference mJamPalsu;
+    private SystemSettingListPreference mJamPalsu;
 	
     @Override
     protected String getLogTag() {
