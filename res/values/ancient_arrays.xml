@@ -1823,6 +1823,22 @@
         <item>0</item>
         <item>1</item>
         <item>2</item> 
-    </string-array>  
+    </string-array> 
+	
+    <string-array name="jam_qspalsu_entries" translatable="false">
+        <item>@string/jam_qspalsu_style1</item>
+        <item>@string/jam_qspalsu_style2</item>  
+        <item>@string/jam_qspalsu_style3</item>  
+	<item>@string/jam_qspalsu_style4</item>  
+        <item>@string/jam_qspalsu_style5</item>       
+    </string-array>   
+
+    <string-array name="jam_qspalsu_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item> 
+	<item>3</item>
+        <item>4</item>   
+    </string-array>
 
 </resources>
