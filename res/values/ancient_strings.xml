@@ -1612,8 +1612,8 @@
 	
     <!-- notif header textcolor -->
     <string name="header_textcolor_tittle">Notification Header Text Color</string>
-    <string name="header_textcolor_style1">Default (primary color)</string>
-    <string name="header_textcolor_style2">Wallpaper Text Color</string>
+    <string name="header_textcolor_style1">Default (Wallpaper Text Color)</string>
+    <string name="header_textcolor_style2">Primary Color</string>
     <string name="header_textcolor_style3">Accent</string>
 
 </resources>
