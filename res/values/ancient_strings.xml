@@ -1607,7 +1607,7 @@
     <string name="jam_qspalsu_kolor_sum">custom coloring for header clock</string>
     <string name="jam_qspalsu_style1">Default (primary color)</string>
     <string name="jam_qspalsu_style2">Accent</string>
-    <string name="jam_qspalsu_style3">White Always</string>
+    <string name="jam_qspalsu_style3">Wallpaper Text Color</string>
     <string name="jam_qspalsu_style4">Random</string>
 	
     <!-- notif header textcolor -->
