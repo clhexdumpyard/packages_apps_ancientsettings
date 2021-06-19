@@ -220,6 +220,7 @@
 	<com.ancient.settings.preferences.SystemSettingListPreference
             android:layout="@layout/ancient_cardpreference_single"
             android:key="NOTIFICATION_HEADERTEXT_COLOR"
+	    android:dependency="notification_headers"						      
             android:title="@string/header_textcolor_tittle"
             android:persistent="false"
             android:defaultValue="0"
