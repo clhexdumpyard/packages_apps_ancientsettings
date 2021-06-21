@@ -1214,6 +1214,7 @@
     <string name="statusbar_dual_style_summary">Choose style</string>
     <string name="statusbar_dual_style_def">DualBar Default</string>
     <string name="statusbar_dual_style_1">Ios Style </string>
+    <string name="statusbar_dual_style_10">Ios Style 2</string>
     <string name="statusbar_dual_style_2">DualBar Style With Left Analog</string>
     <string name="statusbar_dual_style_3">DualBar Style With Center Analog</string>
     <string name="statusbar_dual_style_4">Style A</string>
