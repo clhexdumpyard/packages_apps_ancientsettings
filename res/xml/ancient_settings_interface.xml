@@ -304,7 +304,7 @@
         <com.ancient.settings.preferences.SystemSettingSeekBarPreference
             android:key="ANCI_PANNELTOP_PAD"
             android:title="@string/tooltip_height_title"
-            android:max="300"
+            android:max="250"
             android:min="70" 
 	    android:dependency="QS_TO_STOCK"							 
             settings:min="0"
@@ -315,7 +315,7 @@
          <com.ancient.settings.preferences.SystemSettingSeekBarPreference
             android:key="ANCI_BI_CLOCK"
             android:title="@string/tooltip_style_title" 
-            android:max="110"
+            android:max="100"
 	    android:dependency="QS_TO_STOCK"							  
             settings:min="0"
             android:defaultValue="90"
