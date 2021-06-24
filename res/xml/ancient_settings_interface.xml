@@ -364,7 +364,7 @@
 	<com.ancient.settings.preferences.SystemSettingSeekBarPreference
             android:key="ANCI_HEADER_HEIGHT"
             android:title="@string/anci_headsize_tittle"
-            android:max="100"
+            android:max="150"
             android:min="25"							  
             android:defaultValue="50"
             settings:units="dp"
