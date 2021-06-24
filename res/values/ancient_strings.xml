@@ -1090,7 +1090,7 @@
     <string name="qs_panel_alpha_title">Background opacity</string>
 
     <!-- Header Image Height -->
-    <string name="status_bar_custom_header_height_title">Header Image height</string>
+    <string name="status_bar_custom_header_height_title">Header Image height (on AncientUI only)</string>
 
     <!-- Clipboard toast info -->
     <string name="clipboard_toast_info_title">Clipboard access alerts</string>
