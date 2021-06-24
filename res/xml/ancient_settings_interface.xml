@@ -357,7 +357,7 @@
 	<com.ancient.settings.preferences.SystemSettingSwitchPreference
             android:layout="@layout/ancient_cardpreference_bottom"
             android:key="QQS_CLOCKFAKE_SWITCH"                             
-            android:defaultValue="0"
+            android:defaultValue="1"
             android:summary="@string/anci_fake_clock_enabler_sum"             
             android:title="@string/anci_fake_clock_enabler_tittle"/>    
 	    
