@@ -74,6 +74,8 @@ public class QuickSettings extends SettingsPreferenceFragment
     private static final String PREF_QS_MEDIA_PLAYER = "qs_media_player";
     private static final String QS_BG_FUL = "QS_BG_FUL";
     private static final String QQS_TILE_STYLE = "QQS_TILE_STYLE";
+    private static final String PENGUSIR_ALARM = "PENGUSIR_ALARM";
+    private static final String PENGUSIR_RINGER = "PENGUSIR_RINGER";
 
     private UiModeManager mUiModeManager;
 
@@ -82,6 +84,8 @@ public class QuickSettings extends SettingsPreferenceFragment
     private SystemSettingMasterSwitchPreference mCustomHeader;
     private SystemSettingSwitchPreference mQsMedia;
     private SystemSettingSwitchPreference mQsBgFul;
+    private SystemSettingSwitchPreference mQsAlarm;
+    private SystemSettingSwitchPreference mQsRinger;
     private SystemSettingListPreference mQqsTile;
     private IOverlayManager mOverlayService;
 
@@ -128,6 +132,16 @@ public class QuickSettings extends SettingsPreferenceFragment
         mQsBgFul.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
                 "QS_BG_FUL", 0) == 1));
         mQsBgFul.setOnPreferenceChangeListener(this);
+        
+        mQsAlarm = (SystemSettingSwitchPreference) findPreference(PENGUSIR_ALARM);
+        mQsAlarm.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
+                "PENGUSIR_ALARM", 0) == 1));
+        mQsAlarm.setOnPreferenceChangeListener(this);
+        
+        mQsRinger = (SystemSettingSwitchPreference) findPreference(PENGUSIR_RINGER);
+        mQsRinger.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
+                "PENGUSIR_RINGER", 0) == 1));
+        mQsRinger.setOnPreferenceChangeListener(this);
 
         mQqsTile = (SystemSettingListPreference) findPreference("QQS_TILE_STYLE");
         int sbQqstileStyle   = Settings.System.getIntForUser(getContentResolver(),
@@ -180,6 +194,24 @@ public class QuickSettings extends SettingsPreferenceFragment
                     "QQS_TILE_STYLE", sbQqstileStyleValue, UserHandle.USER_CURRENT);
             mQqsTile.setSummary(mQqsTile.getEntries()[sbQqstileStyleValue]);
             return true;
+        } else if (preference == mQsAlarm) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    "PENGUSIR_ALARM", value ? 1 : 0);
+            try {
+                 mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
+            } catch (RemoteException ignored) {
+            }        
+            return true;    
+        } else if (preference == mQsRinger) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    "PENGUSIR_RINGER", value ? 1 : 0);
+            try {
+                 mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
+            } catch (RemoteException ignored) {
+            }        
+            return true;     
         }
         return false;
     }

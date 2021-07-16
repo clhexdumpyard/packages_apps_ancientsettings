@@ -58,7 +58,6 @@ import java.util.Objects;
 public class StatusBar extends SettingsPreferenceFragment implements
     Preference.OnPreferenceChangeListener, Indexable {
 
-    private static final String STATUSBAR_DUAL_ROW = "statusbar_dual_row";
     private static final String KEY_STATUS_BAR_LOGO = "status_bar_logo";
     private static final String STATUSBAR_DUAL_STYLE = "statusbar_dual_style";
     private static final String NABIL_BACKGROUNDCLOCKSB_COLOR = "nabil_backgroundclocksb_color";
@@ -70,7 +69,6 @@ public class StatusBar extends SettingsPreferenceFragment implements
     private ColorPickerPreference mBackb;
     private ColorPickerPreference mBackc;
     private ColorPickerPreference mBackd;
-    private SystemSettingSwitchPreference mStatusbarDualRow;
     private SystemSettingListPreference mStatusbarDualStyle;
     private SwitchPreference mShowAncientLogo;
     private ListPreference mLogoStyle;
@@ -83,11 +81,6 @@ public class StatusBar extends SettingsPreferenceFragment implements
         PreferenceScreen prefSet = getPreferenceScreen();
         mOverlayService = IOverlayManager.Stub
                 .asInterface(ServiceManager.getService(Context.OVERLAY_SERVICE));
-
-        mStatusbarDualRow = (SystemSettingSwitchPreference) findPreference(STATUSBAR_DUAL_ROW);
-        mStatusbarDualRow.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
-                Settings.System.STATUSBAR_DUAL_ROW, 0) == 1));
-        mStatusbarDualRow.setOnPreferenceChangeListener(this);
 
         mShowAncientLogo = (SwitchPreference) findPreference(KEY_STATUS_BAR_LOGO);
         mShowAncientLogo.setChecked((Settings.System.getInt(getContentResolver(),
@@ -165,16 +158,7 @@ public class StatusBar extends SettingsPreferenceFragment implements
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        if (preference == mStatusbarDualRow) {
-            boolean value = (Boolean) newValue;
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.STATUSBAR_DUAL_ROW, value ? 1 : 0);
-            try {
-                 mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
-             } catch (RemoteException ignored) {
-             }
-            return true;
-        } else if  (preference == mShowAncientLogo) {
+        if  (preference == mShowAncientLogo) {
             boolean value = (Boolean) newValue;
             Settings.System.putInt(getContentResolver(),
                     Settings.System.STATUS_BAR_LOGO, value ? 1 : 0);
@@ -185,11 +169,7 @@ public class StatusBar extends SettingsPreferenceFragment implements
                     Settings.System.STATUSBAR_DUAL_STYLE, StatusbarDualStyle, UserHandle.USER_CURRENT);
             int index = mStatusbarDualStyle.findIndexOfValue((String) newValue);
             mStatusbarDualStyle.setSummary(
-                    mStatusbarDualStyle.getEntries()[index]);
-            try {
-                 mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
-             } catch (RemoteException ignored) {
-             }
+            mStatusbarDualStyle.getEntries()[index]);
             return true;
         } else if (preference.equals(mLogoStyle)) {
             int logoStyle = Integer.parseInt(((String) newValue).toString());
@@ -202,7 +182,7 @@ public class StatusBar extends SettingsPreferenceFragment implements
         } else if (preference == mBacka) {
             String hexa = ColorPickerPreference.convertToARGB(
                     Integer.valueOf(String.valueOf(newValue)));
-            if (hexa.equals("#ffff0000")) {
+            if (hexa.equals("#00000000")) {
                 preference.setSummary(R.string.color_default);
             } else {
                 preference.setSummary(hexa);
@@ -214,7 +194,7 @@ public class StatusBar extends SettingsPreferenceFragment implements
         } else if (preference == mBackb) {
             String hexb = ColorPickerPreference.convertToARGB(
                     Integer.valueOf(String.valueOf(newValue)));
-            if (hexb.equals("#ffff0000")) {
+            if (hexb.equals("#00000000")) {
                 preference.setSummary(R.string.color_default);
             } else {
                 preference.setSummary(hexb);
@@ -226,7 +206,7 @@ public class StatusBar extends SettingsPreferenceFragment implements
         } else if (preference == mBackc) {
             String hexc = ColorPickerPreference.convertToARGB(
                     Integer.valueOf(String.valueOf(newValue)));
-            if (hexc.equals("#ffff00c9")) {
+            if (hexc.equals("#00000000")) {
                 preference.setSummary(R.string.color_default);
             } else {
                 preference.setSummary(hexc);
@@ -238,7 +218,7 @@ public class StatusBar extends SettingsPreferenceFragment implements
         } else if (preference == mBackd) {
             String hexd = ColorPickerPreference.convertToARGB(
                     Integer.valueOf(String.valueOf(newValue)));
-            if (hexd.equals("#ffffffff")) {
+            if (hexd.equals("#00000000")) {
                 preference.setSummary(R.string.color_default);
             } else {
                 preference.setSummary(hexd);

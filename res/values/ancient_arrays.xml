@@ -69,6 +69,7 @@
         <item>@string/status_bar_battery_style_landscapeb</item> 
         <item>@string/status_bar_battery_style_landscapec</item> 
         <item>@string/status_bar_battery_style_landscaped</item>
+        <item>@string/status_bar_battery_style_landscapee</item>    
         <item>@string/status_bar_battery_style_text</item>
         <item>@string/status_bar_battery_style_hidden</item>
     </string-array>
@@ -85,6 +86,7 @@
         <item>8</item>
         <item>9</item>
         <item>10</item>
+        <item>11</item>    
     </string-array>
 
     <string-array name="qs_show_brightness_slider_entries" translatable="false">
@@ -1216,8 +1218,16 @@
     <string-array name="statusbar_dual_style_entries" translatable="false">
         <item>@string/statusbar_dual_style_def</item>
         <item>@string/statusbar_dual_style_1</item>
+        <item>@string/statusbar_dual_style_10</item>         
         <item>@string/statusbar_dual_style_2</item>
         <item>@string/statusbar_dual_style_3</item>
+        <item>@string/statusbar_dual_style_4</item>
+        <item>@string/statusbar_dual_style_5</item>
+        <item>@string/statusbar_dual_style_6</item>
+        <item>@string/statusbar_dual_style_7</item>
+        <item>@string/statusbar_dual_style_8</item>
+        <item>@string/statusbar_dual_style_9</item> 
+        <item>@string/statusbar_dual_style_11</item>     
     </string-array>
 
     <string-array name="statusbar_dual_style_values" translatable="false">
@@ -1225,6 +1235,14 @@
         <item>1</item>
         <item>2</item>
         <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item> 
+        <item>10</item> 
+        <item>11</item>     
     </string-array>
 
     <!-- Collapsestyle type -->
@@ -1584,12 +1602,16 @@
         <item>@string/anc_ctoplevel_style1</item>
         <item>@string/anc_ctoplevel_style2</item>
         <item>@string/anc_ctoplevel_style3</item>
+        <item>@string/anc_ctoplevel_style4</item>   
+        <item>@string/anc_ctoplevel_style5</item>     
     </string-array>
 
     <string-array name="anc_ctoplevel_values" translatable="false">
         <item>0</item>
         <item>1</item>
         <item>2</item>
+        <item>3</item>    
+        <item>4</item>        
     </string-array>
 
     <string-array name="anc_active_a12tile_entries" translatable="false">
@@ -1701,5 +1723,260 @@
         <item>4</item>
         <item>5</item> 
     </string-array>
+     
+    <string-array name="qqs_set_random_entries" translatable="false">
+        <item>@string/qqs_set_random_style1</item>
+        <item>@string/qqs_set_random_style2</item>  
+        <item>@string/qqs_set_random_style3</item>   
+    </string-array>   
 
+    <string-array name="qqs_set_random_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item> 
+    </string-array>   
+
+    <string-array name="monet_pallete_entries" translatable="false">
+        <item>@string/monet_pallete_0</item>
+        <item>@string/monet_pallete_1</item>  
+        <item>@string/monet_pallete_2</item>
+        <item>@string/monet_pallete_3</item> 
+        <item>@string/monet_pallete_4</item>
+        <item>@string/monet_pallete_5</item> 
+        <item>@string/monet_pallete_6</item> 
+    </string-array>   
+
+    <string-array name="monet_pallete_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item> 
+        <item>6</item> 
+    </string-array>
+     
+    <!-- Accent -->
+    <string-array name="accenter_style_entries" translatable="false">
+        <item>@string/accenter_style_default</item>
+        <item>@string/accenter_style1</item>
+        <item>@string/accenter_style2</item>
+        <item>@string/accenter_style3</item>
+        <item>@string/accenter_style4</item> 
+        <item>@string/accenter_style5</item> 
+        <item>@string/accenter_style6</item> 
+        <item>@string/accenter_style7</item> 
+        <item>@string/accenter_style8</item>
+        <item>@string/accenter_style9</item>
+        <item>@string/accenter_style10</item>
+	   <item>@string/accenter_style11</item>
+        <item>@string/accenter_style12</item>
+        <item>@string/accenter_style13</item>
+        <item>@string/accenter_style14</item> 
+    </string-array>
+
+    <string-array name="accenter_style_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item> 
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+    </string-array>
+	
+	<!-- Font -->
+    <string-array name="fonter_style_entries" translatable="false">
+        <item>@string/fonter_style_default</item>
+        <item>@string/fonter_style1</item>
+        <item>@string/fonter_style2</item>
+        <item>@string/fonter_style3</item>
+        <item>@string/fonter_style4</item> 
+        <item>@string/fonter_style5</item> 
+        <item>@string/fonter_style6</item> 
+        <item>@string/fonter_style7</item> 
+        <item>@string/fonter_style8</item>
+        <item>@string/fonter_style9</item>
+        <item>@string/fonter_style10</item>
+        <item>@string/fonter_style11</item>
+        <item>@string/fonter_style12</item>
+        <item>@string/fonter_style13</item>
+        <item>@string/fonter_style14</item>
+        <item>@string/fonter_style15</item> 
+        <item>@string/fonter_style16</item> 
+        <item>@string/fonter_style17</item> 
+        <item>@string/fonter_style18</item>
+        <item>@string/fonter_style19</item>
+        <item>@string/fonter_style20</item>
+	   <item>@string/fonter_style21</item>
+        <item>@string/fonter_style22</item>		
+    </string-array>
+
+    <string-array name="fonter_style_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item> 
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item> 
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+        <item>20</item>
+        <item>21</item>
+        <item>22</item>
+    </string-array> 
+	
+    <string-array name="collapsed_switch_entries" translatable="false">
+        <item>@string/collapsed_switch_style1</item>
+        <item>@string/collapsed_switch_style2</item>  
+        <item>@string/collapsed_switch_style3</item>   
+    </string-array>   
+
+    <string-array name="collapsed_switch_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item> 
+    </string-array> 
+	
+    <string-array name="jam_qspalsu_entries" translatable="false">
+        <item>@string/jam_qspalsu_style1</item>
+        <item>@string/jam_qspalsu_style2</item>  
+        <item>@string/jam_qspalsu_style3</item>  
+        <item>@string/jam_qspalsu_style4</item>       
+    </string-array>   
+
+    <string-array name="jam_qspalsu_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item> 
+        <item>3</item>  
+    </string-array>
+	
+    <string-array name="header_textcolor_entries" translatable="false">
+        <item>@string/header_textcolor_style1</item>
+        <item>@string/header_textcolor_style2</item>  
+        <item>@string/header_textcolor_style3</item>        
+    </string-array>   
+
+    <string-array name="header_textcolor_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>  
+    </string-array>
+
+    <string-array name="homecollapseonoff_style_entries" translatable="false">
+        <item>@string/homecollapseonoff_style1</item>
+        <item>@string/homecollapseonoff_style2</item>  
+        <item>@string/homecollapseonoff_style3</item>        
+    </string-array>   
+
+    <string-array name="homecollapseonoff_style_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>  
+    </string-array>
+	
+    <string-array name="jam_qspalsu_gravity_entries" translatable="false">
+        <item>@string/jam_qspalsu_gravity1</item>
+        <item>@string/jam_qspalsu_gravity2</item>  
+        <item>@string/jam_qspalsu_gravity3</item>        
+    </string-array>   
+
+    <string-array name="jam_qspalsu_gravity_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>  
+    </string-array>
+	
+	<!-- size jam -->
+    <string-array name="jamheader_sizer_entries" translatable="false">
+        <item>@string/jamheader_sizer0</item>
+        <item>@string/jamheader_sizer1</item>
+        <item>@string/jamheader_sizer2</item>
+        <item>@string/jamheader_sizer3</item>
+        <item>@string/jamheader_sizer4</item> 
+        <item>@string/jamheader_sizer5</item> 
+        <item>@string/jamheader_sizer6</item> 
+        <item>@string/jamheader_sizer7</item> 
+        <item>@string/jamheader_sizer8</item>
+        <item>@string/jamheader_sizer9</item>
+        <item>@string/jamheader_sizer10</item>
+        <item>@string/jamheader_sizer11</item>
+        <item>@string/jamheader_sizer12</item>
+        <item>@string/jamheader_sizer13</item>
+        <item>@string/jamheader_sizer14</item>
+        <item>@string/jamheader_sizer15</item> 
+        <item>@string/jamheader_sizer16</item> 
+        <item>@string/jamheader_sizer17</item> 
+        <item>@string/jamheader_sizer18</item>
+        <item>@string/jamheader_sizer19</item>
+        <item>@string/jamheader_sizer20</item>		
+    </string-array>
+
+    <string-array name="jamheader_sizer_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item> 
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item> 
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+        <item>20</item>
+    </string-array> 
+	
+    <string-array name="qs_expanded_ancientui_clock_style_entries" translatable="false">
+        <item>@string/qs_expanded_ancientui_clock_style0</item>
+        <item>@string/qs_expanded_ancientui_clock_style1</item>  
+        <item>@string/qs_expanded_ancientui_clock_style2</item> 
+	<item>@string/qs_expanded_ancientui_clock_style3</item>
+        <item>@string/qs_expanded_ancientui_clock_style7</item>
+        <item>@string/qs_expanded_ancientui_clock_style4</item>  
+        <item>@string/qs_expanded_ancientui_clock_style5</item>   
+	<item>@string/qs_expanded_ancientui_clock_style6</item>      
+    </string-array>   
+
+    <string-array name="qs_expanded_ancientui_clock_style_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>  
+	<item>3</item>
+        <item>4</item>
+        <item>5</item>    
+	<item>6</item>
+        <item>7</item>       
+    </string-array>
+	
 </resources>

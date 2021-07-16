@@ -292,6 +292,7 @@
     <string name="status_bar_battery_style_landscapeb">LandScape Style 2</string>
     <string name="status_bar_battery_style_landscapec">LandScape Style 3</string>
     <string name="status_bar_battery_style_landscaped">LandScape Style 4</string>
+    <string name="status_bar_battery_style_landscapee">Danny Style</string>
     <string name="status_bar_battery_style_text">Text</string>
     <string name="status_bar_battery_style_hidden">Hidden</string>
 
@@ -1022,7 +1023,7 @@
     <string name="navbar_gesture_enabled">Not available when using gestural navigation</string>
 
     <!-- QS tile styles -->
-    <string name="aclock_style_title">Analog Clock style(Need QS Clock 5, 6 or 7)</string>
+    <string name="aclock_style_title">Analog Clock Style</string>
     <string name="aclock_default">Default</string>
     <string name="aclock_anci1">Ancient 1</string>
     <string name="aclock_anci2">Ancient 2</string>
@@ -1106,7 +1107,7 @@
     <string name="qs_panel_alpha_title">Background opacity</string>
 
     <!-- Header Image Height -->
-    <string name="status_bar_custom_header_height_title">Header Image height</string>
+    <string name="status_bar_custom_header_height_title">Header Image height (on AncientUI only)</string>
 
     <!-- Clipboard toast info -->
     <string name="clipboard_toast_info_title">Clipboard access alerts</string>
@@ -1181,8 +1182,8 @@
     <string name="qsbg_type2">Ancient 2</string>
 
     <!-- Settings Icon button -->
-    <string name="qqs_settings_icon_title">Qqs Setting Icon</string>
-    <string name="qqs_settings_icon_summary">Enable the Settings Icon in Quick Header</string>
+    <string name="qqs_settings_icon_title">QQS Setting Icon </string>
+    <string name="qqs_settings_icon_summary">Enable Settings icon on Quick QS and also enable Carrier Footer on StockLike UI </string>
 
     <!-- OOS style material dismiss all button for notifications -->
     <string name="notification_material_dismiss_button_title">Material dimiss button</string>
@@ -1226,12 +1227,20 @@
     <string name="audio_panel_view_bt_sco_title">Bluetooth</string>
 
     <!-- sb styles -->
-    <string name="statusbar_dual_style_title">StatusBar layout style</string>
+    <string name="statusbar_dual_style_title">StatusBar Layout Style</string>
     <string name="statusbar_dual_style_summary">Choose style</string>
-    <string name="statusbar_dual_style_def">DualBar Default</string>
+    <string name="statusbar_dual_style_def">Default</string>
     <string name="statusbar_dual_style_1">Ios Style </string>
+    <string name="statusbar_dual_style_10">Ios Style 2</string>
+    <string name="statusbar_dual_style_11">Style G</string>
     <string name="statusbar_dual_style_2">DualBar Style With Left Analog</string>
     <string name="statusbar_dual_style_3">DualBar Style With Center Analog</string>
+    <string name="statusbar_dual_style_4">Style A</string>
+    <string name="statusbar_dual_style_5">Style B</string>
+    <string name="statusbar_dual_style_6">Style C</string>
+    <string name="statusbar_dual_style_7">Style D</string>
+    <string name="statusbar_dual_style_8">Style E</string>
+    <string name="statusbar_dual_style_9">Style F</string>
 
     <!-- QS Blur -->
     <string name="blur_quicksettings">Blur behind quick settings (beta)</string>
@@ -1257,6 +1266,9 @@
     <string name="collapse_base_style_1">A12 by Ancient</string>
     <string name="collapse_base_style_2">ONEUI by Ancient</string>
     <string name="collapsed_switch_title">Subsettings Collapsed Switch</string>
+    <string name="collapsed_switch_style1">Default (not collapse)</string>
+    <string name="collapsed_switch_style2">Simple Collapse</string>
+    <string name="collapsed_switch_style3">Themed Collapse</string>
     <string name="collapsed_switch_summary">switch it on to enable collapse</string>
     <string name="collapsed_bouncy_title">Bouncy</string>
     <string name="collapsed_bouncy_summary">switch it on to enable bouncy</string>
@@ -1314,7 +1326,7 @@
     <string name="ancicolepbg_style_19">Style 18</string>
     <string name="ancicolepbg_style_20">Style 19</string>
     <string name="ancicolepbg_style_21">Style 20</string>	
-    <string name="collapsed_home_switch_title">Settings Homepage Collapsed Switch</string>
+    <string name="collapsed_home_switch_title">Settings Homepage Style</string>
     <string name="collapsed_home_switch_summary">switch it on to enable collapse</string>
 
     <!-- coleptoolbg styles -->
@@ -1462,9 +1474,11 @@
 
     <!-- toplevel -->
     <string name="anc_ctoplevel_title">Setting Theme Style</string>
-    <string name="anc_ctoplevel_style1">Default</string>
-    <string name="anc_ctoplevel_style2">Style 1</string>
-    <string name="anc_ctoplevel_style3">Style 2</string>
+    <string name="anc_ctoplevel_style1">Default ( no card background ) </string>
+    <string name="anc_ctoplevel_style2">Background Card </string>
+    <string name="anc_ctoplevel_style3">Background Card Accent</string>
+    <string name="anc_ctoplevel_style4">Background Accent</string>
+    <string name="anc_ctoplevel_style5">Reverse Color Background Card</string>
 
     <!-- a12 like tile -->
     <string name="anc_a12tile_title">Qs Tile background like a12</string>
@@ -1522,5 +1536,153 @@
     <string name="data_con4">Style 3</string>
     <string name="data_con5">Style 4</string>
     <string name="data_con6">Style 5</string>
-
+	
+    <!-- data con -->
+    <string name="statbar_padding_left">Left Padding Statusbar</string>
+    <string name="statbar_padding_right">Right Padding Statusbar</string>
+	
+    <string name="qqs_set_rainbow">QQS Setting Icon Tint</string>
+    <string name="qqs_set_rainbow_summary">Make Qqs Settings icon colourfull</string>
+    <string name="qqs_set_random_style1">Disable</string>
+    <string name="qqs_set_random_style2">Rainbow</string>
+    <string name="qqs_set_random_style3">Accent</string> 
+	
+    <string name="qs_alarm_title">Alarm Qs Panel</string>    
+    <string name="qs_alarm_summary">alarm indicator disabler on qs panel</string>
+    <string name="qs_ringer_title">Ringer Qs Panel</string>    
+    <string name="qs_ringer_summary">ringer indicator disabler on qs panel</string>
+	
+    <string name="rgb_dark_accent_picker_title">RGB Dark accent picker</string>
+    <string name="rgb_accent_picker_title">RGB accent picker</string>
+    <string name="rgb_light_accent_picker_title">RGB Light accent picker</string>
+    <string name="rgb_accent_picker_summary">Choose the accent color yourself</string>
+	
+    <!-- Dot OS Monet Engine -->
+    <string name="monet_switch_title">Monet Engine</string>
+    <string name="monet_switch_summary">enable monet engine</string>
+    <string name="monet_seekbar_title">Monet Engine Colorfullness</string>
+    <string name="monet_pallete_title">Monet Engine Color Pallete</string>
+    <string name="monet_pallete_0">Vibrant (default)</string>
+    <string name="monet_pallete_1">Light Vibrant </string>
+    <string name="monet_pallete_2">Dark Vibrant </string>
+    <string name="monet_pallete_3">Dominant </string>
+    <string name="monet_pallete_4">Muted</string>
+    <string name="monet_pallete_5">Light Muted</string>
+    <string name="monet_pallete_6">Dark Muted </string>
+	
+    	<!-- Accent -->
+    <string name="accenter_style_tittle">Accent Style</string>
+    <string name="accenter_style_default">Default</string>
+    <string name="accenter_style1">Amethyst</string>
+    <string name="accenter_style2">Aquamarine</string>
+    <string name="accenter_style3">Black</string>
+    <string name="accenter_style4">Carbon</string>
+    <string name="accenter_style5">Cinnamon</string>
+    <string name="accenter_style6">Gold</string>
+    <string name="accenter_style7">Green</string>
+    <string name="accenter_style8">Ocean</string>
+    <string name="accenter_style9">Orchid</string>
+    <string name="accenter_style10">Pallete</string>
+    <string name="accenter_style11">Purple</string>
+    <string name="accenter_style12">Sand</string>
+    <string name="accenter_style13">Space</string>
+    <string name="accenter_style14">Tangerine</string>
+	
+    <!-- Accent -->
+    <string name="fonter_style_tittle">Font Style</string>
+    <string name="fonter_style_default">Default</string>
+    <string name="fonter_style1">Applemint</string>
+    <string name="fonter_style2">Cartoon</string>
+    <string name="fonter_style3">Chinacat</string>
+    <string name="fonter_style4">Lato</string>
+    <string name="fonter_style5">Roboto</string>
+    <string name="fonter_style6">Rosemary</string>
+    <string name="fonter_style7">Rubik</string>
+    <string name="fonter_style8">Sanfransisco</string>
+    <string name="fonter_style9">SlatePro</string>
+    <string name="fonter_style10">Zillaslab</string>
+    <string name="fonter_style11">CoreMellow</string>
+    <string name="fonter_style12">Netflix Sans</string>
+    <string name="fonter_style13">Ubuntu</string>
+    <string name="fonter_style14">CherryWash</string>
+    <string name="fonter_style15">Cocon</string>
+    <string name="fonter_style16">Disney</string>
+    <string name="fonter_style17">Fucek</string>
+    <string name="fonter_style18">GoogleSans</string>
+    <string name="fonter_style19">Lemon</string>
+    <string name="fonter_style20">Roboto Condensed</string>
+    <string name="fonter_style21">SamsungSans</string>
+    <string name="fonter_style22">Simple Day</string>
+	
+    <!-- Anciui -->
+    <string name="anci_enabler_tittle">AncientUI</string>
+    <string name="anci_enabler_sum">enable ancientui(qsclock, qqsclock, and etc)</string>
+    <string name="anci_fake_clock_enabler_tittle">Header Clock</string>
+    <string name="anci_fake_clock_enabler_sum">enable header clock</string>
+    <string name="anci_headsize_tittle">QS Header Height</string>
+    <string name="anci_headsize_sum">customize header height(landscape mode not affected)</string>
+	
+    <!-- Jam Palsu -->
+    <string name="jam_qspalsu_tittle">Header Clock Color</string>
+    <string name="jam_qspalsu_kolor_tittle">Header Clock Color Picker</string>
+    <string name="jam_qspalsu_kolor_sum">custom coloring for header clock</string>
+    <string name="jam_qspalsu_style1">Default (Wallpaper Text Color)</string>
+    <string name="jam_qspalsu_style2">Accent</string>
+    <string name="jam_qspalsu_style3">Primary Color</string>
+    <string name="jam_qspalsu_style4">Random</string>
+    <string name="anci_headjamsize_tittle">Header Clock Size</string>
+    <string name="anci_headjamsize_sum">custom size for header clock</string>
+    <string name="jam_qspalsu_gravity_tittle">Header Clock Gravity</string>
+    <string name="qs_expanded_ancientui_clock_gravity_tittle">Ancient UI Expanded Clock Gravity</string>
+    <string name="qqs_expanded_ancientui_clock_gravity_tittle">Ancient UI Quick QS Clock Gravity</string>
+    <string name="jam_qspalsu_gravity1">Left</string>
+    <string name="jam_qspalsu_gravity2">Centre</string>
+    <string name="jam_qspalsu_gravity3">Right</string>
+	
+    <!-- notif header textcolor -->
+    <string name="header_textcolor_tittle">Notification Header Text Color</string>
+    <string name="header_textcolor_style1">Default (Wallpaper Text Color)</string>
+    <string name="header_textcolor_style2">Primary Color</string>
+    <string name="header_textcolor_style3">Accent</string>
+	
+    <!-- addon home -->
+    <string name="homecollapseonoff_style1">Default Like Stock( dont use card bg!! )</string>
+    <string name="homecollapseonoff_style2">Collapse Style</string>
+    <string name="homecollapseonoff_style3">Custom Style</string>
+	
+    <!-- size jam -->
+    <string name="jamheader_sizer_tittle">Header Clock Size</string>
+    <string name="jamheader_sizer0">10dip</string>
+    <string name="jamheader_sizer1">11dip</string>
+    <string name="jamheader_sizer2">12dip</string>
+    <string name="jamheader_sizer3">13dip</string>
+    <string name="jamheader_sizer4">14dip</string>
+    <string name="jamheader_sizer5">15dip</string>
+    <string name="jamheader_sizer6">16dip</string>
+    <string name="jamheader_sizer7">17dip</string>
+    <string name="jamheader_sizer8">18dip</string>
+    <string name="jamheader_sizer9">19dip</string>
+    <string name="jamheader_sizer10">20dip</string>
+    <string name="jamheader_sizer11">21dip</string>
+    <string name="jamheader_sizer12">22dip</string>
+    <string name="jamheader_sizer13">23dip</string>
+    <string name="jamheader_sizer14">24dip</string>
+    <string name="jamheader_sizer15">25dip</string>
+    <string name="jamheader_sizer16">26dip</string>
+    <string name="jamheader_sizer17">27dip</string>
+    <string name="jamheader_sizer18">28dip</string>
+    <string name="jamheader_sizer19">29dip</string>
+    <string name="jamheader_sizer20">30dip</string>
+	
+    <!-- ANCIUICLOCK -->
+    <string name="qs_expanded_ancientui_clock_style_tittle">Ancient UI QS Clock Style</string>
+    <string name="qs_expanded_ancientui_clock_style0">Default</string>
+    <string name="qs_expanded_ancientui_clock_style1">Vertical Date n Clock</string>
+    <string name="qs_expanded_ancientui_clock_style2">Horizontal Date</string>
+    <string name="qs_expanded_ancientui_clock_style3">Analog Clock Only</string>
+    <string name="qs_expanded_ancientui_clock_style4">YAAPON Clock</string>
+    <string name="qs_expanded_ancientui_clock_style5">Gradient Clock</string>
+    <string name="qs_expanded_ancientui_clock_style6">Ancient A10 Clock</string>
+    <string name="qs_expanded_ancientui_clock_style7">Analog Clock with Date</string>
+    
 </resources>

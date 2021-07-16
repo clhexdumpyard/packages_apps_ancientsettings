@@ -33,6 +33,24 @@
                     android:targetPackage="com.android.wallpaper"
                     android:targetClass="com.android.customization.picker.CustomizationPickerActivity" />
         </Preference>
+         
+        <com.ancient.settings.preferences.SecureSettingSwitchPreference
+            android:layout="@layout/ancient_cardpreference_middle"
+            android:key="monet_engine"                             
+            android:defaultValue="0"
+            android:summary="@string/monet_switch_summary"             
+            android:title="@string/monet_switch_title"/>
+         
+        <ListPreference
+            android:layout="@layout/ancient_cardpreference_middle"
+            android:key="monet_palette"
+            android:dependency="monet_engine"
+	    android:dialogTitle="@string/monet_pallete_title"	
+            android:title="@string/monet_pallete_title"
+            android:defaultValue="0"
+	    android:summary="%s"	
+            android:entries="@array/monet_pallete_entries"
+            android:entryValues="@array/monet_pallete_values"/> 
 
         <ListPreference
             android:layout="@layout/ancient_cardpreference_middle"
@@ -45,18 +63,21 @@
             android:defaultValue="1"/>
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference
-            android:layout="@layout/ancient_cardpreference_twotarget"
-            android:key="accent_color"
-            android:title="@string/accent_color_title"
-            android:defaultValue="0xFF1A73E8"
-            settings:showReset="true"
+            android:key="rgb_dark_accent_picker"
+            android:defaultValue="0xFF1A73E8"                                                           
+            android:title="@string/rgb_dark_accent_picker_title"
+            android:summary="@string/rgb_accent_picker_summary"
+            settings:showReset="true"                                                           
             android:persistent="false" />
-
-        <com.ancient.settings.preferences.SystemSettingListPreference
-            android:layout="@layout/ancient_cardpreference_bottom"
-            android:key="android.theme.customization.accent_color"
-            android:title="@string/theme_customization_accent_color_title"/>
-
+         
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="rgb_light_accent_picker"
+            android:defaultValue="0xFF1A73E8"                                                           
+            android:title="@string/rgb_light_accent_picker_title"
+            android:summary="@string/rgb_accent_picker_summary"
+            settings:showReset="true"                                                           
+            android:persistent="false" /> 
+			
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -64,25 +85,24 @@
         android:key="megalith_setings"
         android:title="@string/setting_megalith_zone_title"> 
 
-        <com.ancient.settings.preferences.SystemSettingSwitchPreference
+        <com.ancient.settings.preferences.SystemSettingListPreference
             android:layout="@layout/ancient_cardpreference_top"
             android:key="homecollapseonoff"                             
             android:defaultValue="0"
-            android:summary="@string/collapsed_home_switch_summary"             
+	    android:entries="@array/homecollapseonoff_style_entries"           
+            android:entryValues="@array/homecollapseonoff_style_values"              
             android:title="@string/collapsed_home_switch_title"/>
 
        <com.ancient.settings.preferences.SystemSettingSwitchPreference
             android:layout="@layout/ancient_cardpreference_middle"
             android:key="homeboldonoff"
-            android:dependency="homecollapseonoff"
             android:defaultValue="0"
             android:summary="@string/collapsed_bold_summary"             
             android:title="@string/collapsed_bold_title"/>
 
         <com.ancient.settings.preferences.SystemSettingListPreference
             android:layout="@layout/ancient_cardpreference_middle"                                                          
-            android:key="AvatarViewVis"
-            android:dependency="homecollapseonoff"  
+            android:key="AvatarViewVis" 
             android:defaultValue="0"                                                          
             android:entries="@array/collapsed_style_entries"           
             android:entryValues="@array/collapsed_style_values"             
@@ -91,32 +111,32 @@
         <com.ancient.settings.preferences.SystemSettingSwitchPreference
             android:layout="@layout/ancient_cardpreference_middle"
             android:key="collapseonoff"
-            android:defaultValue="0"
-            android:summary="@string/collapsed_switch_summary"             
-            android:title="@string/collapsed_switch_title"/>  
+            android:defaultValue="0"   
+            android:summary="@string/collapsed_switch_summary"
+            android:title="@string/collapsed_switch_title"/>
 
         <com.ancient.settings.preferences.SystemSettingSwitchPreference
             android:layout="@layout/ancient_cardpreference_middle"
             android:key="bouncyonoff"
             android:defaultValue="0"
             android:dependency="collapseonoff"
-            android:summary="@string/collapsed_bouncy_summary"             
+            android:summary="@string/collapsed_bouncy_summary"
             android:title="@string/collapsed_bouncy_title"/>
 
         <com.ancient.settings.preferences.SystemSettingListPreference
             android:layout="@layout/ancient_cardpreference_middle"
-            android:key="ancient_collapsed_base_style"
-            android:dependency="collapseonoff"                                                          
+            android:key="ancient_collapsed_base_style"                                                        
             android:entries="@array/collapsed_base_style_entries" 
-            android:defaultValue="0"                                                          
+            android:defaultValue="0"   
+            android:dependency="collapseonoff"						      
             android:entryValues="@array/collapsed_base_style_values"             
             android:title="@string/collapsed_base_style_title"/> 
 
        <com.ancient.settings.preferences.SystemSettingListPreference
             android:layout="@layout/ancient_cardpreference_middle"
             android:key="ancient_collapse_header"
-            android:dependency="collapseonoff"                                                         
-            android:defaultValue="0"                                                          
+            android:defaultValue="0"
+            android:dependency="collapseonoff"
             android:title="@string/ancicolepbg_style_title"
             android:entries="@array/ancicolepbg_style_entries"
             android:entryValues="@array/ancicolepbg_style_values" />
@@ -124,7 +144,6 @@
         <com.ancient.settings.preferences.SystemSettingListPreference
             android:key="ancient_collapsetool_bg"
             android:defaultValue="0"
-            android:dependency="collapseonoff"
             android:layout="@layout/ancient_cardpreference_middle"
             android:title="@string/ancicoleptoolbg_style_title"
             android:entries="@array/ancicoleptoolbg_style_entries"
@@ -152,12 +171,16 @@
     <PreferenceCategory
         android:layout="@layout/ancient_cardpreference_category"
         android:key="megalith_font"
-        android:title="@string/megalith_font_center_category">
-
+        android:title="@string/megalith_font_center_category">  
+     
         <com.ancient.settings.preferences.SystemSettingListPreference
-            android:layout="@layout/ancient_cardpreference_single"
-            android:key="android.theme.customization.font"
-            android:title="@string/theme_customization_font_title"/>
+            android:layout="@layout/ancient_cardpreference_single"                                                          
+            android:key="FONTER_STYLE" 
+            android:defaultValue="0"                                                          
+            android:entries="@array/fonter_style_entries"           
+            android:entryValues="@array/fonter_style_values"             
+            android:title="@string/fonter_style_tittle"/> 
+
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -242,27 +265,11 @@
 
         <ListPreference
             android:layout="@layout/ancient_cardpreference_top"
-            android:key="statusheight_style"
-            android:title="@string/sbheight_style_title"
-            android:persistent="false"
-            android:entries="@array/statusheight_entries"
-            android:entryValues="@array/statusheight_values" />
-
-        <ListPreference
-            android:layout="@layout/ancient_cardpreference_middle"
             android:key="diagcorner_style"
             android:title="@string/dgcorner_style_title"
             android:persistent="false"
             android:entries="@array/diagcorner_entries"
             android:entryValues="@array/diagcorner_values"/>
-
-        <ListPreference
-            android:layout="@layout/ancient_cardpreference_middle"
-            android:key="ANCI_SB_PADDING"
-            android:title="@string/sb_padding_style_title"
-            android:persistent="false"
-            android:entries="@array/sb_padding_entries"
-            android:entryValues="@array/sb_padding_values"/>
 
         <com.ancient.settings.preferences.SystemSettingListPreference
             android:layout="@layout/ancient_cardpreference_bottom"
@@ -271,12 +278,27 @@
             android:persistent="false"
             android:entries="@array/qs_margin_entries"
             android:entryValues="@array/qs_margin_values"/>
+         
+        <com.ancient.settings.preferences.SystemSettingSeekBarPreference 
+            android:max="50" 
+            android:min="-5"                                                              
+            android:title="@string/statbar_padding_left" 
+            android:key="JEMBT_LEBAT_KIRI"  
+            android:defaultValue="0" /> 
+         
+        <com.ancient.settings.preferences.SystemSettingSeekBarPreference 
+            android:max="50" 
+            android:min="-5"                                                              
+            android:title="@string/statbar_padding_right" 
+            android:key="JEMBT_LEBAT_KANAN" 
+            android:defaultValue="0" />  
 
         <com.ancient.settings.preferences.SystemSettingSeekBarPreference
             android:key="ANCI_PANNELTOP_PAD"
             android:title="@string/tooltip_height_title"
-            android:max="300"
-            android:min="70"                                                             
+            android:max="260"
+            android:min="70" 
+            android:dependency="QS_TO_STOCK"							 
             settings:min="0"
             android:defaultValue="170"
             settings:units="dp"
@@ -286,6 +308,7 @@
             android:key="ANCI_BI_CLOCK"
             android:title="@string/tooltip_style_title" 
             android:max="110"
+            android:dependency="QS_TO_STOCK"							  
             settings:min="0"
             android:defaultValue="90"
             settings:units="dp"
@@ -296,6 +319,7 @@
             android:title="@string/topad_style_title"
             android:max="50"
             settings:min="0"
+            android:dependency="QS_TO_STOCK"								  
             android:defaultValue="1"
             settings:units="dp"
             android:summary="@string/topad_style_summary" />
@@ -315,21 +339,90 @@
             android:entries="@array/qs_selector_entries"
             android:entryValues="@array/qs_selector_values" />
 
-        <ListPreference
+	<com.ancient.settings.preferences.SystemSettingSwitchPreference
             android:layout="@layout/ancient_cardpreference_middle"
-            android:key="qs_clock_style"
-            android:title="@string/qs_clock_style_title"
-            android:persistent="false"
-            android:entries="@array/qs_clock_entries"
-            android:entryValues="@array/qs_clock_values" />
-
-        <ListPreference
+            android:key="QS_TO_STOCK"                             
+            android:defaultValue="0"
+            android:summary="@string/anci_enabler_sum"             
+            android:title="@string/anci_enabler_tittle"/> 
+	    
+	<com.ancient.settings.preferences.SystemSettingListPreference
+	    android:layout="@layout/ancient_cardpreference_middle"						       
+            android:key="ANCIENT_UI_QSCLOCK_STYLE"
+            android:title="@string/qs_expanded_ancientui_clock_style_tittle"
+            android:entries="@array/qs_expanded_ancientui_clock_style_entries"
+            android:entryValues="@array/qs_expanded_ancientui_clock_style_values"
+	    android:dependency="QS_TO_STOCK" 							 
+            android:defaultValue="0" />     
+	    
+	<com.ancient.settings.preferences.SystemSettingListPreference
+	    android:layout="@layout/ancient_cardpreference_middle"						       
+            android:key="ANCIENT_UI_QQSCLOCK_GRAVITY"
+            android:title="@string/qqs_expanded_ancientui_clock_gravity_tittle"
+            android:entries="@array/jam_qspalsu_gravity_entries"
+            android:entryValues="@array/jam_qspalsu_gravity_values"
+	    android:dependency="QS_TO_STOCK" 							 
+            android:defaultValue="0" />      
+	    
+	<com.ancient.settings.preferences.SystemSettingListPreference
+	    android:layout="@layout/ancient_cardpreference_middle"						       
+            android:key="ANCIENT_UI_QSCLOCK_GRAVITY"
+            android:title="@string/qs_expanded_ancientui_clock_gravity_tittle"
+            android:entries="@array/jam_qspalsu_gravity_entries"
+            android:entryValues="@array/jam_qspalsu_gravity_values"
+	    android:dependency="QS_TO_STOCK" 							 
+            android:defaultValue="0" />  
+	    
+	<ListPreference
             android:layout="@layout/ancient_cardpreference_middle"
             android:key="aclock_style"
             android:title="@string/aclock_style_title"
             android:persistent="false"
             android:entries="@array/aclock_entries"
-            android:entryValues="@array/aclock_values" />
+            android:entryValues="@array/aclock_values" />    
+	    
+	<com.ancient.settings.preferences.SystemSettingSwitchPreference
+            android:layout="@layout/ancient_cardpreference_bottom"
+            android:key="QQS_CLOCKFAKE_SWITCH"                             
+            android:defaultValue="1"
+            android:summary="@string/anci_fake_clock_enabler_sum"             
+            android:title="@string/anci_fake_clock_enabler_tittle"/>
+	    
+	<com.ancient.settings.preferences.SystemSettingSeekBarPreference
+            android:key="ANCI_HEADER_HEIGHT"
+            android:title="@string/anci_headsize_tittle"
+            android:max="150"
+            android:min="25"							  
+            android:defaultValue="50"
+            settings:units="dp"
+            android:summary="@string/anci_headsize_sum" />
+	    
+	 <com.ancient.settings.preferences.SystemSettingListPreference
+	    android:layout="@layout/ancient_cardpreference_top"						       
+            android:key="JAM_HEADER_SIZE"
+            android:title="@string/jamheader_sizer_tittle"
+            android:entries="@array/jamheader_sizer_entries"
+            android:entryValues="@array/jamheader_sizer_values"
+	    android:dependency="QQS_CLOCKFAKE_SWITCH" 							 
+            android:defaultValue="3" /> 
+	    
+	<com.ancient.settings.preferences.SystemSettingListPreference
+            android:layout="@layout/ancient_cardpreference_middle"
+            android:key="JAM_HEADER_GRAVITY"
+	    android:dependency="QQS_CLOCKFAKE_SWITCH" 						      
+            android:title="@string/jam_qspalsu_gravity_tittle"
+            android:persistent="false"
+            android:entries="@array/jam_qspalsu_gravity_entries"
+            android:entryValues="@array/jam_qspalsu_gravity_values"/>     
+	    
+	<com.ancient.settings.preferences.SystemSettingListPreference
+            android:layout="@layout/ancient_cardpreference_middle"
+            android:key="QS_CLOCK_WARNA"
+	    android:dependency="QQS_CLOCKFAKE_SWITCH" 						      
+            android:title="@string/jam_qspalsu_tittle"
+            android:persistent="false"
+            android:entries="@array/jam_qspalsu_entries"
+            android:entryValues="@array/jam_qspalsu_values"/>    
 
         <com.ancient.settings.preferences.SystemSettingSwitchPreference
             android:layout="@layout/ancient_cardpreference_middle"
@@ -360,6 +453,14 @@
             android:entries="@array/qs_footer_random_entries"
             android:entryValues="@array/qs_footer_random_values"
             android:defaultValue="0" />
+         
+        <com.ancient.settings.preferences.SystemSettingListPreference
+            android:layout="@layout/ancient_cardpreference_middle"
+            android:key="QQS_SETTINGS_RAINBOW"
+            android:title="@string/qqs_set_rainbow"
+            android:entries="@array/qqs_set_random_entries"
+            android:entryValues="@array/qqs_set_random_values"
+            android:defaultValue="0" /> 
 
         <com.ancient.settings.preferences.SystemSettingListPreference
             android:layout="@layout/ancient_cardpreference_middle"
