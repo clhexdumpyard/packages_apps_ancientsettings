@@ -1428,15 +1428,6 @@
     <string name="anci_shapeicon_style8">Teardrop</string>
     <string name="anci_shapeicon_style9">Vessel</string>
 
-    <!-- Ticker -->
-    <string name="status_bar_ticker_title">Ticker</string>
-    <string name="status_bar_show_ticker_title">Ticker</string>
-    <string name="status_bar_show_ticker_summary">Notification preview in status bar</string>
-    <string name="ticker_animation_mode_title">Ticker animation</string>
-    <string name="ticker_animation_mode_alpha_fade">Fade</string>
-    <string name="ticker_animation_mode_scroll">Scroll</string>
-    <string name="ticker_tick_duration_title">Ticker duration</string>
-
     <!-- tile icon -->
     <string name="custom_tile_size_title">QS Tile Icon Size</string>
     <string name="custom_tile_size_small">Small</string>
