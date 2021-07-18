@@ -271,11 +271,19 @@
 
         <!-- Heads up -->
         <Preference
-            android:layout="@layout/ancient_cardpreference_single"
+            android:layout="@layout/ancient_cardpreference_top"
             android:key="heads_up_notifications"
             android:title="@string/heads_up_notifications"
             android:summary="@string/heads_up_notifications_summary"
             android:fragment="com.ancient.settings.fragments.HeadsUpSettings" />
+
+        <!-- Statusbar Ticker -->
+        <Preference
+            android:layout="@layout/ancient_cardpreference_middle"
+            android:key="ticker_settings"
+            android:title="@string/ticker_screen_title"
+            android:summary="@string/ticker_screen_summary"
+            android:fragment="com.ancient.settings.fragments.Ticker" />
 
     </PreferenceCategory>
 
