@@ -97,11 +97,18 @@
             android:fragment="com.ancient.settings.fragments.FooterCarrierLabel" />
 
         <Preference
-            android:layout="@layout/ancient_cardpreference_bottom"
+            android:layout="@layout/ancient_cardpreference_middle"
             android:key="carrier_label_category"
             android:title="@string/carrier_label_title"
             android:summary="@string/carrier_label_summary"
             android:fragment="com.ancient.settings.fragments.CarrierLabel" />
+
+        <com.ancient.settings.preferences.SystemSettingSwitchPreference
+            android:layout="@layout/ancient_cardpreference_bottom"
+            android:key="status_bar_show_lyric"
+            android:title="@string/status_bar_show_lyric_title"
+            android:summary="@string/status_bar_show_lyric_summary"
+            android:defaultValue="false" />
     </PreferenceCategory>
 
     <PreferenceCategory

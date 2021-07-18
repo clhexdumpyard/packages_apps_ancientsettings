@@ -1705,4 +1705,8 @@
     <string name="ticker_animation_mode_scroll">Scroll</string>
     <string name="ticker_tick_duration_title">Ticker duration</string>
 
+    <!-- Status Bar Lyric -->
+    <string name="status_bar_show_lyric_title">Status bar lyric feature</string>
+    <string name="status_bar_show_lyric_summary">Show lyrics in status bar (requires app support and a SystemUI restart)</string>
+
 </resources>
