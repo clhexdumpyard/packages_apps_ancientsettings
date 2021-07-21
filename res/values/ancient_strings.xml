@@ -1704,5 +1704,11 @@
     <string name="ticker_animation_mode_alpha_fade">Fade</string>
     <string name="ticker_animation_mode_scroll">Scroll</string>
     <string name="ticker_tick_duration_title">Ticker duration</string>
+	
+    <!-- qs Panel Style -->
+    <string name="qs_panel_mode_tittle">Quick Setting Panel Style</string>
+    <string name="qs_panel_mode_def">Default ( Stock Like QS Panel )</string>
+    <string name="qs_panel_mode_anci">Ancient UI QS Panel Style</string>
+    <string name="qs_panel_mode_oos">OOS Like QS Panel Style</string>
 
 </resources>
