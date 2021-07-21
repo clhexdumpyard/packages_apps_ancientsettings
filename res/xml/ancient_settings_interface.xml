@@ -297,8 +297,7 @@
             android:key="ANCI_PANNELTOP_PAD"
             android:title="@string/tooltip_height_title"
             android:max="260"
-            android:min="70" 
-            android:dependency="QS_TO_STOCK"							 
+            android:min="70" 							 
             settings:min="0"
             android:defaultValue="170"
             settings:units="dp"
@@ -307,8 +306,7 @@
          <com.ancient.settings.preferences.SystemSettingSeekBarPreference
             android:key="ANCI_BI_CLOCK"
             android:title="@string/tooltip_style_title" 
-            android:max="110"
-            android:dependency="QS_TO_STOCK"							  
+            android:max="110"							  
             settings:min="0"
             android:defaultValue="90"
             settings:units="dp"
@@ -318,8 +316,7 @@
             android:key="ANCI_TOP_PAD"
             android:title="@string/topad_style_title"
             android:max="50"
-            settings:min="0"
-            android:dependency="QS_TO_STOCK"								  
+            settings:min="0"								  
             android:defaultValue="1"
             settings:units="dp"
             android:summary="@string/topad_style_summary" />
@@ -338,21 +335,21 @@
             android:persistent="false"
             android:entries="@array/qs_selector_entries"
             android:entryValues="@array/qs_selector_values" />
-
-	<com.ancient.settings.preferences.SystemSettingSwitchPreference
+	    
+	<com.ancient.settings.preferences.SystemSettingListPreference
             android:layout="@layout/ancient_cardpreference_middle"
-            android:key="QS_TO_STOCK"                             
+            android:key="QS_TO_STOCK"
+            android:title="@string/qs_panel_mode_tittle"
             android:defaultValue="0"
-            android:summary="@string/anci_enabler_sum"             
-            android:title="@string/anci_enabler_tittle"/> 
+            android:entries="@array/qs_panel_mode_entries"
+            android:entryValues="@array/qs_panel_mode_values"/>    
 	    
 	<com.ancient.settings.preferences.SystemSettingListPreference
 	    android:layout="@layout/ancient_cardpreference_middle"						       
             android:key="ANCIENT_UI_QSCLOCK_STYLE"
             android:title="@string/qs_expanded_ancientui_clock_style_tittle"
             android:entries="@array/qs_expanded_ancientui_clock_style_entries"
-            android:entryValues="@array/qs_expanded_ancientui_clock_style_values"
-	    android:dependency="QS_TO_STOCK" 							 
+            android:entryValues="@array/qs_expanded_ancientui_clock_style_values"		 
             android:defaultValue="0" />     
 	    
 	<com.ancient.settings.preferences.SystemSettingListPreference
@@ -360,8 +357,7 @@
             android:key="ANCIENT_UI_QQSCLOCK_GRAVITY"
             android:title="@string/qqs_expanded_ancientui_clock_gravity_tittle"
             android:entries="@array/jam_qspalsu_gravity_entries"
-            android:entryValues="@array/jam_qspalsu_gravity_values"
-	    android:dependency="QS_TO_STOCK" 							 
+            android:entryValues="@array/jam_qspalsu_gravity_values"			 
             android:defaultValue="0" />      
 	    
 	<com.ancient.settings.preferences.SystemSettingListPreference
@@ -369,8 +365,7 @@
             android:key="ANCIENT_UI_QSCLOCK_GRAVITY"
             android:title="@string/qs_expanded_ancientui_clock_gravity_tittle"
             android:entries="@array/jam_qspalsu_gravity_entries"
-            android:entryValues="@array/jam_qspalsu_gravity_values"
-	    android:dependency="QS_TO_STOCK" 							 
+            android:entryValues="@array/jam_qspalsu_gravity_values"				 
             android:defaultValue="0" />  
 	    
 	<ListPreference
