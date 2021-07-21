@@ -147,7 +147,7 @@ public class Interface extends DashboardFragment implements
     private SecureSettingSwitchPreference mMonetOnoff;
     private ListPreference mMonetPallete;
     private SystemSettingListPreference mFonterStyle;
-    private SystemSettingSwitchPreference mAncientuiOnoff;
+    private SystemSettingListPreference mAncientuiOnoff;
     private SystemSettingSwitchPreference mAnciHeadclockOnoff;
     private SystemSettingSeekBarPreference mAnciHeadSize;
     private SystemSettingListPreference mJamPalsu;
@@ -314,17 +314,23 @@ public class Interface extends DashboardFragment implements
         mJamPalsu.setSummary(mJamPalsu.getEntry());
         mJamPalsu.setOnPreferenceChangeListener(this);
 
-        mAncientuiOnoff = (SystemSettingSwitchPreference) findPreference(PREF_QS_TO_STOCK);
-        mAncientuiOnoff.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
-                "QS_TO_STOCK", 0) == 1));
+        mAncientuiOnoff = (SystemSettingListPreference) findPreference(PREF_QS_TO_STOCK);
+        int setAnciToStock = Settings.System.getIntForUser(getContentResolver(),
+                "QS_TO_STOCK", 0, UserHandle.USER_CURRENT);
+        int valueAnciToStock = mAncientuiOnoff.findIndexOfValue(String.valueOf(setAnciToStock));
+        mAncientuiOnoff.setValueIndex(valueAnciToStock >= 0 ? valueAnciToStock : 0);
+        mAncientuiOnoff.setSummary(mAncientuiOnoff.getEntry());
         int mAnciToStock = Settings.System.getInt(getActivity().getContentResolver(),
                 "QS_TO_STOCK", 0);
-        if (mAnciToStock == 0) {
+        if (mAnciToStock == 1) {
+	    mAnciHeadclockOnoff.setEnabled(false);
+	    mAnciHeadSize.setEnabled(false);
+	} else if (mAnciToStock == 2) {
 	    mAnciHeadclockOnoff.setEnabled(true);
 	    mAnciHeadSize.setEnabled(true);
         } else {
-            mAnciHeadclockOnoff.setEnabled(false);
-	    mAnciHeadSize.setEnabled(false);
+            mAnciHeadclockOnoff.setEnabled(true);
+	    mAnciHeadSize.setEnabled(true);
         }
         mAncientuiOnoff.setOnPreferenceChangeListener(this);
 
@@ -639,18 +645,22 @@ public class Interface extends DashboardFragment implements
             mJamPalsu.setSummary(mJamPalsu.getEntries()[setWarna]);
             return true;
 	} else if (preference == mAncientuiOnoff) {
-            boolean value = (Boolean) objValue;
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    "QS_TO_STOCK", value ? 1 : 0);
+            int setAnciToStock = Integer.valueOf((String) objValue);
+            Settings.System.putIntForUser(getContentResolver(),
+                    "QS_TO_STOCK", setAnciToStock, UserHandle.USER_CURRENT);
+            mAncientuiOnoff.setSummary(mAncientuiOnoff.getEntries()[setAnciToStock]);
 	    int mAnciToStock = Settings.System.getInt(getActivity().getContentResolver(),
                 "QS_TO_STOCK", 0);
-	    if (mAnciToStock == 0) {
-		mAnciHeadclockOnoff.setEnabled(true);
-		mAnciHeadSize.setEnabled(true);
-	    } else {
-		mAnciHeadclockOnoff.setEnabled(false);
-		mAnciHeadSize.setEnabled(false);
-	    }
+	    if (mAnciToStock == 1) {
+	       mAnciHeadclockOnoff.setEnabled(false);
+	       mAnciHeadSize.setEnabled(false);
+	    } else if (mAnciToStock == 2) {
+	       mAnciHeadclockOnoff.setEnabled(true);
+	       mAnciHeadSize.setEnabled(true);
+            } else {
+               mAnciHeadclockOnoff.setEnabled(true);
+	       mAnciHeadSize.setEnabled(true);
+            }
             return true;
 	} else if (preference == mAncientCollapsedOnoff) {
             try {
