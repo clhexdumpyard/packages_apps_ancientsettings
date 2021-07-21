@@ -1991,5 +1991,18 @@
         <item>0</item>
         <item>1</item>
     </string-array>
+	
+    <!-- qs Panel Style -->
+    <string-array name="qs_panel_mode_entries">
+        <item>@string/qs_panel_mode_def</item>
+        <item>@string/qs_panel_mode_anci</item>
+        <item>@string/qs_panel_mode_oos</item>
+    </string-array>
+
+    <string-array name="qs_panel_mode_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>	
 
 </resources>
