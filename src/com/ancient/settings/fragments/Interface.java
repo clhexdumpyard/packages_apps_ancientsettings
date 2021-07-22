@@ -124,7 +124,11 @@ public class Interface extends DashboardFragment implements
     private static final String PREF_ANCI_PANNELTOP_PAD = "ANCI_PANNELTOP_PAD";
     private static final String PREF_ANCI_BI_CLOCK = "ANCI_BI_CLOCK";
     private static final String PREF_ANCI_TOP_PAD = "ANCI_TOP_PAD";
-
+    private static final String PREF_ANCIENT_UI_QSCLOCK_STYLE = "ANCIENT_UI_QSCLOCK_STYLE";
+    private static final String PREF_ANCIENT_UI_QQSCLOCK_GRAVITY = "ANCIENT_UI_QQSCLOCK_GRAVITY";
+    private static final String PREF_ANCIENT_UI_QSCLOCK_GRAVITY = "ANCIENT_UI_QSCLOCK_GRAVITY";
+    private static final String PREF_JAM_HEADER_SIZE = "JAM_HEADER_SIZE";
+	
     private IOverlayManager mOverlayService;
     private UiModeManager mUiModeManager;
 
@@ -158,6 +162,10 @@ public class Interface extends DashboardFragment implements
     private SystemSettingSeekBarPreference mPanneltop;
     private SystemSettingSeekBarPreference mBi;	
     private SystemSettingSeekBarPreference mTopad;
+    private SystemSettingListPreference mAncUIa;
+    private SystemSettingListPreference mAncUIb;
+    private SystemSettingListPreference mAncUIc;
+    private SystemSettingListPreference mAncUId;
 	
     private static final int VIBRANT = 0;
     private static final int LIGHT_VIBRANT = 1;
@@ -352,6 +360,38 @@ public class Interface extends DashboardFragment implements
         mJamhedgrav.setSummary(mJamhedgrav.getEntry());
         mJamhedgrav.setOnPreferenceChangeListener(this); 
 	    
+	mAncUIa = (SystemSettingListPreference) findPreference("ANCIENT_UI_QSCLOCK_STYLE");
+        int sbAncUIaStyle = Settings.System.getIntForUser(getContentResolver(),
+                "ANCIENT_UI_QSCLOCK_STYLE", 0, UserHandle.USER_CURRENT);
+        int valueIndexAncUIa = mAncUIa.findIndexOfValue(String.valueOf(sbAncUIaStyle));
+        mAncUIa.setValueIndex(valueIndexAncUIa >= 0 ? valueIndexAncUIa : 0);
+        mAncUIa.setSummary(mAncUIa.getEntry());
+        mAncUIa.setOnPreferenceChangeListener(this);
+		
+	mAncUIb = (SystemSettingListPreference) findPreference("ANCIENT_UI_QQSCLOCK_GRAVITY");
+        int sbAncUIbStyle = Settings.System.getIntForUser(getContentResolver(),
+                "ANCIENT_UI_QQSCLOCK_GRAVITY", 0, UserHandle.USER_CURRENT);
+        int valueIndexAncUIb = mAncUIb.findIndexOfValue(String.valueOf(sbAncUIbStyle));
+        mAncUIb.setValueIndex(valueIndexAncUIb >= 0 ? valueIndexAncUIb : 0);
+        mAncUIb.setSummary(mAncUIb.getEntry());
+        mAncUIb.setOnPreferenceChangeListener(this);
+		
+	mAncUIc = (SystemSettingListPreference) findPreference("ANCIENT_UI_QSCLOCK_GRAVITY");
+        int sbAncUIcStyle = Settings.System.getIntForUser(getContentResolver(),
+                "ANCIENT_UI_QSCLOCK_GRAVITY", 0, UserHandle.USER_CURRENT);
+        int valueIndexAncUIc = mAncUIc.findIndexOfValue(String.valueOf(sbAncUIcStyle));
+        mAncUIc.setValueIndex(valueIndexAncUIc >= 0 ? valueIndexAncUIc : 0);
+        mAncUIc.setSummary(mAncUIc.getEntry());
+        mAncUIc.setOnPreferenceChangeListener(this);   
+	    
+	mAncUId = (SystemSettingListPreference) findPreference("JAM_HEADER_SIZE");
+        int sbAncUIdStyle = Settings.System.getIntForUser(getContentResolver(),
+                "JAM_HEADER_SIZE", 0, UserHandle.USER_CURRENT);
+        int valueIndexAncUId = mAncUId.findIndexOfValue(String.valueOf(sbAncUIdStyle));
+        mAncUId.setValueIndex(valueIndexAncUId >= 0 ? valueIndexAncUId : 0);
+        mAncUId.setSummary(mAncUId.getEntry());
+        mAncUId.setOnPreferenceChangeListener(this);      
+	    
 	mAncientuiOnoff = (SystemSettingListPreference) findPreference(PREF_QS_TO_STOCK);
         int setAnciToStock = Settings.System.getIntForUser(getContentResolver(),
                 "QS_TO_STOCK", 0, UserHandle.USER_CURRENT);
@@ -367,6 +407,11 @@ public class Interface extends DashboardFragment implements
 	    mPanneltop.setEnabled(true);
     	    mBi.setEnabled(true);
     	    mTopad.setEnabled(true);
+	    mAncUIa.setEnabled(true);
+            mAncUIb.setEnabled(true);
+            mAncUIc.setEnabled(true);
+	    mAncUId.setEnabled(false);
+	    mJamPalsu.setEnabled(false);  
 	} else if (mAnciToStock == 2) {
 	    mAnciHeadclockOnoff.setEnabled(true);
 	    mAnciHeadSize.setEnabled(true);
@@ -374,6 +419,11 @@ public class Interface extends DashboardFragment implements
 	    mPanneltop.setEnabled(false);
     	    mBi.setEnabled(false);
     	    mTopad.setEnabled(false);
+	    mAncUIa.setEnabled(false);
+            mAncUIb.setEnabled(false);
+            mAncUIc.setEnabled(false);	
+	    mJamPalsu.setEnabled(false); 
+	    mAncUId.setEnabled(false);
         } else {
             mAnciHeadclockOnoff.setEnabled(true);
 	    mAnciHeadSize.setEnabled(true);
@@ -381,6 +431,9 @@ public class Interface extends DashboardFragment implements
 	    mPanneltop.setEnabled(false);
     	    mBi.setEnabled(false);
     	    mTopad.setEnabled(false);
+	    mAncUIa.setEnabled(false);
+            mAncUIb.setEnabled(false);
+            mAncUIc.setEnabled(false);	
         }
         mAncientuiOnoff.setOnPreferenceChangeListener(this);    
     }
@@ -671,6 +724,30 @@ public class Interface extends DashboardFragment implements
             return true;
 	} else if (preference == mTopad) {
             return true;
+	} else if (preference == mAncUIa) {
+            int anAncUIaStyle = Integer.valueOf((String) objValue);
+            Settings.System.putIntForUser(getContentResolver(),
+                    "ANCIENT_UI_QSCLOCK_STYLE", anAncUIaStyle, UserHandle.USER_CURRENT);
+            mAncUIa.setSummary(mAncUIa.getEntries()[anAncUIaStyle]);
+            return true;
+	} else if (preference == mAncUIb) {
+            int anAncUIbStyle = Integer.valueOf((String) objValue);
+            Settings.System.putIntForUser(getContentResolver(),
+                    "ANCIENT_UI_QQSCLOCK_GRAVITY", anAncUIbStyle, UserHandle.USER_CURRENT);
+            mAncUIb.setSummary(mAncUIb.getEntries()[anAncUIbStyle]);
+            return true;
+	} else if (preference == mAncUIc) {
+            int anAncUIcStyle = Integer.valueOf((String) objValue);
+            Settings.System.putIntForUser(getContentResolver(),
+                    "ANCIENT_UI_QSCLOCK_GRAVITY", anAncUIcStyle, UserHandle.USER_CURRENT);
+            mAncUIc.setSummary(mAncUIc.getEntries()[anAncUIcStyle]);
+            return true;
+        } else if (preference == mAncUId) {
+            int anAncUIdStyle = Integer.valueOf((String) objValue);
+            Settings.System.putIntForUser(getContentResolver(),
+                    "JAM_HEADER_SIZE", anAncUIdStyle, UserHandle.USER_CURRENT);
+            mAncUId.setSummary(mAncUIc.getEntries()[anAncUIdStyle]);
+            return true;
 	} else if (preference == mJamPalsu) {
             int setWarna = Integer.valueOf((String) objValue);
             Settings.System.putIntForUser(getContentResolver(),
@@ -719,6 +796,11 @@ public class Interface extends DashboardFragment implements
 	       mPanneltop.setEnabled(true);
     	       mBi.setEnabled(true);
     	       mTopad.setEnabled(true);
+		mAncUIa.setEnabled(true);
+               mAncUIb.setEnabled(true);
+               mAncUIc.setEnabled(true);
+		mJamPalsu.setEnabled(false);   
+		mAncUId.setEnabled(false);    
 	    } else if (mAnciToStock == 2) {
 	       mAnciHeadclockOnoff.setEnabled(true);
 	       mAnciHeadSize.setEnabled(true);
@@ -726,6 +808,11 @@ public class Interface extends DashboardFragment implements
 	       mPanneltop.setEnabled(false);
     	       mBi.setEnabled(false);
     	       mTopad.setEnabled(false);
+		mAncUIa.setEnabled(false);
+               mAncUIb.setEnabled(false);
+               mAncUIc.setEnabled(false);
+		mJamPalsu.setEnabled(false); 
+		mAncUId.setEnabled(false);  
             } else {
                mAnciHeadclockOnoff.setEnabled(true);
 	       mAnciHeadSize.setEnabled(true);
@@ -733,6 +820,9 @@ public class Interface extends DashboardFragment implements
 	       mPanneltop.setEnabled(false);
     	       mBi.setEnabled(false);
     	       mTopad.setEnabled(false);
+		mAncUIa.setEnabled(false);
+               mAncUIb.setEnabled(false);
+               mAncUIc.setEnabled(false);	    
             }
             return true;	
         }
