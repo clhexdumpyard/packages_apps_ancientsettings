@@ -204,8 +204,8 @@ public class Notifications extends SettingsPreferenceFragment
         mRetickera = (SystemSettingSwitchPreference) findPreference(PREF_RETICKER_STATUS);
         mRetickera.setOnPreferenceChangeListener(this);
         
-        mRetickera = (SystemSettingSwitchPreference) findPreference(PREF_RETICKER_COLORED);
-        mRetickera.setOnPreferenceChangeListener(this);    
+        mRetickerb = (SystemSettingSwitchPreference) findPreference(PREF_RETICKER_COLORED);
+        mRetickerb.setOnPreferenceChangeListener(this);    
 
     }
 
