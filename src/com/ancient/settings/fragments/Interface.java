@@ -824,7 +824,9 @@ public class Interface extends DashboardFragment implements
     	       mTopad.setEnabled(false);
 		mAncUIa.setEnabled(false);
                mAncUIb.setEnabled(false);
-               mAncUIc.setEnabled(false);	    
+               mAncUIc.setEnabled(false);
+		mJamPalsu.setEnabled(true); 
+	        mAncUId.setEnabled(true);    
             }
             return true;	
         }
