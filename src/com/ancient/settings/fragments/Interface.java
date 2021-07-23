@@ -804,7 +804,7 @@ public class Interface extends DashboardFragment implements
 		mJamPalsu.setEnabled(false);   
 		mAncUId.setEnabled(false);    
 	    } else if (mAnciToStock == 2) {
-	       mAnciHeadclockOnoff.setEnabled(true);
+	       mAnciHeadclockOnoff.setEnabled(false);
 	       mAnciHeadSize.setEnabled(true);
 	       mJamhedgrav.setEnabled(false);
 	       mPanneltop.setEnabled(false);
