@@ -75,6 +75,8 @@ public class Notifications extends SettingsPreferenceFragment
     private static final String HEADER_ICONS_STYLE = "HEADER_ICONS_STYLE";
     private static final String STATUSBAR_ICONS_STYLE = "STATUSBAR_ICONS_STYLE";
     private static final String PREF_NOTIFICATION_HEADERTEXT_COLOR = "NOTIFICATION_HEADERTEXT_COLOR";
+    private static final String PREF_RETICKER_STATUS = "reticker_status";
+    private static final String PREF_RETICKER_COLORED = "reticker_colored";
 
     private IOverlayManager mOverlayService;
 
@@ -90,7 +92,9 @@ public class Notifications extends SettingsPreferenceFragment
     private SystemSettingSwitchPreference mHeaderIcon;
     private SystemSettingSwitchPreference mStatusbarIcon;
     private SystemSettingListPreference mHeaderTextColorCustom;
-
+    private SystemSettingSwitchPreference mRetickera;
+    private SystemSettingSwitchPreference mRetickerb;
+    
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -196,6 +200,13 @@ public class Notifications extends SettingsPreferenceFragment
             mEdgeLightColorPreference.setSummary(edgeLightColorHex);
         }
         mEdgeLightColorPreference.setOnPreferenceChangeListener(this);
+        
+        mRetickera = (SystemSettingSwitchPreference) findPreference(PREF_RETICKER_STATUS);
+        mRetickera.setOnPreferenceChangeListener(this);
+        
+        mRetickera = (SystemSettingSwitchPreference) findPreference(PREF_RETICKER_COLORED);
+        mRetickera.setOnPreferenceChangeListener(this);    
+
     }
 
     @Override
@@ -282,6 +293,18 @@ public class Notifications extends SettingsPreferenceFragment
             Settings.System.putInt(resolver,
                     Settings.System.NOTIFICATION_MATERIAL_DISMISS, value ? 1 : 0);
             return true;
+        } else if (preference == mRetickera) {
+            try {
+                 mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
+             } catch (RemoteException ignored) {
+             }
+            return true;    
+        } else if (preference == mRetickerb) {
+            try {
+                 mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
+             } catch (RemoteException ignored) {
+             }
+            return true;        
         }
         return false;
     }
