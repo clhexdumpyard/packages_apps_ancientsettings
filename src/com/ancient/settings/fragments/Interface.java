@@ -413,7 +413,7 @@ public class Interface extends DashboardFragment implements
 	    mAncUId.setEnabled(false);
 	    mJamPalsu.setEnabled(false);  
 	} else if (mAnciToStock == 2) {
-	    mAnciHeadclockOnoff.setEnabled(true);
+	    mAnciHeadclockOnoff.setEnabled(false);
 	    mAnciHeadSize.setEnabled(true);
 	    mJamhedgrav.setEnabled(false);
 	    mPanneltop.setEnabled(false);
@@ -434,6 +434,8 @@ public class Interface extends DashboardFragment implements
 	    mAncUIa.setEnabled(false);
             mAncUIb.setEnabled(false);
             mAncUIc.setEnabled(false);	
+	    mJamPalsu.setEnabled(true); 
+	    mAncUId.setEnabled(true);
         }
         mAncientuiOnoff.setOnPreferenceChangeListener(this);    
     }
