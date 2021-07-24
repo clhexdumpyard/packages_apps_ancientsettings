@@ -1713,5 +1713,9 @@
     <string name="qs_panel_mode_def">Default ( Stock Like QS Panel )</string>
     <string name="qs_panel_mode_anci">Ancient UI QS Panel Style</string>
     <string name="qs_panel_mode_oos">OOS Like QS Panel Style</string>
+	
+	<!-- qs datanet -->
+    <string name="qs_panel_datanet_tittle">DataNet Content</string>
+    <string name="qs_panel_data_sum">switch off when use OOS like panel</string>
 
 </resources>
