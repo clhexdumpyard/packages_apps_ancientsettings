@@ -1423,6 +1423,7 @@
     <string name="anci_staticon_style14">Satelite</string>
     <string name="anci_staticon_style15">Line</string>
     <string name="anci_staticon_style16">Leaf</string>
+    <string name="anci_staticon_style17">NiceBar X</string>
 
     <!-- shape icon -->
     <string name="anci_shapeicon_title">Icon Shape</string>
