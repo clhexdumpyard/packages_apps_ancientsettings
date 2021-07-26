@@ -233,11 +233,11 @@
             android:entries="@array/nav_entries"
             android:entryValues="@array/nav_values" /> 
 
-         <ListPreference
+         <com.ancient.settings.preferences.SystemSettingListPreference
             android:layout="@layout/ancient_cardpreference_middle"
-            android:key="brightness_style"
+            android:key="AncientBrightnessStyle"
             android:title="@string/brightn_style_title"
-            android:persistent="false"
+            android:defaultValue="0"
             android:entries="@array/brightn_entries"
             android:entryValues="@array/brightn_values" /> 
 
