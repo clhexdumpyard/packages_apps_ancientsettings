@@ -1230,7 +1230,9 @@
         <item>@string/statusbar_dual_style_8</item>
         <item>@string/statusbar_dual_style_9</item> 
         <item>@string/statusbar_dual_style_11</item>   
-	<item>@string/statusbar_dual_style_12</item>      
+	<item>@string/statusbar_dual_style_12</item>
+        <item>@string/statusbar_dual_style_13</item>   
+	<item>@string/statusbar_dual_style_14</item>      
     </string-array>
 
     <string-array name="statusbar_dual_style_values" translatable="false">
@@ -1247,6 +1249,8 @@
         <item>10</item> 
         <item>11</item>  
 	<item>12</item>   
+        <item>13</item>  
+	<item>14</item>   
     </string-array>
 
     <!-- Collapsestyle type -->
