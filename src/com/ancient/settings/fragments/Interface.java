@@ -66,7 +66,6 @@ import com.ancient.settings.display.SbHeightStylePreferenceController;
 import com.ancient.settings.display.SbNavStylePreferenceController;
 import com.ancient.settings.display.AnSwitchStylePreferenceController;
 import com.ancient.settings.display.AnAclockStylePreferenceController;
-import com.ancient.settings.display.SbBrightnStylePreferenceController;
 import com.ancient.settings.display.SbQsbgStylePreferenceController;
 import com.ancient.settings.display.SbPaddingStylePreferenceController;
 import com.ancient.settings.preferences.SystemSettingListPreference;
@@ -121,7 +120,14 @@ public class Interface extends DashboardFragment implements
     private static final String PREF_ANCI_HEADER_HEIGHT = "ANCI_HEADER_HEIGHT";
     private static final String PREF_QS_CLOCK_WARNA = "QS_CLOCK_WARNA";
     private static final String PREF_JAM_HEADER_GRAVITY = "JAM_HEADER_GRAVITY";
-
+    private static final String PREF_ANCI_PANNELTOP_PAD = "ANCI_PANNELTOP_PAD";
+    private static final String PREF_ANCI_BI_CLOCK = "ANCI_BI_CLOCK";
+    private static final String PREF_ANCI_TOP_PAD = "ANCI_TOP_PAD";
+    private static final String PREF_ANCIENT_UI_QSCLOCK_STYLE = "ANCIENT_UI_QSCLOCK_STYLE";
+    private static final String PREF_ANCIENT_UI_QQSCLOCK_GRAVITY = "ANCIENT_UI_QQSCLOCK_GRAVITY";
+    private static final String PREF_ANCIENT_UI_QSCLOCK_GRAVITY = "ANCIENT_UI_QSCLOCK_GRAVITY";
+    private static final String PREF_JAM_HEADER_SIZE = "JAM_HEADER_SIZE";
+	
     private IOverlayManager mOverlayService;
     private UiModeManager mUiModeManager;
 
@@ -147,11 +153,18 @@ public class Interface extends DashboardFragment implements
     private SecureSettingSwitchPreference mMonetOnoff;
     private ListPreference mMonetPallete;
     private SystemSettingListPreference mFonterStyle;
-    private SystemSettingSwitchPreference mAncientuiOnoff;
+    private SystemSettingListPreference mAncientuiOnoff;
     private SystemSettingSwitchPreference mAnciHeadclockOnoff;
     private SystemSettingSeekBarPreference mAnciHeadSize;
     private SystemSettingListPreference mJamPalsu;
     private SystemSettingListPreference mJamhedgrav;
+    private SystemSettingSeekBarPreference mPanneltop;
+    private SystemSettingSeekBarPreference mBi;	
+    private SystemSettingSeekBarPreference mTopad;
+    private SystemSettingListPreference mAncUIa;
+    private SystemSettingListPreference mAncUIb;
+    private SystemSettingListPreference mAncUIc;
+    private SystemSettingListPreference mAncUId;
 	
     private static final int VIBRANT = 0;
     private static final int LIGHT_VIBRANT = 1;
@@ -305,6 +318,15 @@ public class Interface extends DashboardFragment implements
 
         mAnciHeadSize = (SystemSettingSeekBarPreference) findPreference(PREF_ANCI_HEADER_HEIGHT);
         mAnciHeadSize.setOnPreferenceChangeListener(this);
+	    
+	mPanneltop = (SystemSettingSeekBarPreference) findPreference(PREF_ANCI_PANNELTOP_PAD);
+        mPanneltop.setOnPreferenceChangeListener(this);
+	
+	mBi = (SystemSettingSeekBarPreference) findPreference(PREF_ANCI_BI_CLOCK);
+        mBi.setOnPreferenceChangeListener(this);
+	
+	mTopad = (SystemSettingSeekBarPreference) findPreference(PREF_ANCI_TOP_PAD);
+        mTopad.setOnPreferenceChangeListener(this);    
 
         mJamPalsu = (SystemSettingListPreference) findPreference(PREF_QS_CLOCK_WARNA);
         int setWarna = Settings.System.getIntForUser(getContentResolver(),
@@ -313,20 +335,6 @@ public class Interface extends DashboardFragment implements
         mJamPalsu.setValueIndex(valueIndexWarna >= 0 ? valueIndexWarna : 0);
         mJamPalsu.setSummary(mJamPalsu.getEntry());
         mJamPalsu.setOnPreferenceChangeListener(this);
-
-        mAncientuiOnoff = (SystemSettingSwitchPreference) findPreference(PREF_QS_TO_STOCK);
-        mAncientuiOnoff.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
-                "QS_TO_STOCK", 0) == 1));
-        int mAnciToStock = Settings.System.getInt(getActivity().getContentResolver(),
-                "QS_TO_STOCK", 0);
-        if (mAnciToStock == 0) {
-	    mAnciHeadclockOnoff.setEnabled(true);
-	    mAnciHeadSize.setEnabled(true);
-        } else {
-            mAnciHeadclockOnoff.setEnabled(false);
-	    mAnciHeadSize.setEnabled(false);
-        }
-        mAncientuiOnoff.setOnPreferenceChangeListener(this);
 
 	mAncientCollapsedOnoff = (SystemSettingSwitchPreference) findPreference("collapseonoff");
         mAncientCollapsedOnoff.setOnPreferenceChangeListener(this);
@@ -350,6 +358,85 @@ public class Interface extends DashboardFragment implements
         mJamhedgrav.setValueIndex(jamhedgrava >= 0 ? jamhedgrava : 0);
         mJamhedgrav.setSummary(mJamhedgrav.getEntry());
         mJamhedgrav.setOnPreferenceChangeListener(this); 
+	    
+	mAncUIa = (SystemSettingListPreference) findPreference("ANCIENT_UI_QSCLOCK_STYLE");
+        int sbAncUIaStyle = Settings.System.getIntForUser(getContentResolver(),
+                "ANCIENT_UI_QSCLOCK_STYLE", 0, UserHandle.USER_CURRENT);
+        int valueIndexAncUIa = mAncUIa.findIndexOfValue(String.valueOf(sbAncUIaStyle));
+        mAncUIa.setValueIndex(valueIndexAncUIa >= 0 ? valueIndexAncUIa : 0);
+        mAncUIa.setSummary(mAncUIa.getEntry());
+        mAncUIa.setOnPreferenceChangeListener(this);
+		
+	mAncUIb = (SystemSettingListPreference) findPreference("ANCIENT_UI_QQSCLOCK_GRAVITY");
+        int sbAncUIbStyle = Settings.System.getIntForUser(getContentResolver(),
+                "ANCIENT_UI_QQSCLOCK_GRAVITY", 0, UserHandle.USER_CURRENT);
+        int valueIndexAncUIb = mAncUIb.findIndexOfValue(String.valueOf(sbAncUIbStyle));
+        mAncUIb.setValueIndex(valueIndexAncUIb >= 0 ? valueIndexAncUIb : 0);
+        mAncUIb.setSummary(mAncUIb.getEntry());
+        mAncUIb.setOnPreferenceChangeListener(this);
+		
+	mAncUIc = (SystemSettingListPreference) findPreference("ANCIENT_UI_QSCLOCK_GRAVITY");
+        int sbAncUIcStyle = Settings.System.getIntForUser(getContentResolver(),
+                "ANCIENT_UI_QSCLOCK_GRAVITY", 0, UserHandle.USER_CURRENT);
+        int valueIndexAncUIc = mAncUIc.findIndexOfValue(String.valueOf(sbAncUIcStyle));
+        mAncUIc.setValueIndex(valueIndexAncUIc >= 0 ? valueIndexAncUIc : 0);
+        mAncUIc.setSummary(mAncUIc.getEntry());
+        mAncUIc.setOnPreferenceChangeListener(this);   
+	    
+	mAncUId = (SystemSettingListPreference) findPreference("JAM_HEADER_SIZE");
+        int sbAncUIdStyle = Settings.System.getIntForUser(getContentResolver(),
+                "JAM_HEADER_SIZE", 0, UserHandle.USER_CURRENT);
+        int valueIndexAncUId = mAncUId.findIndexOfValue(String.valueOf(sbAncUIdStyle));
+        mAncUId.setValueIndex(valueIndexAncUId >= 0 ? valueIndexAncUId : 0);
+        mAncUId.setSummary(mAncUId.getEntry());
+        mAncUId.setOnPreferenceChangeListener(this);      
+	    
+	mAncientuiOnoff = (SystemSettingListPreference) findPreference(PREF_QS_TO_STOCK);
+        int setAnciToStock = Settings.System.getIntForUser(getContentResolver(),
+                "QS_TO_STOCK", 0, UserHandle.USER_CURRENT);
+        int valueAnciToStock = mAncientuiOnoff.findIndexOfValue(String.valueOf(setAnciToStock));
+        mAncientuiOnoff.setValueIndex(valueAnciToStock >= 0 ? valueAnciToStock : 0);
+        mAncientuiOnoff.setSummary(mAncientuiOnoff.getEntry());
+        int mAnciToStock = Settings.System.getInt(getActivity().getContentResolver(),
+                "QS_TO_STOCK", 0);
+        if (mAnciToStock == 1) {
+	    mAnciHeadclockOnoff.setEnabled(false);
+	    mAnciHeadSize.setEnabled(false);
+	    mJamhedgrav.setEnabled(false);
+	    mPanneltop.setEnabled(true);
+    	    mBi.setEnabled(true);
+    	    mTopad.setEnabled(true);
+	    mAncUIa.setEnabled(true);
+            mAncUIb.setEnabled(true);
+            mAncUIc.setEnabled(true);
+	    mAncUId.setEnabled(false);
+	    mJamPalsu.setEnabled(false);  
+	} else if (mAnciToStock == 2) {
+	    mAnciHeadclockOnoff.setEnabled(false);
+	    mAnciHeadSize.setEnabled(true);
+	    mJamhedgrav.setEnabled(false);
+	    mPanneltop.setEnabled(false);
+    	    mBi.setEnabled(false);
+    	    mTopad.setEnabled(false);
+	    mAncUIa.setEnabled(false);
+            mAncUIb.setEnabled(false);
+            mAncUIc.setEnabled(false);	
+	    mJamPalsu.setEnabled(false); 
+	    mAncUId.setEnabled(false);
+        } else {
+            mAnciHeadclockOnoff.setEnabled(true);
+	    mAnciHeadSize.setEnabled(true);
+	    mJamhedgrav.setEnabled(true);
+	    mPanneltop.setEnabled(false);
+    	    mBi.setEnabled(false);
+    	    mTopad.setEnabled(false);
+	    mAncUIa.setEnabled(false);
+            mAncUIb.setEnabled(false);
+            mAncUIc.setEnabled(false);	
+	    mJamPalsu.setEnabled(true); 
+	    mAncUId.setEnabled(true);
+        }
+        mAncientuiOnoff.setOnPreferenceChangeListener(this);    
     }
 
     @Override
@@ -365,7 +452,7 @@ public class Interface extends DashboardFragment implements
         controllers.add(new SbNavStylePreferenceController(context));
         controllers.add(new AnSwitchStylePreferenceController(context));
         controllers.add(new AnAclockStylePreferenceController(context));
-        controllers.add(new SbBrightnStylePreferenceController(context));
+        //controllers.add(new SbBrightnStylePreferenceController(context));
         controllers.add(new SbQsbgStylePreferenceController(context));
         return controllers;
     }
@@ -632,25 +719,41 @@ public class Interface extends DashboardFragment implements
             return true;
 	} else if (preference == mAnciHeadSize) {
             return true;
+	} else if (preference == mPanneltop) {
+            return true;
+	} else if (preference == mBi) {
+            return true;
+	} else if (preference == mTopad) {
+            return true;
+	} else if (preference == mAncUIa) {
+            int anAncUIaStyle = Integer.valueOf((String) objValue);
+            Settings.System.putIntForUser(getContentResolver(),
+                    "ANCIENT_UI_QSCLOCK_STYLE", anAncUIaStyle, UserHandle.USER_CURRENT);
+            mAncUIa.setSummary(mAncUIa.getEntries()[anAncUIaStyle]);
+            return true;
+	} else if (preference == mAncUIb) {
+            int anAncUIbStyle = Integer.valueOf((String) objValue);
+            Settings.System.putIntForUser(getContentResolver(),
+                    "ANCIENT_UI_QQSCLOCK_GRAVITY", anAncUIbStyle, UserHandle.USER_CURRENT);
+            mAncUIb.setSummary(mAncUIb.getEntries()[anAncUIbStyle]);
+            return true;
+	} else if (preference == mAncUIc) {
+            int anAncUIcStyle = Integer.valueOf((String) objValue);
+            Settings.System.putIntForUser(getContentResolver(),
+                    "ANCIENT_UI_QSCLOCK_GRAVITY", anAncUIcStyle, UserHandle.USER_CURRENT);
+            mAncUIc.setSummary(mAncUIc.getEntries()[anAncUIcStyle]);
+            return true;
+        } else if (preference == mAncUId) {
+            int anAncUIdStyle = Integer.valueOf((String) objValue);
+            Settings.System.putIntForUser(getContentResolver(),
+                    "JAM_HEADER_SIZE", anAncUIdStyle, UserHandle.USER_CURRENT);
+            mAncUId.setSummary(mAncUIc.getEntries()[anAncUIdStyle]);
+            return true;
 	} else if (preference == mJamPalsu) {
             int setWarna = Integer.valueOf((String) objValue);
             Settings.System.putIntForUser(getContentResolver(),
                     "QS_CLOCK_WARNA", setWarna, UserHandle.USER_CURRENT);
             mJamPalsu.setSummary(mJamPalsu.getEntries()[setWarna]);
-            return true;
-	} else if (preference == mAncientuiOnoff) {
-            boolean value = (Boolean) objValue;
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    "QS_TO_STOCK", value ? 1 : 0);
-	    int mAnciToStock = Settings.System.getInt(getActivity().getContentResolver(),
-                "QS_TO_STOCK", 0);
-	    if (mAnciToStock == 0) {
-		mAnciHeadclockOnoff.setEnabled(true);
-		mAnciHeadSize.setEnabled(true);
-	    } else {
-		mAnciHeadclockOnoff.setEnabled(false);
-		mAnciHeadSize.setEnabled(false);
-	    }
             return true;
 	} else if (preference == mAncientCollapsedOnoff) {
             try {
@@ -680,6 +783,51 @@ public class Interface extends DashboardFragment implements
                     "JAM_HEADER_GRAVITY", jamhedgrav, UserHandle.USER_CURRENT);
             mJamhedgrav.setSummary(mJamhedgrav.getEntries()[jamhedgrav]);
             return true;
+	} else if (preference == mAncientuiOnoff) {
+            int setAnciToStock = Integer.valueOf((String) objValue);
+            Settings.System.putIntForUser(getContentResolver(),
+                    "QS_TO_STOCK", setAnciToStock, UserHandle.USER_CURRENT);
+            mAncientuiOnoff.setSummary(mAncientuiOnoff.getEntries()[setAnciToStock]);
+	    int mAnciToStock = Settings.System.getInt(getActivity().getContentResolver(),
+                "QS_TO_STOCK", 0);
+	    if (mAnciToStock == 1) {
+	       mAnciHeadclockOnoff.setEnabled(false);
+	       mAnciHeadSize.setEnabled(false);
+	       mJamhedgrav.setEnabled(false);
+	       mPanneltop.setEnabled(true);
+    	       mBi.setEnabled(true);
+    	       mTopad.setEnabled(true);
+		mAncUIa.setEnabled(true);
+               mAncUIb.setEnabled(true);
+               mAncUIc.setEnabled(true);
+		mJamPalsu.setEnabled(false);   
+		mAncUId.setEnabled(false);    
+	    } else if (mAnciToStock == 2) {
+	       mAnciHeadclockOnoff.setEnabled(false);
+	       mAnciHeadSize.setEnabled(true);
+	       mJamhedgrav.setEnabled(false);
+	       mPanneltop.setEnabled(false);
+    	       mBi.setEnabled(false);
+    	       mTopad.setEnabled(false);
+		mAncUIa.setEnabled(false);
+               mAncUIb.setEnabled(false);
+               mAncUIc.setEnabled(false);
+		mJamPalsu.setEnabled(false); 
+		mAncUId.setEnabled(false);  
+            } else {
+               mAnciHeadclockOnoff.setEnabled(true);
+	       mAnciHeadSize.setEnabled(true);
+	       mJamhedgrav.setEnabled(true);
+	       mPanneltop.setEnabled(false);
+    	       mBi.setEnabled(false);
+    	       mTopad.setEnabled(false);
+		mAncUIa.setEnabled(false);
+               mAncUIb.setEnabled(false);
+               mAncUIc.setEnabled(false);
+		mJamPalsu.setEnabled(true); 
+	        mAncUId.setEnabled(true);    
+            }
+            return true;	
         }
         return false;
     }

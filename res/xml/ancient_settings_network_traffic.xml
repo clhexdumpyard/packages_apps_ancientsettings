@@ -48,5 +48,11 @@
         android:title="@string/network_traffic_arrow"
         android:summary="@string/network_traffic_arrow_summary"
         android:defaultValue="false" />
+     
+     <com.ancient.settings.preferences.SystemSettingSwitchPreference
+        android:key="HIDER_DATA_NET_EXPANDED"
+        android:title="@string/qs_panel_datanet_tittle"
+        android:summary="@string/qs_panel_data_sum"
+        android:defaultValue="true" />
 
 </PreferenceScreen>
