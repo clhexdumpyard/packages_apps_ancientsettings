@@ -858,6 +858,7 @@
         <item>@string/switch_md2</item>
         <item>@string/switch_retro</item>
         <item>@string/switch_telegram</item>
+        <item>@string/switch_stockish</item>
         <item>@string/switch_square</item>
         <item>@string/switch_android_s</item>
     </string-array>
@@ -872,6 +873,7 @@
         <item>6</item>
         <item>7</item>
         <item>8</item>
+        <item>9</item>
     </string-array> 
 
     <!-- Toast Animation -->
