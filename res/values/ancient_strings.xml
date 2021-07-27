@@ -915,6 +915,7 @@
     <string name="switch_retro">Retro</string>
     <string name="switch_telegram">Telegram</string>
     <string name="switch_square">Square</string>
+    <string name="switch_android_s">Android S</string>
 
     <!-- AOKP custom system animations -->
     <string name="animation_settings_title">Animations</string>
