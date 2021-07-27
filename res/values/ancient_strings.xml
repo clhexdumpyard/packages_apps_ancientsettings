@@ -1185,8 +1185,7 @@
     <!-- qsbg styles -->
     <string name="qsbg_style_title">QsPanel n Notif Background Style</string>
     <string name="qsbg_default">Default</string>
-    <string name="qsbg_type1">Ancient 1</string>
-    <string name="qsbg_type2">Ancient 2</string>
+    <string name="qsbg_type1">With Stroke</string>
 
     <!-- Settings Icon button -->
     <string name="qqs_settings_icon_title">QQS Setting Icon </string>
