@@ -747,7 +747,7 @@ public class Interface extends DashboardFragment implements
             int anAncUIdStyle = Integer.valueOf((String) objValue);
             Settings.System.putIntForUser(getContentResolver(),
                     "JAM_HEADER_SIZE", anAncUIdStyle, UserHandle.USER_CURRENT);
-            mAncUId.setSummary(mAncUIc.getEntries()[anAncUIdStyle]);
+            mAncUId.setSummary(mAncUId.getEntries()[anAncUIdStyle]);
             return true;
 	} else if (preference == mJamPalsu) {
             int setWarna = Integer.valueOf((String) objValue);
