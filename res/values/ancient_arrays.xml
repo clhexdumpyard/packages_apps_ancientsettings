@@ -70,6 +70,7 @@
         <item>@string/status_bar_battery_style_landscapec</item> 
         <item>@string/status_bar_battery_style_landscaped</item>
         <item>@string/status_bar_battery_style_landscapee</item>    
+	<item>@string/status_bar_battery_style_landscapef</item>       
         <item>@string/status_bar_battery_style_text</item>
         <item>@string/status_bar_battery_style_hidden</item>
     </string-array>
@@ -87,6 +88,7 @@
         <item>9</item>
         <item>10</item>
         <item>11</item>    
+	<item>12</item>        
     </string-array>
 
     <string-array name="qs_show_brightness_slider_entries" translatable="false">
@@ -1172,13 +1174,11 @@
     <string-array name="qsbg_entries" translatable="false">
         <item>@string/qsbg_default</item>
         <item>@string/qsbg_type1</item>
-        <item>@string/qsbg_type2</item>
     </string-array>
 
     <string-array name="qsbg_values" translatable="false">
         <item>0</item>
         <item>1</item>
-        <item>2</item>
     </string-array>  
 
     <!-- AOD Schedule -->
@@ -1227,7 +1227,10 @@
         <item>@string/statusbar_dual_style_7</item>
         <item>@string/statusbar_dual_style_8</item>
         <item>@string/statusbar_dual_style_9</item> 
-        <item>@string/statusbar_dual_style_11</item>     
+        <item>@string/statusbar_dual_style_11</item>   
+	<item>@string/statusbar_dual_style_12</item>
+        <item>@string/statusbar_dual_style_13</item>   
+	<item>@string/statusbar_dual_style_14</item>      
     </string-array>
 
     <string-array name="statusbar_dual_style_values" translatable="false">
@@ -1242,7 +1245,10 @@
         <item>8</item>
         <item>9</item> 
         <item>10</item> 
-        <item>11</item>     
+        <item>11</item>  
+	<item>12</item>   
+        <item>13</item>  
+	<item>14</item>   
     </string-array>
 
     <!-- Collapsestyle type -->
@@ -1483,6 +1489,7 @@
         <item>@string/anci_staticon_style14</item>
         <item>@string/anci_staticon_style15</item>
         <item>@string/anci_staticon_style16</item>
+	<item>@string/anci_staticon_style17</item>    
     </string-array>
 
     <string-array name="anci_staticon_values" translatable="false">
@@ -1502,6 +1509,7 @@
         <item>13</item>
         <item>14</item>
         <item>15</item>
+	<item>16</item>    
     </string-array>
 
     <string-array name="anci_shapeicon_entries" translatable="false">
@@ -1991,5 +1999,18 @@
         <item>0</item>
         <item>1</item>
     </string-array>
+	
+    <!-- qs Panel Style -->
+    <string-array name="qs_panel_mode_entries">
+        <item>@string/qs_panel_mode_def</item>
+        <item>@string/qs_panel_mode_anci</item>
+        <item>@string/qs_panel_mode_oos</item>
+    </string-array>
+
+    <string-array name="qs_panel_mode_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>	
 
 </resources>
