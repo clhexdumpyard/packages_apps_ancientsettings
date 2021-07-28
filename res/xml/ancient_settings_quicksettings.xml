@@ -291,6 +291,12 @@
             android:summary="@string/qs_brightness_position_bottom_summary"
             android:defaultValue="false" />
 
+        <com.ancient.settings.preferences.SystemSettingSwitchPreference
+            android:key="AncientBrightnessTint"
+            android:title="@string/slider_new_tint"
+            android:summary="@string/slider_new_tint_summary"
+            android:defaultValue="false" />
+
     </PreferenceCategory>
 
 </PreferenceScreen>
