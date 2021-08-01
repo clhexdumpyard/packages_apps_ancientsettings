@@ -23,13 +23,21 @@
         android:layout="@layout/ancient_cardpreference_category">
 
         <com.ancient.settings.preferences.SystemSettingListPreference
-            android:layout="@layout/ancient_cardpreference_single"
+            android:layout="@layout/ancient_cardpreference_top"
             android:key="statusbar_dual_style"
             android:entries="@array/statusbar_dual_style_entries"
             android:entryValues="@array/statusbar_dual_style_values"                                                          
             android:title="@string/statusbar_dual_style_title"
             android:summary="@string/statusbar_dual_style_summary"                                           
             />
+	    
+	<com.ancient.settings.preferences.SystemSettingListPreference
+            android:layout="@layout/ancient_cardpreference_bottom"
+            android:key="STATUSBAR_HEIGHT_CUSTOM"
+            android:entries="@array/statusheight_entries"
+            android:entryValues="@array/statusheight_values"                                                          
+            android:title="@string/sbheight_style_title"                                           
+            />    
 
         <Preference 
             android:layout="@layout/ancient_cardview_divider" 
