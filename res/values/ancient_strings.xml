@@ -845,8 +845,8 @@
     <!-- Statubar height styles -->
     <string name="sbheight_style_title">StatusBar Height style ( for device that need this )</string>
     <string name="sbheight_default">Default</string>
-    <string name="sbheight_type1">60dp</string>
-    <string name="sbheight_type2">50dp</string>
+    <string name="sbheight_type1">50dp</string>
+    <string name="sbheight_type2">60dp</string>
 
     <!-- Themes -->
     <string name="theme_type_title">System theme</string>
