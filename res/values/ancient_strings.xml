@@ -843,9 +843,9 @@
     <string name="dgcorner_type2">20dp</string>
 
     <!-- Statubar height styles -->
-    <string name="sbheight_style_title">StatusBar Height style</string>
+    <string name="sbheight_style_title">StatusBar Height style ( for device that need this )</string>
     <string name="sbheight_default">Default</string>
-    <string name="sbheight_type1">35dp</string>
+    <string name="sbheight_type1">60dp</string>
     <string name="sbheight_type2">50dp</string>
 
     <!-- Themes -->
