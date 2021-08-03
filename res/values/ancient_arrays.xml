@@ -2035,5 +2035,20 @@
         <item>8000</item>
         <item>10000</item>
     </string-array>
+	
+	<!-- Ram Bar -->
+    <string-array name="ram_bar_entries" translatable="false">
+        <item>@string/ram_bar_1</item>
+        <item>@string/ram_bar_2</item>
+        <item>@string/ram_bar_3</item>
+        <item>@string/ram_bar_4</item>
+    </string-array>
+
+    <string-array name="ram_bar_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
 
 </resources>
