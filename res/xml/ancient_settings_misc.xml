@@ -17,6 +17,21 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
 	android:title="@string/misc_title" >
+	
+    <com.ancient.settings.preferences.SystemSettingSwitchPreference
+        android:key="SHOWHIDE_RAM_RECENT"
+	android:layout="@layout/ancient_cardpreference_top"							    
+        android:title="@string/ram_bar_switch_title"
+        android:summary="@string/ram_bar_switch_sum"
+        android:defaultValue="true" />
+	
+    <com.ancient.settings.preferences.SystemSettingListPreference
+        android:key="STYLE_RAM_RECENT"
+        android:title="@string/ram_bar_style_title"
+        android:entries="@array/ram_bar_entries"
+	android:layout="@layout/ancient_cardpreference_bottom" 
+        android:entryValues="@array/ram_bar_values"
+        android:defaultValue="1" />
 
     <Preference
         android:key="wakelock_blocker"
