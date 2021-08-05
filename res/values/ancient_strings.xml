@@ -300,6 +300,7 @@
     <string name="status_bar_battery_style_landscaped">LandScape Style 4</string>
     <string name="status_bar_battery_style_landscapee">Danny Style</string>
     <string name="status_bar_battery_style_landscapef">Danny Style 2</string>
+    <string name="status_bar_battery_style_landscapeg">Danny Style 3</string>
     <string name="status_bar_battery_style_text">Text</string>
     <string name="status_bar_battery_style_hidden">Hidden</string>
 
@@ -1244,6 +1245,8 @@
     <string name="statusbar_dual_style_12">Jamet Jubed </string>
     <string name="statusbar_dual_style_13">Jamet Kuproy </string>
     <string name="statusbar_dual_style_14">DualBar Ipong Notch</string>
+    <string name="statusbar_dual_style_15">Jamet TripleBar DCSMS </string>
+    <string name="statusbar_dual_style_16">Jamet MMK</string>
     <string name="statusbar_dual_style_2">DualBar Style With Left Analog</string>
     <string name="statusbar_dual_style_3">DualBar Style With Center Analog</string>
     <string name="statusbar_dual_style_4">Style A</string>
