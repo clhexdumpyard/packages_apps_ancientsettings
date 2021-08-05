@@ -1499,7 +1499,8 @@
         <item>@string/anci_staticon_style14</item>
         <item>@string/anci_staticon_style15</item>
         <item>@string/anci_staticon_style16</item>
-	<item>@string/anci_staticon_style17</item>    
+	<item>@string/anci_staticon_style17</item>
+        <item>@string/anci_staticon_style18</item>    
     </string-array>
 
     <string-array name="anci_staticon_values" translatable="false">
@@ -1519,7 +1520,8 @@
         <item>13</item>
         <item>14</item>
         <item>15</item>
-	<item>16</item>    
+	<item>16</item>
+        <item>17</item>
     </string-array>
 
     <string-array name="anci_shapeicon_entries" translatable="false">
