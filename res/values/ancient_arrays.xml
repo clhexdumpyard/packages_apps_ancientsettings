@@ -70,7 +70,8 @@
         <item>@string/status_bar_battery_style_landscapec</item> 
         <item>@string/status_bar_battery_style_landscaped</item>
         <item>@string/status_bar_battery_style_landscapee</item>    
-	<item>@string/status_bar_battery_style_landscapef</item>       
+	<item>@string/status_bar_battery_style_landscapef</item>     
+        <item>@string/status_bar_battery_style_landscapeg</item>
         <item>@string/status_bar_battery_style_text</item>
         <item>@string/status_bar_battery_style_hidden</item>
     </string-array>
@@ -88,7 +89,8 @@
         <item>9</item>
         <item>10</item>
         <item>11</item>    
-	<item>12</item>        
+	<item>12</item>
+        <item>13</item>        
     </string-array>
 
     <string-array name="qs_show_brightness_slider_entries" translatable="false">
@@ -1234,7 +1236,9 @@
         <item>@string/statusbar_dual_style_11</item>   
 	<item>@string/statusbar_dual_style_12</item>
         <item>@string/statusbar_dual_style_13</item>   
-	<item>@string/statusbar_dual_style_14</item>      
+	<item>@string/statusbar_dual_style_14</item>
+        <item>@string/statusbar_dual_style_15</item>   
+	<item>@string/statusbar_dual_style_16</item>      
     </string-array>
 
     <string-array name="statusbar_dual_style_values" translatable="false">
@@ -1253,6 +1257,8 @@
 	<item>12</item>   
         <item>13</item>  
 	<item>14</item>   
+        <item>15</item>  
+	<item>16</item>   
     </string-array>
 
     <!-- Collapsestyle type -->
