@@ -240,6 +240,14 @@
             android:defaultValue="0"
             android:entries="@array/brightn_entries"
             android:entryValues="@array/brightn_values" /> 
+	    
+	<com.ancient.settings.preferences.SystemSettingListPreference
+            android:layout="@layout/ancient_cardpreference_middle"
+            android:key="AncientThumbStyle"
+            android:title="@string/thumb_style_title"
+            android:defaultValue="0"
+            android:entries="@array/thumb_entries"
+            android:entryValues="@array/thumb_values" />    
 
          <ListPreference
             android:layout="@layout/ancient_cardpreference_middle"
