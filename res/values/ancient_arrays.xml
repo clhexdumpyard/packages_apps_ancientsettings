@@ -1167,6 +1167,11 @@
         <item>@string/brightn_type3</item>
         <item>@string/brightn_type4</item>
         <item>@string/brightn_type5</item>
+	<item>@string/brightn_type6</item>
+        <item>@string/brightn_type7</item>
+        <item>@string/brightn_type8</item>
+        <item>@string/brightn_type9</item>
+        <item>@string/brightn_type10</item>    
     </string-array>
 
     <string-array name="brightn_values" translatable="false">
@@ -1176,6 +1181,40 @@
         <item>3</item>
         <item>4</item>
         <item>5</item>
+	<item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>    
+    </string-array> 
+	
+	<!-- thumb styles -->
+    <string-array name="thumb_entries" translatable="false">
+        <item>@string/thumb_default</item>
+        <item>@string/thumb_type1</item>
+        <item>@string/thumb_type2</item>
+        <item>@string/thumb_type3</item>
+        <item>@string/thumb_type4</item>
+        <item>@string/thumb_type5</item>
+	<item>@string/thumb_type6</item>
+        <item>@string/thumb_type7</item>
+        <item>@string/thumb_type8</item>
+        <item>@string/thumb_type9</item>   
+	<item>@string/thumb_type10</item>       
+    </string-array>
+
+    <string-array name="thumb_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+	<item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>    
     </string-array> 
 
     <!-- qsbg styles -->
