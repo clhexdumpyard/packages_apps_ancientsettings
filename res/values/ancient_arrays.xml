@@ -2060,5 +2060,22 @@
         <item>2</item>
         <item>3</item>
     </string-array>
+	
+    <!-- maksnot -->
+    <string-array name="maxnotip_entries" translatable="false">
+        <item>@string/maxnotip_4</item>
+        <item>@string/maxnotip_5</item>
+        <item>@string/maxnotip_6</item>
+        <item>@string/maxnotip_7</item>
+	<item>@string/maxnotip_8</item>    
+    </string-array>
+
+    <string-array name="maxnotip_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+	<item>4</item>    
+    </string-array>
 
 </resources>
