@@ -1178,13 +1178,32 @@
     <string name="qs_running_services_summary">Enable the running services icon in the footer</string>
 
     <!-- Brightn styles -->
-    <string name="brightn_style_title">Brightness Style</string>
+    <string name="brightn_style_title">Brightness Slider Style</string>
     <string name="brightn_default">Default</string>
     <string name="brightn_type1">Ancient 1</string>
     <string name="brightn_type2">Ancient 2</string>
     <string name="brightn_type3">Ancient 3</string>
     <string name="brightn_type4">Ancient 4</string>
     <string name="brightn_type5">Ancient 5</string>
+    <string name="brightn_type1">Ancient 6</string>
+    <string name="brightn_type2">Ancient 7</string>
+    <string name="brightn_type3">Ancient 8</string>
+    <string name="brightn_type4">Ancient 9</string>
+    <string name="brightn_type5">Ancient 10</string>
+	
+	<!-- thumb styles -->
+    <string name="thumb_style_title">Brightness Thumb Style</string>
+    <string name="thumb_default">Default ( no thumb )</string>
+    <string name="thumb_type1">Ancient 1</string>
+    <string name="thumb_type2">Ancient 2</string>
+    <string name="thumb_type3">Ancient 3</string>
+    <string name="thumb_type4">Ancient 4</string>
+    <string name="thumb_type5">Ancient 5</string>
+    <string name="thumb_type6">Ancient 6</string>
+    <string name="thumb_type7">Ancient 7</string>
+    <string name="thumb_type8">Ancient 8</string>
+    <string name="thumb_type9">Ancient 9</string>
+    <string name="thumb_type10">Ancient 10</string>
 
     <!-- qsbg styles -->
     <string name="qsbg_style_title">QsPanel n Notif Background Style</string>
@@ -1760,6 +1779,10 @@
     <!-- brightness slider new tint -->
     <string name="slider_new_tint">Brightness Seekbar Use New Tint </string>
     <string name="slider_new_tint_summary">tint the seekbar with primary color</string>
+	
+	<!-- brightness thumb new tint -->
+    <string name="thumb_new_tint">Brightness Thumb Use New Tint </string>
+    <string name="thumb_new_tint_summary">tint the thumb with primary color</string>
 	
     <!-- ram bar -->
     <string name="ram_bar_style_title">Ram Usage Info Style</string>
