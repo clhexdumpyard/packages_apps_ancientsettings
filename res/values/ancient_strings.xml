@@ -1770,4 +1770,12 @@
     <string name="ram_bar_3">Ram Circle Progress with Info Text</string>
     <string name="ram_bar_4">Text Info Only</string>
 	
+    <!-- maxnot -->
+    <string name="maxnotip_style_title">Maximun Notification Icon</string>
+    <string name="maxnotip_4">4 (default)</string>
+    <string name="maxnotip_5">5</string>
+    <string name="maxnotip_6">6</string>
+    <string name="maxnotip_7">7</string>
+    <string name="maxnotip_8">8</string>
+	
 </resources>
