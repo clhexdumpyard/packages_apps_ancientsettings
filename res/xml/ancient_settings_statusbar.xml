@@ -32,13 +32,21 @@
             />
 	    
 	<com.ancient.settings.preferences.SystemSettingListPreference
-            android:layout="@layout/ancient_cardpreference_bottom"
+            android:layout="@layout/ancient_cardpreference_middle"						      
             android:key="STATUSBAR_HEIGHT_CUSTOM"
             android:entries="@array/statusheight_entries"
             android:entryValues="@array/statusheight_values"                                                          
             android:title="@string/sbheight_style_title"                                           
-            />    
-
+            />  
+	    
+	<com.ancient.settings.preferences.SystemSettingListPreference
+            android:layout="@layout/ancient_cardpreference_bottom"
+            android:key="MAX_NOTIP_CUSTOM"
+            android:entries="@array/maxnotip_entries"
+            android:entryValues="@array/maxnotip_values"                                                          
+            android:title="@string/maxnotip_style_title"                                           
+            />  
+	   
         <Preference 
             android:layout="@layout/ancient_cardview_divider" 
             android:selectable="false"/>  
