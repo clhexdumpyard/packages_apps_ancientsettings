@@ -1185,11 +1185,11 @@
     <string name="brightn_type3">Ancient 3</string>
     <string name="brightn_type4">Ancient 4</string>
     <string name="brightn_type5">Ancient 5</string>
-    <string name="brightn_type1">Ancient 6</string>
-    <string name="brightn_type2">Ancient 7</string>
-    <string name="brightn_type3">Ancient 8</string>
-    <string name="brightn_type4">Ancient 9</string>
-    <string name="brightn_type5">Ancient 10</string>
+    <string name="brightn_type6">Ancient 6</string>
+    <string name="brightn_type7">Ancient 7</string>
+    <string name="brightn_type8">Ancient 8</string>
+    <string name="brightn_type9">Ancient 9</string>
+    <string name="brightn_type10">Ancient 10</string>
 	
 	<!-- thumb styles -->
     <string name="thumb_style_title">Brightness Thumb Style</string>
