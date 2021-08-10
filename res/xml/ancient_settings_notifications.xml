@@ -225,7 +225,29 @@
             android:persistent="false"
             android:defaultValue="0"
             android:entries="@array/header_textcolor_entries"
-            android:entryValues="@array/header_textcolor_values"/>  
+            android:entryValues="@array/header_textcolor_values"/>
+	    
+	<Preference 
+            android:layout="@layout/ancient_cardview_divider" 
+            android:selectable="false"/>    
+	    
+	<com.ancient.settings.preferences.SystemSettingSwitchPreference
+            android:layout="@layout/ancient_cardpreference_single"
+            android:key="EXPAND_INDI_ICON"
+            android:title="@string/expan_icon_title"
+            android:summary="@string/expan_icon_summary"
+            android:defaultValue="false" />  
+	    
+	<Preference 
+            android:layout="@layout/ancient_cardview_divider" 
+            android:selectable="false"/>    
+	    
+	<com.ancient.settings.preferences.SystemSettingListPreference
+           android:key="EXPAND_INDI_ICON_STYLE"
+           android:title="@string/expan_icon_style_title"
+           android:entries="@array/expand_indic_style_entries"
+           android:entryValues="@array/expand_indic_style_values"
+           android:defaultValue="0" />    
 	    
 	<Preference 
             android:layout="@layout/ancient_cardview_divider" 
