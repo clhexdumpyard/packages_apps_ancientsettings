@@ -1209,6 +1209,8 @@
     <string name="qsbg_style_title">QsPanel n Notif Background Style</string>
     <string name="qsbg_default">Default</string>
     <string name="qsbg_type1">With Stroke</string>
+    <string name="qsbg_type2">Accent </string>
+    <string name="qsbg_type3">Accent With Stroke</string>
 
     <!-- Settings Icon button -->
     <string name="qqs_settings_icon_title">QQS Setting Icon </string>
@@ -1777,12 +1779,22 @@
     <string name="reticker_colored_summary">Replace reTicker background color using notification app main color</string>
 
     <!-- brightness slider new tint -->
-    <string name="slider_new_tint">Brightness Seekbar Use New Tint </string>
-    <string name="slider_new_tint_summary">tint the seekbar with primary color</string>
+    <string name="slider_new_tint">Brightness Seekbar int </string>
+    <string name="seekbar_tint_default">Accent</string>
+    <string name="seekbar_tint_type1">Primary</string>
+    <string name="seekbar_tint_type2">Random</string>
 	
 	<!-- brightness thumb new tint -->
-    <string name="thumb_new_tint">Brightness Thumb Use New Tint </string>
-    <string name="thumb_new_tint_summary">tint the thumb with primary color</string>
+    <string name="thumb_new_tint">Brightness Thumb Tint </string>
+    <string name="seekbar_thumb_tint_default">Accent</string>
+    <string name="seekbar_thumb_tint_type1">Primary</string>
+    <string name="seekbar_thumb_tint_type2">Random</string>
+	
+	<!-- brightness background new tint -->
+    <string name="seekbar_bg_tint">Brightness SeekBar Background Tint </string>
+    <string name="seekbar_bg_tint_default">Accent</string>
+    <string name="seekbar_bg_tint_type1">Primary</string>
+    <string name="seekbar_bg_tint_type2">Random</string>
 	
     <!-- ram bar -->
     <string name="ram_bar_style_title">Ram Usage Info Style</string>
@@ -1800,5 +1812,13 @@
     <string name="maxnotip_6">6</string>
     <string name="maxnotip_7">7</string>
     <string name="maxnotip_8">8</string>
+	
+    <!-- expan indikator -->
+    <string name="expan_icon_title">Notification Icon Background</string>
+    <string name="expan_icon_style_title">Notification Icon Background Style</string>
+    <string name="expan_icon_summary">just switch it on to see what will happen</string>
+    <string name="expand_indic_def">Default</string>
+    <string name="expand_indic_style1">Accent</string>
+    <string name="expand_indic_style2">Primary</string>
 	
 </resources>
