@@ -2248,13 +2248,29 @@
     <string-array name="anci_polum_entries" translatable="false">
         <item>@string/anci_polum_default</item>
         <item>@string/anci_polum_type1</item>
-        <item>@string/anci_polum_type2</item>   
+        <item>@string/anci_polum_type2</item>  
+	<item>@string/anci_polum_type3</item>
+        <item>@string/anci_polum_type4</item>
+        <item>@string/anci_polum_type5</item>     
+	<item>@string/anci_polum_type6</item>
+        <item>@string/anci_polum_type7</item>  
+	<item>@string/anci_polum_type8</item>
+        <item>@string/anci_polum_type9</item>
+        <item>@string/anci_polum_type10</item>         
     </string-array>
 
     <string-array name="anci_polum_values" translatable="false">
         <item>0</item>
         <item>1</item>
         <item>2</item>    
+	<item>3</item>
+        <item>4</item> 
+	<item>5</item>
+        <item>6</item>    
+	<item>7</item>
+        <item>8</item>  
+	<item>9</item>
+        <item>10</item>    
     </string-array> 
 
 
