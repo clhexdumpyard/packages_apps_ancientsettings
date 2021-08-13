@@ -1823,7 +1823,7 @@
 	
     <!-- polum styles -->
     <string name="polum_switch_title">Volume SeekBar Custom</string>
-    <string name="polum_switch_sum">use custom drawable for volume's seekbar and thumbnail</string>
+    <string name="polum_switch_sum">use custom drawable for volume seekbar and thumbnail</string>
     <string name="polum_style_title">Volume SeekBar Style</string>
     <string name="polum_default">Default</string>
     <string name="polum_type1">Ancient 1</string>
