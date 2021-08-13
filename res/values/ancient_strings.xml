@@ -1814,12 +1814,12 @@
     <string name="maxnotip_8">8</string>
 	
     <!-- expan indikator -->
-    <string name="expan_icon_title">Notification Icon Background</string>
-    <string name="expan_icon_style_title">Notification Icon Background Style</string>
+    <string name="expan_icon_title">Notification Header Icon Background</string>
+    <string name="expan_icon_style_title">Notification Header Icon Background Style</string>
     <string name="expan_icon_summary">just switch it on to see what will happen</string>
-    <string name="expand_indic_def">Default</string>
-    <string name="expand_indic_style1">Accent</string>
-    <string name="expand_indic_style2">Primary</string>
+    <string name="expand_indic_def">Default No Background</string>
+    <string name="expand_indic_style1">Circle Grey</string>
+    <string name="expand_indic_style2">Circle Accent</string>
 	
     <!-- polum styles -->
     <string name="polum_switch_title">Volume SeekBar Custom</string>
@@ -1858,5 +1858,11 @@
     <string name="polum_persen_default">Top Of Seekbar</string>
     <string name="polum_persen_type1">Between Seekbar and Icon</string>
     <string name="polum_persen_type2">Bottom of Icon</string>
+	
+    <!-- anci polum styles -->
+    <string name="anci_polum_style_title">Ancient Volume Style</string>
+    <string name="anci_polum_default">Default Style</string>
+    <string name="anci_polum_type1">Ancient Style 1</string>
+    <string name="anci_polum_type2">Ancient Style 2</string>
 	
 </resources>
