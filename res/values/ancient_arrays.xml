@@ -2172,5 +2172,77 @@
         <item>1</item> 
 	<item>2</item>    
     </string-array>
+	
+    <!-- polum styles -->
+    <string-array name="polum_entries" translatable="false">
+        <item>@string/polum_default</item>
+        <item>@string/polum_type1</item>
+        <item>@string/polum_type2</item>
+        <item>@string/polum_type3</item>
+        <item>@string/polum_type4</item>
+        <item>@string/polum_type5</item>
+	<item>@string/polum_type6</item>
+        <item>@string/polum_type7</item>
+        <item>@string/polum_type8</item>
+        <item>@string/polum_type9</item>
+        <item>@string/polum_type10</item>    
+    </string-array>
+
+    <string-array name="polum_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+	<item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>    
+    </string-array> 
+	
+	<!-- vthumb styles -->
+    <string-array name="polum_tum_entries" translatable="false">
+        <item>@string/polum_thumb_default</item>
+        <item>@string/polum_thumb_type1</item>
+        <item>@string/polum_thumb_type2</item>
+        <item>@string/polum_thumb_type3</item>
+        <item>@string/polum_thumb_type4</item>
+        <item>@string/polum_thumb_type5</item>
+	<item>@string/polum_thumb_type6</item>
+        <item>@string/polum_thumb_type7</item>
+        <item>@string/polum_thumb_type8</item>
+        <item>@string/polum_thumb_type9</item>   
+	<item>@string/polum_thumb_type10</item>       
+    </string-array>
+
+    <string-array name="polum_tum_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+	<item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>    
+    </string-array> 
+	
+	<!-- persen styles -->
+    <string-array name="polum_persen_entries" translatable="false">
+        <item>@string/polum_persen_default</item>
+        <item>@string/polum_persen_type1</item>
+        <item>@string/polum_persen_type2</item>      
+    </string-array>
+
+    <string-array name="polum_persen_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>   
+    </string-array> 
+
 
 </resources>
