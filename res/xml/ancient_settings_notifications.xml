@@ -229,18 +229,7 @@
 	    
 	<Preference 
             android:layout="@layout/ancient_cardview_divider" 
-            android:selectable="false"/>    
-	    
-	<com.ancient.settings.preferences.SystemSettingSwitchPreference
-            android:layout="@layout/ancient_cardpreference_single"
-            android:key="EXPAND_INDI_ICON"
-            android:title="@string/expan_icon_title"
-            android:summary="@string/expan_icon_summary"
-            android:defaultValue="false" />  
-	    
-	<Preference 
-            android:layout="@layout/ancient_cardview_divider" 
-            android:selectable="false"/>    
+            android:selectable="false"/>      
 	    
 	<com.ancient.settings.preferences.SystemSettingListPreference
            android:key="EXPAND_INDI_ICON_STYLE"
