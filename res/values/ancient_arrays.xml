@@ -2243,6 +2243,19 @@
         <item>1</item>
         <item>2</item>   
     </string-array> 
+	
+    <!-- anci polum styles -->
+    <string-array name="anci_polum_entries" translatable="false">
+        <item>@string/anci_polum_default</item>
+        <item>@string/anci_polum_type1</item>
+        <item>@string/anci_polum_type2</item>   
+    </string-array>
+
+    <string-array name="anci_polum_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>    
+    </string-array> 
 
 
 </resources>
