@@ -1821,4 +1821,42 @@
     <string name="expand_indic_style1">Accent</string>
     <string name="expand_indic_style2">Primary</string>
 	
+    <!-- polum styles -->
+    <string name="polum_switch_title">Volume SeekBar Custom</string>
+    <string name="polum_switch_sum">use custom drawable for volume's seekbar and thumbnail</string>
+    <string name="polum_style_title">Volume SeekBar Style</string>
+    <string name="polum_default">Default</string>
+    <string name="polum_type1">Ancient 1</string>
+    <string name="polum_type2">Ancient 2</string>
+    <string name="polum_type3">Ancient 3</string>
+    <string name="polum_type4">Ancient 4</string>
+    <string name="polum_type5">Ancient 5</string>
+    <string name="polum_type6">Ancient 6</string>
+    <string name="polum_type7">Ancient 7</string>
+    <string name="polum_type8">Ancient 8</string>
+    <string name="polum_type9">Ancient 9</string>
+    <string name="polum_type10">Ancient 10</string>
+	
+	<!-- vthumb styles -->
+    <string name="polum_tum_style_title">Volume Thumb Style</string>
+    <string name="polum_thumb_default">Default ( no thumb )</string>
+    <string name="polum_thumb_type1">Ancient 1</string>
+    <string name="polum_thumb_type2">Ancient 2</string>
+    <string name="polum_thumb_type3">Ancient 3</string>
+    <string name="polum_thumb_type4">Ancient 4</string>
+    <string name="polum_thumb_type5">Ancient 5</string>
+    <string name="polum_thumb_type6">Ancient 6</string>
+    <string name="polum_thumb_type7">Ancient 7</string>
+    <string name="polum_thumb_type8">Ancient 8</string>
+    <string name="polum_thumb_type9">Ancient 9</string>
+    <string name="polum_thumb_type10">Ancient 10</string>
+	
+    <!-- polum persen styles -->
+    <string name="polum_persen_switch_title">Volume SeekBar Custom</string>
+    <string name="polum_persen_switch_sum">use custom drawable for volume's seekbar and thumbnail</string>
+    <string name="polum_persen_style_title">Volume Percentage Placement</string>
+    <string name="polum_persen_default">Top Of Seekbar</string>
+    <string name="polum_persen_type1">Between Seekbar and Icon</string>
+    <string name="polum_persen_type2">Bottom of Icon</string>
+	
 </resources>
