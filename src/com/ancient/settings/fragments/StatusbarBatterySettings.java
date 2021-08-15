@@ -70,8 +70,8 @@ public class StatusbarBatterySettings extends SettingsPreferenceFragment impleme
     private IOverlayManager mOverlayService;
 
     private static final int BATTERY_STYLE_PORTRAIT = 0;
-    private static final int BATTERY_STYLE_TEXT = 11;
-    private static final int BATTERY_STYLE_HIDDEN = 12;
+    private static final int BATTERY_STYLE_TEXT = 12;
+    private static final int BATTERY_STYLE_HIDDEN = 13;
     private static final int BATTERY_PERCENT_HIDDEN = 0;
     //private static final int BATTERY_PERCENT_SHOW_INSIDE = 1;
     //private static final int BATTERY_PERCENT_SHOW_OUTSIDE = 2;

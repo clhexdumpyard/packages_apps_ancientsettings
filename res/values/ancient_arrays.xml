@@ -70,7 +70,8 @@
         <item>@string/status_bar_battery_style_landscapec</item> 
         <item>@string/status_bar_battery_style_landscaped</item>
         <item>@string/status_bar_battery_style_landscapee</item>    
-	<item>@string/status_bar_battery_style_landscapef</item>       
+	<item>@string/status_bar_battery_style_landscapef</item>     
+        <item>@string/status_bar_battery_style_landscapeg</item>
         <item>@string/status_bar_battery_style_text</item>
         <item>@string/status_bar_battery_style_hidden</item>
     </string-array>
@@ -88,7 +89,8 @@
         <item>9</item>
         <item>10</item>
         <item>11</item>    
-	<item>12</item>        
+	<item>12</item>
+        <item>13</item>        
     </string-array>
 
     <string-array name="qs_show_brightness_slider_entries" translatable="false">
@@ -766,12 +768,14 @@
         <item>@string/sbheight_default</item>
         <item>@string/sbheight_type1</item>
         <item>@string/sbheight_type2</item>
+	<item>@string/sbheight_type3</item>    
     </string-array>
 
     <string-array name="statusheight_values" translatable="false">
         <item>0</item>
         <item>1</item>
         <item>2</item>
+	<item>3</item>    
     </string-array>
 
     <!-- Themes -->
@@ -1163,6 +1167,11 @@
         <item>@string/brightn_type3</item>
         <item>@string/brightn_type4</item>
         <item>@string/brightn_type5</item>
+	<item>@string/brightn_type6</item>
+        <item>@string/brightn_type7</item>
+        <item>@string/brightn_type8</item>
+        <item>@string/brightn_type9</item>
+        <item>@string/brightn_type10</item>    
     </string-array>
 
     <string-array name="brightn_values" translatable="false">
@@ -1172,17 +1181,55 @@
         <item>3</item>
         <item>4</item>
         <item>5</item>
+	<item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>    
+    </string-array> 
+	
+	<!-- thumb styles -->
+    <string-array name="thumb_entries" translatable="false">
+        <item>@string/thumb_default</item>
+        <item>@string/thumb_type1</item>
+        <item>@string/thumb_type2</item>
+        <item>@string/thumb_type3</item>
+        <item>@string/thumb_type4</item>
+        <item>@string/thumb_type5</item>
+	<item>@string/thumb_type6</item>
+        <item>@string/thumb_type7</item>
+        <item>@string/thumb_type8</item>
+        <item>@string/thumb_type9</item>   
+	<item>@string/thumb_type10</item>       
+    </string-array>
+
+    <string-array name="thumb_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+	<item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>    
     </string-array> 
 
     <!-- qsbg styles -->
     <string-array name="qsbg_entries" translatable="false">
         <item>@string/qsbg_default</item>
         <item>@string/qsbg_type1</item>
+	<item>@string/qsbg_type2</item>
+        <item>@string/qsbg_type3</item>    
     </string-array>
 
     <string-array name="qsbg_values" translatable="false">
         <item>0</item>
         <item>1</item>
+	<item>2</item>
+        <item>3</item>    
     </string-array>  
 
     <!-- AOD Schedule -->
@@ -1234,7 +1281,9 @@
         <item>@string/statusbar_dual_style_11</item>   
 	<item>@string/statusbar_dual_style_12</item>
         <item>@string/statusbar_dual_style_13</item>   
-	<item>@string/statusbar_dual_style_14</item>      
+	<item>@string/statusbar_dual_style_14</item>
+        <item>@string/statusbar_dual_style_15</item>   
+	<item>@string/statusbar_dual_style_16</item>      
     </string-array>
 
     <string-array name="statusbar_dual_style_values" translatable="false">
@@ -1253,6 +1302,8 @@
 	<item>12</item>   
         <item>13</item>  
 	<item>14</item>   
+        <item>15</item>  
+	<item>16</item>   
     </string-array>
 
     <!-- Collapsestyle type -->
@@ -1493,7 +1544,8 @@
         <item>@string/anci_staticon_style14</item>
         <item>@string/anci_staticon_style15</item>
         <item>@string/anci_staticon_style16</item>
-	<item>@string/anci_staticon_style17</item>    
+	<item>@string/anci_staticon_style17</item>
+        <item>@string/anci_staticon_style18</item>    
     </string-array>
 
     <string-array name="anci_staticon_values" translatable="false">
@@ -1513,7 +1565,8 @@
         <item>13</item>
         <item>14</item>
         <item>15</item>
-	<item>16</item>    
+	<item>16</item>
+        <item>17</item>
     </string-array>
 
     <string-array name="anci_shapeicon_entries" translatable="false">
@@ -2035,6 +2088,191 @@
         <item>8000</item>
         <item>10000</item>
     </string-array>
+	
+	<!-- Ram Bar -->
+    <string-array name="ram_bar_entries" translatable="false">
+        <item>@string/ram_bar_1</item>
+        <item>@string/ram_bar_2</item>
+        <item>@string/ram_bar_3</item>
+        <item>@string/ram_bar_4</item>
+    </string-array>
+
+    <string-array name="ram_bar_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+	
+    <!-- maksnot -->
+    <string-array name="maxnotip_entries" translatable="false">
+        <item>@string/maxnotip_4</item>
+        <item>@string/maxnotip_5</item>
+        <item>@string/maxnotip_6</item>
+        <item>@string/maxnotip_7</item>
+	<item>@string/maxnotip_8</item>    
+    </string-array>
+
+    <string-array name="maxnotip_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+	<item>4</item>    
+    </string-array>
+	
+	<!-- seekbar tint -->
+    <string-array name="seekbar_tint_entries" translatable="false">
+        <item>@string/seekbar_tint_default</item>
+        <item>@string/seekbar_tint_type1</item>
+	<item>@string/seekbar_tint_type2</item>   
+    </string-array>
+
+    <string-array name="seekbar_tint_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+	<item>2</item>   
+    </string-array>
+	
+    <!-- seekbar thumb tint -->
+    <string-array name="seekbar_thumb_tint_entries" translatable="false">
+        <item>@string/seekbar_thumb_tint_default</item>
+        <item>@string/seekbar_thumb_tint_type1</item>
+	<item>@string/seekbar_thumb_tint_type2</item>   
+    </string-array>
+
+    <string-array name="seekbar_thumb_tint_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+	<item>2</item>   
+    </string-array>
+	
+    <!-- seekbar bg tint -->
+    <string-array name="seekbar_bg_tint_entries" translatable="false">
+        <item>@string/seekbar_bg_tint_default</item>
+        <item>@string/seekbar_bg_tint_type1</item>
+	<item>@string/seekbar_bg_tint_type2</item>   
+    </string-array>
+
+    <string-array name="seekbar_bg_tint_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+	<item>2</item>   
+    </string-array>
+	
+    <!-- expand indicator  -->
+    <string-array name="expand_indic_style_entries" translatable="false">
+        <item>@string/expand_indic_def</item>
+        <item>@string/expand_indic_style1</item>  
+	<item>@string/expand_indic_style2</item>
+    </string-array>
+
+    <string-array name="expand_indic_style_values" translatable="false">
+        <item>0</item>
+        <item>1</item> 
+	<item>2</item>    
+    </string-array>
+	
+    <!-- polum styles -->
+    <string-array name="polum_entries" translatable="false">
+        <item>@string/polum_default</item>
+        <item>@string/polum_type1</item>
+        <item>@string/polum_type2</item>
+        <item>@string/polum_type3</item>
+        <item>@string/polum_type4</item>
+        <item>@string/polum_type5</item>
+	<item>@string/polum_type6</item>
+        <item>@string/polum_type7</item>
+        <item>@string/polum_type8</item>
+        <item>@string/polum_type9</item>
+        <item>@string/polum_type10</item>    
+    </string-array>
+
+    <string-array name="polum_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+	<item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>    
+    </string-array> 
+	
+	<!-- vthumb styles -->
+    <string-array name="polum_tum_entries" translatable="false">
+        <item>@string/polum_thumb_default</item>
+        <item>@string/polum_thumb_type1</item>
+        <item>@string/polum_thumb_type2</item>
+        <item>@string/polum_thumb_type3</item>
+        <item>@string/polum_thumb_type4</item>
+        <item>@string/polum_thumb_type5</item>
+	<item>@string/polum_thumb_type6</item>
+        <item>@string/polum_thumb_type7</item>
+        <item>@string/polum_thumb_type8</item>
+        <item>@string/polum_thumb_type9</item>   
+	<item>@string/polum_thumb_type10</item>       
+    </string-array>
+
+    <string-array name="polum_tum_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+	<item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>    
+    </string-array> 
+	
+	<!-- persen styles -->
+    <string-array name="polum_persen_entries" translatable="false">
+        <item>@string/polum_persen_default</item>
+        <item>@string/polum_persen_type1</item>
+        <item>@string/polum_persen_type2</item>      
+    </string-array>
+
+    <string-array name="polum_persen_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>   
+    </string-array> 
+	
+    <!-- anci polum styles -->
+    <string-array name="anci_polum_entries" translatable="false">
+        <item>@string/anci_polum_default</item>
+        <item>@string/anci_polum_type1</item>
+        <item>@string/anci_polum_type2</item>  
+	<item>@string/anci_polum_type3</item>
+        <item>@string/anci_polum_type4</item>
+        <item>@string/anci_polum_type5</item>     
+	<item>@string/anci_polum_type6</item>
+        <item>@string/anci_polum_type7</item>  
+	<item>@string/anci_polum_type8</item>
+        <item>@string/anci_polum_type9</item>
+        <item>@string/anci_polum_type10</item>         
+    </string-array>
+
+    <string-array name="anci_polum_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>    
+	<item>3</item>
+        <item>4</item> 
+	<item>5</item>
+        <item>6</item>    
+	<item>7</item>
+        <item>8</item>  
+	<item>9</item>
+        <item>10</item>    
+    </string-array> 
+
 
     <string-array name="lockscreen_weather_style_entries">
         <item>@string/lockscreen_weather_omni_style_title</item>

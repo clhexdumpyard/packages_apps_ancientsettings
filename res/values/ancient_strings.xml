@@ -300,6 +300,7 @@
     <string name="status_bar_battery_style_landscaped">LandScape Style 4</string>
     <string name="status_bar_battery_style_landscapee">Danny Style</string>
     <string name="status_bar_battery_style_landscapef">Danny Style 2</string>
+    <string name="status_bar_battery_style_landscapeg">Danny Style 3</string>
     <string name="status_bar_battery_style_text">Text</string>
     <string name="status_bar_battery_style_hidden">Hidden</string>
 
@@ -843,10 +844,11 @@
     <string name="dgcorner_type2">20dp</string>
 
     <!-- Statubar height styles -->
-    <string name="sbheight_style_title">StatusBar Height style</string>
+    <string name="sbheight_style_title">StatusBar Height style ( for device that need this )</string>
     <string name="sbheight_default">Default</string>
-    <string name="sbheight_type1">35dp</string>
-    <string name="sbheight_type2">50dp</string>
+    <string name="sbheight_type1">50dp</string>
+    <string name="sbheight_type2">60dp</string>
+    <string name="sbheight_type3">68dp</string>
 
     <!-- Themes -->
     <string name="theme_type_title">System theme</string>
@@ -1176,18 +1178,39 @@
     <string name="qs_running_services_summary">Enable the running services icon in the footer</string>
 
     <!-- Brightn styles -->
-    <string name="brightn_style_title">Brightness Style</string>
+    <string name="brightn_style_title">Brightness Slider Style</string>
     <string name="brightn_default">Default</string>
     <string name="brightn_type1">Ancient 1</string>
     <string name="brightn_type2">Ancient 2</string>
     <string name="brightn_type3">Ancient 3</string>
     <string name="brightn_type4">Ancient 4</string>
     <string name="brightn_type5">Ancient 5</string>
+    <string name="brightn_type6">Ancient 6</string>
+    <string name="brightn_type7">Ancient 7</string>
+    <string name="brightn_type8">Ancient 8</string>
+    <string name="brightn_type9">Ancient 9</string>
+    <string name="brightn_type10">Ancient 10</string>
+	
+	<!-- thumb styles -->
+    <string name="thumb_style_title">Brightness Thumb Style</string>
+    <string name="thumb_default">Default ( no thumb )</string>
+    <string name="thumb_type1">Ancient 1</string>
+    <string name="thumb_type2">Ancient 2</string>
+    <string name="thumb_type3">Ancient 3</string>
+    <string name="thumb_type4">Ancient 4</string>
+    <string name="thumb_type5">Ancient 5</string>
+    <string name="thumb_type6">Ancient 6</string>
+    <string name="thumb_type7">Ancient 7</string>
+    <string name="thumb_type8">Ancient 8</string>
+    <string name="thumb_type9">Ancient 9</string>
+    <string name="thumb_type10">Ancient 10</string>
 
     <!-- qsbg styles -->
     <string name="qsbg_style_title">QsPanel n Notif Background Style</string>
     <string name="qsbg_default">Default</string>
     <string name="qsbg_type1">With Stroke</string>
+    <string name="qsbg_type2">Accent </string>
+    <string name="qsbg_type3">Accent With Stroke</string>
 
     <!-- Settings Icon button -->
     <string name="qqs_settings_icon_title">QQS Setting Icon </string>
@@ -1244,6 +1267,8 @@
     <string name="statusbar_dual_style_12">Jamet Jubed </string>
     <string name="statusbar_dual_style_13">Jamet Kuproy </string>
     <string name="statusbar_dual_style_14">DualBar Ipong Notch</string>
+    <string name="statusbar_dual_style_15">Jamet TripleBar DCSMS </string>
+    <string name="statusbar_dual_style_16">Jamet MMK</string>
     <string name="statusbar_dual_style_2">DualBar Style With Left Analog</string>
     <string name="statusbar_dual_style_3">DualBar Style With Center Analog</string>
     <string name="statusbar_dual_style_4">Style A</string>
@@ -1427,6 +1452,7 @@
     <string name="anci_staticon_style15">Line</string>
     <string name="anci_staticon_style16">Leaf</string>
     <string name="anci_staticon_style17">NiceBar X</string>
+    <string name="anci_staticon_style18">IOS 2</string>
 
     <!-- shape icon -->
     <string name="anci_shapeicon_title">Icon Shape</string>
@@ -1753,8 +1779,11 @@
     <string name="reticker_colored_summary">Replace reTicker background color using notification app main color</string>
 
     <!-- brightness slider new tint -->
-    <string name="slider_new_tint">Brightness Seekbar Use New Tint </string>
+    <string name="slider_new_tint">Brightness Seekbar Tint</string>
     <string name="slider_new_tint_summary">tint the seekbar with primary color</string>
+    <string name="seekbar_tint_default">Accent</string>
+    <string name="seekbar_tint_type1">Primary</string>
+    <string name="seekbar_tint_type2">Random</string>
 
     <!-- Lockscreen weather -->
     <string name="lockscreen_weather_category">Weather</string>
@@ -1792,5 +1821,94 @@
     <string name="status_bar_show_image">Show image</string>
     <string name="sb_weather_statusbar">Status bar</string>
     <string name="sb_weather_header">Expanded header</string>
+	
+	<!-- brightness thumb new tint -->
+    <string name="thumb_new_tint">Brightness Thumb Tint </string>
+    <string name="seekbar_thumb_tint_default">Accent</string>
+    <string name="seekbar_thumb_tint_type1">Primary</string>
+    <string name="seekbar_thumb_tint_type2">Random</string>
+	
+	<!-- brightness background new tint -->
+    <string name="seekbar_bg_tint">Brightness SeekBar Background Tint </string>
+    <string name="seekbar_bg_tint_default">Accent</string>
+    <string name="seekbar_bg_tint_type1">Primary</string>
+    <string name="seekbar_bg_tint_type2">Random</string>
+	
+    <!-- ram bar -->
+    <string name="ram_bar_style_title">Ram Usage Info Style</string>
+    <string name="ram_bar_switch_title">Ram Usage Info</string>
+    <string name="ram_bar_switch_sum">display ram usage in recent</string>
+    <string name="ram_bar_1">Ram Bar Below Info Text</string>
+    <string name="ram_bar_2">Info Text inside Ram Bar (default)</string>
+    <string name="ram_bar_3">Ram Circle Progress with Info Text</string>
+    <string name="ram_bar_4">Text Info Only</string>
+	
+    <!-- maxnot -->
+    <string name="maxnotip_style_title">Maximun Notification Icon</string>
+    <string name="maxnotip_4">4 (default)</string>
+    <string name="maxnotip_5">5</string>
+    <string name="maxnotip_6">6</string>
+    <string name="maxnotip_7">7</string>
+    <string name="maxnotip_8">8</string>
+	
+    <!-- expan indikator -->
+    <string name="expan_icon_title">Notification Header Icon Background</string>
+    <string name="expan_icon_style_title">Notification Header Icon Background Style</string>
+    <string name="expan_icon_summary">just switch it on to see what will happen</string>
+    <string name="expand_indic_def">Default No Background</string>
+    <string name="expand_indic_style1">Circle Grey</string>
+    <string name="expand_indic_style2">Circle Accent</string>
+	
+    <!-- polum styles -->
+    <string name="polum_switch_title">Volume SeekBar Custom</string>
+    <string name="polum_switch_sum">use custom drawable for volume seekbar and thumbnail</string>
+    <string name="polum_style_title">Volume SeekBar Style</string>
+    <string name="polum_default">Default</string>
+    <string name="polum_type1">Ancient 1</string>
+    <string name="polum_type2">Ancient 2</string>
+    <string name="polum_type3">Ancient 3</string>
+    <string name="polum_type4">Ancient 4</string>
+    <string name="polum_type5">Ancient 5</string>
+    <string name="polum_type6">Ancient 6</string>
+    <string name="polum_type7">Ancient 7</string>
+    <string name="polum_type8">Ancient 8</string>
+    <string name="polum_type9">Ancient 9</string>
+    <string name="polum_type10">Ancient 10</string>
+	
+	<!-- vthumb styles -->
+    <string name="polum_tum_style_title">Volume Thumb Style</string>
+    <string name="polum_thumb_default">Default ( no thumb )</string>
+    <string name="polum_thumb_type1">Ancient 1</string>
+    <string name="polum_thumb_type2">Ancient 2</string>
+    <string name="polum_thumb_type3">Ancient 3</string>
+    <string name="polum_thumb_type4">Ancient 4</string>
+    <string name="polum_thumb_type5">Ancient 5</string>
+    <string name="polum_thumb_type6">Ancient 6</string>
+    <string name="polum_thumb_type7">Ancient 7</string>
+    <string name="polum_thumb_type8">Ancient 8</string>
+    <string name="polum_thumb_type9">Ancient 9</string>
+    <string name="polum_thumb_type10">Ancient 10</string>
+	
+    <!-- polum persen styles -->
+    <string name="polum_persen_switch_title">Volume Percentage</string>
+    <string name="polum_persen_switch_sum">show percentage on volume dialog</string>
+    <string name="polum_persen_style_title">Volume Percentage Placement</string>
+    <string name="polum_persen_default">Top Of Seekbar</string>
+    <string name="polum_persen_type1">Between Seekbar and Icon</string>
+    <string name="polum_persen_type2">Bottom of Icon</string>
+	
+    <!-- anci polum styles -->
+    <string name="anci_polum_style_title">Ancient Volume Style</string>
+    <string name="anci_polum_default">Default Style</string>
+    <string name="anci_polum_type1">Ancient Style 1</string>
+    <string name="anci_polum_type2">Ancient Style 2</string>
+    <string name="anci_polum_type3">Ancient Style 3</string>
+    <string name="anci_polum_type4">Ancient Style 4</string>
+    <string name="anci_polum_type5">Ancient Style 5</string>
+    <string name="anci_polum_type6">Ancient Style 6</string>
+    <string name="anci_polum_type7">Ancient Style 7</string>
+    <string name="anci_polum_type8">Ancient Style 8</string>
+    <string name="anci_polum_type9">Ancient Style 9</string>
+    <string name="anci_polum_type10">Ancient Style 10</string>
 
 </resources>
