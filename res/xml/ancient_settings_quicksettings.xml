@@ -312,26 +312,26 @@
            android:entryValues="@array/seekbar_bg_tint_values"
            android:defaultValue="0" />
          
-        <net.margaritov.preference.colorpicker.ColorPickerPreference
-            android:key="AncientBrightnessColor"
-            android:defaultValue="0xFF1A73E8"                                                           
+        <net.margaritov.preference.colorpicker.ColorPickerPreference 
             android:title="@string/slider_new_tint_picker_title"
             android:summary="@string/slider_new_tint_picker_summary"
-            settings:showReset="true" /> 
+            android:key="AncientBrightnessColor" 
+            android:defaultValue="0x00000000" 
+            settings:alphaSlider="true" /> 
          
-         <net.margaritov.preference.colorpicker.ColorPickerPreference
-            android:key="AncientThumbColor"
-            android:defaultValue="0xFF1A73E8"                                                           
+        <net.margaritov.preference.colorpicker.ColorPickerPreference 
+            android:defaultValue="0x00000000" 
+            settings:alphaSlider="true"
+            android:key="AncientThumbColor"                                                          
             android:title="@string/thumb_new_tint_picker_title"
-            android:summary="@string/sthumb_new_tint_picker_summary"
-            settings:showReset="true" />
+            android:summary="@string/sthumb_new_tint_picker_summary" />
          
-         <net.margaritov.preference.colorpicker.ColorPickerPreference
-            android:key="AncientBackProgressColor"
-            android:defaultValue="0xFF1A73E8"                                                           
+         <net.margaritov.preference.colorpicker.ColorPickerPreference 
+            android:defaultValue="0x00000000" 
+            settings:alphaSlider="true"
+            android:key="AncientBackProgressColor"                                                           
             android:title="@string/bp_new_tint_picker_title"
-            android:summary="@string/bp_new_tint_picker_summary"
-            settings:showReset="true" /> 
+            android:summary="@string/bp_new_tint_picker_summary" /> 
 
     </PreferenceCategory>
 
