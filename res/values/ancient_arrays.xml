@@ -2126,12 +2126,14 @@
         <item>@string/seekbar_tint_default</item>
         <item>@string/seekbar_tint_type1</item>
 	<item>@string/seekbar_tint_type2</item>   
+	<item>@string/seekbar_tint_type3</item>       
     </string-array>
 
     <string-array name="seekbar_tint_values" translatable="false">
         <item>0</item>
         <item>1</item>
 	<item>2</item>   
+	<item>3</item>      
     </string-array>
 	
     <!-- seekbar thumb tint -->
@@ -2139,25 +2141,29 @@
         <item>@string/seekbar_thumb_tint_default</item>
         <item>@string/seekbar_thumb_tint_type1</item>
 	<item>@string/seekbar_thumb_tint_type2</item>   
+	<item>@string/seekbar_thumb_tint_type3</item>      
     </string-array>
 
     <string-array name="seekbar_thumb_tint_values" translatable="false">
         <item>0</item>
         <item>1</item>
 	<item>2</item>   
+	<item>3</item>    
     </string-array>
 	
     <!-- seekbar bg tint -->
     <string-array name="seekbar_bg_tint_entries" translatable="false">
         <item>@string/seekbar_bg_tint_default</item>
         <item>@string/seekbar_bg_tint_type1</item>
-	<item>@string/seekbar_bg_tint_type2</item>   
+	<item>@string/seekbar_bg_tint_type2</item>
+	 <item>@string/seekbar_bg_tint_type3</item>     
     </string-array>
 
     <string-array name="seekbar_bg_tint_values" translatable="false">
         <item>0</item>
         <item>1</item>
 	<item>2</item>   
+	<item>3</item>       
     </string-array>
 	
     <!-- expand indicator  -->
