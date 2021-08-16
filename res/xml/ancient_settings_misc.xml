@@ -206,9 +206,54 @@
            android:title="@string/polum_persen_style_title"
            android:entries="@array/polum_persen_entries"
 	   android:dependency="ANCIENT_VOLUME_USEPERSEN"							  
-	   android:layout="@layout/ancient_cardpreference_bottom" 
+	   android:layout="@layout/ancient_cardpreference_middle" 
            android:entryValues="@array/polum_persen_values"
            android:defaultValue="0" /> 
+	    
+	<com.ancient.settings.preferences.SystemSettingListPreference
+           android:key="ANCIENT_SLIDERBG_TINT_LIST"
+          android:layout="@layout/ancient_cardpreference_middle"                                                            
+           android:title="@string/seekbar_new_tint"
+           android:entries="@array/seekbar_tint_entries"
+           android:entryValues="@array/seekbar_tint_values"
+           android:defaultValue="0" />
+         
+         <com.ancient.settings.preferences.SystemSettingListPreference
+           android:key="ANCIENT_THUMB_TINT_LIST"
+           android:layout="@layout/ancient_cardpreference_middle"                                                            
+           android:title="@string/seekbar_thumb_new_tint"
+           android:entries="@array/seekbar_thumb_tint_entries"
+           android:entryValues="@array/seekbar_thumb_tint_values"
+           android:defaultValue="0" />
+         
+        <com.ancient.settings.preferences.SystemSettingListPreference
+           android:key="ANCIENT_SLIDERBG_TINT_LIST"
+           android:title="@string/seekbar_seekbar_bg_tint"
+           android:layout="@layout/ancient_cardpreference_bottom"                                                           
+           android:entries="@array/seekbar_bg_tint_entries"
+           android:entryValues="@array/seekbar_bg_tint_values"
+           android:defaultValue="0" />
+         
+        <net.margaritov.preference.colorpicker.ColorPickerPreference 
+            android:title="@string/seekbar_new_tint_picker_title"
+            android:summary="@string/slider_new_tint_picker_summary"
+            android:key="ANCIENT_SLIDER_TINT" 
+            android:defaultValue="0x00000000" 
+            settings:alphaSlider="true" /> 
+         
+        <net.margaritov.preference.colorpicker.ColorPickerPreference 
+            android:defaultValue="0x00000000" 
+            settings:alphaSlider="true"
+            android:key="ANCIENT_THUMB_TINT"                                                          
+            android:title="@string/thumb_new_tint_picker_title"
+            android:summary="@string/sthumb_new_tint_picker_summary" />
+         
+         <net.margaritov.preference.colorpicker.ColorPickerPreference 
+            android:defaultValue="0x00000000" 
+            settings:alphaSlider="true"
+            android:key="ANCIENT_SLIDERBG_TINT"                                                           
+            android:title="@string/seekbar_bp_new_tint_picker_title"
+            android:summary="@string/bp_new_tint_picker_summary" />
 
     </PreferenceCategory>
 
