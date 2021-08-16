@@ -217,6 +217,13 @@
            android:entries="@array/seekbar_tint_entries"
            android:entryValues="@array/seekbar_tint_values"
            android:defaultValue="0" />
+	    
+	<com.ancient.settings.preferences.SystemSettingSwitchPreference
+           android:key="ANCIENT_SLIDER_SINGLE_TONE"
+	   android:layout="@layout/ancient_cardpreference_middle"							    
+           android:title="@string/polum_tone_switch_title"
+           android:summary="@string/polum_tone_switch_sum"
+           android:defaultValue="false" />
          
          <com.ancient.settings.preferences.SystemSettingListPreference
            android:key="ANCIENT_THUMB_TINT_LIST"
