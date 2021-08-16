@@ -1821,6 +1821,8 @@
     <string name="status_bar_show_image">Show image</string>
     <string name="sb_weather_statusbar">Status bar</string>
     <string name="sb_weather_header">Expanded header</string>
+    <string name="big_weather_enabled_title">Big QS Weather</string>
+    <string name="big_weather_enabled_summary">use big weather info for OOS qs panel style</string>
 	
 	<!-- brightness thumb new tint -->
     <string name="thumb_new_tint">Brightness Thumb Tint </string>
