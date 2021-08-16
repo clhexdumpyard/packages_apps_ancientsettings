@@ -1786,7 +1786,9 @@
     <string name="seekbar_tint_type2">Random</string>
     <string name="seekbar_tint_type3">Custom Color</string>
     <string name="slider_new_tint_picker_title">Seekbar Color</string>
+    <string name="seekbar_new_tint_picker_title">Slider Color</string>
     <string name="slider_new_tint_picker_summary">use rgb color picker</string>
+    <string name="seekbar_new_tint">Volume Slider Tint</string>
 
     <!-- Lockscreen weather -->
     <string name="lockscreen_weather_category">Weather</string>
@@ -1829,6 +1831,7 @@
 	
 	<!-- brightness thumb new tint -->
     <string name="thumb_new_tint">Brightness Thumb Tint </string>
+    <string name="seekbar_thumb_new_tint">Volume Thumb Tint </string>
     <string name="seekbar_thumb_tint_default">Accent</string>
     <string name="seekbar_thumb_tint_type1">Primary</string>
     <string name="seekbar_thumb_tint_type2">Random</string>
@@ -1838,11 +1841,13 @@
 	
 	<!-- brightness background new tint -->
     <string name="seekbar_bg_tint">Brightness SeekBar Background Tint </string>
+    <string name="seekbar_seekbar_bg_tint">Volume Slider Background Tint </string>
     <string name="seekbar_bg_tint_default">Accent</string>
     <string name="seekbar_bg_tint_type1">Primary</string>
     <string name="seekbar_bg_tint_type2">Random</string>
     <string name="seekbar_bg_tint_type3">Custom Color</string>
     <string name="bp_new_tint_picker_title">SeekBar Background Color</string>
+    <string name="seekbar_bp_new_tint_picker_title">Slider Background Color</string>
     <string name="bp_new_tint_picker_summary">use rgb color picker</string>
 	
 	
