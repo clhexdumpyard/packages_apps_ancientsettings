@@ -1784,6 +1784,9 @@
     <string name="seekbar_tint_default">Accent</string>
     <string name="seekbar_tint_type1">Primary</string>
     <string name="seekbar_tint_type2">Random</string>
+    <string name="seekbar_tint_type3">Custom Color</string>
+    <string name="slider_new_tint_picker_title">Seekbar Color</string>
+    <string name="slider_new_tint_picker_summary">use rgb color picker</string>
 
     <!-- Lockscreen weather -->
     <string name="lockscreen_weather_category">Weather</string>
@@ -1829,12 +1832,19 @@
     <string name="seekbar_thumb_tint_default">Accent</string>
     <string name="seekbar_thumb_tint_type1">Primary</string>
     <string name="seekbar_thumb_tint_type2">Random</string>
+    <string name="seekbar_thumb_tint_type3">Custom Color</string>
+    <string name="thumb_new_tint_picker_title">Thumb Color</string>
+    <string name="sthumb_new_tint_picker_summary">use rgb color picker</string>
 	
 	<!-- brightness background new tint -->
     <string name="seekbar_bg_tint">Brightness SeekBar Background Tint </string>
     <string name="seekbar_bg_tint_default">Accent</string>
     <string name="seekbar_bg_tint_type1">Primary</string>
     <string name="seekbar_bg_tint_type2">Random</string>
+    <string name="seekbar_bg_tint_type3">Custom Color</string>
+    <string name="bp_new_tint_picker_title">SeekBar Background Color</string>
+    <string name="bp_new_tint_picker_summary">use rgb color picker</string>
+	
 	
     <!-- ram bar -->
     <string name="ram_bar_style_title">Ram Usage Info Style</string>
