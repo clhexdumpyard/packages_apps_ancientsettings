@@ -59,6 +59,8 @@ import com.android.settings.SettingsPreferenceFragment;
 import com.android.internal.util.ancient.ThemesUtils;
 import com.android.internal.util.ancient.AncientUtils;
 
+import net.margaritov.preference.colorpicker.ColorPickerPreference;
+
 import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -76,6 +78,9 @@ public class QuickSettings extends SettingsPreferenceFragment
     private static final String QQS_TILE_STYLE = "QQS_TILE_STYLE";
     private static final String PENGUSIR_ALARM = "PENGUSIR_ALARM";
     private static final String PENGUSIR_RINGER = "PENGUSIR_RINGER";
+    private static final String ANCIENTBRIGHTNESSCOLOR = "AncientBrightnessColor";
+    private static final String ANCIENTTHUMBCOLOR = "AncientThumbColor";
+    private static final String ANCIENTBACKPROGRESSCOLOR = "AncientBackProgressColor";
 
     private UiModeManager mUiModeManager;
 
@@ -88,6 +93,9 @@ public class QuickSettings extends SettingsPreferenceFragment
     private SystemSettingSwitchPreference mQsRinger;
     private SystemSettingListPreference mQqsTile;
     private IOverlayManager mOverlayService;
+    private ColorPickerPreference rgbBrightPicker;
+    private ColorPickerPreference rgbThumbPicker;
+    private ColorPickerPreference rgbBPPicker;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -97,6 +105,36 @@ public class QuickSettings extends SettingsPreferenceFragment
         mUiModeManager = getContext().getSystemService(UiModeManager.class);
         mOverlayService = IOverlayManager.Stub
                 .asInterface(ServiceManager.getService(Context.OVERLAY_SERVICE));
+                
+        rgbBPPicker = (ColorPickerPreference) findPreference(ANCIENTBACKPROGRESSCOLOR);
+        String colorBp = Settings.System.getStringForUser(getContentResolver(),
+                "AncientBackProgressColor", UserHandle.USER_CURRENT);
+        int colorbpb = (colorBp == null)
+                ? Color.WHITE
+                : Color.parseColor("#" + colorBp);
+        rgbBPPicker.setNewPreviewColor(colorbpb);
+        rgbBPPicker.setAlphaSliderEnabled(true);
+        rgbBPPicker.setOnPreferenceChangeListener(this);
+                
+        rgbThumbPicker = (ColorPickerPreference) findPreference(ANCIENTTHUMBCOLOR);
+        String colorThumb = Settings.System.getStringForUser(getContentResolver(),
+                "AncientThumbColor", UserHandle.USER_CURRENT);
+        int colorthu = (colorThumb == null)
+                ? Color.WHITE
+                : Color.parseColor("#" + colorThumb);
+        rgbThumbPicker.setNewPreviewColor(colorthu);
+        rgbThumbPicker.setAlphaSliderEnabled(true);
+        rgbThumbPicker.setOnPreferenceChangeListener(this);        
+                
+        rgbBrightPicker = (ColorPickerPreference) findPreference(ANCIENTBRIGHTNESSCOLOR);
+        String colorBright = Settings.System.getStringForUser(getContentResolver(),
+                "AncientBrightnessColor", UserHandle.USER_CURRENT);
+        int colorbri = (colorBright == null)
+                ? Color.WHITE
+                : Color.parseColor("#" + colorBright);
+        rgbBrightPicker.setNewPreviewColor(colorbri);
+        rgbBrightPicker.setAlphaSliderEnabled(true);
+        rgbBrightPicker.setOnPreferenceChangeListener(this);
 
         mSmartPulldown = (ListPreference) findPreference(PREF_SMART_PULLDOWN);
         mSmartPulldown.setOnPreferenceChangeListener(this);
@@ -160,6 +198,27 @@ public class QuickSettings extends SettingsPreferenceFragment
             Settings.System.putInt(resolver, Settings.System.QS_SMART_PULLDOWN, smartPulldown);
             updateSmartPulldownSummary(smartPulldown);
             return true;
+        } else if (preference == rgbBrightPicker) {
+            int colorBright = (Integer) objValue;
+            String hexColorBright = String.format("%08X", (0xFFFFFFFF & colorBright));
+            Settings.Sysytem.putStringForUser(getContentResolver(),
+                        "AncientBrightnessColor",
+                        hexColorBright, UserHandle.USER_CURRENT);
+            return true;    
+        } else if (preference == rgbThumbPicker) {
+            int colorThumb = (Integer) objValue;
+            String hexColorThumb = String.format("%08X", (0xFFFFFFFF & colorThumb));
+            Settings.Sysytem.putStringForUser(getContentResolver(),
+                        "AncientThumbColor",
+                        hexColorThumb, UserHandle.USER_CURRENT);
+            return true;     
+        } else if (preference == rgbBPPicker) {
+            int colorBp = (Integer) objValue;
+            String hexColorBp = String.format("%08X", (0xFFFFFFFF & colorBp));
+            Settings.Sysytem.putStringForUser(getContentResolver(),
+                        "AncientBackProgressColor",
+                        hexColorBp, UserHandle.USER_CURRENT);
+            return true;       
         } else if (preference == mFooterString) {
             String value = (String) newValue;
             if (value != "" && value != null)
