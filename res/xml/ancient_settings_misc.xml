@@ -46,18 +46,6 @@
         android:summary="@string/alarm_blocker_summary"
         android:fragment="com.ancient.settings.fragments.AlarmBlocker" />
 
-    <Preference
-        android:key="wakelock_blocker"
-        android:title="@string/wakelock_blocker_title"
-        android:summary="@string/wakelock_blocker_summary"
-        android:fragment="com.ancient.settings.fragments.WakeLockBlocker" />
-
-    <Preference
-        android:key="alarm_blocker"
-        android:title="@string/alarm_blocker_title"
-        android:summary="@string/alarm_blocker_summary"
-        android:fragment="com.ancient.settings.fragments.AlarmBlocker" />
-
     <!-- Clipboard toast info -->
     <com.ancient.settings.preferences.SystemSettingListPreference
         android:key="clipboard_toast_info"
