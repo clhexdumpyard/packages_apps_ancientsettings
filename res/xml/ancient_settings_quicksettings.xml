@@ -311,6 +311,27 @@
            android:entries="@array/seekbar_bg_tint_entries"
            android:entryValues="@array/seekbar_bg_tint_values"
            android:defaultValue="0" />
+         
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="AncientBrightnessColor"
+            android:defaultValue="0xFF1A73E8"                                                           
+            android:title="@string/slider_new_tint_picker_title"
+            android:summary="@string/slider_new_tint_picker_summary"
+            settings:showReset="true" /> 
+         
+         <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="AncientThumbColor"
+            android:defaultValue="0xFF1A73E8"                                                           
+            android:title="@string/thumb_new_tint_picker_title"
+            android:summary="@string/sthumb_new_tint_picker_summary"
+            settings:showReset="true" />
+         
+         <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="AncientBackProgressColor"
+            android:defaultValue="0xFF1A73E8"                                                           
+            android:title="@string/bp_new_tint_picker_title"
+            android:summary="@string/bp_new_tint_picker_summary"
+            settings:showReset="true" /> 
 
     </PreferenceCategory>
 
