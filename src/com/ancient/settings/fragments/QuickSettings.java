@@ -199,23 +199,23 @@ public class QuickSettings extends SettingsPreferenceFragment
             updateSmartPulldownSummary(smartPulldown);
             return true;
         } else if (preference == rgbBrightPicker) {
-            int colorBright = (Integer) objValue;
+            int colorBright = (Integer) newValue;
             String hexColorBright = String.format("%08X", (0xFFFFFFFF & colorBright));
-            Settings.Sysytem.putStringForUser(getContentResolver(),
+            Settings.System.putStringForUser(getContentResolver(),
                         "AncientBrightnessColor",
                         hexColorBright, UserHandle.USER_CURRENT);
             return true;    
         } else if (preference == rgbThumbPicker) {
-            int colorThumb = (Integer) objValue;
+            int colorThumb = (Integer) newValue;
             String hexColorThumb = String.format("%08X", (0xFFFFFFFF & colorThumb));
-            Settings.Sysytem.putStringForUser(getContentResolver(),
+            Settings.System.putStringForUser(getContentResolver(),
                         "AncientThumbColor",
                         hexColorThumb, UserHandle.USER_CURRENT);
             return true;     
         } else if (preference == rgbBPPicker) {
-            int colorBp = (Integer) objValue;
+            int colorBp = (Integer) newValue;
             String hexColorBp = String.format("%08X", (0xFFFFFFFF & colorBp));
-            Settings.Sysytem.putStringForUser(getContentResolver(),
+            Settings.System.putStringForUser(getContentResolver(),
                         "AncientBackProgressColor",
                         hexColorBp, UserHandle.USER_CURRENT);
             return true;       
