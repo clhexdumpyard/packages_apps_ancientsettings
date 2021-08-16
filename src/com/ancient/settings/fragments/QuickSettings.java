@@ -107,34 +107,43 @@ public class QuickSettings extends SettingsPreferenceFragment
                 .asInterface(ServiceManager.getService(Context.OVERLAY_SERVICE));
                 
         rgbBPPicker = (ColorPickerPreference) findPreference(ANCIENTBACKPROGRESSCOLOR);
-        String colorBp = Settings.System.getStringForUser(getContentResolver(),
-                "AncientBackProgressColor", UserHandle.USER_CURRENT);
-        int colorbpb = (colorBp == null)
-                ? Color.WHITE
-                : Color.parseColor("#" + colorBp);
-        rgbBPPicker.setNewPreviewColor(colorbpb);
+        int mbacaColor = Settings.System.getInt(getContentResolver(),
+                "AncientBackProgressColor", 0xFFFF0000);
+        rgbBPPicker.setNewPreviewColor(mbacaColor);
         rgbBPPicker.setAlphaSliderEnabled(true);
+        String mbacaColorHex = String.format("#%08x", (0xFFFF0000 & mbacaColor));
+        if (mbacaColorHex.equals("#ffff0000")) {
+            rgbBPPicker.setSummary(R.string.color_default);
+        } else {
+            rgbBPPicker.setSummary(mbacaColorHex);
+        }
         rgbBPPicker.setOnPreferenceChangeListener(this);
                 
         rgbThumbPicker = (ColorPickerPreference) findPreference(ANCIENTTHUMBCOLOR);
-        String colorThumb = Settings.System.getStringForUser(getContentResolver(),
-                "AncientThumbColor", UserHandle.USER_CURRENT);
-        int colorthu = (colorThumb == null)
-                ? Color.WHITE
-                : Color.parseColor("#" + colorThumb);
-        rgbThumbPicker.setNewPreviewColor(colorthu);
+        int mbacaColore = Settings.System.getInt(getContentResolver(),
+                "AncientThumbColor", 0xFFFF0000);
+        rgbThumbPicker.setNewPreviewColor(mbacaColore);
         rgbThumbPicker.setAlphaSliderEnabled(true);
-        rgbThumbPicker.setOnPreferenceChangeListener(this);        
-                
+        String mbacaColoreHex = String.format("#%08x", (0xFFFF0000 & mbacaColore));
+        if (mbacaColoreHex.equals("#ffff0000")) {
+            rgbThumbPicker.setSummary(R.string.color_default);
+        } else {
+            rgbThumbPicker.setSummary(mbacaColoreHex);
+        }
+        rgbThumbPicker.setOnPreferenceChangeListener(this);   
+        
         rgbBrightPicker = (ColorPickerPreference) findPreference(ANCIENTBRIGHTNESSCOLOR);
-        String colorBright = Settings.System.getStringForUser(getContentResolver(),
-                "AncientBrightnessColor", UserHandle.USER_CURRENT);
-        int colorbri = (colorBright == null)
-                ? Color.WHITE
-                : Color.parseColor("#" + colorBright);
-        rgbBrightPicker.setNewPreviewColor(colorbri);
+        int mbacaColored = Settings.System.getInt(getContentResolver(),
+                "AncientBrightnessColor", 0xFFFF0000);
+        rgbBrightPicker.setNewPreviewColor(mbacaColored);
         rgbBrightPicker.setAlphaSliderEnabled(true);
-        rgbBrightPicker.setOnPreferenceChangeListener(this);
+        String mbacaColoredHex = String.format("#%08x", (0xFFFF0000 & mbacaColored));
+        if (mbacaColoredHex.equals("#ffff0000")) {
+            rgbBrightPicker.setSummary(R.string.color_default);
+        } else {
+            rgbBrightPicker.setSummary(mbacaColoredHex);
+        }
+        rgbBrightPicker.setOnPreferenceChangeListener(this);   
 
         mSmartPulldown = (ListPreference) findPreference(PREF_SMART_PULLDOWN);
         mSmartPulldown.setOnPreferenceChangeListener(this);
@@ -198,26 +207,41 @@ public class QuickSettings extends SettingsPreferenceFragment
             Settings.System.putInt(resolver, Settings.System.QS_SMART_PULLDOWN, smartPulldown);
             updateSmartPulldownSummary(smartPulldown);
             return true;
-        } else if (preference == rgbBrightPicker) {
-            int colorBright = (Integer) newValue;
-            String hexColorBright = String.format("%08X", (0xFFFFFFFF & colorBright));
-            Settings.System.putStringForUser(getContentResolver(),
-                        "AncientBrightnessColor",
-                        hexColorBright, UserHandle.USER_CURRENT);
-            return true;    
+         } else if (preference == rgbBrightPicker) {
+            String hexa = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            if (hexa.equals("#FFFF0000")) {
+                preference.setSummary(R.string.color_default);
+            } else {
+                preference.setSummary(hexa);
+            }
+            int intHexa = ColorPickerPreference.convertToColorInt(hexa);
+            Settings.System.putInt(getContentResolver(),
+                    "AncientBrightnessColor", intHexa);
+            return true;  
         } else if (preference == rgbThumbPicker) {
-            int colorThumb = (Integer) newValue;
-            String hexColorThumb = String.format("%08X", (0xFFFFFFFF & colorThumb));
-            Settings.System.putStringForUser(getContentResolver(),
-                        "AncientThumbColor",
-                        hexColorThumb, UserHandle.USER_CURRENT);
-            return true;     
+            String hexaB = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            if (hexaB.equals("#FFFF0000")) {
+                preference.setSummary(R.string.color_default);
+            } else {
+                preference.setSummary(hexaB);
+            }
+            int intHexaB = ColorPickerPreference.convertToColorInt(hexaB);
+            Settings.System.putInt(getContentResolver(),
+                    "AncientThumbColor", intHexaB);
+            return true;    
         } else if (preference == rgbBPPicker) {
-            int colorBp = (Integer) newValue;
-            String hexColorBp = String.format("%08X", (0xFFFFFFFF & colorBp));
-            Settings.System.putStringForUser(getContentResolver(),
-                        "AncientBackProgressColor",
-                        hexColorBp, UserHandle.USER_CURRENT);
+            String hexaBA = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            if (hexaBA.equals("#FFFF0000")) {
+                preference.setSummary(R.string.color_default);
+            } else {
+                preference.setSummary(hexaBA);
+            }
+            int intHexaBA = ColorPickerPreference.convertToColorInt(hexaBA);
+            Settings.System.putInt(getContentResolver(),
+                    "AncientBackProgressColor", intHexaBA);    
             return true;       
         } else if (preference == mFooterString) {
             String value = (String) newValue;
