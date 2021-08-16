@@ -266,6 +266,7 @@
 
         <com.ancient.settings.preferences.SecureSettingListPreference
             android:key="qs_show_brightness_slider"
+            android:layout="@layout/ancient_cardpreference_top"                                                          
             android:title="@string/qs_show_brightness_slider_title"
             android:summary="%s"
             android:dialogTitle="@string/qs_show_brightness_slider_title"
@@ -275,24 +276,44 @@
 
         <com.ancient.settings.preferences.SecureSettingSwitchPreference
             android:key="qs_show_auto_brightness"
+            android:layout="@layout/ancient_cardpreference_middle"                                                            
             android:title="@string/qs_show_auto_brightness_title"
             android:summary="@string/qs_show_auto_brightness_summary"
             android:defaultValue="true" />
 
         <com.ancient.settings.preferences.SystemSettingSwitchPreference
             android:key="AncientTextBrightness"
+            android:layout="@layout/ancient_cardpreference_middle"                                                               
             android:title="@string/ancient_brightness_text"
             android:summary="@string/ancient_brightness_text_summary"                                                                
             android:defaultValue="true" />
 
         <com.ancient.settings.preferences.SecureSettingSwitchPreference
             android:key="qs_brightness_position_bottom"
+            android:layout="@layout/ancient_cardpreference_middle"                                                               
             android:title="@string/qs_brightness_position_bottom_title"
             android:summary="@string/qs_brightness_position_bottom_summary"
             android:defaultValue="false" />
-
+         
+        <com.ancient.settings.preferences.SystemSettingListPreference
+            android:layout="@layout/ancient_cardpreference_middle"
+            android:key="AncientBrightnessStyle"
+            android:title="@string/brightn_style_title"
+            android:defaultValue="0"
+            android:entries="@array/brightn_entries"
+            android:entryValues="@array/brightn_values" /> 
+	    
+	   <com.ancient.settings.preferences.SystemSettingListPreference
+            android:layout="@layout/ancient_cardpreference_middle"
+            android:key="AncientThumbStyle"
+            android:title="@string/thumb_style_title"
+            android:defaultValue="0"  
+            android:entries="@array/thumb_entries"
+            android:entryValues="@array/thumb_values" />    
+ 
         <com.ancient.settings.preferences.SystemSettingListPreference
            android:key="AncientBrightnessTint"
+          android:layout="@layout/ancient_cardpreference_middle"                                                            
            android:title="@string/slider_new_tint"
            android:entries="@array/seekbar_tint_entries"
            android:entryValues="@array/seekbar_tint_values"
@@ -300,6 +321,7 @@
          
          <com.ancient.settings.preferences.SystemSettingListPreference
            android:key="AncientThumbTint"
+           android:layout="@layout/ancient_cardpreference_middle"                                                            
            android:title="@string/thumb_new_tint"
            android:entries="@array/seekbar_thumb_tint_entries"
            android:entryValues="@array/seekbar_thumb_tint_values"
@@ -308,6 +330,7 @@
         <com.ancient.settings.preferences.SystemSettingListPreference
            android:key="AncientBackProgressTint"
            android:title="@string/seekbar_bg_tint"
+           android:layout="@layout/ancient_cardpreference_bottom"                                                           
            android:entries="@array/seekbar_bg_tint_entries"
            android:entryValues="@array/seekbar_bg_tint_values"
            android:defaultValue="0" />
