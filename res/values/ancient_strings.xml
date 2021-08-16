@@ -1789,6 +1789,8 @@
     <string name="seekbar_new_tint_picker_title">Slider Color</string>
     <string name="slider_new_tint_picker_summary">use rgb color picker</string>
     <string name="seekbar_new_tint">Volume Slider Tint</string>
+    <string name="polum_tone_switch_title">Single Tone Tinting</string>
+    <string name="polum_tone_switch_sum">active and non active mode will be same</string>
 
     <!-- Lockscreen weather -->
     <string name="lockscreen_weather_category">Weather</string>
