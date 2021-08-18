@@ -1911,6 +1911,10 @@
     <!-- polum persen styles -->
     <string name="polum_persen_switch_title">Volume Percentage</string>
     <string name="polum_persen_switch_sum">show percentage on volume dialog</string>
+    <string name="persenan_tint">Volume Percentage Tint</string>
+    <string name="iconv_tint">Volume Icon Tint</string>
+    <string name="persenan_tint_picker_title">Percentage Color</string>
+    <string name="iconv_tint_picker_title">Icon Color</string>
     <string name="polum_persen_style_title">Volume Percentage Placement</string>
     <string name="polum_persen_default">Top Of Seekbar</string>
     <string name="polum_persen_type1">Between Seekbar and Icon</string>
