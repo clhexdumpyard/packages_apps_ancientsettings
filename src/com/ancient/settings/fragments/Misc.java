@@ -62,6 +62,8 @@ public class Misc extends SettingsPreferenceFragment
     private static final String ANCIENT_SLIDER_TINT = "ANCIENT_SLIDER_TINT";
     private static final String ANCIENT_THUMB_TINT = "ANCIENT_THUMB_TINT";
     private static final String ANCIENT_SLIDERBG_TINT = "ANCIENT_SLIDERBG_TINT";
+    private static final String ANCIENT_VICON_TINT = "ANCIENT_VICON_TINT";
+    private static final String ANCIENT_PERSEN_TINT = "ANCIENT_PERSEN_TINT";
 
     private ListPreference mHeadsetRingtoneFocus;
     private CustomSeekBarPreference mPulseBrightness;
@@ -69,12 +71,40 @@ public class Misc extends SettingsPreferenceFragment
     private ColorPickerPreference rgbBrightPicker;
     private ColorPickerPreference rgbThumbPicker;
     private ColorPickerPreference rgbBPPicker;
+    private ColorPickerPreference rgbPersenPicker;
+    private ColorPickerPreference rgbIconPicker;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.ancient_settings_misc);
         final ContentResolver resolver = getActivity().getContentResolver();
+        
+        rgbIconPicker = (ColorPickerPreference) findPreference(ANCIENT_VICON_TINT);
+        int mbacaColorpi = Settings.System.getInt(getContentResolver(),
+                "ANCIENT_VICON_TINT", 0xFFFF0000);
+        rgbIconPicker.setNewPreviewColor(mbacaColorpi);
+        rgbIconPicker.setAlphaSliderEnabled(true);
+        String mbacaColorHexpi = String.format("#%08x", (0xFFFF0000 & mbacaColorpi));
+        if (mbacaColorHexpi.equals("#ffff0000")) {
+            rgbIconPicker.setSummary(R.string.color_default);
+        } else {
+            rgbIconPicker.setSummary(mbacaColorHexpi);
+        }
+        rgbIconPicker.setOnPreferenceChangeListener(this);
+        
+        rgbPersenPicker = (ColorPickerPreference) findPreference(ANCIENT_PERSEN_TINT);
+        int mbacaColorp = Settings.System.getInt(getContentResolver(),
+                "ANCIENT_PERSEN_TINT", 0xFFFF0000);
+        rgbPersenPicker.setNewPreviewColor(mbacaColorp);
+        rgbPersenPicker.setAlphaSliderEnabled(true);
+        String mbacaColorHexp = String.format("#%08x", (0xFFFF0000 & mbacaColorp));
+        if (mbacaColorHexp.equals("#ffff0000")) {
+            rgbPersenPicker.setSummary(R.string.color_default);
+        } else {
+            rgbPersenPicker.setSummary(mbacaColorHexp);
+        }
+        rgbPersenPicker.setOnPreferenceChangeListener(this);
 
         rgbBPPicker = (ColorPickerPreference) findPreference(ANCIENT_SLIDERBG_TINT);
         int mbacaColor = Settings.System.getInt(getContentResolver(),
@@ -153,6 +183,30 @@ public class Misc extends SettingsPreferenceFragment
             Settings.Global.putInt(getContentResolver(), Settings.Global.RINGTONE_FOCUS_MODE,
                     mHeadsetRingtoneFocusValue);
             return true;
+        } else if (preference == rgbIconPicker) {
+            String hexapi = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            if (hexapi.equals("#FFFF0000")) {
+                preference.setSummary(R.string.color_default);
+            } else {
+                preference.setSummary(hexapi);
+            }
+            int intHexapi = ColorPickerPreference.convertToColorInt(hexapi);
+            Settings.System.putInt(getContentResolver(),
+                    "ANCIENT_VICON_TINT", intHexapi);
+            return true;  
+        } else if (preference == rgbPersenPicker) {
+            String hexaBp = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            if (hexaBp.equals("#FFFF0000")) {
+                preference.setSummary(R.string.color_default);
+            } else {
+                preference.setSummary(hexaBp);
+            }
+            int intHexaBp = ColorPickerPreference.convertToColorInt(hexaBp);
+            Settings.System.putInt(getContentResolver(),
+                    "ANCIENT_PERSEN_TINT", intHexaBp);
+            return true;    
         } else if (preference == rgbBrightPicker) {
             String hexa = ColorPickerPreference.convertToARGB(
                     Integer.valueOf(String.valueOf(newValue)));
