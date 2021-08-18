@@ -236,6 +236,22 @@
         <com.ancient.settings.preferences.SystemSettingListPreference
            android:key="ANCIENT_SLIDERBG_TINT_LIST"
            android:title="@string/seekbar_seekbar_bg_tint"
+           android:layout="@layout/ancient_cardpreference_middle"                                                           
+           android:entries="@array/seekbar_bg_tint_entries"
+           android:entryValues="@array/seekbar_bg_tint_values"
+           android:defaultValue="0" />
+	    
+	<com.ancient.settings.preferences.SystemSettingListPreference
+           android:key="ANCIENT_PERSEN_TINT_LIST"
+           android:title="@string/persenan_tint"
+           android:layout="@layout/ancient_cardpreference_middle"                                                           
+           android:entries="@array/seekbar_bg_tint_entries"
+           android:entryValues="@array/seekbar_bg_tint_values"
+           android:defaultValue="0" />
+	    
+	<com.ancient.settings.preferences.SystemSettingListPreference
+           android:key="ANCIENT_VICON_TINT_LIST"
+           android:title="@string/iconv_tint"
            android:layout="@layout/ancient_cardpreference_bottom"                                                           
            android:entries="@array/seekbar_bg_tint_entries"
            android:entryValues="@array/seekbar_bg_tint_values"
@@ -261,6 +277,20 @@
             android:key="ANCIENT_SLIDERBG_TINT"                                                           
             android:title="@string/seekbar_bp_new_tint_picker_title"
             android:summary="@string/bp_new_tint_picker_summary" />
+	    
+	 <net.margaritov.preference.colorpicker.ColorPickerPreference 
+            android:title="@string/iconv_tint_picker_title"
+            android:summary="@string/slider_new_tint_picker_summary"
+            android:key="ANCIENT_VICON_TINT" 
+            android:defaultValue="0x00000000" 
+            settings:alphaSlider="true" /> 
+         
+        <net.margaritov.preference.colorpicker.ColorPickerPreference 
+            android:defaultValue="0x00000000" 
+            settings:alphaSlider="true"
+            android:key="ANCIENT_PERSEN_TINT"                                                          
+            android:title="@string/persenan_tint_picker_title"
+            android:summary="@string/sthumb_new_tint_picker_summary" />
 
     </PreferenceCategory>
 
