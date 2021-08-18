@@ -64,6 +64,8 @@ public class Misc extends SettingsPreferenceFragment
     private static final String ANCIENT_SLIDERBG_TINT = "ANCIENT_SLIDERBG_TINT";
     private static final String ANCIENT_VICON_TINT = "ANCIENT_VICON_TINT";
     private static final String ANCIENT_PERSEN_TINT = "ANCIENT_PERSEN_TINT";
+    private static final String THEMING_SETTINGS_DASHBOARD_ICONS_FOREGROUND_COLOR = "THEMING_SETTINGS_DASHBOARD_ICONS_FOREGROUND_COLOR";
+    private static final String THEMING_SETTINGS_DASHBOARD_ICONS_BACKGROUND_COLOR = "THEMING_SETTINGS_DASHBOARD_ICONS_BACKGROUND_COLOR";
 
     private ListPreference mHeadsetRingtoneFocus;
     private CustomSeekBarPreference mPulseBrightness;
@@ -73,12 +75,40 @@ public class Misc extends SettingsPreferenceFragment
     private ColorPickerPreference rgbBPPicker;
     private ColorPickerPreference rgbPersenPicker;
     private ColorPickerPreference rgbIconPicker;
+    private ColorPickerPreference rgbF;
+    private ColorPickerPreference rgbB;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.ancient_settings_misc);
         final ContentResolver resolver = getActivity().getContentResolver();
+        
+        rgbB = (ColorPickerPreference) findPreference(THEMING_SETTINGS_DASHBOARD_ICONS_BACKGROUND_COLOR);
+        int mbacaColorpika = Settings.System.getInt(getContentResolver(),
+                "THEMING_SETTINGS_DASHBOARD_ICONS_BACKGROUND_COLOR", 0xFFFF0000);
+        rgbB.setNewPreviewColor(mbacaColorpika);
+        rgbB.setAlphaSliderEnabled(true);
+        String mbacaColorHexpika = String.format("#%08x", (0xFFFF0000 & mbacaColorpika));
+        if (mbacaColorHexpika.equals("#ffff0000")) {
+            rgbB.setSummary(R.string.color_default);
+        } else {
+            rgbB.setSummary(mbacaColorHexpika);
+        }
+        rgbB.setOnPreferenceChangeListener(this);
+
+        rgbF = (ColorPickerPreference) findPreference(THEMING_SETTINGS_DASHBOARD_ICONS_FOREGROUND_COLOR);
+        int mbacaColorpik = Settings.System.getInt(getContentResolver(),
+                "THEMING_SETTINGS_DASHBOARD_ICONS_FOREGROUND_COLOR", 0xFFFF0000);
+        rgbF.setNewPreviewColor(mbacaColorpik);
+        rgbF.setAlphaSliderEnabled(true);
+        String mbacaColorHexpik = String.format("#%08x", (0xFFFF0000 & mbacaColorpik));
+        if (mbacaColorHexpik.equals("#ffff0000")) {
+            rgbF.setSummary(R.string.color_default);
+        } else {
+            rgbF.setSummary(mbacaColorHexpik);
+        }
+        rgbF.setOnPreferenceChangeListener(this);
         
         rgbIconPicker = (ColorPickerPreference) findPreference(ANCIENT_VICON_TINT);
         int mbacaColorpi = Settings.System.getInt(getContentResolver(),
@@ -183,6 +213,30 @@ public class Misc extends SettingsPreferenceFragment
             Settings.Global.putInt(getContentResolver(), Settings.Global.RINGTONE_FOCUS_MODE,
                     mHeadsetRingtoneFocusValue);
             return true;
+        } else if (preference == rgbB) {
+            String hexapika = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            if (hexapika.equals("#FFFF0000")) {
+                preference.setSummary(R.string.color_default);
+            } else {
+                preference.setSummary(hexapika);
+            }
+            int intHexapika = ColorPickerPreference.convertToColorInt(hexapika);
+            Settings.System.putInt(getContentResolver(),
+                    "THEMING_SETTINGS_DASHBOARD_ICONS_BACKGROUND_COLOR", intHexapika);
+            return true;  
+        } else if (preference == rgbF) {
+            String hexapik = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            if (hexapik.equals("#FFFF0000")) {
+                preference.setSummary(R.string.color_default);
+            } else {
+                preference.setSummary(hexapik);
+            }
+            int intHexapik = ColorPickerPreference.convertToColorInt(hexapik);
+            Settings.System.putInt(getContentResolver(),
+                    "THEMING_SETTINGS_DASHBOARD_ICONS_FOREGROUND_COLOR", intHexapik);
+            return true;  
         } else if (preference == rgbIconPicker) {
             String hexapi = ColorPickerPreference.convertToARGB(
                     Integer.valueOf(String.valueOf(newValue)));
