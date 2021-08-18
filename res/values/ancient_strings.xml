@@ -1018,6 +1018,14 @@
     <string name="theming_settings_dashboard_icons_random_bg_accent">Icon Random Bg Accent</string>
     <string name="theming_settings_dashboard_icons_accent_bg_random">Icon Accent Bg Random</string>
     <string name="theming_settings_dashboard_icons_default_oneplus">OnePlus</string>
+    <string name="theming_settings_dashboard_icons_custom">Icon Custom Color</string>
+    <string name="theming_settings_dashboard_icons_default_bg_custom">Bg Custom</string>
+    <string name="theming_settings_dashboard_icons_accent_bg_custom">Icon Accent Bg Custom</string>
+    <string name="theming_settings_dashboard_icons_custom_bg_default">Icon Custom Bg Plain</string>
+    <string name="theming_settings_dashboard_icons_custom_bg_accent">Icon Custom Bg Accent</string>
+    <string name="theming_settings_dashboard_icons_custom_bg_custom">Icon Custom Bg Custom</string>
+    <string name="dashboard_icon_tint_picker_title">Dashboard Icon Color</string>
+    <string name="dashboard_iconbg_tint_picker_title">Dashboard Icon Bg Color</string>
 
     <!-- Screen record -->
     <string name="global_actions_screenrecord_title">Screen Record</string>
