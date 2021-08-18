@@ -61,6 +61,20 @@
         android:entryValues="@array/theming_settings_dashboard_icons_values"
         android:defaultValue="0" />  
 
+    <net.margaritov.preference.colorpicker.ColorPickerPreference 
+            android:defaultValue="0x00000000" 
+            settings:alphaSlider="true"
+            android:key="THEMING_SETTINGS_DASHBOARD_ICONS_FOREGROUND_COLOR"                                                          
+            android:title="@string/dashboard_icon_tint_picker_title"
+            android:summary="@string/sthumb_new_tint_picker_summary" />
+
+    <net.margaritov.preference.colorpicker.ColorPickerPreference 
+            android:defaultValue="0x00000000" 
+            settings:alphaSlider="true"
+            android:key="THEMING_SETTINGS_DASHBOARD_ICONS_BACKGROUND_COLOR"                                                          
+            android:title="@string/dashboard_iconbg_tint_picker_title"
+            android:summary="@string/sthumb_new_tint_picker_summary" />
+
     <Preference
         android:key="gaming_mode"
         android:fragment="com.ancient.settings.fragments.GamingMode"
