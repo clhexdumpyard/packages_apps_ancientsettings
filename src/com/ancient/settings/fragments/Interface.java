@@ -558,28 +558,28 @@ public class Interface extends DashboardFragment implements
              }
             return true;
         } else if (preference == mAncientCollapsedBaseStyle) {
-            //try {
-            //     mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
-            // } catch (RemoteException ignored) {
-            // }
+            try {
+                 mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
+             } catch (RemoteException ignored) {
+             }
             return true;
         } else if (preference == mAncientHomepageBackground) {
-            //try {
-            //     mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
-            // } catch (RemoteException ignored) {
-            // }
+            try {
+                 mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
+             } catch (RemoteException ignored) {
+             }
             return true;
         } else if (preference == mAncientCollapseHeader) {
-           // try {
-           //      mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
-            // } catch (RemoteException ignored) {
-           //  }
+            try {
+                 mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
+             } catch (RemoteException ignored) {
+             }
             return true;
         } else if (preference == mAncientCollapseToolBg) {
-            //try {
-            //     mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
-            // } catch (RemoteException ignored) {
-            // }
+            try {
+                 mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
+             } catch (RemoteException ignored) {
+             }
             return true;
         } else if (preference == mSbMarginStyle) {
             int sbMarginStyleValue = Integer.valueOf((String) objValue);
@@ -614,16 +614,16 @@ public class Interface extends DashboardFragment implements
             }
             return true;
         } else if (preference == mAncientBouncyOnoff) {
-            //try {
-             //    mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
-           // } catch (RemoteException ignored) {
-           // }
+            try {
+                 mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
+            } catch (RemoteException ignored) {
+            }
             return true;
         } else if (preference == mAncientBoldOnoff) {
-            //try {
-            //     mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
-           // } catch (RemoteException ignored) {
-           // }
+            try {
+                 mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
+            } catch (RemoteException ignored) {
+            }
             return true;
         } else if (preference == mAncientCusTop) {
             int sbSeetingStyleValue = Integer.valueOf((String) objValue);
