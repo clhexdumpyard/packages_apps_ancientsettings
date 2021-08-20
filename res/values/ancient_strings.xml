@@ -1722,6 +1722,8 @@
     <string name="qs_expanded_ancientui_clock_style5">Gradient Clock</string>
     <string name="qs_expanded_ancientui_clock_style6">Ancient A10 Clock</string>
     <string name="qs_expanded_ancientui_clock_style7">Analog Clock with Date</string>
+     <string name="qs_expanded_ancientui_clock_style8">Weather Clock One</string>
+    <string name="qs_expanded_ancientui_clock_style9">Weather Clock Two</string>
 
     <!-- Volume App -->
     <string name="show_app_volume_title">Show app volume</string>
