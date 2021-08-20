@@ -865,6 +865,7 @@
         <item>@string/switch_stockish</item>
         <item>@string/switch_square</item>
         <item>@string/switch_android_s</item>
+	<item>@string/switch_android_s_text</item>
     </string-array>
 
     <string-array name="switch_style_values" translatable="false">
@@ -878,6 +879,7 @@
         <item>7</item>
         <item>8</item>
         <item>9</item>
+	<item>10</item>
     </string-array> 
 
     <!-- Toast Animation -->
