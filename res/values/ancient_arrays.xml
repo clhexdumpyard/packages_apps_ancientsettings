@@ -2337,5 +2337,93 @@
         <item>0</item>
         <item>1</item>
     </string-array>
+	
+    <!-- anci clir styles -->
+    <string-array name="anci_clir_entries" translatable="false">
+        <item>@string/anci_clir_default</item>
+        <item>@string/anci_clir_type1</item>
+        <item>@string/anci_clir_type2</item>  
+	<item>@string/anci_clir_type3</item>
+        <item>@string/anci_clir_type4</item>
+        <item>@string/anci_clir_type5</item>     
+	<item>@string/anci_clir_type6</item>
+        <item>@string/anci_clir_type7</item>  
+	<item>@string/anci_clir_type8</item>
+        <item>@string/anci_clir_type9</item>
+        <item>@string/anci_clir_type10</item>         
+    </string-array>
+
+    <string-array name="anci_clir_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>    
+	<item>3</item>
+        <item>4</item> 
+	<item>5</item>
+        <item>6</item>    
+	<item>7</item>
+        <item>8</item>  
+	<item>9</item>
+        <item>10</item>    
+    </string-array>
+	
+    <!-- anci clirtint styles -->
+    <string-array name="anci_clir_tint_entries" translatable="false">
+        <item>@string/anci_clir_tint_default</item>
+        <item>@string/anci_clir_tint_type1</item>
+        <item>@string/anci_clir_tint_type2</item>  
+	<item>@string/anci_clir_tint_type3</item>      
+    </string-array>
+
+    <string-array name="anci_clir_tint_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>    
+	<item>3</item>   
+    </string-array>
+	
+    <!-- anci clirtintbg styles -->
+    <string-array name="anci_clir_tintbg_entries" translatable="false">
+        <item>@string/anci_clir_tintbg_default</item>
+        <item>@string/anci_clir_tintbg_type1</item>
+        <item>@string/anci_clir_tintbg_type2</item>  
+	<item>@string/anci_clir_tintbg_type3</item>      
+    </string-array>
+
+    <string-array name="anci_clir_tintbg_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>    
+	<item>3</item>   
+    </string-array>
+	
+    <!-- anci clirbg styles -->
+    <string-array name="anci_clirbg_entries" translatable="false">
+        <item>@string/anci_clirbg_default</item>
+        <item>@string/anci_clirbg_type1</item>
+        <item>@string/anci_clirbg_type2</item>  
+	<item>@string/anci_clirbg_type3</item>
+        <item>@string/anci_clirbg_type4</item>
+        <item>@string/anci_clirbg_type5</item>     
+	<item>@string/anci_clirbg_type6</item>
+        <item>@string/anci_clirbg_type7</item>  
+	<item>@string/anci_clirbg_type8</item>
+        <item>@string/anci_clirbg_type9</item>
+        <item>@string/anci_clirbg_type10</item>         
+    </string-array>
+
+    <string-array name="anci_clirbg_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>    
+	<item>3</item>
+        <item>4</item> 
+	<item>5</item>
+        <item>6</item>    
+	<item>7</item>
+        <item>8</item>  
+	<item>9</item>
+        <item>10</item>    
+    </string-array>
 
 </resources>
