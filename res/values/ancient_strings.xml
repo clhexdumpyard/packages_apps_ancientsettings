@@ -1944,5 +1944,47 @@
     <string name="anci_polum_type8">Ancient Style 8</string>
     <string name="anci_polum_type9">Ancient Style 9</string>
     <string name="anci_polum_type10">Ancient Style 10</string>
+	
+    <!-- anci clir styles -->
+    <string name="anci_clir_style_title">Material dismiss button style</string>
+    <string name="anci_clir_default">Default</string>
+    <string name="anci_clir_type1">Trash Bin</string>
+    <string name="anci_clir_type2">Broom</string>
+    <string name="anci_clir_type3">Pacman</string>
+    <string name="anci_clir_type4">Stop</string>
+    <string name="anci_clir_type5">Cross</string>
+    <string name="anci_clir_type6">Recycle</string>
+    <string name="anci_clir_type7">Rubber</string>
+    <string name="anci_clir_type8">Ancient Logo</string>
+    <string name="anci_clir_type9">Task Note</string>
+    <string name="anci_clir_type10">Magnet</string>
+	
+    <string name="anci_clirtint_style_title">Material dismiss button tint</string>
+    <string name="anci_clirtint_color_title">Material dismiss icon color</string>
+    <string name="anci_clir_tint_default">Default</string>
+    <string name="anci_clir_tint_type1">Primary</string>
+    <string name="anci_clir_tint_type2">Random</string>
+    <string name="anci_clir_tint_type3">Custom Color</string>
+	
+    <!-- anci clirbg styles -->
+    <string name="anci_clirbg_style_title">Material dismiss background style</string>
+    <string name="anci_clirbg_default">Default</string>
+    <string name="anci_clirbg_type1">test</string>
+    <string name="anci_clirbg_type2">test</string>
+    <string name="anci_clirbg_type3">test</string>
+    <string name="anci_clirbg_type4">test</string>
+    <string name="anci_clirbg_type5">test</string>
+    <string name="anci_clirbg_type6">test</string>
+    <string name="anci_clirbg_type7">test</string>
+    <string name="anci_clirbg_type8">test</string>
+    <string name="anci_clirbg_type9">test</string>
+    <string name="anci_clirbg_type10">test</string>
+	
+    <string name="anci_clirbgtint_style_title">Material dismiss background tint</string>
+    <string name="anci_clirbgtint_color_title">Material dismiss background color</string>
+    <string name="anci_clir_tintbg_default">Default</string>
+    <string name="anci_clir_tintbg_type1">Accent</string>
+    <string name="anci_clir_tintbg_type2">Random</string>
+    <string name="anci_clir_tintbg_type3">Custom Color</string>
 
 </resources>
