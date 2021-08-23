@@ -1497,6 +1497,27 @@
     <string name="custom_bg_qs_primary">Background Primary</string>
     <string name="custom_bg_qs_wallpaper">Wallpaper Color</string>
     <string name="custom_bg_qs_random">Disco</string>
+    <string name="custom_bg_qs_singlecolor">Custom Color</string>
+    <string name="custom_bg_qs_gradient">Gradient</string>
+
+    <string name="custom_bg_gradient_arah">Gradient Direction</string>
+    <string name="custom_bg_gradient_arah1"> bottom-left to the top-right </string>
+    <string name="custom_bg_gradient_arah2"> bottom to the top </string>
+    <string name="custom_bg_gradient_arah3"> bottom-right to the top-left </string>
+    <string name="custom_bg_gradient_arah4"> left to the right </string>
+    <string name="custom_bg_gradient_arah5"> right to the left </string>
+    <string name="custom_bg_gradient_arah6"> top-left to the bottom-right </string>
+    <string name="custom_bg_gradient_arah7"> top to the bottom </string>
+    <string name="custom_bg_gradient_arah8"> top-right to the bottom-left </string>
+    
+    <string name="custom_bg_gradient_jumlah">Gradient Color Value</string>
+    <string name="custom_bg_gradient_jumlah1">2 Colors</string>
+    <string name="custom_bg_gradient_jumlah2">3 Colors</string>
+
+    <string name="custom_bg_gradient1_kolor">Gradient1 Color Picker</string>
+    <string name="custom_bg_gradient2_kolor">Gradient2 Color Picker</string>
+    <string name="custom_bg_gradient3_kolor">Gradient3 Color Picker</string>
+    <string name="custom_bg_single_kolor">Single Color Picker</string>
 
     <!-- bgtile size icon -->
     <string name="custom_bgtile_size_title">QS Tile Background Size</string>
