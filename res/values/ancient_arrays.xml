@@ -1641,6 +1641,8 @@
         <item>@string/custom_bg_qs_primary</item>
         <item>@string/custom_bg_qs_wallpaper</item>
         <item>@string/custom_bg_qs_random</item>
+        <item>@string/custom_bg_qs_singlecolor</item>
+        <item>@string/custom_bg_qs_gradient</item>
     </string-array>
 
     <string-array name="custom_bg_qs_values" translatable="false">
@@ -1650,6 +1652,40 @@
         <item>3</item>
         <item>4</item>
         <item>5</item>
+        <item>6</item>
+        <item>7</item>
+    </string-array>
+
+    <string-array name="custom_qs_gdarah_entries" translatable="false">
+        <item>@string/custom_bg_gradient_arah1</item>
+        <item>@string/custom_bg_gradient_arah2</item>
+        <item>@string/custom_bg_gradient_arah3</item>
+        <item>@string/custom_bg_gradient_arah4</item>
+        <item>@string/custom_bg_gradient_arah5</item>
+        <item>@string/custom_bg_gradient_arah6</item>
+        <item>@string/custom_bg_gradient_arah7</item>
+        <item>@string/custom_bg_gradient_arah8</item>
+    </string-array>
+
+    <string-array name="custom_qs_gdarah_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+    </string-array>
+
+   <string-array name="custom_qs_gjumlah_entries" translatable="false">
+        <item>@string/custom_bg_gradient_jumlah1</item>
+        <item>@string/custom_bg_gradient_jumlahh2</item>
+    </string-array>
+
+    <string-array name="custom_qs_gjumlah_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
     </string-array>
 
     <string-array name="custom_bgtile_size_entries" translatable="false">
