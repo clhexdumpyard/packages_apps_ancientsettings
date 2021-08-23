@@ -32,6 +32,54 @@
         android:entryValues="@array/custom_bg_qs_values"
         android:defaultValue="0" />
 
+    <com.ancient.settings.preferences.SystemSettingListPreference
+        android:key="QS_BG_GRAD_ARAH"
+        android:title="@string/custom_bg_gradient_arah"
+        android:dependency="QS_BG_FUL"
+        android:entries="@array/custom_qs_gdarah_entries"
+        android:entryValues="@array/custom_qs_gdarah_values"
+        android:defaultValue="0" />
+
+    <com.ancient.settings.preferences.SystemSettingListPreference
+        android:key="QS_BG_GRAD_JUMLAH"
+        android:title="@string/custom_bg_gradient_jumlah"
+        android:dependency="QS_BG_FUL"
+        android:entries="@array/custom_qs_gjumlah_entries"
+        android:entryValues="@array/custom_qs_gjumlah_values"
+        android:defaultValue="0" />
+
+    <net.margaritov.preference.colorpicker.ColorPickerPreference 
+            android:title="@string/custom_bg_gradient1_kolor"
+            android:summary="@string/slider_new_tint_picker_summary"
+            android:key="QS_BG_GRAD_WARNASATU" 
+            android:dependency="QS_BG_FUL"
+            android:defaultValue="0x00000000" 
+            settings:alphaSlider="true" /> 
+         
+    <net.margaritov.preference.colorpicker.ColorPickerPreference 
+            android:defaultValue="0x00000000" 
+            settings:alphaSlider="true"
+            android:dependency="QS_BG_FUL"
+            android:key="QS_BG_GRAD_WARNADUA"                                                          
+            android:title="@string/custom_bg_gradient2_kolor"
+            android:summary="@string/sthumb_new_tint_picker_summary" />
+         
+    <net.margaritov.preference.colorpicker.ColorPickerPreference 
+            android:defaultValue="0x00000000" 
+            settings:alphaSlider="true"
+            android:dependency="QS_BG_FUL"
+            android:key="QS_BG_GRAD_WARNATIGA"                                                           
+            android:title="@string/custom_bg_gradient3_kolor"
+            android:summary="@string/bp_new_tint_picker_summary" /> 
+
+    <net.margaritov.preference.colorpicker.ColorPickerPreference 
+            android:defaultValue="0x00000000" 
+            settings:alphaSlider="true"
+            android:key="QS_BG_SATU_WARNA"          
+            android:dependency="QS_BG_FUL"                                           
+            android:title="@string/custom_bg_single_kolor"
+            android:summary="@string/bp_new_tint_picker_summary" /> 
+
     <com.ancient.settings.preferences.SystemSettingSeekBarPreference
         android:key="QS_BGFULL_ALPHA"
         android:title="@string/qs_bgful_alpha_title"
