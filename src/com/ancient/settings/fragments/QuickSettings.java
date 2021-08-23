@@ -377,7 +377,7 @@ public class QuickSettings extends SettingsPreferenceFragment
             boolean value = (Boolean) newValue;
             Settings.System.putInt(getActivity().getContentResolver(),
                     "QS_BG_FUL", value ? 1 : 0);
-            AncientUtils.showSystemUiRestartDialog(getContext());
+            //AncientUtils.showSystemUiRestartDialog(getContext());
             return true;
         } else if (preference == mQqsTile) {
             int sbQqstileStyleValue = Integer.valueOf((String) newValue);
