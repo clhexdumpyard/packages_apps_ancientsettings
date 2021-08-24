@@ -175,6 +175,13 @@
             android:entryValues="@array/volume_panel_values"
             android:defaultValue="@string/volume_panel_aosp_val" />
 	    
+	<com.ancient.settings.preferences.SystemSettingSwitchPreference
+           android:key="VOLUME_PANEL_LEFT"
+	   android:layout="@layout/ancient_cardpreference_middle"							    
+           android:title="@string/polum_left_switch_title"
+           android:summary="@string/polum_left_switch_sum"
+           android:defaultValue="false" />      
+	    
 	<com.ancient.settings.preferences.SystemSettingListPreference
            android:key="ANCIENT_VOLUME_STYLE"
            android:title="@string/anci_polum_style_title"
