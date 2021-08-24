@@ -2008,4 +2008,7 @@
     <string name="anci_clir_tintbg_type2">Random</string>
     <string name="anci_clir_tintbg_type3">Custom Color</string>
 
+    <string name="polum_left_switch_title">Volume Panel Left Side</string>
+    <string name="polum_left_switch_sum">move volume panel to left side</string>
+
 </resources>
