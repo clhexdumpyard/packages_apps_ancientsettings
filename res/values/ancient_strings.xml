@@ -924,7 +924,7 @@
     <string name="switch_android_ios">IOS</string>
     <string name="switch_android_button">Power Button</string>
     <string name="switch_android_tumtext">Iki Saklar Yo Gaes</string>
-    <string name="switch_android_tumpict">Thumbnail On Off</string>
+    <string name="switch_android_tumpict">Sad and Glad</string>
     
     <!-- AOKP custom system animations -->
     <string name="animation_settings_title">Animations</string>
