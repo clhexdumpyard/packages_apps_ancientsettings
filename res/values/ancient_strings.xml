@@ -922,6 +922,9 @@
     <string name="switch_android_s_text">Android S Text (on-off)</string>
     <string name="switch_android_s_text1">Android S Text (yes-no)</string>
     <string name="switch_android_ios">IOS</string>
+    <string name="switch_android_button">Power Button</string>
+    <string name="switch_android_tumtext">Iki Saklar Yo Gaes</string>
+    <string name="switch_android_ios">Thumbnail On Off</string>
     
     <!-- AOKP custom system animations -->
     <string name="animation_settings_title">Animations</string>
