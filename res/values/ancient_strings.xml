@@ -1995,10 +1995,10 @@
     <!-- anci clirbg styles -->
     <string name="anci_clirbg_style_title">Material dismiss background style</string>
     <string name="anci_clirbg_default">Default</string>
-    <string name="anci_clirbg_type1">test</string>
-    <string name="anci_clirbg_type2">test</string>
-    <string name="anci_clirbg_type3">test</string>
-    <string name="anci_clirbg_type4">test</string>
+    <string name="anci_clirbg_type1">Sam</string>
+    <string name="anci_clirbg_type2">Sam dot stroke</string>
+    <string name="anci_clirbg_type3">Ic QS Circle</string>
+    <string name="anci_clirbg_type4">Square bottom dot stroke</string>
     <string name="anci_clirbg_type5">test</string>
     <string name="anci_clirbg_type6">test</string>
     <string name="anci_clirbg_type7">test</string>
