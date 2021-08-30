@@ -2015,5 +2015,20 @@
 
     <string name="polum_left_switch_title">Volume Panel Left Side</string>
     <string name="polum_left_switch_sum">move volume panel to left side</string>
+	
+    <!-- anci cikon styles -->
+    <string name="custom_icon_charging_style_title">Custom charging icon style</string>
+    <string name="custom_icon_charging_title">Custom charging icon</string>
+    <string name="custom_icon_charging_summary">only on statusbar (on qs panel is not supported)</string>
+    <string name="custom_icon_charging_default">Default (Xiaomi)</string>
+    <string name="custom_icon_charging_type1">Oppo</string>
+    <string name="custom_icon_charging_type2">1+</string>
+    <string name="custom_icon_charging_type3">Moto</string>
+    <string name="custom_icon_charging_type4">Asus</string>
+    <string name="custom_icon_charging_type5">test</string>
+    <string name="custom_icon_charging_type6">test</string>
+    <string name="custom_icon_charging_type7">test</string>
+    <string name="custom_icon_charging_type8">test</string>
+    <string name="custom_icon_charging_type9">IDC</string>
 
 </resources>
