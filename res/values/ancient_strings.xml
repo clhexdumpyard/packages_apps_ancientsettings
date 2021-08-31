@@ -2019,7 +2019,7 @@
     <!-- anci cikon styles -->
     <string name="custom_icon_charging_style_title">Custom charging icon style</string>
     <string name="custom_icon_charging_title">Custom charging icon</string>
-    <string name="custom_icon_charging_summary">only on statusbar (on qs panel is not yet supported bcs me nub n lazy)</string>
+    <string name="custom_icon_charging_summary">use custom icon for charging state </string>
     <string name="custom_icon_charging_default">Default (Xiaomi logo)</string>
     <string name="custom_icon_charging_type1">Realme logo</string>
     <string name="custom_icon_charging_type2">Nokia logo</string>
@@ -2033,5 +2033,18 @@
 	
     <string name="notification_material_dismiss_hide_title">Hide in expanded</string>
     <string name="notification_material_dismiss_hide_summary">Hide dismiss button when qs is fully expanded</string>
+	
+    <!-- carging symbol -->
+    <string name="custom_icon_charging_symbol_title">Charging symbol for battery text</string>
+    <string name="custom_symbol_charging_default">Default (Bolt)</string>
+    <string name="custom_symbol_charging_type1">Biohazard</string>
+    <string name="custom_symbol_charging_type2">Star</string>
+    <string name="custom_symbol_charging_type3">Smile</string>
+    <string name="custom_symbol_charging_type4">Recycle</string>
+    <string name="custom_symbol_charging_type5">Infinity</string>
+    <string name="custom_symbol_charging_type6">Sun Flower</string>
+    <string name="custom_symbol_charging_type7">Tear Dropp</string>
+    <string name="custom_symbol_charging_type8">Snow</string>
+    <string name="custom_symbol_charging_type9">Triple Tilde</string>
 
 </resources>
