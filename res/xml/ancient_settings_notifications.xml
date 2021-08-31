@@ -269,6 +269,13 @@
             android:title="@string/notification_material_dismiss_button_title"
             android:summary="@string/notification_material_dismiss_button_summary" />
 	    
+	<com.ancient.settings.preferences.SystemSettingSwitchPreference
+	    android:layout="@layout/ancient_cardpreference_middle"
+            android:key="NOTIFICATION_MATERIAL_DISMISS_HIDE_EXPANDED"
+	    android:dependency="notification_material_dismiss"								
+            android:title="@string/notification_material_dismiss_hide_title"
+            android:summary="@string/notification_material_dismiss_hide_summary" />
+	    
 	<com.ancient.settings.preferences.SystemSettingListPreference
            android:key="NOTIFICATION_MATERIAL_DISMISS_STYLE"
            android:title="@string/anci_clir_style_title"
