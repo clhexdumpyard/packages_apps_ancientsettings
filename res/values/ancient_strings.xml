@@ -2019,16 +2019,16 @@
     <!-- anci cikon styles -->
     <string name="custom_icon_charging_style_title">Custom charging icon style</string>
     <string name="custom_icon_charging_title">Custom charging icon</string>
-    <string name="custom_icon_charging_summary">only on statusbar (on qs panel is not supported)</string>
-    <string name="custom_icon_charging_default">Default (Xiaomi)</string>
-    <string name="custom_icon_charging_type1">Oppo</string>
-    <string name="custom_icon_charging_type2">1+</string>
-    <string name="custom_icon_charging_type3">Moto</string>
-    <string name="custom_icon_charging_type4">Asus</string>
-    <string name="custom_icon_charging_type5">test</string>
-    <string name="custom_icon_charging_type6">test</string>
-    <string name="custom_icon_charging_type7">test</string>
-    <string name="custom_icon_charging_type8">test</string>
+    <string name="custom_icon_charging_summary">only on statusbar (on qs panel is not yet supported bcs me nub n lazy)</string>
+    <string name="custom_icon_charging_default">Default (Xiaomi logo)</string>
+    <string name="custom_icon_charging_type1">Realme logo</string>
+    <string name="custom_icon_charging_type2">Nokia logo</string>
+    <string name="custom_icon_charging_type3">Moto logo</string>
+    <string name="custom_icon_charging_type4">Asus logo</string>
+    <string name="custom_icon_charging_type5">Dual Bolt</string>
+    <string name="custom_icon_charging_type6">DataCable</string>
+    <string name="custom_icon_charging_type7">Adaptor</string>
+    <string name="custom_icon_charging_type8">Power Bank</string>
     <string name="custom_icon_charging_type9">IDC</string>
 
 </resources>
