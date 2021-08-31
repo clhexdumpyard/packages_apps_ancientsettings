@@ -2030,5 +2030,8 @@
     <string name="custom_icon_charging_type7">Adaptor</string>
     <string name="custom_icon_charging_type8">Power Bank</string>
     <string name="custom_icon_charging_type9">IDC</string>
+	
+    <string name="notification_material_dismiss_hide_title">Hide in expanded</string>
+    <string name="notification_material_dismiss_hide_summary">Hide dismiss button when qs is fully expanded</string>
 
 </resources>
