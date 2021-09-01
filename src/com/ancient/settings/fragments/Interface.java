@@ -127,6 +127,7 @@ public class Interface extends DashboardFragment implements
     private static final String PREF_ANCIENT_UI_QQSCLOCK_GRAVITY = "ANCIENT_UI_QQSCLOCK_GRAVITY";
     private static final String PREF_ANCIENT_UI_QSCLOCK_GRAVITY = "ANCIENT_UI_QSCLOCK_GRAVITY";
     private static final String PREF_JAM_HEADER_SIZE = "JAM_HEADER_SIZE";
+    private static final String QSBG_STYLE = "qsbg_style";
 	
     private IOverlayManager mOverlayService;
     private UiModeManager mUiModeManager;
@@ -165,6 +166,7 @@ public class Interface extends DashboardFragment implements
     private SystemSettingListPreference mAncUIb;
     private SystemSettingListPreference mAncUIc;
     private SystemSettingListPreference mAncUId;
+    private SystemSettingListPreference mQsbg;
 	
     private static final int VIBRANT = 0;
     private static final int LIGHT_VIBRANT = 1;
@@ -205,7 +207,15 @@ public class Interface extends DashboardFragment implements
         mAncientCollapseHeader.setOnPreferenceChangeListener(this);
         mAncientCollapseToolBg = (SystemSettingListPreference) findPreference("ancient_collapsetool_bg");
         mAncientCollapseToolBg.setOnPreferenceChangeListener(this);
-
+	    
+        mQsbg = (SystemSettingListPreference) findPreference(QSBG_STYLE);
+        int sbbgStyle = Settings.System.getIntForUser(getContentResolver(),
+                Settings.System.QSBG_STYLE, 0, UserHandle.USER_CURRENT);
+        int valuebgIndex = mQsbg.findIndexOfValue(String.valueOf(sbbgStyle));
+        mQsbg.setValueIndex(valuebgIndex >= 0 ? valuebgIndex : 0);
+        mQsbg.setSummary(mQsbg.getEntry());
+        mQsbg.setOnPreferenceChangeListener(this);
+	    
         mSbMarginStyle = (SystemSettingListPreference) findPreference("ANCI_QS_MARGIN");
         int sbMarginStyle = Settings.System.getIntForUser(getContentResolver(),
                 "ANCI_QS_MARGIN", 0, UserHandle.USER_CURRENT);
@@ -453,7 +463,7 @@ public class Interface extends DashboardFragment implements
         controllers.add(new AnSwitchStylePreferenceController(context));
         controllers.add(new AnAclockStylePreferenceController(context));
         //controllers.add(new SbBrightnStylePreferenceController(context));
-        controllers.add(new SbQsbgStylePreferenceController(context));
+        //controllers.add(new SbQsbgStylePreferenceController(context));
         return controllers;
     }
 
@@ -581,6 +591,13 @@ public class Interface extends DashboardFragment implements
              } catch (RemoteException ignored) {
              }
             return true;
+        } else if (preference == mQsbg) {
+            int mQsbgStyleValue = Integer.valueOf((String) objValue);
+            Settings.System.putIntForUser(getContentResolver(),
+                    Settings.System.QSBG_STYLE, mQsbgStyleValue, UserHandle.USER_CURRENT);
+            mQsbg.setSummary(mQsbg.getEntries()[mQsbgStyleValue]);
+            AncientUtils.showSystemUiRestartDialog(getContext());
+            return true;	
         } else if (preference == mSbMarginStyle) {
             int sbMarginStyleValue = Integer.valueOf((String) objValue);
             Settings.System.putIntForUser(getContentResolver(),
