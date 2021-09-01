@@ -127,7 +127,7 @@ public class Interface extends DashboardFragment implements
     private static final String PREF_ANCIENT_UI_QQSCLOCK_GRAVITY = "ANCIENT_UI_QQSCLOCK_GRAVITY";
     private static final String PREF_ANCIENT_UI_QSCLOCK_GRAVITY = "ANCIENT_UI_QSCLOCK_GRAVITY";
     private static final String PREF_JAM_HEADER_SIZE = "JAM_HEADER_SIZE";
-    private static final String QSBG_STYLE = "qsbg_style";
+    private static final String QSBG_STYLE = "QSBG_STYLE";
 	
     private IOverlayManager mOverlayService;
     private UiModeManager mUiModeManager;
@@ -210,7 +210,7 @@ public class Interface extends DashboardFragment implements
 	    
         mQsbg = (SystemSettingListPreference) findPreference(QSBG_STYLE);
         int sbbgStyle = Settings.System.getIntForUser(getContentResolver(),
-                Settings.System.QSBG_STYLE, 0, UserHandle.USER_CURRENT);
+                "QSBG_STYLE", 0, UserHandle.USER_CURRENT);
         int valuebgIndex = mQsbg.findIndexOfValue(String.valueOf(sbbgStyle));
         mQsbg.setValueIndex(valuebgIndex >= 0 ? valuebgIndex : 0);
         mQsbg.setSummary(mQsbg.getEntry());
@@ -594,7 +594,7 @@ public class Interface extends DashboardFragment implements
         } else if (preference == mQsbg) {
             int mQsbgStyleValue = Integer.valueOf((String) objValue);
             Settings.System.putIntForUser(getContentResolver(),
-                    Settings.System.QSBG_STYLE, mQsbgStyleValue, UserHandle.USER_CURRENT);
+                    "QSBG_STYLE", mQsbgStyleValue, UserHandle.USER_CURRENT);
             mQsbg.setSummary(mQsbg.getEntries()[mQsbgStyleValue]);
             AncientUtils.showSystemUiRestartDialog(getContext());
             return true;	
