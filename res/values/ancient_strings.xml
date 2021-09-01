@@ -1224,7 +1224,8 @@
     <string name="qsbg_default">Default</string>
     <string name="qsbg_type1">With Stroke</string>
     <string name="qsbg_type2">Accent </string>
-    <string name="qsbg_type3">Accent With Stroke</string>
+    <string name="qsbg_type3">Fake A12</string>
+    <string name="qsbg_type4">Fake A12 gone in full expanded</string>
 
     <!-- Settings Icon button -->
     <string name="qqs_settings_icon_title">QQS Setting Icon </string>
