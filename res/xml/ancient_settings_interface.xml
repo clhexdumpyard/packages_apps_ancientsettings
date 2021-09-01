@@ -235,7 +235,7 @@
 
          <com.ancient.settings.preferences.SystemSettingListPreference
             android:layout="@layout/ancient_cardpreference_middle"
-            android:key="qsbg_style"
+            android:key="QSBG_STYLE"
             android:title="@string/qsbg_style_title"
             android:persistent="false"
             android:entries="@array/qsbg_entries"
