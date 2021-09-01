@@ -233,13 +233,13 @@
             android:entries="@array/nav_entries"
             android:entryValues="@array/nav_values" /> 
 
-         <ListPreference
+         <com.ancient.settings.preferences.SystemSettingListPreference
             android:layout="@layout/ancient_cardpreference_middle"
             android:key="qsbg_style"
             android:title="@string/qsbg_style_title"
             android:persistent="false"
             android:entries="@array/qsbg_entries"
-            android:entryValues="@array/qsbg_values" /> 
+            android:entryValues="@array/qsbg_values" />
 
         <ListPreference
             android:layout="@layout/ancient_cardpreference_bottom"
