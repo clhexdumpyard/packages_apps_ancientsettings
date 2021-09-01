@@ -1246,14 +1246,16 @@
         <item>@string/qsbg_default</item>
         <item>@string/qsbg_type1</item>
 	<item>@string/qsbg_type2</item>
-        <item>@string/qsbg_type3</item>    
+        <item>@string/qsbg_type3</item>  
+	<item>@string/qsbg_type4</item>     
     </string-array>
 
     <string-array name="qsbg_values" translatable="false">
         <item>0</item>
         <item>1</item>
 	<item>2</item>
-        <item>3</item>    
+        <item>3</item>  
+	<item>4</item>     
     </string-array>  
 
     <!-- AOD Schedule -->
