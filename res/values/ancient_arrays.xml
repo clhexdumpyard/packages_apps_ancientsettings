@@ -2080,8 +2080,8 @@
         <item>@string/qs_expanded_ancientui_clock_style4</item>  
         <item>@string/qs_expanded_ancientui_clock_style5</item>   
 	<item>@string/qs_expanded_ancientui_clock_style6</item>
-        <item>@string/qs_expanded_ancientui_clock_style7</item>   
-	<item>@string/qs_expanded_ancientui_clock_style8</item>      
+        <item>@string/qs_expanded_ancientui_clock_style8</item>   
+	<item>@string/qs_expanded_ancientui_clock_style9</item>      
     </string-array>   
 
     <string-array name="qs_expanded_ancientui_clock_style_values" translatable="false">
