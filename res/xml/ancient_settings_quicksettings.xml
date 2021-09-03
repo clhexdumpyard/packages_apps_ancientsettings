@@ -32,6 +32,54 @@
         android:entryValues="@array/custom_bg_qs_values"
         android:defaultValue="0" />
 
+    <com.ancient.settings.preferences.SystemSettingListPreference
+        android:key="QS_BG_GRAD_ARAH"
+        android:title="@string/custom_bg_gradient_arah"
+        android:dependency="QS_BG_FUL"
+        android:entries="@array/custom_qs_gdarah_entries"
+        android:entryValues="@array/custom_qs_gdarah_values"
+        android:defaultValue="0" />
+
+    <com.ancient.settings.preferences.SystemSettingListPreference
+        android:key="QS_BG_GRAD_JUMLAH"
+        android:title="@string/custom_bg_gradient_jumlah"
+        android:dependency="QS_BG_FUL"
+        android:entries="@array/custom_qs_gjumlah_entries"
+        android:entryValues="@array/custom_qs_gjumlah_values"
+        android:defaultValue="0" />
+
+    <net.margaritov.preference.colorpicker.ColorPickerPreference 
+            android:title="@string/custom_bg_gradient1_kolor"
+            android:summary="@string/slider_new_tint_picker_summary"
+            android:key="QS_BG_GRAD_WARNASATU" 
+            android:dependency="QS_BG_FUL"
+            android:defaultValue="0x00000000" 
+            settings:alphaSlider="true" /> 
+         
+    <net.margaritov.preference.colorpicker.ColorPickerPreference 
+            android:defaultValue="0x00000000" 
+            settings:alphaSlider="true"
+            android:dependency="QS_BG_FUL"
+            android:key="QS_BG_GRAD_WARNADUA"                                                          
+            android:title="@string/custom_bg_gradient2_kolor"
+            android:summary="@string/sthumb_new_tint_picker_summary" />
+         
+    <net.margaritov.preference.colorpicker.ColorPickerPreference 
+            android:defaultValue="0x00000000" 
+            settings:alphaSlider="true"
+            android:dependency="QS_BG_FUL"
+            android:key="QS_BG_GRAD_WARNATIGA"                                                           
+            android:title="@string/custom_bg_gradient3_kolor"
+            android:summary="@string/bp_new_tint_picker_summary" /> 
+
+    <net.margaritov.preference.colorpicker.ColorPickerPreference 
+            android:defaultValue="0x00000000" 
+            settings:alphaSlider="true"
+            android:key="QS_BG_SATU_WARNA"          
+            android:dependency="QS_BG_FUL"                                           
+            android:title="@string/custom_bg_single_kolor"
+            android:summary="@string/bp_new_tint_picker_summary" /> 
+
     <com.ancient.settings.preferences.SystemSettingSeekBarPreference
         android:key="QS_BGFULL_ALPHA"
         android:title="@string/qs_bgful_alpha_title"
@@ -266,6 +314,7 @@
 
         <com.ancient.settings.preferences.SecureSettingListPreference
             android:key="qs_show_brightness_slider"
+            android:layout="@layout/ancient_cardpreference_top"                                                          
             android:title="@string/qs_show_brightness_slider_title"
             android:summary="%s"
             android:dialogTitle="@string/qs_show_brightness_slider_title"
@@ -275,27 +324,85 @@
 
         <com.ancient.settings.preferences.SecureSettingSwitchPreference
             android:key="qs_show_auto_brightness"
+            android:layout="@layout/ancient_cardpreference_middle"                                                            
             android:title="@string/qs_show_auto_brightness_title"
             android:summary="@string/qs_show_auto_brightness_summary"
             android:defaultValue="true" />
 
         <com.ancient.settings.preferences.SystemSettingSwitchPreference
             android:key="AncientTextBrightness"
+            android:layout="@layout/ancient_cardpreference_middle"                                                               
             android:title="@string/ancient_brightness_text"
             android:summary="@string/ancient_brightness_text_summary"                                                                
             android:defaultValue="true" />
 
         <com.ancient.settings.preferences.SecureSettingSwitchPreference
             android:key="qs_brightness_position_bottom"
+            android:layout="@layout/ancient_cardpreference_middle"                                                               
             android:title="@string/qs_brightness_position_bottom_title"
             android:summary="@string/qs_brightness_position_bottom_summary"
             android:defaultValue="false" />
-
-        <com.ancient.settings.preferences.SystemSettingSwitchPreference
-            android:key="AncientBrightnessTint"
-            android:title="@string/slider_new_tint"
-            android:summary="@string/slider_new_tint_summary"
-            android:defaultValue="false" />
+         
+        <com.ancient.settings.preferences.SystemSettingListPreference
+            android:layout="@layout/ancient_cardpreference_middle"
+            android:key="AncientBrightnessStyle"
+            android:title="@string/brightn_style_title"
+            android:defaultValue="0"
+            android:entries="@array/brightn_entries"
+            android:entryValues="@array/brightn_values" /> 
+	    
+	   <com.ancient.settings.preferences.SystemSettingListPreference
+            android:layout="@layout/ancient_cardpreference_middle"
+            android:key="AncientThumbStyle"
+            android:title="@string/thumb_style_title"
+            android:defaultValue="0"  
+            android:entries="@array/thumb_entries"
+            android:entryValues="@array/thumb_values" />    
+ 
+        <com.ancient.settings.preferences.SystemSettingListPreference
+           android:key="AncientBrightnessTint"
+          android:layout="@layout/ancient_cardpreference_middle"                                                            
+           android:title="@string/slider_new_tint"
+           android:entries="@array/seekbar_tint_entries"
+           android:entryValues="@array/seekbar_tint_values"
+           android:defaultValue="0" />
+         
+         <com.ancient.settings.preferences.SystemSettingListPreference
+           android:key="AncientThumbTint"
+           android:layout="@layout/ancient_cardpreference_middle"                                                            
+           android:title="@string/thumb_new_tint"
+           android:entries="@array/seekbar_thumb_tint_entries"
+           android:entryValues="@array/seekbar_thumb_tint_values"
+           android:defaultValue="0" />
+         
+        <com.ancient.settings.preferences.SystemSettingListPreference
+           android:key="AncientBackProgressTint"
+           android:title="@string/seekbar_bg_tint"
+           android:layout="@layout/ancient_cardpreference_bottom"                                                           
+           android:entries="@array/seekbar_bg_tint_entries"
+           android:entryValues="@array/seekbar_bg_tint_values"
+           android:defaultValue="0" />
+         
+        <net.margaritov.preference.colorpicker.ColorPickerPreference 
+            android:title="@string/slider_new_tint_picker_title"
+            android:summary="@string/slider_new_tint_picker_summary"
+            android:key="AncientBrightnessColor" 
+            android:defaultValue="0x00000000" 
+            settings:alphaSlider="true" /> 
+         
+        <net.margaritov.preference.colorpicker.ColorPickerPreference 
+            android:defaultValue="0x00000000" 
+            settings:alphaSlider="true"
+            android:key="AncientThumbColor"                                                          
+            android:title="@string/thumb_new_tint_picker_title"
+            android:summary="@string/sthumb_new_tint_picker_summary" />
+         
+         <net.margaritov.preference.colorpicker.ColorPickerPreference 
+            android:defaultValue="0x00000000" 
+            settings:alphaSlider="true"
+            android:key="AncientBackProgressColor"                                                           
+            android:title="@string/bp_new_tint_picker_title"
+            android:summary="@string/bp_new_tint_picker_summary" /> 
 
     </PreferenceCategory>
 

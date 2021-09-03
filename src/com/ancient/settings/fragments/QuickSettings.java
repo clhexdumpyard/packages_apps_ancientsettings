@@ -59,6 +59,8 @@ import com.android.settings.SettingsPreferenceFragment;
 import com.android.internal.util.ancient.ThemesUtils;
 import com.android.internal.util.ancient.AncientUtils;
 
+import net.margaritov.preference.colorpicker.ColorPickerPreference;
+
 import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -76,6 +78,13 @@ public class QuickSettings extends SettingsPreferenceFragment
     private static final String QQS_TILE_STYLE = "QQS_TILE_STYLE";
     private static final String PENGUSIR_ALARM = "PENGUSIR_ALARM";
     private static final String PENGUSIR_RINGER = "PENGUSIR_RINGER";
+    private static final String ANCIENTBRIGHTNESSCOLOR = "AncientBrightnessColor";
+    private static final String ANCIENTTHUMBCOLOR = "AncientThumbColor";
+    private static final String ANCIENTBACKPROGRESSCOLOR = "AncientBackProgressColor";
+    private static final String QS_BG_GRAD_WARNASATU = "QS_BG_GRAD_WARNASATU";
+    private static final String QS_BG_GRAD_WARNADUA = "QS_BG_GRAD_WARNADUA";
+    private static final String QS_BG_GRAD_WARNATIGA = "QS_BG_GRAD_WARNATIGA";
+    private static final String QS_BG_SATU_WARNA = "QS_BG_SATU_WARNA";
 
     private UiModeManager mUiModeManager;
 
@@ -88,6 +97,13 @@ public class QuickSettings extends SettingsPreferenceFragment
     private SystemSettingSwitchPreference mQsRinger;
     private SystemSettingListPreference mQqsTile;
     private IOverlayManager mOverlayService;
+    private ColorPickerPreference rgbBrightPicker;
+    private ColorPickerPreference rgbThumbPicker;
+    private ColorPickerPreference rgbBPPicker;
+    private ColorPickerPreference grad1;
+    private ColorPickerPreference grad2;
+    private ColorPickerPreference grad3;
+    private ColorPickerPreference satuwarna;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -97,6 +113,97 @@ public class QuickSettings extends SettingsPreferenceFragment
         mUiModeManager = getContext().getSystemService(UiModeManager.class);
         mOverlayService = IOverlayManager.Stub
                 .asInterface(ServiceManager.getService(Context.OVERLAY_SERVICE));
+             
+        grad1 = (ColorPickerPreference) findPreference(QS_BG_GRAD_WARNASATU);
+        int mgradL = Settings.System.getInt(getContentResolver(),
+                "QS_BG_GRAD_WARNASATU", 0x11000000);
+        grad1.setNewPreviewColor(mgradL);
+        grad1.setAlphaSliderEnabled(true);
+        String mgradHexaL = String.format("#%08x", (0x11000000 & mgradL));
+        if (mgradHexaL.equals("#11000000")) {
+            grad1.setSummary(R.string.color_default);
+        } else {
+            grad1.setSummary(mgradHexaL);
+        }
+        grad1.setOnPreferenceChangeListener(this);
+        
+        grad2 = (ColorPickerPreference) findPreference(QS_BG_GRAD_WARNADUA);
+        int mgradL2 = Settings.System.getInt(getContentResolver(),
+                "QS_BG_GRAD_WARNADUA", 0x11000000);
+        grad2.setNewPreviewColor(mgradL2);
+        grad2.setAlphaSliderEnabled(true);
+        String mgradHexaL2 = String.format("#%08x", (0x11000000 & mgradL2));
+        if (mgradHexaL2.equals("#11000000")) {
+            grad2.setSummary(R.string.color_default);
+        } else {
+            grad2.setSummary(mgradHexaL2);
+        }
+        grad2.setOnPreferenceChangeListener(this);
+        
+        grad3 = (ColorPickerPreference) findPreference(QS_BG_GRAD_WARNATIGA);
+        int mgradL3 = Settings.System.getInt(getContentResolver(),
+                "QS_BG_GRAD_WARNATIGA", 0x11000000);
+        grad3.setNewPreviewColor(mgradL3);
+        grad3.setAlphaSliderEnabled(true);
+        String mgradHexaL3 = String.format("#%08x", (0x11000000 & mgradL3));
+        if (mgradHexaL3.equals("#11000000")) {
+            grad3.setSummary(R.string.color_default);
+        } else {
+            grad3.setSummary(mgradHexaL3);
+        }
+        grad3.setOnPreferenceChangeListener(this);
+        
+        satuwarna = (ColorPickerPreference) findPreference(QS_BG_SATU_WARNA);
+        int mgradL4 = Settings.System.getInt(getContentResolver(),
+                "QS_BG_SATU_WARNA", 0x11000000);
+        satuwarna.setNewPreviewColor(mgradL4);
+        satuwarna.setAlphaSliderEnabled(true);
+        String mgradHexaL4 = String.format("#%08x", (0x11000000 & mgradL4));
+        if (mgradHexaL4.equals("#11000000")) {
+            satuwarna.setSummary(R.string.color_default);
+        } else {
+            satuwarna.setSummary(mgradHexaL4);
+        }
+        satuwarna.setOnPreferenceChangeListener(this);
+       
+        rgbBPPicker = (ColorPickerPreference) findPreference(ANCIENTBACKPROGRESSCOLOR);
+        int mbacaColor = Settings.System.getInt(getContentResolver(),
+                "AncientBackProgressColor", 0xFFFF0000);
+        rgbBPPicker.setNewPreviewColor(mbacaColor);
+        rgbBPPicker.setAlphaSliderEnabled(true);
+        String mbacaColorHex = String.format("#%08x", (0xFFFF0000 & mbacaColor));
+        if (mbacaColorHex.equals("#ffff0000")) {
+            rgbBPPicker.setSummary(R.string.color_default);
+        } else {
+            rgbBPPicker.setSummary(mbacaColorHex);
+        }
+        rgbBPPicker.setOnPreferenceChangeListener(this);
+                
+        rgbThumbPicker = (ColorPickerPreference) findPreference(ANCIENTTHUMBCOLOR);
+        int mbacaColore = Settings.System.getInt(getContentResolver(),
+                "AncientThumbColor", 0xFFFF0000);
+        rgbThumbPicker.setNewPreviewColor(mbacaColore);
+        rgbThumbPicker.setAlphaSliderEnabled(true);
+        String mbacaColoreHex = String.format("#%08x", (0xFFFF0000 & mbacaColore));
+        if (mbacaColoreHex.equals("#ffff0000")) {
+            rgbThumbPicker.setSummary(R.string.color_default);
+        } else {
+            rgbThumbPicker.setSummary(mbacaColoreHex);
+        }
+        rgbThumbPicker.setOnPreferenceChangeListener(this);   
+        
+        rgbBrightPicker = (ColorPickerPreference) findPreference(ANCIENTBRIGHTNESSCOLOR);
+        int mbacaColored = Settings.System.getInt(getContentResolver(),
+                "AncientBrightnessColor", 0xFFFF0000);
+        rgbBrightPicker.setNewPreviewColor(mbacaColored);
+        rgbBrightPicker.setAlphaSliderEnabled(true);
+        String mbacaColoredHex = String.format("#%08x", (0xFFFF0000 & mbacaColored));
+        if (mbacaColoredHex.equals("#ffff0000")) {
+            rgbBrightPicker.setSummary(R.string.color_default);
+        } else {
+            rgbBrightPicker.setSummary(mbacaColoredHex);
+        }
+        rgbBrightPicker.setOnPreferenceChangeListener(this);   
 
         mSmartPulldown = (ListPreference) findPreference(PREF_SMART_PULLDOWN);
         mSmartPulldown.setOnPreferenceChangeListener(this);
@@ -160,6 +267,90 @@ public class QuickSettings extends SettingsPreferenceFragment
             Settings.System.putInt(resolver, Settings.System.QS_SMART_PULLDOWN, smartPulldown);
             updateSmartPulldownSummary(smartPulldown);
             return true;
+        } else if (preference == grad1) {
+            String hexagradi = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            if (hexagradi.equals("#11000000")) {
+                preference.setSummary(R.string.color_default);
+            } else {
+                preference.setSummary(hexagradi);
+            }
+            int intHexaGradi = ColorPickerPreference.convertToColorInt(hexagradi);
+            Settings.System.putInt(getContentResolver(),
+                    "QS_BG_GRAD_WARNASATU", intHexaGradi);
+            return true;  
+        } else if (preference == grad2) {
+            String hexagradie = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            if (hexagradie.equals("#11000000")) {
+                preference.setSummary(R.string.color_default);
+            } else {
+                preference.setSummary(hexagradie);
+            }
+            int intHexaGradie = ColorPickerPreference.convertToColorInt(hexagradie);
+            Settings.System.putInt(getContentResolver(),
+                    "QS_BG_GRAD_WARNADUA", intHexaGradie);
+            return true;  
+        } else if (preference == grad3) {
+            String hexagradien = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            if (hexagradien.equals("#11000000")) {
+                preference.setSummary(R.string.color_default);
+            } else {
+                preference.setSummary(hexagradien);
+            }
+            int intHexaGradien = ColorPickerPreference.convertToColorInt(hexagradien);
+            Settings.System.putInt(getContentResolver(),
+                    "QS_BG_GRAD_WARNATIGA", intHexaGradien);
+            return true;  
+        } else if (preference == satuwarna) {
+            String hexagradiena = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            if (hexagradiena.equals("#11000000")) {
+                preference.setSummary(R.string.color_default);
+            } else {
+                preference.setSummary(hexagradiena);
+            }
+            int intHexaGradiena = ColorPickerPreference.convertToColorInt(hexagradiena);
+            Settings.System.putInt(getContentResolver(),
+                    "QS_BG_SATU_WARNA", intHexaGradiena);
+            return true;  
+         } else if (preference == rgbBrightPicker) {
+            String hexa = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            if (hexa.equals("#FFFF0000")) {
+                preference.setSummary(R.string.color_default);
+            } else {
+                preference.setSummary(hexa);
+            }
+            int intHexa = ColorPickerPreference.convertToColorInt(hexa);
+            Settings.System.putInt(getContentResolver(),
+                    "AncientBrightnessColor", intHexa);
+            return true;  
+        } else if (preference == rgbThumbPicker) {
+            String hexaB = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            if (hexaB.equals("#FFFF0000")) {
+                preference.setSummary(R.string.color_default);
+            } else {
+                preference.setSummary(hexaB);
+            }
+            int intHexaB = ColorPickerPreference.convertToColorInt(hexaB);
+            Settings.System.putInt(getContentResolver(),
+                    "AncientThumbColor", intHexaB);
+            return true;    
+        } else if (preference == rgbBPPicker) {
+            String hexaBA = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            if (hexaBA.equals("#FFFF0000")) {
+                preference.setSummary(R.string.color_default);
+            } else {
+                preference.setSummary(hexaBA);
+            }
+            int intHexaBA = ColorPickerPreference.convertToColorInt(hexaBA);
+            Settings.System.putInt(getContentResolver(),
+                    "AncientBackProgressColor", intHexaBA);    
+            return true;       
         } else if (preference == mFooterString) {
             String value = (String) newValue;
             if (value != "" && value != null)
@@ -186,7 +377,7 @@ public class QuickSettings extends SettingsPreferenceFragment
             boolean value = (Boolean) newValue;
             Settings.System.putInt(getActivity().getContentResolver(),
                     "QS_BG_FUL", value ? 1 : 0);
-            AncientUtils.showSystemUiRestartDialog(getContext());
+            //AncientUtils.showSystemUiRestartDialog(getContext());
             return true;
         } else if (preference == mQqsTile) {
             int sbQqstileStyleValue = Integer.valueOf((String) newValue);

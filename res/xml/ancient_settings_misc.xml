@@ -17,6 +17,22 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
 	android:title="@string/misc_title" >
+	
+    <com.ancient.settings.preferences.SystemSettingSwitchPreference
+        android:key="SHOWHIDE_RAM_RECENT"
+	android:layout="@layout/ancient_cardpreference_top"							    
+        android:title="@string/ram_bar_switch_title"
+        android:summary="@string/ram_bar_switch_sum"
+        android:defaultValue="true" />
+	
+    <com.ancient.settings.preferences.SystemSettingListPreference
+        android:key="STYLE_RAM_RECENT"
+        android:title="@string/ram_bar_style_title"
+        android:entries="@array/ram_bar_entries"
+	android:dependency="SHOWHIDE_RAM_RECENT"							  
+	android:layout="@layout/ancient_cardpreference_bottom" 
+        android:entryValues="@array/ram_bar_values"
+        android:defaultValue="1" />
 
     <Preference
         android:key="wakelock_blocker"
@@ -44,6 +60,20 @@
         android:entries="@array/theming_settings_dashboard_icons_entries"
         android:entryValues="@array/theming_settings_dashboard_icons_values"
         android:defaultValue="0" />  
+
+    <net.margaritov.preference.colorpicker.ColorPickerPreference 
+            android:defaultValue="0x00000000" 
+            settings:alphaSlider="true"
+            android:key="THEMING_SETTINGS_DASHBOARD_ICONS_FOREGROUND_COLOR"                                                          
+            android:title="@string/dashboard_icon_tint_picker_title"
+            android:summary="@string/sthumb_new_tint_picker_summary" />
+
+    <net.margaritov.preference.colorpicker.ColorPickerPreference 
+            android:defaultValue="0x00000000" 
+            settings:alphaSlider="true"
+            android:key="THEMING_SETTINGS_DASHBOARD_ICONS_BACKGROUND_COLOR"                                                          
+            android:title="@string/dashboard_iconbg_tint_picker_title"
+            android:summary="@string/sthumb_new_tint_picker_summary" />
 
     <Preference
         android:key="gaming_mode"
@@ -140,9 +170,148 @@
         <com.ancient.settings.preferences.SystemSettingListPreference
             android:key="systemui_plugin_volume"
             android:title="@string/volume_panel"
+	    android:layout="@layout/ancient_cardpreference_top"						      
             android:entries="@array/volume_panel_entries"
             android:entryValues="@array/volume_panel_values"
             android:defaultValue="@string/volume_panel_aosp_val" />
+	    
+	<com.ancient.settings.preferences.SystemSettingSwitchPreference
+           android:key="VOLUME_PANEL_LEFT"
+	   android:layout="@layout/ancient_cardpreference_middle"							    
+           android:title="@string/polum_left_switch_title"
+           android:summary="@string/polum_left_switch_sum"
+           android:defaultValue="false" />      
+	    
+	<com.ancient.settings.preferences.SystemSettingListPreference
+           android:key="ANCIENT_VOLUME_STYLE"
+           android:title="@string/anci_polum_style_title"
+           android:entries="@array/anci_polum_entries"							  
+	   android:layout="@layout/ancient_cardpreference_middle" 
+           android:entryValues="@array/anci_polum_values"
+           android:defaultValue="0" />     
+	    
+	<com.ancient.settings.preferences.SystemSettingSwitchPreference
+           android:key="ANCIENT_VOLUME_USECUSTOM"
+	   android:layout="@layout/ancient_cardpreference_middle"							    
+           android:title="@string/polum_switch_title"
+           android:summary="@string/polum_switch_sum"
+           android:defaultValue="false" />
+	
+        <com.ancient.settings.preferences.SystemSettingListPreference
+           android:key="ANCIENT_VOLUME_SEEKBARSTYLE"
+           android:title="@string/polum_style_title"
+           android:entries="@array/polum_entries"
+	   android:dependency="ANCIENT_VOLUME_USECUSTOM"							  
+	   android:layout="@layout/ancient_cardpreference_middle" 
+           android:entryValues="@array/polum_values"
+           android:defaultValue="0" /> 
+	    
+	<com.ancient.settings.preferences.SystemSettingListPreference
+           android:key="ANCIENT_VOLUME_SEEKBAR_THUMBSTYLE"
+           android:title="@string/polum_tum_style_title"
+           android:entries="@array/polum_tum_entries"
+	   android:dependency="ANCIENT_VOLUME_USECUSTOM"							  
+	   android:layout="@layout/ancient_cardpreference_middle" 
+           android:entryValues="@array/polum_tum_values"
+           android:defaultValue="0" />  
+	    
+	 <com.ancient.settings.preferences.SystemSettingSwitchPreference
+           android:key="ANCIENT_VOLUME_USEPERSEN"
+	   android:layout="@layout/ancient_cardpreference_middle"							    
+           android:title="@string/polum_persen_switch_title"
+           android:summary="@string/polum_persen_switch_sum"
+           android:defaultValue="false" />
+	
+        <com.ancient.settings.preferences.SystemSettingListPreference
+           android:key="ANCIENT_VOLUME_USEPERSEN_STYLE"
+           android:title="@string/polum_persen_style_title"
+           android:entries="@array/polum_persen_entries"
+	   android:dependency="ANCIENT_VOLUME_USEPERSEN"							  
+	   android:layout="@layout/ancient_cardpreference_middle" 
+           android:entryValues="@array/polum_persen_values"
+           android:defaultValue="0" /> 
+	    
+	<com.ancient.settings.preferences.SystemSettingSwitchPreference
+           android:key="ANCIENT_SLIDER_SINGLE_TONE"
+	   android:layout="@layout/ancient_cardpreference_middle"							    
+           android:title="@string/polum_tone_switch_title"
+           android:summary="@string/polum_tone_switch_sum"
+           android:defaultValue="false" />    
+	    
+	<com.ancient.settings.preferences.SystemSettingListPreference
+           android:key="ANCIENT_SLIDER_TINT_LIST"
+          android:layout="@layout/ancient_cardpreference_middle"                                                            
+           android:title="@string/seekbar_new_tint"
+           android:entries="@array/seekbar_tint_entries"
+           android:entryValues="@array/seekbar_tint_values"
+           android:defaultValue="0" />
+	    
+         <com.ancient.settings.preferences.SystemSettingListPreference
+           android:key="ANCIENT_THUMB_TINT_LIST"
+           android:layout="@layout/ancient_cardpreference_middle"                                                            
+           android:title="@string/seekbar_thumb_new_tint"
+           android:entries="@array/seekbar_thumb_tint_entries"
+           android:entryValues="@array/seekbar_thumb_tint_values"
+           android:defaultValue="0" />
+         
+        <com.ancient.settings.preferences.SystemSettingListPreference
+           android:key="ANCIENT_SLIDERBG_TINT_LIST"
+           android:title="@string/seekbar_seekbar_bg_tint"
+           android:layout="@layout/ancient_cardpreference_middle"                                                           
+           android:entries="@array/seekbar_bg_tint_entries"
+           android:entryValues="@array/seekbar_bg_tint_values"
+           android:defaultValue="0" />
+	    
+	<com.ancient.settings.preferences.SystemSettingListPreference
+           android:key="ANCIENT_PERSEN_TINT_LIST"
+           android:title="@string/persenan_tint"
+           android:layout="@layout/ancient_cardpreference_middle"                                                           
+           android:entries="@array/seekbar_bg_tint_entries"
+           android:entryValues="@array/seekbar_bg_tint_values"
+           android:defaultValue="0" />
+	    
+	<com.ancient.settings.preferences.SystemSettingListPreference
+           android:key="ANCIENT_VICON_TINT_LIST"
+           android:title="@string/iconv_tint"
+           android:layout="@layout/ancient_cardpreference_bottom"                                                           
+           android:entries="@array/seekbar_bg_tint_entries"
+           android:entryValues="@array/seekbar_bg_tint_values"
+           android:defaultValue="0" />
+         
+        <net.margaritov.preference.colorpicker.ColorPickerPreference 
+            android:title="@string/seekbar_new_tint_picker_title"
+            android:summary="@string/slider_new_tint_picker_summary"
+            android:key="ANCIENT_SLIDER_TINT" 
+            android:defaultValue="0x00000000" 
+            settings:alphaSlider="true" /> 
+         
+        <net.margaritov.preference.colorpicker.ColorPickerPreference 
+            android:defaultValue="0x00000000" 
+            settings:alphaSlider="true"
+            android:key="ANCIENT_THUMB_TINT"                                                          
+            android:title="@string/thumb_new_tint_picker_title"
+            android:summary="@string/sthumb_new_tint_picker_summary" />
+         
+         <net.margaritov.preference.colorpicker.ColorPickerPreference 
+            android:defaultValue="0x00000000" 
+            settings:alphaSlider="true"
+            android:key="ANCIENT_SLIDERBG_TINT"                                                           
+            android:title="@string/seekbar_bp_new_tint_picker_title"
+            android:summary="@string/bp_new_tint_picker_summary" />
+	    
+	 <net.margaritov.preference.colorpicker.ColorPickerPreference 
+            android:title="@string/iconv_tint_picker_title"
+            android:summary="@string/slider_new_tint_picker_summary"
+            android:key="ANCIENT_VICON_TINT" 
+            android:defaultValue="0x00000000" 
+            settings:alphaSlider="true" /> 
+         
+        <net.margaritov.preference.colorpicker.ColorPickerPreference 
+            android:defaultValue="0x00000000" 
+            settings:alphaSlider="true"
+            android:key="ANCIENT_PERSEN_TINT"                                                          
+            android:title="@string/persenan_tint_picker_title"
+            android:summary="@string/sthumb_new_tint_picker_summary" />
 
     </PreferenceCategory>
 

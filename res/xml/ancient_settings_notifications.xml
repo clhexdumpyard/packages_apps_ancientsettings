@@ -225,7 +225,18 @@
             android:persistent="false"
             android:defaultValue="0"
             android:entries="@array/header_textcolor_entries"
-            android:entryValues="@array/header_textcolor_values"/>  
+            android:entryValues="@array/header_textcolor_values"/>
+	    
+	<Preference 
+            android:layout="@layout/ancient_cardview_divider" 
+            android:selectable="false"/>      
+	    
+	<com.ancient.settings.preferences.SystemSettingListPreference
+           android:key="EXPAND_INDI_ICON_STYLE"
+           android:title="@string/expan_icon_style_title"
+           android:entries="@array/expand_indic_style_entries"
+           android:entryValues="@array/expand_indic_style_values"
+           android:defaultValue="0" />    
 	    
 	<Preference 
             android:layout="@layout/ancient_cardview_divider" 
@@ -257,6 +268,63 @@
             android:key="notification_material_dismiss"
             android:title="@string/notification_material_dismiss_button_title"
             android:summary="@string/notification_material_dismiss_button_summary" />
+	    
+	<com.ancient.settings.preferences.SystemSettingSwitchPreference
+	    android:layout="@layout/ancient_cardpreference_middle"
+            android:key="NOTIFICATION_MATERIAL_DISMISS_HIDE_EXPANDED"
+	    android:dependency="notification_material_dismiss"								
+            android:title="@string/notification_material_dismiss_hide_title"
+            android:summary="@string/notification_material_dismiss_hide_summary" />
+	    
+	<com.ancient.settings.preferences.SystemSettingListPreference
+           android:key="NOTIFICATION_MATERIAL_DISMISS_STYLE"
+           android:title="@string/anci_clir_style_title"
+	   android:layout="@layout/ancient_cardpreference_middle"						      
+	   android:dependency="notification_material_dismiss"							      
+           android:entries="@array/anci_clir_entries"
+           android:entryValues="@array/anci_clir_values"
+           android:defaultValue="0" />     
+	    
+	<com.ancient.settings.preferences.SystemSettingListPreference
+           android:key="NOTIFICATION_MATERIAL_DISMISS_BGSTYLE"
+           android:title="@string/anci_clirbg_style_title"
+	   android:layout="@layout/ancient_cardpreference_middle"						      
+	   android:dependency="notification_material_dismiss"							      
+           android:entries="@array/anci_clirbg_entries"
+           android:entryValues="@array/anci_clirbg_values"
+           android:defaultValue="0" />   
+	    
+        <com.ancient.settings.preferences.SystemSettingListPreference
+           android:key="NOTIFICATION_MATERIAL_DISMISS_TINT_STYLE"
+           android:title="@string/anci_clirtint_style_title"
+	   android:layout="@layout/ancient_cardpreference_middle"						      
+	   android:dependency="notification_material_dismiss"							      
+           android:entries="@array/anci_clir_tint_entries"
+           android:entryValues="@array/anci_clir_tint_values"
+           android:defaultValue="0" />     
+	    
+	<com.ancient.settings.preferences.SystemSettingListPreference
+           android:key="NOTIFICATION_MATERIAL_DISMISS_TINT_BGSTYLE"
+           android:title="@string/anci_clirbgtint_style_title"
+	   android:layout="@layout/ancient_cardpreference_middle"						      
+	   android:dependency="notification_material_dismiss"							      
+           android:entries="@array/anci_clir_tintbg_entries"
+           android:entryValues="@array/anci_clir_tintbg_values"
+           android:defaultValue="0" />  
+	    
+	<net.margaritov.preference.colorpicker.ColorPickerPreference 
+            android:title="@string/anci_clirtint_color_title"
+            android:summary="@string/slider_new_tint_picker_summary"
+            android:key="NOTIFICATION_MATERIAL_DISMISS_COLOR_STYLE" 
+            android:defaultValue="0x00000000" 
+            settings:alphaSlider="true" /> 
+         
+        <net.margaritov.preference.colorpicker.ColorPickerPreference 
+            android:defaultValue="0x00000000" 
+            settings:alphaSlider="true"
+            android:key="NOTIFICATION_MATERIAL_DISMISS_COLOR_BGSTYLE"                                                          
+            android:title="@string/anci_clirbgtint_color_title"
+            android:summary="@string/sthumb_new_tint_picker_summary" />   
 
         <com.ancient.settings.preferences.SystemSettingSwitchPreference
             android:layout="@layout/ancient_cardpreference_bottom"

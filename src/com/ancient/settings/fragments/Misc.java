@@ -23,6 +23,7 @@ import android.content.Context;
 import android.content.ContentResolver;
 import android.content.DialogInterface;
 import android.content.res.Resources;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.SystemProperties;
 import android.os.UserHandle;
@@ -40,6 +41,9 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
 import com.ancient.settings.preferences.CustomSeekBarPreference;
+import com.ancient.settings.preferences.SystemSettingListPreference;
+
+import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
 import java.util.Arrays;
 import java.util.ArrayList;
@@ -55,16 +59,121 @@ public class Misc extends SettingsPreferenceFragment
     private static final String RINGTONE_FOCUS_MODE = "ringtone_focus_mode";
     private static final String KEY_PULSE_BRIGHTNESS = "ambient_pulse_brightness";
     private static final String KEY_DOZE_BRIGHTNESS = "ambient_doze_brightness";
+    private static final String ANCIENT_SLIDER_TINT = "ANCIENT_SLIDER_TINT";
+    private static final String ANCIENT_THUMB_TINT = "ANCIENT_THUMB_TINT";
+    private static final String ANCIENT_SLIDERBG_TINT = "ANCIENT_SLIDERBG_TINT";
+    private static final String ANCIENT_VICON_TINT = "ANCIENT_VICON_TINT";
+    private static final String ANCIENT_PERSEN_TINT = "ANCIENT_PERSEN_TINT";
+    private static final String THEMING_SETTINGS_DASHBOARD_ICONS_FOREGROUND_COLOR = "THEMING_SETTINGS_DASHBOARD_ICONS_FOREGROUND_COLOR";
+    private static final String THEMING_SETTINGS_DASHBOARD_ICONS_BACKGROUND_COLOR = "THEMING_SETTINGS_DASHBOARD_ICONS_BACKGROUND_COLOR";
 
     private ListPreference mHeadsetRingtoneFocus;
     private CustomSeekBarPreference mPulseBrightness;
     private CustomSeekBarPreference mDozeBrightness;
+    private ColorPickerPreference rgbBrightPicker;
+    private ColorPickerPreference rgbThumbPicker;
+    private ColorPickerPreference rgbBPPicker;
+    private ColorPickerPreference rgbPersenPicker;
+    private ColorPickerPreference rgbIconPicker;
+    private ColorPickerPreference rgbF;
+    private ColorPickerPreference rgbB;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.ancient_settings_misc);
         final ContentResolver resolver = getActivity().getContentResolver();
+        
+        rgbB = (ColorPickerPreference) findPreference(THEMING_SETTINGS_DASHBOARD_ICONS_BACKGROUND_COLOR);
+        int mbacaColorpika = Settings.System.getInt(getContentResolver(),
+                "THEMING_SETTINGS_DASHBOARD_ICONS_BACKGROUND_COLOR", 0xFFFF0000);
+        rgbB.setNewPreviewColor(mbacaColorpika);
+        rgbB.setAlphaSliderEnabled(true);
+        String mbacaColorHexpika = String.format("#%08x", (0xFFFF0000 & mbacaColorpika));
+        if (mbacaColorHexpika.equals("#ffff0000")) {
+            rgbB.setSummary(R.string.color_default);
+        } else {
+            rgbB.setSummary(mbacaColorHexpika);
+        }
+        rgbB.setOnPreferenceChangeListener(this);
+
+        rgbF = (ColorPickerPreference) findPreference(THEMING_SETTINGS_DASHBOARD_ICONS_FOREGROUND_COLOR);
+        int mbacaColorpik = Settings.System.getInt(getContentResolver(),
+                "THEMING_SETTINGS_DASHBOARD_ICONS_FOREGROUND_COLOR", 0xFFFF0000);
+        rgbF.setNewPreviewColor(mbacaColorpik);
+        rgbF.setAlphaSliderEnabled(true);
+        String mbacaColorHexpik = String.format("#%08x", (0xFFFF0000 & mbacaColorpik));
+        if (mbacaColorHexpik.equals("#ffff0000")) {
+            rgbF.setSummary(R.string.color_default);
+        } else {
+            rgbF.setSummary(mbacaColorHexpik);
+        }
+        rgbF.setOnPreferenceChangeListener(this);
+        
+        rgbIconPicker = (ColorPickerPreference) findPreference(ANCIENT_VICON_TINT);
+        int mbacaColorpi = Settings.System.getInt(getContentResolver(),
+                "ANCIENT_VICON_TINT", 0xFFFF0000);
+        rgbIconPicker.setNewPreviewColor(mbacaColorpi);
+        rgbIconPicker.setAlphaSliderEnabled(true);
+        String mbacaColorHexpi = String.format("#%08x", (0xFFFF0000 & mbacaColorpi));
+        if (mbacaColorHexpi.equals("#ffff0000")) {
+            rgbIconPicker.setSummary(R.string.color_default);
+        } else {
+            rgbIconPicker.setSummary(mbacaColorHexpi);
+        }
+        rgbIconPicker.setOnPreferenceChangeListener(this);
+        
+        rgbPersenPicker = (ColorPickerPreference) findPreference(ANCIENT_PERSEN_TINT);
+        int mbacaColorp = Settings.System.getInt(getContentResolver(),
+                "ANCIENT_PERSEN_TINT", 0xFFFF0000);
+        rgbPersenPicker.setNewPreviewColor(mbacaColorp);
+        rgbPersenPicker.setAlphaSliderEnabled(true);
+        String mbacaColorHexp = String.format("#%08x", (0xFFFF0000 & mbacaColorp));
+        if (mbacaColorHexp.equals("#ffff0000")) {
+            rgbPersenPicker.setSummary(R.string.color_default);
+        } else {
+            rgbPersenPicker.setSummary(mbacaColorHexp);
+        }
+        rgbPersenPicker.setOnPreferenceChangeListener(this);
+
+        rgbBPPicker = (ColorPickerPreference) findPreference(ANCIENT_SLIDERBG_TINT);
+        int mbacaColor = Settings.System.getInt(getContentResolver(),
+                "ANCIENT_SLIDERBG_TINT", 0xFFFF0000);
+        rgbBPPicker.setNewPreviewColor(mbacaColor);
+        rgbBPPicker.setAlphaSliderEnabled(true);
+        String mbacaColorHex = String.format("#%08x", (0xFFFF0000 & mbacaColor));
+        if (mbacaColorHex.equals("#ffff0000")) {
+            rgbBPPicker.setSummary(R.string.color_default);
+        } else {
+            rgbBPPicker.setSummary(mbacaColorHex);
+        }
+        rgbBPPicker.setOnPreferenceChangeListener(this);
+                
+        rgbThumbPicker = (ColorPickerPreference) findPreference(ANCIENT_THUMB_TINT);
+        int mbacaColore = Settings.System.getInt(getContentResolver(),
+                "ANCIENT_THUMB_TINT", 0xFFFF0000);
+        rgbThumbPicker.setNewPreviewColor(mbacaColore);
+        rgbThumbPicker.setAlphaSliderEnabled(true);
+        String mbacaColoreHex = String.format("#%08x", (0xFFFF0000 & mbacaColore));
+        if (mbacaColoreHex.equals("#ffff0000")) {
+            rgbThumbPicker.setSummary(R.string.color_default);
+        } else {
+            rgbThumbPicker.setSummary(mbacaColoreHex);
+        }
+        rgbThumbPicker.setOnPreferenceChangeListener(this);   
+        
+        rgbBrightPicker = (ColorPickerPreference) findPreference(ANCIENT_SLIDER_TINT);
+        int mbacaColored = Settings.System.getInt(getContentResolver(),
+                "ANCIENT_SLIDER_TINT", 0xFFFF0000);
+        rgbBrightPicker.setNewPreviewColor(mbacaColored);
+        rgbBrightPicker.setAlphaSliderEnabled(true);
+        String mbacaColoredHex = String.format("#%08x", (0xFFFF0000 & mbacaColored));
+        if (mbacaColoredHex.equals("#ffff0000")) {
+            rgbBrightPicker.setSummary(R.string.color_default);
+        } else {
+            rgbBrightPicker.setSummary(mbacaColoredHex);
+        }
+        rgbBrightPicker.setOnPreferenceChangeListener(this);   
 
         mHeadsetRingtoneFocus = (ListPreference) findPreference(RINGTONE_FOCUS_MODE);
         int mHeadsetRingtoneFocusValue = Settings.Global.getInt(resolver,
@@ -104,6 +213,90 @@ public class Misc extends SettingsPreferenceFragment
             Settings.Global.putInt(getContentResolver(), Settings.Global.RINGTONE_FOCUS_MODE,
                     mHeadsetRingtoneFocusValue);
             return true;
+        } else if (preference == rgbB) {
+            String hexapika = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            if (hexapika.equals("#FFFF0000")) {
+                preference.setSummary(R.string.color_default);
+            } else {
+                preference.setSummary(hexapika);
+            }
+            int intHexapika = ColorPickerPreference.convertToColorInt(hexapika);
+            Settings.System.putInt(getContentResolver(),
+                    "THEMING_SETTINGS_DASHBOARD_ICONS_BACKGROUND_COLOR", intHexapika);
+            return true;  
+        } else if (preference == rgbF) {
+            String hexapik = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            if (hexapik.equals("#FFFF0000")) {
+                preference.setSummary(R.string.color_default);
+            } else {
+                preference.setSummary(hexapik);
+            }
+            int intHexapik = ColorPickerPreference.convertToColorInt(hexapik);
+            Settings.System.putInt(getContentResolver(),
+                    "THEMING_SETTINGS_DASHBOARD_ICONS_FOREGROUND_COLOR", intHexapik);
+            return true;  
+        } else if (preference == rgbIconPicker) {
+            String hexapi = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            if (hexapi.equals("#FFFF0000")) {
+                preference.setSummary(R.string.color_default);
+            } else {
+                preference.setSummary(hexapi);
+            }
+            int intHexapi = ColorPickerPreference.convertToColorInt(hexapi);
+            Settings.System.putInt(getContentResolver(),
+                    "ANCIENT_VICON_TINT", intHexapi);
+            return true;  
+        } else if (preference == rgbPersenPicker) {
+            String hexaBp = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            if (hexaBp.equals("#FFFF0000")) {
+                preference.setSummary(R.string.color_default);
+            } else {
+                preference.setSummary(hexaBp);
+            }
+            int intHexaBp = ColorPickerPreference.convertToColorInt(hexaBp);
+            Settings.System.putInt(getContentResolver(),
+                    "ANCIENT_PERSEN_TINT", intHexaBp);
+            return true;    
+        } else if (preference == rgbBrightPicker) {
+            String hexa = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            if (hexa.equals("#FFFF0000")) {
+                preference.setSummary(R.string.color_default);
+            } else {
+                preference.setSummary(hexa);
+            }
+            int intHexa = ColorPickerPreference.convertToColorInt(hexa);
+            Settings.System.putInt(getContentResolver(),
+                    "ANCIENT_SLIDER_TINT", intHexa);
+            return true;  
+        } else if (preference == rgbThumbPicker) {
+            String hexaB = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            if (hexaB.equals("#FFFF0000")) {
+                preference.setSummary(R.string.color_default);
+            } else {
+                preference.setSummary(hexaB);
+            }
+            int intHexaB = ColorPickerPreference.convertToColorInt(hexaB);
+            Settings.System.putInt(getContentResolver(),
+                    "ANCIENT_THUMB_TINT", intHexaB);
+            return true;    
+        } else if (preference == rgbBPPicker) {
+            String hexaBA = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            if (hexaBA.equals("#FFFF0000")) {
+                preference.setSummary(R.string.color_default);
+            } else {
+                preference.setSummary(hexaBA);
+            }
+            int intHexaBA = ColorPickerPreference.convertToColorInt(hexaBA);
+            Settings.System.putInt(getContentResolver(),
+                    "ANCIENT_SLIDERBG_TINT", intHexaBA);    
+            return true;           
         } else if (preference == mPulseBrightness) {
             int value = (Integer) newValue;
             Settings.System.putInt(getContentResolver(),

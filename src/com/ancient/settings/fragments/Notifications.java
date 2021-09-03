@@ -77,6 +77,8 @@ public class Notifications extends SettingsPreferenceFragment
     private static final String PREF_NOTIFICATION_HEADERTEXT_COLOR = "NOTIFICATION_HEADERTEXT_COLOR";
     private static final String PREF_RETICKER_STATUS = "reticker_status";
     private static final String PREF_RETICKER_COLORED = "reticker_colored";
+    private static final String NOTIFICATION_MATERIAL_DISMISS_COLOR_STYLE = "NOTIFICATION_MATERIAL_DISMISS_COLOR_STYLE";
+    private static final String NOTIFICATION_MATERIAL_DISMISS_COLOR_BGSTYLE = "NOTIFICATION_MATERIAL_DISMISS_COLOR_BGSTYLE";
 
     private IOverlayManager mOverlayService;
 
@@ -94,6 +96,8 @@ public class Notifications extends SettingsPreferenceFragment
     private SystemSettingListPreference mHeaderTextColorCustom;
     private SystemSettingSwitchPreference mRetickera;
     private SystemSettingSwitchPreference mRetickerb;
+    private ColorPickerPreference mCColorIc;
+    private ColorPickerPreference mCColorBg;
     
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -124,6 +128,32 @@ public class Notifications extends SettingsPreferenceFragment
         if (!AncientUtils.isVoiceCapable(getActivity())) {
             prefScreen.removePreference(incallVibCategory);
         }
+        
+        mCColorIc = (ColorPickerPreference) findPreference(NOTIFICATION_MATERIAL_DISMISS_COLOR_STYLE);
+        int mbacaColorpikas = Settings.System.getInt(getContentResolver(),
+                "NOTIFICATION_MATERIAL_DISMISS_COLOR_STYLE", 0xFFFF0000);
+        mCColorIc.setNewPreviewColor(mbacaColorpikas);
+        mCColorIc.setAlphaSliderEnabled(true);
+        String mbacaColorHexpikas = String.format("#%08x", (0xFFFF0000 & mbacaColorpikas));
+        if (mbacaColorHexpikas.equals("#ffff0000")) {
+            mCColorIc.setSummary(R.string.color_default);
+        } else {
+            mCColorIc.setSummary(mbacaColorHexpikas);
+        }
+        mCColorIc.setOnPreferenceChangeListener(this);
+
+        mCColorBg = (ColorPickerPreference) findPreference(NOTIFICATION_MATERIAL_DISMISS_COLOR_BGSTYLE);
+        int mbacaColorpikasa = Settings.System.getInt(getContentResolver(),
+                "NOTIFICATION_MATERIAL_DISMISS_COLOR_BGSTYLE", 0xFFFF0000);
+        mCColorBg.setNewPreviewColor(mbacaColorpikasa);
+        mCColorBg.setAlphaSliderEnabled(true);
+        String mbacaColorHexpikasa = String.format("#%08x", (0xFFFF0000 & mbacaColorpikasa));
+        if (mbacaColorHexpikasa.equals("#ffff0000")) {
+            mCColorBg.setSummary(R.string.color_default);
+        } else {
+            mCColorBg.setSummary(mbacaColorHexpikasa);
+        }
+        mCColorBg.setOnPreferenceChangeListener(this);
 
         mHeaderTextColorCustom = (SystemSettingListPreference) findPreference(PREF_NOTIFICATION_HEADERTEXT_COLOR);
         int mHeaderTextColor = Settings.System.getIntForUser(getContentResolver(),
@@ -217,6 +247,30 @@ public class Notifications extends SettingsPreferenceFragment
             Settings.System.putInt(resolver,
                     Settings.System.NOTIFICATION_HEADERS, value ? 1 : 0);
             return true;
+        } else if (preference == mCColorIc) {
+            String hexapikas = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(objValue)));
+            if (hexapikas.equals("#FFFF0000")) {
+                preference.setSummary(R.string.color_default);
+            } else {
+                preference.setSummary(hexapikas);
+            }
+            int intHexapikas = ColorPickerPreference.convertToColorInt(hexapikas);
+            Settings.System.putInt(getContentResolver(),
+                    "NOTIFICATION_MATERIAL_DISMISS_COLOR_STYLE", intHexapikas);
+            return true;  
+        } else if (preference == mCColorBg) {
+            String hexapikasa = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(objValue)));
+            if (hexapikasa.equals("#FFFF0000")) {
+                preference.setSummary(R.string.color_default);
+            } else {
+                preference.setSummary(hexapikasa);
+            }
+            int intHexapikasa = ColorPickerPreference.convertToColorInt(hexapikasa);
+            Settings.System.putInt(getContentResolver(),
+                    "NOTIFICATION_MATERIAL_DISMISS_COLOR_BGSTYLE", intHexapikasa);
+            return true; 
         } else if (preference == mHeaderTextColorCustom) {
             int mHeaderTextColor = Integer.valueOf((String) objValue);
             Settings.System.putIntForUser(getContentResolver(),

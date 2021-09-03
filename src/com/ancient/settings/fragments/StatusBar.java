@@ -64,6 +64,7 @@ public class StatusBar extends SettingsPreferenceFragment implements
     private static final String NABIL_BACKGROUNDCLOCKSB_GRADIENT1 = "nabil_backgroundclocksb_gradient1";
     private static final String NABIL_BACKGROUNDCLOCKSB_GRADIENT2 = "nabil_backgroundclocksb_gradient2";
     private static final String NABIL_BACKGROUNDCLOCKSB_STROKECOLOR = "nabil_backgroundclocksb_strokecolor";
+    private static final String MAX_NOTIP_CUSTOM = "MAX_NOTIP_CUSTOM";
 
     private ColorPickerPreference mBacka;
     private ColorPickerPreference mBackb;
@@ -73,6 +74,7 @@ public class StatusBar extends SettingsPreferenceFragment implements
     private SwitchPreference mShowAncientLogo;
     private ListPreference mLogoStyle;
     private IOverlayManager mOverlayService;
+    private SystemSettingListPreference mNot;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -94,6 +96,14 @@ public class StatusBar extends SettingsPreferenceFragment implements
         mStatusbarDualStyle.setValue(String.valueOf(StatusbarDualStyle));
         mStatusbarDualStyle.setSummary(mStatusbarDualStyle.getEntry());
         mStatusbarDualStyle.setOnPreferenceChangeListener(this);
+        
+        mNot = (SystemSettingListPreference) findPreference("MAX_NOTIP_CUSTOM");
+        int notifStyle = Settings.System.getIntForUser(getContentResolver(),
+                "MAX_NOTIP_CUSTOM",
+                0, UserHandle.USER_CURRENT);
+        mNot.setValue(String.valueOf(notifStyle));
+        mNot.setSummary(mNot.getEntry());
+        mNot.setOnPreferenceChangeListener(this);
 
         mLogoStyle = (ListPreference) findPreference("status_bar_logo_style");
         int logoStyle = Settings.System.getIntForUser(getContentResolver(),
@@ -170,6 +180,15 @@ public class StatusBar extends SettingsPreferenceFragment implements
             int index = mStatusbarDualStyle.findIndexOfValue((String) newValue);
             mStatusbarDualStyle.setSummary(
             mStatusbarDualStyle.getEntries()[index]);
+            return true;
+        } else if (preference.equals(mNot)) {
+            int notifStyle = Integer.parseInt(((String) newValue).toString());
+            Settings.System.putIntForUser(getContentResolver(),
+                    "MAX_NOTIP_CUSTOM", notifStyle, UserHandle.USER_CURRENT);
+            int indexnot = mNot.findIndexOfValue((String) newValue);
+            mNot.setSummary(
+            mNot.getEntries()[indexnot]);
+            AncientUtils.showSystemUiRestartDialog(getContext());
             return true;
         } else if (preference.equals(mLogoStyle)) {
             int logoStyle = Integer.parseInt(((String) newValue).toString());
