@@ -72,12 +72,6 @@
             android:persistent="false"
             android:dependency="lock_screen_custom_notif" />
 
-        <com.ancient.settings.preferences.SecureSettingSwitchPreference
-            android:key="lock_screen_transparent_notifications_enabled"
-            android:title="@string/transparent_lockscreen_notification_title"
-            android:summary="@string/transparent_lockscreen_notification_summary"
-            android:defaultValue="false" />
-
         <com.ancient.settings.preferences.SystemSettingSwitchPreference
             android:key="fp_unlock_keystore"
             android:title="@string/fp_unlock_keystore_title"

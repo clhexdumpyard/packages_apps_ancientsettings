@@ -395,10 +395,6 @@
     <string name="lockscreen_charging_animation_stack">Stack</string>
     <string name="lockscreen_charging_animation_wavy">Wavy</string>
 
-    <!-- Transparent lockscreen notifications -->
-    <string name="transparent_lockscreen_notification_title">Transparent notifications</string>
-    <string name="transparent_lockscreen_notification_summary">Enable lockscreen notifications with semi-transparent backgrounds</string>
-
     <!-- Statusbar Clock -->
     <string name="status_bar_clock_date_title">Clock and Date</string>
     <string name="status_bar_clock_date_summary">Customize your statusbar clock and date</string>
