@@ -94,6 +94,16 @@
         android:summary="@string/headset_connect_player_summary"
         android:defaultValue="false" />
 
+    <!-- Screenshot compression -->
+    <com.ancient.settings.preferences.SystemSettingSeekBarPreference
+        android:key="screenshot_compression"
+        android:title="@string/screenshot_compression_title"
+        android:summary="@string/screenshot_compression_summary"
+        android:defaultValue="100"
+        android:max="100"
+        settings:min="10"
+        settings:units="%" />
+
     <PreferenceCategory
         android:title="@string/custom_doze_category">
 
