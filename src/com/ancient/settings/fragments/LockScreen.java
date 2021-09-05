@@ -17,6 +17,7 @@ package com.ancient.settings.fragments;
 
 import android.app.Activity;
 import android.app.UiModeManager;
+import android.app.WallpaperManager;
 import android.content.Context;
 import android.content.ContentResolver;
 import android.content.Intent;
@@ -29,6 +30,7 @@ import android.graphics.Color;
 import android.hardware.fingerprint.FingerprintManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.ParcelFileDescriptor;
 import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.os.SystemProperties;
@@ -103,6 +105,7 @@ public class LockScreen extends SettingsPreferenceFragment implements
         Resources resources = getResources();
         Context mContext = getContext();
         ContentResolver resolver = getActivity().getContentResolver();
+        WallpaperManager manager = WallpaperManager.getInstance(mContext);
 
         mUiModeManager = getContext().getSystemService(UiModeManager.class);
 
@@ -161,8 +164,9 @@ public class LockScreen extends SettingsPreferenceFragment implements
         mAODPref = findPreference(AOD_SCHEDULE_KEY);
         updateAlwaysOnSummary();
 
+        ParcelFileDescriptor pfd = manager.getWallpaperFile(WallpaperManager.FLAG_LOCK);
         mLockscreenBlur = (Preference) findPreference(LOCKSCREEN_BLUR);
-        if (!DeviceUtils.isBlurSupported()) {
+        if (!DeviceUtils.isBlurSupported() || pfd != null) {
             mLockscreenBlur.setEnabled(false);
             mLockscreenBlur.setSummary(getString(R.string.lockscreen_blur_disabled));
         }
