@@ -163,7 +163,8 @@ public class LockScreen extends SettingsPreferenceFragment implements
 
         mLockscreenBlur = (Preference) findPreference(LOCKSCREEN_BLUR);
         if (!DeviceUtils.isBlurSupported()) {
-            prefScreen.removePreference(mLockscreenBlur);
+            mLockscreenBlur.setEnabled(false);
+            mLockscreenBlur.setSummary(getString(R.string.lockscreen_blur_disabled));
         }
 
         mAmbientIconsLockscreen = (SystemSettingSwitchPreference) findPreference(AMBIENT_ICONS_LOCKSCREEN);
