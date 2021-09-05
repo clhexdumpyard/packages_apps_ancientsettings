@@ -382,14 +382,28 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:layout="@layout/ancient_cardpreference_category"
         android:key="media_category"
         android:title="@string/media_category" >
 
         <com.ancient.settings.preferences.SystemSettingSwitchPreference
+            android:layout="@layout/ancient_cardpreference_top"
             android:key="artwork_media_background"
             android:title="@string/artwork_media_background_title"
             android:summary="@string/artwork_media_background_summary"
             android:defaultValue="true" />
+
+        <com.ancient.settings.preferences.SystemSettingSeekBarPreference
+            android:layout="@layout/ancient_cardpreference_bottom"
+            android:key="artwork_media_fade_level"
+            android:title="@string/artwork_media_fade_level_title"
+            android:summary="@string/artwork_media_fade_level_summary"
+            android:dependency="artwork_media_background"
+            android:max="100"
+            settings:min="0"
+            settings:units="%"
+            settings:interval="5"
+            android:defaultValue="30" />
 
     </PreferenceCategory>
 
