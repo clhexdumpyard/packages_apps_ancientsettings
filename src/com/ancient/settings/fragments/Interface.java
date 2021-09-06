@@ -117,7 +117,6 @@ public class Interface extends DashboardFragment implements
     private static final String PREF_RGB_DARK_ACCENT_PICKER = "rgb_dark_accent_picker";
     private static final String PREF_MONET_ENGINE = "monet_engine";
     private static final String PREF_MONET_PALETTE = "monet_palette";
-    private static final String PREF_FONTER_STYLE = "FONTER_STYLE";
     private static final String PREF_QS_TO_STOCK = "QS_TO_STOCK";
     private static final String PREF_QQS_CLOCKFAKE_SWITCH = "QQS_CLOCKFAKE_SWITCH";
     private static final String PREF_ANCI_HEADER_HEIGHT = "ANCI_HEADER_HEIGHT";
@@ -156,7 +155,6 @@ public class Interface extends DashboardFragment implements
     private ColorPickerPreference rgbDaAccentPicker;
     private SecureSettingSwitchPreference mMonetOnoff;
     private ListPreference mMonetPallete;
-    private SystemSettingListPreference mFonterStyle;
     private SystemSettingListPreference mAncientuiOnoff;
     private SystemSettingSwitchPreference mAnciHeadclockOnoff;
     private SystemSettingSeekBarPreference mAnciHeadSize;
@@ -333,14 +331,6 @@ public class Interface extends DashboardFragment implements
         mMonetPallete.setValue(String.valueOf(paletteType));
         mMonetPallete.setSummary(mMonetPallete.getEntry());
         mMonetPallete.setOnPreferenceChangeListener(this);   
-
-        mFonterStyle = (SystemSettingListPreference) findPreference(PREF_FONTER_STYLE);
-        int anFonterStyle = Settings.System.getIntForUser(getContentResolver(),
-                "FONTER_STYLE", 0, UserHandle.USER_CURRENT);
-        int valueIndexFont = mFonterStyle.findIndexOfValue(String.valueOf(anFonterStyle));
-        mFonterStyle.setValueIndex(valueIndexFont >= 0 ? valueIndexFont : 0);
-        mFonterStyle.setSummary(mFonterStyle.getEntry());
-        mFonterStyle.setOnPreferenceChangeListener(this);
 
         mAnciHeadclockOnoff = (SystemSettingSwitchPreference) findPreference(PREF_QQS_CLOCKFAKE_SWITCH);
         mAnciHeadclockOnoff.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
@@ -740,16 +730,6 @@ public class Interface extends DashboardFragment implements
                     Settings.Secure.MONET_PALETTE, paletteType, UserHandle.USER_CURRENT);
 	    int indexx = mMonetPallete.findIndexOfValue((String) objValue);
             mMonetPallete.setSummary(mMonetPallete.getEntries()[indexx]);
-            return true;
-	} else if (preference == mFonterStyle) {
-            int anFonterStyle = Integer.valueOf((String) objValue);
-            Settings.System.putIntForUser(getContentResolver(),
-                    "FONTER_STYLE", anFonterStyle, UserHandle.USER_CURRENT);
-            mFonterStyle.setSummary(mFonterStyle.getEntries()[anFonterStyle]);
-            try {
-                 mOverlayService.reloadAssets("android", UserHandle.USER_CURRENT);
-            } catch (RemoteException ignored) {
-            }
             return true;
 	} else if (preference == mAnciHeadclockOnoff) {
             boolean value = (Boolean) objValue;

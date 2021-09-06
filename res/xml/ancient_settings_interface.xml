@@ -173,15 +173,8 @@
         android:key="megalith_font"
         android:title="@string/megalith_font_center_category">  
      
-        <com.ancient.settings.preferences.SystemSettingListPreference
-            android:layout="@layout/ancient_cardpreference_single"                                                          
-            android:key="FONTER_STYLE" 
-            android:defaultValue="0"                                                          
-            android:entries="@array/fonter_style_entries"           
-            android:entryValues="@array/fonter_style_values"             
-            android:title="@string/fonter_style_tittle"/> 
-
         <com.android.settings.display.FontDialogPreference
+            android:layout="@layout/ancient_cardpreference_single"
             android:key="custom_font"
             android:title="@string/font_picker_title"
             android:persistent="false" />

@@ -1863,59 +1863,6 @@
         <item>14</item>
     </string-array>
 	
-	<!-- Font -->
-    <string-array name="fonter_style_entries" translatable="false">
-        <item>@string/fonter_style_default</item>
-        <item>@string/fonter_style1</item>
-        <item>@string/fonter_style2</item>
-        <item>@string/fonter_style3</item>
-        <item>@string/fonter_style4</item> 
-        <item>@string/fonter_style5</item> 
-        <item>@string/fonter_style6</item> 
-        <item>@string/fonter_style7</item> 
-        <item>@string/fonter_style8</item>
-        <item>@string/fonter_style9</item>
-        <item>@string/fonter_style10</item>
-        <item>@string/fonter_style11</item>
-        <item>@string/fonter_style12</item>
-        <item>@string/fonter_style13</item>
-        <item>@string/fonter_style14</item>
-        <item>@string/fonter_style15</item> 
-        <item>@string/fonter_style16</item> 
-        <item>@string/fonter_style17</item> 
-        <item>@string/fonter_style18</item>
-        <item>@string/fonter_style19</item>
-        <item>@string/fonter_style20</item>
-	   <item>@string/fonter_style21</item>
-        <item>@string/fonter_style22</item>		
-    </string-array>
-
-    <string-array name="fonter_style_values" translatable="false">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-        <item>6</item> 
-        <item>7</item>
-        <item>8</item>
-        <item>9</item>
-        <item>10</item>
-        <item>11</item>
-        <item>12</item>
-        <item>13</item>
-        <item>14</item>
-        <item>15</item>
-        <item>16</item> 
-        <item>17</item>
-        <item>18</item>
-        <item>19</item>
-        <item>20</item>
-        <item>21</item>
-        <item>22</item>
-    </string-array> 
-	
     <string-array name="collapsed_switch_entries" translatable="false">
         <item>@string/collapsed_switch_style1</item>
         <item>@string/collapsed_switch_style2</item>  

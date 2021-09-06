@@ -1619,32 +1619,6 @@
     <string name="accenter_style13">Space</string>
     <string name="accenter_style14">Tangerine</string>
 	
-    <!-- Accent -->
-    <string name="fonter_style_tittle">Font Style</string>
-    <string name="fonter_style_default">Default</string>
-    <string name="fonter_style1">Applemint</string>
-    <string name="fonter_style2">Cartoon</string>
-    <string name="fonter_style3">Chinacat</string>
-    <string name="fonter_style4">Lato</string>
-    <string name="fonter_style5">Roboto</string>
-    <string name="fonter_style6">Rosemary</string>
-    <string name="fonter_style7">Rubik</string>
-    <string name="fonter_style8">Sanfransisco</string>
-    <string name="fonter_style9">SlatePro</string>
-    <string name="fonter_style10">Zillaslab</string>
-    <string name="fonter_style11">CoreMellow</string>
-    <string name="fonter_style12">Netflix Sans</string>
-    <string name="fonter_style13">Ubuntu</string>
-    <string name="fonter_style14">CherryWash</string>
-    <string name="fonter_style15">Cocon</string>
-    <string name="fonter_style16">Disney</string>
-    <string name="fonter_style17">Fucek</string>
-    <string name="fonter_style18">GoogleSans</string>
-    <string name="fonter_style19">Lemon</string>
-    <string name="fonter_style20">Roboto Condensed</string>
-    <string name="fonter_style21">SamsungSans</string>
-    <string name="fonter_style22">Simple Day</string>
-	
     <!-- Anciui -->
     <string name="anci_enabler_tittle">AncientUI</string>
     <string name="anci_enabler_sum">enable ancientui(qsclock, qqsclock, and etc)</string>
