@@ -18,10 +18,12 @@ package com.ancient.settings.fragments;
 
 import android.app.Activity;
 import android.app.UiModeManager;
+import android.content.BroadcastReceiver;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.ContentResolver;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.om.IOverlayManager;
 import android.content.om.OverlayInfo;
 import android.content.pm.PackageManager;
@@ -51,6 +53,7 @@ import static android.os.UserHandle.USER_SYSTEM;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.settings.dashboard.DashboardFragment;
+import com.android.settings.display.FontPickerPreferenceController;
 import com.android.settings.display.OverlayCategoryPreferenceController;
 import com.android.settingslib.core.AbstractPreferenceController;
 import com.android.settingslib.core.lifecycle.Lifecycle;
@@ -176,6 +179,21 @@ public class Interface extends DashboardFragment implements
     private static final int LIGHT_MUTED = 5;
     private static final int DARK_MUTED = 6;
 
+    private Context mContext;
+
+    private IntentFilter mIntentFilter;
+    private static FontPickerPreferenceController mFontPickerPreference;
+
+    private BroadcastReceiver mIntentReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String action = intent.getAction();
+            if (action.equals("com.android.server.ACTION_FONT_CHANGED")) {
+                mFontPickerPreference.stopProgress();
+            }
+        }
+    };
+
     @Override
     protected String getLogTag() {
         return TAG;
@@ -194,6 +212,9 @@ public class Interface extends DashboardFragment implements
 
         mOverlayService = IOverlayManager.Stub
                 .asInterface(ServiceManager.getService(Context.OVERLAY_SERVICE));
+
+        mIntentFilter = new IntentFilter();
+        mIntentFilter.addAction("com.android.server.ACTION_FONT_CHANGED");
 
         setupThemeSwitchPref();
 
@@ -462,6 +483,7 @@ public class Interface extends DashboardFragment implements
         controllers.add(new SbNavStylePreferenceController(context));
         controllers.add(new AnSwitchStylePreferenceController(context));
         controllers.add(new AnAclockStylePreferenceController(context));
+        controllers.add(mFontPickerPreference = new FontPickerPreferenceController(context, lifecycle));
         //controllers.add(new SbBrightnStylePreferenceController(context));
         //controllers.add(new SbQsbgStylePreferenceController(context));
         return controllers;
@@ -886,6 +908,21 @@ public class Interface extends DashboardFragment implements
                 e.printStackTrace();
             }
         }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        final Context context = getActivity();
+        context.registerReceiver(mIntentReceiver, mIntentFilter);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        final Context context = getActivity();
+        context.unregisterReceiver(mIntentReceiver);
+        mFontPickerPreference.stopProgress();
     }
 
     @Override
