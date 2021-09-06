@@ -739,6 +739,7 @@
     <!-- Sb Height styles -->
     <string-array name="statusheight_entries" translatable="false">
         <item>@string/sbheight_default</item>
+	<item>@string/sbheight_type4</item>        
         <item>@string/sbheight_type1</item>
         <item>@string/sbheight_type2</item>
 	<item>@string/sbheight_type3</item>    
@@ -749,6 +750,7 @@
         <item>1</item>
         <item>2</item>
 	<item>3</item>    
+	<item>4</item>        
     </string-array>
 
     <!-- Themes -->
