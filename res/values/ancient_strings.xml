@@ -2064,5 +2064,8 @@
 	
     <string name="qs_tile_switch_title">QS tile style enabler</string>
     <string name="qs_tile_switch_summary">qs tile background style enabler</string>
+    <string name="wipi_style_title">Wifi Icon Location</string>
+    <string name="wipi_kiri">left of signal icon</string>
+    <string name="wipi_kanan">right of signal icon</string>
 
 </resources>
