@@ -60,7 +60,6 @@ import com.android.settingslib.search.Indexable;
 import com.android.settingslib.search.SearchIndexable;
 
 import com.ancient.settings.display.AccentColorPreferenceController;
-import com.ancient.settings.display.QsTileStylePreferenceController;
 import com.ancient.settings.display.DgCornerStylePreferenceController;
 import com.ancient.settings.display.SbHeightStylePreferenceController;
 import com.ancient.settings.display.SbNavStylePreferenceController;
@@ -457,13 +456,10 @@ public class Interface extends DashboardFragment implements
     private static List<AbstractPreferenceController> buildPreferenceControllers(
             Context context, Lifecycle lifecycle, Fragment fragment) {
         final List<AbstractPreferenceController> controllers = new ArrayList<>();
-        controllers.add(new QsTileStylePreferenceController(context));
         controllers.add(new DgCornerStylePreferenceController(context));
         controllers.add(new SbNavStylePreferenceController(context));
         controllers.add(new AnSwitchStylePreferenceController(context));
         controllers.add(new AnAclockStylePreferenceController(context));
-        //controllers.add(new SbBrightnStylePreferenceController(context));
-        //controllers.add(new SbQsbgStylePreferenceController(context));
         return controllers;
     }
 
