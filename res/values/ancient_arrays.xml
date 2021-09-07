@@ -2465,5 +2465,16 @@
         <item>8</item>  
 	<item>9</item>    
     </string-array>
+	
+    <!-- wipi loc -->
+    <string-array name="wipi_entries" translatable="false">
+        <item>@string/wipi_kiri</item>
+        <item>@string/wipi_kanan</item>        
+    </string-array>
+
+    <string-array name="wipi_values" translatable="false">
+        <item>0</item>
+        <item>1</item    
+    </string-array>
 
 </resources>
