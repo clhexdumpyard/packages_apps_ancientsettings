@@ -262,7 +262,7 @@
             android:key="qs_tile_style"
 	    android:dependency="QS_MASK_SWITCHER"						      
             android:title="@string/qs_tile_style_title"
-            android:persistent="false"
+            android:defaultValue="0" 
             android:entries="@array/qs_selector_entries"
             android:entryValues="@array/qs_selector_values" />
 
