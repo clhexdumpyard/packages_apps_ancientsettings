@@ -319,14 +319,6 @@
         android:layout="@layout/ancient_cardpreference_category"
         android:key="megalith_qs_themes"
         android:title="@string/megalith_qs_themes_center_category">
-
-        <ListPreference
-            android:layout="@layout/ancient_cardpreference_top"
-            android:key="qs_tile_style"
-            android:title="@string/qs_tile_style_title"
-            android:persistent="false"
-            android:entries="@array/qs_selector_entries"
-            android:entryValues="@array/qs_selector_values" />
 	    
 	<com.ancient.settings.preferences.SystemSettingListPreference
             android:layout="@layout/ancient_cardpreference_middle"
