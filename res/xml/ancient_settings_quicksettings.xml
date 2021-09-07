@@ -248,11 +248,27 @@
 
     <PreferenceCategory
         android:key="qs_columns_rows_category"
-        android:title="@string/qs_columns_rows_category_title">
+        android:title="@string/megalith_qs_themes_center_category">
+	    
+	<com.ancient.settings.preferences.SystemSettingSwitchPreference
+            android:key="QS_MASK_SWITCHER"
+            android:layout="@layout/ancient_cardpreference_top"                                                               
+            android:title="@string/qs_tile_switch_title"
+            android:summary="@string/qs_tile_switch_summary"                                                                
+            android:defaultValue="false" />    
+	    
+        <com.ancient.settings.preferences.SystemSettingListPreference
+            android:layout="@layout/ancient_cardpreference_middle"
+            android:key="qs_tile_style"
+	    android:dependency="QS_MASK_SWITCHER"						      
+            android:title="@string/qs_tile_style_title"
+            android:persistent="false"
+            android:entries="@array/qs_selector_entries"
+            android:entryValues="@array/qs_selector_values" />
 
         <com.ancient.settings.preferences.SystemSettingListPreference
             android:key="CUSTOM_BGTILE_SIZE"
-            android:layout="@layout/ancient_cardpreference_top"                                                              
+            android:layout="@layout/ancient_cardpreference_middle"                                                              
             android:title="@string/custom_bgtile_size_title"
             android:entries="@array/custom_bgtile_size_entries"
             android:entryValues="@array/custom_bgtile_size_values"
