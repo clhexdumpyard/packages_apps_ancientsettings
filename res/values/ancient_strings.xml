@@ -2061,5 +2061,8 @@
     <string name="gaming_mode_danmaku_speed_vertical_title">Danmaku speed (vertical)</string>
     <string name="gaming_mode_danmaku_blacklist">Blacklist</string>
     <string name="add_package_to_title">Add application</string>
+	
+    <string name="qs_tile_switch_title">QS tile style enabler</string>
+    <string name="qs_tile_switch_summary">qs tile background style enabler</string>
 
 </resources>
