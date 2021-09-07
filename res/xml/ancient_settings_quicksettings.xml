@@ -250,17 +250,9 @@
         android:key="qs_columns_rows_category"
         android:title="@string/megalith_qs_themes_center_category">
 	    
-	<com.ancient.settings.preferences.SystemSettingSwitchPreference
-            android:key="QS_MASK_SWITCHER"
-            android:layout="@layout/ancient_cardpreference_top"                                                               
-            android:title="@string/qs_tile_switch_title"
-            android:summary="@string/qs_tile_switch_summary"                                                                
-            android:defaultValue="false" />    
-	    
         <com.ancient.settings.preferences.SystemSettingListPreference
-            android:layout="@layout/ancient_cardpreference_middle"
-            android:key="qs_tile_style"
-	    android:dependency="QS_MASK_SWITCHER"						      
+            android:layout="@layout/ancient_cardpreference_top"
+            android:key="qs_tile_style"						      
             android:title="@string/qs_tile_style_title"
             android:defaultValue="0" 
             android:entries="@array/qs_selector_entries"
