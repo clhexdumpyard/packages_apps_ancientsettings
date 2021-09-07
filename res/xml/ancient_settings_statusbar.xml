@@ -49,7 +49,20 @@
 	   
         <Preference 
             android:layout="@layout/ancient_cardview_divider" 
-            android:selectable="false"/>  
+            android:selectable="false"/>
+	
+	<com.ancient.settings.preferences.SystemSettingListPreference
+            android:layout="@layout/ancient_cardpreference_middle"						      
+            android:key="WIPI_LOC"
+            android:defaultValue="0" 
+            android:entries="@array/wipi_entries"
+            android:entryValues="@array/wipi_values"                                                          
+            android:title="@string/wipi_style_title"                                           
+            />  
+	    
+	<Preference 
+            android:layout="@layout/ancient_cardview_divider" 
+            android:selectable="false"/>
 
         <Preference
             android:layout="@layout/ancient_cardpreference_single"
