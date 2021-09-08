@@ -23,6 +23,13 @@
         android:title="@string/bgfull_quicksettings"
         android:summary="@string/bgfull_quicksettings_subtitle"
         android:defaultValue="false" />
+	
+   <com.ancient.settings.preferences.SystemSettingSwitchPreference
+        android:key="QS_BG_FULHIDER"
+	android:dependency="QS_BG_FUL"							   
+        android:title="@string/bgfull_quicksettingshider"
+        android:summary="@string/bgfull_quicksettingshider_subtitle"
+        android:defaultValue="false" />
 
     <com.ancient.settings.preferences.SystemSettingListPreference
         android:key="QS_BG_LIST"
@@ -88,6 +95,37 @@
         settings:min="0"
         android:defaultValue="0"
         android:dependency="QS_BG_FUL" /> 
+	
+    <com.ancient.settings.preferences.SystemSettingSwitchPreference
+        android:key="QS_BG_FUL12"
+        android:title="@string/bgfull12_quicksettings"
+        android:summary="@string/bgfull12_quicksettings_subtitle"
+        android:defaultValue="false" />
+	
+    <com.ancient.settings.preferences.SystemSettingListPreference
+        android:key="QS_BG_LIST12"
+        android:title="@string/custom_bg_qs12_title"
+        android:dependency="QS_BG_FUL"
+        android:entries="@array/custom_bg_qs12_entries"
+        android:entryValues="@array/custom_bg_qs12_values"
+        android:defaultValue="0" />
+	
+    <net.margaritov.preference.colorpicker.ColorPickerPreference 
+            android:defaultValue="0x00000000" 
+            settings:alphaSlider="true"
+            android:key="QS_BG_SATU_WARNA12"          
+            android:dependency="QS_BG_FUL12"                                           
+            android:title="@string/custom_bg_single_kolor"
+            android:summary="@string/bp_new_tint_picker_summary" /> 
+	
+   <com.ancient.settings.preferences.SystemSettingSeekBarPreference
+        android:key="QS_BGFULL12_ALPHA"
+        android:title="@string/qs_bgful12_alpha_title"
+        android:summary="@string/qs_bgful12_alpha_summary"
+        android:max="100"
+        settings:min="0"
+        android:defaultValue="0"
+        android:dependency="QS_BG_FUL12" /> 
 
     <com.ancient.settings.preferences.SystemSettingSwitchPreference
         android:key="QS_BLUR"
