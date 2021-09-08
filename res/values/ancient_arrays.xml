@@ -2588,5 +2588,18 @@
         <item>0</item>
         <item>1</item>    
     </string-array>
+	
+    <!-- mmbg -->
+    <string-array name="custom_bg_qs12_entries" translatable="false">
+        <item>@string/custom_bg_qs12_default</item>
+        <item>@string/custom_bg_qs12_primary</item>    
+	<item>@string/custom_bg_qs12_custom</item>       
+    </string-array>
+
+    <string-array name="custom_bg_qs12_values" translatable="false">
+        <item>0</item>
+        <item>1</item>  
+	<item>2</item> 
+    </string-array>
 
 </resources>
