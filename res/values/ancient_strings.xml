@@ -2069,5 +2069,18 @@
     <string name="wipi_style_title">Wifi Icon Location</string>
     <string name="wipi_kiri">left of signal icon</string>
     <string name="wipi_kanan">right of signal icon</string>
+	
+    <!-- qs bg cus2 -->
+    <string name="bgfull12_quicksettings">QS Panel 2nd Background </string>
+    <string name="bgfull12_quicksettings_subtitle">Enable qs panel 2nd background full</string>
+    <string name="qs_bgful12_alpha_title">QS Panel 2nd Background Opacy</string>
+    <string name="qs_bgful12_alpha_summary">set the opacy of qs panel 2nd background full</string>
+    <string name="custom_bg_qs12_title">QS Panel 2nd Background Custom</string>
+    <string name="custom_bg_qs12_default">Default Transparent</string>
+    <string name="custom_bg_qs12_primary">Background Primary</string>
+    <string name="custom_bg_qs12_custom">Custom Color</string>
+
+    <string name="bgfull_quicksettingshider">QS Panel Background Hider</string>
+    <string name="bgfull_quicksettingshider_subtitle">Hide panel background when full Expanded</string>
 
 </resources>
