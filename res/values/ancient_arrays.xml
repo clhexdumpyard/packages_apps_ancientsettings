@@ -1700,6 +1700,33 @@
         <item>@string/anc_a12tile_style10</item> 
         <item>@string/anc_a12tile_style11</item>
         <item>@string/anc_a12tile_style12a</item> 
+	<item>@string/qstile_circle_trim</item>
+        <item>@string/qstile_dual_tone_circle</item>
+        <item>@string/qstile_squircle_trim</item>
+        <item>@string/qstile_wavey</item>
+        <item>@string/qstile_pokesign</item>
+        <item>@string/qstile_ninja</item>
+        <item>@string/qstile_dottedcircle</item>
+        <item>@string/qstile_attemptmountain</item>
+        <item>@string/qstile_squaremedo</item>
+        <item>@string/qstile_inkdrop</item>
+        <item>@string/qstile_cookie</item>
+        <item>@string/qstile_circleoutline</item>
+        <item>@string/qstile_cosmos</item>
+        <item>@string/qstile_divided</item>
+        <item>@string/qstile_neonlike</item>
+        <item>@string/qstile_oos</item>
+        <item>@string/qstile_triangles</item>
+        <item>@string/qstile_anc1</item>
+        <item>@string/qstile_anc2</item>
+        <item>@string/qstile_anc3</item>
+        <item>@string/qstile_anc4</item>
+        <item>@string/qstile_anc5</item>
+        <item>@string/qstile_anc6</item>
+        <item>@string/qstile_anc7</item>
+        <item>@string/qstile_anc8</item>
+        <item>@string/qstile_anc9</item>
+        <item>@string/qstile_anc10</item>    
     </string-array>
 
     <string-array name="anc_active_a12tile_values" translatable="false">
@@ -1716,6 +1743,33 @@
         <item>10</item> 
         <item>11</item>
         <item>12</item> 
+	<item>13</item>
+        <item>14</item> 
+        <item>15</item>
+        <item>16</item>
+        <item>17</item> 
+        <item>18</item>
+        <item>19</item> 
+        <item>20</item>
+        <item>21</item>
+        <item>22</item> 
+        <item>23</item>
+        <item>24</item>    
+	<item>25</item>
+        <item>26</item>
+        <item>27</item> 
+        <item>28</item>
+        <item>29</item>
+	<item>30</item>
+        <item>31</item>
+        <item>32</item> 
+        <item>33</item>
+        <item>34</item>    
+	<item>35</item>
+        <item>36</item>
+        <item>37</item> 
+        <item>38</item>  
+	<item>39</item>
     </string-array> 
 
     <string-array name="anc_inactive_a12tile_entries" translatable="false">
@@ -1732,6 +1786,33 @@
         <item>@string/anc_a12tile_style10</item> 
         <item>@string/anc_a12tile_style11</item>
         <item>@string/anc_a12tile_style12i</item> 
+	<item>@string/qstile_circle_trim</item>
+        <item>@string/qstile_dual_tone_circle</item>
+        <item>@string/qstile_squircle_trim</item>
+        <item>@string/qstile_wavey</item>
+        <item>@string/qstile_pokesign</item>
+        <item>@string/qstile_ninja</item>
+        <item>@string/qstile_dottedcircle</item>
+        <item>@string/qstile_attemptmountain</item>
+        <item>@string/qstile_squaremedo</item>
+        <item>@string/qstile_inkdrop</item>
+        <item>@string/qstile_cookie</item>
+        <item>@string/qstile_circleoutline</item>
+        <item>@string/qstile_cosmos</item>
+        <item>@string/qstile_divided</item>
+        <item>@string/qstile_neonlike</item>
+        <item>@string/qstile_oos</item>
+        <item>@string/qstile_triangles</item>
+        <item>@string/qstile_anc1</item>
+        <item>@string/qstile_anc2</item>
+        <item>@string/qstile_anc3</item>
+        <item>@string/qstile_anc4</item>
+        <item>@string/qstile_anc5</item>
+        <item>@string/qstile_anc6</item>
+        <item>@string/qstile_anc7</item>
+        <item>@string/qstile_anc8</item>
+        <item>@string/qstile_anc9</item>
+        <item>@string/qstile_anc10</item>    
     </string-array>
 
     <string-array name="anc_inactive_a12tile_values" translatable="false">
@@ -1748,6 +1829,33 @@
         <item>10</item> 
         <item>11</item>
         <item>12</item> 
+	<item>13</item>
+        <item>14</item> 
+        <item>15</item>
+        <item>16</item>
+        <item>17</item> 
+        <item>18</item>
+        <item>19</item> 
+        <item>20</item>
+        <item>21</item>
+        <item>22</item> 
+        <item>23</item>
+        <item>24</item>    
+	<item>25</item>
+        <item>26</item>
+        <item>27</item> 
+        <item>28</item>
+        <item>29</item>
+	<item>30</item>
+        <item>31</item>
+        <item>32</item> 
+        <item>33</item>
+        <item>34</item>    
+	<item>35</item>
+        <item>36</item>
+        <item>37</item> 
+        <item>38</item>  
+	<item>39</item>    
     </string-array>
 
     <string-array name="qqs_tile_style_entries" translatable="false">
