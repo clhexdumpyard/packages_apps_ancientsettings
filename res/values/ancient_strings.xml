@@ -1679,6 +1679,8 @@
     <string name="header_textcolor_style1">Default (Wallpaper Text Color)</string>
     <string name="header_textcolor_style2">Primary Color</string>
     <string name="header_textcolor_style3">Accent</string>
+    <string name="header_textcolor_style4">Black</string>
+    <string name="header_textcolor_style5">White</string>
 	
     <!-- addon home -->
     <string name="homecollapseonoff_style1">Default Like Stock( dont use card bg!! )</string>
