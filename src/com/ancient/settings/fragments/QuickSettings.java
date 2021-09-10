@@ -85,7 +85,7 @@ public class QuickSettings extends SettingsPreferenceFragment
     private static final String QS_BG_GRAD_WARNADUA = "QS_BG_GRAD_WARNADUA";
     private static final String QS_BG_GRAD_WARNATIGA = "QS_BG_GRAD_WARNATIGA";
     private static final String QS_BG_SATU_WARNA = "QS_BG_SATU_WARNA";
-    private static final String QS_BG_SATU_WARNA12 = "QS_BG_SATU_WARNA12";
+    private static final String QS_BG_SATU_WARNADUA = "QS_BG_SATU_WARNADUA";
 
     private UiModeManager mUiModeManager;
 
@@ -155,9 +155,9 @@ public class QuickSettings extends SettingsPreferenceFragment
         }
         grad3.setOnPreferenceChangeListener(this);
         
-        satuwarna12 = (ColorPickerPreference) findPreference(QS_BG_SATU_WARNA12);
+        satuwarna12 = (ColorPickerPreference) findPreference(QS_BG_SATU_WARNADUA);
         int mgradL41 = Settings.System.getInt(getContentResolver(),
-                "QS_BG_SATU_WARNA12", 0x11000000);
+                "QS_BG_SATU_WARNADUA", 0x11000000);
         satuwarna12.setNewPreviewColor(mgradL41);
         satuwarna12.setAlphaSliderEnabled(true);
         String mgradHexaL41 = String.format("#%08x", (0x11000000 & mgradL41));
@@ -340,7 +340,7 @@ public class QuickSettings extends SettingsPreferenceFragment
             }
             int intHexaGradiena12 = ColorPickerPreference.convertToColorInt(hexagradiena12);
             Settings.System.putInt(getContentResolver(),
-                    "QS_BG_SATU_WARNA12", intHexaGradiena12);
+                    "QS_BG_SATU_WARNADUA", intHexaGradiena12);
             return true;  
          } else if (preference == rgbBrightPicker) {
             String hexa = ColorPickerPreference.convertToARGB(
