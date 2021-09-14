@@ -2601,5 +2601,20 @@
         <item>1</item>  
 	<item>2</item> 
     </string-array>
+	
+    <!-- dataplace -->
+    <string-array name="qs_datausageloc_entries" translatable="false">
+        <item>@string/qs_datausageloc_header</item>
+        <item>@string/qs_datausageloc_footer</item>    
+	<item>@string/qs_datausageloc_qqsfooter</item> 
+	<item>@string/qs_datausageloc_qsfooter</item>    
+    </string-array>
+
+    <string-array name="qs_datausageloc_values" translatable="false">
+        <item>0</item>
+        <item>1</item>  
+	<item>2</item> 
+	<item>3</item>     
+    </string-array>
 
 </resources>
