@@ -2082,5 +2082,12 @@
 
     <string name="bgfull_quicksettingshider">QS Panel Background Hider</string>
     <string name="bgfull_quicksettingshider_subtitle">Hide panel background when full Expanded</string>
+	
+    <!--dataloc -->
+    <string name="qs_datausageloc_title">Data Usage Placement</string>
+    <string name="qs_datausageloc_header">QS Panel</string>
+    <string name="qs_datausageloc_footer">QS and QQS Footer</string>
+    <string name="qs_datausageloc_qqsfooter">QQS Footer</string>
+    <string name="qs_datausageloc_qsfooter">QS Footer</string>
 
 </resources>
