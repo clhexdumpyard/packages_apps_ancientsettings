@@ -112,7 +112,6 @@ public class Interface extends DashboardFragment implements
     private static final String PREF_RGB_LIGHT_ACCENT_PICKER = "rgb_light_accent_picker";
     private static final String PREF_RGB_DARK_ACCENT_PICKER = "rgb_dark_accent_picker";
     private static final String PREF_MONET_ENGINE = "monet_engine";
-    private static final String PREF_MONET_PALETTE = "monet_palette";
     private static final String PREF_FONTER_STYLE = "FONTER_STYLE";
     private static final String PREF_QS_TO_STOCK = "QS_TO_STOCK";
     private static final String PREF_QQS_CLOCKFAKE_SWITCH = "QQS_CLOCKFAKE_SWITCH";
@@ -151,7 +150,6 @@ public class Interface extends DashboardFragment implements
     private ColorPickerPreference rgbLiAccentPicker;
     private ColorPickerPreference rgbDaAccentPicker;
     private SecureSettingSwitchPreference mMonetOnoff;
-    private ListPreference mMonetPallete;
     private SystemSettingListPreference mFonterStyle;
     private SystemSettingListPreference mAncientuiOnoff;
     private SystemSettingSwitchPreference mAnciHeadclockOnoff;
@@ -305,13 +303,6 @@ public class Interface extends DashboardFragment implements
         }
         mMonetOnoff.setOnPreferenceChangeListener(this);
        
-        int paletteType = Settings.Secure.getIntForUser(getContentResolver(),
-                Settings.Secure.MONET_PALETTE, VIBRANT, UserHandle.USER_CURRENT);
-        mMonetPallete = findPreference("monet_palette");
-        mMonetPallete.setValue(String.valueOf(paletteType));
-        mMonetPallete.setSummary(mMonetPallete.getEntry());
-        mMonetPallete.setOnPreferenceChangeListener(this);   
-
         mFonterStyle = (SystemSettingListPreference) findPreference(PREF_FONTER_STYLE);
         int anFonterStyle = Settings.System.getIntForUser(getContentResolver(),
                 "FONTER_STYLE", 0, UserHandle.USER_CURRENT);
@@ -708,14 +699,7 @@ public class Interface extends DashboardFragment implements
 		rgbDaAccentPicker.setEnabled(false);
 	    }
             return true;
-        } else if (preference == mMonetPallete) {
-            int paletteType = Integer.parseInt((String) objValue);
-            Settings.Secure.putIntForUser(getContentResolver(),
-                    Settings.Secure.MONET_PALETTE, paletteType, UserHandle.USER_CURRENT);
-	    int indexx = mMonetPallete.findIndexOfValue((String) objValue);
-            mMonetPallete.setSummary(mMonetPallete.getEntries()[indexx]);
-            return true;
-	} else if (preference == mFonterStyle) {
+        } else if (preference == mFonterStyle) {
             int anFonterStyle = Integer.valueOf((String) objValue);
             Settings.System.putIntForUser(getContentResolver(),
                     "FONTER_STYLE", anFonterStyle, UserHandle.USER_CURRENT);
