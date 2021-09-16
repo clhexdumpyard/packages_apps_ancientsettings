@@ -685,10 +685,6 @@ public class Interface extends DashboardFragment implements
             boolean value = (Boolean) objValue;
             Settings.Secure.putInt(getActivity().getContentResolver(),
                     Settings.Secure.MONET_ENGINE, value ? 1 : 0);
-            try {
-                 mOverlayService.reloadAssets("android", UserHandle.USER_CURRENT);
-            } catch (RemoteException ignored) {
-            }
 	    int mMonetSwitch = Settings.Secure.getInt(getActivity().getContentResolver(),
                 Settings.Secure.MONET_ENGINE, 0);
 	    if (mMonetSwitch == 0) {
