@@ -40,18 +40,31 @@
             android:defaultValue="0"
             android:summary="@string/monet_switch_summary"             
             android:title="@string/monet_switch_title"/>
+	    
+	<com.ancient.settings.preferences.SecureSettingSeekBarPreference
+           android:key="monet_chroma"
+	   android:layout="@layout/ancient_cardpreference_middle"								     
+           android:title="@string/monet_chroma_title"
+	   android:summary="@string/monet_chroma_summary"								 
+           settings:min="0"
+	   android:dependency="monet_engine"								 
+           settings:interval="1"
+           android:max="3"
+	   android:min="0"								 
+           android:defaultValue="1" /> 
          
-        <ListPreference
-            android:layout="@layout/ancient_cardpreference_middle"
-            android:key="monet_palette"
-            android:dependency="monet_engine"
-	    android:dialogTitle="@string/monet_pallete_title"	
-            android:title="@string/monet_pallete_title"
-            android:defaultValue="0"
-	    android:summary="%s"	
-            android:entries="@array/monet_pallete_entries"
-            android:entryValues="@array/monet_pallete_values"/> 
-
+        <com.ancient.settings.preferences.SecureSettingSeekBarPreference
+           android:key="monet_lightness"
+	   android:layout="@layout/ancient_cardpreference_middle"								 
+           android:title="@string/monet_lightness_title"
+	   android:summary="@string/monet_lightness_summary"								 
+           settings:min="0"
+	   android:dependency="monet_engine"								 
+           settings:interval="25"
+           android:max="1000"
+	   android:min="0"								 
+           android:defaultValue="425" />
+	    
         <ListPreference
             android:layout="@layout/ancient_cardpreference_middle"
             android:key="theme_switch"
