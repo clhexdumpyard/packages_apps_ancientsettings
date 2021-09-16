@@ -2089,5 +2089,10 @@
     <string name="qs_datausageloc_footer">QS and QQS Footer</string>
     <string name="qs_datausageloc_qqsfooter">QQS Footer</string>
     <string name="qs_datausageloc_qsfooter">QS Footer</string>
+	
+    <string name="monet_chroma_title">Monet colorfullness</string>
+    <string name="monet_chroma_summary">just set and see</string>
+    <string name="monet_lightness_title">Monet Brightness</string>
+    <string name="monet_lightness_summary">beware of force closing systemui</string>
 
 </resources>
