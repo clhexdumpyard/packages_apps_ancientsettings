@@ -1196,6 +1196,8 @@
     <string name="qsbg_type2">Accent </string>
     <string name="qsbg_type3">Fake A12</string>
     <string name="qsbg_type4">Fake A12 gone in full expanded</string>
+    <string name="qsbg_type5">Ribbon Left</string>
+    <string name="qsbg_type6">Ribbon Right</string>
 
     <!-- Settings Icon button -->
     <string name="qqs_settings_icon_title">QQS Setting Icon </string>
@@ -1514,6 +1516,8 @@
     <string name="anc_ctoplevel_style3">Background Card Accent</string>
     <string name="anc_ctoplevel_style4">Background Accent</string>
     <string name="anc_ctoplevel_style5">Reverse Color Background Card</string>
+    <string name="anc_ctoplevel_style6">Monet</string>
+    <string name="anc_ctoplevel_style7">Monet with Card</string>
 
     <!-- a12 like tile -->
     <string name="anc_a12tile_title">Qs Tile background like a12</string>
