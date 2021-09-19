@@ -274,7 +274,8 @@
             android:key="NOTIFICATION_MATERIAL_DISMISS_HIDE_EXPANDED"
 	    android:dependency="notification_material_dismiss"								
             android:title="@string/notification_material_dismiss_hide_title"
-            android:summary="@string/notification_material_dismiss_hide_summary" />
+            android:summary="@string/notification_material_dismiss_hide_summary"
+            android:defaultValue="false" />
 	    
 	<com.ancient.settings.preferences.SystemSettingListPreference
            android:key="NOTIFICATION_MATERIAL_DISMISS_STYLE"
