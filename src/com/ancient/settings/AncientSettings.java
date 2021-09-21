@@ -146,7 +146,8 @@ public class AncientSettings extends SettingsPreferenceFragment implements View.
               {
                 Interface interfacefragment = new Interface();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+                //transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+                transaction.setCustomAnimations(R.anim.enter_anim, R.anim.exit_anim);
                 transaction.replace(this.getId(), interfacefragment);
                 transaction.addToBackStack(null);
                 transaction.commit();
@@ -155,7 +156,8 @@ public class AncientSettings extends SettingsPreferenceFragment implements View.
               {
                 StatusBar statusbarfragment = new StatusBar();
                 FragmentTransaction transaction1 = getFragmentManager().beginTransaction();
-                transaction1.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+                //transaction1.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+                transaction1.setCustomAnimations(R.anim.enter_anim, R.anim.exit_anim);
                 transaction1.replace(this.getId(), statusbarfragment);
                 transaction1.addToBackStack(null);
                 transaction1.commit();
@@ -164,7 +166,8 @@ public class AncientSettings extends SettingsPreferenceFragment implements View.
               {
                LockScreen lockscreenfragment = new LockScreen();
                 FragmentTransaction transaction2 = getFragmentManager().beginTransaction();
-                transaction2.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+                //transaction2.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+                transaction2.setCustomAnimations(R.anim.enter_anim, R.anim.exit_anim);
                 transaction2.replace(this.getId(), lockscreenfragment);
                 transaction2.addToBackStack(null);
                 transaction2.commit();
@@ -173,7 +176,8 @@ public class AncientSettings extends SettingsPreferenceFragment implements View.
               {
                 PowerMenuSettings powermenusettingsfragment = new PowerMenuSettings();
                 FragmentTransaction transaction3 = getFragmentManager().beginTransaction();
-                transaction3.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+                //transaction3.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+                transaction3.setCustomAnimations(R.anim.enter_anim, R.anim.exit_anim);
                 transaction3.replace(this.getId(), powermenusettingsfragment);
                 transaction3.addToBackStack(null);
                 transaction3.commit();
@@ -182,7 +186,8 @@ public class AncientSettings extends SettingsPreferenceFragment implements View.
               {
                 Gestures gesturesfragment = new Gestures();
                 FragmentTransaction transaction4 = getFragmentManager().beginTransaction();
-                transaction4.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+                //transaction4.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+                transaction4.setCustomAnimations(R.anim.enter_anim, R.anim.exit_anim);
                 transaction4.replace(this.getId(), gesturesfragment);
                 transaction4.addToBackStack(null);
                 transaction4.commit();
@@ -191,7 +196,8 @@ public class AncientSettings extends SettingsPreferenceFragment implements View.
               {
                 Notifications notificationsfragment = new Notifications();
                 FragmentTransaction transaction5 = getFragmentManager().beginTransaction();
-                transaction5.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+                //transaction5.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+                transaction5.setCustomAnimations(R.anim.enter_anim, R.anim.exit_anim);
                 transaction5.replace(this.getId(), notificationsfragment);
                 transaction5.addToBackStack(null);
                 transaction5.commit();
@@ -200,7 +206,8 @@ public class AncientSettings extends SettingsPreferenceFragment implements View.
               {
                 Buttons buttonfragment = new Buttons();
                 FragmentTransaction transaction6 = getFragmentManager().beginTransaction();
-                transaction6.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+                //transaction6.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+                transaction6.setCustomAnimations(R.anim.enter_anim, R.anim.exit_anim);
                 transaction6.replace(this.getId(), buttonfragment);
                 transaction6.addToBackStack(null);
                 transaction6.commit();
@@ -209,7 +216,8 @@ public class AncientSettings extends SettingsPreferenceFragment implements View.
               {
                 MegalithAbout megalithaboutfragment = new MegalithAbout();
                 FragmentTransaction transaction7 = getFragmentManager().beginTransaction();
-                transaction7.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+                //transaction7.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+                transaction7.setCustomAnimations(R.anim.enter_anim, R.anim.exit_anim);
                 transaction7.replace(this.getId(), megalithaboutfragment);
                 transaction7.addToBackStack(null);
                 transaction7.commit();
@@ -218,7 +226,8 @@ public class AncientSettings extends SettingsPreferenceFragment implements View.
               {
                 QuickSettings quicksettingsfragment = new QuickSettings();
                 FragmentTransaction transaction8 = getFragmentManager().beginTransaction();
-                transaction8.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+                //transaction8.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+                transaction8.setCustomAnimations(R.anim.enter_anim, R.anim.exit_anim);
                 transaction8.replace(this.getId(), quicksettingsfragment);
                 transaction8.addToBackStack(null);
                 transaction8.commit();
@@ -227,7 +236,8 @@ public class AncientSettings extends SettingsPreferenceFragment implements View.
               {
                 Navigation navigationfragment = new Navigation();
                 FragmentTransaction transaction9 = getFragmentManager().beginTransaction();
-                transaction9.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+                //transaction9.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+                transaction9.setCustomAnimations(R.anim.enter_anim, R.anim.exit_anim);
                 transaction9.replace(this.getId(), navigationfragment);
                 transaction9.addToBackStack(null);
                 transaction9.commit();
@@ -236,7 +246,8 @@ public class AncientSettings extends SettingsPreferenceFragment implements View.
               {
                 Animations animationsfragment = new Animations();
                 FragmentTransaction transaction10 = getFragmentManager().beginTransaction();
-                transaction10.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+                //transaction10.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+                transaction10.setCustomAnimations(R.anim.enter_anim, R.anim.exit_anim);
                 transaction10.replace(this.getId(), animationsfragment);
                 transaction10.addToBackStack(null);
                 transaction10.commit();
@@ -245,7 +256,8 @@ public class AncientSettings extends SettingsPreferenceFragment implements View.
               {
                 Battery batteryfragment = new Battery();
                 FragmentTransaction transaction11 = getFragmentManager().beginTransaction();
-                transaction11.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+                //transaction11.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+                transaction11.setCustomAnimations(R.anim.enter_anim, R.anim.exit_anim);
                 transaction11.replace(this.getId(), batteryfragment);
                 transaction11.addToBackStack(null);
                 transaction11.commit();
@@ -254,7 +266,8 @@ public class AncientSettings extends SettingsPreferenceFragment implements View.
               {
                 Misc miscfragment = new Misc();
                 FragmentTransaction transaction12 = getFragmentManager().beginTransaction();
-                transaction12.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+                //transaction12.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+                transaction12.setCustomAnimations(R.anim.enter_anim, R.anim.exit_anim);
                 transaction12.replace(this.getId(), miscfragment);
                 transaction12.addToBackStack(null);
                 transaction12.commit();
