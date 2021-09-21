@@ -126,6 +126,7 @@ public class Interface extends DashboardFragment implements
     private static final String PREF_ANCIENT_UI_QSCLOCK_GRAVITY = "ANCIENT_UI_QSCLOCK_GRAVITY";
     private static final String PREF_JAM_HEADER_SIZE = "JAM_HEADER_SIZE";
     private static final String QSBG_STYLE = "QSBG_STYLE";
+    private static final String CARD_STYLE = "CARD_STYLE";
 	
     private IOverlayManager mOverlayService;
     private UiModeManager mUiModeManager;
@@ -164,6 +165,7 @@ public class Interface extends DashboardFragment implements
     private SystemSettingListPreference mAncUIc;
     private SystemSettingListPreference mAncUId;
     private SystemSettingListPreference mQsbg;
+    private SystemSettingListPreference mCard;
 	
     private static final int VIBRANT = 0;
     private static final int LIGHT_VIBRANT = 1;
@@ -193,6 +195,14 @@ public class Interface extends DashboardFragment implements
                 .asInterface(ServiceManager.getService(Context.OVERLAY_SERVICE));
 
         setupThemeSwitchPref();
+	    
+	mCard = (SystemSettingListPreference) findPreference(CARD_STYLE);
+        int styleCard = Settings.System.getIntForUser(getContentResolver(),
+                "CARD_STYLE", 0, UserHandle.USER_CURRENT);
+        int valuecardIndex = mCard.findIndexOfValue(String.valueOf(styleCard));
+        mCard.setValueIndex(valuecardIndex >= 0 ? valuecardIndex : 0);
+        mCard.setSummary(mCard.getEntry());
+        mCard.setOnPreferenceChangeListener(this);    
 
         mAvatarViewVis = (SystemSettingListPreference) findPreference("AvatarViewVis");
         mAvatarViewVis.setOnPreferenceChangeListener(this);
@@ -548,6 +558,16 @@ public class Interface extends DashboardFragment implements
             } catch (RemoteException ignored) {
             }
             return true;
+	} else if (preference == mCard) {
+            int styleCardValue = Integer.valueOf((String) objValue);
+            Settings.System.putIntForUser(getContentResolver(),
+                    "CARD_STYLE", styleCardValue, UserHandle.USER_CURRENT);
+            mCard.setSummary(mCard.getEntries()[styleCardValue]);
+            try {
+                 mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
+             } catch (RemoteException ignored) {
+            }
+            return true;	
         } else if (preference == mAvatarViewVis) {
             try {
                  mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
