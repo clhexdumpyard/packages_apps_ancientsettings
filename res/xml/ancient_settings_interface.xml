@@ -17,6 +17,21 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/interface_title"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+	
+    <PreferenceCategory
+        android:layout="@layout/ancient_cardpreference_category"
+        android:key="megalith_style"
+        android:title="@string/megalith_style_center_category">
+	    
+	<com.ancient.settings.preferences.SystemSettingListPreference
+            android:layout="@layout/ancient_cardpreference_single"
+            android:key="CARD_STYLE"                             
+            android:defaultValue="0"
+	    android:entries="@array/card_style_entries"           
+            android:entryValues="@array/card_style_values"              
+            android:title="@string/card_megasilit_style_title"/>        
+	    
+    </PreferenceCategory>	    
 
     <PreferenceCategory
         android:layout="@layout/ancient_cardpreference_category"
@@ -96,7 +111,9 @@
     <PreferenceCategory
         android:layout="@layout/ancient_cardpreference_category"
         android:key="megalith_setings"
-        android:title="@string/setting_megalith_zone_title"> 
+        android:title="@string/setting_megalith_zone_title">
+	    
+	
 
         <com.ancient.settings.preferences.SystemSettingListPreference
             android:layout="@layout/ancient_cardpreference_top"
