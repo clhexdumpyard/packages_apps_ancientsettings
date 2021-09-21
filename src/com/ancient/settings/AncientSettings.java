@@ -43,6 +43,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.ComponentName;
+import android.provider.Settings;
 import androidx.cardview.widget.CardView;
 import androidx.appcompat.widget.Toolbar;
 import android.graphics.drawable.AnimationDrawable;
@@ -83,7 +84,12 @@ public class AncientSettings extends SettingsPreferenceFragment implements View.
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.ancient_settings, container, false);
+        int styleCard = Settings.System.getInt(getContentResolver(), "CARD_STYLE", 0);
+        if (styleCard == 1) {
+           return inflater.inflate(R.layout.ancient_settings_list, container, false);
+        } else { 
+           return inflater.inflate(R.layout.ancient_settings, container, false); 
+        }
     }
 
     @Override
