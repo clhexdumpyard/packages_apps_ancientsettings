@@ -147,7 +147,7 @@ public class AncientSettings extends SettingsPreferenceFragment implements View.
                 Interface interfacefragment = new Interface();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 //transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
-                transaction.setCustomAnimations(R.anim.enter_anim, R.anim.exit_anim);
+                transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
                 transaction.replace(this.getId(), interfacefragment);
                 transaction.addToBackStack(null);
                 transaction.commit();
