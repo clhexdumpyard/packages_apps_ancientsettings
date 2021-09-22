@@ -31,7 +31,29 @@
 		app:cardBackgroundColor="@color/ancient_interface_cardcolor"
 		app:cardCornerRadius="@dimen/ancient_settings_cardview_cornerRadius"
 		app:cardElevation="@dimen/ancient_settings_cardview_cardElevation">
-    <ImageView 
+                <ViewFlipper 
+		  android:gravity="center" 
+		  android:layout_width="fill_parent" 
+		  android:layout_height="fill_parent" 
+		  android:flipInterval="300" 
+		  android:autoStart="true">
+                  <ImageView 
+			   android:gravity="center" 
+			   android:layout_width="fill_parent" 
+			   android:layout_height="fill_parent" 
+			   android:src="@drawable/cardimg" 
+			   android:scaleType="centerCrop" 
+			   android:tint="?android:attr/textColorSecondary" 
+			   android:alpha="0.1" />
+                 <ImageView 
+			   android:gravity="center" 
+			   android:layout_width="fill_parent" 
+			   android:layout_height="fill_parent"  
+			   android:src="@drawable/cardimg" 
+			   android:scaleType="centerCrop" 
+			   android:tint="?android:attr/textColorSecondary" 
+			   android:alpha="0.15" />
+                 <ImageView 
 			   android:gravity="center" 
 			   android:layout_width="fill_parent" 
 			   android:layout_height="fill_parent" 
@@ -39,6 +61,71 @@
 			   android:scaleType="centerCrop" 
 			   android:tint="?android:attr/textColorSecondary" 
 			   android:alpha="0.2" />
+                 <ImageView 
+			   android:gravity="center" 
+			   android:layout_width="fill_parent" 
+			   android:layout_height="fill_parent" 
+			   android:src="@drawable/cardimg" 
+			   android:scaleType="centerCrop" 
+			   android:tint="?android:attr/textColorSecondary" 
+			   android:alpha="0.20" />
+                <ImageView 
+			   android:gravity="center" 
+			   android:layout_width="fill_parent" 
+			   android:layout_height="fill_parent" 
+			   android:src="@drawable/cardimg" 
+			   android:scaleType="centerCrop" 
+			   android:tint="?android:attr/textColorSecondary" 
+			   android:alpha="0.20" />
+                <ImageView 
+			   android:gravity="center" 
+			   android:layout_width="fill_parent" 
+			   android:layout_height="fill_parent" 
+			   android:src="@drawable/cardimg" 
+			   android:scaleType="centerCrop" 
+			   android:tint="?android:attr/textColorSecondary" 
+			   android:alpha="0.20" />
+                <ImageView 
+			   android:gravity="center" 
+			   android:layout_width="fill_parent" 
+			   android:layout_height="fill_parent" 
+			   android:src="@drawable/cardimg" 
+			   android:scaleType="centerCrop" 
+			   android:tint="?android:attr/textColorSecondary" 
+			   android:alpha="0.20" />
+               <ImageView 
+			   android:gravity="center" 
+			   android:layout_width="fill_parent" 
+			   android:layout_height="fill_parent" 
+			   android:src="@drawable/cardimg" 
+			   android:scaleType="centerCrop" 
+			   android:tint="?android:attr/textColorSecondary" 
+			   android:alpha="0.20" />
+                <ImageView 
+			   android:gravity="center" 
+			   android:layout_width="fill_parent" 
+			   android:layout_height="fill_parent"  
+			   android:src="@drawable/cardimg" 
+			   android:scaleType="centerCrop" 
+			   android:tint="?android:attr/textColorSecondary" 
+			   android:alpha="0.2" />
+                <ImageView 
+			   android:gravity="center" 
+			   android:layout_width="fill_parent" 
+			   android:layout_height="fill_parent"  
+			   android:src="@drawable/cardimg" 
+			   android:scaleType="centerCrop" 
+			   android:tint="?android:attr/textColorSecondary" 
+			   android:alpha="0.15" />
+                 <ImageView 
+			   android:gravity="center" 
+			   android:layout_width="fill_parent" 
+			   android:layout_height="fill_parent" 
+			   android:src="@drawable/cardimg" 
+			   android:scaleType="centerCrop" 
+			   android:tint="?android:attr/textColorSecondary" 
+			   android:alpha="0.1" />
+                </ViewFlipper>
 		<LinearLayout
 			android:id="@+id/megalith_bg_anim"
             android:layout_width="match_parent"
