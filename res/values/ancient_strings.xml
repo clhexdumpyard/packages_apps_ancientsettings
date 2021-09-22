@@ -2102,6 +2102,8 @@
     <string name="card_megasilit_style_title">Megalith Card Style</string>
     <string name="card_style_grid">Gridview Card</string>
     <string name="card_style_list">Listview Card</string>
+    <string name="card_style_list_noanim">Batik Listview Card </string>
+    <string name="card_style_list_anim">Animated Batik Listview Card </string>
     <string name="megalith_style_center_category">Megalith zone</string>
 
 </resources>
