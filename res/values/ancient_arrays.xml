@@ -2629,8 +2629,8 @@
     <string-array name="card_style_entries" translatable="false">
         <item>@string/card_style_grid</item>
         <item>@string/card_style_list</item>   
-	<item>@string/card_style_list_noanime</item>
-        <item>@string/card_style_list_anime</item>    
+	<item>@string/card_style_list_noanim</item>
+        <item>@string/card_style_list_anim</item>    
     </string-array>
 
     <string-array name="card_style_values" translatable="false">
