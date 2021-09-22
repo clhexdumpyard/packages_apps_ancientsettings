@@ -87,7 +87,11 @@ public class AncientSettings extends SettingsPreferenceFragment implements View.
         int styleCard = Settings.System.getInt(getContentResolver(), "CARD_STYLE", 0);
         if (styleCard == 1) {
            return inflater.inflate(R.layout.ancient_settings_list, container, false);
-        } else { 
+        } else if (styleCard == 2) {
+           return inflater.inflate(R.layout.ancient_settings_list_noanime, container, false);
+        } else if (styleCard == 3) {
+           return inflater.inflate(R.layout.ancient_settings_list_anime, container, false);
+        } else {
            return inflater.inflate(R.layout.ancient_settings, container, false); 
         }
     }
