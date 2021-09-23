@@ -39,7 +39,7 @@
 			   android:layout_marginBottom="15.5dp"
 			   android:scaleType="centerCrop" 
 			   android:tint="?android:attr/textColorSecondary" 
-			   android:alpha="0.25" />
+			   android:alpha="0.025" />
 		<ImageView 
 			   android:gravity="center" 
 			   android:layout_width="fill_parent" 
@@ -48,7 +48,7 @@
 			   android:src="@drawable/cardimg6" 
 			   android:scaleType="centerCrop" 
 			   android:tint="?android:attr/textColorSecondary" 
-			   android:alpha="0.5" />
+			   android:alpha="0.05" />
 		<ImageView 
 			   android:gravity="center" 
 			   android:layout_width="fill_parent" 
@@ -57,7 +57,7 @@
 			   android:layout_marginBottom="10.5dp"
 			   android:scaleType="centerCrop" 
 			   android:tint="?android:attr/textColorSecondary" 
-			   android:alpha="0.75" />
+			   android:alpha="0.075" />
                   <ImageView 
 			   android:gravity="center" 
 			   android:layout_width="fill_parent" 
@@ -113,6 +113,22 @@
 			   android:tint="?android:attr/textColorSecondary" 
 			   android:alpha="0.2" />
                  <ImageView 
+			   android:gravity="center" 
+			   android:layout_width="fill_parent" 
+			   android:layout_height="fill_parent" 
+			   android:src="@drawable/cardimg6" 
+			   android:scaleType="centerCrop" 
+			   android:tint="?android:attr/textColorSecondary" 
+			   android:alpha="0.20" />
+                <ImageView 
+			   android:gravity="center" 
+			   android:layout_width="fill_parent" 
+			   android:layout_height="fill_parent" 
+			   android:src="@drawable/cardimg6" 
+			   android:scaleType="centerCrop" 
+			   android:tint="?android:attr/textColorSecondary" 
+			   android:alpha="0.20" />
+		<ImageView 
 			   android:gravity="center" 
 			   android:layout_width="fill_parent" 
 			   android:layout_height="fill_parent" 
@@ -204,7 +220,7 @@
 			   android:scaleType="centerCrop" 
 			   android:layout_marginBottom="10.5dp"
 			   android:tint="?android:attr/textColorSecondary" 
-			   android:alpha="0.75" />
+			   android:alpha="0.075" />
 		<ImageView 
 			   android:gravity="center" 
 			   android:layout_width="fill_parent" 
@@ -213,7 +229,7 @@
 			   android:layout_marginBottom="12.5dp"
 			   android:scaleType="centerCrop" 
 			   android:tint="?android:attr/textColorSecondary" 
-			   android:alpha="0.5" />
+			   android:alpha="0.05" />
 		<ImageView 
 			   android:gravity="center" 
 			   android:layout_width="fill_parent" 
@@ -222,7 +238,7 @@
 			   android:scaleType="centerCrop"
 			   android:layout_marginBottom="15.5dp"
 			   android:tint="?android:attr/textColorSecondary" 
-			   android:alpha="0.25" />
+			   android:alpha="0.025" />
                 </ViewFlipper>
 
 				<LinearLayout
