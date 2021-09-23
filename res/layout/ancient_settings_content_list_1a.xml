@@ -36,23 +36,83 @@
 			   android:layout_width="fill_parent" 
 			   android:layout_height="fill_parent" 
 			   android:src="@drawable/cardimg1" 
-			   android:scaleType="centerCrop" 
+			   android:scaleType="centerCrop"
+			   android:layout_marginRight="30dp"
+			   android:layout_marginTop="30dp" 
 			   android:tint="?android:attr/textColorSecondary" 
-			   android:alpha="0.1" />
+			   android:alpha="0.025" />
+		
+		<ImageView 
+			   android:gravity="center" 
+			   android:layout_width="fill_parent" 
+			   android:layout_height="fill_parent"  
+			   android:src="@drawable/cardimg1" 
+			   android:scaleType="centerCrop"
+			   android:layout_marginRight="23.5dp"
+			   android:layout_marginTop="23.5dp" 
+			   android:tint="?android:attr/textColorSecondary" 
+			   android:alpha="0.05" />
+		
                  <ImageView 
 			   android:gravity="center" 
 			   android:layout_width="fill_parent" 
 			   android:layout_height="fill_parent"  
 			   android:src="@drawable/cardimg1" 
-			   android:scaleType="centerCrop" 
+			   android:scaleType="centerCrop"
+			   android:layout_marginRight="15.5dp"
+			   android:layout_marginTop="15.5dp" 
+			   android:tint="?android:attr/textColorSecondary" 
+			   android:alpha="0.075" />
+		<ImageView 
+			   android:gravity="center" 
+			   android:layout_width="fill_parent" 
+			   android:layout_height="fill_parent"  
+			   android:src="@drawable/cardimg1" 
+			   android:scaleType="centerCrop"
+			   android:layout_marginRight="10dp"
+			   android:layout_marginTop="10dp" 
+			   android:tint="?android:attr/textColorSecondary" 
+			   android:alpha="0.1" />
+		<ImageView 
+			   android:gravity="center" 
+			   android:layout_width="fill_parent" 
+			   android:layout_height="fill_parent"  
+			   android:src="@drawable/cardimg1" 
+			   android:scaleType="centerCrop"
+			   android:layout_marginRight="7.5dp"
+			   android:layout_marginTop="7.5dp" 
+			   android:tint="?android:attr/textColorSecondary" 
+			   android:alpha="0.125" />
+		
+		<ImageView 
+			   android:gravity="center" 
+			   android:layout_width="fill_parent" 
+			   android:layout_height="fill_parent"  
+			   android:src="@drawable/cardimg1" 
+			   android:scaleType="centerCrop"
+			   android:layout_marginRight="5dp"
+			   android:layout_marginTop="5dp" 
 			   android:tint="?android:attr/textColorSecondary" 
 			   android:alpha="0.15" />
+		
+		<ImageView 
+			   android:gravity="center" 
+			   android:layout_width="fill_parent" 
+			   android:layout_height="fill_parent"  
+			   android:src="@drawable/cardimg1" 
+			   android:scaleType="centerCrop"
+			   android:layout_marginRight="2.5dp"
+			   android:layout_marginTop="2.5dp" 
+			   android:tint="?android:attr/textColorSecondary" 
+			   android:alpha="0.175" />
+		
                  <ImageView 
 			   android:gravity="center" 
 			   android:layout_width="fill_parent" 
 			   android:layout_height="fill_parent" 
 			   android:src="@drawable/cardimg1" 
-			   android:scaleType="centerCrop" 
+			   android:scaleType="centerCrop"
+			    
 			   android:tint="?android:attr/textColorSecondary" 
 			   android:alpha="0.2" />
                  <ImageView 
@@ -64,6 +124,14 @@
 			   android:tint="?android:attr/textColorSecondary" 
 			   android:alpha="0.20" />
                 <ImageView 
+			   android:gravity="center" 
+			   android:layout_width="fill_parent" 
+			   android:layout_height="fill_parent" 
+			   android:src="@drawable/cardimg1" 
+			   android:scaleType="centerCrop" 
+			   android:tint="?android:attr/textColorSecondary" 
+			   android:alpha="0.20" />
+		 <ImageView 
 			   android:gravity="center" 
 			   android:layout_width="fill_parent" 
 			   android:layout_height="fill_parent" 
@@ -103,22 +171,83 @@
 			   android:scaleType="centerCrop" 
 			   android:tint="?android:attr/textColorSecondary" 
 			   android:alpha="0.2" />
-                <ImageView 
+		
+		<ImageView 
 			   android:gravity="center" 
 			   android:layout_width="fill_parent" 
 			   android:layout_height="fill_parent"  
 			   android:src="@drawable/cardimg1" 
-			   android:scaleType="centerCrop" 
+			   android:scaleType="centerCrop"
+			   android:layout_marginRight="2.5dp"
+			   android:layout_marginTop="2.5dp" 
+			   android:tint="?android:attr/textColorSecondary" 
+			   android:alpha="0.175" />
+		
+		<ImageView 
+			   android:gravity="center" 
+			   android:layout_width="fill_parent" 
+			   android:layout_height="fill_parent"  
+			   android:src="@drawable/cardimg1" 
+			   android:scaleType="centerCrop"
+			   android:layout_marginRight="5dp"
+			   android:layout_marginTop="5dp" 
 			   android:tint="?android:attr/textColorSecondary" 
 			   android:alpha="0.15" />
-                 <ImageView 
+		
+		<ImageView 
+			   android:gravity="center" 
+			   android:layout_width="fill_parent" 
+			   android:layout_height="fill_parent"  
+			   android:src="@drawable/cardimg1" 
+			   android:scaleType="centerCrop"
+			   android:layout_marginRight="7.5dp"
+			   android:layout_marginTop="7.5dp" 
+			   android:tint="?android:attr/textColorSecondary" 
+			   android:alpha="0.125" />
+                
+		<ImageView 
+			   android:gravity="center" 
+			   android:layout_width="fill_parent" 
+			   android:layout_height="fill_parent"  
+			   android:src="@drawable/cardimg1" 
+			   android:scaleType="centerCrop"
+			   android:layout_marginRight="10dp"
+			   android:layout_marginTop="10dp" 
+			   android:tint="?android:attr/textColorSecondary" 
+			   android:alpha="0.1" />
+		<ImageView 
+			   android:gravity="center" 
+			   android:layout_width="fill_parent" 
+			   android:layout_height="fill_parent"  
+			   android:src="@drawable/cardimg1" 
+			   android:scaleType="centerCrop"
+			   android:layout_marginRight="15.5dp"
+			   android:layout_marginTop="15.5dp" 
+			   android:tint="?android:attr/textColorSecondary" 
+			   android:alpha="0.075" />
+		
+               <ImageView 
+			   android:gravity="center" 
+			   android:layout_width="fill_parent" 
+			   android:layout_height="fill_parent"  
+			   android:src="@drawable/cardimg1" 
+			   android:scaleType="centerCrop"
+			   android:layout_marginRight="23.5dp"
+			   android:layout_marginTop="23.5dp" 
+			   android:tint="?android:attr/textColorSecondary" 
+			   android:alpha="0.05" />	
+              
+		<ImageView 
 			   android:gravity="center" 
 			   android:layout_width="fill_parent" 
 			   android:layout_height="fill_parent" 
 			   android:src="@drawable/cardimg1" 
-			   android:scaleType="centerCrop" 
+			   android:scaleType="centerCrop"
+			   android:layout_marginRight="30dp"
+			   android:layout_marginTop="30dp" 
 			   android:tint="?android:attr/textColorSecondary" 
-			   android:alpha="0.1" />
+			   android:alpha="0.025" />
+		
                 </ViewFlipper>
         
 				<LinearLayout
