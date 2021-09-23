@@ -31,6 +31,14 @@
 		  android:layout_height="fill_parent" 
 		  android:flipInterval="300" 
 		  android:autoStart="true">
+		<ImageView 
+			   android:gravity="center" 
+			   android:layout_width="fill_parent" 
+			   android:layout_height="fill_parent"  
+			   android:src="@drawable/cardimg3" 
+			   android:scaleType="centerCrop" 
+			   android:tint="?android:attr/textColorSecondary" 
+			   android:alpha="0.05" />
                   <ImageView 
 			   android:gravity="center" 
 			   android:layout_width="fill_parent" 
@@ -38,7 +46,15 @@
 			   android:src="@drawable/cardimg3" 
 			   android:scaleType="centerCrop" 
 			   android:tint="?android:attr/textColorSecondary" 
-			   android:alpha="0.175" />
+			   android:alpha="0.075" />
+		<ImageView 
+			   android:gravity="center" 
+			   android:layout_width="fill_parent" 
+			   android:layout_height="fill_parent"  
+			   android:src="@drawable/cardimg3" 
+			   android:scaleType="centerCrop" 
+			   android:tint="?android:attr/textColorSecondary" 
+			   android:alpha="0.1" />
                 <ImageView 
 			   android:gravity="center" 
 			   android:layout_width="fill_parent" 
@@ -62,33 +78,8 @@
 			   android:src="@drawable/cardimg3" 
 			   android:scaleType="centerCrop" 
 			   android:tint="?android:attr/textColorSecondary" 
-			   android:alpha="0.1" />
+			   android:alpha="0.175" />
 		
-		<ImageView 
-			   android:gravity="center" 
-			   android:layout_width="fill_parent" 
-			   android:layout_height="fill_parent" 
-			   android:src="@drawable/cardimg3" 
-			   android:scaleType="centerCrop" 
-			   android:tint="?android:attr/textColorSecondary" 
-			   android:alpha="0.075" />
-		
-		<ImageView 
-			   android:gravity="center" 
-			   android:layout_width="fill_parent" 
-			   android:layout_height="fill_parent" 
-			   android:src="@drawable/cardimg3" 
-			   android:scaleType="centerCrop" 
-			   android:tint="?android:attr/textColorSecondary" 
-			   android:alpha="0.05" />
-		<ImageView 
-			   android:gravity="center" 
-			   android:layout_width="fill_parent" 
-			   android:layout_height="fill_parent" 
-			   android:src="@drawable/cardimg3" 
-			   android:scaleType="centerCrop" 
-			   android:tint="?android:attr/textColorSecondary" 
-			   android:alpha="0.025" />
                  <ImageView 
 			   android:gravity="center" 
 			   android:layout_width="fill_parent" 
