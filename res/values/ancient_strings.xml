@@ -2117,5 +2117,13 @@
     <string name="bat_sum">Smart Pixel • Sensor Block • Aggressive Battery</string> 
     <string name="misc_sum">Ram Info • Gaming Mode • Volume Style</string>
     <string name="lock_sum">Weather • Media Cover • Show Hide</string>
+	
+    <string name="qs_datausageicon_title">Data Usage Icon (footer only)</string>
+    <string name="datausageicon_style_0">Style Default</string>
+    <string name="datausageicon_style_1">Style 1</string>
+    <string name="datausageicon_style_2">Style 2</string>
+    <string name="datausageicon_style_3">Style 3</string>
+    <string name="datausageicon_style_4">Style 4</string>
+    <string name="datausageicon_style_5">gone</string>
 
 </resources>
