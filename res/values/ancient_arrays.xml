@@ -2640,4 +2640,23 @@
         <item>3</item>      
     </string-array> 
 
+    <!-- dico styles -->
+    <string-array name="qs_datausageicon_entries" translatable="false">
+        <item>@string/datausageicon_style_0</item>
+        <item>@string/datausageicon_style_1</item>   
+	<item>@string/datausageicon_style_2</item>
+        <item>@string/datausageicon_style_3</item>    
+        <item>@string/datausageicon_style_4</item>
+        <item>@string/datausageicon_style_5</item>  
+    </string-array>
+
+    <string-array name="qs_datausageicon_values" translatable="false">
+        <item>0</item>
+        <item>1</item>  
+	<item>2</item>
+        <item>3</item>   
+        <item>4</item>
+        <item>5</item>    
+    </string-array> 
+
 </resources>
