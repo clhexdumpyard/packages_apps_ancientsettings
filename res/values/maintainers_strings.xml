@@ -50,9 +50,6 @@
     <string name="device_lemonadep" translatable="false">oneplus 9 pro</string>
     <string name="device_lemonadep_summary" translatable="false">lemonadep\nNeoTheSavage</string>
 
-    <string name="device_beryllium" translatable="false">Poco F1</string>
-    <string name="device_beryllium_summary" translatable="false">beryllium\nXtremOrnob</string>
-
     <string name="device_lmi" translatable="false">Poco F2 pro/ Redmi k30 Pro</string>
     <string name="device_lmi_summary" translatable="false">lmi\nsoumyo19</string>
 
