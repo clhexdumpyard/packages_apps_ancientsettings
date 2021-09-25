@@ -59,8 +59,8 @@
      <color name="fod_item_background_stroke_color">#d6d6d6</color>
 
      <!-- Megalith Gradient -->
-     <color name="colorMegalithStart">#F4D362</color>
-     <color name="colorMegalithEnd">#C99738</color>
+     <color name="colorMegalithStart">@android:color/monet_accent_secondary_device_default</color>
+     <color name="colorMegalithEnd">#00000000</color>
 
      <color name="ancient_icon_tint_color">@*android:color/accent_device_default_dark</color>
 
