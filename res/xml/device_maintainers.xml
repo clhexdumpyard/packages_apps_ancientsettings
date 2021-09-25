@@ -120,16 +120,6 @@
         android:title="@string/device_category_poco_title" >
 
           <Preference
-             android:id="@+id/device_beryllium"
-             android:icon="@drawable/ancient_device"
-             android:summary="@string/device_beryllium_summary"
-             android:title="@string/device_beryllium" >
-             <intent
-                 android:action="android.intent.action.VIEW"
-                 android:data="https://t.me/XtremeOrnob" />
-          </Preference>
-
-          <Preference
              android:id="@+id/device_lmi"
              android:icon="@drawable/ancient_device"
              android:summary="@string/device_lmi_summary"
