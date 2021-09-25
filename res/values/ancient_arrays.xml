@@ -739,6 +739,7 @@
     <!-- Sb Height styles -->
     <string-array name="statusheight_entries" translatable="false">
         <item>@string/sbheight_default</item>
+	<item>@string/sbheight_type4</item>        
         <item>@string/sbheight_type1</item>
         <item>@string/sbheight_type2</item>
 	<item>@string/sbheight_type3</item>    
@@ -749,6 +750,7 @@
         <item>1</item>
         <item>2</item>
 	<item>3</item>    
+	<item>4</item>        
     </string-array>
 
     <!-- Themes -->
@@ -1203,7 +1205,9 @@
         <item>@string/qsbg_type1</item>
 	<item>@string/qsbg_type2</item>
         <item>@string/qsbg_type3</item>  
-	<item>@string/qsbg_type4</item>     
+	<item>@string/qsbg_type4</item>   
+	<item>@string/qsbg_type5</item>  
+	<item>@string/qsbg_type6</item>     
     </string-array>
 
     <string-array name="qsbg_values" translatable="false">
@@ -1211,7 +1215,9 @@
         <item>1</item>
 	<item>2</item>
         <item>3</item>  
-	<item>4</item>     
+	<item>4</item>   
+	<item>5</item>  
+	<item>6</item>     
     </string-array>  
 
     <!-- AOD Schedule -->
@@ -1673,7 +1679,9 @@
         <item>@string/anc_ctoplevel_style2</item>
         <item>@string/anc_ctoplevel_style3</item>
         <item>@string/anc_ctoplevel_style4</item>   
-        <item>@string/anc_ctoplevel_style5</item>     
+        <item>@string/anc_ctoplevel_style5</item>   
+	<item>@string/anc_ctoplevel_style6</item>   
+        <item>@string/anc_ctoplevel_style7</item>  
     </string-array>
 
     <string-array name="anc_ctoplevel_values" translatable="false">
@@ -1681,7 +1689,9 @@
         <item>1</item>
         <item>2</item>
         <item>3</item>    
-        <item>4</item>        
+        <item>4</item>    
+	<item>5</item>    
+        <item>6</item>      
     </string-array>
 
     <string-array name="anc_active_a12tile_entries" translatable="false">
@@ -1698,6 +1708,33 @@
         <item>@string/anc_a12tile_style10</item> 
         <item>@string/anc_a12tile_style11</item>
         <item>@string/anc_a12tile_style12a</item> 
+	<item>@string/qstile_circle_trim</item>
+        <item>@string/qstile_dual_tone_circle</item>
+        <item>@string/qstile_squircle_trim</item>
+        <item>@string/qstile_wavey</item>
+        <item>@string/qstile_pokesign</item>
+        <item>@string/qstile_ninja</item>
+        <item>@string/qstile_dottedcircle</item>
+        <item>@string/qstile_attemptmountain</item>
+        <item>@string/qstile_squaremedo</item>
+        <item>@string/qstile_inkdrop</item>
+        <item>@string/qstile_cookie</item>
+        <item>@string/qstile_circleoutline</item>
+        <item>@string/qstile_cosmos</item>
+        <item>@string/qstile_divided</item>
+        <item>@string/qstile_neonlike</item>
+        <item>@string/qstile_oos</item>
+        <item>@string/qstile_triangles</item>
+        <item>@string/qstile_anc1</item>
+        <item>@string/qstile_anc2</item>
+        <item>@string/qstile_anc3</item>
+        <item>@string/qstile_anc4</item>
+        <item>@string/qstile_anc5</item>
+        <item>@string/qstile_anc6</item>
+        <item>@string/qstile_anc7</item>
+        <item>@string/qstile_anc8</item>
+        <item>@string/qstile_anc9</item>
+        <item>@string/qstile_anc10</item>    
     </string-array>
 
     <string-array name="anc_active_a12tile_values" translatable="false">
@@ -1714,6 +1751,33 @@
         <item>10</item> 
         <item>11</item>
         <item>12</item> 
+	<item>13</item>
+        <item>14</item> 
+        <item>15</item>
+        <item>16</item>
+        <item>17</item> 
+        <item>18</item>
+        <item>19</item> 
+        <item>20</item>
+        <item>21</item>
+        <item>22</item> 
+        <item>23</item>
+        <item>24</item>    
+	<item>25</item>
+        <item>26</item>
+        <item>27</item> 
+        <item>28</item>
+        <item>29</item>
+	<item>30</item>
+        <item>31</item>
+        <item>32</item> 
+        <item>33</item>
+        <item>34</item>    
+	<item>35</item>
+        <item>36</item>
+        <item>37</item> 
+        <item>38</item>  
+	<item>39</item>
     </string-array> 
 
     <string-array name="anc_inactive_a12tile_entries" translatable="false">
@@ -1730,6 +1794,33 @@
         <item>@string/anc_a12tile_style10</item> 
         <item>@string/anc_a12tile_style11</item>
         <item>@string/anc_a12tile_style12i</item> 
+	<item>@string/qstile_circle_trim</item>
+        <item>@string/qstile_dual_tone_circle</item>
+        <item>@string/qstile_squircle_trim</item>
+        <item>@string/qstile_wavey</item>
+        <item>@string/qstile_pokesign</item>
+        <item>@string/qstile_ninja</item>
+        <item>@string/qstile_dottedcircle</item>
+        <item>@string/qstile_attemptmountain</item>
+        <item>@string/qstile_squaremedo</item>
+        <item>@string/qstile_inkdrop</item>
+        <item>@string/qstile_cookie</item>
+        <item>@string/qstile_circleoutline</item>
+        <item>@string/qstile_cosmos</item>
+        <item>@string/qstile_divided</item>
+        <item>@string/qstile_neonlike</item>
+        <item>@string/qstile_oos</item>
+        <item>@string/qstile_triangles</item>
+        <item>@string/qstile_anc1</item>
+        <item>@string/qstile_anc2</item>
+        <item>@string/qstile_anc3</item>
+        <item>@string/qstile_anc4</item>
+        <item>@string/qstile_anc5</item>
+        <item>@string/qstile_anc6</item>
+        <item>@string/qstile_anc7</item>
+        <item>@string/qstile_anc8</item>
+        <item>@string/qstile_anc9</item>
+        <item>@string/qstile_anc10</item>    
     </string-array>
 
     <string-array name="anc_inactive_a12tile_values" translatable="false">
@@ -1746,6 +1837,33 @@
         <item>10</item> 
         <item>11</item>
         <item>12</item> 
+	<item>13</item>
+        <item>14</item> 
+        <item>15</item>
+        <item>16</item>
+        <item>17</item> 
+        <item>18</item>
+        <item>19</item> 
+        <item>20</item>
+        <item>21</item>
+        <item>22</item> 
+        <item>23</item>
+        <item>24</item>    
+	<item>25</item>
+        <item>26</item>
+        <item>27</item> 
+        <item>28</item>
+        <item>29</item>
+	<item>30</item>
+        <item>31</item>
+        <item>32</item> 
+        <item>33</item>
+        <item>34</item>    
+	<item>35</item>
+        <item>36</item>
+        <item>37</item> 
+        <item>38</item>  
+	<item>39</item>    
     </string-array>
 
     <string-array name="qqs_tile_style_entries" translatable="false">
@@ -1945,13 +2063,17 @@
     <string-array name="header_textcolor_entries" translatable="false">
         <item>@string/header_textcolor_style1</item>
         <item>@string/header_textcolor_style2</item>  
-        <item>@string/header_textcolor_style3</item>        
+        <item>@string/header_textcolor_style3</item>       
+	<item>@string/header_textcolor_style4</item>  
+        <item>@string/header_textcolor_style5</item>      
     </string-array>   
 
     <string-array name="header_textcolor_values" translatable="false">
         <item>0</item>
         <item>1</item>
         <item>2</item>  
+	<item>3</item>
+        <item>4</item>      
     </string-array>
 
     <string-array name="homecollapseonoff_style_entries" translatable="false">
@@ -2463,5 +2585,78 @@
         <item>8</item>  
 	<item>9</item>    
     </string-array>
+	
+    <!-- wipi loc -->
+    <string-array name="wipi_entries" translatable="false">
+        <item>@string/wipi_kiri</item>
+        <item>@string/wipi_kanan</item>        
+    </string-array>
+
+    <string-array name="wipi_values" translatable="false">
+        <item>0</item>
+        <item>1</item>    
+    </string-array>
+	
+    <!-- mmbg -->
+    <string-array name="custom_bg_qs12_entries" translatable="false">
+        <item>@string/custom_bg_qs12_default</item>
+        <item>@string/custom_bg_qs12_primary</item>    
+	<item>@string/custom_bg_qs12_custom</item>       
+    </string-array>
+
+    <string-array name="custom_bg_qs12_values" translatable="false">
+        <item>0</item>
+        <item>1</item>  
+	<item>2</item> 
+    </string-array>
+	
+    <!-- dataplace -->
+    <string-array name="qs_datausageloc_entries" translatable="false">
+        <item>@string/qs_datausageloc_header</item>
+        <item>@string/qs_datausageloc_footer</item>    
+	<item>@string/qs_datausageloc_qqsfooter</item> 
+	<item>@string/qs_datausageloc_qsfooter</item>    
+    </string-array>
+
+    <string-array name="qs_datausageloc_values" translatable="false">
+        <item>0</item>
+        <item>1</item>  
+	<item>2</item> 
+	<item>3</item>     
+    </string-array>
+	
+    <!-- mega styles -->
+    <string-array name="card_style_entries" translatable="false">
+        <item>@string/card_style_grid</item>
+        <item>@string/card_style_list</item>   
+	<item>@string/card_style_list_noanim</item>
+        <item>@string/card_style_list_anim</item>    
+    </string-array>
+
+    <string-array name="card_style_values" translatable="false">
+        <item>0</item>
+        <item>1</item>  
+	<item>2</item>
+        <item>3</item>      
+    </string-array> 
+
+    <!-- dico styles -->
+    <string-array name="qs_datausageicon_entries" translatable="false">
+        <item>@string/datausageicon_style_0</item>
+        <item>@string/datausageicon_style_1</item>   
+	<item>@string/datausageicon_style_2</item>
+        <item>@string/datausageicon_style_3</item>    
+        <item>@string/datausageicon_style_4</item>
+        <item>@string/datausageicon_style_5</item>  
+    </string-array>
+
+    <string-array name="qs_datausageicon_values" translatable="false">
+        <item>0</item>
+        <item>1</item>  
+	<item>2</item>
+        <item>3</item>   
+        <item>4</item>
+        <item>5</item>    
+    </string-array> 
 
 </resources>

@@ -815,9 +815,10 @@
     <!-- Statubar height styles -->
     <string name="sbheight_style_title">StatusBar Height style ( for device that need this )</string>
     <string name="sbheight_default">Default</string>
+    <string name="sbheight_type4">35dp</string>
     <string name="sbheight_type1">50dp</string>
     <string name="sbheight_type2">60dp</string>
-    <string name="sbheight_type3">68dp</string>
+    <string name="sbheight_type3">80dp</string>
 
     <!-- Themes -->
     <string name="theme_type_title">System theme</string>
@@ -1195,6 +1196,8 @@
     <string name="qsbg_type2">Accent </string>
     <string name="qsbg_type3">Fake A12</string>
     <string name="qsbg_type4">Fake A12 gone in full expanded</string>
+    <string name="qsbg_type5">Ribbon Left</string>
+    <string name="qsbg_type6">Ribbon Right</string>
 
     <!-- Settings Icon button -->
     <string name="qqs_settings_icon_title">QQS Setting Icon </string>
@@ -1513,6 +1516,8 @@
     <string name="anc_ctoplevel_style3">Background Card Accent</string>
     <string name="anc_ctoplevel_style4">Background Accent</string>
     <string name="anc_ctoplevel_style5">Reverse Color Background Card</string>
+    <string name="anc_ctoplevel_style6">Monet</string>
+    <string name="anc_ctoplevel_style7">Monet with Card</string>
 
     <!-- a12 like tile -->
     <string name="anc_a12tile_title">Qs Tile background like a12</string>
@@ -1678,6 +1683,8 @@
     <string name="header_textcolor_style1">Default (Wallpaper Text Color)</string>
     <string name="header_textcolor_style2">Primary Color</string>
     <string name="header_textcolor_style3">Accent</string>
+    <string name="header_textcolor_style4">Black</string>
+    <string name="header_textcolor_style5">White</string>
 	
     <!-- addon home -->
     <string name="homecollapseonoff_style1">Default Like Stock( dont use card bg!! )</string>
@@ -2060,5 +2067,63 @@
     <string name="gaming_mode_danmaku_speed_vertical_title">Danmaku speed (vertical)</string>
     <string name="gaming_mode_danmaku_blacklist">Blacklist</string>
     <string name="add_package_to_title">Add application</string>
+	
+    <string name="qs_tile_switch_title">QS tile style enabler</string>
+    <string name="qs_tile_switch_summary">qs tile background style enabler</string>
+    <string name="wipi_style_title">Wifi Icon Location</string>
+    <string name="wipi_kiri">left of signal icon</string>
+    <string name="wipi_kanan">right of signal icon</string>
+	
+    <!-- qs bg cus2 -->
+    <string name="bgfull12_quicksettings">QS Panel 2nd Background </string>
+    <string name="bgfull12_quicksettings_subtitle">Enable qs panel 2nd background full</string>
+    <string name="qs_bgful12_alpha_title">QS Panel 2nd Background Opacy</string>
+    <string name="qs_bgful12_alpha_summary">set the opacy of qs panel 2nd background full</string>
+    <string name="custom_bg_qs12_title">QS Panel 2nd Background Custom</string>
+    <string name="custom_bg_qs12_default">Default Transparent</string>
+    <string name="custom_bg_qs12_primary">Background Primary</string>
+    <string name="custom_bg_qs12_custom">Custom Color</string>
+
+    <string name="bgfull_quicksettingshider">QS Panel Background Hider</string>
+    <string name="bgfull_quicksettingshider_subtitle">Hide panel background when full Expanded</string>
+	
+    <!--dataloc -->
+    <string name="qs_datausageloc_title">Data Usage Placement</string>
+    <string name="qs_datausageloc_header">QS Panel</string>
+    <string name="qs_datausageloc_footer">QS and QQS Footer</string>
+    <string name="qs_datausageloc_qqsfooter">QQS Footer</string>
+    <string name="qs_datausageloc_qsfooter">QS Footer</string>
+	
+    <string name="monet_chroma_title">Monet colorfullness</string>
+    <string name="monet_chroma_summary">just set and see</string>
+    <string name="monet_lightness_title">Monet Brightness</string>
+    <string name="monet_lightness_summary">beware of force closing systemui</string>
+	
+    <string name="card_megasilit_style_title">Megalith Card Style</string>
+    <string name="card_style_grid">Gridview Card</string>
+    <string name="card_style_list">Listview Card</string>
+    <string name="card_style_list_noanim">Batik Listview Card </string>
+    <string name="card_style_list_anim">Animated Batik Listview Card </string>
+    <string name="megalith_style_center_category">Megalith zone</string>
+    <string name="interface_sum">Monet • Settings Collapse • QsPanel Style</string>
+    <string name="sb_sum">DualBar • Custom Clock • Battery Icon</string>
+    <string name="notif_sum">Colored Notif Icon • Dismiss Button • Heads Up</string>
+    <string name="qs_sum">Panel Background • Brightness Style • QsTile Style </string>
+    <string name="gesture_sum"> AOSP gesture • ScreenShot Type • Dt2s </string>
+    <string name="powmenu_sum">Advanced Power Menu • ScreenRecord Power Menu</string>
+    <string name="navi_sum">Enable Disable • Layout  • Navbar Equalizer</string>
+    <string name="anim_sum">System Anim • QsTile Anim • Toast Anim</string>
+    <string name="but_sum">App Volume • Reorientation • Volume Key Cursor</string> 
+    <string name="bat_sum">Smart Pixel • Sensor Block • Aggressive Battery</string> 
+    <string name="misc_sum">Ram Info • Gaming Mode • Volume Style</string>
+    <string name="lock_sum">Weather • Media Cover • Show Hide</string>
+	
+    <string name="qs_datausageicon_title">Data Usage Icon (footer only)</string>
+    <string name="datausageicon_style_0">Style Default</string>
+    <string name="datausageicon_style_1">Style 1</string>
+    <string name="datausageicon_style_2">Style 2</string>
+    <string name="datausageicon_style_3">Style 3</string>
+    <string name="datausageicon_style_4">Style 4</string>
+    <string name="datausageicon_style_5">gone</string>
 
 </resources>

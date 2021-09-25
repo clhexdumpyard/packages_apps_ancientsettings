@@ -23,6 +23,13 @@
         android:title="@string/bgfull_quicksettings"
         android:summary="@string/bgfull_quicksettings_subtitle"
         android:defaultValue="false" />
+	
+   <com.ancient.settings.preferences.SystemSettingSwitchPreference
+        android:key="QS_BG_FULHIDER"
+	android:dependency="QS_BG_FUL"							   
+        android:title="@string/bgfull_quicksettingshider"
+        android:summary="@string/bgfull_quicksettingshider_subtitle"
+        android:defaultValue="false" />
 
     <com.ancient.settings.preferences.SystemSettingListPreference
         android:key="QS_BG_LIST"
@@ -88,6 +95,37 @@
         settings:min="0"
         android:defaultValue="0"
         android:dependency="QS_BG_FUL" /> 
+	
+    <com.ancient.settings.preferences.SystemSettingSwitchPreference
+        android:key="QS_BG_FULDUA"
+        android:title="@string/bgfull12_quicksettings"
+        android:summary="@string/bgfull12_quicksettings_subtitle"
+        android:defaultValue="false" />
+	
+    <com.ancient.settings.preferences.SystemSettingListPreference
+        android:key="QS_BG_LISTDUA"
+        android:title="@string/custom_bg_qs12_title"
+        android:dependency="QS_BG_FULDUA"
+        android:entries="@array/custom_bg_qs12_entries"
+        android:entryValues="@array/custom_bg_qs12_values"
+        android:defaultValue="0" />
+	
+    <net.margaritov.preference.colorpicker.ColorPickerPreference 
+            android:defaultValue="0x00000000" 
+            settings:alphaSlider="true"
+            android:key="QS_BG_SATU_WARNADUA"          
+            android:dependency="QS_BG_FULDUA"                                           
+            android:title="@string/custom_bg_single_kolor"
+            android:summary="@string/bp_new_tint_picker_summary" /> 
+	
+   <com.ancient.settings.preferences.SystemSettingSeekBarPreference
+        android:key="QS_BGFULLDUA_ALPHA"
+        android:title="@string/qs_bgful12_alpha_title"
+        android:summary="@string/qs_bgful12_alpha_summary"
+        android:max="100"
+        settings:min="0"
+        android:defaultValue="0"
+        android:dependency="QS_BG_FULDUA" /> 
 
     <com.ancient.settings.preferences.SystemSettingSwitchPreference
         android:key="QS_BLUR"
@@ -125,6 +163,20 @@
         android:title="@string/qs_datausage_title"
         android:entries="@array/qs_datausage_entries"
         android:entryValues="@array/qs_datausage_values"
+        android:defaultValue="0" />
+	
+    <com.ancient.settings.preferences.SystemSettingListPreference
+        android:key="DATA_USAGE_LOC"
+        android:title="@string/qs_datausageloc_title"
+        android:entries="@array/qs_datausageloc_entries"
+        android:entryValues="@array/qs_datausageloc_values"
+        android:defaultValue="0" />
+	
+    <com.ancient.settings.preferences.SystemSettingListPreference
+        android:key="DATA_USAGE_ICON"
+        android:title="@string/qs_datausageicon_title"
+        android:entries="@array/qs_datausageicon_entries"
+        android:entryValues="@array/qs_datausageicon_values"
         android:defaultValue="0" />
 
     <com.ancient.settings.preferences.SystemSettingMasterSwitchPreference
@@ -248,11 +300,46 @@
 
     <PreferenceCategory
         android:key="qs_columns_rows_category"
-        android:title="@string/qs_columns_rows_category_title">
+        android:title="@string/megalith_qs_themes_center_category">
+	    
+        <com.ancient.settings.preferences.SystemSettingListPreference
+            android:layout="@layout/ancient_cardpreference_top"
+            android:key="qs_tile_style"						      
+            android:title="@string/qs_tile_style_title"
+            android:defaultValue="0" 
+            android:entries="@array/qs_selector_entries"
+            android:entryValues="@array/qs_selector_values" />
+	    
+	<com.ancient.settings.preferences.SystemSettingSwitchPreference
+            android:title="@string/anc_a12tile_title"
+            android:key="QS_BG_AKTIP12"
+            android:layout="@layout/ancient_cardpreference_middle"
+            android:summary="@string/anc_a12tile_summary"
+            android:defaultValue="false" />
+
+        <com.ancient.settings.preferences.SystemSettingListPreference
+            android:entries="@array/anc_active_a12tile_entries"
+            android:title="@string/anc_active_a12tile_title"
+            android:key="QS_BG_AKTIP12_STYLE"
+            android:layout="@layout/ancient_cardpreference_middle"
+            android:dependency="QS_BG_AKTIP12"
+            android:defaultValue="0"
+            android:dialogTitle="@string/anc_active_a12tile_title"
+            android:entryValues="@array/anc_active_a12tile_values" />
+
+        <com.ancient.settings.preferences.SystemSettingListPreference
+            android:entries="@array/anc_inactive_a12tile_entries"
+            android:title="@string/anc_inactive_a12tile_title"
+            android:key="QS_BG_NONAKTIP12_STYLE"
+            android:layout="@layout/ancient_cardpreference_middle"
+            android:dependency="QS_BG_AKTIP12"
+            android:defaultValue="0"
+            android:dialogTitle="@string/anc_inactive_a12tile_title"
+            android:entryValues="@array/anc_inactive_a12tile_values" />    
 
         <com.ancient.settings.preferences.SystemSettingListPreference
             android:key="CUSTOM_BGTILE_SIZE"
-            android:layout="@layout/ancient_cardpreference_top"                                                              
+            android:layout="@layout/ancient_cardpreference_middle"                                                              
             android:title="@string/custom_bgtile_size_title"
             android:entries="@array/custom_bgtile_size_entries"
             android:entryValues="@array/custom_bgtile_size_values"
@@ -378,7 +465,7 @@
         <com.ancient.settings.preferences.SystemSettingListPreference
            android:key="AncientBackProgressTint"
            android:title="@string/seekbar_bg_tint"
-           android:layout="@layout/ancient_cardpreference_bottom"                                                           
+           android:layout="@layout/ancient_cardpreference_middle"                                                           
            android:entries="@array/seekbar_bg_tint_entries"
            android:entryValues="@array/seekbar_bg_tint_values"
            android:defaultValue="0" />

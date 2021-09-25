@@ -44,7 +44,7 @@
         android:defaultValue="true" />
 
     <com.ancient.settings.preferences.SystemSettingSwitchPreference
-        android:key="fliplayoutbatre"
+        android:key="FLIPLAYOUTBATRE"
         android:title="@string/flip_batre_title"
         android:summary="@string/flip_batre_summary"
         android:defaultValue="0" />

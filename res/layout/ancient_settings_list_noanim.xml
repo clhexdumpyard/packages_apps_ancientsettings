@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+	 a property of xyzprjkt 2020-2021
+	 Bought to you for Megalith Zone
+	 in research by xyzuan
+-->
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:layout_below="@id/megalith_header">
+
+	<LinearLayout
+		android:id="@+id/megalith_about_card_container"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:paddingTop="@dimen/ancient_settings_cardview_padding"
+		android:paddingLeft="@dimen/ancient_settings_cardview_padding"
+		android:paddingRight="@dimen/ancient_settings_cardview_padding"
+		android:baselineAligned="false"
+		android:orientation="horizontal">
+
+	<!-- About Card -->
+	<androidx.cardview.widget.CardView
+		android:id="@+id/megalith_about_card"
+		android:layout_width="match_parent"
+		android:layout_height="@dimen/ancient_settings_cardview_about_height"
+		android:layout_margin="@dimen/ancient_settings_cardview_margin"
+		app:cardBackgroundColor="@color/ancient_interface_cardcolor"
+		app:cardCornerRadius="@dimen/ancient_settings_cardview_cornerRadius"
+		app:cardElevation="@dimen/ancient_settings_cardview_cardElevation">
+    <ImageView 
+			   android:gravity="center" 
+			   android:layout_width="fill_parent" 
+			   android:layout_height="fill_parent" 
+			   android:src="@drawable/cardimg" 
+			   android:scaleType="centerCrop" 
+			   android:tint="?android:attr/textColorSecondary" 
+			   android:alpha="0.2" />
+		<LinearLayout
+			android:id="@+id/megalith_bg_anim"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/megalith_bg_anim"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="25dp"
+               	android:layout_marginLeft="20dp"
+				android:orientation="vertical"
+				android:gravity="left|center">
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="@string/about_title"
+					android:textColor="@color/ancient_about_color"
+					android:textSize="15dp"
+					style="@style/ancient_cardview_text_secondary"/>
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="@string/about_summary"
+					android:textColor="@color/ancient_about_color"
+					android:textSize="20dp"
+					style="@style/ancient_cardview_text_primary"/>
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>
+
+<LinearLayout
+	android:layout_height="match_parent"
+	android:layout_width="match_parent"
+	android:layout_below="@id/megalith_about_card_container">
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical">
+
+		<!-- Include Our Feature Here -->
+		<include layout="@layout/ancient_settings_content_list_1n"/>
+		<include layout="@layout/ancient_settings_content_list_2n"/>
+		<include layout="@layout/ancient_settings_content_list_3n"/>
+		<include layout="@layout/ancient_settings_content_list_4n"/>
+		<include layout="@layout/ancient_settings_content_list_5n"/>
+		<include layout="@layout/ancient_settings_content_list_6n"/>
+    <include layout="@layout/ancient_settings_content_list_7n"/>
+		<include layout="@layout/ancient_settings_content_list_8n"/>
+		<include layout="@layout/ancient_settings_content_list_9n"/>
+		<include layout="@layout/ancient_settings_content_list_10n"/>
+		<include layout="@layout/ancient_settings_content_list_11n"/>
+		<include layout="@layout/ancient_settings_content_list_12n"/>
+
+	</LinearLayout>
+</LinearLayout>
+</RelativeLayout>
