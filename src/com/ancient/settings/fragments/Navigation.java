@@ -62,10 +62,12 @@ public class Navigation extends SettingsPreferenceFragment
     private static final String LAYOUT_SETTINGS = "navbar_layout_views";
     private static final String NAVIGATION_BAR_INVERSE = "navbar_inverse_layout";
     private static final String PULSE_CATEGORY = "pulse_category";
+    private static final String KEY_NAVIGATION_BAR_ARROWS = "navigation_bar_menu_arrow_keys";
 
     private SwitchPreference mNavbarVisibility;
-    private Preference mLayoutSettings;
-    private SwitchPreference mSwapNavButtons;
+    private Preference mNavBarLayout;
+    private SwitchPreference mSwapNavbar;
+    private SystemSettingSwitchPreference mNavigationArrowKeys;
     private Preference mPulse;
 
     private boolean mIsNavSwitchingMode = false;
@@ -85,15 +87,18 @@ public class Navigation extends SettingsPreferenceFragment
         updateBarVisibleAndUpdatePrefs(showing);
         mNavbarVisibility.setOnPreferenceChangeListener(this);
 
-        mLayoutSettings = findPreference(LAYOUT_SETTINGS);
-        mSwapNavButtons = findPreference(NAVIGATION_BAR_INVERSE);
+        mNavBarLayout = findPreference(LAYOUT_SETTINGS);
+        mSwapNavbar = findPreference(NAVIGATION_BAR_INVERSE);
+        mNavigationArrowKeys = (SystemSettingSwitchPreference) findPreference(KEY_NAVIGATION_BAR_ARROWS);
         int navMode = res.getInteger(
                 com.android.internal.R.integer.config_navBarInteractionMode);
         if (navMode == NAV_BAR_MODE_GESTURAL) {
-            mSwapNavButtons.setEnabled(false);
-            mSwapNavButtons.setSummary(R.string.navbar_gesture_enabled);
-            mLayoutSettings.setEnabled(false);
-            mLayoutSettings.setSummary(R.string.navbar_gesture_enabled);
+            mSwapNavbar.setEnabled(false);
+            mSwapNavbar.setSummary(R.string.navbar_gesture_enabled);
+            mNavBarLayout.setEnabled(false);
+            mNavBarLayout.setSummary(R.string.navbar_gesture_enabled);
+            mNavigationArrowKeys.setEnabled(false);
+            mNavigationArrowKeys.setSummary(R.string.navbar_gesture_enabled);
         }
 
         mPulse = findPreference(PULSE_CATEGORY);
