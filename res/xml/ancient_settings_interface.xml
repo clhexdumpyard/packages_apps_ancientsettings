@@ -17,6 +17,21 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/interface_title"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+	
+    <PreferenceCategory
+        android:layout="@layout/ancient_cardpreference_category"
+        android:key="megalith_style"
+        android:title="@string/megalith_style_center_category">
+	    
+	<com.ancient.settings.preferences.SystemSettingListPreference
+            android:layout="@layout/ancient_cardpreference_single"
+            android:key="CARD_STYLE"                             
+            android:defaultValue="0"
+	    android:entries="@array/card_style_entries"           
+            android:entryValues="@array/card_style_values"              
+            android:title="@string/card_megasilit_style_title"/>        
+	    
+    </PreferenceCategory>	    
 
     <PreferenceCategory
         android:layout="@layout/ancient_cardpreference_category"
@@ -40,28 +55,7 @@
             android:defaultValue="0"
             android:summary="@string/monet_switch_summary"             
             android:title="@string/monet_switch_title"/>
-         
-        <ListPreference
-            android:layout="@layout/ancient_cardpreference_middle"
-            android:key="monet_palette"
-            android:dependency="monet_engine"
-	    android:dialogTitle="@string/monet_pallete_title"	
-            android:title="@string/monet_pallete_title"
-            android:defaultValue="0"
-	    android:summary="%s"	
-            android:entries="@array/monet_pallete_entries"
-            android:entryValues="@array/monet_pallete_values"/> 
-
-        <ListPreference
-            android:layout="@layout/ancient_cardpreference_middle"
-            android:key="theme_switch"
-            android:title="@string/theme_type_title"
-            android:summary="%s"
-            android:dialogTitle="@string/theme_type_summary"
-            android:entries="@array/theme_type_titles"
-            android:entryValues="@array/theme_type_values"
-            android:defaultValue="1"/>
-
+	    
         <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="rgb_dark_accent_picker"
             android:defaultValue="0xFF1A73E8"                                                           
@@ -77,13 +71,49 @@
             android:summary="@string/rgb_accent_picker_summary"
             settings:showReset="true"                                                           
             android:persistent="false" /> 
+	    
+	<ListPreference
+            android:layout="@layout/ancient_cardpreference_bottom"
+            android:key="theme_switch"
+            android:title="@string/theme_type_title"
+            android:summary="%s"
+            android:dialogTitle="@string/theme_type_summary"
+            android:entries="@array/theme_type_titles"
+            android:entryValues="@array/theme_type_values"
+            android:defaultValue="1"/>    
+	    
+	 <com.ancient.settings.preferences.SecureSettingSeekBarPreference
+           android:key="monet_chroma"
+	   android:layout="@layout/ancient_cardpreference_middle"								     
+           android:title="@string/monet_chroma_title"
+	   android:summary="@string/monet_chroma_summary"								 
+           settings:min="0"
+	   android:dependency="monet_engine"								 
+           settings:interval="1"
+           android:max="3"
+	   android:min="0"								 
+           android:defaultValue="1" /> 
+         
+        <com.ancient.settings.preferences.SecureSettingSeekBarPreference
+           android:key="monet_lightness"
+	   android:layout="@layout/ancient_cardpreference_middle"								 
+           android:title="@string/monet_lightness_title"
+	   android:summary="@string/monet_lightness_summary"								 
+           settings:min="0"
+	   android:dependency="monet_engine"								 
+           settings:interval="25"
+           android:max="1000"
+	   android:min="0"								 
+           android:defaultValue="425" />   
 			
     </PreferenceCategory>
 
     <PreferenceCategory
         android:layout="@layout/ancient_cardpreference_category"
         android:key="megalith_setings"
-        android:title="@string/setting_megalith_zone_title"> 
+        android:title="@string/setting_megalith_zone_title">
+	    
+	
 
         <com.ancient.settings.preferences.SystemSettingListPreference
             android:layout="@layout/ancient_cardpreference_top"
@@ -317,17 +347,9 @@
         android:layout="@layout/ancient_cardpreference_category"
         android:key="megalith_qs_themes"
         android:title="@string/megalith_qs_themes_center_category">
-
-        <ListPreference
-            android:layout="@layout/ancient_cardpreference_top"
-            android:key="qs_tile_style"
-            android:title="@string/qs_tile_style_title"
-            android:persistent="false"
-            android:entries="@array/qs_selector_entries"
-            android:entryValues="@array/qs_selector_values" />
 	    
 	<com.ancient.settings.preferences.SystemSettingListPreference
-            android:layout="@layout/ancient_cardpreference_middle"
+            android:layout="@layout/ancient_cardpreference_top"
             android:key="QS_TO_STOCK"
             android:title="@string/qs_panel_mode_tittle"
             android:defaultValue="0"
@@ -464,39 +486,12 @@
             android:defaultValue="0" />
 
         <com.ancient.settings.preferences.SystemSettingListPreference
-            android:layout="@layout/ancient_cardpreference_middle"
+            android:layout="@layout/ancient_cardpreference_bottom"
             android:key="QS_TITLE_RAINBOW_TINT"
             android:title="@string/qs_title_random_title"
             android:entries="@array/qs_title_random_entries"
             android:entryValues="@array/qs_title_random_values"
             android:defaultValue="0" />
-
-        <com.ancient.settings.preferences.SystemSettingSwitchPreference
-            android:title="@string/anc_a12tile_title"
-            android:key="QS_BG_AKTIP12"
-            android:layout="@layout/ancient_cardpreference_middle"
-            android:summary="@string/anc_a12tile_summary"
-            android:defaultValue="false" />
-
-        <com.ancient.settings.preferences.SystemSettingListPreference
-            android:entries="@array/anc_active_a12tile_entries"
-            android:title="@string/anc_active_a12tile_title"
-            android:key="QS_BG_AKTIP12_STYLE"
-            android:layout="@layout/ancient_cardpreference_middle"
-            android:dependency="QS_BG_AKTIP12"
-            android:defaultValue="0"
-            android:dialogTitle="@string/anc_active_a12tile_title"
-            android:entryValues="@array/anc_active_a12tile_values" />
-
-        <com.ancient.settings.preferences.SystemSettingListPreference
-            android:entries="@array/anc_inactive_a12tile_entries"
-            android:title="@string/anc_inactive_a12tile_title"
-            android:key="QS_BG_NONAKTIP12_STYLE"
-            android:layout="@layout/ancient_cardpreference_bottom"
-            android:dependency="QS_BG_AKTIP12"
-            android:defaultValue="0"
-            android:dialogTitle="@string/anc_inactive_a12tile_title"
-            android:entryValues="@array/anc_inactive_a12tile_values" />
 
     </PreferenceCategory>
 

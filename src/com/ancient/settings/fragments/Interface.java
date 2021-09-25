@@ -63,7 +63,6 @@ import com.android.settingslib.search.Indexable;
 import com.android.settingslib.search.SearchIndexable;
 
 import com.ancient.settings.display.AccentColorPreferenceController;
-import com.ancient.settings.display.QsTileStylePreferenceController;
 import com.ancient.settings.display.DgCornerStylePreferenceController;
 import com.ancient.settings.display.SbHeightStylePreferenceController;
 import com.ancient.settings.display.SbNavStylePreferenceController;
@@ -116,7 +115,6 @@ public class Interface extends DashboardFragment implements
     private static final String PREF_RGB_LIGHT_ACCENT_PICKER = "rgb_light_accent_picker";
     private static final String PREF_RGB_DARK_ACCENT_PICKER = "rgb_dark_accent_picker";
     private static final String PREF_MONET_ENGINE = "monet_engine";
-    private static final String PREF_MONET_PALETTE = "monet_palette";
     private static final String PREF_QS_TO_STOCK = "QS_TO_STOCK";
     private static final String PREF_QQS_CLOCKFAKE_SWITCH = "QQS_CLOCKFAKE_SWITCH";
     private static final String PREF_ANCI_HEADER_HEIGHT = "ANCI_HEADER_HEIGHT";
@@ -130,6 +128,7 @@ public class Interface extends DashboardFragment implements
     private static final String PREF_ANCIENT_UI_QSCLOCK_GRAVITY = "ANCIENT_UI_QSCLOCK_GRAVITY";
     private static final String PREF_JAM_HEADER_SIZE = "JAM_HEADER_SIZE";
     private static final String QSBG_STYLE = "QSBG_STYLE";
+    private static final String CARD_STYLE = "CARD_STYLE";
 	
     private IOverlayManager mOverlayService;
     private UiModeManager mUiModeManager;
@@ -154,7 +153,6 @@ public class Interface extends DashboardFragment implements
     private ColorPickerPreference rgbLiAccentPicker;
     private ColorPickerPreference rgbDaAccentPicker;
     private SecureSettingSwitchPreference mMonetOnoff;
-    private ListPreference mMonetPallete;
     private SystemSettingListPreference mAncientuiOnoff;
     private SystemSettingSwitchPreference mAnciHeadclockOnoff;
     private SystemSettingSeekBarPreference mAnciHeadSize;
@@ -168,6 +166,7 @@ public class Interface extends DashboardFragment implements
     private SystemSettingListPreference mAncUIc;
     private SystemSettingListPreference mAncUId;
     private SystemSettingListPreference mQsbg;
+    private SystemSettingListPreference mCard;
 	
     private static final int VIBRANT = 0;
     private static final int LIGHT_VIBRANT = 1;
@@ -215,6 +214,14 @@ public class Interface extends DashboardFragment implements
         mIntentFilter.addAction("com.android.server.ACTION_FONT_CHANGED");
 
         setupThemeSwitchPref();
+	    
+	mCard = (SystemSettingListPreference) findPreference(CARD_STYLE);
+        int styleCard = Settings.System.getIntForUser(getContentResolver(),
+                "CARD_STYLE", 0, UserHandle.USER_CURRENT);
+        int valuecardIndex = mCard.findIndexOfValue(String.valueOf(styleCard));
+        mCard.setValueIndex(valuecardIndex >= 0 ? valuecardIndex : 0);
+        mCard.setSummary(mCard.getEntry());
+        mCard.setOnPreferenceChangeListener(this);    
 
         mAvatarViewVis = (SystemSettingListPreference) findPreference("AvatarViewVis");
         mAvatarViewVis.setOnPreferenceChangeListener(this);
@@ -324,13 +331,6 @@ public class Interface extends DashboardFragment implements
             rgbDaAccentPicker.setEnabled(false);
         }
         mMonetOnoff.setOnPreferenceChangeListener(this);
-       
-        int paletteType = Settings.Secure.getIntForUser(getContentResolver(),
-                Settings.Secure.MONET_PALETTE, VIBRANT, UserHandle.USER_CURRENT);
-        mMonetPallete = findPreference("monet_palette");
-        mMonetPallete.setValue(String.valueOf(paletteType));
-        mMonetPallete.setSummary(mMonetPallete.getEntry());
-        mMonetPallete.setOnPreferenceChangeListener(this);   
 
         mAnciHeadclockOnoff = (SystemSettingSwitchPreference) findPreference(PREF_QQS_CLOCKFAKE_SWITCH);
         mAnciHeadclockOnoff.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
@@ -468,14 +468,11 @@ public class Interface extends DashboardFragment implements
     private static List<AbstractPreferenceController> buildPreferenceControllers(
             Context context, Lifecycle lifecycle, Fragment fragment) {
         final List<AbstractPreferenceController> controllers = new ArrayList<>();
-        controllers.add(new QsTileStylePreferenceController(context));
         controllers.add(new DgCornerStylePreferenceController(context));
         controllers.add(new SbNavStylePreferenceController(context));
         controllers.add(new AnSwitchStylePreferenceController(context));
         controllers.add(new AnAclockStylePreferenceController(context));
         controllers.add(mFontPickerPreference = new FontPickerPreferenceController(context, lifecycle));
-        //controllers.add(new SbBrightnStylePreferenceController(context));
-        //controllers.add(new SbQsbgStylePreferenceController(context));
         return controllers;
     }
 
@@ -573,6 +570,16 @@ public class Interface extends DashboardFragment implements
             } catch (RemoteException ignored) {
             }
             return true;
+	} else if (preference == mCard) {
+            int styleCardValue = Integer.valueOf((String) objValue);
+            Settings.System.putIntForUser(getContentResolver(),
+                    "CARD_STYLE", styleCardValue, UserHandle.USER_CURRENT);
+            mCard.setSummary(mCard.getEntries()[styleCardValue]);
+            try {
+                 mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
+             } catch (RemoteException ignored) {
+            }
+            return true;	
         } else if (preference == mAvatarViewVis) {
             try {
                  mOverlayService.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
@@ -710,10 +717,6 @@ public class Interface extends DashboardFragment implements
             boolean value = (Boolean) objValue;
             Settings.Secure.putInt(getActivity().getContentResolver(),
                     Settings.Secure.MONET_ENGINE, value ? 1 : 0);
-            try {
-                 mOverlayService.reloadAssets("android", UserHandle.USER_CURRENT);
-            } catch (RemoteException ignored) {
-            }
 	    int mMonetSwitch = Settings.Secure.getInt(getActivity().getContentResolver(),
                 Settings.Secure.MONET_ENGINE, 0);
 	    if (mMonetSwitch == 0) {
@@ -723,13 +726,6 @@ public class Interface extends DashboardFragment implements
 		rgbLiAccentPicker.setEnabled(false);
 		rgbDaAccentPicker.setEnabled(false);
 	    }
-            return true;
-        } else if (preference == mMonetPallete) {
-            int paletteType = Integer.parseInt((String) objValue);
-            Settings.Secure.putIntForUser(getContentResolver(),
-                    Settings.Secure.MONET_PALETTE, paletteType, UserHandle.USER_CURRENT);
-	    int indexx = mMonetPallete.findIndexOfValue((String) objValue);
-            mMonetPallete.setSummary(mMonetPallete.getEntries()[indexx]);
             return true;
 	} else if (preference == mAnciHeadclockOnoff) {
             boolean value = (Boolean) objValue;

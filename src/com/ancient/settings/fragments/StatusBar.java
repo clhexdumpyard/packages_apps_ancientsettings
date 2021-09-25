@@ -65,6 +65,7 @@ public class StatusBar extends SettingsPreferenceFragment implements
     private static final String NABIL_BACKGROUNDCLOCKSB_GRADIENT2 = "nabil_backgroundclocksb_gradient2";
     private static final String NABIL_BACKGROUNDCLOCKSB_STROKECOLOR = "nabil_backgroundclocksb_strokecolor";
     private static final String MAX_NOTIP_CUSTOM = "MAX_NOTIP_CUSTOM";
+    //private static final String WIPI_LOC = "WIPI_LOC";
 
     private ColorPickerPreference mBacka;
     private ColorPickerPreference mBackb;
@@ -75,6 +76,7 @@ public class StatusBar extends SettingsPreferenceFragment implements
     private ListPreference mLogoStyle;
     private IOverlayManager mOverlayService;
     private SystemSettingListPreference mNot;
+    //private SystemSettingListPreference wloc;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -83,6 +85,14 @@ public class StatusBar extends SettingsPreferenceFragment implements
         PreferenceScreen prefSet = getPreferenceScreen();
         mOverlayService = IOverlayManager.Stub
                 .asInterface(ServiceManager.getService(Context.OVERLAY_SERVICE));
+        
+        //wloc = (SystemSettingListPreference) findPreference("WIPI_LOC");
+        //int wloct = Settings.System.getIntForUser(getContentResolver(),
+       //         "WIPI_LOC",
+         //       0, UserHandle.USER_CURRENT);
+        //wloc.setValue(String.valueOf(wloct));
+        //wloc.setSummary(wloc.getEntry());
+      //wloc.setOnPreferenceChangeListener(this);
 
         mShowAncientLogo = (SwitchPreference) findPreference(KEY_STATUS_BAR_LOGO);
         mShowAncientLogo.setChecked((Settings.System.getInt(getContentResolver(),
@@ -181,7 +191,16 @@ public class StatusBar extends SettingsPreferenceFragment implements
             mStatusbarDualStyle.setSummary(
             mStatusbarDualStyle.getEntries()[index]);
             return true;
-        } else if (preference.equals(mNot)) {
+        //} else if (preference.equals(wloc)) { 
+         //   int wloct = Integer.parseInt(((String) newValue).toString());
+          //  Settings.System.putIntForUser(getContentResolver(),
+          //          "WIPI_LOC", wloct, UserHandle.USER_CURRENT);
+         //   int indexloc = wloc.findIndexOfValue((String) newValue);
+         //   wloc.setSummary(
+         //   wloc.getEntries()[indexloc]);
+         //   AncientUtils.showSystemUiRestartDialog(getContext());
+         //   return true;    
+        } else if (preference.equals(mNot)) { 
             int notifStyle = Integer.parseInt(((String) newValue).toString());
             Settings.System.putIntForUser(getContentResolver(),
                     "MAX_NOTIP_CUSTOM", notifStyle, UserHandle.USER_CURRENT);

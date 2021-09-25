@@ -22,7 +22,8 @@
     android:layout_height="wrap_content"
     android:minHeight="?android:attr/listPreferredItemHeight"
     android:gravity="center_vertical"
-    android:background="@android:color/transparent"
+    android:layout_marginTop="7dp"
+    android:background="@drawable/ancient_cardview_bg_single_ripple"
     android:clipToPadding="false">
 
     <LinearLayout
