@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2018 Rebellion-OS
+<!-- Copyright (C) 2021 NezukoOS
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -14,14 +14,20 @@
      limitations under the License.
 -->
 <PreferenceScreen
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
-    android:title="@string/battery_title" >
+ xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title=" "
+ xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
     <Preference
-        android:key="ps_cat"
-        android:title="@string/powersave_title" 
-        android:summary="@string/powersave_summary"
-        android:fragment="com.ancient.settings.fragments.PowerSaving" />
+        android:layout="@layout/ancient_powersave_header"
+        android:selectable="false"/>
+
+<com.ancient.settings.preferences.SystemSettingListPreference
+        android:key="power_profile_type"
+        android:title="@string/power_profile"
+        android:dialogTitle="@string/power_profile"
+        android:entries="@array/power_profile_type_entries"
+        android:defaultValue="1"
+        android:entryValues="@array/power_profile_type_values"/>
 
 </PreferenceScreen>
