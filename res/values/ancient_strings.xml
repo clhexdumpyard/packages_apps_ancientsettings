@@ -2125,4 +2125,14 @@
     <string name="charging_animation_bg_title">Charging Background</string>
     <string name="charging_animation_bg_summary">Enabling this option will make the background on System Animation to black</string>
 
+    <!-- Power Profiles -->
+    <string name="powersave_title">Power Saving</string>
+    <string name="power_profile">Battery saver profile</string>
+    <string name="power_profile_default">Default</string>
+    <string name="power_profile_light">Light</string>
+    <string name="power_profile_med">Moderate</string>
+    <string name="power_profile_high">High</string>
+    <string name="power_profile_ext">Extreme</string>
+    <string name="powersave_summary">Options to extend your battery life</string>
+
 </resources>
