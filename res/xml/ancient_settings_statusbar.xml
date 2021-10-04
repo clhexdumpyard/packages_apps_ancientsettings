@@ -246,9 +246,9 @@
 	    android:title="Custom Background Clock Statusbar" />
 
         <com.ancient.settings.preferences.SystemSettingSwitchPreference 
-            android:title="Background" 
+            android:title="Custom Clock Background" 
             android:key="nabil_backgroundclocksb" 
-            android:defaultValue="true" 
+            android:defaultValue="false" 
             android:summaryOn="Custom Background Enabled" 
             android:summaryOff="Custom Background Disabled" />
 
