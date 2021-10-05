@@ -158,13 +158,13 @@
         android:summaryOff="@string/qs_media_player_summary_off"
         android:defaultValue="false" />
 	
-    <com.ancient.settings.preferences.SystemSettingSwitchPreference
+    <!--<com.ancient.settings.preferences.SystemSettingSwitchPreference
         android:key="QS_MEDIA_S"
         android:title="@string/qs_media_playerS_title"
 	android:dependency="qs_media_player"
         android:summaryOn="@string/qs_media_playerS_summary_on"
         android:summaryOff="@string/qs_media_playerS_summary_off"
-        android:defaultValue="false" />
+        android:defaultValue="false" />-->
 
     <com.ancient.settings.preferences.SystemSettingListPreference
         android:key="qs_datausage"
