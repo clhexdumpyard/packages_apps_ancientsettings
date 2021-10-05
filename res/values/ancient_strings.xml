@@ -1088,6 +1088,9 @@
     <string name="qs_media_player_title">QS Media player</string>
     <string name="qs_media_player_summary_on">Show media player in QS.\nNotes: Requires a SystemUI restart</string>
     <string name="qs_media_player_summary_off">Show media player as a notification.\nNotes: Requires a SystemUI restart</string>
+    <string name="qs_media_playerS_title">QS Media player like A12</string>
+    <string name="qs_media_playerS_summary_on">just make it full at side padding</string>
+    <string name="qs_media_playerS_summary_off">nothing to do with side padding</string>
 
     <!-- Lock screen media blur -->
     <string name="lockscreen_media_blur_title">Media artwork blur level</string>
