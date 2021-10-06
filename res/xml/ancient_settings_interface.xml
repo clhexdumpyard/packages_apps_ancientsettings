@@ -244,6 +244,15 @@
             android:entries="@array/anci_staticon_entries"
             android:entryValues="@array/anci_staticon_values"/>
 
+       <com.ancient.settings.preferences.SystemSettingListPreference
+            android:layout="@layout/ancient_cardpreference_middle"
+            android:key="FWUICON_STYLE"
+            android:title="@string/anci_fwui_title"
+            android:persistent="false"
+            android:defaultValue="0"
+            android:entries="@array/anci_fwui_entries"
+            android:entryValues="@array/anci_fwui_values"/>
+
         <com.ancient.settings.preferences.SystemSettingListPreference
             android:layout="@layout/ancient_cardpreference_middle"
             android:key="DATA_CON_STYLE"
