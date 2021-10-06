@@ -2629,4 +2629,14 @@
         <item>7</item>    
     </string-array>
 
+    <string-array name="anci_fwui_entries" translatable="false">
+        <item>@string/fwui_style_default</item>
+        <item>@string/fwui_style_1</item>    
+    </string-array>
+
+    <string-array name="anci_fwui_values" translatable="false">
+        <item>0</item>
+        <item>1</item>      
+    </string-array> 
+
 </resources>
