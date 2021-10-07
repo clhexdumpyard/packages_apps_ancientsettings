@@ -131,6 +131,7 @@ public class Interface extends DashboardFragment implements
     private static final String QSBG_STYLE = "QSBG_STYLE";
     private static final String CARD_STYLE = "CARD_STYLE";
     private static final String PREF_KEY_CUTOUT = "cutout_category";
+    private static final String HIDE_NOTCH = "display_hide_notch";
 	
     private IOverlayManager mOverlayService;
     private UiModeManager mUiModeManager;
@@ -169,6 +170,7 @@ public class Interface extends DashboardFragment implements
     private SystemSettingListPreference mAncUId;
     private SystemSettingListPreference mQsbg;
     private SystemSettingListPreference mCard;
+    private SystemSettingSwitchPreference mHideNotch;
 	
     private static final int VIBRANT = 0;
     private static final int LIGHT_VIBRANT = 1;
@@ -215,6 +217,8 @@ public class Interface extends DashboardFragment implements
         ContentResolver resolver = getActivity().getContentResolver();
         PreferenceScreen prefScreen = getPreferenceScreen();
 
+        mContext = getActivity();
+        final Resources res = getResources();
         mIntentFilter = new IntentFilter();
         mIntentFilter.addAction("com.android.server.ACTION_FONT_CHANGED");
 
@@ -469,6 +473,13 @@ public class Interface extends DashboardFragment implements
         String hasDisplayCutout = getResources().getString(com.android.internal.R.string.config_mainBuiltInDisplayCutout);
         if (TextUtils.isEmpty(hasDisplayCutout)) {
             prefScreen.removePreference(mCutoutPref);
+        }
+
+        mHideNotch = (SystemSettingSwitchPreference) prefScreen.findPreference(HIDE_NOTCH);
+        boolean mHideNotchSupported = res.getBoolean(
+                com.android.internal.R.bool.config_showHideNotchSettings);
+        if (!mHideNotchSupported) {
+            prefScreen.removePreference(mHideNotch);
         }
     }
 

@@ -326,6 +326,13 @@
             android:persistent="false"
             android:entries="@array/qs_margin_entries"
             android:entryValues="@array/qs_margin_values"/>
+
+        <!-- Hide notch fill -->
+        <com.ancient.settings.preferences.SystemSettingSwitchPreference
+            android:key="display_hide_notch"
+            android:title="@string/display_hide_notch_title"
+            android:summary="@string/display_hide_notch_summary"
+            android:defaultValue="false" />
          
         <com.ancient.settings.preferences.SystemSettingSeekBarPreference 
             android:max="50" 
