@@ -113,8 +113,6 @@
         android:key="megalith_setings"
         android:title="@string/setting_megalith_zone_title">
 	    
-	
-
         <com.ancient.settings.preferences.SystemSettingListPreference
             android:layout="@layout/ancient_cardpreference_top"
             android:key="homecollapseonoff"                             
@@ -195,6 +193,21 @@
             android:title="@string/seetingsbg_style_title"
             android:entries="@array/seetingsbg_style_entries"
             android:entryValues="@array/seetingsbg_style_values" />
+
+    </PreferenceCategory>
+
+    <!-- Rounded Corners -->
+    <PreferenceCategory 
+         android:layout="@layout/ancient_cardpreference_category"
+         android:key="rounded_corners_category"
+         android:title="@string/corners_category_title">
+
+        <PreferenceScreen
+            android:layout="@layout/ancient_cardpreference_single"
+            android:key="rounded_corners"
+            android:title="@string/corners_title"
+            android:summary="@string/corners_category_summary"
+            android:fragment="com.ancient.settings.fragments.RoundedCorners" />
 
     </PreferenceCategory>
 
