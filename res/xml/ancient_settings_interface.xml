@@ -202,14 +202,14 @@
          android:key="rounded_corners_category"
          android:title="@string/corners_category_title">
 
-        <PreferenceScreen
+        <Preference
             android:layout="@layout/ancient_cardpreference_top"
             android:key="rounded_corners"
             android:title="@string/corners_title"
             android:summary="@string/corners_category_summary"
             android:fragment="com.ancient.settings.fragments.RoundedCorners" />
 
-        <PreferenceScreen
+        <Preference
             android:layout="@layout/ancient_cardpreference_middle"
             android:key="cutout_settings"
             android:title="@string/cutout_main"
