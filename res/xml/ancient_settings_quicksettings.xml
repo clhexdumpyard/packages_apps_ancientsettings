@@ -293,6 +293,13 @@
         android:summary="@string/footer_page_ind_sum"
         android:defaultValue="true" />
 
+    <!-- Permissions hub -->
+    <com.ancient.settings.preferences.SystemSettingSwitchPreference
+        android:key="permissions_hub_enabled"
+        android:title="@string/show_permissions_hub"
+        android:summary="@string/show_permissions_hub_summary"
+        android:defaultValue="false" />
+
     <com.ancient.settings.preferences.SystemSettingSwitchPreference
         android:key="qs_tile_title_visibility"
         android:title="@string/qs_tile_title_visibility_title"

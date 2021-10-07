@@ -2156,4 +2156,8 @@
     <string name="display_hide_notch_title">Hide display cutout</string>
     <string name="display_hide_notch_summary">Disable black fill-in for display cutout</string>
 
+    <!-- Permissions hub toggle -->
+    <string name="show_permissions_hub">Show permissions hub</string>
+    <string name="show_permissions_hub_summary">Display privacy indicators in QS</string>
+
 </resources>
