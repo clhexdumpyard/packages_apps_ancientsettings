@@ -196,21 +196,6 @@
 
     </PreferenceCategory>
 
-    <!-- Rounded Corners -->
-    <PreferenceCategory 
-         android:layout="@layout/ancient_cardpreference_category"
-         android:key="rounded_corners_category"
-         android:title="@string/corners_category_title">
-
-        <Preference
-            android:layout="@layout/ancient_cardpreference_single"
-            android:key="rounded_corners"
-            android:title="@string/corners_title"
-            android:summary="@string/corners_category_summary"
-            android:fragment="com.ancient.settings.fragments.RoundedCorners" />
-
-    </PreferenceCategory>
-
     <!-- Display cutout -->
     <PreferenceCategory
          android:layout="@layout/ancient_cardpreference_category"
@@ -310,6 +295,12 @@
         android:layout="@layout/ancient_cardpreference_category"
         android:key="megalith_dimensions"
         android:title="@string/megalith_dimensions_center_category">
+
+       <Preference
+            android:key="rounded_corners"
+            android:title="@string/corners_title"
+            android:summary="@string/corners_summary"
+            android:fragment="com.ancient.settings.fragments.RoundedCorners" />
 
         <ListPreference
             android:layout="@layout/ancient_cardpreference_top"
