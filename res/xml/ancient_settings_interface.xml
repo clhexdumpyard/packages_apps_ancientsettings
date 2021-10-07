@@ -203,11 +203,19 @@
          android:title="@string/corners_category_title">
 
         <Preference
-            android:layout="@layout/ancient_cardpreference_top"
+            android:layout="@layout/ancient_cardpreference_single"
             android:key="rounded_corners"
             android:title="@string/corners_title"
             android:summary="@string/corners_category_summary"
             android:fragment="com.ancient.settings.fragments.RoundedCorners" />
+
+    </PreferenceCategory>
+
+    <!-- Display cutout -->
+    <PreferenceCategory
+         android:layout="@layout/ancient_cardpreference_category"
+         android:key="cutout_category"
+         android:title="@string/cutout_category_title">
 
         <Preference
             android:layout="@layout/ancient_cardpreference_middle"

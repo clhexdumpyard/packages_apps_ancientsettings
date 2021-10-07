@@ -130,7 +130,7 @@ public class Interface extends DashboardFragment implements
     private static final String PREF_JAM_HEADER_SIZE = "JAM_HEADER_SIZE";
     private static final String QSBG_STYLE = "QSBG_STYLE";
     private static final String CARD_STYLE = "CARD_STYLE";
-    private static final String PREF_KEY_CUTOUT = "cutout_settings";
+    private static final String PREF_KEY_CUTOUT = "cutout_category";
 	
     private IOverlayManager mOverlayService;
     private UiModeManager mUiModeManager;
@@ -211,6 +211,9 @@ public class Interface extends DashboardFragment implements
 
         mOverlayService = IOverlayManager.Stub
                 .asInterface(ServiceManager.getService(Context.OVERLAY_SERVICE));
+
+        ContentResolver resolver = getActivity().getContentResolver();
+        PreferenceScreen prefScreen = getPreferenceScreen();
 
         mIntentFilter = new IntentFilter();
         mIntentFilter.addAction("com.android.server.ACTION_FONT_CHANGED");
@@ -461,10 +464,11 @@ public class Interface extends DashboardFragment implements
         }
         mAncientuiOnoff.setOnPreferenceChangeListener(this);    
 
-        Preference mCutoutPref = (Preference) findPreference(PREF_KEY_CUTOUT);
+        PreferenceCategory mCutoutPref = (PreferenceCategory) prefScreen
+                .findPreference(PREF_KEY_CUTOUT);
         String hasDisplayCutout = getResources().getString(com.android.internal.R.string.config_mainBuiltInDisplayCutout);
         if (TextUtils.isEmpty(hasDisplayCutout)) {
-            getPreferenceScreen().removePreference(mCutoutPref);
+            prefScreen.removePreference(mCutoutPref);
         }
     }
 
