@@ -56,8 +56,8 @@
         </Preference>
 
         <Preference
-            android:title="Xyzuan"
-            android:summary="@string/ancient_developers_xyzuan"
+            android:title="AnkitKene"
+            android:summary="@string/ancient_developers_ankitkene"
             android:icon="@drawable/ancient_developer">
         </Preference>
 
@@ -80,6 +80,11 @@
         <Preference
             android:title="I_DONT_CARE - andasopan_sayasegan"
             android:summary="@string/ancient_support_idontcare"
+            android:icon="@drawable/ancient_support"/>
+
+        <Preference
+            android:title="Nabilaba"
+            android:summary="@string/ancient_support_nabilaba"
             android:icon="@drawable/ancient_support"/>
 
         <Preference
