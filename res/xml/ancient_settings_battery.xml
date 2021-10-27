@@ -18,23 +18,4 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/battery_title" >
 
-    <Preference
-        android:key="smart_pixels" 
-        android:title="@string/smart_pixels_title" 
-        android:summary="@string/smart_pixels_summary"
-        android:fragment="com.ancient.settings.fragments.SmartPixels" />
-
-    <!-- Sensor Block -->
-    <Preference
-        android:key="sensor_block_settings"
-        android:title="@string/sensor_block_title"
-        android:summary="@string/sensor_block_summary"
-        android:fragment="com.ancient.settings.fragments.SensorBlock"/>
-
-    <Preference
-        android:key="aggressive_battery"
-        android:title="@string/aggressive_battery_title"
-        android:summary="@string/aggressive_battery_summary"
-        android:fragment="com.ancient.settings.fragments.AggressiveBattery" />
-
 </PreferenceScreen>

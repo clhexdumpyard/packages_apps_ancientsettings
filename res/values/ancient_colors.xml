@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
      Copyright (C) 2018-19 The Devilian OS Project
-     Copyright (C) 2020 xyzprjkt
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -16,52 +15,5 @@
      limitations under the License.
 -->
 <resources>
-
-<!-- 
-     Ancient Features
-     Color pallete was generated online by : https://coolors.co
--->
-
-     <!-- Static Colors -->
-     <color name="main_colors">#000000</color>
-
-     <!-- Ancient Feature Icons Colors -->
-     <color name="ancient_interface_color">@color/main_colors</color>
-     <color name="ancient_statusbar_color">@color/main_colors</color>
-     <color name="ancient_notification_color">@color/main_colors</color>
-     <color name="ancient_lockscreen_color">@color/main_colors</color>
-     <color name="ancient_gesture_color">@color/main_colors</color>
-     <color name="ancient_powermenu_color">@color/main_colors</color>
-     <color name="ancient_button_color">@color/main_colors</color>
-     <color name="ancient_about_color">@color/main_colors</color>
-     <color name="ancient_quicksettings_color">@color/main_colors</color>
-     <color name="ancient_navigation_color">@color/main_colors</color>
-     <color name="ancient_animation_color">@color/main_colors</color>
-     <color name="ancient_battery_color">@color/main_colors</color>
-     <color name="ancient_misc_color">@color/main_colors</color>
-
-     <!-- Ancient Feature Cardview Colors -->
-     <color name="ancient_interface_cardcolor">@color/ancient_cardview</color>
-     <color name="ancient_statusbar_cardcolor">@color/ancient_cardview</color>
-     <color name="ancient_notification_cardcolor">@color/ancient_cardview</color>
-     <color name="ancient_lockscreen_cardcolor">@color/ancient_cardview</color>
-     <color name="ancient_gesture_cardcolor">@color/ancient_cardview</color>
-     <color name="ancient_powermenu_cardcolor">@color/ancient_cardview</color>
-     <color name="ancient_button_cardcolor">@color/ancient_cardview</color>
-     <color name="ancient_about_cardcolor">@color/ancient_cardview</color>
-     <color name="ancient_quicksettings_cardcolor">@color/ancient_cardview</color>
-     <color name="ancient_navigation_cardcolor">@color/ancient_cardview</color>
-     <color name="ancient_animation_cardcolor">@color/ancient_cardview</color>
-     <color name="ancient_battery_cardcolor">@color/ancient_cardview</color>
-     <color name="ancient_misc_cardcolor">@color/ancient_cardview</color>
-
-     <!-- FOD icon picker -->
-     <color name="fod_item_background_stroke_color">#d6d6d6</color>
-
-     <!-- Megalith Gradient -->
-     <color name="colorMegalithStart">#F4D362</color>
-     <color name="colorMegalithEnd">#C99738</color>
-
-     <color name="ancient_icon_tint_color">@*android:color/accent_device_default_dark</color>
 
 </resources>

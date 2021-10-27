@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<animation-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:duration="4000"
-          android:drawable="@drawable/megalith_bg_start"/>
-    <item android:duration="4000"
-          android:drawable="@drawable/megalith_bg_center"/>
-    <item android:duration="4000"
-          android:drawable="@drawable/megalith_bg_end"/>
-</animation-list>

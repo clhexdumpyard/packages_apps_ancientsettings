@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
      Copyright (C) 2018-19 The Devilian OS Project
-     Copyright (C) 2020 xyzprjkt
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -16,7 +15,6 @@
      limitations under the License.
 -->
 <resources>
-
     <!-- Cardview Preference -->
     <dimen name="card_elevation">2dp</dimen>
     <dimen name="card_corner_radius">1.5dp</dimen>
@@ -25,32 +23,7 @@
     <dimen name="card_margin_right">12dp</dimen>
     <dimen name="card_margin_left">12dp</dimen>
 
-    <!-- Ancient Settings Cardview -->
-    <dimen name="ancient_settings_cardview">200dp</dimen>
-    <dimen name="ancient_settings_cardview_margin">10dp</dimen>
-    <dimen name="ancient_settings_cardview_padding">16dp</dimen>
-    <dimen name="ancient_settings_cardview_cardElevation">0dp</dimen>
-    <dimen name="ancient_settings_cardview_cornerRadius">24dp</dimen>
-    <dimen name="ancient_settings_cardview_about_width">340dp</dimen>
-    <dimen name="ancient_settings_cardview_about_height">125dp</dimen>
-
     <!-- Color Picker -->
     <dimen name="picker_circle_preview_size">26dp</dimen>
     <dimen name="alert_dialog_padding_material">20dp</dimen>
-    <dimen name="oval_notification_size">26dp</dimen>
-    <dimen name="color_preference_width">18dip</dimen>
-    <dimen name="color_preference_height">18dip</dimen>
-
-    <!-- FOD icon picker -->
-    <dimen name="fod_picker_item_margin">10dp</dimen>
-    <dimen name="fod_picker_item_size">100dp</dimen>
-    <dimen name="fod_picker_item_padding">20dp</dimen>
-
-    <!-- Shortcut picker -->
-    <dimen name="shortcut_picker_left_padding">70dip</dimen>
-
-    <!-- App list preference -->
-    <dimen name="app_list_margin_start">72dp</dimen>
-    <dimen name="app_list_margin_end">16dp</dimen>
-
 </resources>
