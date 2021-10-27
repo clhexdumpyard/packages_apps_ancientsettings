@@ -6,31 +6,31 @@
     android:viewportHeight="100">
 
     <path
-        android:strokeColor="?android:attr/colorAccent"
+        android:strokeColor="?android:attr/colorControlNormal"
         android:strokeWidth="12"
         android:strokeMiterLimit="10"
         android:strokeLineCap="round"
         android:pathData="M92.3,66.1v15.1c0,5.3-4.3,9.7-9.7,9.7H17.3c-5.3,0-9.7-4.3-9.7-9.7V18.8c0-5.3,4.3-9.7,9.7-9.7h65.4 c5.3,0,9.7,4.3,9.7,9.7v10.6" />
     <path
-        android:strokeColor="?android:attr/colorAccent"
+        android:strokeColor="?android:attr/colorControlNormal"
         android:strokeWidth="12"
         android:strokeMiterLimit="10"
         android:strokeLineCap="round"
         android:pathData="M 92.3 44.1 L 92.3 47.8" />
     <path
-        android:strokeColor="?android:attr/colorAccent"
+        android:strokeColor="?android:attr/colorControlNormal"
         android:strokeWidth="5"
         android:strokeMiterLimit="10"
         android:strokeLineCap="round"
         android:pathData="M 32.9 69 L 32.9 31" />
     <path
-        android:strokeColor="?android:attr/colorAccent"
+        android:strokeColor="?android:attr/colorControlNormal"
         android:strokeWidth="5"
         android:strokeMiterLimit="10"
         android:strokeLineCap="round"
         android:pathData="M 50 69 L 50 31" />
     <path
-        android:strokeColor="?android:attr/colorAccent"
+        android:strokeColor="?android:attr/colorControlNormal"
         android:strokeWidth="5"
         android:strokeMiterLimit="10"
         android:strokeLineCap="round"

@@ -6,13 +6,13 @@
     android:viewportHeight="100">
 
     <path
-        android:strokeColor="?android:attr/colorAccent"
+        android:strokeColor="?android:attr/colorControlNormal"
         android:strokeWidth="10"
         android:strokeMiterLimit="10"
         android:strokeLineCap="round"
         android:pathData="M 46.3 72.3 L 16.5 42.5 L 43.6 15.3 " />
     <path
-        android:strokeColor="?android:attr/colorAccent"
+        android:strokeColor="?android:attr/colorControlNormal"
         android:strokeWidth="10"
         android:strokeMiterLimit="10"
         android:strokeLineCap="round"
