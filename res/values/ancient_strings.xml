@@ -94,7 +94,4 @@
     <!-- Navbar tuner -->
     <string name="navbar_tuner_title">Navbar buttons</string>
 
-    <!-- Custom Ambient Display Config -->
-    <string name="ambient_display_custom_title">Ambient Display</string>
-
 </resources>
