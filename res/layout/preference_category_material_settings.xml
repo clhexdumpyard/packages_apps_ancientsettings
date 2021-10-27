@@ -61,7 +61,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="2dip"
             android:textAppearance="@style/TextAppearance.CategoryTitle"
-            android:textColor="?android:attr/colorAccent"
+            android:textColor="?android:attr/colorControlNormal"
             android:paddingTop="2dip" />
 
     </RelativeLayout>
