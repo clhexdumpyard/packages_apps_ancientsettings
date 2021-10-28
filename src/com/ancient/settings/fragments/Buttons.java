@@ -141,4 +141,9 @@ public class Buttons extends SettingsPreferenceFragment implements
     public int getMetricsCategory() {
         return MetricsProto.MetricsEvent.ANCIENT_SETTINGS;
     }
+
+    @Override
+    protected boolean usesExtendedActionsList() {
+        return true;
+    }
 }
