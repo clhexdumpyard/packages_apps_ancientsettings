@@ -97,4 +97,17 @@
     <!-- Wake on plug -->
     <string name="wake_when_plugged_or_unplugged_title">Wake on plug</string>
     <string name="wake_when_plugged_or_unplugged_summary">Turn the screen on when connecting or disconnecting a power source</string>
+
+    <!-- Lockscreen shortcuts -->
+    <string name="ls_category">Lockscreen Items</string>
+    <string name="ls_tuner">Enable Lockscreen tuner</string>
+    <string name="lockscreen_shortcuts">Lockscreen shortcuts</string>
+    <string name="ls_shortcut_summary">Customize Lockscreen shortcuts</string>
+
+    <!-- Lockscreen icons -->
+    <string name="lockscreen_tuner_title">Lockscreen tuner</string>
+
+    <!-- Statusbar Items -->
+    <string name="sb_icons">Statusbar Icons</string>
+    <string name="statusbar_items_category">Statusbar items</string>
 </resources>
