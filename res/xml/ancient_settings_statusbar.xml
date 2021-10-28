@@ -28,6 +28,11 @@
             android:fragment="com.ancient.settings.fragments.ClockDateSettings"
             android:title="@string/status_bar_clock_title" /
 
+       <Preference
+            android:key="traffic"
+            android:fragment="com.ancient.settings.fragments.Traffic"
+            android:title="@string/traffic_title" />
+
        <com.ancient.settings.preferences.SystemSettingSwitchPreference
              android:key="show_fourg_icon"
              android:title="@string/show_fourg_icon_title"
