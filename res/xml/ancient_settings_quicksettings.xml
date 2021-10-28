@@ -24,6 +24,13 @@
          android:summary="@string/qs_running_services_summary"
          android:defaultValue="false" />
 
+
+    <com.ancient.settings.preferences.SystemSettingSwitchPreference
+         android:key="qs_edit_toggle"
+         android:title="@string/qs_edit_title"
+         android:summary="@string/qs_edit_summary"
+         android:defaultValue="true" />
+
     <com.ancient.settings.preferences.SecureSettingSwitchPreference
          android:key="quick_settings_vibrate"
          android:title="@string/quick_settings_vibrate_title"
