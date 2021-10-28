@@ -24,6 +24,7 @@ import android.os.Vibrator;
 import android.provider.Settings;
 import androidx.preference.*;
 
+import android.widget.Toast;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
@@ -32,6 +33,10 @@ import com.android.internal.logging.nano.MetricsProto;
 public class Buttons extends SettingsPreferenceFragment implements
     Preference.OnPreferenceChangeListener {
 
+    private static final String TORCH_POWER_BUTTON_GESTURE = "torch_power_button_gesture";
+
+    private ListPreference mTorchPowerButton;
+
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
@@ -39,10 +44,28 @@ public class Buttons extends SettingsPreferenceFragment implements
         PreferenceScreen prefSet = getPreferenceScreen();
         final Resources res = getResources();
         final PreferenceScreen prefScreen = getPreferenceScreen();
+
+        // screen off torch
+        mTorchPowerButton = (ListPreference) findPreference(TORCH_POWER_BUTTON_GESTURE);
+        int mTorchPowerButtonValue = Settings.System.getInt(resolver,
+                Settings.System.TORCH_POWER_BUTTON_GESTURE, 0);
+        mTorchPowerButton.setValue(Integer.toString(mTorchPowerButtonValue));
+        mTorchPowerButton.setSummary(mTorchPowerButton.getEntry());
+        mTorchPowerButton.setOnPreferenceChangeListener(this);
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
+        ContentResolver resolver = getActivity().getContentResolver();
+        if (preference == mTorchPowerButton) {
+            int mTorchPowerButtonValue = Integer.valueOf((String) newValue);
+            int index = mTorchPowerButton.findIndexOfValue((String) newValue);
+            mTorchPowerButton.setSummary(
+                    mTorchPowerButton.getEntries()[index]);
+            Settings.System.putInt(resolver, Settings.System.TORCH_POWER_BUTTON_GESTURE,
+                    mTorchPowerButtonValue);
+            return true;
+        }
         return false;
     }
 
