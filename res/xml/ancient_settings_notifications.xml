@@ -18,6 +18,31 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
 	android:title="@string/notifications_title">
 
+
+    <PreferenceCategory
+        android:key="incall_vib_options"
+        android:title="@string/incall_vibration_category">
+
+        <com.ancient.settings.preferences.SystemSettingSwitchPreference
+            android:key="vibrate_on_connect"
+            android:icon="@drawable/ic_vibrate"
+            android:title="@string/incall_vibrate_connect_title"
+            android:defaultValue="true" />
+
+        <com.ancient.settings.preferences.SystemSettingSwitchPreference
+            android:key="vibrate_on_callwaiting"
+            android:icon="@drawable/ic_vibrate"
+            android:title="@string/incall_vibrate_call_wait_title"
+            android:defaultValue="true" />
+
+        <com.ancient.settings.preferences.SystemSettingSwitchPreference
+            android:key="vibrate_on_disconnect"
+            android:icon="@drawable/ic_vibrate"
+            android:title="@string/incall_vibrate_disconnect_title"
+            android:defaultValue="true" />
+
+    </PreferenceCategory>
+
     <PreferenceCategory
           android:key="headsup_notifications_category"
           android:title="@string/headsup_category">
