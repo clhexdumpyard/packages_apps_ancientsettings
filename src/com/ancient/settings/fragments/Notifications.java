@@ -20,8 +20,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.os.UserHandle;
+import android.content.ContentResolver;
 import android.provider.Settings;
 import androidx.preference.*;
+import com.ancient.settings.preferences.Utils;
 
 import com.android.internal.logging.nano.MetricsProto; 
 
@@ -33,12 +36,19 @@ public class Notifications extends SettingsPreferenceFragment
 
     public static final String TAG = "Notifications";
 
+    private static final String INCALL_VIB_OPTIONS = "incall_vib_options";
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.ancient_settings_notifications);
         PreferenceScreen prefScreen = getPreferenceScreen();
         final Resources res = getResources();
+
+        PreferenceCategory incallVibCategory = (PreferenceCategory) findPreference(INCALL_VIB_OPTIONS);
+        if (!Utils.isVoiceCapable(getActivity())) {
+                prefScreen.removePreference(incallVibCategory);
+        }
     }
 
     @Override
