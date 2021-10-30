@@ -14,7 +14,7 @@
  * under the License.
  */
 
-package com.cherish.settings.preferences;
+package com.ancient.settings.preferences;
 
 import android.app.Activity;
 import android.content.Context;

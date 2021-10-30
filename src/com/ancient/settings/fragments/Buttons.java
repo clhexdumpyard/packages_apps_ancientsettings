@@ -43,6 +43,7 @@ public class Buttons extends SettingsPreferenceFragment implements
         addPreferencesFromResource(R.xml.ancient_settings_buttons);
         PreferenceScreen prefSet = getPreferenceScreen();
         final Resources res = getResources();
+        final ContentResolver resolver = getActivity().getContentResolver();
         final PreferenceScreen prefScreen = getPreferenceScreen();
 
         // screen off torch
