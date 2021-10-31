@@ -17,5 +17,11 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/quicksettings_title" >
+     
+     <com.ancient.settings.preferences.SystemSettingSwitchPreference
+        android:key="ANCIENT_UI_SWITCH"							   
+        android:title="@string/anci_ui_switcher"
+        android:summary="@string/anci_ui_switcher_sum"
+        android:defaultValue="false" />
 
 </PreferenceScreen>
