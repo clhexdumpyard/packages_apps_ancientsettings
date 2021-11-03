@@ -97,5 +97,10 @@
    <!-- lets the gore begin -->
     <string name="anci_ui_switcher">Ancient UI</string>
     <string name="anci_ui_switcher_sum">lets the GORE begin</string>
-
+    <string name="anci_ui_style">Ancient UI Clock Animation</string>
+    <string name="anci_ui_default">Default</string>
+    <string name="anci_ui_scalexy">Scale Anim</string>	
+    <string name="land_notif_switcher">Notif Full</string>
+    <string name="land_notif_switcher_sum">make fullwidth of notification on landscape mode</string>
+	
 </resources>
