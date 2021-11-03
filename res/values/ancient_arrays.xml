@@ -15,7 +15,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
     <!-- anci clock animation -->
-    <string-array name="anci_ui_style_entries">
+    <string-array name="anci_ui_style_entries" translatable="false">
         <item>@string/anci_ui_default</item>
         <item>@string/anci_ui_scalexy</item>
     </string-array>
