@@ -23,5 +23,12 @@
         android:title="@string/anci_ui_switcher"
         android:summary="@string/anci_ui_switcher_sum"
         android:defaultValue="false" />
+     
+     <com.ancient.settings.preferences.SystemSettingListPreference
+        android:key="ANCIENT_UI_STYLE"							   
+        android:title="@string/anci_ui_style"
+        android:dependency="ANCIENT_UI_SWITCH"                                                           
+        android:entries="@array/anci_ui_style_entries"           
+        android:entryValues="@array/anci_ui_style_values"  />
 
 </PreferenceScreen>
