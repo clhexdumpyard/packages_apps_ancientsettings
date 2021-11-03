@@ -16,6 +16,12 @@
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
-	android:title="@string/notifications_title">
+    android:title="@string/notifications_title">
+	
+    <com.ancient.settings.preferences.SystemSettingSwitchPreference
+        android:key="NOTIFICATION_FULLWIDTH_INLAND"							   
+        android:title="@string/land_notif_switcher"
+        android:summary="@string/land_notif_switcher_sum"
+        android:defaultValue="false" />
 
 </PreferenceScreen>
