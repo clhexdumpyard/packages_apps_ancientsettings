@@ -103,4 +103,13 @@
     <string name="land_notif_switcher">Notif Full</string>
     <string name="land_notif_switcher_sum">make fullwidth of notification on landscape mode</string>
 	
+    <!-- Monet Engine -->
+    <string name="monet_engine_custom_color_title">Use custom color</string>
+    <string name="monet_engine_custom_color_summary">Use custom color for monet engine instead of wallpaper colors</string>
+    <string name="monet_engine_color_override_title">Custom color</string>
+    <string name="monet_engine_white_luminance_user_title">White luminance</string>
+    <string name="monet_engine_accurate_shades_title">Use accurate shades</string>
+    <string name="monet_engine_chroma_factor_title">Chroma factor</string>
+    <string name="monet_engine_linear_lightness_title">Use linear lightness</string>
+	
 </resources>
