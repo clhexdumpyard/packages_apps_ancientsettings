@@ -62,5 +62,26 @@
         android:defaultValue="false" />
 
     </PreferenceCategory> 
+     
+     <com.ancient.settings.preferences.SystemSettingListPreference
+            android:key="SIGNAL_WIPI_COMBINED"                             
+            android:defaultValue="0"
+	    android:entries="@array/a_entries"           
+            android:entryValues="@array/a_values"              
+            android:title="@string/a_title"/>
+     
+     <com.ancient.settings.preferences.SystemSettingListPreference
+            android:key="SIGNAL_WIPI_IKONT"                             
+            android:defaultValue="0"
+	    android:entries="@array/b_entries"           
+            android:entryValues="@array/b_values"              
+            android:title="@string/b_title"/>
+     
+     <com.ancient.settings.preferences.SystemSettingListPreference
+            android:key="QS_TILE_BGO"                             
+            android:defaultValue="0"
+	      android:entries="@array/c_entries"           
+            android:entryValues="@array/c_values"              
+            android:title="@string/c_title"/>
 
 </PreferenceScreen>
