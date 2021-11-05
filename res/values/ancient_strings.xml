@@ -112,4 +112,15 @@
     <string name="monet_engine_chroma_factor_title">Chroma factor</string>
     <string name="monet_engine_linear_lightness_title">Use linear lightness</string>
 	
+    <!-- a -->
+    <string name="a_title">test</string>
+    <string name="b_title">test</string>
+    <string name="c_title">test</string>
+    <string name="adef">def</string>
+    <string name="a1">1</string>
+    <string name="a2">2</string>
+    <string name="a3">3</string>
+    <string name="a4">4</string>
+    <string name="a5">5</string>
+	
 </resources>
