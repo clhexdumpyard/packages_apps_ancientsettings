@@ -57,6 +57,8 @@ import com.android.settings.SettingsPreferenceFragment;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.settings.Utils;
 
+import com.ancient.settings.preferences.SystemSettingListPreference;
+
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
 import java.util.ArrayList;
@@ -68,14 +70,25 @@ public class Interface extends SettingsPreferenceFragment implements OnPreferenc
     public static final String TAG = "Interface";
     
     private String MONET_ENGINE_COLOR_OVERRIDE = "monet_engine_color_override";
+    private static final String SIGNAL_WIPI_COMBINED = "SIGNAL_WIPI_COMBINED";
+    private static final String QS_TILE_BGO = "QS_TILE_BGO";
+    private static final String SIGNAL_WIPI_IKONT = "SIGNAL_WIPI_IKONT";
     
     private Context mContext;
     
+    private IOverlayManager mOverlayService;
+    
     private ColorPickerPreference mMonetColor;
+    private SystemSettingListPreference mAa;
+    private SystemSettingListPreference mAb;
+    private SystemSettingListPreference mAc;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        
+        mOverlayService = IOverlayManager.Stub
+                .asInterface(ServiceManager.getService(Context.OVERLAY_SERVICE));
 
         addPreferencesFromResource(R.xml.ancient_settings_interface);
         
@@ -89,6 +102,30 @@ public class Interface extends SettingsPreferenceFragment implements OnPreferenc
         mMonetColor.setNewPreviewColor(intColor);
         mMonetColor.setSummary(hexColor);
         mMonetColor.setOnPreferenceChangeListener(this);
+        
+        mAa = (SystemSettingListPreference) findPreference(SIGNAL_WIPI_COMBINED);
+        int sbaStyle = Settings.System.getIntForUser(getContentResolver(),
+                "SIGNAL_WIPI_COMBINED", 0, UserHandle.USER_CURRENT);
+        int valuebaIndex = mAa.findIndexOfValue(String.valueOf(sbaStyle));
+        mAa.setValueIndex(valuebaIndex >= 0 ? valuebaIndex : 0);
+        mAa.setSummary(mAa.getEntry());
+        mAa.setOnPreferenceChangeListener(this);
+        
+        mAb = (SystemSettingListPreference) findPreference(QS_TILE_BGO);
+        int sbaaStyle = Settings.System.getIntForUser(getContentResolver(),
+                "QS_TILE_BGO", 0, UserHandle.USER_CURRENT);
+        int valuebaaIndex = mAb.findIndexOfValue(String.valueOf(sbaaStyle));
+        mAb.setValueIndex(valuebaaIndex >= 0 ? valuebaIndex : 0);
+        mAb.setSummary(mAb.getEntry());
+        mAb.setOnPreferenceChangeListener(this);
+        
+        mAc = (SystemSettingListPreference) findPreference(SIGNAL_WIPI_IKONT);
+        int sbabStyle = Settings.System.getIntForUser(getContentResolver(),
+                "SIGNAL_WIPI_IKONT", 0, UserHandle.USER_CURRENT);
+        int valuebabIndex = mAc.findIndexOfValue(String.valueOf(sbabStyle));
+        mAc.setValueIndex(valuebabIndex >= 0 ? valuebabIndex : 0);
+        mAc.setSummary(mAc.getEntry());
+        mAc.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -112,7 +149,37 @@ public class Interface extends SettingsPreferenceFragment implements OnPreferenc
             Settings.Secure.putInt(resolver,
                 MONET_ENGINE_COLOR_OVERRIDE, intHex);
             return true;
-        }
+        } else if (preference == mAa) {
+            int mauStyleValue = Integer.valueOf((String) newValue);
+            Settings.System.putIntForUser(getContentResolver(),
+                    "SIGNAL_WIPI_COMBINED", mauStyleValue, UserHandle.USER_CURRENT);
+            mAa.setSummary(mAa.getEntries()[mauStyleValue]);
+            try {
+                 mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
+            } catch (RemoteException ignored) {
+            }
+            return true;	
+        } else if (preference == mAb) {
+            int maucStyleValue = Integer.valueOf((String) newValue);
+            Settings.System.putIntForUser(getContentResolver(),
+                    "QS_TILE_BGO", maucStyleValue, UserHandle.USER_CURRENT);
+            mAb.setSummary(mAb.getEntries()[maucStyleValue]);
+            try {
+                 mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
+            } catch (RemoteException ignored) {
+            }
+            return true;	
+        } else if (preference == mAc) {
+            int mauccStyleValue = Integer.valueOf((String) newValue);
+            Settings.System.putIntForUser(getContentResolver(),
+                    "SIGNAL_WIPI_IKONT", mauccStyleValue, UserHandle.USER_CURRENT);
+            mAc.setSummary(mAc.getEntries()[mauccStyleValue]);
+            try {
+                 mOverlayService.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
+            } catch (RemoteException ignored) {
+            }
+            return true;	
+        } 
         return false;
     }
 }
