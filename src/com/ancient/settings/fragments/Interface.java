@@ -16,35 +16,103 @@
  */
 package com.ancient.settings.fragments;
 
-import android.app.Activity;
+import static android.os.UserHandle.USER_SYSTEM;
+import android.app.ActivityManagerNative;
+import android.app.UiModeManager;
 import android.content.Context;
-import android.content.Intent;
+import android.content.ContentResolver;
+import android.content.om.IOverlayManager;
+import android.content.om.OverlayInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
+import android.content.res.Resources;
+import android.graphics.Color;
+import android.os.AsyncTask;
 import android.os.Bundle;
-import androidx.preference.ListPreference;
+import android.os.UserHandle;
+import android.os.RemoteException;
+import android.os.ServiceManager;
+import androidx.annotation.VisibleForTesting;
 import androidx.preference.Preference;
+import androidx.preference.ListPreference;
+import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceScreen;
 import androidx.preference.Preference.OnPreferenceChangeListener;
-import androidx.preference.SwitchPreference;
 import android.provider.Settings;
+import android.text.TextUtils;
+import android.util.Log;
+import android.view.WindowManagerGlobal;
+import android.view.IWindowManager;
+import android.widget.Toast;
 
-import com.android.internal.logging.nano.MetricsProto; 
-import com.android.settings.SettingsPreferenceFragment;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import java.util.Locale;
+import android.text.TextUtils;
+import android.view.View;
 
 import com.android.settings.R;
+import com.android.settings.SettingsPreferenceFragment;
+import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
+import com.android.settings.Utils;
 
-public class Interface extends SettingsPreferenceFragment {
+import net.margaritov.preference.colorpicker.ColorPickerPreference;
+
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+
+public class Interface extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
     public static final String TAG = "Interface";
+    
+    private String MONET_ENGINE_COLOR_OVERRIDE = "monet_engine_color_override";
+    
+    private Context mContext;
+    
+    private ColorPickerPreference mMonetColor;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.ancient_settings_interface);
+        
+        mContext = getActivity();
+        final ContentResolver resolver = getActivity().getContentResolver();
+        final PreferenceScreen screen = getPreferenceScreen();
+        
+        mMonetColor = (ColorPickerPreference) screen.findPreference(MONET_ENGINE_COLOR_OVERRIDE);
+        int intColor = Settings.Secure.getInt(resolver, MONET_ENGINE_COLOR_OVERRIDE, Color.WHITE);
+        String hexColor = String.format("#%08x", (0xffffff & intColor));
+        mMonetColor.setNewPreviewColor(intColor);
+        mMonetColor.setSummary(hexColor);
+        mMonetColor.setOnPreferenceChangeListener(this);
     }
 
     @Override
     public int getMetricsCategory() {
-        return MetricsProto.MetricsEvent.ANCIENT_SETTINGS;
+        return MetricsEvent.ANCIENT_SETTINGS;
+    }
+    
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
+    
+    @Override
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+        ContentResolver resolver = getActivity().getContentResolver();
+        if (preference == mMonetColor) {
+            String hex = ColorPickerPreference.convertToARGB(Integer
+                .parseInt(String.valueOf(newValue)));
+            preference.setSummary(hex);
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.Secure.putInt(resolver,
+                MONET_ENGINE_COLOR_OVERRIDE, intHex);
+            return true;
+        }
+        return false;
     }
 }
