@@ -18,12 +18,12 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/lockscreen_title" >
 
-        <Preference
+        <!--<Preference
             android:title="@string/lockscreen_tuner_title">
             <intent android:action="android.intent.action.MAIN"
                 android:targetPackage="com.android.systemui"
                 android:targetClass="com.android.systemui.tuner.LockscreenActivity" />
-        </Preference>
+        </Preference>-->
 
     <PreferenceCategory
         android:key="lockscreen_ui_finterprint_category"
