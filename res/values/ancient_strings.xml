@@ -511,4 +511,7 @@
 
     <string name="radio_info_title">Radio info</string>
 
+    <!-- AOSP Gesture -->
+    <string name="aosp_gesture_title">AOSP Gestures</string>
+
 </resources>
