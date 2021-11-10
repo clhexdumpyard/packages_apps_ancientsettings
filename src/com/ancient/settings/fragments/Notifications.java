@@ -16,14 +16,21 @@
 package com.ancient.settings.fragments;
 
 import android.app.Activity;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.os.UserHandle;
 import android.provider.Settings;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ListView;
+
 import androidx.preference.*;
 
 import com.android.internal.logging.nano.MetricsProto; 
+import com.android.internal.util.ancient.AncientUtils;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -33,12 +40,20 @@ public class Notifications extends SettingsPreferenceFragment
 
     public static final String TAG = "Notifications";
 
+    private static final String INCALL_VIB_OPTIONS = "incall_vib_options";
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.ancient_settings_notifications);
-        PreferenceScreen prefScreen = getPreferenceScreen();
-        final Resources res = getResources();
+
+        final ContentResolver resolver = getActivity().getContentResolver();
+        final PreferenceScreen prefSet = getPreferenceScreen();
+
+        PreferenceCategory incallVibCategory = (PreferenceCategory) findPreference(INCALL_VIB_OPTIONS);
+        if (!AncientUtils.isVoiceCapable(getActivity())) {
+                prefSet.removePreference(incallVibCategory);
+        }
     }
 
     @Override
