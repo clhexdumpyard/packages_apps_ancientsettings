@@ -29,7 +29,14 @@ import android.provider.SearchIndexableResource;
 import android.provider.Settings;
 import android.view.View;
 import android.widget.Toast;
+
 import androidx.preference.*;
+import androidx.preference.ListPreference;
+import androidx.preference.Preference;
+import androidx.preference.Preference.OnPreferenceChangeListener;
+import androidx.preference.PreferenceCategory;
+import androidx.preference.PreferenceScreen;
+import androidx.preference.SwitchPreference;
 
 import com.android.internal.logging.nano.MetricsProto;
 
