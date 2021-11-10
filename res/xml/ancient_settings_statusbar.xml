@@ -26,4 +26,16 @@
             android:targetClass="com.android.systemui.tuner.StatusbarItemsActivity" />
     </Preference>
 
+    <PreferenceCategory
+        android:key="misc_icons_category"
+        android:title="@string/icons_category">
+
+         <com.ancient.settings.preferences.SystemSettingSwitchPreference
+             android:key="show_fourg_icon"
+             android:title="@string/show_fourg_icon_title"
+             android:summary="@string/show_fourg_icon_summary"
+             android:defaultValue="false"/>
+
+    </PreferenceCategory>
+
 </PreferenceScreen>
