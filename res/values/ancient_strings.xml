@@ -536,4 +536,7 @@
     <string name="notification_guts_kill_app_button_title">Kill app button</string>
     <string name="notification_guts_kill_app_button_summary">Show a kill app button in the notification\'s long press menu</string>
 
+    <!-- Notification light -->
+    <string name="notification_light_settings">Notification light</string>
+
 </resources>
