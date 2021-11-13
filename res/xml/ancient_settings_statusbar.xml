@@ -64,6 +64,12 @@
         android:title="@string/icons_category">
 
          <com.ancient.settings.preferences.SystemSettingSwitchPreference
+            android:key="combine_statusbar_signal"
+            android:title="@string/combine_statusbar_signal_title"
+            android:summary="@string/combine_statusbar_signal_summary"
+            android:defaultValue="false" />
+
+         <com.ancient.settings.preferences.SystemSettingSwitchPreference
             android:key="data_disabled_icon"
             android:title="@string/data_disabled_icon_title"
             android:summary="@string/data_disabled_icon_summary"

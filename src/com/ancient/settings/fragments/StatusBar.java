@@ -37,11 +37,15 @@ import com.android.internal.logging.nano.MetricsProto;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
+import com.android.internal.util.ancient.AncientUtils;
+import com.ancient.settings.preferences.SystemSettingSwitchPreference;
+
 public class StatusBar extends SettingsPreferenceFragment implements
     Preference.OnPreferenceChangeListener {
 
     private static final String PREF_STATUS_BAR_SHOW_BATTERY_PERCENT = "status_bar_show_battery_percent";
     private static final String PREF_STATUS_BAR_BATTERY_STYLE = "status_bar_battery_style";
+    private static final String COMBINE_STATUSBAR_SIGNAL = "combine_statusbar_signal";
 
     private static final int BATTERY_STYLE_PORTRAIT = 0;
     private static final int BATTERY_STYLE_TEXT = 4;
@@ -51,6 +55,7 @@ public class StatusBar extends SettingsPreferenceFragment implements
     private ListPreference mBatteryPercent;
     private ListPreference mBatteryStyle;
     private int mBatteryPercentValue;
+    private SystemSettingSwitchPreference mCombineStatusbarSignal;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -76,6 +81,11 @@ public class StatusBar extends SettingsPreferenceFragment implements
 
         mBatteryPercent.setEnabled(
                 batterystyle != BATTERY_STYLE_TEXT && batterystyle != BATTERY_STYLE_HIDDEN);
+
+        mCombineStatusbarSignal = (SystemSettingSwitchPreference) findPreference(COMBINE_STATUSBAR_SIGNAL);
+        mCombineStatusbarSignal.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.COMBINE_STATUSBAR_SIGNAL, 0) == 1));
+        mCombineStatusbarSignal.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -98,6 +108,12 @@ public class StatusBar extends SettingsPreferenceFragment implements
                     UserHandle.USER_CURRENT);
             int index = mBatteryPercent.findIndexOfValue((String) newValue);
             mBatteryPercent.setSummary(mBatteryPercent.getEntries()[index]);
+            return true;
+        } else if (preference == mCombineStatusbarSignal) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.COMBINE_STATUSBAR_SIGNAL, value ? 1 : 0);
+            AncientUtils.showSystemUiRestartDialog(getContext());
             return true;
         }
         return false;

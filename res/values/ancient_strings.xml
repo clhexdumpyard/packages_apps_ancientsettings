@@ -539,4 +539,8 @@
     <!-- Notification light -->
     <string name="notification_light_settings">Notification light</string>
 
+    <!-- Combine statusbar signal -->
+    <string name="combine_statusbar_signal_title">Combine statusbar signal</string>
+    <string name="combine_statusbar_signal_summary">Enable to combine signal</string>
+
 </resources>
