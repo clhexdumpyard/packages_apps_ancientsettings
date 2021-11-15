@@ -62,11 +62,25 @@
             android:entries="@array/battery_percent_entries"
             android:entryValues="@array/battery_percent_values"
             android:defaultValue="0" />
+	    
+	 <com.ancient.settings.preferences.SystemSettingSwitchPreference
+            android:key="CUSTOM_CHARGE_SWITCH"
+            android:title="@string/custom_icon_charging_title"
+            android:summary="@string/custom_icon_charging_summary"
+            android:defaultValue="false" /> 
+     
+        <com.ancient.settings.preferences.SystemSettingListPreference
+            android:key="CUSTOM_CHARGE_STYLE"                             
+            android:defaultValue="0"
+            android:dependency="CUSTOM_CHARGE_SWITCH"                                                      
+	    android:entries="@array/custom_icon_charging_style_entries"           
+            android:entryValues="@array/custom_icon_charging_style_values"              
+            android:title="@string/custom_icon_charging_style_title"/> 
          
          <com.ancient.settings.preferences.SystemSettingListPreference
             android:key="CUSTOM_CHARGE_SYMBOL"                             
             android:defaultValue="0"                                                     
-	       android:entries="@array/custom_icon_charging_symbol_entries"           
+	    android:entries="@array/custom_icon_charging_symbol_entries"           
             android:entryValues="@array/custom_icon_charging_symbol_values"              
             android:title="@string/custom_icon_charging_symbol_title"/> 
 
