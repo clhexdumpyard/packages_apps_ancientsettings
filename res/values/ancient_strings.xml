@@ -562,6 +562,21 @@
     <string name="custom_symbol_charging_type6">Sun Flower</string>
     <string name="custom_symbol_charging_type7">Tear Dropp</string>
     <string name="custom_symbol_charging_type8">Snow</string>
-    <string name="custom_symbol_charging_type9">Triple Tilde</string>	
+    <string name="custom_symbol_charging_type9">Triple Tilde</string>
+	
+    <!-- anci custom charging ikon styles -->
+    <string name="custom_icon_charging_style_title">Custom charging icon style</string>
+    <string name="custom_icon_charging_title">Custom charging icon</string>
+    <string name="custom_icon_charging_summary">use custom icon for charging state </string>
+    <string name="custom_icon_charging_default">Default (Xiaomi logo)</string>
+    <string name="custom_icon_charging_type1">Realme logo</string>
+    <string name="custom_icon_charging_type2">Nokia logo</string>
+    <string name="custom_icon_charging_type3">Moto logo</string>
+    <string name="custom_icon_charging_type4">Asus logo</string>
+    <string name="custom_icon_charging_type5">Dual Bolt</string>
+    <string name="custom_icon_charging_type6">DataCable</string>
+    <string name="custom_icon_charging_type7">Adaptor</string>
+    <string name="custom_icon_charging_type8">Power Bank</string>
+    <string name="custom_icon_charging_type9">IDC</string>
 
 </resources>
