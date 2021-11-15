@@ -487,6 +487,14 @@
     <string name="status_bar_battery_style_circle">Circle</string>
     <string name="status_bar_battery_style_dotted_circle">Circle (Dotted)</string>
     <string name="status_bar_battery_style_filled_circle">Circle (Filled)</string>
+    <string name="status_bar_battery_style_landscape">LandScape Default</string>
+    <string name="status_bar_battery_style_landscapea">LandScape Style 1</string>
+    <string name="status_bar_battery_style_landscapeb">LandScape Style 2</string>
+    <string name="status_bar_battery_style_landscapec">LandScape Style 3</string>
+    <string name="status_bar_battery_style_landscaped">LandScape Style 4</string>
+    <string name="status_bar_battery_style_landscapee">Danny Style</string>
+    <string name="status_bar_battery_style_landscapef">Danny Style 2</string>
+    <string name="status_bar_battery_style_landscapeg">Danny Style 3</string>
     <string name="status_bar_battery_style_text">Text</string>
     <string name="status_bar_battery_style_hidden">Hidden</string>
 
@@ -538,5 +546,9 @@
 
     <!-- Notification light -->
     <string name="notification_light_settings">Notification light</string>
+	
+    <!-- flip it -->
+    <string name="flip_batre_title">Battery Layout</string>
+    <string name="flip_batre_summary">flip the battery layout</string>
 
 </resources>
