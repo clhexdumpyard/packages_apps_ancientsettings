@@ -62,6 +62,13 @@
             android:entries="@array/battery_percent_entries"
             android:entryValues="@array/battery_percent_values"
             android:defaultValue="0" />
+         
+         <com.ancient.settings.preferences.SystemSettingListPreference
+            android:key="CUSTOM_CHARGE_SYMBOL"                             
+            android:defaultValue="0"                                                     
+	       android:entries="@array/custom_icon_charging_symbol_entries"           
+            android:entryValues="@array/custom_icon_charging_symbol_values"              
+            android:title="@string/custom_icon_charging_symbol_title"/> 
 
     </PreferenceCategory>
 
