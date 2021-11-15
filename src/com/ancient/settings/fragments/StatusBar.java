@@ -44,8 +44,8 @@ public class StatusBar extends SettingsPreferenceFragment implements
     private static final String PREF_STATUS_BAR_BATTERY_STYLE = "status_bar_battery_style";
 
     private static final int BATTERY_STYLE_PORTRAIT = 0;
-    private static final int BATTERY_STYLE_TEXT = 4;
-    private static final int BATTERY_STYLE_HIDDEN = 5;
+    private static final int BATTERY_STYLE_TEXT = 12;
+    private static final int BATTERY_STYLE_HIDDEN = 13;
     private static final int BATTERY_PERCENT_HIDDEN = 0;
 
     private ListPreference mBatteryPercent;
