@@ -579,7 +579,8 @@
     <string name="custom_icon_charging_type8">Power Bank</string>
     <string name="custom_icon_charging_type9">IDC</string>
 	
-    <!-- custom charging color -->
+    <!-- custom charging N fill color -->
     <string name="custom_color_charging_title">Charging Color (restart ui)</string>
+    <string name="custom_color_fill_title">Fill Color (restart ui)</string>
 
 </resources>
