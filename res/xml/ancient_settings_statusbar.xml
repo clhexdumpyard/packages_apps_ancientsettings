@@ -82,7 +82,13 @@
             android:defaultValue="0"                                                     
 	    android:entries="@array/custom_icon_charging_symbol_entries"           
             android:entryValues="@array/custom_icon_charging_symbol_values"              
-            android:title="@string/custom_icon_charging_symbol_title"/> 
+            android:title="@string/custom_icon_charging_symbol_title"/>
+	    
+	 <net.margaritov.preference.colorpicker.ColorPickerPreference 
+            android:title="@string/custom_color_charging_title" 
+            android:key="CHARGING_BLEND_COLOR"  
+            android:defaultValue="0xFF00FF00" 
+            settings:alphaSlider="true" />   
 
     </PreferenceCategory>
 
