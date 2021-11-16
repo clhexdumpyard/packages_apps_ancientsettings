@@ -88,7 +88,7 @@
             android:title="@string/custom_color_charging_title" 
             android:key="CHARGING_BLEND_COLOR"  
             android:defaultValue="0xFF00FF00" 
-            settings:alphaSlider="true" />   
+            android:alphaSlider="true" />   
 
     </PreferenceCategory>
 
