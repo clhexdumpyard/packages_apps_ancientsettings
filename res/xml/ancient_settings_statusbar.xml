@@ -85,6 +85,12 @@
             android:title="@string/custom_icon_charging_symbol_title"/>
 	    
 	 <net.margaritov.preference.colorpicker.ColorPickerPreference 
+            android:title="@string/custom_color_fill_title" 
+            android:key="FILL_BLEND_COLOR"  
+            android:defaultValue="0xFF00FF00" 
+             />  
+	    
+	 <net.margaritov.preference.colorpicker.ColorPickerPreference 
             android:title="@string/custom_color_charging_title" 
             android:key="CHARGING_BLEND_COLOR"  
             android:defaultValue="0xFF00FF00" 
