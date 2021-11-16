@@ -578,5 +578,8 @@
     <string name="custom_icon_charging_type7">Adaptor</string>
     <string name="custom_icon_charging_type8">Power Bank</string>
     <string name="custom_icon_charging_type9">IDC</string>
+	
+    <!-- custom charging color -->
+    <string name="custom_color_charging_title">Charging Color</string>
 
 </resources>
