@@ -543,4 +543,8 @@
     <string name="combine_statusbar_signal_title">Combine statusbar signal</string>
     <string name="combine_statusbar_signal_summary">Enable to combine signal</string>
 
+    <!-- Navigation bar -->
+    <string name="navigation_bar_title">On-screen navigation bar</string>
+    <string name="navigation_bar_summary">Enable on-screen navigation keys</string>
+
 </resources>
