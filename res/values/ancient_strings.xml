@@ -581,4 +581,8 @@
     <string name="power_profile_ext">Extreme</string>
     <string name="powersave_summary">Options to extend your battery life</string>
 
+    <!-- Ancient logo -->
+    <string name="ancient_logo_title">Ancient logo</string>
+    <string name="ancient_logo_summary">Let everyone know that you\'re using Ancient when they see your screen</string>
+
 </resources>

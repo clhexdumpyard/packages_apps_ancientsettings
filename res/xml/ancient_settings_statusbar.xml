@@ -68,6 +68,12 @@
         android:key="misc_icons_category"
         android:title="@string/icons_category">
 
+	 <SwitchPreference
+             android:key="status_bar_logo"
+             android:title="@string/ancient_logo_title"
+             android:summary="@string/ancient_logo_summary"
+             android:defaultValue="false" />
+
          <com.ancient.settings.preferences.SystemSettingSwitchPreference
             android:key="combine_statusbar_signal"
             android:title="@string/combine_statusbar_signal_title"

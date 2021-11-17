@@ -46,6 +46,7 @@ public class StatusBar extends SettingsPreferenceFragment implements
     private static final String PREF_STATUS_BAR_SHOW_BATTERY_PERCENT = "status_bar_show_battery_percent";
     private static final String PREF_STATUS_BAR_BATTERY_STYLE = "status_bar_battery_style";
     private static final String COMBINE_STATUSBAR_SIGNAL = "combine_statusbar_signal";
+    private static final String KEY_STATUS_BAR_LOGO = "status_bar_logo";
 
     private static final int BATTERY_STYLE_PORTRAIT = 0;
     private static final int BATTERY_STYLE_TEXT = 4;
@@ -56,6 +57,7 @@ public class StatusBar extends SettingsPreferenceFragment implements
     private ListPreference mBatteryStyle;
     private int mBatteryPercentValue;
     private SystemSettingSwitchPreference mCombineStatusbarSignal;
+    private SwitchPreference mShowAncientLogo;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -86,6 +88,11 @@ public class StatusBar extends SettingsPreferenceFragment implements
         mCombineStatusbarSignal.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.COMBINE_STATUSBAR_SIGNAL, 0) == 1));
         mCombineStatusbarSignal.setOnPreferenceChangeListener(this);
+
+        mShowAncientLogo = (SwitchPreference) findPreference(KEY_STATUS_BAR_LOGO);
+        mShowAncientLogo.setChecked((Settings.System.getInt(getContentResolver(),
+        Settings.System.STATUS_BAR_LOGO, 0) == 1));
+        mShowAncientLogo.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -114,6 +121,11 @@ public class StatusBar extends SettingsPreferenceFragment implements
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.COMBINE_STATUSBAR_SIGNAL, value ? 1 : 0);
             AncientUtils.showSystemUiRestartDialog(getContext());
+            return true;
+        } else if  (preference == mShowAncientLogo) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.STATUS_BAR_LOGO, value ? 1 : 0);
             return true;
         }
         return false;
