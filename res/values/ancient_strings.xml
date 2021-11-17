@@ -582,5 +582,7 @@
     <!-- custom charging N fill color -->
     <string name="custom_color_charging_title">Charging Color (restart ui)</string>
     <string name="custom_color_fill_title">Fill Color (restart ui)</string>
-
+    <string name="custom_blend_color_title">Custom Color Battery Level</string>
+    <string name="custom_blend_color_summary">restart ui to take effect</string>
+    
 </resources>
