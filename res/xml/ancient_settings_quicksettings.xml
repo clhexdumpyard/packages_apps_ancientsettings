@@ -68,6 +68,12 @@
         android:summary="@string/use_tiles_on_secure_keyguard_summary"
         android:defaultValue="true" />
 
+     <com.ancient.settings.preferences.SecureSettingSwitchPreference
+        android:key="hide_qs_call_strength"
+        android:title="@string/show_qs_call_strength_icon_title"
+        android:summary="@string/show_qs_call_strength_icon_summary"
+        android:defaultValue="false" />
+
     <PreferenceCategory
         android:key="quick_settings_brighness_category"
         android:title="@string/qs_brightness_slider_category">
