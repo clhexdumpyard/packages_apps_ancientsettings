@@ -214,25 +214,13 @@ public class Buttons extends ActionFragment implements OnPreferenceChangeListene
             int buttonBrightness = (Integer) newValue;
             Settings.System.putInt(getContentResolver(),
                     Settings.System.CUSTOM_BUTTON_BRIGHTNESS, buttonBrightness);
-        } else {
-            return false;
         }
-        return true;
+        return false;
     }
 
     @Override
     public int getMetricsCategory() {
         return MetricsProto.MetricsEvent.ANCIENT_SETTINGS;
-    }
-
-    @Override
-    protected boolean usesExtendedActionsList() {
-        return true;
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
     }
 
     /**
