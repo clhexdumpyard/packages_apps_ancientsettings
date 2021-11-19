@@ -18,12 +18,24 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
 	android:title="@string/notifications_title">
 	
-   <com.ancient.settings.preferences.SystemSettingSwitchPreference
+	<com.ancient.settings.preferences.SystemSettingSwitchPreference
+            android:key="STATUSBAR_ICONS_STYLE"
+            android:title="@string/statusbar_icons_style"
+            android:summary="@string/statusbar_icons_style_summary"
+            android:defaultValue="true" />
+	
+	<com.ancient.settings.preferences.SystemSettingSwitchPreference
+            android:key="HEADER_ICONS_STYLE"
+            android:title="@string/header_icons_style"
+            android:summary="@string/header_icons_style_summary"
+            android:defaultValue="true" />  
+
+       <com.ancient.settings.preferences.SystemSettingSwitchPreference
             android:key="NOTIFICATION_MATERIAL_DISMISS"
             android:title="@string/notification_material_dismiss_button_title"
             android:summary="@string/notification_material_dismiss_button_summary" />
 	    
-   <com.ancient.settings.preferences.SystemSettingListPreference
+       <com.ancient.settings.preferences.SystemSettingListPreference
            android:key="NOTIFICATION_MATERIAL_DISMISS_STYLE"
            android:title="@string/anci_clir_style_title"						      
 	   android:dependency="NOTIFICATION_MATERIAL_DISMISS"							      
