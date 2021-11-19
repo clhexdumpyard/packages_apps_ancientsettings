@@ -632,6 +632,12 @@
     <string name="anci_clir_tintbg_type3">Custom Color</string>
 
     <string name="polum_left_switch_title">Volume Panel Left Side</string>
-    <string name="polum_left_switch_sum">move volume panel to left side</string>	
+    <string name="polum_left_switch_sum">move volume panel to left side</string>
+	
+    <!-- Colored Statusbar & Header Icons -->
+    <string name="statusbar_icons_style">Colored Statusbar Icons</string>
+    <string name="statusbar_icons_style_summary">Choose the style of your statusbar icons (requires SystemUI restart)</string>
+    <string name="header_icons_style">Colored Header Icons</string>
+    <string name="header_icons_style_summary">Choose the style of your notification headers icons (requires SystemUI restart)</string>
     
 </resources>
