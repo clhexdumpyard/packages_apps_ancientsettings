@@ -35,8 +35,6 @@ import android.widget.ListView;
 import androidx.preference.*;
 
 import com.android.internal.logging.nano.MetricsProto; 
-import com.android.internal.util.ancient.ThemesUtils;
-import com.android.internal.util.ancient.AncientUtils;
 
 import android.provider.SearchIndexableResource;
 import com.android.settings.search.BaseSearchIndexProvider;
