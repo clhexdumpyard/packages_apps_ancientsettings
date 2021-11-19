@@ -584,5 +584,54 @@
     <string name="custom_color_fill_title">Fill Color (restart ui)</string>
     <string name="custom_blend_color_title">Custom Color Battery Level</string>
     <string name="custom_blend_color_summary">restart ui to take effect</string>
+	
+    <!-- OOS style material dismiss all button for notifications -->
+    <string name="notification_material_dismiss_button_title">Material dimiss button</string>
+    <string name="notification_material_dismiss_button_summary">Replace clear all notification text with floating button</string>
+	
+    <!-- anci clir styles -->
+    <string name="anci_clir_style_title">Material dismiss button style</string>
+    <string name="anci_clir_default">Default</string>
+    <string name="anci_clir_type1">Trash Bin</string>
+    <string name="anci_clir_type2">Broom</string>
+    <string name="anci_clir_type3">Pacman</string>
+    <string name="anci_clir_type4">Stop</string>
+    <string name="anci_clir_type5">Cross</string>
+    <string name="anci_clir_type6">Recycle</string>
+    <string name="anci_clir_type7">Rubber</string>
+    <string name="anci_clir_type8">Ancient Logo</string>
+    <string name="anci_clir_type9">Task Note</string>
+    <string name="anci_clir_type10">Magnet</string>
+	
+    <string name="anci_clirtint_style_title">Material dismiss button tint</string>
+    <string name="anci_clirtint_color_title">Material dismiss icon color</string>
+    <string name="anci_clir_tint_default">Default</string>
+    <string name="anci_clir_tint_type1">Primary</string>
+    <string name="anci_clir_tint_type2">Random</string>
+    <string name="anci_clir_tint_type3">Custom Color</string>
+	
+    <!-- anci clirbg styles -->
+    <string name="anci_clirbg_style_title">Material dismiss background style</string>
+    <string name="anci_clirbg_default">Default</string>
+    <string name="anci_clirbg_type1">Sam</string>
+    <string name="anci_clirbg_type2">Sam dot stroke</string>
+    <string name="anci_clirbg_type3">Ic QS Circle</string>
+    <string name="anci_clirbg_type4">Square bottom dot stroke</string>
+    <string name="anci_clirbg_type5">test</string>
+    <string name="anci_clirbg_type6">test</string>
+    <string name="anci_clirbg_type7">test</string>
+    <string name="anci_clirbg_type8">test</string>
+    <string name="anci_clirbg_type9">test</string>
+    <string name="anci_clirbg_type10">test</string>
+	
+    <string name="anci_clirbgtint_style_title">Material dismiss background tint</string>
+    <string name="anci_clirbgtint_color_title">Material dismiss background color</string>
+    <string name="anci_clir_tintbg_default">Default</string>
+    <string name="anci_clir_tintbg_type1">Accent</string>
+    <string name="anci_clir_tintbg_type2">Random</string>
+    <string name="anci_clir_tintbg_type3">Custom Color</string>
+
+    <string name="polum_left_switch_title">Volume Panel Left Side</string>
+    <string name="polum_left_switch_sum">move volume panel to left side</string>	
     
 </resources>
