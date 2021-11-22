@@ -377,9 +377,15 @@
         <item>@string/status_bar_battery_style_landscapec</item> 
         <item>@string/status_bar_battery_style_landscaped</item>
         <item>@string/status_bar_battery_style_landscapee</item>    
-	   <item>@string/status_bar_battery_style_landscapef</item>     
+	<item>@string/status_bar_battery_style_landscapef</item>     
         <item>@string/status_bar_battery_style_landscapeg</item> 
 	<item>@string/status_bar_battery_style_landscapeh</item>     
+	<item>@string/status_bar_battery_style_landscapei</item> 
+        <item>@string/status_bar_battery_style_landscapej</item>
+        <item>@string/status_bar_battery_style_landscapek</item>    
+	<item>@string/status_bar_battery_style_landscapel</item>     
+        <item>@string/status_bar_battery_style_landscapem</item> 
+	<item>@string/status_bar_battery_style_landscapen</item>  
         <item>@string/status_bar_battery_style_text</item>
         <item>@string/status_bar_battery_style_hidden</item>
     </string-array>
@@ -399,7 +405,13 @@
         <item>11</item>    
 	<item>12</item>
         <item>13</item>  
-	<item>14</item>     
+	<item>14</item> 
+	<item>15</item>
+        <item>16</item>
+        <item>17</item>    
+	<item>18</item>
+        <item>19</item>  
+	<item>20</item>    
     </string-array>
 	
     <!-- carging symbol -->
