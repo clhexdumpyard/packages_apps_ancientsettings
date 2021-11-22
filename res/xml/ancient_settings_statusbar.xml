@@ -48,6 +48,12 @@
             android:entries="@array/status_bar_battery_style_entries"
             android:entryValues="@array/status_bar_battery_style_values"
             android:defaultValue="0" />
+         
+         <com.ancient.settings.preferences.SystemSettingSwitchPreference
+            android:key="FLIPLAYOUTBATRE"
+            android:title="@string/flip_batre_title"
+            android:summary="@string/flip_batre_summary"
+            android:defaultValue="0" /> 
 
          <com.ancient.settings.preferences.SystemSettingListPreference
             android:key="status_bar_show_battery_percent"
@@ -56,6 +62,47 @@
             android:entries="@array/battery_percent_entries"
             android:entryValues="@array/battery_percent_values"
             android:defaultValue="0" />
+	    
+	 <com.ancient.settings.preferences.SystemSettingSwitchPreference
+            android:key="CUSTOM_CHARGE_SWITCH"
+            android:title="@string/custom_icon_charging_title"
+            android:summary="@string/custom_icon_charging_summary"
+            android:defaultValue="false" /> 
+     
+        <com.ancient.settings.preferences.SystemSettingListPreference
+            android:key="CUSTOM_CHARGE_STYLE"                             
+            android:defaultValue="0"
+            android:dependency="CUSTOM_CHARGE_SWITCH"                                                      
+	    android:entries="@array/custom_icon_charging_style_entries"           
+            android:entryValues="@array/custom_icon_charging_style_values"              
+            android:title="@string/custom_icon_charging_style_title"/> 
+
+         <com.ancient.settings.preferences.SystemSettingListPreference
+            android:key="CUSTOM_CHARGE_SYMBOL"                             
+            android:defaultValue="0"                                                     
+	    android:entries="@array/custom_icon_charging_symbol_entries"           
+            android:entryValues="@array/custom_icon_charging_symbol_values"              
+            android:title="@string/custom_icon_charging_symbol_title"/>
+	
+        <com.ancient.settings.preferences.SystemSettingSwitchPreference
+            android:key="CUSTOM_BLEND_COLOR"
+            android:title="@string/custom_blend_color_title"
+            android:summary="@string/custom_blend_color_summary"
+            android:defaultValue="false" /> 
+            
+	 <net.margaritov.preference.colorpicker.ColorPickerPreference 
+            android:title="@string/custom_color_fill_title" 
+            android:key="FILL_BLEND_COLOR"  
+            android:dependency="CUSTOM_BLEND_COLOR"
+            android:defaultValue="0xFF00FF00" 
+             />  
+	    
+	 <net.margaritov.preference.colorpicker.ColorPickerPreference 
+            android:title="@string/custom_color_charging_title" 
+            android:key="CHARGING_BLEND_COLOR"  
+            android:dependency="CUSTOM_BLEND_COLOR"
+            android:defaultValue="0xFF00FF00" 
+             />   
 
     </PreferenceCategory>
 

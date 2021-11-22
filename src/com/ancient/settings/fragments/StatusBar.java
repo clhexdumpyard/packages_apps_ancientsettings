@@ -32,6 +32,8 @@ import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceScreen;
 import androidx.preference.SwitchPreference;
 
+import net.margaritov.preference.colorpicker.ColorPickerPreference;
+
 import com.android.internal.logging.nano.MetricsProto;
 
 import com.android.settings.R;
@@ -42,15 +44,19 @@ public class StatusBar extends SettingsPreferenceFragment implements
 
     private static final String PREF_STATUS_BAR_SHOW_BATTERY_PERCENT = "status_bar_show_battery_percent";
     private static final String PREF_STATUS_BAR_BATTERY_STYLE = "status_bar_battery_style";
+    private static final String CHARGING_BLEND_COLOR = "CHARGING_BLEND_COLOR";
+    private static final String FILL_BLEND_COLOR = "FILL_BLEND_COLOR";
 
     private static final int BATTERY_STYLE_PORTRAIT = 0;
-    private static final int BATTERY_STYLE_TEXT = 4;
-    private static final int BATTERY_STYLE_HIDDEN = 5;
+    private static final int BATTERY_STYLE_TEXT = 13;
+    private static final int BATTERY_STYLE_HIDDEN = 14;
     private static final int BATTERY_PERCENT_HIDDEN = 0;
 
     private ListPreference mBatteryPercent;
     private ListPreference mBatteryStyle;
     private int mBatteryPercentValue;
+    private ColorPickerPreference mblendCC;
+    private ColorPickerPreference mblendFC;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -76,6 +82,33 @@ public class StatusBar extends SettingsPreferenceFragment implements
 
         mBatteryPercent.setEnabled(
                 batterystyle != BATTERY_STYLE_TEXT && batterystyle != BATTERY_STYLE_HIDDEN);
+        
+        mblendCC = (ColorPickerPreference) findPreference(CHARGING_BLEND_COLOR);
+        int blendCC = Settings.System.getInt(getContentResolver(),
+                "CHARGING_BLEND_COLOR", 0xFF00FF00);
+        mblendCC.setNewPreviewColor(blendCC);
+        mblendCC.setAlphaSliderEnabled(true);
+        String blendCCHex = String.format("#%08x", (0xFF00FF00 & blendCC));
+        if (blendCCHex.equals("#FF00FF00")) {
+            mblendCC.setSummary(R.string.color_default);
+        } else {
+            mblendCC.setSummary(blendCCHex);
+        }
+        mblendCC.setOnPreferenceChangeListener(this);
+        
+        mblendFC = (ColorPickerPreference) findPreference(FILL_BLEND_COLOR);
+        int blendFC = Settings.System.getInt(getContentResolver(),
+                "FILL_BLEND_COLOR", 0xFF00FF00);
+        mblendFC.setNewPreviewColor(blendFC);
+        mblendFC.setAlphaSliderEnabled(true);
+        String blendFCHex = String.format("#%08x", (0xFF00FF00 & blendFC));
+        if (blendFCHex.equals("#FF00FF00")) {
+            mblendFC.setSummary(R.string.color_default);
+        } else {
+            mblendFC.setSummary(blendCCHex);
+        }
+        mblendFC.setOnPreferenceChangeListener(this);   
+        
     }
 
     @Override
@@ -99,6 +132,30 @@ public class StatusBar extends SettingsPreferenceFragment implements
             int index = mBatteryPercent.findIndexOfValue((String) newValue);
             mBatteryPercent.setSummary(mBatteryPercent.getEntries()[index]);
             return true;
+        } else if (preference == mblendCC) {
+            String blendCC = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            if (blendCC.equals("#FF00FF00")) {
+                preference.setSummary(R.string.color_default);
+            } else {
+                preference.setSummary(blendCC);
+            }
+            int intblendCC = ColorPickerPreference.convertToColorInt(blendCC);
+            Settings.System.putInt(getContentResolver(),
+                    "CHARGING_BLEND_COLOR", intblendCC);
+            return true;   
+        } else if (preference == mblendFC) {
+            String blendFC = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            if (blendFC.equals("#FF00FF00")) {
+                preference.setSummary(R.string.color_default);
+            } else {
+                preference.setSummary(blendFC);
+            }
+            int intblendFC = ColorPickerPreference.convertToColorInt(blendFC);
+            Settings.System.putInt(getContentResolver(),
+                    "FILL_BLEND_COLOR", intblendFC);
+            return true; 
         }
         return false;
     }
