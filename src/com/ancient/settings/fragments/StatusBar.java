@@ -33,7 +33,9 @@ import androidx.preference.PreferenceScreen;
 import androidx.preference.SwitchPreference;
 
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
+import com.ancient.settings.preferences.SystemSettingSwitchPreference;
 
+import com.android.internal.util.ancient.AncientUtils;
 import com.android.internal.logging.nano.MetricsProto;
 
 import com.android.settings.R;
@@ -51,6 +53,7 @@ public class StatusBar extends SettingsPreferenceFragment implements
     private static final String KEY_STATUS_BAR_LOGO = "status_bar_logo";
     private static final String CHARGING_BLEND_COLOR = "CHARGING_BLEND_COLOR";
     private static final String FILL_BLEND_COLOR = "FILL_BLEND_COLOR";
+    private static final String CUSTOM_BLEND_COLOR = "CUSTOM_BLEND_COLOR";
 
     private static final int BATTERY_STYLE_PORTRAIT = 0;
     private static final int BATTERY_STYLE_TEXT = 19;
@@ -64,6 +67,7 @@ public class StatusBar extends SettingsPreferenceFragment implements
     private SwitchPreference mShowAncientLogo;
     private ColorPickerPreference mblendCC;
     private ColorPickerPreference mblendFC;
+    private SystemSettingSwitchPreference mblendSwitch;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -124,7 +128,10 @@ public class StatusBar extends SettingsPreferenceFragment implements
         } else {
             mblendFC.setSummary(blendCCHex);
         }
-        mblendFC.setOnPreferenceChangeListener(this);   
+        mblendFC.setOnPreferenceChangeListener(this);  
+        
+         mblendSwitch = (SystemSettingSwitchPreference) findPreference(CUSTOM_BLEND_COLOR);
+        mblendSwitch.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -170,6 +177,7 @@ public class StatusBar extends SettingsPreferenceFragment implements
             int intblendCC = ColorPickerPreference.convertToColorInt(blendCC);
             Settings.System.putInt(getContentResolver(),
                     "CHARGING_BLEND_COLOR", intblendCC);
+            AncientUtils.showSystemUiRestartDialog(getContext());
             return true;   
         } else if (preference == mblendFC) {
             String blendFC = ColorPickerPreference.convertToARGB(
@@ -182,7 +190,11 @@ public class StatusBar extends SettingsPreferenceFragment implements
             int intblendFC = ColorPickerPreference.convertToColorInt(blendFC);
             Settings.System.putInt(getContentResolver(),
                     "FILL_BLEND_COLOR", intblendFC);
+            AncientUtils.showSystemUiRestartDialog(getContext());
             return true; 
+        } else if  (preference == mblendSwitch) {
+            AncientUtils.showSystemUiRestartDialog(getContext());
+            return true;
         }
         return false;
     }
