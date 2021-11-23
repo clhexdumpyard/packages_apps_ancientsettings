@@ -722,5 +722,9 @@
     <string name="bg_clock2">Single Color</string>
     <string name="bg_clock3">Gradient Top to Bottom</string>
     <string name="bg_clock4">Gradient Left to Right</string>
+
+    <!-- Allow to suppress notifications sound/vibration if screen is ON -->
+    <string name="notification_sound_vib_screen_on_title">Notification sound if active</string>
+    <string name="notification_sound_vib_screen_on_summary">Play sound and vibration for notifications when screen is on</string>
     
 </resources>
