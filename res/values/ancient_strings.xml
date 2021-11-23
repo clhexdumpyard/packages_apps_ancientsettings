@@ -715,5 +715,9 @@
     <string name="statusbar_icons_style_summary">Choose the style of your statusbar icons (requires SystemUI restart)</string>
     <string name="header_icons_style">Colored Header Icons</string>
     <string name="header_icons_style_summary">Choose the style of your notification headers icons (requires SystemUI restart)</string>
+
+    <!-- Annoying Notifs -->
+    <string name="notification_sound_vib_screen_on_title">Annoying Notifications</string>
+    <string name="notification_sound_vib_screen_on_summary">Play sound and vibration for notifications when screen is on</string>
     
 </resources>
