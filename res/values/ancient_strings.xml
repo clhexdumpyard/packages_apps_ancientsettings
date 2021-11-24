@@ -715,5 +715,12 @@
     <string name="statusbar_icons_style_summary">Choose the style of your statusbar icons (requires SystemUI restart)</string>
     <string name="header_icons_style">Colored Header Icons</string>
     <string name="header_icons_style_summary">Choose the style of your notification headers icons (requires SystemUI restart)</string>
+	
+    <!-- Custom clock bg -->
+    <string name="bg_clock_title">Background</string>
+    <string name="bg_clock1">Accent</string>
+    <string name="bg_clock2">Single Color</string>
+    <string name="bg_clock3">Gradient Top to Bottom</string>
+    <string name="bg_clock4">Gradient Left to Right</string>
     
 </resources>
