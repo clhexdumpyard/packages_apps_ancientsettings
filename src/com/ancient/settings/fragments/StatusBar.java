@@ -15,6 +15,8 @@
  */
 package com.ancient.settings.fragments;
 
+import static android.os.UserHandle.USER_CURRENT;
+
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -75,6 +77,8 @@ public class StatusBar extends SettingsPreferenceFragment implements
     private ColorPickerPreference mblendCC;
     private ColorPickerPreference mblendFC;
     private SystemSettingSwitchPreference mblendSwitch;
+    
+    private IOverlayManager mOverlayService;  
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -82,6 +86,9 @@ public class StatusBar extends SettingsPreferenceFragment implements
         addPreferencesFromResource(R.xml.ancient_settings_statusbar);
         PreferenceScreen prefSet = getPreferenceScreen();
         ContentResolver resolver = getActivity().getContentResolver();
+        
+        mOverlayService = IOverlayManager.Stub
+                .asInterface(ServiceManager.getService(Context.OVERLAY_SERVICE));
 
         int batterystyle = Settings.System.getIntForUser(getContentResolver(),
                 Settings.System.STATUS_BAR_BATTERY_STYLE, BATTERY_STYLE_PORTRAIT, UserHandle.USER_CURRENT);
