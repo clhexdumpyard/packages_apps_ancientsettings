@@ -145,7 +145,9 @@ public class StatusBar extends SettingsPreferenceFragment implements
         }
         mblendFC.setOnPreferenceChangeListener(this);  
         
-         mblendSwitch = (SystemSettingSwitchPreference) findPreference(CUSTOM_BLEND_COLOR);
+        mblendSwitch = (SystemSettingSwitchPreference) findPreference(CUSTOM_BLEND_COLOR);
+        mblendSwitch.setChecked((Settings.System.getInt(getContentResolver(),
+        "CUSTOM_BLEND_COLOR", 0) == 1));
         mblendSwitch.setOnPreferenceChangeListener(this);
     }
 
@@ -216,16 +218,16 @@ public class StatusBar extends SettingsPreferenceFragment implements
             }
             return true; 
         } else if  (preference == mblendSwitch) {
-            int mmk = Integer.parseInt((String) newValue);
-            Settings.System.putIntForUser(resolver,
-                "CUSTOM_BLEND_COLOR", mmk, UserHandle.USER_CURRENT);
-            if (mmk == 0) {
+            boolean valuecrot = (Boolean) newValue;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    "CUSTOM_BLEND_COLOR", valuecrot ? 1 : 0);
+            if (valuecrot == 0) {
                    try {
                       mOverlayService.setEnabled(CUSTOM_BLEND_OVERLAY, false, USER_CURRENT);   
                    } catch (RemoteException re) {
                       throw re.rethrowFromSystemServer();
                    }
-            } else if (mmk == 1) {
+            } else if (valuecrot == 1) {
                    try {
                        mOverlayService.setEnabledExclusiveInCategory(CUSTOM_BLEND_OVERLAY, USER_CURRENT);    
                    } catch (RemoteException re) {
