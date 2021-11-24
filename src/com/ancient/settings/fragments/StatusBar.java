@@ -221,13 +221,13 @@ public class StatusBar extends SettingsPreferenceFragment implements
             boolean valuecrot = (Boolean) newValue;
             Settings.System.putInt(getActivity().getContentResolver(),
                     "CUSTOM_BLEND_COLOR", valuecrot ? 1 : 0);
-            if (valuecrot == 0) {
+            if (valuecrot == false) {
                    try {
                       mOverlayService.setEnabled(CUSTOM_BLEND_OVERLAY, false, USER_CURRENT);   
                    } catch (RemoteException re) {
                       throw re.rethrowFromSystemServer();
                    }
-            } else if (valuecrot == 1) {
+            } else if (valuecrot == true) {
                    try {
                        mOverlayService.setEnabledExclusiveInCategory(CUSTOM_BLEND_OVERLAY, USER_CURRENT);    
                    } catch (RemoteException re) {
