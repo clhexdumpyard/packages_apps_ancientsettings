@@ -195,7 +195,8 @@ public class StatusBar extends SettingsPreferenceFragment implements
             Settings.System.putInt(getContentResolver(),
                     "CHARGING_BLEND_COLOR", intblendCC);
             try {
-                mOverlayService.setEnabled(CHARGING_BLEND_OVERLAY, false, USER_CURRENT);    
+                mOverlayService.setEnabled(CHARGING_BLEND_OVERLAY, false, USER_CURRENT); 
+                mOverlayService.setEnabledExclusiveInCategory(FILL_BLEND_OVERLAY, USER_CURRENT);    
             } catch (RemoteException re) {
                 throw re.rethrowFromSystemServer();
             }
@@ -212,6 +213,7 @@ public class StatusBar extends SettingsPreferenceFragment implements
             Settings.System.putInt(getContentResolver(),
                     "FILL_BLEND_COLOR", intblendFC);
             try {
+                mOverlayService.setEnabled(FILL_BLEND_OVERLAY, false, USER_CURRENT); 
                 mOverlayService.setEnabledExclusiveInCategory(CHARGING_BLEND_OVERLAY, USER_CURRENT);    
             } catch (RemoteException re) {
                 throw re.rethrowFromSystemServer();
@@ -224,6 +226,8 @@ public class StatusBar extends SettingsPreferenceFragment implements
             if (valuecrot == false) {
                    try {
                       mOverlayService.setEnabled(CUSTOM_BLEND_OVERLAY, false, USER_CURRENT);   
+                      mOverlayService.setEnabled(CHARGING_BLEND_OVERLAY, false, USER_CURRENT);  
+                      mOverlayService.setEnabled(CHARGING_BLEND_OVERLAY, false, USER_CURRENT);    
                    } catch (RemoteException re) {
                       throw re.rethrowFromSystemServer();
                    }
