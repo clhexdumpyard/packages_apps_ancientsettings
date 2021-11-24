@@ -18,10 +18,13 @@ package com.ancient.settings.fragments;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.content.om.IOverlayManager;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.Bundle;
 import android.os.UserHandle;
+import android.os.RemoteException;
+import android.os.ServiceManager;
 import android.provider.Settings;
 
 import androidx.preference.*;
@@ -54,6 +57,10 @@ public class StatusBar extends SettingsPreferenceFragment implements
     private static final String CHARGING_BLEND_COLOR = "CHARGING_BLEND_COLOR";
     private static final String FILL_BLEND_COLOR = "FILL_BLEND_COLOR";
     private static final String CUSTOM_BLEND_COLOR = "CUSTOM_BLEND_COLOR";
+    
+    private static final String CHARGING_BLEND_OVERLAY = "charging.blend.on";
+    private static final String FILL_BLEND_OVERLAY = "fill.blend.on"; 
+    private static final String CUSTOM_BLEND_OVERLAY = "custom.blend.on";     
 
     private static final int BATTERY_STYLE_PORTRAIT = 0;
     private static final int BATTERY_STYLE_TEXT = 19;
@@ -177,7 +184,11 @@ public class StatusBar extends SettingsPreferenceFragment implements
             int intblendCC = ColorPickerPreference.convertToColorInt(blendCC);
             Settings.System.putInt(getContentResolver(),
                     "CHARGING_BLEND_COLOR", intblendCC);
-            AncientUtils.showSystemUiRestartDialog(getContext());
+            try {
+                mOverlayService.setEnabled(CHARGING_BLEND_OVERLAY, false, USER_CURRENT);    
+            } catch (RemoteException re) {
+                throw re.rethrowFromSystemServer();
+            }
             return true;   
         } else if (preference == mblendFC) {
             String blendFC = ColorPickerPreference.convertToARGB(
@@ -190,10 +201,29 @@ public class StatusBar extends SettingsPreferenceFragment implements
             int intblendFC = ColorPickerPreference.convertToColorInt(blendFC);
             Settings.System.putInt(getContentResolver(),
                     "FILL_BLEND_COLOR", intblendFC);
-            AncientUtils.showSystemUiRestartDialog(getContext());
+            try {
+                mOverlayService.setEnabledExclusiveInCategory(CHARGING_BLEND_OVERLAY, USER_CURRENT);    
+            } catch (RemoteException re) {
+                throw re.rethrowFromSystemServer();
+            }
             return true; 
         } else if  (preference == mblendSwitch) {
-            AncientUtils.showSystemUiRestartDialog(getContext());
+            int mmk = Integer.parseInt((String) newValue);
+            Settings.System.putIntForUser(resolver,
+                "CUSTOM_BLEND_COLOR", mmk, UserHandle.USER_CURRENT);
+            if (mmk == 0) {
+                   try {
+                      mOverlayService.setEnabled(CUSTOM_BLEND_OVERLAY, false, USER_CURRENT);   
+                   } catch (RemoteException re) {
+                      throw re.rethrowFromSystemServer();
+                   }
+            } else if (mmk == 1) {
+                   try {
+                       mOverlayService.setEnabledExclusiveInCategory(CUSTOM_BLEND_OVERLAY, USER_CURRENT);    
+                   } catch (RemoteException re) {
+                      throw re.rethrowFromSystemServer();
+                   }
+            }
             return true;
         }
         return false;
