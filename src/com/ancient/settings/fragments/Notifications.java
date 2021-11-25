@@ -47,6 +47,7 @@ import com.ancient.settings.preferences.SystemSettingSwitchPreference;
 import com.ancient.settings.preferences.CustomSeekBarPreference;
 
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
+import com.android.internal.util.ancient.AncientUtils;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -63,12 +64,16 @@ public class Notifications extends SettingsPreferenceFragment
     public static final String TAG = "Notifications";
     private static final String NOTIFICATION_MATERIAL_DISMISS_COLOR_STYLE = "NOTIFICATION_MATERIAL_DISMISS_COLOR_STYLE";
     private static final String NOTIFICATION_MATERIAL_DISMISS_COLOR_BGSTYLE = "NOTIFICATION_MATERIAL_DISMISS_COLOR_BGSTYLE";
-
+    private static final String STATUSBAR_ICONS_STYLE = "STATUSBAR_ICONS_STYLE";
+    private static final String HEADER_ICONS_STYLE = "HEADER_ICONS_STYLE";
+    
     private static final String INCALL_VIB_OPTIONS = "incall_vib_options";
 
     private Preference mChargingLeds;
     private ColorPickerPreference mCColorIc;
     private ColorPickerPreference mCColorBg;
+    private SystemSettingSwitchPreference mSBColorIc;
+    private SystemSettingSwitchPreference mHEADColorIc;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -115,6 +120,12 @@ public class Notifications extends SettingsPreferenceFragment
             mCColorBg.setSummary(mbacaColorHexpikasa);
         }
         mCColorBg.setOnPreferenceChangeListener(this);
+        
+        mSBColorIc = (SwitchPreference) findPreference(STATUSBAR_ICONS_STYLE);
+        mSBColorIc.setOnPreferenceChangeListener(this);
+        
+         mHEADColorIc = (SwitchPreference) findPreference(HEADER_ICONS_STYLE);
+        mHEADColorIc.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -143,6 +154,12 @@ public class Notifications extends SettingsPreferenceFragment
             int intHexapikasa = ColorPickerPreference.convertToColorInt(hexapikasa);
             Settings.System.putInt(getContentResolver(),
                     "NOTIFICATION_MATERIAL_DISMISS_COLOR_BGSTYLE", intHexapikasa);
+            return true; 
+        } else if (preference == mSBColorIc) {
+            AncientUtils.showSystemUiRestartDialog(getContext());
+            return true; 
+        } else if (preference == mHEADColorIc) {
+            AncientUtils.showSystemUiRestartDialog(getContext());
             return true; 
         }
         return false;
