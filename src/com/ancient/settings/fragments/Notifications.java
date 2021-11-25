@@ -121,10 +121,10 @@ public class Notifications extends SettingsPreferenceFragment
         }
         mCColorBg.setOnPreferenceChangeListener(this);
         
-        mSBColorIc = (SwitchPreference) findPreference(STATUSBAR_ICONS_STYLE);
+        mSBColorIc = (SystemSettingSwitchPreference) findPreference(STATUSBAR_ICONS_STYLE);
         mSBColorIc.setOnPreferenceChangeListener(this);
         
-         mHEADColorIc = (SwitchPreference) findPreference(HEADER_ICONS_STYLE);
+         mHEADColorIc = (SystemSettingSwitchPreference) findPreference(HEADER_ICONS_STYLE);
         mHEADColorIc.setOnPreferenceChangeListener(this);
     }
 
