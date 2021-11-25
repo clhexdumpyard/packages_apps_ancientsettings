@@ -656,10 +656,10 @@
     <string name="custom_icon_charging_type9">IDC</string>
 	
     <!-- custom charging N fill color -->
-    <string name="custom_color_charging_title">Charging Color (restart ui)</string>
-    <string name="custom_color_fill_title">Fill Color (restart ui)</string>
+    <string name="custom_color_charging_title">Charging Color</string>
+    <string name="custom_color_fill_title">Fill Color</string>
     <string name="custom_blend_color_title">Custom Color Battery Level</string>
-    <string name="custom_blend_color_summary">restart ui to take effect</string>
+    <string name="custom_blend_color_summary">switch on-off if no effect</string>
 	
     <!-- OOS style material dismiss all button for notifications -->
     <string name="notification_material_dismiss_button_title">Material dimiss button</string>
