@@ -371,6 +371,21 @@
         <item>@string/status_bar_battery_style_circle</item>
         <item>@string/status_bar_battery_style_dotted_circle</item>
         <item>@string/status_bar_battery_style_filled_circle</item>
+        <item>@string/status_bar_battery_style_landscape</item> 
+        <item>@string/status_bar_battery_style_landscapea</item> 
+        <item>@string/status_bar_battery_style_landscapeb</item> 
+        <item>@string/status_bar_battery_style_landscapec</item> 
+        <item>@string/status_bar_battery_style_landscaped</item>
+        <item>@string/status_bar_battery_style_landscapee</item>    
+        <item>@string/status_bar_battery_style_landscapef</item>     
+        <item>@string/status_bar_battery_style_landscapeg</item> 
+        <item>@string/status_bar_battery_style_landscapeh</item>     
+        <item>@string/status_bar_battery_style_landscapei</item> 
+        <item>@string/status_bar_battery_style_landscapej</item>
+        <item>@string/status_bar_battery_style_landscapek</item>    
+        <item>@string/status_bar_battery_style_landscapel</item>     
+        <item>@string/status_bar_battery_style_landscapem</item> 
+        <item>@string/status_bar_battery_style_landscapen</item>  
         <item>@string/status_bar_battery_style_text</item>
         <item>@string/status_bar_battery_style_hidden</item>
     </string-array>
@@ -382,6 +397,151 @@
         <item>3</item>
         <item>4</item>
         <item>5</item>
+        <item>6</item> 
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>    
+        <item>12</item>
+        <item>13</item>  
+        <item>14</item> 
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>    
+        <item>18</item>
+        <item>19</item>  
+        <item>20</item>    
+    </string-array>
+	
+    <!-- carging symbol -->
+    <string-array name="custom_icon_charging_symbol_entries" translatable="false">
+        <item>@string/custom_symbol_charging_default</item>
+        <item>@string/custom_symbol_charging_type1</item>
+        <item>@string/custom_symbol_charging_type2</item>  
+        <item>@string/custom_symbol_charging_type3</item>
+        <item>@string/custom_symbol_charging_type4</item>
+        <item>@string/custom_symbol_charging_type5</item>     
+        <item>@string/custom_symbol_charging_type6</item>
+        <item>@string/custom_symbol_charging_type7</item>  
+        <item>@string/custom_symbol_charging_type8</item>
+        <item>@string/custom_symbol_charging_type9</item>         
+    </string-array>
+
+    <string-array name="custom_icon_charging_symbol_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>    
+        <item>3</item>
+        <item>4</item> 
+        <item>5</item>
+        <item>6</item>    
+        <item>7</item>
+        <item>8</item>  
+        <item>9</item>    
+    </string-array>
+	
+    <!-- anci custom charging ikon styles -->
+    <string-array name="custom_icon_charging_style_entries" translatable="false">
+        <item>@string/custom_icon_charging_default</item>
+        <item>@string/custom_icon_charging_type1</item>
+        <item>@string/custom_icon_charging_type2</item>  
+        <item>@string/custom_icon_charging_type3</item>
+        <item>@string/custom_icon_charging_type4</item>
+        <item>@string/custom_icon_charging_type5</item>     
+        <item>@string/custom_icon_charging_type6</item>
+        <item>@string/custom_icon_charging_type7</item>  
+        <item>@string/custom_icon_charging_type8</item>
+        <item>@string/custom_icon_charging_type9</item>         
+    </string-array>
+
+    <string-array name="custom_icon_charging_style_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>    
+        <item>3</item>
+        <item>4</item> 
+        <item>5</item>
+        <item>6</item>    
+        <item>7</item>
+        <item>8</item>  
+        <item>9</item>    
+    </string-array>
+	
+    <!-- anci clir styles -->
+    <string-array name="anci_clir_entries" translatable="false">
+        <item>@string/anci_clir_default</item>
+        <item>@string/anci_clir_type1</item>
+        <item>@string/anci_clir_type2</item>  
+        <item>@string/anci_clir_type3</item>
+        <item>@string/anci_clir_type4</item>
+        <item>@string/anci_clir_type5</item>     
+        <item>@string/anci_clir_type6</item>
+        <item>@string/anci_clir_type7</item>  
+        <item>@string/anci_clir_type8</item>
+        <item>@string/anci_clir_type9</item>
+        <item>@string/anci_clir_type10</item>         
+    </string-array>
+
+    <string-array name="anci_clir_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>    
+        <item>3</item>
+        <item>4</item> 
+        <item>5</item>
+        <item>6</item>    
+        <item>7</item>
+        <item>8</item>  
+        <item>9</item>
+        <item>10</item>    
+    </string-array>
+	
+    <!-- anci clirtint styles -->
+    <string-array name="anci_clir_tint_entries" translatable="false">
+        <item>@string/anci_clir_tint_default</item>
+        <item>@string/anci_clir_tint_type1</item>
+        <item>@string/anci_clir_tint_type2</item>  
+        <item>@string/anci_clir_tint_type3</item>      
+    </string-array>
+
+    <string-array name="anci_clir_tint_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>    
+        <item>3</item>   
+    </string-array>
+	
+    <!-- anci clirtintbg styles -->
+    <string-array name="anci_clir_tintbg_entries" translatable="false">
+        <item>@string/anci_clir_tintbg_default</item>
+        <item>@string/anci_clir_tintbg_type1</item>
+        <item>@string/anci_clir_tintbg_type2</item>  
+        <item>@string/anci_clir_tintbg_type3</item>      
+    </string-array>
+
+    <string-array name="anci_clir_tintbg_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>    
+        <item>3</item>   
+    </string-array>
+	
+    <!-- anci clirbg styles -->
+    <string-array name="anci_clirbg_entries" translatable="false">
+        <item>@string/anci_clirbg_default</item>
+        <item>@string/anci_clirbg_type1</item>
+        <item>@string/anci_clirbg_type2</item>  
+        <item>@string/anci_clirbg_type3</item>
+        <item>@string/anci_clirbg_type4</item>         
+    </string-array>
+
+    <string-array name="anci_clirbg_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>    
+        <item>3</item>
+        <item>4</item>    
     </string-array>
 
     <!-- Carrier Label -->
@@ -414,6 +574,20 @@
        <item>2</item>
        <item>3</item>
        <item>4</item>
+    </string-array>
+	
+    <string-array name="bg_clock_entries" translatable="false">
+        <item>@string/bg_clock1</item>
+        <item>@string/bg_clock2</item>  
+        <item>@string/bg_clock3</item>
+        <item>@string/bg_clock4</item> 
+    </string-array>   
+
+    <string-array name="bg_clock_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
     </string-array>
 
 </resources>

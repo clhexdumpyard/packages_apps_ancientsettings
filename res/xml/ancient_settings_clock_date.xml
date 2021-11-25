@@ -74,5 +74,4 @@
             android:entries="@array/clock_date_position_entries"
             android:entryValues="@array/clock_date_position_values"
             android:dependency="statusbar_clock" />
-
 </PreferenceScreen>

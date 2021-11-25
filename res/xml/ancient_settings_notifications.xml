@@ -17,6 +17,68 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
 	android:title="@string/notifications_title">
+	
+	<com.ancient.settings.preferences.SystemSettingSwitchPreference
+            android:key="STATUSBAR_ICONS_STYLE"
+            android:title="@string/statusbar_icons_style"
+            android:summary="@string/statusbar_icons_style_summary"
+            android:defaultValue="true" />
+	
+	<com.ancient.settings.preferences.SystemSettingSwitchPreference
+            android:key="HEADER_ICONS_STYLE"
+            android:title="@string/header_icons_style"
+            android:summary="@string/header_icons_style_summary"
+            android:defaultValue="true" />  
+
+       <com.ancient.settings.preferences.SystemSettingSwitchPreference
+            android:key="NOTIFICATION_MATERIAL_DISMISS"
+            android:defaultValue="false"
+            android:title="@string/notification_material_dismiss_button_title"
+            android:summary="@string/notification_material_dismiss_button_summary" />
+	    
+       <com.ancient.settings.preferences.SystemSettingListPreference
+           android:key="NOTIFICATION_MATERIAL_DISMISS_STYLE"
+           android:title="@string/anci_clir_style_title"						      
+	   android:dependency="NOTIFICATION_MATERIAL_DISMISS"							      
+           android:entries="@array/anci_clir_entries"
+           android:entryValues="@array/anci_clir_values"
+           android:defaultValue="0" />     
+	    
+	<com.ancient.settings.preferences.SystemSettingListPreference
+           android:key="NOTIFICATION_MATERIAL_DISMISS_BGSTYLE"
+           android:title="@string/anci_clirbg_style_title"					      
+	   android:dependency="NOTIFICATION_MATERIAL_DISMISS"							      
+           android:entries="@array/anci_clirbg_entries"
+           android:entryValues="@array/anci_clirbg_values"
+           android:defaultValue="0" />   
+	    
+        <com.ancient.settings.preferences.SystemSettingListPreference
+           android:key="NOTIFICATION_MATERIAL_DISMISS_TINT_STYLE"
+           android:title="@string/anci_clirtint_style_title"						      
+	   android:dependency="NOTIFICATION_MATERIAL_DISMISS"							      
+           android:entries="@array/anci_clir_tint_entries"
+           android:entryValues="@array/anci_clir_tint_values"
+           android:defaultValue="0" />     
+	    
+	<com.ancient.settings.preferences.SystemSettingListPreference
+           android:key="NOTIFICATION_MATERIAL_DISMISS_TINT_BGSTYLE"
+           android:title="@string/anci_clirbgtint_style_title"						      
+	   android:dependency="NOTIFICATION_MATERIAL_DISMISS"							      
+           android:entries="@array/anci_clir_tintbg_entries"
+           android:entryValues="@array/anci_clir_tintbg_values"
+           android:defaultValue="0" />  
+	    
+	<net.margaritov.preference.colorpicker.ColorPickerPreference 
+            android:title="@string/anci_clirtint_color_title"
+            android:key="NOTIFICATION_MATERIAL_DISMISS_COLOR_STYLE" 
+            android:defaultValue="0x00000000" 
+            android:dependency="NOTIFICATION_MATERIAL_DISMISS" /> 
+         
+        <net.margaritov.preference.colorpicker.ColorPickerPreference 
+            android:defaultValue="0x00000000"
+	    android:dependency="NOTIFICATION_MATERIAL_DISMISS"						     
+            android:key="NOTIFICATION_MATERIAL_DISMISS_COLOR_BGSTYLE"                                                          
+            android:title="@string/anci_clirbgtint_color_title" />   
 
     <com.ancient.settings.preferences.SystemSettingSwitchPreference
         android:key="notification_headers"
