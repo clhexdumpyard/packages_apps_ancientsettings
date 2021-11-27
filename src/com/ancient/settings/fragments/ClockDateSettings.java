@@ -176,15 +176,15 @@ public class ClockDateSettings extends SettingsPreferenceFragment
         // Adjust status bar preferences for RTL
         if (getResources().getConfiguration().getLayoutDirection() == View.LAYOUT_DIRECTION_RTL) {
             if (hasNotch && !(notchType == BOUNDS_POSITION_LEFT || notchType == BOUNDS_POSITION_RIGHT)) {
-                mStatusBarClockStyle.setEntries(R.array.statusbar_clock_style_entries_notch_rtl);
-                mStatusBarClockStyle.setEntryValues(R.array.statusbar_clock_style_values_notch_rtl);
+                mStatusBarClockStyle.setEntries(R.array.statusbar_clock_style_entries_rtl);
+                mStatusBarClockStyle.setEntryValues(R.array.statusbar_clock_style_entries_rtl);
             } else {
                 mStatusBarClockStyle.setEntries(R.array.statusbar_clock_style_entries_rtl);
                 mStatusBarClockStyle.setEntryValues(R.array.statusbar_clock_style_values_rtl);
             }
         } else if (hasNotch && !(notchType == BOUNDS_POSITION_LEFT || notchType == BOUNDS_POSITION_RIGHT)) {
-            mStatusBarClockStyle.setEntries(R.array.statusbar_clock_style_entries_notch);
-            mStatusBarClockStyle.setEntryValues(R.array.statusbar_clock_style_values_notch);
+            mStatusBarClockStyle.setEntries(R.array.statusbar_clock_style_entries_rtl);
+            mStatusBarClockStyle.setEntryValues(R.array.statusbar_clock_style_entries_rtl);
         }
     }
 
