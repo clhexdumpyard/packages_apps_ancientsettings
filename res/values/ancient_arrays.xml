@@ -386,6 +386,7 @@
         <item>@string/status_bar_battery_style_landscapel</item>     
         <item>@string/status_bar_battery_style_landscapem</item> 
         <item>@string/status_bar_battery_style_landscapen</item>  
+	<item>@string/status_bar_battery_style_landscapeo</item>      
         <item>@string/status_bar_battery_style_text</item>
         <item>@string/status_bar_battery_style_hidden</item>
     </string-array>
@@ -411,7 +412,8 @@
         <item>17</item>    
         <item>18</item>
         <item>19</item>  
-        <item>20</item>    
+        <item>20</item>   
+	<item>20</item>      
     </string-array>
 	
     <!-- carging symbol -->
