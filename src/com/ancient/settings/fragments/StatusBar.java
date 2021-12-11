@@ -62,8 +62,8 @@ public class StatusBar extends SettingsPreferenceFragment implements
     private static final String CUSTOM_BLEND_COLOR = "CUSTOM_BLEND_COLOR";
     
     private static final int BATTERY_STYLE_PORTRAIT = 0;
-    private static final int BATTERY_STYLE_TEXT = 20;
-    private static final int BATTERY_STYLE_HIDDEN = 21;
+    private static final int BATTERY_STYLE_TEXT = 21;
+    private static final int BATTERY_STYLE_HIDDEN = 22;
     private static final int BATTERY_PERCENT_HIDDEN = 0;
 
     private ListPreference mBatteryPercent;
