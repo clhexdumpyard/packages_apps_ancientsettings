@@ -22,10 +22,17 @@
         android:key="monel_category"
         android:title="Monet">
 
+      <com.ancient.settings.preferences.SystemSettingSwitchPreference
+          android:key="monet_engine"
+          android:title="@string/monet_engine_title"
+          android:summary="@string/monet_engine_summary"
+          android:defaultValue="true" />
+
       <com.ancient.settings.preferences.SecureSettingSwitchPreference
           android:key="monet_engine_custom_color"
           android:title="@string/monet_engine_custom_color_title"
           android:summary="@string/monet_engine_custom_color_summary"
+          android:dependency="monet_engine"
           android:defaultValue="false" />
 
       <net.margaritov.preference.colorpicker.ColorPickerPreference
@@ -40,11 +47,13 @@
           android:defaultValue="425"
           android:max="1000"
           settings:min="200"
+          android:dependency="monet_engine"
           settings:interval="100"/>
 
       <com.ancient.settings.preferences.SecureSettingSwitchPreference
           android:key="monet_engine_accurate_shades"
           android:title="@string/monet_engine_accurate_shades_title"
+          android:dependency="monet_engine"
           android:defaultValue="true" />
 
       <com.ancient.settings.preferences.SecureSettingSeekBarPreference
@@ -53,11 +62,13 @@
           android:defaultValue="100"
           android:max="400"
           settings:min="50"
+          android:dependency="monet_engine"
           settings:interval="50"/>
 
       <com.ancient.settings.preferences.SecureSettingSwitchPreference
           android:key="monet_engine_linear_lightness"
           android:title="@string/monet_engine_linear_lightness_title"
+          android:dependency="monet_engine"
           android:defaultValue="false" />
 
     </PreferenceCategory>

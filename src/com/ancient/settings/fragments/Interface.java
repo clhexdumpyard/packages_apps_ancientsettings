@@ -45,6 +45,9 @@ import com.android.settings.SettingsPreferenceFragment;
 
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
+import com.android.internal.util.ancient.AncientUtils;
+import com.ancient.settings.preferences.SystemSettingSwitchPreference;
+
 import com.android.settings.R;
 
 import java.util.ArrayList;
@@ -56,10 +59,12 @@ public class Interface extends SettingsPreferenceFragment implements OnPreferenc
     public static final String TAG = "Interface";
 
     private String MONET_ENGINE_COLOR_OVERRIDE = "monet_engine_color_override";
+    private static final String MONET_ENGINE = "monet_engine";
 
     private Context mContext;
 
     private ColorPickerPreference mMonetColor;
+    private SystemSettingSwitchPreference mMonetEngine;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -77,6 +82,11 @@ public class Interface extends SettingsPreferenceFragment implements OnPreferenc
         mMonetColor.setNewPreviewColor(intColor);
         mMonetColor.setSummary(hexColor);
         mMonetColor.setOnPreferenceChangeListener(this);
+
+        mMonetEngine = (SystemSettingSwitchPreference) findPreference(MONET_ENGINE);
+        mMonetEngine.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.MONET_ENGINE, 1) == 1));
+        mMonetEngine.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -89,6 +99,12 @@ public class Interface extends SettingsPreferenceFragment implements OnPreferenc
             int intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.Secure.putInt(resolver,
                 MONET_ENGINE_COLOR_OVERRIDE, intHex);
+            return true;
+        } else if (preference == mMonetEngine) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.MONET_ENGINE, value ? 1 : 0);
+            AncientUtils.showSystemUiRestartDialog(getContext());
             return true;
         }
         return false;
