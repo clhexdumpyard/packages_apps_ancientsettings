@@ -60,10 +60,13 @@ public class StatusBar extends SettingsPreferenceFragment implements
     private static final String CHARGING_BLEND_COLOR = "CHARGING_BLEND_COLOR";
     private static final String FILL_BLEND_COLOR = "FILL_BLEND_COLOR";
     private static final String CUSTOM_BLEND_COLOR = "CUSTOM_BLEND_COLOR";
+    private static final String OPACY_PERIM_SWITCH = "OPACY_PERIM_SWITCH";
+    private static final String RAINBOW_FILL_SWITCH = "RAINBOW_FILL_SWITCH";
     
     private static final int BATTERY_STYLE_PORTRAIT = 0;
-    private static final int BATTERY_STYLE_TEXT = 22;
-    private static final int BATTERY_STYLE_HIDDEN = 23;
+    private static final int BATTERY_STYLE_MIUI = 22;
+    private static final int BATTERY_STYLE_TEXT = 23;
+    private static final int BATTERY_STYLE_HIDDEN = 24;
     private static final int BATTERY_PERCENT_HIDDEN = 0;
 
     private ListPreference mBatteryPercent;
@@ -74,6 +77,8 @@ public class StatusBar extends SettingsPreferenceFragment implements
     private ColorPickerPreference mblendCC;
     private ColorPickerPreference mblendFC;
     private SystemSettingSwitchPreference mblendSwitch;
+    private SystemSettingSwitchPreference mpSwitch;
+    private SystemSettingSwitchPreference mrSwitch;
     
     private IOverlayManager mOverlayService;  
 
@@ -145,6 +150,22 @@ public class StatusBar extends SettingsPreferenceFragment implements
         mblendSwitch.setChecked((Settings.System.getInt(getContentResolver(),
         "CUSTOM_BLEND_COLOR", 0) == 1));
         mblendSwitch.setOnPreferenceChangeListener(this);
+        
+        mpSwitch = (SystemSettingSwitchPreference) findPreference(OPACY_PERIM_SWITCH);
+        mpSwitch.setChecked((Settings.System.getInt(getContentResolver(),
+        "OPACY_PERIM_SWITCH", 0) == 1));
+        mpSwitch.setOnPreferenceChangeListener(this);
+        mpSwitch.setDisabled(
+                batterystyle != BATTERY_STYLE_MIUI);
+        
+        mrSwitch = (SystemSettingSwitchPreference) findPreference(RAINBOW_FILL_SWITCH);
+        mrSwitch.setChecked((Settings.System.getInt(getContentResolver(),
+        "RAINBOW_FILL_SWITCH", 0) == 1));
+        mrSwitch.setOnPreferenceChangeListener(this);
+        mrSwitch.setDisabled(
+                batterystyle != BATTERY_STYLE_MIUI);
+        
+        
     }
 
     @Override
@@ -211,7 +232,19 @@ public class StatusBar extends SettingsPreferenceFragment implements
                     "CUSTOM_BLEND_COLOR", valuecrot ? 1 : 0);
             AncientUtils.showSystemUiRestartDialog(getContext());
             return true;
-        }
+        } else if  (preference == mpSwitch) {
+            boolean valuemek = (Boolean) newValue;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    "OPACY_PERIM_SWITCH", valuemek ? 1 : 0);
+            AncientUtils.showSystemUiRestartDialog(getContext());
+            return true;
+        } else if  (preference == mrSwitch) {
+            boolean valuemek = (Boolean) newValue;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    "RAINBOW_FILL_SWITCH", valuemek ? 1 : 0);
+            AncientUtils.showSystemUiRestartDialog(getContext());
+            return true;
+        } 
         return false;
     }
 
