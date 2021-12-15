@@ -88,6 +88,18 @@
 	    android:entries="@array/custom_icon_charging_symbol_entries"           
             android:entryValues="@array/custom_icon_charging_symbol_values"              
             android:title="@string/custom_icon_charging_symbol_title"/>
+	    
+	<com.ancient.settings.preferences.SystemSettingSwitchPreference
+            android:key="OPACY_PERIM_SWITCH"
+            android:title="@string/custom_perim_opacy_title"
+            android:summary="@string/custom_perim_opacy_summary"
+            android:defaultValue="false" />  
+	    
+	<com.ancient.settings.preferences.SystemSettingSwitchPreference
+            android:key="RAINBOW_FILL_SWITCH"
+            android:title="@string/custom_rainbow_title"
+            android:summary="@string/custom_rainbow_summary"
+            android:defaultValue="false" />      
 	
         <com.ancient.settings.preferences.SystemSettingSwitchPreference
             android:key="CUSTOM_BLEND_COLOR"
