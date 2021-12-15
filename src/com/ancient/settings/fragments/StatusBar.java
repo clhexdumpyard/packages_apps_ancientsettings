@@ -159,15 +159,7 @@ public class StatusBar extends SettingsPreferenceFragment implements
         mrSwitch = (SystemSettingSwitchPreference) findPreference(RAINBOW_FILL_SWITCH);
         mrSwitch.setChecked((Settings.System.getInt(getContentResolver(),
         "RAINBOW_FILL_SWITCH", 0) == 1));
-        mrSwitch.setOnPreferenceChangeListener(this);
-        
-        if (batterystyle = BATTERY_STYLE_MIUI) {
-            mpSwitch.setEnabled(true);
-            mrSwitch.setEnabled(true);
-        } else {
-            mpSwitch.setEnabled(false);
-            mrSwitch.setEnabled(false);
-        }   
+        mrSwitch.setOnPreferenceChangeListener(this);  
         
     }
 
