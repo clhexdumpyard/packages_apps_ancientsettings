@@ -16,6 +16,8 @@
  */
 package com.ancient.settings.fragments;
 
+import static android.os.UserHandle.USER_CURRENT;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -23,6 +25,7 @@ import android.content.ContentResolver;
 import android.content.om.IOverlayManager;
 import android.content.om.OverlayInfo;
 import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Resources;
 import android.graphics.Color;
@@ -43,6 +46,7 @@ import androidx.preference.SwitchPreference;
 import com.android.internal.logging.nano.MetricsProto; 
 import com.android.settings.SettingsPreferenceFragment;
 
+import com.ancient.settings.preferences.SystemSettingSwitchPreference;
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
 import com.android.settings.R;
@@ -56,10 +60,17 @@ public class Interface extends SettingsPreferenceFragment implements OnPreferenc
     public static final String TAG = "Interface";
 
     private String MONET_ENGINE_COLOR_OVERRIDE = "monet_engine_color_override";
+    
+    private static final String HOMEPAGE_THEME = "HOMEPAGE_THEME";
+    
+    private static final String HOMEPAGE_THEME_OVERLAY = "com.idc.settings.hompage.stock";   
 
     private Context mContext;
-
+    
+    private SystemSettingSwitchPreference mhomeSwitch;
     private ColorPickerPreference mMonetColor;
+    
+    private IOverlayManager mOverlayService;  
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -71,12 +82,20 @@ public class Interface extends SettingsPreferenceFragment implements OnPreferenc
         final ContentResolver resolver = getActivity().getContentResolver();
         final PreferenceScreen screen = getPreferenceScreen();
 
+        mOverlayService = IOverlayManager.Stub
+                .asInterface(ServiceManager.getService(Context.OVERLAY_SERVICE));
+        
         mMonetColor = (ColorPickerPreference) screen.findPreference(MONET_ENGINE_COLOR_OVERRIDE);
         int intColor = Settings.Secure.getInt(resolver, MONET_ENGINE_COLOR_OVERRIDE, Color.WHITE);
         String hexColor = String.format("#%08x", (0xffffff & intColor));
         mMonetColor.setNewPreviewColor(intColor);
         mMonetColor.setSummary(hexColor);
         mMonetColor.setOnPreferenceChangeListener(this);
+        
+        mhomeSwitch = (SystemSettingSwitchPreference) findPreference(HOMEPAGE_THEME);
+        mhomeSwitch.setChecked((Settings.System.getInt(getContentResolver(),
+        "HOMEPAGE_THEME", 1) == 1));
+        mhomeSwitch.setOnPreferenceChangeListener(this);  
     }
 
     @Override
@@ -90,7 +109,25 @@ public class Interface extends SettingsPreferenceFragment implements OnPreferenc
             Settings.Secure.putInt(resolver,
                 MONET_ENGINE_COLOR_OVERRIDE, intHex);
             return true;
-        }
+        } else if  (preference == mhomeSwitch) {
+            boolean valuetil = (Boolean) newValue;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    "RAINBOW_FILL_SWITCH", valuetil ? 1 : 0);
+            if (valuetil == true) {
+                   try {
+                      mOverlayService.setEnabled(HOMEPAGE_THEME_OVERLAY, false, USER_CURRENT);   
+                   } catch (RemoteException re) {
+                      throw re.rethrowFromSystemServer();
+                   }
+            } else {
+                   try {
+                      mOverlayService.setEnabledExclusiveInCategory(HOMEPAGE_THEME_OVERLAY, USER_CURRENT);   
+                   } catch (RemoteException re) {
+                      throw re.rethrowFromSystemServer();
+                   }
+            }
+            return true;
+        } 
         return false;
     }
 
