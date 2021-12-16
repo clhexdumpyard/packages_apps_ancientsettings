@@ -17,6 +17,18 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/interface_title"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+     
+    <PreferenceCategory
+        android:key="home_category"
+        android:title="Home Page">
+
+      <com.ancient.settings.preferences.SystemSettingSwitchPreference
+          android:key="HOMEPAGE_THEME"
+          android:title="@string/homepage_theme_title"
+          android:summary="@string/homepage_theme_summary"
+          android:defaultValue="true" />
+
+    </PreferenceCategory>
 
     <PreferenceCategory
         android:key="monel_category"
