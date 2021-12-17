@@ -22,6 +22,7 @@
 	
     <!-- Categories -->
     <string name="about_title">About</string>
+    <string name="addon_title">Addon</string>
     <string name="animations_title">Animations</string>
     <string name="buttons_title">Buttons</string>
     <string name="gestures_title">Gestures</string>
