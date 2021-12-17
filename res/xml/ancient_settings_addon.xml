@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<!-- Copyright (C) 2019 Rebellion-OS
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+          http://www.apache.org/licenses/LICENSE-2.0
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License. 
+--> 
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/addon_title"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+     
+    <PreferenceCategory
+            android:key="addqsfeatures"
+            android:title="Additional Quick Settings Features" >
+  
+        <com.ancient.settings.preferences.SystemSettingSwitchPreference
+            android:key="ANCIENT_UI_SWITCH"
+            android:title="@string/anciui_switch_title"
+            android:summary="@string/anciui_switch_summary"
+            android:defaultValue="false" />
+        
+        <com.ancient.settings.preferences.SystemSettingListPreference
+            android:key="ANCIENT_UI_CLOCK_STYLE"                                                    
+            android:title="@string/anciui_clock_switch_title"
+            android:summary="%s"
+            android:dialogTitle="@string/anciui_clock_switch_title"
+            android:entries="@array/anciui_clock_switch_entries"
+            android:dependency="ANCIENT_UI_SWITCH"                                                     
+            android:entryValues="@array/anciui_clock_switch_values"
+            android:defaultValue="0" />
+        
+        <com.ancient.settings.preferences.SystemSettingListPreference
+            android:key="ANCIENT_UI_CLOCK_GRAVITY"                                                    
+            android:title="@string/anciui_clock_grav_title"
+            android:summary="%s"
+            android:dialogTitle="@string/anciui_clock_grav_title"
+            android:entries="@array/anciui_clock_grav_entries"
+            android:dependency="ANCIENT_UI_SWITCH"                                                     
+            android:entryValues="@array/anciui_clock_grav_values"
+            android:defaultValue="2" />
+    
+        <com.ancient.settings.preferences.SystemSettingListPreference
+            android:key="ANCIENT_UI_ANIMATE_STYLE"                                                   
+            android:title="@string/anciui_animate_switch_title"
+            android:summary="%s"
+            android:dialogTitle="@string/anciui_animate_switch_title"
+            android:entries="@array/anciui_animate_switch_entries"
+            android:dependency="ANCIENT_UI_SWITCH"                                                     
+            android:entryValues="@array/anciui_animate_switch_values"
+            android:defaultValue="0" />
+
+        <com.ancient.settings.preferences.SystemSettingListPreference
+            android:key="QS_TILE_CUSTOM_BACKGROUND"                                                    
+            android:title="@string/qstile_style_title"
+            android:summary="%s"
+            android:dialogTitle="@string/qstile_style_title"
+            android:entries="@array/qstile_style_entries"
+            android:entryValues="@array/qstile_style_values"
+            android:defaultValue="0" />
+	    
+	<com.ancient.settings.preferences.SystemSettingSwitchPreference
+            android:key="SHOW_CLOCK_DATA"
+            android:title="@string/qsclockdata_switch_title"
+            android:summary="@string/qsclockdata_switch_summary"
+            android:defaultValue="false" />
+        
+    </PreferenceCategory>
+    
+    <PreferenceCategory
+            android:key="addnotiffeatures"
+            android:title="Additional Notifications Features" >
+
+        <com.ancient.settings.preferences.SystemSettingSwitchPreference
+            android:key="NOTIFICATION_FULLWIDTH_INLAND"
+            android:title="@string/notif_land_title"
+            android:summary="@string/notif_land_summary"
+            android:defaultValue="false" />
+        
+    </PreferenceCategory>
+    
+    <PreferenceCategory
+            android:key="addsbfeatures"
+            android:title="Additional StatusBar Features" >
+        
+   <com.ancient.settings.preferences.SystemSettingListPreference
+            android:key="STATUSBAR_DUAL_STYLE"                                                    
+            android:title="@string/statusbar_dual_style_title"
+            android:summary="%s"
+            android:dialogTitle="@string/statusbar_dual_style_title"
+            android:entries="@array/statusbar_dual_style_entries"                                        
+            android:entryValues="@array/statusbar_dual_style_values"
+            android:defaultValue="0" />  
+        
+    <com.ancient.settings.preferences.SystemSettingListPreference
+            android:key="STATUSBAR_HEIGHT_STYLE"                                                     
+            android:title="@string/statusbar_height_style_title"
+            android:summary="%s"
+            android:dialogTitle="@string/statusbar_height_style_title"
+            android:entries="@array/statusbar_height_style_entries"                                        
+            android:entryValues="@array/statusbar_height_style_values"
+            android:defaultValue="0" />      
+        
+    <com.ancient.settings.preferences.SystemSettingListPreference
+            android:key="STATUSBAR_ICON_STYLE"                                                     
+            android:title="@string/statusbar_icon_style_title"
+            android:summary="%s"
+            android:dialogTitle="@string/statusbar_icon_style_title"
+            android:entries="@array/statusbar_icon_style_entries"                                        
+            android:entryValues="@array/statusbar_icon_style_values"
+            android:defaultValue="0" /> 
+        
+    <com.ancient.settings.preferences.SystemSettingListPreference
+            android:key="STATUSBAR_DATA_STYLE"                                                     
+            android:title="@string/statusbar_data_style_title"
+            android:summary="%s"
+            android:dialogTitle="@string/statusbar_data_style_title"
+            android:entries="@array/statusbar_data_style_entries"                                        
+            android:entryValues="@array/statusbar_data_style_values"
+            android:defaultValue="0" /> 
+        
+    <com.ancient.settings.preferences.SystemSettingSeekBarPreference 
+            android:max="50" 
+            android:min="-5" 						                                                             
+            android:title="@string/statbar_padding_left" 
+            android:key="SB_PADDING_KIRI"  
+            android:defaultValue="0" /> 
+         
+        <com.ancient.settings.preferences.SystemSettingSeekBarPreference 
+            android:max="50" 
+            android:min="-5"                                                              
+            android:title="@string/statbar_padding_right" 
+            android:key="SB_PADDING_KANAN" 
+            android:defaultValue="0" /> 
+
+    </PreferenceCategory>
+	
+    <PreferenceCategory
+            android:key="addsbclockfeatures"
+            android:title="Additional Clock Features" >
+	    
+       <com.ancient.settings.preferences.SystemSettingSwitchPreference 
+            android:title="StatusBar Clock Background" 
+            android:key="nabil_backgroundclocksb" 
+            android:defaultValue="false"  						    
+            android:summaryOn="Custom Background Enabled" 
+            android:summaryOff="Custom Background Disabled" />
+
+        <com.ancient.settings.preferences.SystemSettingListPreference 
+            android:entries="@array/bg_clock_entries" 
+            android:title="Style of Coloring" 
+            android:key="nabil_backgroundclocksb_list"  							      
+            android:summary="%s"
+            android:dependency="nabil_backgroundclocksb" 
+            android:defaultValue="1" 
+            android:entryValues="@array/bg_clock_values" />
+
+        <com.ancient.settings.preferences.SystemSettingSeekBarPreference 
+            android:max="30" 
+            android:title="Corner Radius"   	
+            android:key="nabil_backgroundclocksb_corner" 
+            android:dependency="nabil_backgroundclocksb" 
+            android:defaultValue="15" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference 
+            android:title="Custom One Color"   							
+            android:key="nabil_backgroundclocksb_color" 
+            android:dependency="nabil_backgroundclocksb" 
+            android:defaultValue="0x00000000" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference 
+            android:title="Custom Gradient Color 1"  							     
+            android:key="nabil_backgroundclocksb_gradient1" 
+            android:dependency="nabil_backgroundclocksb" 
+            android:defaultValue="0x00000000" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference 
+            android:title="Custom Gradient Color 2"   							     
+            android:key="nabil_backgroundclocksb_gradient2" 
+            android:dependency="nabil_backgroundclocksb" 
+            android:defaultValue="0x00000000" />
+
+        <com.ancient.settings.preferences.SystemSettingSeekBarPreference 
+            android:max="5" 
+            android:title="Stroke Width"  								 
+            android:key="nabil_backgroundclocksb_strokewidth" 
+            android:dependency="nabil_backgroundclocksb" 
+            android:defaultValue="2" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:title="Stroke Color"   							     
+            android:key="nabil_backgroundclocksb_strokecolor" 
+            android:dependency="nabil_backgroundclocksb" 
+            android:defaultValue="0x00000000" />
+
+        <com.ancient.settings.preferences.SystemSettingSeekBarPreference 
+            android:max="30" android:title="Padding Top" 								 
+            android:key="nabil_backgroundclocksb_paddingtb" 
+            android:dependency="nabil_backgroundclocksb" 
+            android:defaultValue="10" />
+	
+	      <com.ancient.settings.preferences.SystemSettingSeekBarPreference 
+            android:max="30" android:title="Padding Bottom" 								   
+            android:key="nabil_backgroundclocksb_paddingbb" 
+            android:dependency="nabil_backgroundclocksb" 
+            android:defaultValue="0" />
+
+        <com.ancient.settings.preferences.SystemSettingSeekBarPreference 
+            android:max="30"
+            android:title="Padding Left Right"  								 
+            android:key="nabil_backgroundclocksb_paddinglr" 
+            android:dependency="nabil_backgroundclocksb" 
+            android:defaultValue="10" />    
+	    
+     </PreferenceCategory>
+
+</PreferenceScreen>
