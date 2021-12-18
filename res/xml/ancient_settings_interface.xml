@@ -27,7 +27,7 @@
           android:title="@string/homepage_theme_title"
           android:entries="@array/homepage_theme_entries"                                                
             android:entryValues="@array/homepage_theme_values"
-            android:defaultValue="0" />
+            android:defaultValue="1" />
 
     </PreferenceCategory>
 
