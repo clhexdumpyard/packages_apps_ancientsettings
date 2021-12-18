@@ -22,11 +22,12 @@
         android:key="home_category"
         android:title="Home Page">
 
-      <com.ancient.settings.preferences.SystemSettingSwitchPreference
+      <com.ancient.settings.preferences.SystemSettingListPreference
           android:key="HOMEPAGE_THEME"
           android:title="@string/homepage_theme_title"
-          android:summary="@string/homepage_theme_summary"
-          android:defaultValue="true" />
+          android:entries="@array/homepage_theme_entries"                                                
+            android:entryValues="@array/homepage_theme_values"
+            android:defaultValue="0" />
 
     </PreferenceCategory>
 
