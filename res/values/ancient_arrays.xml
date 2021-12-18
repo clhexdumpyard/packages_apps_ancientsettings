@@ -597,5 +597,17 @@
         <item>2</item>
         <item>3</item>
     </string-array>
+	
+    <string-array name="homepage_theme_entries" translatable="false">
+        <item>@string/homepage_theme_default</item>
+        <item>@string/homepage_theme_stock</item>  
+        <item>@string/homepage_theme_anci11</item>
+    </string-array>   
+
+    <string-array name="homepage_theme_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
 
 </resources>
