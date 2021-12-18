@@ -117,7 +117,7 @@ public class Interface extends SettingsPreferenceFragment implements OnPreferenc
             int smhomeStyle = Integer.valueOf((String) newValue);
             Settings.System.putIntForUser(getContentResolver(),
                     "HOMEPAGE_THEME", smhomeStyle, UserHandle.USER_CURRENT);
-            mhomeSwitch.setSummary(idcDualBarStyle.getEntries()[smhomeStyle]);
+            mhomeSwitch.setSummary(mhomeSwitch.getEntries()[smhomeStyle]);
             if (smhomeStyle == 1) {
                    try {
                       mOverlayService.setEnabled(HOMEPAGE_THEME_OVERLAY, false, USER_CURRENT);
