@@ -46,7 +46,7 @@ import androidx.preference.SwitchPreference;
 import com.android.internal.logging.nano.MetricsProto; 
 import com.android.settings.SettingsPreferenceFragment;
 
-import com.ancient.settings.preferences.SystemSettingSwitchPreference;
+import com.ancient.settings.preferences.SystemSettingListPreference;
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
 import com.android.settings.R;
@@ -64,11 +64,11 @@ public class Interface extends SettingsPreferenceFragment implements OnPreferenc
     private static final String HOMEPAGE_THEME = "HOMEPAGE_THEME";
     
     private static final String HOMEPAGE_THEME_OVERLAY = "com.idc.settings.hompage.stock";
-    //private static final String HOMEPAGE_THEME_ANDROID_OVERLAY = "com.idc.android.hompage.stock";   
+    private static final String HOMEPAGE_THEME_ANDROID_OVERLAY = "com.idc.android.hompage.stock";   
 
     private Context mContext;
     
-    private SystemSettingSwitchPreference mhomeSwitch;
+    private SystemSettingListPreference mhomeSwitch;
     private ColorPickerPreference mMonetColor;
     
     private IOverlayManager mOverlayService;  
@@ -93,10 +93,13 @@ public class Interface extends SettingsPreferenceFragment implements OnPreferenc
         mMonetColor.setSummary(hexColor);
         mMonetColor.setOnPreferenceChangeListener(this);
         
-        mhomeSwitch = (SystemSettingSwitchPreference) findPreference(HOMEPAGE_THEME);
-        mhomeSwitch.setChecked((Settings.System.getInt(getContentResolver(),
-        "HOMEPAGE_THEME", 1) == 1));
-        mhomeSwitch.setOnPreferenceChangeListener(this);  
+        mhomeSwitch = (SystemSettingListPreference) findPreference("HOMEPAGE_THEME");
+        int smhomeStyle = Settings.System.getIntForUser(getContentResolver(),
+                "HOMEPAGE_THEME", 1, UserHandle.USER_CURRENT);
+        int valueIndexh = idcDualBarStyle.findIndexOfValue(String.valueOf(smhomeStyle));
+        mhomeSwitch.setValueIndex(valueIndexh >= 0 ? valueIndexh : 0);
+        mhomeSwitch.setSummary(mhomeSwitch.getEntry());
+        mhomeSwitch.setOnPreferenceChangeListener(this);
     }
 
     @Override
