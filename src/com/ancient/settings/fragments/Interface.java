@@ -96,7 +96,7 @@ public class Interface extends SettingsPreferenceFragment implements OnPreferenc
         mhomeSwitch = (SystemSettingListPreference) findPreference("HOMEPAGE_THEME");
         int smhomeStyle = Settings.System.getIntForUser(getContentResolver(),
                 "HOMEPAGE_THEME", 1, UserHandle.USER_CURRENT);
-        int valueIndexh = idcDualBarStyle.findIndexOfValue(String.valueOf(smhomeStyle));
+        int valueIndexh = mhomeSwitch.findIndexOfValue(String.valueOf(smhomeStyle));
         mhomeSwitch.setValueIndex(valueIndexh >= 0 ? valueIndexh : 0);
         mhomeSwitch.setSummary(mhomeSwitch.getEntry());
         mhomeSwitch.setOnPreferenceChangeListener(this);
@@ -114,20 +114,26 @@ public class Interface extends SettingsPreferenceFragment implements OnPreferenc
                 MONET_ENGINE_COLOR_OVERRIDE, intHex);
             return true;
         } else if  (preference == mhomeSwitch) {
-            boolean valuetil = (Boolean) newValue;
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    "RAINBOW_FILL_SWITCH", valuetil ? 1 : 0);
-            if (valuetil == true) {
+            int smhomeStyle = Integer.valueOf((String) newValue);
+            Settings.System.putIntForUser(getContentResolver(),
+                    "HOMEPAGE_THEME", smhomeStyle, UserHandle.USER_CURRENT);
+            mhomeSwitch.setSummary(idcDualBarStyle.getEntries()[smhomeStyle]);
+            if (smhomeStyle == 1) {
                    try {
                       mOverlayService.setEnabled(HOMEPAGE_THEME_OVERLAY, false, USER_CURRENT);
-                      //mOverlayService.setEnabled(HOMEPAGE_THEME_ANDROID_OVERLAY, false, USER_CURRENT); 
+                      mOverlayService.setEnabled(HOMEPAGE_THEME_ANDROID_OVERLAY, false, USER_CURRENT); 
+                   } catch (RemoteException re) {
+                      throw re.rethrowFromSystemServer();
+                   }
+            } else if (smhomeStyle == 2) {
+                   try {
+                      mOverlayService.setEnabledExclusiveInCategory(HOMEPAGE_THEME_ANDROID_OVERLAY, USER_CURRENT);   
                    } catch (RemoteException re) {
                       throw re.rethrowFromSystemServer();
                    }
             } else {
                    try {
                       mOverlayService.setEnabledExclusiveInCategory(HOMEPAGE_THEME_OVERLAY, USER_CURRENT); 
-                      //mOverlayService.setEnabledExclusiveInCategory(HOMEPAGE_THEME_ANDROID_OVERLAY, USER_CURRENT);   
                    } catch (RemoteException re) {
                       throw re.rethrowFromSystemServer();
                    }
