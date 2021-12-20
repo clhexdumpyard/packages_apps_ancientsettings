@@ -53,6 +53,66 @@
             android:entries="@array/status_bar_battery_style_entries"
             android:entryValues="@array/status_bar_battery_style_values"
             android:defaultValue="0" />
+	    
+	 <com.ancient.settings.preferences.SystemSettingSwitchPreference
+            android:key="IDC_BATTERY_USE_CUSTOM_DIMENSION"
+            android:title="@string/custom_battery_dimension_title"
+            android:summary="@string/custom_battery_dimension_summary"
+            android:defaultValue="0" />
+	    
+	 <com.ancient.settings.preferences.SystemSettingSeekBarPreference
+            android:key="IDC_BATTERY_CUSTOM_HEIGHT"
+            android:title="@string/custom_battery_height"
+            android:dependency="IDC_BATTERY_USE_CUSTOM_DIMENSION"
+            android:max="50"
+            android:min="10"
+            android:defaultValue="23"
+            settings:units="dp"/>   
+	    
+	<com.ancient.settings.preferences.SystemSettingSeekBarPreference
+            android:key="IDC_BATTERY_CUSTOM_WIDTH"
+            android:title="@string/custom_battery_width"
+            android:dependency="IDC_BATTERY_USE_CUSTOM_DIMENSION"
+            android:max="50"
+            android:min="10"
+            android:defaultValue="13"
+            settings:units="dp"/> 
+	    
+	 <com.ancient.settings.preferences.SystemSettingSeekBarPreference
+            android:key="IDC_BATTERY_CUSTOM_TOP"
+            android:title="@string/custom_battery_top"
+            android:dependency="IDC_BATTERY_USE_CUSTOM_DIMENSION"
+            android:max="10"
+            android:min="-10"
+            android:defaultValue="0"
+            settings:units="dp"/>   
+	    
+	<com.ancient.settings.preferences.SystemSettingSeekBarPreference
+            android:key="IDC_BATTERY_CUSTOM_BOTTOM"
+            android:title="@string/custom_battery_bottom"
+            android:dependency="IDC_BATTERY_USE_CUSTOM_DIMENSION"
+            android:max="10"
+            android:min="-10"
+            android:defaultValue="0"
+            settings:units="dp"/>
+	    
+	<com.ancient.settings.preferences.SystemSettingSeekBarPreference
+            android:key="IDC_BATTERY_CUSTOM_LEFT"
+            android:title="@string/custom_battery_left"
+            android:dependency="IDC_BATTERY_USE_CUSTOM_DIMENSION"
+            android:max="10"
+            android:min="-10"
+            android:defaultValue="0"
+            settings:units="dp"/>   
+	    
+	<com.ancient.settings.preferences.SystemSettingSeekBarPreference
+            android:key="IDC_BATTERY_CUSTOM_RIGHT"
+            android:title="@string/custom_battery_right"
+            android:dependency="IDC_BATTERY_USE_CUSTOM_DIMENSION"
+            android:max="10"
+            android:min="-10"
+            android:defaultValue="0"
+            settings:units="dp"/>      
          
          <com.ancient.settings.preferences.SystemSettingSwitchPreference
             android:key="FLIPLAYOUTBATRE"
