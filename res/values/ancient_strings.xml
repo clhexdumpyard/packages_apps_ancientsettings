@@ -629,6 +629,8 @@
     <string name="notification_headers_summary">Show headers in the notification shade</string>
 	
     <!-- flip it -->
+    <string name="flip_batre_image_title">Battery Image</string>
+    <string name="flip_batre_image_summary">flip the battery image</string>
     <string name="flip_batre_title">Battery Layout</string>
     <string name="flip_batre_summary">flip the battery layout</string>
 	
