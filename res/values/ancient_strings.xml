@@ -36,6 +36,7 @@
     <string name="statusbar_title">Status Bar</string>
     <string name="battery_title">Battery</string>
     <string name="interface_title">Themes</string>
+    <string name="udfps_category">Fingerprint On Display</string>
 
     <!-- About -->
     <string name="developers_category_title">Developers</string>
@@ -735,6 +736,16 @@
     <string name="show_lockscreen_media_art_title">Show media art</string>
     <string name="lockscreen_media_art_options_title">Lockscreen media art</string>
     
+    <!-- Udfps animations -->
+    <string name="udfps_recog_animation">FOD animation</string>
+    <string name="udfps_recog_animation_summary">Shows an animation while reading your finger</string>
+    <string name="udfps_recog_animation_effect_title">FOD animation effect</string>
+    <string name="udfps_recog_animation_effect_summary">Choose animation effect</string>
+
+    <!-- Udfps icon picker -->
+    <string name="udfps_icon_picker_title">FOD icon picker</string>
+    <string name="udfps_icon_picker_summary">Choose your favorite fingerprint icon</string>
+
     <!-- Allow fake signature -->
     <string name="allow_signature_fake">Allow signature spoofing</string>
     <string name="allow_signature_fake_summary">Allow apps to bypass security systems by pretending to be a different app.</string>
