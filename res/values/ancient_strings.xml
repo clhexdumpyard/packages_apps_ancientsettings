@@ -752,4 +752,8 @@
     <string name="vowifi_icon_vivo">Vivo</string>
     <string name="vowifi_icon_margaritov">Margaritov</string>
 
+    <!-- Notification count -->
+    <string name="status_bar_notif_count_title">Show notification count</string>
+    <string name="status_bar_notif_count_summary">Display the number of pending notifications</string>
+
 </resources>

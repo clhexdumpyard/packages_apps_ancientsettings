@@ -17,6 +17,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
 	android:title="@string/notifications_title">
+
+	<com.ancient.settings.preferences.SystemSettingSwitchPreference
+            android:key="status_bar_notif_count"
+            android:title="@string/status_bar_notif_count_title"
+            android:summary="@string/status_bar_notif_count_summary"
+            android:defaultValue="false" />
 	
 	<com.ancient.settings.preferences.SystemSettingSwitchPreference
             android:key="STATUSBAR_ICONS_STYLE"
