@@ -114,6 +114,12 @@
             android:defaultValue="0"
             settings:units="dp"/>      
          
+	  <com.ancient.settings.preferences.SystemSettingSwitchPreference
+            android:key="IDC_BATTERY_CUSTOM_FLIPDRAW"
+            android:title="@string/flip_batre_image_title"
+            android:summary="@string/flip_batre_image_summary"
+            android:defaultValue="0" />
+	    
          <com.ancient.settings.preferences.SystemSettingSwitchPreference
             android:key="FLIPLAYOUTBATRE"
             android:title="@string/flip_batre_title"
