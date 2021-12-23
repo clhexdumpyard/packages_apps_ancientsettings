@@ -754,7 +754,7 @@
     <string name="homepage_theme_stock">Stock aosp A12 look</string>
     <string name="homepage_theme_anci11">Collapse Anci A11</string>
 	
-    <!-- custo batre dimen -->
+    <!-- custom batre dimen -->
     <string name="custom_battery_dimension_title">Battery Custom Dimension</string>
     <string name="custom_battery_dimension_summary">use custom addjustable dimen values</string>
     <string name="custom_battery_height">Height</string>
@@ -763,5 +763,11 @@
     <string name="custom_battery_bottom">Margin Bottom</string>
     <string name="custom_battery_left">Margin Left</string>
     <string name="custom_battery_right">Margin Right</string>
+	
+    <!-- custom signal dimen -->
+    <string name="custom_signal_dimension_title">Signal Icon Custom Dimension</string>
+    <string name="custom_signal_dimension_summary">use custom addjustable dimen values</string>
+    <string name="custom_signal_height">Height</string>
+    <string name="custom_signal_width">Width</string>
 
 </resources>
