@@ -803,4 +803,8 @@
     <string name="gaming_mode_danmaku_blacklist">Blacklist</string>
     <string name="add_package_to_title">Add application</string>
 
+    <!-- Long swipe gestures -->
+    <string name="navbar_gesture_tweaks_pref_title">Advanced gestures options</string>
+    <string name="navbar_gesture_tweaks_pref_summary">Customize gestures and set custom actions</string>
+
 </resources>
