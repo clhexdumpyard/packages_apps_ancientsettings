@@ -795,4 +795,8 @@
     <string name="custom_fp_select_title">Select Custom FOD Icon</string>
     <string name="custom_fp_select_summary">Select custom image from your saved files or gallery</string>
 
+    <!-- Long swipe gestures -->
+    <string name="navbar_gesture_tweaks_pref_title">Advanced gestures options</string>
+    <string name="navbar_gesture_tweaks_pref_summary">Customize gestures and set custom actions</string>
+
 </resources>
