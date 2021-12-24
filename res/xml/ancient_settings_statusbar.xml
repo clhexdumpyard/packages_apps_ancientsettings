@@ -216,6 +216,30 @@
             android:min="0"
             android:defaultValue="15"
             settings:units="dp"/> 
+	    
+	 <com.ancient.settings.preferences.SystemSettingSwitchPreference
+            android:key="IDC_WIFI_CUSTOM_DIMENSION"
+            android:title="@string/custom_wifi_dimension_title"
+            android:summary="@string/custom_wifi_dimension_summary"
+            android:defaultValue="0" />
+	    
+	 <com.ancient.settings.preferences.SystemSettingSeekBarPreference
+            android:key="IDC_WIFI_HEIGHT"
+            android:title="@string/custom_wifi_height"
+            android:dependency="IDC_WIFI_CUSTOM_DIMENSION"
+            android:max="50"
+            android:min="0"
+            android:defaultValue="20"
+            settings:units="dp"/>   
+	    
+	<com.ancient.settings.preferences.SystemSettingSeekBarPreference
+            android:key="IDC_WIFI_WIDTH"
+            android:title="@string/custom_wifi_width"
+            android:dependency="IDC_WIFI_CUSTOM_DIMENSION"
+            android:max="50"
+            android:min="0"
+            android:defaultValue="20"
+            settings:units="dp"/> 
 
 	 <SwitchPreference
              android:key="status_bar_logo"
