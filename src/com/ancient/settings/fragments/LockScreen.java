@@ -70,11 +70,13 @@ public class LockScreen extends SettingsPreferenceFragment implements
     private static final String CUSTOM_FOD_ICON_KEY = "custom_fp_icon_enabled";
     private static final String CUSTOM_FP_FILE_SELECT = "custom_fp_file_select";
     private static final int REQUEST_PICK_IMAGE = 0;
+    private static final String AOD_SCHEDULE_KEY = "always_on_display_schedule";
 
     private Preference mCustomFPImage;
     private SystemSettingSwitchPreference mCustomFodIcon;
     private Preference mUdfpsIconPicker;
     private FingerprintManager mFingerprintManager;
+    Preference mAODPref;
     private SwitchPreference mFingerprintSuccessVib;
     private SwitchPreference mFingerprintErrorVib;
     private SystemSettingSwitchPreference mUdfpsHapticFeedback;
@@ -146,6 +148,9 @@ public class LockScreen extends SettingsPreferenceFragment implements
         if (!udfpsResPkgInstalled) {
             prefSet.removePreference(udfps);
         }
+
+        mAODPref = findPreference(AOD_SCHEDULE_KEY);
+        updateAlwaysOnSummary();
     }
 
     @Override
@@ -157,6 +162,29 @@ public class LockScreen extends SettingsPreferenceFragment implements
             return true;
         }
         return super.onPreferenceTreeClick(preference);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        updateAlwaysOnSummary();
+    }
+
+    private void updateAlwaysOnSummary() {
+        if (mAODPref == null) return;
+        int mode = Settings.Secure.getIntForUser(getActivity().getContentResolver(),
+                Settings.Secure.DOZE_ALWAYS_ON_AUTO_MODE, 0, UserHandle.USER_CURRENT);
+        switch (mode) {
+            case 0:
+                mAODPref.setSummary(R.string.disabled);
+                break;
+            case 1:
+                mAODPref.setSummary(R.string.night_display_auto_mode_twilight);
+                break;
+            case 2:
+                mAODPref.setSummary(R.string.night_display_auto_mode_custom);
+                break;
+        }
     }
 
     @Override
