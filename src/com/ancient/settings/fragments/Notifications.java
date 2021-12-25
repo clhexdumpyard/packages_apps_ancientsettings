@@ -45,6 +45,7 @@ import com.android.settingslib.search.SearchIndexable;
 import com.ancient.settings.preferences.SystemSettingListPreference;
 import com.ancient.settings.preferences.SystemSettingSwitchPreference;
 import com.ancient.settings.preferences.CustomSeekBarPreference;
+import com.ancient.settings.preferences.SystemSettingMasterSwitchPreference;
 
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 import com.android.internal.util.ancient.AncientUtils;
@@ -68,12 +69,14 @@ public class Notifications extends SettingsPreferenceFragment
     private static final String HEADER_ICONS_STYLE = "HEADER_ICONS_STYLE";
     
     private static final String INCALL_VIB_OPTIONS = "incall_vib_options";
+    private static final String KEY_EDGE_LIGHTNING = "pulse_ambient_light";
 
     private Preference mChargingLeds;
     private ColorPickerPreference mCColorIc;
     private ColorPickerPreference mCColorBg;
     private SystemSettingSwitchPreference mSBColorIc;
     private SystemSettingSwitchPreference mHEADColorIc;
+    private SystemSettingMasterSwitchPreference mEdgeLightning;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -126,6 +129,13 @@ public class Notifications extends SettingsPreferenceFragment
         
          mHEADColorIc = (SystemSettingSwitchPreference) findPreference(HEADER_ICONS_STYLE);
         mHEADColorIc.setOnPreferenceChangeListener(this);
+
+        mEdgeLightning = (SystemSettingMasterSwitchPreference)
+                findPreference(KEY_EDGE_LIGHTNING);
+        boolean enabled = Settings.System.getIntForUser(resolver,
+                KEY_EDGE_LIGHTNING, 0, UserHandle.USER_CURRENT) == 1;
+        mEdgeLightning.setChecked(enabled);
+        mEdgeLightning.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -161,6 +171,11 @@ public class Notifications extends SettingsPreferenceFragment
         } else if (preference == mHEADColorIc) {
             AncientUtils.showSystemUiRestartDialog(getContext());
             return true; 
+        } else if (preference == mEdgeLightning) {
+            boolean value = (Boolean) objValue;
+            Settings.System.putIntForUser(resolver, KEY_EDGE_LIGHTNING,
+                    value ? 1 : 0, UserHandle.USER_CURRENT);
+            return true;
         }
         return false;
     }
