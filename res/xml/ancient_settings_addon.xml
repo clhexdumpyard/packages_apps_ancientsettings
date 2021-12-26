@@ -69,6 +69,15 @@
             android:title="@string/qsclockdata_switch_title"
             android:summary="@string/qsclockdata_switch_summary"
             android:defaultValue="false" />
+	    
+	<com.ancient.settings.preferences.SystemSettingListPreference
+            android:key="BRIGHTNESS_STYLES"                                                    
+            android:title="@string/brightness_style_title"
+            android:summary="%s"
+            android:dialogTitle="@string/brightness_style_title"
+            android:entries="@array/brightness_style_entries"
+            android:entryValues="@array/brightness_style_values"
+            android:defaultValue="0" />
         
     </PreferenceCategory>
     
