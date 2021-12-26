@@ -231,6 +231,15 @@
             android:min="0"
             android:defaultValue="20"
             settings:units="dp"/>   
+
+         <com.ancient.settings.preferences.SystemSettingSeekBarPreference
+            android:key="IDC_WIFI_TOP"
+            android:title="@string/custom_battery_top"
+            android:dependency="IDC_WIFI_CUSTOM_DIMENSION"
+            android:max="10"
+            android:min="-10"
+            android:defaultValue="0"
+            settings:units="dp"/>   
 	    
 	<com.ancient.settings.preferences.SystemSettingSeekBarPreference
             android:key="IDC_WIFI_WIDTH"
