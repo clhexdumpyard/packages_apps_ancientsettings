@@ -22,6 +22,7 @@
 	
     <!-- Categories -->
     <string name="about_title">About</string>
+    <string name="addon_title">Addon</string>
     <string name="animations_title">Animations</string>
     <string name="buttons_title">Buttons</string>
     <string name="gestures_title">Gestures</string>
@@ -503,6 +504,10 @@
     <string name="status_bar_battery_style_landscapel">Sparate</string>
     <string name="status_bar_battery_style_landscapem">Gore</string>
     <string name="status_bar_battery_style_landscapen">Tadika Mesra</string>
+    <string name="status_bar_battery_style_landscapeo">Pelangi NING MATAMU</string>
+    <string name="status_bar_battery_style_landscapep">Fake Battery Buddy</string>
+    <string name="status_bar_battery_style_landscapeq">Rainbow Fake Battery Buddy</string>
+    <string name="status_bar_battery_style_landscaper">Miui V2</string>
     <string name="status_bar_battery_style_text">Text</string>
     <string name="status_bar_battery_style_hidden">Hidden</string>
 
@@ -629,6 +634,8 @@
     <string name="notification_headers_summary">Show headers in the notification shade</string>
 	
     <!-- flip it -->
+    <string name="flip_batre_image_title">Battery Image</string>
+    <string name="flip_batre_image_summary">flip the battery image</string>
     <string name="flip_batre_title">Battery Layout</string>
     <string name="flip_batre_summary">flip the battery layout</string>
 	
@@ -665,6 +672,10 @@
     <string name="custom_color_fill_title">Fill Color</string>
     <string name="custom_blend_color_title">Custom Color Battery Level</string>
     <string name="custom_blend_color_summary">switch on-off if no effect</string>
+    <string name="custom_perim_opacy_title">Perimeter Alpha</string>
+    <string name="custom_perim_opacy_summary">for Miui V2 only</string>
+    <string name="custom_rainbow_title">Rainbow Color</string>
+    <string name="custom_rainbow_summary">for Miui V2 only</string>
 	
     <!-- OOS style material dismiss all button for notifications -->
     <string name="notification_material_dismiss_button_title">Material dimiss button</string>
@@ -758,6 +769,35 @@
     <!-- Allow fake signature -->
     <string name="allow_signature_fake">Allow signature spoofing</string>
     <string name="allow_signature_fake_summary">Allow apps to bypass security systems by pretending to be a different app.</string>
+	
+    <!-- jmbute -->
+    <string name="homepage_theme_title">Settings Homepage Theme</string>
+    <string name="homepage_theme_summary">switch this off to back to stock aosp look</string>
+    <string name="homepage_theme_default">Default</string>
+    <string name="homepage_theme_stock">Stock aosp A12 look</string>
+    <string name="homepage_theme_anci11">Collapse Anci A11</string>
+	
+    <!-- custom batre dimen -->
+    <string name="custom_battery_dimension_title">Battery Custom Dimension</string>
+    <string name="custom_battery_dimension_summary">use custom addjustable dimen values</string>
+    <string name="custom_battery_height">Height</string>
+    <string name="custom_battery_width">Width</string>
+    <string name="custom_battery_top">Margin Top</string>
+    <string name="custom_battery_bottom">Margin Bottom</string>
+    <string name="custom_battery_left">Margin Left</string>
+    <string name="custom_battery_right">Margin Right</string>
+	
+    <!-- custom signal dimen -->
+    <string name="custom_signal_dimension_title">Signal Icon Custom Dimension</string>
+    <string name="custom_signal_dimension_summary">use custom addjustable dimen values</string>
+    <string name="custom_signal_height">Height</string>
+    <string name="custom_signal_width">Width</string>
+	
+    <!-- custom wifi dimen -->
+    <string name="custom_wifi_dimension_title">Wifi Icon Custom Dimension</string>
+    <string name="custom_wifi_dimension_summary">use custom addjustable dimen values</string>
+    <string name="custom_wifi_height">Height</string>
+    <string name="custom_wifi_width">Width</string>	
 
     <!-- VoWiFi icon -->
     <string name="vowifi_icon_title">VoWiFi icon</string>

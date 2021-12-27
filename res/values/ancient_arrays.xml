@@ -388,6 +388,10 @@
         <item>@string/status_bar_battery_style_landscapel</item>     
         <item>@string/status_bar_battery_style_landscapem</item> 
         <item>@string/status_bar_battery_style_landscapen</item>  
+        <item>@string/status_bar_battery_style_landscapeo</item>    
+        <item>@string/status_bar_battery_style_landscapep</item>   
+        <item>@string/status_bar_battery_style_landscapeq</item>   
+	<item>@string/status_bar_battery_style_landscaper</item>         
         <item>@string/status_bar_battery_style_text</item>
         <item>@string/status_bar_battery_style_hidden</item>
     </string-array>
@@ -413,7 +417,11 @@
         <item>17</item>    
         <item>18</item>
         <item>19</item>  
-        <item>20</item>    
+        <item>20</item>   
+        <item>21</item> 
+        <item>22</item>
+        <item>23</item> 
+        <item>24</item>            
     </string-array>
 	
     <!-- carging symbol -->
@@ -590,6 +598,18 @@
         <item>1</item>
         <item>2</item>
         <item>3</item>
+    </string-array>
+	
+    <string-array name="homepage_theme_entries" translatable="false">
+        <item>@string/homepage_theme_stock</item>
+        <item>@string/homepage_theme_default</item>  
+        <item>@string/homepage_theme_anci11</item>
+    </string-array>   
+
+    <string-array name="homepage_theme_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
     </string-array>
 
     <!-- VoWiFi Icon -->

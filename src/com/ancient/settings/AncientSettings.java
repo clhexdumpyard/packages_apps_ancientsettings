@@ -21,9 +21,11 @@ package com.ancient.settings;
 import com.android.internal.logging.nano.MetricsProto;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.Surface;
 import androidx.preference.Preference;
 
@@ -35,7 +37,13 @@ public class AncientSettings extends SettingsPreferenceFragment {
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
+        int homepagetheme = Settings.System.getInt(getContentResolver(), "HOMEPAGE_THEME", 1);
+        if (homepagetheme == 1) {  
         addPreferencesFromResource(R.xml.ancient_settings);
+        } else {  
+        addPreferencesFromResource(R.xml.ancient_settings_stock);
+        }
+            
     }
 
     @Override
