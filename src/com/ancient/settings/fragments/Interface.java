@@ -16,6 +16,8 @@
  */
 package com.ancient.settings.fragments;
 
+import static android.os.UserHandle.USER_CURRENT;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -23,6 +25,7 @@ import android.content.ContentResolver;
 import android.content.om.IOverlayManager;
 import android.content.om.OverlayInfo;
 import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Resources;
 import android.graphics.Color;
@@ -43,6 +46,7 @@ import androidx.preference.SwitchPreference;
 import com.android.internal.logging.nano.MetricsProto; 
 import com.android.settings.SettingsPreferenceFragment;
 
+import com.ancient.settings.preferences.SystemSettingListPreference;
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
 import com.android.settings.R;
@@ -56,10 +60,18 @@ public class Interface extends SettingsPreferenceFragment implements OnPreferenc
     public static final String TAG = "Interface";
 
     private String MONET_ENGINE_COLOR_OVERRIDE = "monet_engine_color_override";
+    
+    private static final String HOMEPAGE_THEME = "HOMEPAGE_THEME";
+    
+    private static final String HOMEPAGE_THEME_OVERLAY = "com.idc.settings.hompage.stock";
+    private static final String HOMEPAGE_THEME_ANDROID_OVERLAY = "com.idc.android.hompage.stock";   
 
     private Context mContext;
-
+    
+    private SystemSettingListPreference mhomeSwitch;
     private ColorPickerPreference mMonetColor;
+    
+    private IOverlayManager mOverlayService;  
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -71,12 +83,23 @@ public class Interface extends SettingsPreferenceFragment implements OnPreferenc
         final ContentResolver resolver = getActivity().getContentResolver();
         final PreferenceScreen screen = getPreferenceScreen();
 
+        mOverlayService = IOverlayManager.Stub
+                .asInterface(ServiceManager.getService(Context.OVERLAY_SERVICE));
+        
         mMonetColor = (ColorPickerPreference) screen.findPreference(MONET_ENGINE_COLOR_OVERRIDE);
         int intColor = Settings.Secure.getInt(resolver, MONET_ENGINE_COLOR_OVERRIDE, Color.WHITE);
         String hexColor = String.format("#%08x", (0xffffff & intColor));
         mMonetColor.setNewPreviewColor(intColor);
         mMonetColor.setSummary(hexColor);
         mMonetColor.setOnPreferenceChangeListener(this);
+        
+        mhomeSwitch = (SystemSettingListPreference) findPreference("HOMEPAGE_THEME");
+        int smhomeStyle = Settings.System.getIntForUser(getContentResolver(),
+                "HOMEPAGE_THEME", 1, UserHandle.USER_CURRENT);
+        int valueIndexh = mhomeSwitch.findIndexOfValue(String.valueOf(smhomeStyle));
+        mhomeSwitch.setValueIndex(valueIndexh >= 0 ? valueIndexh : 0);
+        mhomeSwitch.setSummary(mhomeSwitch.getEntry());
+        mhomeSwitch.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -90,7 +113,33 @@ public class Interface extends SettingsPreferenceFragment implements OnPreferenc
             Settings.Secure.putInt(resolver,
                 MONET_ENGINE_COLOR_OVERRIDE, intHex);
             return true;
-        }
+        } else if  (preference == mhomeSwitch) {
+            int smhomeStyle = Integer.valueOf((String) newValue);
+            Settings.System.putIntForUser(getContentResolver(),
+                    "HOMEPAGE_THEME", smhomeStyle, UserHandle.USER_CURRENT);
+            mhomeSwitch.setSummary(mhomeSwitch.getEntries()[smhomeStyle]);
+            if (smhomeStyle == 1) {
+                   try {
+                      mOverlayService.setEnabled(HOMEPAGE_THEME_OVERLAY, false, USER_CURRENT);
+                      mOverlayService.setEnabled(HOMEPAGE_THEME_ANDROID_OVERLAY, false, USER_CURRENT); 
+                   } catch (RemoteException re) {
+                      throw re.rethrowFromSystemServer();
+                   }
+            } else if (smhomeStyle == 2) {
+                   try {
+                      mOverlayService.setEnabledExclusiveInCategory(HOMEPAGE_THEME_ANDROID_OVERLAY, USER_CURRENT);   
+                   } catch (RemoteException re) {
+                      throw re.rethrowFromSystemServer();
+                   }
+            } else {
+                   try {
+                      mOverlayService.setEnabledExclusiveInCategory(HOMEPAGE_THEME_OVERLAY, USER_CURRENT); 
+                   } catch (RemoteException re) {
+                      throw re.rethrowFromSystemServer();
+                   }
+            }
+            return true;
+        } 
         return false;
     }
 
