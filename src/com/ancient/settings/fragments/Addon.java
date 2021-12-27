@@ -69,7 +69,8 @@ public class Addon extends SettingsPreferenceFragment implements OnPreferenceCha
     private static final String NABIL_BACKGROUNDCLOCKSB_GRADIENT2 = "nabil_backgroundclocksb_gradient2";
     private static final String NABIL_BACKGROUNDCLOCKSB_STROKECOLOR = "nabil_backgroundclocksb_strokecolor";
     private static final String STATUSBAR_DATA_STYLE = "STATUSBAR_DATA_STYLE";     
-        
+    private static final String BRIGHTNESS_STYLES = "BRIGHTNESS_STYLES";
+
     private static final String MEDIUM_OVERLAY_SBHEIGHT = "com.custom.overlay.systemui.hight.medium";
     private static final String BIG_OVERLAY_SBHEIGHT = "com.custom.overlay.systemui.hight.big"; 
     private static final String VERYBIG_OVERLAY_SBHEIGHT = "com.custom.overlay.systemui.hight.verybig";        
@@ -84,8 +85,19 @@ public class Addon extends SettingsPreferenceFragment implements OnPreferenceCha
     private static final String SIGNAL_OVERLAY_STYLE8 = "com.custom.overlay.systemui.icon8";        
     private static final String SIGNAL_OVERLAY_STYLE9 = "com.custom.overlay.systemui.icon9"; 
     private static final String SIGNAL_OVERLAY_STYLE10 = "com.custom.overlay.systemui.icon10"; 
-    private static final String SIGNAL_OVERLAY_STYLE11 = "com.custom.overlay.systemui.icon11";     
-        
+    private static final String SIGNAL_OVERLAY_STYLE11 = "com.custom.overlay.systemui.icon11";
+    private static final String SIGNAL_OVERLAY_STYLE12 = "com.custom.overlay.systemui.icon12"; 
+    private static final String SIGNAL_OVERLAY_STYLE13 = "com.custom.overlay.systemui.icon13";        
+    private static final String SIGNAL_OVERLAY_STYLE14 = "com.custom.overlay.systemui.icon14"; 
+    private static final String SIGNAL_OVERLAY_STYLE15 = "com.custom.overlay.systemui.icon15"; 
+    private static final String SIGNAL_OVERLAY_STYLE16 = "com.custom.overlay.systemui.icon16";      
+    
+    private static final String BRIGHTNESS_OVERLAY_STYLE1 = "com.custom.overlay.systemui.brightness1";
+    private static final String BRIGHTNESS_OVERLAY_STYLE2 = "com.custom.overlay.systemui.brightness2"; 
+    private static final String BRIGHTNESS_OVERLAY_STYLE3 = "com.custom.overlay.systemui.brightness3";        
+    private static final String BRIGHTNESS_OVERLAY_STYLE4 = "com.custom.overlay.systemui.brightness4"; 
+    private static final String BRIGHTNESS_OVERLAY_STYLE5 = "com.custom.overlay.systemui.brightness5";
+
     private static final String DATA_OVERLAY_STYLE1 = "com.custom.overlay.systemui.data1";
     private static final String DATA_OVERLAY_STYLE2 = "com.custom.overlay.systemui.data2"; 
     private static final String DATA_OVERLAY_STYLE3 = "com.custom.overlay.systemui.data3";        
@@ -105,7 +117,8 @@ public class Addon extends SettingsPreferenceFragment implements OnPreferenceCha
     private ColorPickerPreference mBackc;
     private ColorPickerPreference mBackd;
     private SystemSettingListPreference idcSbDataStyle;       
-      
+    private SystemSettingListPreference idcSbBrightStyle;        
+  
     private Context mContext;
     private IOverlayManager mOverlayService;    
 
@@ -145,7 +158,15 @@ public class Addon extends SettingsPreferenceFragment implements OnPreferenceCha
         idcSbDataStyle.setValueIndex(valueIndexdata >= 0 ? valueIndexdata : 0);
         idcSbDataStyle.setSummary(idcSbDataStyle.getEntry());
         idcSbDataStyle.setOnPreferenceChangeListener(this);
-            
+        
+        idcSbBrightStyle = (SystemSettingListPreference) findPreference("BRIGHTNESS_STYLES");
+        int sbBrightStyle = Settings.System.getIntForUser(getContentResolver(),
+                "BRIGHTNESS_STYLES", 0, UserHandle.USER_CURRENT);
+        int valueIndexbright = idcSbBrightStyle.findIndexOfValue(String.valueOf(sbBrightStyle));
+        idcSbBrightStyle.setValueIndex(valueIndexbright >= 0 ? valueIndexbright : 0);
+        idcSbBrightStyle.setSummary(idcSbBrightStyle.getEntry());
+        idcSbBrightStyle.setOnPreferenceChangeListener(this);    
+    
         idcSbHeightStyle = (SystemSettingListPreference) findPreference("STATUSBAR_HEIGHT_STYLE");
         int sbHeightStyle = Settings.System.getIntForUser(getContentResolver(),
                 "STATUSBAR_HEIGHT_STYLE", 0, UserHandle.USER_CURRENT);
@@ -263,7 +284,12 @@ public class Addon extends SettingsPreferenceFragment implements OnPreferenceCha
                       mOverlayService.setEnabled(SIGNAL_OVERLAY_STYLE8, false, USER_CURRENT);
                       mOverlayService.setEnabled(SIGNAL_OVERLAY_STYLE9, false, USER_CURRENT);
                       mOverlayService.setEnabled(SIGNAL_OVERLAY_STYLE10, false, USER_CURRENT); 
-                      mOverlayService.setEnabled(SIGNAL_OVERLAY_STYLE11, false, USER_CURRENT);      
+                      mOverlayService.setEnabled(SIGNAL_OVERLAY_STYLE11, false, USER_CURRENT);  
+                      mOverlayService.setEnabled(SIGNAL_OVERLAY_STYLE12, false, USER_CURRENT);
+                      mOverlayService.setEnabled(SIGNAL_OVERLAY_STYLE13, false, USER_CURRENT);
+                      mOverlayService.setEnabled(SIGNAL_OVERLAY_STYLE14, false, USER_CURRENT);
+                      mOverlayService.setEnabled(SIGNAL_OVERLAY_STYLE15, false, USER_CURRENT); 
+                      mOverlayService.setEnabled(SIGNAL_OVERLAY_STYLE16, false, USER_CURRENT);    
                    } catch (RemoteException re) {
                       throw re.rethrowFromSystemServer();
                    }
@@ -333,7 +359,37 @@ public class Addon extends SettingsPreferenceFragment implements OnPreferenceCha
                    } catch (RemoteException re) {
                       throw re.rethrowFromSystemServer();
                    }
-                }         
+                } else if (sbIconStyle == 12) {
+                   try {
+                      mOverlayService.setEnabledExclusiveInCategory(SIGNAL_OVERLAY_STYLE12, USER_CURRENT);   
+                   } catch (RemoteException re) {
+                      throw re.rethrowFromSystemServer();
+                   }
+                } else if (sbIconStyle == 13) {
+                   try {
+                      mOverlayService.setEnabledExclusiveInCategory(SIGNAL_OVERLAY_STYLE13, USER_CURRENT);     
+                   } catch (RemoteException re) {
+                      throw re.rethrowFromSystemServer();
+                   }
+                } else if (sbIconStyle == 14) {
+                   try {
+                      mOverlayService.setEnabledExclusiveInCategory(SIGNAL_OVERLAY_STYLE14, USER_CURRENT);     
+                   } catch (RemoteException re) {
+                      throw re.rethrowFromSystemServer();
+                   }
+                } else if (sbIconStyle == 15) {
+                   try {
+                      mOverlayService.setEnabledExclusiveInCategory(SIGNAL_OVERLAY_STYLE15, USER_CURRENT);     
+                   } catch (RemoteException re) {
+                      throw re.rethrowFromSystemServer();
+                   }
+                } else if (sbIconStyle == 16) {
+                   try {
+                      mOverlayService.setEnabledExclusiveInCategory(SIGNAL_OVERLAY_STYLE16, USER_CURRENT);     
+                   } catch (RemoteException re) {
+                      throw re.rethrowFromSystemServer();
+                   }
+                }               
             return true;
         } else if (preference == idcSbDataStyle) {
             int sbDataStyle = Integer.valueOf((String) objValue);
@@ -469,6 +525,53 @@ public class Addon extends SettingsPreferenceFragment implements OnPreferenceCha
             int intHexd = ColorPickerPreference.convertToColorInt(hexd);
             Settings.System.putInt(getContentResolver(),
                     "nabil_backgroundclocksb_strokecolor", intHexd);
+            return true;
+        } else if (preference == idcSbBrightStyle) {
+            int sbBrightStyle = Integer.valueOf((String) objValue);
+            Settings.System.putIntForUser(getContentResolver(),
+                    "BRIGHTNESS_STYLES", sbBrightStyle, UserHandle.USER_CURRENT);
+            idcSbBrightStyle.setSummary(idcSbBrightStyle.getEntries()[sbBrightStyle]);
+                if (sbBrightStyle == 0) {
+                   try {
+                      mOverlayService.setEnabled(BRIGHTNESS_OVERLAY_STYLE1, false, USER_CURRENT);
+                      mOverlayService.setEnabled(BRIGHTNESS_OVERLAY_STYLE2, false, USER_CURRENT);
+                      mOverlayService.setEnabled(BRIGHTNESS_OVERLAY_STYLE3, false, USER_CURRENT);
+                      mOverlayService.setEnabled(BRIGHTNESS_OVERLAY_STYLE4, false, USER_CURRENT);
+                      mOverlayService.setEnabled(BRIGHTNESS_OVERLAY_STYLE5, false, USER_CURRENT);     
+                   } catch (RemoteException re) {
+                      throw re.rethrowFromSystemServer();
+                   }
+               } else if (sbBrightStyle == 1) {
+                   try {
+                      mOverlayService.setEnabledExclusiveInCategory(BRIGHTNESS_OVERLAY_STYLE1, USER_CURRENT);   
+                   } catch (RemoteException re) {
+                      throw re.rethrowFromSystemServer();
+                   }
+               } else if (sbBrightStyle == 2) {
+                   try {
+                      mOverlayService.setEnabledExclusiveInCategory(BRIGHTNESS_OVERLAY_STYLE2, USER_CURRENT);   
+                   } catch (RemoteException re) {
+                      throw re.rethrowFromSystemServer();
+                   }
+                } else if (sbBrightStyle == 3) {
+                   try {
+                      mOverlayService.setEnabledExclusiveInCategory(BRIGHTNESS_OVERLAY_STYLE3, USER_CURRENT);     
+                   } catch (RemoteException re) {
+                      throw re.rethrowFromSystemServer();
+                   }
+                } else if (sbBrightStyle == 4) {
+                   try {
+                      mOverlayService.setEnabledExclusiveInCategory(BRIGHTNESS_OVERLAY_STYLE4, USER_CURRENT);     
+                   } catch (RemoteException re) {
+                      throw re.rethrowFromSystemServer();
+                   }
+                } else if (sbBrightStyle == 5) {
+                   try {
+                      mOverlayService.setEnabledExclusiveInCategory(BRIGHTNESS_OVERLAY_STYLE5, USER_CURRENT);     
+                   } catch (RemoteException re) {
+                      throw re.rethrowFromSystemServer();
+                   }
+                }    
             return true;
         }
         return false;
