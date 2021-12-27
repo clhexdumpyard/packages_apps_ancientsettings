@@ -18,6 +18,13 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
 	android:title="@string/misc_title" >
 
+        <com.ancient.settings.preferences.SystemSettingSeekBarPreference
+            android:key="frame_rate_recorder"
+            android:title="@string/frame_rate_recorder_title"
+            android:min="0"
+            android:max="120"
+            android:defaultValue="60" />
+
         <com.ancient.settings.preferences.SystemSettingSwitchPreference
             android:key="wake_when_plugged_or_unplugged"
             android:title="@string/wake_when_plugged_or_unplugged_title"

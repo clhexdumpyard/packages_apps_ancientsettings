@@ -888,4 +888,7 @@
     <!-- Volume dialog timeout -->
     <string name="volume_dialog_timeout_title">Volume dialog timeout</string>
 
+    <!-- Frame rate recorder -->
+    <string name="frame_rate_recorder_title">Frame rate in Screen Record</string>
+
 </resources>
