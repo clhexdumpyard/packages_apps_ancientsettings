@@ -53,7 +53,73 @@
             android:entries="@array/status_bar_battery_style_entries"
             android:entryValues="@array/status_bar_battery_style_values"
             android:defaultValue="0" />
+	    
+	 <com.ancient.settings.preferences.SystemSettingSwitchPreference
+            android:key="IDC_BATTERY_USE_CUSTOM_DIMENSION"
+            android:title="@string/custom_battery_dimension_title"
+            android:summary="@string/custom_battery_dimension_summary"
+            android:defaultValue="0" />
+	    
+	 <com.ancient.settings.preferences.SystemSettingSeekBarPreference
+            android:key="IDC_BATTERY_CUSTOM_HEIGHT"
+            android:title="@string/custom_battery_height"
+            android:dependency="IDC_BATTERY_USE_CUSTOM_DIMENSION"
+            android:max="50"
+            android:min="10"
+            android:defaultValue="23"
+            settings:units="dp"/>   
+	    
+	<com.ancient.settings.preferences.SystemSettingSeekBarPreference
+            android:key="IDC_BATTERY_CUSTOM_WIDTH"
+            android:title="@string/custom_battery_width"
+            android:dependency="IDC_BATTERY_USE_CUSTOM_DIMENSION"
+            android:max="50"
+            android:min="10"
+            android:defaultValue="13"
+            settings:units="dp"/> 
+	    
+	 <com.ancient.settings.preferences.SystemSettingSeekBarPreference
+            android:key="IDC_BATTERY_CUSTOM_TOP"
+            android:title="@string/custom_battery_top"
+            android:dependency="IDC_BATTERY_USE_CUSTOM_DIMENSION"
+            android:max="10"
+            android:min="-10"
+            android:defaultValue="0"
+            settings:units="dp"/>   
+	    
+	<com.ancient.settings.preferences.SystemSettingSeekBarPreference
+            android:key="IDC_BATTERY_CUSTOM_BOTTOM"
+            android:title="@string/custom_battery_bottom"
+            android:dependency="IDC_BATTERY_USE_CUSTOM_DIMENSION"
+            android:max="10"
+            android:min="-10"
+            android:defaultValue="0"
+            settings:units="dp"/>
+	    
+	<com.ancient.settings.preferences.SystemSettingSeekBarPreference
+            android:key="IDC_BATTERY_CUSTOM_LEFT"
+            android:title="@string/custom_battery_left"
+            android:dependency="IDC_BATTERY_USE_CUSTOM_DIMENSION"
+            android:max="10"
+            android:min="-10"
+            android:defaultValue="0"
+            settings:units="dp"/>   
+	    
+	<com.ancient.settings.preferences.SystemSettingSeekBarPreference
+            android:key="IDC_BATTERY_CUSTOM_RIGHT"
+            android:title="@string/custom_battery_right"
+            android:dependency="IDC_BATTERY_USE_CUSTOM_DIMENSION"
+            android:max="10"
+            android:min="-10"
+            android:defaultValue="0"
+            settings:units="dp"/>      
          
+	  <com.ancient.settings.preferences.SystemSettingSwitchPreference
+            android:key="IDC_BATTERY_CUSTOM_FLIPDRAW"
+            android:title="@string/flip_batre_image_title"
+            android:summary="@string/flip_batre_image_summary"
+            android:defaultValue="0" />
+	    
          <com.ancient.settings.preferences.SystemSettingSwitchPreference
             android:key="FLIPLAYOUTBATRE"
             android:title="@string/flip_batre_title"
@@ -88,6 +154,18 @@
 	    android:entries="@array/custom_icon_charging_symbol_entries"           
             android:entryValues="@array/custom_icon_charging_symbol_values"              
             android:title="@string/custom_icon_charging_symbol_title"/>
+	    
+	<com.ancient.settings.preferences.SystemSettingSwitchPreference
+            android:key="OPACY_PERIM_SWITCH"
+            android:title="@string/custom_perim_opacy_title"
+            android:summary="@string/custom_perim_opacy_summary"
+            android:defaultValue="false" />  
+	    
+	<com.ancient.settings.preferences.SystemSettingSwitchPreference
+            android:key="RAINBOW_FILL_SWITCH"
+            android:title="@string/custom_rainbow_title"
+            android:summary="@string/custom_rainbow_summary"
+            android:defaultValue="false" />      
 	
         <com.ancient.settings.preferences.SystemSettingSwitchPreference
             android:key="CUSTOM_BLEND_COLOR"
@@ -114,6 +192,63 @@
     <PreferenceCategory
         android:key="misc_icons_category"
         android:title="@string/icons_category">
+	    
+	 <com.ancient.settings.preferences.SystemSettingSwitchPreference
+            android:key="IDC_SIGNAL_CUSTOM_DIMENSION"
+            android:title="@string/custom_signal_dimension_title"
+            android:summary="@string/custom_signal_dimension_summary"
+            android:defaultValue="0" />
+	    
+	 <com.ancient.settings.preferences.SystemSettingSeekBarPreference
+            android:key="IDC_SIGNAL_HEIGHT"
+            android:title="@string/custom_signal_height"
+            android:dependency="IDC_SIGNAL_CUSTOM_DIMENSION"
+            android:max="50"
+            android:min="0"
+            android:defaultValue="15"
+            settings:units="dp"/>   
+	    
+	<com.ancient.settings.preferences.SystemSettingSeekBarPreference
+            android:key="IDC_SIGNAL_WIDTH"
+            android:title="@string/custom_signal_width"
+            android:dependency="IDC_SIGNAL_CUSTOM_DIMENSION"
+            android:max="50"
+            android:min="0"
+            android:defaultValue="15"
+            settings:units="dp"/> 
+	    
+	 <com.ancient.settings.preferences.SystemSettingSwitchPreference
+            android:key="IDC_WIFI_CUSTOM_DIMENSION"
+            android:title="@string/custom_wifi_dimension_title"
+            android:summary="@string/custom_wifi_dimension_summary"
+            android:defaultValue="0" />
+	    
+	 <com.ancient.settings.preferences.SystemSettingSeekBarPreference
+            android:key="IDC_WIFI_HEIGHT"
+            android:title="@string/custom_wifi_height"
+            android:dependency="IDC_WIFI_CUSTOM_DIMENSION"
+            android:max="50"
+            android:min="0"
+            android:defaultValue="20"
+            settings:units="dp"/>   
+
+         <com.ancient.settings.preferences.SystemSettingSeekBarPreference
+            android:key="IDC_WIFI_TOP"
+            android:title="@string/custom_battery_top"
+            android:dependency="IDC_WIFI_CUSTOM_DIMENSION"
+            android:max="10"
+            android:min="-10"
+            android:defaultValue="0"
+            settings:units="dp"/>   
+	    
+	<com.ancient.settings.preferences.SystemSettingSeekBarPreference
+            android:key="IDC_WIFI_WIDTH"
+            android:title="@string/custom_wifi_width"
+            android:dependency="IDC_WIFI_CUSTOM_DIMENSION"
+            android:max="50"
+            android:min="0"
+            android:defaultValue="20"
+            settings:units="dp"/> 
 
 	 <SwitchPreference
              android:key="status_bar_logo"
