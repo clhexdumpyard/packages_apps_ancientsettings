@@ -70,7 +70,7 @@ public class Addon extends SettingsPreferenceFragment implements OnPreferenceCha
     private static final String NABIL_BACKGROUNDCLOCKSB_STROKECOLOR = "nabil_backgroundclocksb_strokecolor";
     private static final String STATUSBAR_DATA_STYLE = "STATUSBAR_DATA_STYLE";     
     private static final String BRIGHTNESS_STYLES = "BRIGHTNESS_STYLES";
-    private static final String BRIGHTNESS_STYLES = "VOLUMEBAR_STYLES";
+    private static final String VOLUMEBAR_STYLES = "VOLUMEBAR_STYLES";
 
     private static final String MEDIUM_OVERLAY_SBHEIGHT = "com.custom.overlay.systemui.hight.medium";
     private static final String BIG_OVERLAY_SBHEIGHT = "com.custom.overlay.systemui.hight.big"; 
