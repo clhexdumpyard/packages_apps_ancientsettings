@@ -70,6 +70,7 @@ public class Addon extends SettingsPreferenceFragment implements OnPreferenceCha
     private static final String NABIL_BACKGROUNDCLOCKSB_STROKECOLOR = "nabil_backgroundclocksb_strokecolor";
     private static final String STATUSBAR_DATA_STYLE = "STATUSBAR_DATA_STYLE";     
     private static final String BRIGHTNESS_STYLES = "BRIGHTNESS_STYLES";
+    private static final String BRIGHTNESS_STYLES = "VOLUMEBAR_STYLES";
 
     private static final String MEDIUM_OVERLAY_SBHEIGHT = "com.custom.overlay.systemui.hight.medium";
     private static final String BIG_OVERLAY_SBHEIGHT = "com.custom.overlay.systemui.hight.big"; 
@@ -97,6 +98,12 @@ public class Addon extends SettingsPreferenceFragment implements OnPreferenceCha
     private static final String BRIGHTNESS_OVERLAY_STYLE3 = "com.custom.overlay.systemui.brightness3";        
     private static final String BRIGHTNESS_OVERLAY_STYLE4 = "com.custom.overlay.systemui.brightness4"; 
     private static final String BRIGHTNESS_OVERLAY_STYLE5 = "com.custom.overlay.systemui.brightness5";
+     
+    private static final String VOLUMEBAR_OVERLAY_STYLE1 = "com.custom.overlay.systemui.volume1";
+    private static final String VOLUMEBAR_OVERLAY_STYLE2 = "com.custom.overlay.systemui.volume2"; 
+    private static final String VOLUMEBAR_OVERLAY_STYLE3 = "com.custom.overlay.systemui.volume3";        
+    private static final String VOLUMEBAR_OVERLAY_STYLE4 = "com.custom.overlay.systemui.volume4"; 
+    private static final String VOLUMEBAR_OVERLAY_STYLE5 = "com.custom.overlay.systemui.volume5";
 
     private static final String DATA_OVERLAY_STYLE1 = "com.custom.overlay.systemui.data1";
     private static final String DATA_OVERLAY_STYLE2 = "com.custom.overlay.systemui.data2"; 
@@ -117,7 +124,8 @@ public class Addon extends SettingsPreferenceFragment implements OnPreferenceCha
     private ColorPickerPreference mBackc;
     private ColorPickerPreference mBackd;
     private SystemSettingListPreference idcSbDataStyle;       
-    private SystemSettingListPreference idcSbBrightStyle;        
+    private SystemSettingListPreference idcSbBrightStyle;
+    private SystemSettingListPreference idcSbVolumeStyle;           
   
     private Context mContext;
     private IOverlayManager mOverlayService;    
@@ -166,6 +174,15 @@ public class Addon extends SettingsPreferenceFragment implements OnPreferenceCha
         idcSbBrightStyle.setValueIndex(valueIndexbright >= 0 ? valueIndexbright : 0);
         idcSbBrightStyle.setSummary(idcSbBrightStyle.getEntry());
         idcSbBrightStyle.setOnPreferenceChangeListener(this);    
+            
+        idcSbVolumeStyle = (SystemSettingListPreference) findPreference("VOLUMEBAR_STYLES");
+        int sbVolumeStyle = Settings.System.getIntForUser(getContentResolver(),
+                "VOLUMEBAR_STYLES", 0, UserHandle.USER_CURRENT);
+        int valueIndexvol = idcSbVolumeStyle.findIndexOfValue(String.valueOf(sbVolumeStyle));
+        idcSbVolumeStyle.setValueIndex(valueIndexvol >= 0 ? valueIndexvol : 0);
+        idcSbVolumeStyle.setSummary(idcSbVolumeStyle.getEntry());
+        idcSbVolumeStyle.setOnPreferenceChangeListener(this);   
+                
     
         idcSbHeightStyle = (SystemSettingListPreference) findPreference("STATUSBAR_HEIGHT_STYLE");
         int sbHeightStyle = Settings.System.getIntForUser(getContentResolver(),
@@ -433,6 +450,53 @@ public class Addon extends SettingsPreferenceFragment implements OnPreferenceCha
                 } else if (sbDataStyle == 5) {
                    try {
                       mOverlayService.setEnabledExclusiveInCategory(DATA_OVERLAY_STYLE5, USER_CURRENT);     
+                   } catch (RemoteException re) {
+                      throw re.rethrowFromSystemServer();
+                   }
+                }    
+            return true;
+        } else if (preference == idcSbVolumeStyle) {
+            int sbSbVolumeStyle = Integer.valueOf((String) objValue);
+            Settings.System.putIntForUser(getContentResolver(),
+                    "VOLUMEBAR_STYLES", sbSbVolumeStyle, UserHandle.USER_CURRENT);
+            idcSbVolumeStyle.setSummary(idcSbVolumeStyle.getEntries()[sbSbVolumeStyle]);
+                if (sbSbVolumeStyle == 0) {
+                   try {
+                      mOverlayService.setEnabled(VOLUMEBAR_OVERLAY_STYLE1, false, USER_CURRENT);
+                      mOverlayService.setEnabled(VOLUMEBAR_OVERLAY_STYLE2, false, USER_CURRENT);
+                      mOverlayService.setEnabled(VOLUMEBAR_OVERLAY_STYLE3, false, USER_CURRENT);
+                      mOverlayService.setEnabled(VOLUMEBAR_OVERLAY_STYLE4, false, USER_CURRENT);
+                      mOverlayService.setEnabled(VOLUMEBAR_OVERLAY_STYLE5, false, USER_CURRENT);     
+                   } catch (RemoteException re) {
+                      throw re.rethrowFromSystemServer();
+                   }
+               } else if (sbSbVolumeStyle == 1) {
+                   try {
+                      mOverlayService.setEnabledExclusiveInCategory(VOLUMEBAR_OVERLAY_STYLE1, USER_CURRENT);   
+                   } catch (RemoteException re) {
+                      throw re.rethrowFromSystemServer();
+                   }
+               } else if (sbSbVolumeStyle == 2) {
+                   try {
+                      mOverlayService.setEnabledExclusiveInCategory(VOLUMEBAR_OVERLAY_STYLE2, USER_CURRENT);   
+                   } catch (RemoteException re) {
+                      throw re.rethrowFromSystemServer();
+                   }
+                } else if (sbSbVolumeStyle == 3) {
+                   try {
+                      mOverlayService.setEnabledExclusiveInCategory(VOLUMEBAR_OVERLAY_STYLE3, USER_CURRENT);     
+                   } catch (RemoteException re) {
+                      throw re.rethrowFromSystemServer();
+                   }
+                } else if (sbSbVolumeStyle == 4) {
+                   try {
+                      mOverlayService.setEnabledExclusiveInCategory(VOLUMEBAR_OVERLAY_STYLE4, USER_CURRENT);     
+                   } catch (RemoteException re) {
+                      throw re.rethrowFromSystemServer();
+                   }
+                } else if (sbSbVolumeStyle == 5) {
+                   try {
+                      mOverlayService.setEnabledExclusiveInCategory(VOLUMEBAR_OVERLAY_STYLE5, USER_CURRENT);     
                    } catch (RemoteException re) {
                       throw re.rethrowFromSystemServer();
                    }
