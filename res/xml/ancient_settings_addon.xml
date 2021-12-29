@@ -78,6 +78,34 @@
             android:entries="@array/brightness_style_entries"
             android:entryValues="@array/brightness_style_values"
             android:defaultValue="0" />
+        
+    </PreferenceCategory>
+	
+    <PreferenceCategory
+            android:key="addpolumfeatures"
+            android:title="Additional Panel Features" >
+	    
+	<com.ancient.settings.preferences.SystemSettingSwitchPreference
+            android:key="VOLUME_PANEL_LEFT"
+            android:title="@string/leftvolume_switch_title"
+            android:summary="@string/leftvolume_switch_summary"
+            android:defaultValue="false" />
+	    
+	<com.ancient.settings.preferences.SystemSettingSwitchPreference
+            android:key="ANCIENT_VOLUME_USEPERSEN"
+            android:title="@string/volume_persen_switch_title"
+            android:summary="@string/volume_persen_switch_summary"
+            android:defaultValue="false" />
+        
+        <com.ancient.settings.preferences.SystemSettingListPreference
+            android:key="ANCIENT_VOLUME_USEPERSEN_STYLE"                                                   
+            android:title="@string/volume_persen_style_title"
+            android:summary="%s"
+            android:dialogTitle="@string/volume_persen_style_title"
+            android:entries="@array/volume_persen_style_entries"
+            android:dependency="ANCIENT_VOLUME_USEPERSEN"                                                     
+            android:entryValues="@array/volume_persen_style_values"
+            android:defaultValue="0" />
 	    
 	<com.ancient.settings.preferences.SystemSettingListPreference
             android:key="VOLUMEBAR_STYLES"                                                    
@@ -87,7 +115,7 @@
             android:entries="@array/volumebar_style_entries"
             android:entryValues="@array/volumebar_style_values"
             android:defaultValue="0" />
-        
+            
     </PreferenceCategory>
     
     <PreferenceCategory
