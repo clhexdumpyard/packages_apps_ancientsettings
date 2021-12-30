@@ -71,6 +71,7 @@ public class Addon extends SettingsPreferenceFragment implements OnPreferenceCha
     private static final String STATUSBAR_DATA_STYLE = "STATUSBAR_DATA_STYLE";     
     private static final String BRIGHTNESS_STYLES = "BRIGHTNESS_STYLES";
     private static final String VOLUMEBAR_STYLES = "VOLUMEBAR_STYLES";
+    private static final String VOLUME_PANEL_BACKGROUND = "VOLUME_PANEL_BACKGROUND";
 
     private static final String MEDIUM_OVERLAY_SBHEIGHT = "com.custom.overlay.systemui.hight.medium";
     private static final String BIG_OVERLAY_SBHEIGHT = "com.custom.overlay.systemui.hight.big"; 
@@ -125,7 +126,8 @@ public class Addon extends SettingsPreferenceFragment implements OnPreferenceCha
     private ColorPickerPreference mBackd;
     private SystemSettingListPreference idcSbDataStyle;       
     private SystemSettingListPreference idcSbBrightStyle;
-    private SystemSettingListPreference idcSbVolumeStyle;           
+    private SystemSettingListPreference idcSbVolumeStyle; 
+    private ColorPickerPreference idcVolumeBackgroundColor;           
   
     private Context mContext;
     private IOverlayManager mOverlayService;    
@@ -191,6 +193,19 @@ public class Addon extends SettingsPreferenceFragment implements OnPreferenceCha
         idcSbHeightStyle.setValueIndex(valueIndexheight >= 0 ? valueIndexheight : 0);
         idcSbHeightStyle.setSummary(idcSbHeightStyle.getEntry());
         idcSbHeightStyle.setOnPreferenceChangeListener(this);
+        
+        idcVolumeBackgroundColor = (ColorPickerPreference) findPreference(VOLUME_PANEL_BACKGROUND);
+        int mVolumeBackgroundColor = Settings.System.getInt(getContentResolver(),
+                "VOLUME_PANEL_BACKGROUND", 0x00000000);
+        idcVolumeBackgroundColor.setNewPreviewColor(mVolumeBackgroundColor);
+        idcVolumeBackgroundColor.setAlphaSliderEnabled(true);
+        String mVolumeBackgroundColorHex = String.format("#%08x", (0x00000000 & mVolumeBackgroundColor));
+        if (mVolumeBackgroundColorHex.equals("#00000000")) {
+            idcVolumeBackgroundColor.setSummary(R.string.color_default);
+        } else {
+            idcVolumeBackgroundColor.setSummary(mVolumeBackgroundColorHex);
+        }
+        idcVolumeBackgroundColor.setOnPreferenceChangeListener(this);
             
          mBacka = (ColorPickerPreference) findPreference(NABIL_BACKGROUNDCLOCKSB_COLOR);
         int mbacaColor = Settings.System.getInt(getContentResolver(),
@@ -542,6 +557,18 @@ public class Addon extends SettingsPreferenceFragment implements OnPreferenceCha
                    }
                 }  
             return true;
+        } else if (preference == idcVolumeBackgroundColor) {
+            String cVolumeBackgroundColor = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(objValue)));
+            if (cVolumeBackgroundColor.equals("#00000000")) {
+                preference.setSummary(R.string.color_default);
+            } else {
+                preference.setSummary(cVolumeBackgroundColor);
+            }
+            int intcVolumeBackgroundColor = ColorPickerPreference.convertToColorInt(cVolumeBackgroundColor);
+            Settings.System.putInt(getContentResolver(),
+                    "VOLUME_PANEL_BACKGROUND", intcVolumeBackgroundColor);
+            return true;  
         } else if (preference == mBacka) {
             String hexa = ColorPickerPreference.convertToARGB(
                     Integer.valueOf(String.valueOf(objValue)));
