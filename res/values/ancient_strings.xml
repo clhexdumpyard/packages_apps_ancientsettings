@@ -743,8 +743,9 @@
     <string name="homepage_theme_title">Settings Homepage Theme</string>
     <string name="homepage_theme_summary">switch this off to back to stock aosp look</string>
     <string name="homepage_theme_default">Default</string>
-    <string name="homepage_theme_stock">Stock aosp A12 look</string>
+    <string name="homepage_theme_stock">Stock AOSP A12 look</string>
     <string name="homepage_theme_anci11">Collapse Anci A11</string>
+    <string name="homepage_theme_stock_collapse">Stock AOSP A12 Collapsing</string>
 	
     <!-- custom batre dimen -->
     <string name="custom_battery_dimension_title">Battery Custom Dimension</string>
