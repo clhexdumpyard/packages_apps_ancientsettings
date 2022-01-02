@@ -122,6 +122,21 @@
             android:defaultValue="0x00000000" />
             
     </PreferenceCategory>
+	
+    <PreferenceCategory
+            android:key="addlsfeatures"
+            android:title="Additional Lockscreen Features" >
+
+        <com.ancient.settings.preferences.SystemSettingListPreference
+            android:key="IDC_LSCLOCK_STYLE"                                                   
+            android:title="@string/ls_clock_style_title"
+            android:summary="%s"
+            android:dialogTitle="@string/ls_clock_style_title"
+            android:entries="@array/ls_clock_style_entries"
+            android:entryValues="@array/ls_clock_style_values"
+            android:defaultValue="0" />
+        
+    </PreferenceCategory>
     
     <PreferenceCategory
             android:key="addnotiffeatures"
