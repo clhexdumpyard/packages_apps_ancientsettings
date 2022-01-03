@@ -54,6 +54,16 @@
             android:dependency="ANCIENT_UI_SWITCH"                                                     
             android:entryValues="@array/anciui_animate_switch_values"
             android:defaultValue="0" />
+	    
+	<com.ancient.settings.preferences.SystemSettingListPreference
+            android:key="IMAGE_TRANS_CLOCK_STYLE"                                                   
+            android:title="@string/anciui_image_switch_title"
+            android:summary="%s"
+            android:dialogTitle="@string/anciui_image_switch_title"
+            android:entries="@array/anciui_image_switch_entries"
+            android:dependency="ANCIENT_UI_SWITCH"                                                     
+            android:entryValues="@array/anciui_image_switch_values"
+            android:defaultValue="0" />
 
         <com.ancient.settings.preferences.SystemSettingListPreference
             android:key="QS_TILE_CUSTOM_BACKGROUND"                                                    
