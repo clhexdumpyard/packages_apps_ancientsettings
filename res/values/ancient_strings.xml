@@ -779,4 +779,12 @@
     <string name="status_bar_notif_count_title">Show notification count</string>
     <string name="status_bar_notif_count_summary">Display the number of pending notifications</string>
 
+    <!-- FOD pressed color -->
+    <string name="fod_pressed_color_title">FOD pressed color</string>
+    <string name="fod_pressed_color_default">Default</string>
+    <string name="fod_pressed_color_white">White</string>
+    <string name="fod_pressed_color_white_new">White (New)</string>
+    <string name="fod_pressed_color_green">Green</string>
+    <string name="fod_pressed_color_yellow">Yellow</string>
+    <string name="fod_pressed_color_light_yellow">Light Yellow</string>
 </resources>
