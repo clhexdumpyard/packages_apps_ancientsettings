@@ -900,5 +900,13 @@
 
     <!-- Frame rate recorder -->
     <string name="frame_rate_recorder_title">Frame rate in Screen Record</string>
+	
+    <!-- transclock style -->
+    <string name="transclock_switch_title">Transparent Clock</string>
+    <string name="transclock_switch_summary">show trnasparent clock with backgroung</string>
+    <string name="transclock_clock_switch_title">Transparent Clock Style</string>
+    <string name="transclock_clock_left">Left</string>
+    <string name="transclock_clock_center">Center</string>
+    <string name="transclock_clock_right">Right</string>
 
 </resources>
