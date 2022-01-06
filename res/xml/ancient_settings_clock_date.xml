@@ -74,4 +74,21 @@
             android:entries="@array/clock_date_position_entries"
             android:entryValues="@array/clock_date_position_values"
             android:dependency="statusbar_clock" />
+     
+        <com.ancient.settings.preferences.SystemSettingSwitchPreference
+            android:key="STATUS_BAR_ANCI_CLOCK"
+            android:title="@string/transclock_switch_title"
+            android:summary="@string/transclock_switch_summary"
+            android:defaultValue="false" />
+     
+        <com.ancient.settings.preferences.SystemSettingListPreference
+            android:key="STATUS_BAR_ANCI_CLOCK_STYLE"                                                    
+            android:title="@string/transclock_clock_switch_title"
+            android:summary="%s"
+            android:dialogTitle="@string/transclock_clock_switch_title"
+            android:entries="@array/transclock_clock_switch_entries"
+            android:dependency="STATUS_BAR_ANCI_CLOCK"                                                     
+            android:entryValues="@array/transclock_clock_switch_values"
+            android:defaultValue="0" />
+     
 </PreferenceScreen>
