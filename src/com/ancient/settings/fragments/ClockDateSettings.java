@@ -175,15 +175,6 @@ public class ClockDateSettings extends SettingsPreferenceFragment
         mtransSwitch.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
                 "STATUS_BAR_ANCI_CLOCK", 0) == 1));
         mtransSwitch.setOnPreferenceChangeListener(this);
-        
-        boolean mmktransSwitch = Settings.System.getInt(getActivity().getContentResolver(),
-                    "STATUS_BAR_ANCI_CLOCK", 0) == 1;
-                    
-        if (mmktransSwitch) {
-            mStatusBarClock.setChecked(false);
-            mStatusBarClock.setEnabled(false);
-        }
-        
     }
 
     @Override
