@@ -695,5 +695,18 @@
         <item>4</item>
         <item>2</item>
     </string-array>
+	
+    <!-- transclock style -->
+    <string-array name="transclock_clock_switch_entries" translatable="false">
+        <item>@string/transclock_clock_left</item>
+        <item>@string/transclock_clock_center</item>
+        <item>@string/transclock_clock_right</item>
+    </string-array>
+
+    <string-array name="transclock_clock_switch_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
 
 </resources>
