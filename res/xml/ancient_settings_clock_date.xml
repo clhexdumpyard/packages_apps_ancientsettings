@@ -31,19 +31,17 @@
             android:entries="@array/statusbar_clock_style_entries"
             android:entryValues="@array/statusbar_clock_style_values"
             android:dependency="statusbar_clock" />
-
+     
         <ListPreference
             android:key="statusbar_clock_am_pm_style"
             android:dialogTitle="@string/status_bar_am_pm_title"
             android:title="@string/status_bar_am_pm_title"
             android:entries="@array/entries_status_bar_am_pm"
-            android:entryValues="@array/values_status_bar_am_pm"
-            android:dependency="statusbar_clock" />
+            android:entryValues="@array/values_status_bar_am_pm"/>
 
         <SwitchPreference
             android:key="statusbar_clock_seconds"
             android:title="@string/clock_seconds_display"
-            android:dependency="statusbar_clock"
             android:defaultValue="false" />
 
         <ListPreference
@@ -51,29 +49,25 @@
             android:title="@string/clock_date_display"
             android:summary="@string/clock_date_display_summary"
             android:entries="@array/clock_date_display_entries"
-            android:entryValues="@array/clock_date_display_values"
-            android:dependency="statusbar_clock" />
+            android:entryValues="@array/clock_date_display_values" />
 
         <ListPreference
             android:key="statusbar_clock_date_style"
             android:title="@string/clock_date_style"
             android:entries="@array/clock_date_style_entries"
-            android:entryValues="@array/clock_date_style_values"
-            android:dependency="statusbar_clock" />
+            android:entryValues="@array/clock_date_style_values" />
 
         <ListPreference
             android:key="statusbar_clock_date_format"
             android:title="@string/clock_date_format"
             android:entries="@array/clock_date_format_entries_values"
-            android:entryValues="@array/clock_date_format_entries_values"
-            android:dependency="statusbar_clock" />
+            android:entryValues="@array/clock_date_format_entries_values" />
 
         <ListPreference
             android:key="statusbar_clock_date_position"
             android:title="@string/clock_date_position"
             android:entries="@array/clock_date_position_entries"
-            android:entryValues="@array/clock_date_position_values"
-            android:dependency="statusbar_clock" />
+            android:entryValues="@array/clock_date_position_values" />
      
         <com.ancient.settings.preferences.SystemSettingSwitchPreference
             android:key="STATUS_BAR_ANCI_CLOCK"
@@ -90,5 +84,128 @@
             android:dependency="STATUS_BAR_ANCI_CLOCK"                                                     
             android:entryValues="@array/transclock_clock_switch_values"
             android:defaultValue="0" />
+     
+        <com.ancient.settings.preferences.SystemSettingSwitchPreference
+            android:key="IDC_TRANSCLOCK_BG"
+            android:title="@string/transclockbg_switch_title"
+            android:summary="@string/transclockbg_switch_summary"
+            android:dependency="STATUS_BAR_ANCI_CLOCK"               
+            android:defaultValue="false" />
+     
+        <com.ancient.settings.preferences.SystemSettingListPreference
+            android:key="IDC_TRANSCLOCK_BG_LIST"                                                    
+            android:title="@string/transclockbg_clock_switch_title"
+            android:summary="%s"
+            android:dialogTitle="@string/transclockbg_clock_switch_title"
+            android:entries="@array/transclockbg_clock_switch_entries"
+            android:dependency="STATUS_BAR_ANCI_CLOCK"                                                     
+            android:entryValues="@array/transclockbg_clock_switch_values"
+            android:defaultValue="0" />
+     
+        <com.ancient.settings.preferences.SystemSettingListPreference
+            android:key="IDC_TRANSCLOCK_BG_JUMLAHGRADIENT"                                                    
+            android:title="@string/transclockgrm_clock_switch_title"
+            android:summary="%s"
+            android:dialogTitle="@string/transclockgrm_clock_switch_title"
+            android:entries="@array/transclockgrm_clock_switch_entries"
+            android:dependency="STATUS_BAR_ANCI_CLOCK"                                                     
+            android:entryValues="@array/transclockgrm_clock_switch_values"
+            android:defaultValue="0" />
+     
+        <com.ancient.settings.preferences.SystemSettingListPreference
+            android:key="IDC_TRANSCLOCK_BG_MACEMGRADIENT"                                                    
+            android:title="@string/transclockgr_clock_switch_title"
+            android:summary="%s"
+            android:dialogTitle="@string/transclockgr_clock_switch_title"
+            android:entries="@array/transclockgr_clock_switch_entries"
+            android:dependency="STATUS_BAR_ANCI_CLOCK"                                                     
+            android:entryValues="@array/transclockgr_clock_switch_values"
+            android:defaultValue="0" />
+
+        <com.ancient.settings.preferences.SystemSettingSeekBarPreference 
+            android:max="30" 
+            android:title="@string/transclock_clock_topleft_title"  	
+            android:key="IDC_TRANSCLOCK_BG_TOPLEFT"
+            android:dependency="STATUS_BAR_ANCI_CLOCK"   
+            android:defaultValue="15" />
+
+        <com.ancient.settings.preferences.SystemSettingSeekBarPreference 
+            android:max="30" 
+            android:title="@string/transclock_clock_topright_title"  	
+            android:key="IDC_TRANSCLOCK_BG_TOPRIGHT"
+            android:dependency="STATUS_BAR_ANCI_CLOCK"   
+            android:defaultValue="15" />
+
+        <com.ancient.settings.preferences.SystemSettingSeekBarPreference 
+            android:max="30" 
+            android:title="@string/transclock_clock_botleft_title"  	
+            android:key="IDC_TRANSCLOCK_BG_BOTTOMLEFT"
+            android:dependency="STATUS_BAR_ANCI_CLOCK"   
+            android:defaultValue="15" />
+
+        <com.ancient.settings.preferences.SystemSettingSeekBarPreference 
+            android:max="30"
+            android:title="@string/transclock_clock_botright_title"  	
+            android:key="IDC_TRANSCLOCK_BG_BOTTOMRIGHT"
+            android:dependency="STATUS_BAR_ANCI_CLOCK"   
+            android:defaultValue="15" />
+
+        <com.ancient.settings.preferences.SystemSettingSeekBarPreference 
+            android:max="30" 
+            android:title="@string/transclock_clock_top_title"  	
+            android:key="IDC_TRANSCLOCK_BG_PADDINGTOP"
+            android:dependency="STATUS_BAR_ANCI_CLOCK"   
+            android:defaultValue="0" />
+
+        <com.ancient.settings.preferences.SystemSettingSeekBarPreference 
+            android:max="30" 
+            android:title="@string/transclock_clock_bot_title"  	
+            android:key="IDC_TRANSCLOCK_BG_PADDINGBOT"
+            android:dependency="STATUS_BAR_ANCI_CLOCK"   
+            android:defaultValue="0" />
+
+        <com.ancient.settings.preferences.SystemSettingSeekBarPreference 
+            android:max="30"
+            android:title="@string/transclock_clock_side_title"  	
+            android:key="IDC_TRANSCLOCK_BG_PADDINGSIDE"
+            android:dependency="STATUS_BAR_ANCI_CLOCK"   
+            android:defaultValue="10" />
+
+        <com.ancient.settings.preferences.SystemSettingSeekBarPreference 
+            android:max="5"
+            android:title="@string/transclock_clock_stroke_title"  	
+            android:key="IDC_TRANSCLOCK_BG_STROKE"
+            android:dependency="STATUS_BAR_ANCI_CLOCK"   
+            android:defaultValue="2" />
+     
+       <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:title="@string/transclock_color_stroke_title"  							     
+            android:key="IDC_TRANSCLOCK_BG_STROKEKOLOR" 
+            android:dependency="STATUS_BAR_ANCI_CLOCK" 
+            android:defaultValue="0x00000000" />
+     
+       <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:title="@string/transclock_color_single_title"  							     
+            android:key="IDC_TRANSCLOCK_BG_KOLOR" 
+            android:dependency="STATUS_BAR_ANCI_CLOCK" 
+            android:defaultValue="0xffffffff" />
+     
+       <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:title="@string/transclock_color_grad1_title"  							     
+            android:key="IDC_TRANSCLOCK_BG_GRADIENTA" 
+            android:dependency="STATUS_BAR_ANCI_CLOCK" 
+            android:defaultValue="0xffffffff" />
+     
+       <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:title="@string/transclock_color_grad2_title"  							     
+            android:key="IDC_TRANSCLOCK_BG_GRADIENTB" 
+            android:dependency="STATUS_BAR_ANCI_CLOCK" 
+            android:defaultValue="0xffffffff" />
+     
+       <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:title="@string/transclock_color_grad3_title"  							     
+            android:key="IDC_TRANSCLOCK_BG_GRADIENTC" 
+            android:dependency="STATUS_BAR_ANCI_CLOCK" 
+            android:defaultValue="0xffffffff" />
      
 </PreferenceScreen>
