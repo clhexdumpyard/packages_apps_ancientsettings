@@ -903,10 +903,49 @@
 	
     <!-- transclock style -->
     <string name="transclock_switch_title">Transparent Clock</string>
-    <string name="transclock_switch_summary">show trnasparent clock with backgroung</string>
+    <string name="transclock_switch_summary">show trnasparent clock with background</string>
     <string name="transclock_clock_switch_title">Transparent Clock Style</string>
     <string name="transclock_clock_left">Left</string>
     <string name="transclock_clock_center">Center</string>
     <string name="transclock_clock_right">Right</string>
+	
+    <string name="transclockbg_switch_title">Transparent Clock Background</string>
+    <string name="transclockbg_switch_summary">use custom background</string>
+	
+    <string name="transclockbg_clock_switch_title">Transparent Clock Background Style</string>
+    <string name="transclockbg_clock_accent">Accent</string>
+    <string name="transclockbg_clock_color">Custom Color</string>
+    <string name="transclockbg_clock_gradient">Gradient</string>
+	
+    <string name="transclockgr_clock_switch_title">Gradient Background Style</string>
+    <string name="transclockgr_clock_1">Bottomleft to Topright</string>
+    <string name="transclockgr_clock_2">Bottomright to Topleft</string>
+    <string name="transclockgr_clock_3">Topleft to Bottomright</string>
+    <string name="transclockgr_clock_4">Topright to Bottomleft</string>
+    <string name="transclockgr_clock_5">Bottom to Top</string>
+    <string name="transclockgr_clock_6">Top to Bottom</string>
+    <string name="transclockgr_clock_7">Left to Right</string>
+    <string name="transclockgr_clock_8">Right to Left</string>
+	
+    <string name="transclockgrm_clock_switch_title">Gradient Background Value</string>
+    <string name="transclockgrm_clock_2">2 Colors</string>
+    <string name="transclockgrm_clock_3">3 Colors</string>
+	
+    <string name="transclock_clock_topleft_title">TopLeft Corner</string>
+    <string name="transclock_clock_topright_title">TopRight Corner</string>
+    <string name="transclock_clock_botleft_title">BottomLeft Corner</string>
+    <string name="transclock_clock_botright_title">BottomRight Corner</string>
+	
+    <string name="transclock_clock_top_title">Top Padding</string>
+    <string name="transclock_clock_bot_title">Bottom Padding</string>
+    <string name="transclock_clock_side_title">Side Padding</string>
+    <string name="transclock_clock_stroke_title">Stroke</string>
+	
+    <string name="transclock_color_stroke_title">Stroke Color</string>
+    <string name="transclock_color_single_title">Custom Color</string>
+    <string name="transclock_color_grad1_title">Gradient First Color</string>
+    <string name="transclock_color_grad2_title">Gradient Second Color</string>
+    <string name="transclock_color_grad3_title">Gradient Third Color</string>
+	
 
 </resources>
