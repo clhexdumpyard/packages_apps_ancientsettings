@@ -74,6 +74,11 @@ public class ClockDateSettings extends SettingsPreferenceFragment
     private static final String PREF_CLOCK_STYLE = "statusbar_clock_style";
     
     private static final String STATUS_BAR_ANCI_CLOCK = "STATUS_BAR_ANCI_CLOCK";
+    private static final String IDC_TRANSCLOCK_BG_STROKEKOLOR = "IDC_TRANSCLOCK_BG_STROKEKOLOR";
+    private static final String IDC_TRANSCLOCK_BG_KOLOR = "IDC_TRANSCLOCK_BG_KOLOR";
+    private static final String IDC_TRANSCLOCK_BG_GRADIENTA = "IDC_TRANSCLOCK_BG_GRADIENTA";
+    private static final String IDC_TRANSCLOCK_BG_GRADIENTB = "IDC_TRANSCLOCK_BG_GRADIENTB";
+    private static final String IDC_TRANSCLOCK_BG_GRADIENTC = "IDC_TRANSCLOCK_BG_GRADIENTC";
 
     public static final int CLOCK_DATE_STYLE_LOWERCASE = 1;
     public static final int CLOCK_DATE_STYLE_UPPERCASE = 2;
@@ -88,6 +93,11 @@ public class ClockDateSettings extends SettingsPreferenceFragment
     private SwitchPreference mStatusBarClock;
     private SwitchPreference mStatusBarSecondsShow;
     private SystemSettingSwitchPreference mtransSwitch;
+    private ColorPickerPreference mColst;
+    private ColorPickerPreference mColsi;
+    private ColorPickerPreference mColga;
+    private ColorPickerPreference mColgb;
+    private ColorPickerPreference mColgc;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -175,6 +185,71 @@ public class ClockDateSettings extends SettingsPreferenceFragment
         mtransSwitch.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
                 "STATUS_BAR_ANCI_CLOCK", 0) == 1));
         mtransSwitch.setOnPreferenceChangeListener(this);
+        
+        mColst = (ColorPickerPreference) findPreference(IDC_TRANSCLOCK_BG_STROKEKOLOR);
+        int mColstColor = Settings.System.getInt(getContentResolver(),
+                "IDC_TRANSCLOCK_BG_STROKEKOLOR", 0x00000000);
+        mColst.setNewPreviewColor(mColstColor);
+        mColst.setAlphaSliderEnabled(true);
+        String mColstColorHex = String.format("#%08x", (0x00000000 & mColstColor));
+        if (mColstColorHex.equals("#00000000")) {
+            mColst.setSummary(R.string.color_default);
+        } else {
+            mColst.setSummary(mColstColorHex);
+        }
+        mColst.setOnPreferenceChangeListener(this);
+        
+        mColsi = (ColorPickerPreference) findPreference(IDC_TRANSCLOCK_BG_KOLOR);
+        int mColsiColor = Settings.System.getInt(getContentResolver(),
+                "IDC_TRANSCLOCK_BG_KOLOR", 0xffffffff);
+        mColsi.setNewPreviewColor(mColsiColor);
+        mColsi.setAlphaSliderEnabled(true);
+        String mColsiColorHex = String.format("#%08x", (0xffffffff & mColsiColor));
+        if (mColsiColorHex.equals("#ffffffff")) {
+            mColsi.setSummary(R.string.color_default);
+        } else {
+            mColsi.setSummary(mColsiColorHex);
+        }
+        mColsi.setOnPreferenceChangeListener(this);
+        
+        mColga = (ColorPickerPreference) findPreference(IDC_TRANSCLOCK_BG_GRADIENTA);
+        int mColgaColor = Settings.System.getInt(getContentResolver(),
+                "IDC_TRANSCLOCK_BG_GRADIENTA", 0xffffffff);
+        mColga.setNewPreviewColor(mColgaColor);
+        mColga.setAlphaSliderEnabled(true);
+        String mColgaColorHex = String.format("#%08x", (0xffffffff & mColgaColor));
+        if (mColgaColorHex.equals("#ffffffff")) {
+            mColga.setSummary(R.string.color_default);
+        } else {
+            mColga.setSummary(mColgaColorHex);
+        }
+        mColga.setOnPreferenceChangeListener(this);
+        
+        mColgb = (ColorPickerPreference) findPreference(IDC_TRANSCLOCK_BG_GRADIENTB);
+        int mColgbColor = Settings.System.getInt(getContentResolver(),
+                "IDC_TRANSCLOCK_BG_GRADIENTB", 0xffffffff);
+        mColgb.setNewPreviewColor(mColgbColor);
+        mColgb.setAlphaSliderEnabled(true);
+        String mColgbColorHex = String.format("#%08x", (0xffffffff & mColgbColor));
+        if (mColgbColorHex.equals("#ffffffff")) {
+            mColgb.setSummary(R.string.color_default);
+        } else {
+            mColgb.setSummary(mColgbColorHex);
+        }
+        mColgb.setOnPreferenceChangeListener(this);
+        
+        mColgc = (ColorPickerPreference) findPreference(IDC_TRANSCLOCK_BG_GRADIENTC);
+        int mColgcColor = Settings.System.getInt(getContentResolver(),
+                "IDC_TRANSCLOCK_BG_GRADIENTC", 0xffffffff);
+        mColgc.setNewPreviewColor(mColgcColor);
+        mColgc.setAlphaSliderEnabled(true);
+        String mColgcColorHex = String.format("#%08x", (0xffffffff & mColgcColor));
+        if (mColgcColorHex.equals("#ffffffff")) {
+            mColgc.setSummary(R.string.color_default);
+        } else {
+            mColgc.setSummary(mColgcColorHex);
+        }
+        mColgc.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -308,6 +383,66 @@ public class ClockDateSettings extends SettingsPreferenceFragment
             boolean value = (Boolean) newValue;
             Settings.System.putInt(getActivity().getContentResolver(),
                     "STATUS_BAR_ANCI_CLOCK", value ? 1 : 0);
+            return true;
+        } else if (preference == mColst) {
+            String hexst = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            if (hexst.equals("#00000000")) {
+                preference.setSummary(R.string.color_default);
+            } else {
+                preference.setSummary(hexst);
+            }
+            int intHexst = ColorPickerPreference.convertToColorInt(hexst);
+            Settings.System.putInt(getContentResolver(),
+                    "IDC_TRANSCLOCK_BG_STROKEKOLOR", intHexst);
+            return true;
+        } else if (preference == mColsi) {
+            String hexsi = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            if (hexsi.equals("#ffffffff")) {
+                preference.setSummary(R.string.color_default);
+            } else {
+                preference.setSummary(hexsi);
+            }
+            int intHexsi = ColorPickerPreference.convertToColorInt(hexsi);
+            Settings.System.putInt(getContentResolver(),
+                    "IDC_TRANSCLOCK_BG_KOLOR", intHexsi);
+            return true;
+        } else if (preference == mColga) {
+            String hexga = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            if (hexga.equals("#ffffffff")) {
+                preference.setSummary(R.string.color_default);
+            } else {
+                preference.setSummary(hexga);
+            }
+            int intHexga = ColorPickerPreference.convertToColorInt(hexga);
+            Settings.System.putInt(getContentResolver(),
+                    "IDC_TRANSCLOCK_BG_GRADIENTA", intHexga);
+            return true;
+        } else if (preference == mColgb) {
+            String hexgb = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            if (hexgb.equals("#ffffffff")) {
+                preference.setSummary(R.string.color_default);
+            } else {
+                preference.setSummary(hexgb);
+            }
+            int intHexga = ColorPickerPreference.convertToColorInt(hexgb);
+            Settings.System.putInt(getContentResolver(),
+                    "IDC_TRANSCLOCK_BG_GRADIENTB", intHexga);
+            return true;
+        } else if (preference == mColgc) {
+            String hexgc = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            if (hexgc.equals("#ffffffff")) {
+                preference.setSummary(R.string.color_default);
+            } else {
+                preference.setSummary(hexgc);
+            }
+            int intHexgc = ColorPickerPreference.convertToColorInt(hexgc);
+            Settings.System.putInt(getContentResolver(),
+                    "IDC_TRANSCLOCK_BG_GRADIENTC", intHexgc);
             return true;
         }
         return false;
