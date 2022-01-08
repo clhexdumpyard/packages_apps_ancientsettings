@@ -223,11 +223,11 @@ public class Addon extends SettingsPreferenceFragment implements OnPreferenceCha
 
         mBackb = (ColorPickerPreference) findPreference(IDC_LS_TRANSCLOCK_BG_KOLOR);
         int mbacabColor = Settings.System.getInt(getContentResolver(),
-                "IDC_LS_TRANSCLOCK_BG_KOLOR", 0x00000000);
+                "IDC_LS_TRANSCLOCK_BG_KOLOR", 0xffffffff);
         mBackb.setNewPreviewColor(mbacabColor);
         mBackb.setAlphaSliderEnabled(true);
-        String mbacabColorHex = String.format("#%08x", (0x00000000 & mbacabColor));
-        if (mbacabColorHex.equals("#00000000")) {
+        String mbacabColorHex = String.format("#%08x", (0xffffffff & mbacabColor));
+        if (mbacabColorHex.equals("#ffffffff")) {
             mBackb.setSummary(R.string.color_default);
         } else {
             mBackb.setSummary(mbacabColorHex);
@@ -236,11 +236,11 @@ public class Addon extends SettingsPreferenceFragment implements OnPreferenceCha
 
         mBackc = (ColorPickerPreference) findPreference(IDC_LS_TRANSCLOCK_BG_GRADIENTA);
         int mbacacColor = Settings.System.getInt(getContentResolver(),
-                "IDC_LS_TRANSCLOCK_BG_GRADIENTA", 0x00000000);
+                "IDC_LS_TRANSCLOCK_BG_GRADIENTA", 0xffffffff);
         mBackc.setNewPreviewColor(mbacacColor);
         mBackc.setAlphaSliderEnabled(true);
-        String mbacacColorHex = String.format("#%08x", (0x00000000 & mbacacColor));
-        if (mbacacColorHex.equals("#00000000")) {
+        String mbacacColorHex = String.format("#%08x", (0xffffffff & mbacacColor));
+        if (mbacacColorHex.equals("#ffffffff")) {
             mBackc.setSummary(R.string.color_default);
         } else {
             mBackc.setSummary(mbacacColorHex);
@@ -249,11 +249,11 @@ public class Addon extends SettingsPreferenceFragment implements OnPreferenceCha
 
         mBackd = (ColorPickerPreference) findPreference(IDC_LS_TRANSCLOCK_BG_GRADIENTB);
         int mbacadColor = Settings.System.getInt(getContentResolver(),
-                "IDC_LS_TRANSCLOCK_BG_GRADIENTB", 0x00000000);
+                "IDC_LS_TRANSCLOCK_BG_GRADIENTB", 0xffffffff);
         mBackd.setNewPreviewColor(mbacadColor);
         mBackd.setAlphaSliderEnabled(true);
-        String mbacadColorHex = String.format("#%08x", (0x00000000 & mbacadColor));
-        if (mbacadColorHex.equals("#00000000")) {
+        String mbacadColorHex = String.format("#%08x", (0xffffffff & mbacadColor));
+        if (mbacadColorHex.equals("#ffffffff")) {
             mBackd.setSummary(R.string.color_default);
         } else {
             mBackd.setSummary(mbacadColorHex);
@@ -262,11 +262,11 @@ public class Addon extends SettingsPreferenceFragment implements OnPreferenceCha
         mBacke.setOnPreferenceChangeListener(this);  
         mBacke = (ColorPickerPreference) findPreference(IDC_LS_TRANSCLOCK_BG_GRADIENTC);
         int mbacaeColor = Settings.System.getInt(getContentResolver(),
-                "IDC_LS_TRANSCLOCK_BG_GRADIENTC", 0x00000000);
+                "IDC_LS_TRANSCLOCK_BG_GRADIENTC", 0xffffffff);
         mBacke.setNewPreviewColor(mbacaeColor);
         mBacke.setAlphaSliderEnabled(true);
-        String mbacaeColorHex = String.format("#%08x", (0x00000000 & mbacaeColor));
-        if (mbacaeColorHex.equals("#00000000")) {
+        String mbacaeColorHex = String.format("#%08x", (0xffffffff & mbacaeColor));
+        if (mbacaeColorHex.equals("#ffffffff")) {
             mBacke.setSummary(R.string.color_default);
         } else {
             mBacke.setSummary(mbacaeColorHex);
@@ -594,48 +594,48 @@ public class Addon extends SettingsPreferenceFragment implements OnPreferenceCha
             }
             int intHexa = ColorPickerPreference.convertToColorInt(hexa);
             Settings.System.putInt(getContentResolver(),
-                    "nabil_backgroundclocksb_color", intHexa);
+                    "IDC_LS_TRANSCLOCK_BG_STROKEKOLOR", intHexa);
             return true;  
         } else if (preference == mBackb) {
             String hexb = ColorPickerPreference.convertToARGB(
                     Integer.valueOf(String.valueOf(objValue)));
-            if (hexb.equals("#00000000")) {
+            if (hexb.equals("#FFFFFFFF")) {
                 preference.setSummary(R.string.color_default);
             } else {
                 preference.setSummary(hexb);
             }
             int intHexb = ColorPickerPreference.convertToColorInt(hexb);
             Settings.System.putInt(getContentResolver(),
-                    "nabil_backgroundclocksb_gradient1", intHexb);
+                    "IDC_LS_TRANSCLOCK_BG_KOLOR", intHexb);
             return true;   
         } else if (preference == mBackc) {
             String hexc = ColorPickerPreference.convertToARGB(
                     Integer.valueOf(String.valueOf(objValue)));
-            if (hexc.equals("#00000000")) {
+            if (hexc.equals("#FFFFFFFF")) {
                 preference.setSummary(R.string.color_default);
             } else {
                 preference.setSummary(hexc);
             }
             int intHexc = ColorPickerPreference.convertToColorInt(hexc);
             Settings.System.putInt(getContentResolver(),
-                    "nabil_backgroundclocksb_gradient2", intHexc);
+                    "IDC_LS_TRANSCLOCK_BG_GRADIENTA", intHexc);
             return true;
         } else if (preference == mBackd) {
             String hexd = ColorPickerPreference.convertToARGB(
                     Integer.valueOf(String.valueOf(objValue)));
-            if (hexd.equals("#00000000")) {
+            if (hexd.equals("#FFFFFFFF")) {
                 preference.setSummary(R.string.color_default);
             } else {
                 preference.setSummary(hexd);
             }
             int intHexd = ColorPickerPreference.convertToColorInt(hexd);
             Settings.System.putInt(getContentResolver(),
-                    "nabil_backgroundclocksb_strokecolor", intHexd);
+                    "IDC_LS_TRANSCLOCK_BG_GRADIENTB", intHexd);
             return true;
         } else if (preference == mBacke) {
             String hexe = ColorPickerPreference.convertToARGB(
                     Integer.valueOf(String.valueOf(objValue)));
-            if (hexe.equals("#00000000")) {
+            if (hexe.equals("#FFFFFFFF")) {
                 preference.setSummary(R.string.color_default);
             } else {
                 preference.setSummary(hexe);
