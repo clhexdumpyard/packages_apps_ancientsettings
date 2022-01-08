@@ -422,28 +422,48 @@
             android:max="200" 
             android:title="TopLeft Radius"   	
             android:key="IDC_LS_TRANSCLOCK_BG_TOPLEFT" 
-            android:dependency="IDC_LS_TRANSCLOCK_BG" 
             android:defaultValue="15" />
 	    
         <com.ancient.settings.preferences.SystemSettingSeekBarPreference 
             android:max="200" 
             android:title="TopRight Radius"   	
             android:key="IDC_LS_TRANSCLOCK_BG_TOPRIGHT" 
-            android:dependency="IDC_LS_TRANSCLOCK_BG" 
             android:defaultValue="15" />
 	    
 	<com.ancient.settings.preferences.SystemSettingSeekBarPreference 
             android:max="200" 
-            android:title="BottomLeft Radius" 	
+            android:title="BottomRight Radius" 	
             android:key="IDC_LS_TRANSCLOCK_BG_BOTTOMLEFT" 
-            android:dependency="IDC_LS_TRANSCLOCK_BG" 
             android:defaultValue="15" />
 	    
         <com.ancient.settings.preferences.SystemSettingSeekBarPreference 
             android:max="200" 
-            android:title="BottomRight Radius"  	
+            android:title="BottomLeft Radius"  	
             android:key="IDC_LS_TRANSCLOCK_BG_BOTTOMRIGHT" 
-            android:dependency="IDC_LS_TRANSCLOCK_BG" 
+            android:defaultValue="15" />
+	    
+	<com.ancient.settings.preferences.SystemSettingSeekBarPreference 
+            android:max="100" 
+            android:title="Small TopLeft Radius"   	
+            android:key="IDC_LS_TRANSCLOCK_BG_TOPLEFT_SMALL" 
+            android:defaultValue="15" />
+	    
+        <com.ancient.settings.preferences.SystemSettingSeekBarPreference 
+            android:max="100" 
+            android:title="Small TopRight Radius"   	
+            android:key="IDC_LS_TRANSCLOCK_BG_TOPRIGHT_SMALL" 
+            android:defaultValue="15" />
+	    
+	<com.ancient.settings.preferences.SystemSettingSeekBarPreference 
+            android:max="100" 
+            android:title="Small BottomRight Radius" 	
+            android:key="IDC_LS_TRANSCLOCK_BG_BOTTOMLEFT_SMALL" 
+            android:defaultValue="15" />
+	    
+        <com.ancient.settings.preferences.SystemSettingSeekBarPreference 
+            android:max="100" 
+            android:title="Small BottomLeft Radius"  	
+            android:key="IDC_LS_TRANSCLOCK_BG_BOTTOMRIGHT_SMALL" 
             android:defaultValue="15" />
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference 
@@ -474,33 +494,44 @@
             android:max="30" 
             android:title="Stroke Width"   								 
             android:key="IDC_LS_TRANSCLOCK_BG_STROKE" 
-            android:dependency="IDC_LS_TRANSCLOCK_BG" 
             android:defaultValue="2" />
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference 
             android:title="Stroke Color"  							     
             android:key="IDC_LS_TRANSCLOCK_BG_STROKEKOLOR" 
-            android:dependency="IDC_LS_TRANSCLOCK_BG" 
             android:defaultValue="0x00000000" />
 
         <com.ancient.settings.preferences.SystemSettingSeekBarPreference 
             android:max="50" android:title="Padding Top" 								 
             android:key="IDC_LS_TRANSCLOCK_BG_PADDINGTOP" 
-            android:dependency="IDC_LS_TRANSCLOCK_BG" 
             android:defaultValue="10" />
 	
 	  <com.ancient.settings.preferences.SystemSettingSeekBarPreference 
             android:max="50" android:title="Padding Bottom" 								   
             android:key="IDC_LS_TRANSCLOCK_BG_PADDINGBOT" 
-            android:dependency="IDC_LS_TRANSCLOCK_BG" 
             android:defaultValue="0" />
 
         <com.ancient.settings.preferences.SystemSettingSeekBarPreference 
             android:max="50"
             android:title="Padding Left Right"   								 
             android:key="IDC_LS_TRANSCLOCK_BG_PADDINGSIDE" 
-            android:dependency="IDC_LS_TRANSCLOCK_BG" 
-            android:defaultValue="10" />    
+            android:defaultValue="10" />
+	    
+        <com.ancient.settings.preferences.SystemSettingSeekBarPreference 
+            android:max="50" android:title="Small Padding Top" 								 
+            android:key="IDC_LS_TRANSCLOCK_BG_PADDINGTOP_SMALL" 
+            android:defaultValue="10" />
+	
+	  <com.ancient.settings.preferences.SystemSettingSeekBarPreference 
+            android:max="50" android:title="Small Padding Bottom" 								   
+            android:key="IDC_LS_TRANSCLOCK_BG_PADDINGBOT_SMALL" 
+            android:defaultValue="0" />
+
+        <com.ancient.settings.preferences.SystemSettingSeekBarPreference 
+            android:max="50"
+            android:title="Small Padding Left Right"   								 
+            android:key="IDC_LS_TRANSCLOCK_BG_PADDINGSIDE_SMALL" 
+            android:defaultValue="10" />        
 	    
      </PreferenceCategory>
 
