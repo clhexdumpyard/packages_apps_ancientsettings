@@ -102,7 +102,6 @@
             android:title="Background Style" 
             android:key="IDC_QS_TRANSCLOCK_BG_LIST"   							      
             android:summary="%s"
-            android:dependency="IDC_QS_TRANSCLOCK_BG"
             android:dependency="ANCIENT_UI_SWITCH"                
             android:defaultValue="0" 
             android:entryValues="@array/transclockbg_clock_switch_values" />
