@@ -335,7 +335,7 @@ public class Addon extends SettingsPreferenceFragment implements OnPreferenceCha
         }
         mBackdd.setOnPreferenceChangeListener(this); 
  
-        mBackee = (ColorPickerPreference) findPreference(IDC_LS_TRANSCLOCK_BG_GRADIENTC);
+        mBackee = (ColorPickerPreference) findPreference(IDC_QS_TRANSCLOCK_BG_GRADIENTC);
         int mbacaeeColor = Settings.System.getInt(getContentResolver(),
                 "IDC_QS_TRANSCLOCK_BG_GRADIENTC", 0xffffffff);
         mBackee.setNewPreviewColor(mbacaeeColor);
