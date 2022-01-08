@@ -310,9 +310,9 @@ public class Addon extends SettingsPreferenceFragment implements OnPreferenceCha
         mBackbb.setOnPreferenceChangeListener(this);
 
         mBackcc = (ColorPickerPreference) findPreference(IDC_QS_TRANSCLOCK_BG_GRADIENTA);
-        int mbacacColor = Settings.System.getInt(getContentResolver(),
+        int mbacaccColor = Settings.System.getInt(getContentResolver(),
                 "IDC_QS_TRANSCLOCK_BG_GRADIENTA", 0xffffffff);
-        mBackcc.setNewPreviewColor(mbacacColor);
+        mBackcc.setNewPreviewColor(mbacaccColor);
         mBackcc.setAlphaSliderEnabled(true);
         String mbacacColorHex = String.format("#%08x", (0xffffffff & mbacaccColor));
         if (mbacaccColorHex.equals("#ffffffff")) {
@@ -323,7 +323,7 @@ public class Addon extends SettingsPreferenceFragment implements OnPreferenceCha
         mBackcc.setOnPreferenceChangeListener(this);
 
         mBackdd = (ColorPickerPreference) findPreference(IDC_QS_TRANSCLOCK_BG_GRADIENTB);
-        int mbacadColor = Settings.System.getInt(getContentResolver(),
+        int mbacaddColor = Settings.System.getInt(getContentResolver(),
                 "IDC_QS_TRANSCLOCK_BG_GRADIENTB", 0xffffffff);
         mBackdd.setNewPreviewColor(mbacaddColor);
         mBackdd.setAlphaSliderEnabled(true);
@@ -754,7 +754,7 @@ public class Addon extends SettingsPreferenceFragment implements OnPreferenceCha
                     "IDC_QS_TRANSCLOCK_BG_GRADIENTA", intHexcc);
             return true;
         } else if (preference == mBackdd) {
-            String hexd = ColorPickerPreference.convertToARGB(
+            String hexdd = ColorPickerPreference.convertToARGB(
                     Integer.valueOf(String.valueOf(objValue)));
             if (hexdd.equals("#FFFFFFFF")) {
                 preference.setSummary(R.string.color_default);
