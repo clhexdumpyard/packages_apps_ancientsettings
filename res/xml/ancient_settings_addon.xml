@@ -513,6 +513,12 @@
             android:title="Stroke Width"   								 
             android:key="IDC_LS_TRANSCLOCK_BG_STROKE" 
             android:defaultValue="2" />
+	    
+	<com.ancient.settings.preferences.SystemSettingSeekBarPreference 
+            android:max="20" 
+            android:title="Small Stroke Width"   								 
+            android:key="IDC_LS_TRANSCLOCK_BG_STROKE_SMALL" 
+            android:defaultValue="2" />
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference 
             android:title="Stroke Color"  							     
