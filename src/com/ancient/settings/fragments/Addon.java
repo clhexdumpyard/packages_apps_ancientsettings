@@ -64,10 +64,11 @@ public class Addon extends SettingsPreferenceFragment implements OnPreferenceCha
     private static final String STATUSBAR_DUAL_STYLE = "STATUSBAR_DUAL_STYLE"; 
     private static final String STATUSBAR_ICON_STYLE = "STATUSBAR_ICON_STYLE"; 
     private static final String STATUSBAR_HEIGHT_STYLE = "STATUSBAR_HEIGHT_STYLE";
-    private static final String NABIL_BACKGROUNDCLOCKSB_COLOR = "nabil_backgroundclocksb_color";
-    private static final String NABIL_BACKGROUNDCLOCKSB_GRADIENT1 = "nabil_backgroundclocksb_gradient1";
-    private static final String NABIL_BACKGROUNDCLOCKSB_GRADIENT2 = "nabil_backgroundclocksb_gradient2";
-    private static final String NABIL_BACKGROUNDCLOCKSB_STROKECOLOR = "nabil_backgroundclocksb_strokecolor";
+    private static final String IDC_LS_TRANSCLOCK_BG_STROKEKOLOR = "IDC_LS_TRANSCLOCK_BG_STROKEKOLOR";
+    private static final String IDC_LS_TRANSCLOCK_BG_KOLOR = "IDC_LS_TRANSCLOCK_BG_KOLOR";
+    private static final String IDC_LS_TRANSCLOCK_BG_GRADIENTA = "IDC_LS_TRANSCLOCK_BG_GRADIENTA";
+    private static final String IDC_LS_TRANSCLOCK_BG_GRADIENTB = "IDC_LS_TRANSCLOCK_BG_GRADIENTB";
+    private static final String IDC_LS_TRANSCLOCK_BG_GRADIENTC = "IDC_LS_TRANSCLOCK_BG_GRADIENTC";
     private static final String STATUSBAR_DATA_STYLE = "STATUSBAR_DATA_STYLE";     
     private static final String BRIGHTNESS_STYLES = "BRIGHTNESS_STYLES";
     private static final String VOLUMEBAR_STYLES = "VOLUMEBAR_STYLES";
@@ -124,6 +125,7 @@ public class Addon extends SettingsPreferenceFragment implements OnPreferenceCha
     private ColorPickerPreference mBackb;
     private ColorPickerPreference mBackc;
     private ColorPickerPreference mBackd;
+    private ColorPickerPreference mBacke;
     private SystemSettingListPreference idcSbDataStyle;       
     private SystemSettingListPreference idcSbBrightStyle;
     private SystemSettingListPreference idcSbVolumeStyle; 
@@ -185,7 +187,6 @@ public class Addon extends SettingsPreferenceFragment implements OnPreferenceCha
         idcSbVolumeStyle.setSummary(idcSbVolumeStyle.getEntry());
         idcSbVolumeStyle.setOnPreferenceChangeListener(this);   
                 
-    
         idcSbHeightStyle = (SystemSettingListPreference) findPreference("STATUSBAR_HEIGHT_STYLE");
         int sbHeightStyle = Settings.System.getIntForUser(getContentResolver(),
                 "STATUSBAR_HEIGHT_STYLE", 0, UserHandle.USER_CURRENT);
@@ -207,9 +208,9 @@ public class Addon extends SettingsPreferenceFragment implements OnPreferenceCha
         }
         idcVolumeBackgroundColor.setOnPreferenceChangeListener(this);
             
-         mBacka = (ColorPickerPreference) findPreference(NABIL_BACKGROUNDCLOCKSB_COLOR);
+         mBacka = (ColorPickerPreference) findPreference(IDC_LS_TRANSCLOCK_BG_STROKEKOLOR);
         int mbacaColor = Settings.System.getInt(getContentResolver(),
-                "nabil_backgroundclocksb_color", 0x00000000);
+                "IDC_LS_TRANSCLOCK_BG_STROKEKOLOR", 0x00000000);
         mBacka.setNewPreviewColor(mbacaColor);
         mBacka.setAlphaSliderEnabled(true);
         String mbacaColorHex = String.format("#%08x", (0x00000000 & mbacaColor));
@@ -220,9 +221,9 @@ public class Addon extends SettingsPreferenceFragment implements OnPreferenceCha
         }
         mBacka.setOnPreferenceChangeListener(this);
 
-        mBackb = (ColorPickerPreference) findPreference(NABIL_BACKGROUNDCLOCKSB_GRADIENT1);
+        mBackb = (ColorPickerPreference) findPreference(IDC_LS_TRANSCLOCK_BG_KOLOR);
         int mbacabColor = Settings.System.getInt(getContentResolver(),
-                "nabil_backgroundclocksb_gradient1", 0x00000000);
+                "IDC_LS_TRANSCLOCK_BG_KOLOR", 0x00000000);
         mBackb.setNewPreviewColor(mbacabColor);
         mBackb.setAlphaSliderEnabled(true);
         String mbacabColorHex = String.format("#%08x", (0x00000000 & mbacabColor));
@@ -233,9 +234,9 @@ public class Addon extends SettingsPreferenceFragment implements OnPreferenceCha
         }
         mBackb.setOnPreferenceChangeListener(this);
 
-        mBackc = (ColorPickerPreference) findPreference(NABIL_BACKGROUNDCLOCKSB_GRADIENT2);
+        mBackc = (ColorPickerPreference) findPreference(IDC_LS_TRANSCLOCK_BG_GRADIENTA);
         int mbacacColor = Settings.System.getInt(getContentResolver(),
-                "nabil_backgroundclocksb_gradient2", 0x00000000);
+                "IDC_LS_TRANSCLOCK_BG_GRADIENTA", 0x00000000);
         mBackc.setNewPreviewColor(mbacacColor);
         mBackc.setAlphaSliderEnabled(true);
         String mbacacColorHex = String.format("#%08x", (0x00000000 & mbacacColor));
@@ -246,9 +247,9 @@ public class Addon extends SettingsPreferenceFragment implements OnPreferenceCha
         }
         mBackc.setOnPreferenceChangeListener(this);
 
-        mBackd = (ColorPickerPreference) findPreference(NABIL_BACKGROUNDCLOCKSB_STROKECOLOR);
+        mBackd = (ColorPickerPreference) findPreference(IDC_LS_TRANSCLOCK_BG_GRADIENTB);
         int mbacadColor = Settings.System.getInt(getContentResolver(),
-                "nabil_backgroundclocksb_strokecolor", 0x00000000);
+                "IDC_LS_TRANSCLOCK_BG_GRADIENTB", 0x00000000);
         mBackd.setNewPreviewColor(mbacadColor);
         mBackd.setAlphaSliderEnabled(true);
         String mbacadColorHex = String.format("#%08x", (0x00000000 & mbacadColor));
@@ -257,7 +258,21 @@ public class Addon extends SettingsPreferenceFragment implements OnPreferenceCha
         } else {
             mBackd.setSummary(mbacadColorHex);
         }
-        mBackd.setOnPreferenceChangeListener(this);   
+        
+        mBacke.setOnPreferenceChangeListener(this);  
+        mBacke = (ColorPickerPreference) findPreference(IDC_LS_TRANSCLOCK_BG_GRADIENTC);
+        int mbacaeColor = Settings.System.getInt(getContentResolver(),
+                "IDC_LS_TRANSCLOCK_BG_GRADIENTC", 0x00000000);
+        mBacke.setNewPreviewColor(mbacaeColor);
+        mBacke.setAlphaSliderEnabled(true);
+        String mbacaeColorHex = String.format("#%08x", (0x00000000 & mbacaeColor));
+        if (mbacaeColorHex.equals("#00000000")) {
+            mBacke.setSummary(R.string.color_default);
+        } else {
+            mBacke.setSummary(mbacaeColorHex);
+        }
+        mBacke.setOnPreferenceChangeListener(this);   
+       
       
     }
 
@@ -616,6 +631,18 @@ public class Addon extends SettingsPreferenceFragment implements OnPreferenceCha
             int intHexd = ColorPickerPreference.convertToColorInt(hexd);
             Settings.System.putInt(getContentResolver(),
                     "nabil_backgroundclocksb_strokecolor", intHexd);
+            return true;
+        } else if (preference == mBacke) {
+            String hexe = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(objValue)));
+            if (hexe.equals("#00000000")) {
+                preference.setSummary(R.string.color_default);
+            } else {
+                preference.setSummary(hexe);
+            }
+            int intHexe = ColorPickerPreference.convertToColorInt(hexe);
+            Settings.System.putInt(getContentResolver(),
+                    "IDC_LS_TRANSCLOCK_BG_GRADIENTC", intHexe);
             return true;
         } else if (preference == idcSbBrightStyle) {
             int sbBrightStyle = Integer.valueOf((String) objValue);
