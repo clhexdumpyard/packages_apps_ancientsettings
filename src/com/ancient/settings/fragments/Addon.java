@@ -314,7 +314,7 @@ public class Addon extends SettingsPreferenceFragment implements OnPreferenceCha
                 "IDC_QS_TRANSCLOCK_BG_GRADIENTA", 0xffffffff);
         mBackcc.setNewPreviewColor(mbacaccColor);
         mBackcc.setAlphaSliderEnabled(true);
-        String mbacacColorHex = String.format("#%08x", (0xffffffff & mbacaccColor));
+        String mbacaccColorHex = String.format("#%08x", (0xffffffff & mbacaccColor));
         if (mbacaccColorHex.equals("#ffffffff")) {
             mBackcc.setSummary(R.string.color_default);
         } else {
