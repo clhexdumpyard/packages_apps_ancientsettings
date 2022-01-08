@@ -79,6 +79,11 @@ public class ClockDateSettings extends SettingsPreferenceFragment
     private static final String IDC_TRANSCLOCK_BG_GRADIENTA = "IDC_TRANSCLOCK_BG_GRADIENTA";
     private static final String IDC_TRANSCLOCK_BG_GRADIENTB = "IDC_TRANSCLOCK_BG_GRADIENTB";
     private static final String IDC_TRANSCLOCK_BG_GRADIENTC = "IDC_TRANSCLOCK_BG_GRADIENTC";
+    
+    private static final String NABIL_BACKGROUNDCLOCKSB_COLOR = "nabil_backgroundclocksb_color";
+    private static final String NABIL_BACKGROUNDCLOCKSB_GRADIENT1 = "nabil_backgroundclocksb_gradient1";
+    private static final String NABIL_BACKGROUNDCLOCKSB_GRADIENT2 = "nabil_backgroundclocksb_gradient2";
+    private static final String NABIL_BACKGROUNDCLOCKSB_STROKECOLOR = "nabil_backgroundclocksb_strokecolor";
 
     public static final int CLOCK_DATE_STYLE_LOWERCASE = 1;
     public static final int CLOCK_DATE_STYLE_UPPERCASE = 2;
@@ -98,6 +103,10 @@ public class ClockDateSettings extends SettingsPreferenceFragment
     private ColorPickerPreference mColga;
     private ColorPickerPreference mColgb;
     private ColorPickerPreference mColgc;
+    private ColorPickerPreference mBacka;
+    private ColorPickerPreference mBackb;
+    private ColorPickerPreference mBackc;
+    private ColorPickerPreference mBackd;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -250,6 +259,59 @@ public class ClockDateSettings extends SettingsPreferenceFragment
             mColgc.setSummary(mColgcColorHex);
         }
         mColgc.setOnPreferenceChangeListener(this);
+        
+        mBacka = (ColorPickerPreference) findPreference(NABIL_BACKGROUNDCLOCKSB_COLOR);
+        int mbacaColor = Settings.System.getInt(getContentResolver(),
+                "nabil_backgroundclocksb_color", 0x00000000);
+        mBacka.setNewPreviewColor(mbacaColor);
+        mBacka.setAlphaSliderEnabled(true);
+        String mbacaColorHex = String.format("#%08x", (0x00000000 & mbacaColor));
+        if (mbacaColorHex.equals("#00000000")) {
+            mBacka.setSummary(R.string.color_default);
+        } else {
+            mBacka.setSummary(mbacaColorHex);
+        }
+        mBacka.setOnPreferenceChangeListener(this);
+
+        mBackb = (ColorPickerPreference) findPreference(NABIL_BACKGROUNDCLOCKSB_GRADIENT1);
+        int mbacabColor = Settings.System.getInt(getContentResolver(),
+                "nabil_backgroundclocksb_gradient1", 0x00000000);
+        mBackb.setNewPreviewColor(mbacabColor);
+        mBackb.setAlphaSliderEnabled(true);
+        String mbacabColorHex = String.format("#%08x", (0x00000000 & mbacabColor));
+        if (mbacabColorHex.equals("#00000000")) {
+            mBackb.setSummary(R.string.color_default);
+        } else {
+            mBackb.setSummary(mbacabColorHex);
+        }
+        mBackb.setOnPreferenceChangeListener(this);
+
+        mBackc = (ColorPickerPreference) findPreference(NABIL_BACKGROUNDCLOCKSB_GRADIENT2);
+        int mbacacColor = Settings.System.getInt(getContentResolver(),
+                "nabil_backgroundclocksb_gradient2", 0x00000000);
+        mBackc.setNewPreviewColor(mbacacColor);
+        mBackc.setAlphaSliderEnabled(true);
+        String mbacacColorHex = String.format("#%08x", (0x00000000 & mbacacColor));
+        if (mbacacColorHex.equals("#00000000")) {
+            mBackc.setSummary(R.string.color_default);
+        } else {
+            mBackc.setSummary(mbacacColorHex);
+        }
+        mBackc.setOnPreferenceChangeListener(this);
+
+        mBackd = (ColorPickerPreference) findPreference(NABIL_BACKGROUNDCLOCKSB_STROKECOLOR);
+        int mbacadColor = Settings.System.getInt(getContentResolver(),
+                "nabil_backgroundclocksb_strokecolor", 0x00000000);
+        mBackd.setNewPreviewColor(mbacadColor);
+        mBackd.setAlphaSliderEnabled(true);
+        String mbacadColorHex = String.format("#%08x", (0x00000000 & mbacadColor));
+        if (mbacadColorHex.equals("#00000000")) {
+            mBackd.setSummary(R.string.color_default);
+        } else {
+            mBackd.setSummary(mbacadColorHex);
+        }
+        mBackd.setOnPreferenceChangeListener(this);   
+      
     }
 
     @Override
@@ -444,7 +506,55 @@ public class ClockDateSettings extends SettingsPreferenceFragment
             Settings.System.putInt(getContentResolver(),
                     "IDC_TRANSCLOCK_BG_GRADIENTC", intHexgc);
             return true;
-        }
+        } else if (preference == mBacka) {
+            String hexa = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(objValue)));
+            if (hexa.equals("#00000000")) {
+                preference.setSummary(R.string.color_default);
+            } else {
+                preference.setSummary(hexa);
+            }
+            int intHexa = ColorPickerPreference.convertToColorInt(hexa);
+            Settings.System.putInt(getContentResolver(),
+                    "nabil_backgroundclocksb_color", intHexa);
+            return true;  
+        } else if (preference == mBackb) {
+            String hexb = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(objValue)));
+            if (hexb.equals("#00000000")) {
+                preference.setSummary(R.string.color_default);
+            } else {
+                preference.setSummary(hexb);
+            }
+            int intHexb = ColorPickerPreference.convertToColorInt(hexb);
+            Settings.System.putInt(getContentResolver(),
+                    "nabil_backgroundclocksb_gradient1", intHexb);
+            return true;   
+        } else if (preference == mBackc) {
+            String hexc = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(objValue)));
+            if (hexc.equals("#00000000")) {
+                preference.setSummary(R.string.color_default);
+            } else {
+                preference.setSummary(hexc);
+            }
+            int intHexc = ColorPickerPreference.convertToColorInt(hexc);
+            Settings.System.putInt(getContentResolver(),
+                    "nabil_backgroundclocksb_gradient2", intHexc);
+            return true;
+        } else if (preference == mBackd) {
+            String hexd = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(objValue)));
+            if (hexd.equals("#00000000")) {
+                preference.setSummary(R.string.color_default);
+            } else {
+                preference.setSummary(hexd);
+            }
+            int intHexd = ColorPickerPreference.convertToColorInt(hexd);
+            Settings.System.putInt(getContentResolver(),
+                    "nabil_backgroundclocksb_strokecolor", intHexd);
+            return true;
+        } 
         return false;
     }
 
