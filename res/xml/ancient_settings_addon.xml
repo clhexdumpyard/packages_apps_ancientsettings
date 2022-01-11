@@ -210,6 +210,15 @@
             android:key="IDC_QS_TRANSCLOCK_BG_STROKE" 
             android:dependency="ANCIENT_UI_SWITCH"               
             android:defaultValue="2" />
+	    
+	<com.ancient.settings.preferences.SystemSettingListPreference 
+            android:entries="@array/transclockgrm_clock_stroke_entries" 
+            android:title="Stroke Colors Style" 
+            android:key="IDC_QS_TRANSCLOCK_BG_STROKEKOLOR_LIST" 							      
+            android:summary="%s"
+            android:dependency="ANCIENT_UI_SWITCH"               
+            android:defaultValue="0" 
+            android:entryValues="@array/transclockgrm_clock_stroke_values" />
 
         <com.ancient.settings.preferences.SystemSettingSeekBarPreference 
             android:max="10" 
@@ -222,45 +231,7 @@
             android:title="Stroke Color"  							     
             android:key="IDC_QS_TRANSCLOCK_BG_STROKEKOLOR"
             android:dependency="ANCIENT_UI_SWITCH"                
-            android:defaultValue="0x00000000" />
-
-        <com.ancient.settings.preferences.SystemSettingSeekBarPreference 
-            android:max="40" android:title="Padding Top" 								 
-            android:key="IDC_QS_TRANSCLOCK_BG_PADDINGTOP"
-            android:dependency="ANCIENT_UI_SWITCH"                
-            android:defaultValue="10" />
-	
-	  <com.ancient.settings.preferences.SystemSettingSeekBarPreference 
-            android:max="40" android:title="Padding Bottom" 								   
-            android:key="IDC_QS_TRANSCLOCK_BG_PADDINGBOT"
-            android:dependency="ANCIENT_UI_SWITCH"                
-            android:defaultValue="0" />
-
-        <com.ancient.settings.preferences.SystemSettingSeekBarPreference 
-            android:max="40"
-            android:title="Padding Left Right"   								 
-            android:key="IDC_QS_TRANSCLOCK_BG_PADDINGSIDE" 
-            android:dependency="ANCIENT_UI_SWITCH"               
-            android:defaultValue="10" />    
-
-        <com.ancient.settings.preferences.SystemSettingSeekBarPreference 
-            android:max="30" android:title=" Small Padding Top" 								 
-            android:key="IDC_QS_TRANSCLOCK_BG_PADDINGTOP_SMALL" 
-            android:dependency="ANCIENT_UI_SWITCH"               
-            android:defaultValue="10" />
-	
-	  <com.ancient.settings.preferences.SystemSettingSeekBarPreference 
-            android:max="30" android:title="Small Padding Bottom" 								   
-            android:key="IDC_QS_TRANSCLOCK_BG_PADDINGBOT_SMALL" 
-            android:dependency="ANCIENT_UI_SWITCH"               
-            android:defaultValue="0" />
-
-        <com.ancient.settings.preferences.SystemSettingSeekBarPreference 
-            android:max="30"
-            android:title="Small Padding Left Right"   								 
-            android:key="IDC_QS_TRANSCLOCK_BG_PADDINGSIDE_SMALL" 
-            android:dependency="ANCIENT_UI_SWITCH"               
-            android:defaultValue="10" />    
+            android:defaultValue="0x00000000" /> 
         
     </PreferenceCategory>
 	
