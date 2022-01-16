@@ -581,6 +581,10 @@
     <string name="double_tap_on_doze_to_wake_title">Tap to wake on doze</string>
     <string name="double_tap_on_doze_to_wake_summary">Double-tap to wake when device is dreaming</string>
 
+    <!-- Gestures: Touchscreen gestures -->
+    <string name="touchscreen_gesture_settings_title">Touchscreen gestures</string>
+    <string name="touchscreen_gesture_settings_summary">Perform various touchscreen gestures for quick actions</string>
+
     <!-- Charging animation -->
     <string name="charging_animation_title">Charging animation</string>
     <string name="charging_animation_summary">Display an animation when the device is plugged in</string>
