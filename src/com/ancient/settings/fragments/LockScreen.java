@@ -38,9 +38,12 @@ import androidx.preference.SwitchPreference;
 
 import com.android.internal.logging.nano.MetricsProto;
 import com.android.internal.util.ancient.AncientUtils;
+import com.android.internal.util.ancient.udfps.UdfpsUtils;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
+
+import com.ancient.settings.preferences.SystemSettingSwitchPreference;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,10 +53,12 @@ public class LockScreen extends SettingsPreferenceFragment implements
 
     private static final String FINGERPRINT_SUCCESS_VIB = "fingerprint_success_vib";
     private static final String FINGERPRINT_ERROR_VIB = "fingerprint_error_vib";
+    private static final String UDFPS_HAPTIC_FEEDBACK = "udfps_haptic_feedback";
 
     private FingerprintManager mFingerprintManager;
     private SwitchPreference mFingerprintSuccessVib;
     private SwitchPreference mFingerprintErrorVib;
+    private SystemSettingSwitchPreference mUdfpsHapticFeedback;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -83,6 +88,11 @@ public class LockScreen extends SettingsPreferenceFragment implements
         } else {
             prefSet.removePreference(mFingerprintSuccessVib);
             prefSet.removePreference(mFingerprintErrorVib);
+        }
+
+        mUdfpsHapticFeedback = (SystemSettingSwitchPreference) findPreference(UDFPS_HAPTIC_FEEDBACK);
+        if (!UdfpsUtils.hasUdfpsSupport(getContext())) {
+            prefSet.removePreference(mUdfpsHapticFeedback);
         }
 
         boolean udfpsResPkgInstalled = AncientUtils.isPackageInstalled(getContext(),
