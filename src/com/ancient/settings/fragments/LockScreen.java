@@ -54,11 +54,13 @@ public class LockScreen extends SettingsPreferenceFragment implements
     private static final String FINGERPRINT_SUCCESS_VIB = "fingerprint_success_vib";
     private static final String FINGERPRINT_ERROR_VIB = "fingerprint_error_vib";
     private static final String UDFPS_HAPTIC_FEEDBACK = "udfps_haptic_feedback";
+    private static final String FOD_NIGHT_LIGHT = "fod_night_light";
 
     private FingerprintManager mFingerprintManager;
     private SwitchPreference mFingerprintSuccessVib;
     private SwitchPreference mFingerprintErrorVib;
     private SystemSettingSwitchPreference mUdfpsHapticFeedback;
+    private SystemSettingSwitchPreference mFodNightLight;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -68,15 +70,19 @@ public class LockScreen extends SettingsPreferenceFragment implements
         final ContentResolver resolver = getActivity().getContentResolver();
         final PreferenceScreen prefSet = getPreferenceScreen();
         final PackageManager mPm = getActivity().getPackageManager();
+        final PreferenceCategory fpCategory = (PreferenceCategory)
+                findPreference("lockscreen_ui_finterprint_category");
 
-        mFingerprintManager = (FingerprintManager) getActivity().getSystemService(Context.FINGERPRINT_SERVICE);
+        mFingerprintManager = (FingerprintManager)
+                getActivity().getSystemService(Context.FINGERPRINT_SERVICE);
         mFingerprintSuccessVib = (SwitchPreference) findPreference(FINGERPRINT_SUCCESS_VIB);
         mFingerprintErrorVib = (SwitchPreference) findPreference(FINGERPRINT_ERROR_VIB);
+        mUdfpsHapticFeedback = findPreference(UDFPS_HAPTIC_FEEDBACK);
+        mFodNightLight = findPreference(FOD_NIGHT_LIGHT);
         if (mPm.hasSystemFeature(PackageManager.FEATURE_FINGERPRINT) &&
                  mFingerprintManager != null) {
             if (!mFingerprintManager.isHardwareDetected()){
-                prefSet.removePreference(mFingerprintSuccessVib);
-                prefSet.removePreference(mFingerprintErrorVib);
+                prefSet.removePreference(fpCategory);
             } else {
                 mFingerprintSuccessVib.setChecked((Settings.System.getInt(getContentResolver(),
                         Settings.System.FP_SUCCESS_VIBRATE, 1) == 1));
@@ -84,15 +90,17 @@ public class LockScreen extends SettingsPreferenceFragment implements
                 mFingerprintErrorVib.setChecked((Settings.System.getInt(getContentResolver(),
                         Settings.System.FP_ERROR_VIBRATE, 1) == 1));
                 mFingerprintErrorVib.setOnPreferenceChangeListener(this);
+                if (UdfpsUtils.hasUdfpsSupport(getActivity())) {
+                    mUdfpsHapticFeedback.setChecked((Settings.System.getInt(getContentResolver(),
+                            Settings.System.UDFPS_HAPTIC_FEEDBACK, 1) == 1));
+                    mUdfpsHapticFeedback.setOnPreferenceChangeListener(this);
+                } else {
+                    fpCategory.removePreference(mUdfpsHapticFeedback);
+                    fpCategory.removePreference(mFodNightLight);
+                }
             }
         } else {
-            prefSet.removePreference(mFingerprintSuccessVib);
-            prefSet.removePreference(mFingerprintErrorVib);
-        }
-
-        mUdfpsHapticFeedback = (SystemSettingSwitchPreference) findPreference(UDFPS_HAPTIC_FEEDBACK);
-        if (!UdfpsUtils.hasUdfpsSupport(getContext())) {
-            prefSet.removePreference(mUdfpsHapticFeedback);
+            prefSet.removePreference(fpCategory);
         }
 
         boolean udfpsResPkgInstalled = AncientUtils.isPackageInstalled(getContext(),
@@ -113,6 +121,11 @@ public class LockScreen extends SettingsPreferenceFragment implements
             boolean value = (Boolean) newValue;
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.FP_ERROR_VIBRATE, value ? 1 : 0);
+            return true;
+        } else if (preference == mUdfpsHapticFeedback) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.UDFPS_HAPTIC_FEEDBACK, value ? 1 : 0);
             return true;
         }
         return false;

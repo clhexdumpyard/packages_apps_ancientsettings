@@ -750,6 +750,10 @@
     <string name="udfps_haptic_feedback_title">FOD haptic feedback</string>
     <string name="udfps_haptic_feedback_summary">Vibrate when touching FOD icon</string>
 
+    <!-- Nightlight Fod -->
+    <string name="fod_night_light_title">Disable night light when showing FOD</string>
+    <string name="fod_night_light_summary">Disable night light on lockscreen if FOD is active. Disabling this option might affect your fingerprint accuracy with night light on.</string>
+
     <!-- Allow fake signature -->
     <string name="allow_signature_fake">Allow signature spoofing</string>
     <string name="allow_signature_fake_summary">Allow apps to bypass security systems by pretending to be a different app.</string>

@@ -47,6 +47,12 @@
             android:summary="@string/udfps_haptic_feedback_summary"
             android:defaultValue="true" />
 
+        <com.ancient.settings.preferences.SystemSettingSwitchPreference
+            android:key="fod_night_light"
+            android:title="@string/fod_night_light_title"
+            android:summary="@string/fod_night_light_summary"
+            android:defaultValue="@*android:bool/disable_fod_night_light" />
+
     </PreferenceCategory>
 
     <PreferenceCategory
