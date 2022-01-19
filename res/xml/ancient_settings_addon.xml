@@ -289,6 +289,15 @@
             android:entries="@array/ls_clock_style_entries"
             android:entryValues="@array/ls_clock_style_values"
             android:defaultValue="0" />
+	    
+	<com.ancient.settings.preferences.SystemSettingListPreference
+            android:key="IDC_SMALL_LSCLOCK_FONT"                                                   
+            android:title="@string/ls_small_clock_font_title"
+            android:summary="%s"
+	    android:dialogTitle="@string/ls_small_clock_font_title"
+            android:entries="@array/ls_small_clock_font_entries"
+            android:entryValues="@array/ls_small_clock_font_values"
+            android:defaultValue="0" />
         
     </PreferenceCategory>
     
