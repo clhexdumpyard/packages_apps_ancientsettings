@@ -401,7 +401,6 @@
     <string name="hardware_keys_disable_title">Disable hardware buttons</string>
 
     <!-- Visualizer -->
-    <string name="enable_visualizer">Enable visualizer</string>
     <string name="lockscreen_visualizer_title">Visualizer</string>
     <string name="lockscreen_visualizer_enable">Music visualizer</string>
     <string name="lockscreen_visualizer_enable_summary">Show visualizer bars while playing music</string>
