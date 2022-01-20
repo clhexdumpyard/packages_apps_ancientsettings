@@ -20,11 +20,17 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/powermenu_title">
 
-    <com.ancient.settings.preferences.SystemSettingSwitchPreference
-        android:key="lockscreen_power_menu_disabled"
-        android:title="@string/lockscreen_power_menu_disabled_title"
-        android:summary="@string/lockscreen_power_menu_disabled_summary"
-        android:defaultValue="true" />
+    <PreferenceCategory
+        android:key="general_category"
+        android:title="@string/general">
+
+        <com.ancient.settings.preferences.SystemSettingSwitchPreference
+            android:key="lockscreen_power_menu_disabled"
+            android:title="@string/lockscreen_power_menu_disabled_title"
+            android:summary="@string/lockscreen_power_menu_disabled_summary"
+            android:defaultValue="true" />
+
+    </PreferenceCategory>
 
     <PreferenceCategory
         android:title="@string/powermenu_items_title">

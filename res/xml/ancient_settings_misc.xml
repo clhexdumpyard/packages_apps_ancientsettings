@@ -18,12 +18,9 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
 	android:title="@string/misc_title" >
 
-        <com.ancient.settings.preferences.SystemSettingSeekBarPreference
-            android:key="frame_rate_recorder"
-            android:title="@string/frame_rate_recorder_title"
-            android:min="0"
-            android:max="120"
-            android:defaultValue="60" />
+    <PreferenceCategory
+        android:key="general_category"
+        android:title="@string/general">
 
         <com.ancient.settings.preferences.SystemSettingSwitchPreference
             android:key="wake_when_plugged_or_unplugged"
@@ -36,6 +33,8 @@
             android:title="@string/toast_icon_title"
             android:summary="@string/toast_icon_summary"
             android:defaultValue="false" />
+
+    </PreferenceCategory>
 
     <PreferenceCategory
         android:key="pulse_category"
@@ -77,6 +76,24 @@
                 android:targetPackage="com.android.phone"
                 android:targetClass="com.android.phone.settings.RadioInfo" />
         </Preference>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="frame_rate_category"
+        android:title="@string/frame_rate">
+
+        <com.ancient.settings.preferences.SystemSettingSeekBarPreference
+            android:key="frame_rate_recorder"
+            android:title="@string/frame_rate_recorder_title"
+            android:min="0"
+            android:max="120"
+            android:defaultValue="60" />
+
+        <com.android.settingslib.widget.FooterPreference
+            android:key="frame_rate_category"
+            android:selectable="false"
+            android:title="@string/frame_rate_recorder_text" />
 
     </PreferenceCategory>
 
