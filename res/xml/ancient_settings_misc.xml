@@ -38,6 +38,18 @@
             android:defaultValue="false" />
 
     <PreferenceCategory
+        android:key="pulse_category"
+        android:title="@string/pulse_category">
+
+        <Preference
+            android:key="pulse_settings"
+            android:title="@string/pulse_settings"
+            android:summary="@string/pulse_settings_summary"
+            android:fragment="com.ancient.settings.fragments.PulseSettings" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:title="@string/dev_options_title">
 
         <com.ancient.settings.preferences.GlobalSettingSwitchPreference
