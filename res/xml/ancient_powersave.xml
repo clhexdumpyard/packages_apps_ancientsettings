@@ -22,7 +22,7 @@
         android:layout="@layout/ancient_powersave_header"
         android:selectable="false"/>
 
-<com.ancient.settings.preferences.SystemSettingListPreference
+    <com.ancient.settings.preferences.SystemSettingListPreference
         android:key="power_profile_type"
         android:title="@string/power_profile"
         android:dialogTitle="@string/power_profile"

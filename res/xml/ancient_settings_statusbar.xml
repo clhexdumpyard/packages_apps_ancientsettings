@@ -18,28 +18,34 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/statusbar_title" >
 
-    <Preference
-        android:key="systemui_tuner_statusbar"
-        android:title="@string/statusbar_items_category">
-        <intent android:action="android.intent.action.MAIN"
-            android:targetPackage="com.android.systemui"
-            android:targetClass="com.android.systemui.tuner.StatusbarItemsActivity" />
-    </Preference>
+    <PreferenceCategory
+        android:key="general_category"
+        android:title="@string/general">
 
-    <Preference
-        android:key="status_bar_clock"
-        android:fragment="com.ancient.settings.fragments.ClockDateSettings"
-        android:title="@string/status_bar_clock_title" />
+        <Preference
+            android:key="systemui_tuner_statusbar"
+            android:title="@string/statusbar_items_category">
+            <intent android:action="android.intent.action.MAIN"
+                android:targetPackage="com.android.systemui"
+                android:targetClass="com.android.systemui.tuner.StatusbarItemsActivity" />
+        </Preference>
 
-    <Preference
-        android:key="carrier_label"
-        android:fragment="com.ancient.settings.fragments.CarrierLabel"
-        android:title="@string/carrier_label_settings_title" />
+        <Preference
+            android:key="status_bar_clock"
+            android:fragment="com.ancient.settings.fragments.ClockDateSettings"
+            android:title="@string/status_bar_clock_title" />
 
-    <Preference
-        android:key="traffic"
-        android:fragment="com.ancient.settings.fragments.Traffic"
-        android:title="@string/traffic_title" />
+        <Preference
+            android:key="carrier_label"
+            android:fragment="com.ancient.settings.fragments.CarrierLabel"
+            android:title="@string/carrier_label_settings_title" />
+
+        <Preference
+            android:key="traffic"
+            android:fragment="com.ancient.settings.fragments.Traffic"
+            android:title="@string/traffic_title" />
+
+    </PreferenceCategory>
 
     <PreferenceCategory
         android:key="battery_style_category"
