@@ -763,4 +763,41 @@
         <item>1</item>
     </string-array>
 	
+    <!-- navbar -->
+    <string-array name="navbar_icon_style_entries" translatable="false">
+        <item>@string/navbar_icon_default</item>
+        <item>@string/navbar_icon_style1</item>
+        <item>@string/navbar_icon_style2</item>
+        <item>@string/navbar_icon_style3</item>
+        <item>@string/navbar_icon_style4</item>
+        <item>@string/navbar_icon_style5</item>
+        <item>@string/navbar_icon_style6</item>
+        <item>@string/navbar_icon_style7</item>
+        <item>@string/navbar_icon_style8</item>
+        <item>@string/navbar_icon_style9</item>
+        <item>@string/navbar_icon_style10</item>
+        <item>@string/navbar_icon_style11</item>
+        <item>@string/navbar_icon_style12</item>
+        <item>@string/navbar_icon_style13</item>
+        <item>@string/navbar_icon_style14</item>
+    </string-array>
+
+    <string-array name="navbar_icon_style_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+    </string-array>
+	
 </resources>
