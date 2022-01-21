@@ -198,7 +198,7 @@ public class Navigation extends SettingsPreferenceFragment
                    }
                 } else if (nvIconStyle == 5) {
                    try {
-                      mOverlayService.setEnabledExclusiveInCategory(SIGNAL_OVERLAY_STYLE5, USER_CURRENT);     
+                      mOverlayService.setEnabledExclusiveInCategory(NAVBAR_OVERLAY_STYLE5, USER_CURRENT);     
                    } catch (RemoteException re) {
                       throw re.rethrowFromSystemServer();
                    }
@@ -252,7 +252,7 @@ public class Navigation extends SettingsPreferenceFragment
                    }
                 } else if (nvIconStyle == 14) {
                    try {
-                      mOverlayService.setEnabledExclusiveInCategory(SIGNAL_OVERLAY_STYLE14, USER_CURRENT);     
+                      mOverlayService.setEnabledExclusiveInCategory(NAVBAR_OVERLAY_STYLE14, USER_CURRENT);     
                    } catch (RemoteException re) {
                       throw re.rethrowFromSystemServer();
                    }
