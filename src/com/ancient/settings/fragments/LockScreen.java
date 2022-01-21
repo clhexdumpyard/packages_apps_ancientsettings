@@ -128,6 +128,8 @@ public class LockScreen extends SettingsPreferenceFragment implements
         if (mPm.hasSystemFeature(PackageManager.FEATURE_FINGERPRINT) &&
                  mFingerprintManager != null) {
             if (!mFingerprintManager.isHardwareDetected()){
+                prefSet.removePreference(mFingerprintSuccessVib);
+                prefSet.removePreference(mFingerprintErrorVib);
                 prefSet.removePreference(fpCategory);
             } else {
                 mFingerprintSuccessVib.setChecked((Settings.System.getInt(getContentResolver(),
@@ -146,6 +148,8 @@ public class LockScreen extends SettingsPreferenceFragment implements
                 }
             }
         } else {
+            prefSet.removePreference(mFingerprintSuccessVib);
+            prefSet.removePreference(mFingerprintErrorVib);
             prefSet.removePreference(fpCategory);
         }
 
