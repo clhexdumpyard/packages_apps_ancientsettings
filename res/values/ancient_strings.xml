@@ -947,5 +947,23 @@
     <string name="transclock_color_grad2_title">Gradient Second Color</string>
     <string name="transclock_color_grad3_title">Gradient Third Color</string>
 	
+    <!-- navbar -->
+    <string name="navbar_icon_style_title">Navbar Icon Style</string>
+    <string name="navbar_icon_default">Default</string>
+    <string name="navbar_icon_style1">Android</string>
+    <string name="navbar_icon_style2">Asus</string>
+    <string name="navbar_icon_style3">Motorola</string>
+    <string name="navbar_icon_style4">Nexus</string>
+    <string name="navbar_icon_style5">Old</string>
+    <string name="navbar_icon_style6">Oneplus</string>
+    <string name="navbar_icon_style7">ONEUI</string>
+    <string name="navbar_icon_style8">Sammy</string>
+    <string name="navbar_icon_style9">Techno</string>
+    <string name="navbar_icon_style10">Anci 1</string>
+    <string name="navbar_icon_style11">Anci 2</string>
+    <string name="navbar_icon_style12">Anci 3</string>
+    <string name="navbar_icon_style13">Anci 4</string>
+    <string name="navbar_icon_style14">Anci 5</string>
+	
 
 </resources>
