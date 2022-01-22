@@ -64,6 +64,7 @@ public class StatusBar extends SettingsPreferenceFragment implements
     private static final String RAINBOW_FILL_SWITCH = "RAINBOW_FILL_SWITCH";
     private static final String POWERSAVE_BLEND_COLOR = "POWERSAVE_BLEND_COLOR";
     private static final String POWERSAVEFILL_BLEND_COLOR = "POWERSAVEFILL_BLEND_COLOR";
+    private static final String SCALED_FILL_ALPHA = "SCALED_FILL_ALPHA";
     
     private static final int BATTERY_STYLE_PORTRAIT = 0;
     //private static final int BATTERY_STYLE_MIUI = 22;
@@ -81,6 +82,7 @@ public class StatusBar extends SettingsPreferenceFragment implements
     private SystemSettingSwitchPreference mblendSwitch;
     private SystemSettingSwitchPreference mpSwitch;
     private SystemSettingSwitchPreference mrSwitch;
+    private SystemSettingSwitchPreference mSSwitch;
     private ColorPickerPreference mblendPS;
     private ColorPickerPreference mblendPSF;
     
@@ -164,6 +166,11 @@ public class StatusBar extends SettingsPreferenceFragment implements
         mrSwitch.setChecked((Settings.System.getInt(getContentResolver(),
         "RAINBOW_FILL_SWITCH", 0) == 1));
         mrSwitch.setOnPreferenceChangeListener(this);  
+        
+        mSSwitch = (SystemSettingSwitchPreference) findPreference(SCALED_FILL_ALPHA);
+        mSSwitch.setChecked((Settings.System.getInt(getContentResolver(),
+        "SCALED_FILL_ALPHA", 0) == 1));
+        mSSwitch.setOnPreferenceChangeListener(this);  
         
         mblendPS = (ColorPickerPreference) findPreference(POWERSAVE_BLEND_COLOR);
         int blendPS = Settings.System.getInt(getContentResolver(),
@@ -295,7 +302,13 @@ public class StatusBar extends SettingsPreferenceFragment implements
                     "RAINBOW_FILL_SWITCH", valuemek ? 1 : 0);
             AncientUtils.showSystemUiRestartDialog(getContext());
             return true;
-        } 
+        } else if  (preference == mSSwitch) {
+            boolean valuemekS = (Boolean) newValue;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    "SCALED_FILL_ALPHA", valuemekS ? 1 : 0);
+            AncientUtils.showSystemUiRestartDialog(getContext());
+            return true;
+        }  
         return false;
     }
 
