@@ -68,6 +68,7 @@ public class LockScreen extends SettingsPreferenceFragment implements
     private static final String FINGERPRINT_ERROR_VIB = "fingerprint_error_vib";
     private static final String UDFPS_HAPTIC_FEEDBACK = "udfps_haptic_feedback";
     private static final String FOD_NIGHT_LIGHT = "fod_night_light";
+    private static final String SCREEN_OFF_FOD = "screen_off_fod";
     private static final String CUSTOM_FOD_ICON_KEY = "custom_fp_icon_enabled";
     private static final String CUSTOM_FP_FILE_SELECT = "custom_fp_file_select";
     private static final int REQUEST_PICK_IMAGE = 0;
@@ -82,6 +83,7 @@ public class LockScreen extends SettingsPreferenceFragment implements
     private SwitchPreference mFingerprintErrorVib;
     private SystemSettingSwitchPreference mUdfpsHapticFeedback;
     private SystemSettingSwitchPreference mFodNightLight;
+    private SystemSettingSwitchPreference mScreenOffFOD;
 
     static final int MODE_DISABLED = 0;
     static final int MODE_NIGHT = 1;
@@ -109,6 +111,7 @@ public class LockScreen extends SettingsPreferenceFragment implements
         mFingerprintErrorVib = (SwitchPreference) findPreference(FINGERPRINT_ERROR_VIB);
         mUdfpsHapticFeedback = findPreference(UDFPS_HAPTIC_FEEDBACK);
         mFodNightLight = findPreference(FOD_NIGHT_LIGHT);
+        mScreenOffFOD = findPreference(SCREEN_OFF_FOD);
         mUdfpsIconPicker = (Preference) prefSet.findPreference("udfps_icon_picker");
 
         mCustomFPImage = findPreference(CUSTOM_FP_FILE_SELECT);
@@ -144,9 +147,13 @@ public class LockScreen extends SettingsPreferenceFragment implements
                     mUdfpsHapticFeedback.setChecked((Settings.System.getInt(getContentResolver(),
                             Settings.System.UDFPS_HAPTIC_FEEDBACK, 1) == 1));
                     mUdfpsHapticFeedback.setOnPreferenceChangeListener(this);
+                    mScreenOffFOD.setChecked((Settings.System.getInt(getContentResolver(),
+                            Settings.System.SCREEN_OFF_FOD, 1) == 1));
+                    mScreenOffFOD.setOnPreferenceChangeListener(this);
                 } else {
                     fpCategory.removePreference(mUdfpsHapticFeedback);
                     fpCategory.removePreference(mFodNightLight);
+                    fpCategory.removePreference(mScreenOffFOD);
                 }
             }
         } else {
@@ -222,6 +229,11 @@ public class LockScreen extends SettingsPreferenceFragment implements
             boolean value = (Boolean) newValue;
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.UDFPS_HAPTIC_FEEDBACK, value ? 1 : 0);
+            return true;
+        } else if (preference == mScreenOffFOD) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.SCREEN_OFF_FOD, value ? 1 : 0);
             return true;
         } else if (preference == mCustomFodIcon) {
             boolean val = (Boolean) newValue;
