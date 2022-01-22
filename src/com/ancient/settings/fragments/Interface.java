@@ -36,6 +36,8 @@ import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.provider.Settings;
 
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.Preference.OnPreferenceChangeListener;
@@ -43,19 +45,24 @@ import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceScreen;
 import androidx.preference.SwitchPreference;
 
-import com.android.internal.logging.nano.MetricsProto; 
+import com.android.internal.logging.nano.MetricsProto;
+import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.settings.SettingsPreferenceFragment;
 
 import com.ancient.settings.preferences.SystemSettingListPreference;
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
 import com.android.settings.R;
+import com.android.settings.dashboard.DashboardFragment;
+import com.android.settings.development.OverlayCategoryPreferenceController;
+import com.android.settingslib.core.AbstractPreferenceController;
+import com.android.settingslib.core.lifecycle.Lifecycle;
 
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-public class Interface extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
+public class Interface extends DashboardFragment implements OnPreferenceChangeListener {
 
     public static final String TAG = "Interface";
 
@@ -75,12 +82,9 @@ public class Interface extends SettingsPreferenceFragment implements OnPreferenc
     private IOverlayManager mOverlayService;  
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        addPreferencesFromResource(R.xml.ancient_settings_interface);
-
+    public void onCreate(Bundle icicle) {
+        super.onCreate(icicle);
         mContext = getActivity();
-
         final ContentResolver resolver = getActivity().getContentResolver();
         final PreferenceScreen screen = getPreferenceScreen();
 
@@ -152,12 +156,32 @@ public class Interface extends SettingsPreferenceFragment implements OnPreferenc
     }
 
     @Override
-    public void onResume() {
-        super.onResume();
+    protected String getLogTag() {
+        return TAG;
+    }
+
+    @Override
+    protected int getPreferenceScreenResId() {
+        return R.xml.ancient_settings_interface;
     }
 
     @Override
     public int getMetricsCategory() {
         return MetricsProto.MetricsEvent.ANCIENT_SETTINGS;
+    }
+
+    @Override
+    protected List<AbstractPreferenceController> createPreferenceControllers(Context context) {
+        return buildPreferenceControllers(context, getSettingsLifecycle(), this);
+    }
+
+    private static List<AbstractPreferenceController> buildPreferenceControllers(
+            Context context, Lifecycle lifecycle, Fragment fragment) {
+        final List<AbstractPreferenceController> controllers = new ArrayList<>();
+        controllers.add(new OverlayCategoryPreferenceController(context,
+                "android.theme.customization.font"));
+        controllers.add(new OverlayCategoryPreferenceController(context,
+                "android.theme.customization.icon_pack"));
+        return controllers;
     }
 }
