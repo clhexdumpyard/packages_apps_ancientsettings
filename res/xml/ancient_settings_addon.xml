@@ -54,6 +54,16 @@
             android:dependency="ANCIENT_UI_SWITCH"                                                     
             android:entryValues="@array/anciui_animate_switch_values"
             android:defaultValue="0" />
+	    
+	<com.ancient.settings.preferences.SystemSettingListPreference
+            android:key="IMAGE_TRANS_CLOCK_STYLE"                                                   
+            android:title="@string/anciui_image_switch_title"
+            android:summary="%s"
+            android:dialogTitle="@string/anciui_image_switch_title"
+            android:entries="@array/anciui_image_switch_entries"
+            android:dependency="ANCIENT_UI_SWITCH"                                                     
+            android:entryValues="@array/anciui_image_switch_values"
+            android:defaultValue="0" />
 
         <com.ancient.settings.preferences.SystemSettingListPreference
             android:key="QS_TILE_CUSTOM_BACKGROUND"                                                    
@@ -77,6 +87,216 @@
             android:dialogTitle="@string/brightness_style_title"
             android:entries="@array/brightness_style_entries"
             android:entryValues="@array/brightness_style_values"
+            android:defaultValue="0" />
+
+        <com.ancient.settings.preferences.SystemSettingSwitchPreference 
+            android:title="Qs Clock Transparent Background" 
+            android:key="IDC_QS_TRANSCLOCK_BG" 
+            android:defaultValue="false"
+            android:dependency="ANCIENT_UI_SWITCH"                  						    
+            android:summaryOn="Custom Background Enabled" 
+            android:summaryOff="Default Background Enabled" />
+
+        <com.ancient.settings.preferences.SystemSettingListPreference 
+            android:entries="@array/transclockbg_clock_switch_entries" 
+            android:title="Background Style" 
+            android:key="IDC_QS_TRANSCLOCK_BG_LIST"   							      
+            android:summary="%s"
+            android:dependency="ANCIENT_UI_SWITCH"                
+            android:defaultValue="0" 
+            android:entryValues="@array/transclockbg_clock_switch_values" />
+	    
+	<com.ancient.settings.preferences.SystemSettingListPreference 
+            android:entries="@array/transclockgr_clock_switch_entries" 
+            android:title="Gradient Style" 
+            android:key="IDC_QS_TRANSCLOCK_BG_MACEMGRADIENT"   							      
+            android:summary="%s"
+            android:dependency="ANCIENT_UI_SWITCH"               
+            android:defaultValue="0" 
+            android:entryValues="@array/transclockgr_clock_switch_values" />
+	    
+	<com.ancient.settings.preferences.SystemSettingListPreference 
+            android:entries="@array/transclockgrm_clock_switch_entries" 
+            android:title="Gradient Colors Value" 
+            android:key="IDC_QS_TRANSCLOCK_BG_JUMLAHGRADIENT" 							      
+            android:summary="%s"
+            android:dependency="ANCIENT_UI_SWITCH"               
+            android:defaultValue="0" 
+            android:entryValues="@array/transclockgrm_clock_switch_values" />
+
+        <com.ancient.settings.preferences.SystemSettingSeekBarPreference 
+            android:max="100" 
+            android:title="TopLeft Radius"   	
+            android:key="IDC_QS_TRANSCLOCK_BG_TOPLEFT" 
+            android:dependency="ANCIENT_UI_SWITCH"               
+            android:defaultValue="15" />
+	    
+        <com.ancient.settings.preferences.SystemSettingSeekBarPreference 
+            android:max="100" 
+            android:title="TopRight Radius"   	
+            android:key="IDC_QS_TRANSCLOCK_BG_TOPRIGHT"
+            android:dependency="ANCIENT_UI_SWITCH"                
+            android:defaultValue="15" />
+	    
+	<com.ancient.settings.preferences.SystemSettingSeekBarPreference 
+            android:max="100" 
+            android:title="BottomLeft Radius" 	
+            android:key="IDC_QS_TRANSCLOCK_BG_BOTTOMLEFT" 
+            android:dependency="ANCIENT_UI_SWITCH"               
+            android:defaultValue="15" />
+	    
+        <com.ancient.settings.preferences.SystemSettingSeekBarPreference 
+            android:max="100" 
+            android:title="BottomRight Radius"  	
+            android:key="IDC_QS_TRANSCLOCK_BG_BOTTOMRIGHT" 
+            android:dependency="ANCIENT_UI_SWITCH"               
+            android:defaultValue="15" />
+
+       <com.ancient.settings.preferences.SystemSettingSeekBarPreference 
+            android:max="50" 
+            android:title="Small TopLeft Radius"   	
+            android:key="IDC_QS_TRANSCLOCK_BG_TOPLEFT_SMALL"
+            android:dependency="ANCIENT_UI_SWITCH"                
+            android:defaultValue="15" />
+	    
+        <com.ancient.settings.preferences.SystemSettingSeekBarPreference 
+            android:max="50" 
+            android:title="Small TopRight Radius"   	
+            android:key="IDC_QS_TRANSCLOCK_BG_TOPRIGHT_SMALL" 
+            android:dependency="ANCIENT_UI_SWITCH"               
+            android:defaultValue="15" />
+	    
+	<com.ancient.settings.preferences.SystemSettingSeekBarPreference 
+            android:max="50" 
+            android:title="Small BottomLeft Radius" 	
+            android:key="IDC_QS_TRANSCLOCK_BG_BOTTOMLEFT_SMALL" 
+            android:dependency="ANCIENT_UI_SWITCH"               
+            android:defaultValue="15" />
+	    
+        <com.ancient.settings.preferences.SystemSettingSeekBarPreference 
+            android:max="50" 
+            android:title="Small BottomRight Radius"  	
+            android:key="IDC_QS_TRANSCLOCK_BG_BOTTOMRIGHT_SMALL" 
+            android:dependency="ANCIENT_UI_SWITCH"               
+            android:defaultValue="15" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference 
+            android:title="Custom Single Color"   							
+            android:key="IDC_QS_TRANSCLOCK_BG_KOLOR" 
+            android:dependency="ANCIENT_UI_SWITCH"               
+            android:defaultValue="0xFFFFFFFF" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference 
+            android:title="Custom Gradient Color 1"   							     
+            android:key="IDC_QS_TRANSCLOCK_BG_GRADIENTA" 
+            android:dependency="ANCIENT_UI_SWITCH"  
+            android:defaultValue="0xFFFFFFFF" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference 
+            android:title="Custom Gradient Color 2"    							     
+            android:key="IDC_QS_TRANSCLOCK_BG_GRADIENTB"
+            android:dependency="ANCIENT_UI_SWITCH"               
+            android:defaultValue="0xFFFFFFFF" />
+	   
+        <net.margaritov.preference.colorpicker.ColorPickerPreference 
+            android:title="Custom Gradient Color 3"   							     
+            android:key="IDC_QS_TRANSCLOCK_BG_GRADIENTC"
+            android:dependency="ANCIENT_UI_SWITCH"               
+            android:defaultValue="0xFFFFFFFF" />
+
+        <com.ancient.settings.preferences.SystemSettingSeekBarPreference 
+            android:max="30" 
+            android:title="Stroke Width"   								 
+            android:key="IDC_QS_TRANSCLOCK_BG_STROKE" 
+            android:dependency="ANCIENT_UI_SWITCH"               
+            android:defaultValue="2" />
+	    
+	<com.ancient.settings.preferences.SystemSettingListPreference 
+            android:entries="@array/transclockgrm_clock_stroke_entries" 
+            android:title="Stroke Colors Style" 
+            android:key="IDC_QS_TRANSCLOCK_BG_STROKEKOLOR_LIST" 							      
+            android:summary="%s"
+            android:dependency="ANCIENT_UI_SWITCH"               
+            android:defaultValue="0" 
+            android:entryValues="@array/transclockgrm_clock_stroke_values" />
+
+        <com.ancient.settings.preferences.SystemSettingSeekBarPreference 
+            android:max="10" 
+            android:title="Small Stroke Width"   								 
+            android:key="IDC_QS_TRANSCLOCK_BG_STROKE_SMALL" 
+            android:dependency="ANCIENT_UI_SWITCH"               
+            android:defaultValue="2" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference 
+            android:title="Stroke Color"  							     
+            android:key="IDC_QS_TRANSCLOCK_BG_STROKEKOLOR"
+            android:dependency="ANCIENT_UI_SWITCH"                
+            android:defaultValue="0x00000000" /> 
+        
+    </PreferenceCategory>
+	
+    <PreferenceCategory
+            android:key="addpolumfeatures"
+            android:title="Additional Panel Features" >
+	    
+	<com.ancient.settings.preferences.SystemSettingSwitchPreference
+            android:key="VOLUME_PANEL_LEFT"
+            android:title="@string/leftvolume_switch_title"
+            android:summary="@string/leftvolume_switch_summary"
+            android:defaultValue="false" />
+	    
+	<com.ancient.settings.preferences.SystemSettingSwitchPreference
+            android:key="ANCIENT_VOLUME_USEPERSEN"
+            android:title="@string/volume_persen_switch_title"
+            android:summary="@string/volume_persen_switch_summary"
+            android:defaultValue="false" />
+        
+        <com.ancient.settings.preferences.SystemSettingListPreference
+            android:key="ANCIENT_VOLUME_USEPERSEN_STYLE"                                                   
+            android:title="@string/volume_persen_style_title"
+            android:summary="%s"
+            android:dialogTitle="@string/volume_persen_style_title"
+            android:entries="@array/volume_persen_style_entries"
+            android:dependency="ANCIENT_VOLUME_USEPERSEN"                                                     
+            android:entryValues="@array/volume_persen_style_values"
+            android:defaultValue="0" />
+	    
+	<com.ancient.settings.preferences.SystemSettingListPreference
+            android:key="VOLUMEBAR_STYLES"                                                    
+            android:title="@string/volumebar_style_title"
+            android:summary="%s"
+            android:dialogTitle="@string/volumebar_style_title"
+            android:entries="@array/volumebar_style_entries"
+            android:entryValues="@array/volumebar_style_values"
+            android:defaultValue="0" />
+	    
+	<net.margaritov.preference.colorpicker.ColorPickerPreference 
+            android:title="@string/volumebar_bgcolor_title"   							
+            android:key="VOLUME_PANEL_BACKGROUND" 
+            android:defaultValue="0x00000000" />
+            
+    </PreferenceCategory>
+	
+    <PreferenceCategory
+            android:key="addlsfeatures"
+            android:title="Additional Lockscreen Features" >
+
+        <com.ancient.settings.preferences.SystemSettingListPreference
+            android:key="IDC_LSCLOCK_STYLE"                                                   
+            android:title="@string/ls_clock_style_title"
+            android:summary="%s"
+            android:dialogTitle="@string/ls_clock_style_title"
+            android:entries="@array/ls_clock_style_entries"
+            android:entryValues="@array/ls_clock_style_values"
+            android:defaultValue="0" />
+	    
+	<com.ancient.settings.preferences.SystemSettingListPreference
+            android:key="IDC_SMALL_LSCLOCK_FONT"                                                   
+            android:title="@string/ls_small_clock_font_title"
+            android:summary="%s"
+	    android:dialogTitle="@string/ls_small_clock_font_title"
+            android:entries="@array/ls_small_clock_font_entries"
+            android:entryValues="@array/ls_small_clock_font_values"
             android:defaultValue="0" />
         
     </PreferenceCategory>
@@ -151,80 +371,162 @@
 	
     <PreferenceCategory
             android:key="addsbclockfeatures"
-            android:title="Additional Clock Features" >
+            android:title="Additional LsClock Features" >
 	    
        <com.ancient.settings.preferences.SystemSettingSwitchPreference 
-            android:title="StatusBar Clock Background" 
-            android:key="nabil_backgroundclocksb" 
-            android:defaultValue="false"  						    
+            android:title="LockScreen Clock Style 3 Background" 
+            android:key="IDC_LS_TRANSCLOCK_BG" 
+            android:defaultValue="false"   						    
             android:summaryOn="Custom Background Enabled" 
-            android:summaryOff="Custom Background Disabled" />
+            android:summaryOff="Default Background Enabled" />
 
         <com.ancient.settings.preferences.SystemSettingListPreference 
-            android:entries="@array/bg_clock_entries" 
-            android:title="Style of Coloring" 
-            android:key="nabil_backgroundclocksb_list"  							      
+            android:entries="@array/transclockbg_clock_switch_entries" 
+            android:title="Background Style" 
+            android:key="IDC_LS_TRANSCLOCK_BG_LIST"   							      
             android:summary="%s"
-            android:dependency="nabil_backgroundclocksb" 
-            android:defaultValue="1" 
-            android:entryValues="@array/bg_clock_values" />
+            android:dependency="IDC_LS_TRANSCLOCK_BG" 
+            android:defaultValue="0" 
+            android:entryValues="@array/transclockbg_clock_switch_values" />
+	    
+	<com.ancient.settings.preferences.SystemSettingListPreference 
+            android:entries="@array/transclockgr_clock_switch_entries" 
+            android:title="Gradient Style" 
+            android:key="IDC_LS_TRANSCLOCK_BG_MACEMGRADIENT"   							      
+            android:summary="%s"
+            android:dependency="IDC_LS_TRANSCLOCK_BG" 
+            android:defaultValue="0" 
+            android:entryValues="@array/transclockgr_clock_switch_values" />
+	    
+	<com.ancient.settings.preferences.SystemSettingListPreference 
+            android:entries="@array/transclockgrm_clock_switch_entries" 
+            android:title="Gradient Colors Value" 
+            android:key="IDC_LS_TRANSCLOCK_BG_JUMLAHGRADIENT" 							      
+            android:summary="%s"
+            android:dependency="IDC_LS_TRANSCLOCK_BG" 
+            android:defaultValue="0" 
+            android:entryValues="@array/transclockgrm_clock_switch_values" />
 
         <com.ancient.settings.preferences.SystemSettingSeekBarPreference 
-            android:max="30" 
-            android:title="Corner Radius"   	
-            android:key="nabil_backgroundclocksb_corner" 
-            android:dependency="nabil_backgroundclocksb" 
+            android:max="200" 
+            android:title="TopLeft Radius"   	
+            android:key="IDC_LS_TRANSCLOCK_BG_TOPLEFT" 
+            android:defaultValue="15" />
+	    
+        <com.ancient.settings.preferences.SystemSettingSeekBarPreference 
+            android:max="200" 
+            android:title="TopRight Radius"   	
+            android:key="IDC_LS_TRANSCLOCK_BG_TOPRIGHT" 
+            android:defaultValue="15" />
+	    
+	<com.ancient.settings.preferences.SystemSettingSeekBarPreference 
+            android:max="200" 
+            android:title="BottomRight Radius" 	
+            android:key="IDC_LS_TRANSCLOCK_BG_BOTTOMLEFT" 
+            android:defaultValue="15" />
+	    
+        <com.ancient.settings.preferences.SystemSettingSeekBarPreference 
+            android:max="200" 
+            android:title="BottomLeft Radius"  	
+            android:key="IDC_LS_TRANSCLOCK_BG_BOTTOMRIGHT" 
+            android:defaultValue="15" />
+	    
+	<com.ancient.settings.preferences.SystemSettingSeekBarPreference 
+            android:max="100" 
+            android:title="Small TopLeft Radius"   	
+            android:key="IDC_LS_TRANSCLOCK_BG_TOPLEFT_SMALL" 
+            android:defaultValue="15" />
+	    
+        <com.ancient.settings.preferences.SystemSettingSeekBarPreference 
+            android:max="100" 
+            android:title="Small TopRight Radius"   	
+            android:key="IDC_LS_TRANSCLOCK_BG_TOPRIGHT_SMALL" 
+            android:defaultValue="15" />
+	    
+	<com.ancient.settings.preferences.SystemSettingSeekBarPreference 
+            android:max="100" 
+            android:title="Small BottomRight Radius" 	
+            android:key="IDC_LS_TRANSCLOCK_BG_BOTTOMLEFT_SMALL" 
+            android:defaultValue="15" />
+	    
+        <com.ancient.settings.preferences.SystemSettingSeekBarPreference 
+            android:max="100" 
+            android:title="Small BottomLeft Radius"  	
+            android:key="IDC_LS_TRANSCLOCK_BG_BOTTOMRIGHT_SMALL" 
             android:defaultValue="15" />
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference 
-            android:title="Custom One Color"   							
-            android:key="nabil_backgroundclocksb_color" 
-            android:dependency="nabil_backgroundclocksb" 
-            android:defaultValue="0x00000000" />
+            android:title="Custom Single Color"   							
+            android:key="IDC_LS_TRANSCLOCK_BG_KOLOR" 
+            android:dependency="IDC_LS_TRANSCLOCK_BG" 
+            android:defaultValue="0xFFFFFFFF" />
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference 
-            android:title="Custom Gradient Color 1"  							     
-            android:key="nabil_backgroundclocksb_gradient1" 
-            android:dependency="nabil_backgroundclocksb" 
-            android:defaultValue="0x00000000" />
+            android:title="Custom Gradient Color 1"   							     
+            android:key="IDC_LS_TRANSCLOCK_BG_GRADIENTA" 
+            android:dependency="IDC_LS_TRANSCLOCK_BG" 
+            android:defaultValue="0xFFFFFFFF" />
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference 
-            android:title="Custom Gradient Color 2"   							     
-            android:key="nabil_backgroundclocksb_gradient2" 
-            android:dependency="nabil_backgroundclocksb" 
-            android:defaultValue="0x00000000" />
+            android:title="Custom Gradient Color 2"    							     
+            android:key="IDC_LS_TRANSCLOCK_BG_GRADIENTB" 
+            android:dependency="IDC_LS_TRANSCLOCK_BG" 
+            android:defaultValue="0xFFFFFFFF" />
+	   
+        <net.margaritov.preference.colorpicker.ColorPickerPreference 
+            android:title="Custom Gradient Color 3"   							     
+            android:key="IDC_LS_TRANSCLOCK_BG_GRADIENTC" 
+            android:dependency="IDC_LS_TRANSCLOCK_BG" 
+            android:defaultValue="0xFFFFFFFF" />
 
         <com.ancient.settings.preferences.SystemSettingSeekBarPreference 
-            android:max="5" 
-            android:title="Stroke Width"  								 
-            android:key="nabil_backgroundclocksb_strokewidth" 
-            android:dependency="nabil_backgroundclocksb" 
+            android:max="30" 
+            android:title="Stroke Width"   								 
+            android:key="IDC_LS_TRANSCLOCK_BG_STROKE" 
+            android:defaultValue="2" />
+	    
+	<com.ancient.settings.preferences.SystemSettingSeekBarPreference 
+            android:max="20" 
+            android:title="Small Stroke Width"   								 
+            android:key="IDC_LS_TRANSCLOCK_BG_STROKE_SMALL" 
             android:defaultValue="2" />
 
-        <net.margaritov.preference.colorpicker.ColorPickerPreference
-            android:title="Stroke Color"   							     
-            android:key="nabil_backgroundclocksb_strokecolor" 
-            android:dependency="nabil_backgroundclocksb" 
+        <net.margaritov.preference.colorpicker.ColorPickerPreference 
+            android:title="Stroke Color"  							     
+            android:key="IDC_LS_TRANSCLOCK_BG_STROKEKOLOR" 
             android:defaultValue="0x00000000" />
 
         <com.ancient.settings.preferences.SystemSettingSeekBarPreference 
-            android:max="30" android:title="Padding Top" 								 
-            android:key="nabil_backgroundclocksb_paddingtb" 
-            android:dependency="nabil_backgroundclocksb" 
+            android:max="50" android:title="Padding Top" 								 
+            android:key="IDC_LS_TRANSCLOCK_BG_PADDINGTOP" 
             android:defaultValue="10" />
 	
-	      <com.ancient.settings.preferences.SystemSettingSeekBarPreference 
-            android:max="30" android:title="Padding Bottom" 								   
-            android:key="nabil_backgroundclocksb_paddingbb" 
-            android:dependency="nabil_backgroundclocksb" 
+	  <com.ancient.settings.preferences.SystemSettingSeekBarPreference 
+            android:max="50" android:title="Padding Bottom" 								   
+            android:key="IDC_LS_TRANSCLOCK_BG_PADDINGBOT" 
             android:defaultValue="0" />
 
         <com.ancient.settings.preferences.SystemSettingSeekBarPreference 
-            android:max="30"
-            android:title="Padding Left Right"  								 
-            android:key="nabil_backgroundclocksb_paddinglr" 
-            android:dependency="nabil_backgroundclocksb" 
-            android:defaultValue="10" />    
+            android:max="50"
+            android:title="Padding Left Right"   								 
+            android:key="IDC_LS_TRANSCLOCK_BG_PADDINGSIDE" 
+            android:defaultValue="10" />
+	    
+        <com.ancient.settings.preferences.SystemSettingSeekBarPreference 
+            android:max="50" android:title="Small Padding Top" 								 
+            android:key="IDC_LS_TRANSCLOCK_BG_PADDINGTOP_SMALL" 
+            android:defaultValue="10" />
+	
+	  <com.ancient.settings.preferences.SystemSettingSeekBarPreference 
+            android:max="50" android:title="Small Padding Bottom" 								   
+            android:key="IDC_LS_TRANSCLOCK_BG_PADDINGBOT_SMALL" 
+            android:defaultValue="0" />
+
+        <com.ancient.settings.preferences.SystemSettingSeekBarPreference 
+            android:max="50"
+            android:title="Small Padding Left Right"   								 
+            android:key="IDC_LS_TRANSCLOCK_BG_PADDINGSIDE_SMALL" 
+            android:defaultValue="10" />        
 	    
      </PreferenceCategory>
 
