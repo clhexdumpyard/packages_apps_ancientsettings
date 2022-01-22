@@ -68,8 +68,8 @@ public class StatusBar extends SettingsPreferenceFragment implements
     
     private static final int BATTERY_STYLE_PORTRAIT = 0;
     //private static final int BATTERY_STYLE_MIUI = 22;
-    private static final int BATTERY_STYLE_TEXT = 25;
-    private static final int BATTERY_STYLE_HIDDEN = 26;
+    private static final int BATTERY_STYLE_TEXT = 26;
+    private static final int BATTERY_STYLE_HIDDEN = 27;
     private static final int BATTERY_PERCENT_HIDDEN = 0;
 
     private ListPreference mBatteryPercent;

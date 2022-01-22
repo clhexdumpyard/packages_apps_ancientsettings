@@ -505,6 +505,7 @@
     <string name="status_bar_battery_style_landscaper">Miui V2</string>
     <string name="status_bar_battery_style_landscapes">Dappa JI</string>
     <string name="status_bar_battery_style_landscapet">Dappa LER</string>
+    <string name="status_bar_battery_style_landscapeu">Dappa JI LER</string>
     <string name="status_bar_battery_style_text">Text</string>
     <string name="status_bar_battery_style_hidden">Hidden</string>
 
