@@ -370,7 +370,9 @@
         <item>@string/status_bar_battery_style_landscapeo</item>    
         <item>@string/status_bar_battery_style_landscapep</item>   
         <item>@string/status_bar_battery_style_landscapeq</item>   
-	<item>@string/status_bar_battery_style_landscaper</item>         
+	<item>@string/status_bar_battery_style_landscaper</item>    
+        <item>@string/status_bar_battery_style_landscapes</item>   
+	<item>@string/status_bar_battery_style_landscapet</item>         
         <item>@string/status_bar_battery_style_text</item>
         <item>@string/status_bar_battery_style_hidden</item>
     </string-array>
@@ -400,7 +402,9 @@
         <item>21</item> 
         <item>22</item>
         <item>23</item> 
-        <item>24</item>            
+        <item>24</item>
+        <item>25</item> 
+        <item>26</item>              
     </string-array>
 	
     <!-- carging symbol -->
