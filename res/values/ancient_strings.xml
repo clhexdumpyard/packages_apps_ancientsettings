@@ -662,9 +662,13 @@
     <string name="custom_blend_color_title">Custom Color Battery Level</string>
     <string name="custom_blend_color_summary">switch on-off if no effect</string>
     <string name="custom_perim_opacy_title">Perimeter Alpha</string>
-    <string name="custom_perim_opacy_summary">for Miui V2 only</string>
+    <string name="fill_opacy_color_summary">for Dappa only</string>
+    <string name="fill_opacy_title">Fill Alpha</string>
+    <string name="custom_perim_opacy_summary">for Miui V2 and Dappa only</string>
     <string name="custom_rainbow_title">Rainbow Color</string>
     <string name="custom_rainbow_summary">for Miui V2 only</string>
+    <string name="custom_color_pwsave_title">PowerSave Color for Dappa</string>
+    <string name="custom_fillcolor_pwsave_title">PowerSave Fill Color for Dappa</string>
 	
     <!-- OOS style material dismiss all button for notifications -->
     <string name="notification_material_dismiss_button_title">Material dimiss button</string>
