@@ -168,6 +168,12 @@
             android:defaultValue="false" />  
 	    
 	<com.ancient.settings.preferences.SystemSettingSwitchPreference
+            android:key="SCALED_FILL_ALPHA"
+            android:title="@string/fill_opacy_title"
+            android:summary="@string/fill_opacy_color_summary"
+            android:defaultValue="false" />  
+	    
+	<com.ancient.settings.preferences.SystemSettingSwitchPreference
             android:key="RAINBOW_FILL_SWITCH"
             android:title="@string/custom_rainbow_title"
             android:summary="@string/custom_rainbow_summary"
@@ -191,7 +197,21 @@
             android:key="CHARGING_BLEND_COLOR"  
             android:dependency="CUSTOM_BLEND_COLOR"
             android:defaultValue="0xFF00FF00" 
-             />   
+             />  
+	    
+	 <net.margaritov.preference.colorpicker.ColorPickerPreference 
+            android:title="@string/custom_color_pwsave_title" 
+            android:key="POWERSAVE_BLEND_COLOR"  
+            android:dependency="CUSTOM_BLEND_COLOR"
+            android:defaultValue="0xFFFFFFFF" 
+             />  
+	    
+	 <net.margaritov.preference.colorpicker.ColorPickerPreference 
+            android:title="@string/custom_fillcolor_pwsave_title" 
+            android:key="POWERSAVEFILL_BLEND_COLOR"  
+            android:dependency="CUSTOM_BLEND_COLOR"
+            android:defaultValue="0xFFFFFFFF" 
+             />  
 
     </PreferenceCategory>
 

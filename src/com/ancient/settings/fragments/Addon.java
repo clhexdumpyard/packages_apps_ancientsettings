@@ -64,12 +64,20 @@ public class Addon extends SettingsPreferenceFragment implements OnPreferenceCha
     private static final String STATUSBAR_DUAL_STYLE = "STATUSBAR_DUAL_STYLE"; 
     private static final String STATUSBAR_ICON_STYLE = "STATUSBAR_ICON_STYLE"; 
     private static final String STATUSBAR_HEIGHT_STYLE = "STATUSBAR_HEIGHT_STYLE";
-    private static final String NABIL_BACKGROUNDCLOCKSB_COLOR = "nabil_backgroundclocksb_color";
-    private static final String NABIL_BACKGROUNDCLOCKSB_GRADIENT1 = "nabil_backgroundclocksb_gradient1";
-    private static final String NABIL_BACKGROUNDCLOCKSB_GRADIENT2 = "nabil_backgroundclocksb_gradient2";
-    private static final String NABIL_BACKGROUNDCLOCKSB_STROKECOLOR = "nabil_backgroundclocksb_strokecolor";
+    private static final String IDC_LS_TRANSCLOCK_BG_STROKEKOLOR = "IDC_LS_TRANSCLOCK_BG_STROKEKOLOR";
+    private static final String IDC_LS_TRANSCLOCK_BG_KOLOR = "IDC_LS_TRANSCLOCK_BG_KOLOR";
+    private static final String IDC_LS_TRANSCLOCK_BG_GRADIENTA = "IDC_LS_TRANSCLOCK_BG_GRADIENTA";
+    private static final String IDC_LS_TRANSCLOCK_BG_GRADIENTB = "IDC_LS_TRANSCLOCK_BG_GRADIENTB";
+    private static final String IDC_LS_TRANSCLOCK_BG_GRADIENTC = "IDC_LS_TRANSCLOCK_BG_GRADIENTC";
+    private static final String IDC_QS_TRANSCLOCK_BG_STROKEKOLOR = "IDC_QS_TRANSCLOCK_BG_STROKEKOLOR";
+    private static final String IDC_QS_TRANSCLOCK_BG_KOLOR = "IDC_QS_TRANSCLOCK_BG_KOLOR";
+    private static final String IDC_QS_TRANSCLOCK_BG_GRADIENTA = "IDC_QS_TRANSCLOCK_BG_GRADIENTA";
+    private static final String IDC_QS_TRANSCLOCK_BG_GRADIENTB = "IDC_QS_TRANSCLOCK_BG_GRADIENTB";
+    private static final String IDC_QS_TRANSCLOCK_BG_GRADIENTC = "IDC_QS_TRANSCLOCK_BG_GRADIENTC";
     private static final String STATUSBAR_DATA_STYLE = "STATUSBAR_DATA_STYLE";     
     private static final String BRIGHTNESS_STYLES = "BRIGHTNESS_STYLES";
+    private static final String VOLUMEBAR_STYLES = "VOLUMEBAR_STYLES";
+    private static final String VOLUME_PANEL_BACKGROUND = "VOLUME_PANEL_BACKGROUND";
 
     private static final String MEDIUM_OVERLAY_SBHEIGHT = "com.custom.overlay.systemui.hight.medium";
     private static final String BIG_OVERLAY_SBHEIGHT = "com.custom.overlay.systemui.hight.big"; 
@@ -97,6 +105,12 @@ public class Addon extends SettingsPreferenceFragment implements OnPreferenceCha
     private static final String BRIGHTNESS_OVERLAY_STYLE3 = "com.custom.overlay.systemui.brightness3";        
     private static final String BRIGHTNESS_OVERLAY_STYLE4 = "com.custom.overlay.systemui.brightness4"; 
     private static final String BRIGHTNESS_OVERLAY_STYLE5 = "com.custom.overlay.systemui.brightness5";
+     
+    private static final String VOLUMEBAR_OVERLAY_STYLE1 = "com.custom.overlay.systemui.volume1";
+    private static final String VOLUMEBAR_OVERLAY_STYLE2 = "com.custom.overlay.systemui.volume2"; 
+    private static final String VOLUMEBAR_OVERLAY_STYLE3 = "com.custom.overlay.systemui.volume3";        
+    private static final String VOLUMEBAR_OVERLAY_STYLE4 = "com.custom.overlay.systemui.volume4"; 
+    private static final String VOLUMEBAR_OVERLAY_STYLE5 = "com.custom.overlay.systemui.volume5";
 
     private static final String DATA_OVERLAY_STYLE1 = "com.custom.overlay.systemui.data1";
     private static final String DATA_OVERLAY_STYLE2 = "com.custom.overlay.systemui.data2"; 
@@ -116,8 +130,16 @@ public class Addon extends SettingsPreferenceFragment implements OnPreferenceCha
     private ColorPickerPreference mBackb;
     private ColorPickerPreference mBackc;
     private ColorPickerPreference mBackd;
+    private ColorPickerPreference mBacke;
+    private ColorPickerPreference mBackaa;
+    private ColorPickerPreference mBackbb;
+    private ColorPickerPreference mBackcc;
+    private ColorPickerPreference mBackdd;
+    private ColorPickerPreference mBackee;
     private SystemSettingListPreference idcSbDataStyle;       
-    private SystemSettingListPreference idcSbBrightStyle;        
+    private SystemSettingListPreference idcSbBrightStyle;
+    private SystemSettingListPreference idcSbVolumeStyle; 
+    private ColorPickerPreference idcVolumeBackgroundColor;           
   
     private Context mContext;
     private IOverlayManager mOverlayService;    
@@ -166,7 +188,15 @@ public class Addon extends SettingsPreferenceFragment implements OnPreferenceCha
         idcSbBrightStyle.setValueIndex(valueIndexbright >= 0 ? valueIndexbright : 0);
         idcSbBrightStyle.setSummary(idcSbBrightStyle.getEntry());
         idcSbBrightStyle.setOnPreferenceChangeListener(this);    
-    
+            
+        idcSbVolumeStyle = (SystemSettingListPreference) findPreference("VOLUMEBAR_STYLES");
+        int sbVolumeStyle = Settings.System.getIntForUser(getContentResolver(),
+                "VOLUMEBAR_STYLES", 0, UserHandle.USER_CURRENT);
+        int valueIndexvol = idcSbVolumeStyle.findIndexOfValue(String.valueOf(sbVolumeStyle));
+        idcSbVolumeStyle.setValueIndex(valueIndexvol >= 0 ? valueIndexvol : 0);
+        idcSbVolumeStyle.setSummary(idcSbVolumeStyle.getEntry());
+        idcSbVolumeStyle.setOnPreferenceChangeListener(this);   
+                
         idcSbHeightStyle = (SystemSettingListPreference) findPreference("STATUSBAR_HEIGHT_STYLE");
         int sbHeightStyle = Settings.System.getIntForUser(getContentResolver(),
                 "STATUSBAR_HEIGHT_STYLE", 0, UserHandle.USER_CURRENT);
@@ -174,10 +204,23 @@ public class Addon extends SettingsPreferenceFragment implements OnPreferenceCha
         idcSbHeightStyle.setValueIndex(valueIndexheight >= 0 ? valueIndexheight : 0);
         idcSbHeightStyle.setSummary(idcSbHeightStyle.getEntry());
         idcSbHeightStyle.setOnPreferenceChangeListener(this);
+        
+        idcVolumeBackgroundColor = (ColorPickerPreference) findPreference(VOLUME_PANEL_BACKGROUND);
+        int mVolumeBackgroundColor = Settings.System.getInt(getContentResolver(),
+                "VOLUME_PANEL_BACKGROUND", 0x00000000);
+        idcVolumeBackgroundColor.setNewPreviewColor(mVolumeBackgroundColor);
+        idcVolumeBackgroundColor.setAlphaSliderEnabled(true);
+        String mVolumeBackgroundColorHex = String.format("#%08x", (0x00000000 & mVolumeBackgroundColor));
+        if (mVolumeBackgroundColorHex.equals("#00000000")) {
+            idcVolumeBackgroundColor.setSummary(R.string.color_default);
+        } else {
+            idcVolumeBackgroundColor.setSummary(mVolumeBackgroundColorHex);
+        }
+        idcVolumeBackgroundColor.setOnPreferenceChangeListener(this);
             
-         mBacka = (ColorPickerPreference) findPreference(NABIL_BACKGROUNDCLOCKSB_COLOR);
+         mBacka = (ColorPickerPreference) findPreference(IDC_LS_TRANSCLOCK_BG_STROKEKOLOR);
         int mbacaColor = Settings.System.getInt(getContentResolver(),
-                "nabil_backgroundclocksb_color", 0x00000000);
+                "IDC_LS_TRANSCLOCK_BG_STROKEKOLOR", 0x00000000);
         mBacka.setNewPreviewColor(mbacaColor);
         mBacka.setAlphaSliderEnabled(true);
         String mbacaColorHex = String.format("#%08x", (0x00000000 & mbacaColor));
@@ -188,45 +231,122 @@ public class Addon extends SettingsPreferenceFragment implements OnPreferenceCha
         }
         mBacka.setOnPreferenceChangeListener(this);
 
-        mBackb = (ColorPickerPreference) findPreference(NABIL_BACKGROUNDCLOCKSB_GRADIENT1);
+        mBackb = (ColorPickerPreference) findPreference(IDC_LS_TRANSCLOCK_BG_KOLOR);
         int mbacabColor = Settings.System.getInt(getContentResolver(),
-                "nabil_backgroundclocksb_gradient1", 0x00000000);
+                "IDC_LS_TRANSCLOCK_BG_KOLOR", 0xffffffff);
         mBackb.setNewPreviewColor(mbacabColor);
         mBackb.setAlphaSliderEnabled(true);
-        String mbacabColorHex = String.format("#%08x", (0x00000000 & mbacabColor));
-        if (mbacabColorHex.equals("#00000000")) {
+        String mbacabColorHex = String.format("#%08x", (0xffffffff & mbacabColor));
+        if (mbacabColorHex.equals("#ffffffff")) {
             mBackb.setSummary(R.string.color_default);
         } else {
             mBackb.setSummary(mbacabColorHex);
         }
         mBackb.setOnPreferenceChangeListener(this);
 
-        mBackc = (ColorPickerPreference) findPreference(NABIL_BACKGROUNDCLOCKSB_GRADIENT2);
+        mBackc = (ColorPickerPreference) findPreference(IDC_LS_TRANSCLOCK_BG_GRADIENTA);
         int mbacacColor = Settings.System.getInt(getContentResolver(),
-                "nabil_backgroundclocksb_gradient2", 0x00000000);
+                "IDC_LS_TRANSCLOCK_BG_GRADIENTA", 0xffffffff);
         mBackc.setNewPreviewColor(mbacacColor);
         mBackc.setAlphaSliderEnabled(true);
-        String mbacacColorHex = String.format("#%08x", (0x00000000 & mbacacColor));
-        if (mbacacColorHex.equals("#00000000")) {
+        String mbacacColorHex = String.format("#%08x", (0xffffffff & mbacacColor));
+        if (mbacacColorHex.equals("#ffffffff")) {
             mBackc.setSummary(R.string.color_default);
         } else {
             mBackc.setSummary(mbacacColorHex);
         }
         mBackc.setOnPreferenceChangeListener(this);
 
-        mBackd = (ColorPickerPreference) findPreference(NABIL_BACKGROUNDCLOCKSB_STROKECOLOR);
+        mBackd = (ColorPickerPreference) findPreference(IDC_LS_TRANSCLOCK_BG_GRADIENTB);
         int mbacadColor = Settings.System.getInt(getContentResolver(),
-                "nabil_backgroundclocksb_strokecolor", 0x00000000);
+                "IDC_LS_TRANSCLOCK_BG_GRADIENTB", 0xffffffff);
         mBackd.setNewPreviewColor(mbacadColor);
         mBackd.setAlphaSliderEnabled(true);
-        String mbacadColorHex = String.format("#%08x", (0x00000000 & mbacadColor));
-        if (mbacadColorHex.equals("#00000000")) {
+        String mbacadColorHex = String.format("#%08x", (0xffffffff & mbacadColor));
+        if (mbacadColorHex.equals("#ffffffff")) {
             mBackd.setSummary(R.string.color_default);
         } else {
             mBackd.setSummary(mbacadColorHex);
         }
-        mBackd.setOnPreferenceChangeListener(this);   
-      
+        mBackd.setOnPreferenceChangeListener(this); 
+ 
+        mBacke = (ColorPickerPreference) findPreference(IDC_LS_TRANSCLOCK_BG_GRADIENTC);
+        int mbacaeColor = Settings.System.getInt(getContentResolver(),
+                "IDC_LS_TRANSCLOCK_BG_GRADIENTC", 0xffffffff);
+        mBacke.setNewPreviewColor(mbacaeColor);
+        mBacke.setAlphaSliderEnabled(true);
+        String mbacaeColorHex = String.format("#%08x", (0xffffffff & mbacaeColor));
+        if (mbacaeColorHex.equals("#ffffffff")) {
+            mBacke.setSummary(R.string.color_default);
+        } else {
+            mBacke.setSummary(mbacaeColorHex);
+        }
+        mBacke.setOnPreferenceChangeListener(this);   
+       
+        mBackaa = (ColorPickerPreference) findPreference(IDC_QS_TRANSCLOCK_BG_STROKEKOLOR);
+        int mbacaaColor = Settings.System.getInt(getContentResolver(),
+                "IDC_QS_TRANSCLOCK_BG_STROKEKOLOR", 0x00000000);
+        mBackaa.setNewPreviewColor(mbacaaColor);
+        mBackaa.setAlphaSliderEnabled(true);
+        String mbacaaColorHex = String.format("#%08x", (0x00000000 & mbacaaColor));
+        if (mbacaaColorHex.equals("#00000000")) {
+            mBackaa.setSummary(R.string.color_default);
+        } else {
+            mBackaa.setSummary(mbacaaColorHex);
+        }
+        mBackaa.setOnPreferenceChangeListener(this);
+
+        mBackbb = (ColorPickerPreference) findPreference(IDC_QS_TRANSCLOCK_BG_KOLOR);
+        int mbacabbColor = Settings.System.getInt(getContentResolver(),
+                "IDC_QS_TRANSCLOCK_BG_KOLOR", 0xffffffff);
+        mBackbb.setNewPreviewColor(mbacabbColor);
+        mBackbb.setAlphaSliderEnabled(true);
+        String mbacabbColorHex = String.format("#%08x", (0xffffffff & mbacabbColor));
+        if (mbacabbColorHex.equals("#ffffffff")) {
+            mBackbb.setSummary(R.string.color_default);
+        } else {
+            mBackbb.setSummary(mbacabbColorHex);
+        }
+        mBackbb.setOnPreferenceChangeListener(this);
+
+        mBackcc = (ColorPickerPreference) findPreference(IDC_QS_TRANSCLOCK_BG_GRADIENTA);
+        int mbacaccColor = Settings.System.getInt(getContentResolver(),
+                "IDC_QS_TRANSCLOCK_BG_GRADIENTA", 0xffffffff);
+        mBackcc.setNewPreviewColor(mbacaccColor);
+        mBackcc.setAlphaSliderEnabled(true);
+        String mbacaccColorHex = String.format("#%08x", (0xffffffff & mbacaccColor));
+        if (mbacaccColorHex.equals("#ffffffff")) {
+            mBackcc.setSummary(R.string.color_default);
+        } else {
+            mBackcc.setSummary(mbacacColorHex);
+        }
+        mBackcc.setOnPreferenceChangeListener(this);
+
+        mBackdd = (ColorPickerPreference) findPreference(IDC_QS_TRANSCLOCK_BG_GRADIENTB);
+        int mbacaddColor = Settings.System.getInt(getContentResolver(),
+                "IDC_QS_TRANSCLOCK_BG_GRADIENTB", 0xffffffff);
+        mBackdd.setNewPreviewColor(mbacaddColor);
+        mBackdd.setAlphaSliderEnabled(true);
+        String mbacaddColorHex = String.format("#%08x", (0xffffffff & mbacaddColor));
+        if (mbacaddColorHex.equals("#ffffffff")) {
+            mBackdd.setSummary(R.string.color_default);
+        } else {
+            mBackdd.setSummary(mbacaddColorHex);
+        }
+        mBackdd.setOnPreferenceChangeListener(this); 
+ 
+        mBackee = (ColorPickerPreference) findPreference(IDC_QS_TRANSCLOCK_BG_GRADIENTC);
+        int mbacaeeColor = Settings.System.getInt(getContentResolver(),
+                "IDC_QS_TRANSCLOCK_BG_GRADIENTC", 0xffffffff);
+        mBackee.setNewPreviewColor(mbacaeeColor);
+        mBackee.setAlphaSliderEnabled(true);
+        String mbacaeeColorHex = String.format("#%08x", (0xffffffff & mbacaeeColor));
+        if (mbacaeeColorHex.equals("#ffffffff")) {
+            mBackee.setSummary(R.string.color_default);
+        } else {
+            mBackee.setSummary(mbacaeeColorHex);
+        }
+        mBackee.setOnPreferenceChangeListener(this);   
     }
 
     @Override
@@ -438,6 +558,53 @@ public class Addon extends SettingsPreferenceFragment implements OnPreferenceCha
                    }
                 }    
             return true;
+        } else if (preference == idcSbVolumeStyle) {
+            int sbSbVolumeStyle = Integer.valueOf((String) objValue);
+            Settings.System.putIntForUser(getContentResolver(),
+                    "VOLUMEBAR_STYLES", sbSbVolumeStyle, UserHandle.USER_CURRENT);
+            idcSbVolumeStyle.setSummary(idcSbVolumeStyle.getEntries()[sbSbVolumeStyle]);
+                if (sbSbVolumeStyle == 0) {
+                   try {
+                      mOverlayService.setEnabled(VOLUMEBAR_OVERLAY_STYLE1, false, USER_CURRENT);
+                      mOverlayService.setEnabled(VOLUMEBAR_OVERLAY_STYLE2, false, USER_CURRENT);
+                      mOverlayService.setEnabled(VOLUMEBAR_OVERLAY_STYLE3, false, USER_CURRENT);
+                      mOverlayService.setEnabled(VOLUMEBAR_OVERLAY_STYLE4, false, USER_CURRENT);
+                      mOverlayService.setEnabled(VOLUMEBAR_OVERLAY_STYLE5, false, USER_CURRENT);     
+                   } catch (RemoteException re) {
+                      throw re.rethrowFromSystemServer();
+                   }
+               } else if (sbSbVolumeStyle == 1) {
+                   try {
+                      mOverlayService.setEnabledExclusiveInCategory(VOLUMEBAR_OVERLAY_STYLE1, USER_CURRENT);   
+                   } catch (RemoteException re) {
+                      throw re.rethrowFromSystemServer();
+                   }
+               } else if (sbSbVolumeStyle == 2) {
+                   try {
+                      mOverlayService.setEnabledExclusiveInCategory(VOLUMEBAR_OVERLAY_STYLE2, USER_CURRENT);   
+                   } catch (RemoteException re) {
+                      throw re.rethrowFromSystemServer();
+                   }
+                } else if (sbSbVolumeStyle == 3) {
+                   try {
+                      mOverlayService.setEnabledExclusiveInCategory(VOLUMEBAR_OVERLAY_STYLE3, USER_CURRENT);     
+                   } catch (RemoteException re) {
+                      throw re.rethrowFromSystemServer();
+                   }
+                } else if (sbSbVolumeStyle == 4) {
+                   try {
+                      mOverlayService.setEnabledExclusiveInCategory(VOLUMEBAR_OVERLAY_STYLE4, USER_CURRENT);     
+                   } catch (RemoteException re) {
+                      throw re.rethrowFromSystemServer();
+                   }
+                } else if (sbSbVolumeStyle == 5) {
+                   try {
+                      mOverlayService.setEnabledExclusiveInCategory(VOLUMEBAR_OVERLAY_STYLE5, USER_CURRENT);     
+                   } catch (RemoteException re) {
+                      throw re.rethrowFromSystemServer();
+                   }
+                }    
+            return true;
         } else if (preference == idcSbHeightStyle) {
             int sbHeightStyle = Integer.valueOf((String) objValue);
             Settings.System.putIntForUser(getContentResolver(),
@@ -478,6 +645,18 @@ public class Addon extends SettingsPreferenceFragment implements OnPreferenceCha
                    }
                 }  
             return true;
+        } else if (preference == idcVolumeBackgroundColor) {
+            String cVolumeBackgroundColor = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(objValue)));
+            if (cVolumeBackgroundColor.equals("#00000000")) {
+                preference.setSummary(R.string.color_default);
+            } else {
+                preference.setSummary(cVolumeBackgroundColor);
+            }
+            int intcVolumeBackgroundColor = ColorPickerPreference.convertToColorInt(cVolumeBackgroundColor);
+            Settings.System.putInt(getContentResolver(),
+                    "VOLUME_PANEL_BACKGROUND", intcVolumeBackgroundColor);
+            return true;  
         } else if (preference == mBacka) {
             String hexa = ColorPickerPreference.convertToARGB(
                     Integer.valueOf(String.valueOf(objValue)));
@@ -488,43 +667,115 @@ public class Addon extends SettingsPreferenceFragment implements OnPreferenceCha
             }
             int intHexa = ColorPickerPreference.convertToColorInt(hexa);
             Settings.System.putInt(getContentResolver(),
-                    "nabil_backgroundclocksb_color", intHexa);
+                    "IDC_LS_TRANSCLOCK_BG_STROKEKOLOR", intHexa);
             return true;  
         } else if (preference == mBackb) {
             String hexb = ColorPickerPreference.convertToARGB(
                     Integer.valueOf(String.valueOf(objValue)));
-            if (hexb.equals("#00000000")) {
+            if (hexb.equals("#FFFFFFFF")) {
                 preference.setSummary(R.string.color_default);
             } else {
                 preference.setSummary(hexb);
             }
             int intHexb = ColorPickerPreference.convertToColorInt(hexb);
             Settings.System.putInt(getContentResolver(),
-                    "nabil_backgroundclocksb_gradient1", intHexb);
+                    "IDC_LS_TRANSCLOCK_BG_KOLOR", intHexb);
             return true;   
         } else if (preference == mBackc) {
             String hexc = ColorPickerPreference.convertToARGB(
                     Integer.valueOf(String.valueOf(objValue)));
-            if (hexc.equals("#00000000")) {
+            if (hexc.equals("#FFFFFFFF")) {
                 preference.setSummary(R.string.color_default);
             } else {
                 preference.setSummary(hexc);
             }
             int intHexc = ColorPickerPreference.convertToColorInt(hexc);
             Settings.System.putInt(getContentResolver(),
-                    "nabil_backgroundclocksb_gradient2", intHexc);
+                    "IDC_LS_TRANSCLOCK_BG_GRADIENTA", intHexc);
             return true;
         } else if (preference == mBackd) {
             String hexd = ColorPickerPreference.convertToARGB(
                     Integer.valueOf(String.valueOf(objValue)));
-            if (hexd.equals("#00000000")) {
+            if (hexd.equals("#FFFFFFFF")) {
                 preference.setSummary(R.string.color_default);
             } else {
                 preference.setSummary(hexd);
             }
             int intHexd = ColorPickerPreference.convertToColorInt(hexd);
             Settings.System.putInt(getContentResolver(),
-                    "nabil_backgroundclocksb_strokecolor", intHexd);
+                    "IDC_LS_TRANSCLOCK_BG_GRADIENTB", intHexd);
+            return true;
+        } else if (preference == mBacke) {
+            String hexe = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(objValue)));
+            if (hexe.equals("#FFFFFFFF")) {
+                preference.setSummary(R.string.color_default);
+            } else {
+                preference.setSummary(hexe);
+            }
+            int intHexe = ColorPickerPreference.convertToColorInt(hexe);
+            Settings.System.putInt(getContentResolver(),
+                    "IDC_LS_TRANSCLOCK_BG_GRADIENTC", intHexe);
+            return true;
+        } else if (preference == mBackaa) {
+            String hexaa = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(objValue)));
+            if (hexaa.equals("#00000000")) {
+                preference.setSummary(R.string.color_default);
+            } else {
+                preference.setSummary(hexaa);
+            }
+            int intHexaa = ColorPickerPreference.convertToColorInt(hexaa);
+            Settings.System.putInt(getContentResolver(),
+                    "IDC_QS_TRANSCLOCK_BG_STROKEKOLOR", intHexaa);
+            return true;  
+        } else if (preference == mBackbb) {
+            String hexbb = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(objValue)));
+            if (hexbb.equals("#FFFFFFFF")) {
+                preference.setSummary(R.string.color_default);
+            } else {
+                preference.setSummary(hexbb);
+            }
+            int intHexbb = ColorPickerPreference.convertToColorInt(hexbb);
+            Settings.System.putInt(getContentResolver(),
+                    "IDC_QS_TRANSCLOCK_BG_KOLOR", intHexbb);
+            return true;   
+        } else if (preference == mBackcc) {
+            String hexcc = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(objValue)));
+            if (hexcc.equals("#FFFFFFFF")) {
+                preference.setSummary(R.string.color_default);
+            } else {
+                preference.setSummary(hexcc);
+            }
+            int intHexcc = ColorPickerPreference.convertToColorInt(hexcc);
+            Settings.System.putInt(getContentResolver(),
+                    "IDC_QS_TRANSCLOCK_BG_GRADIENTA", intHexcc);
+            return true;
+        } else if (preference == mBackdd) {
+            String hexdd = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(objValue)));
+            if (hexdd.equals("#FFFFFFFF")) {
+                preference.setSummary(R.string.color_default);
+            } else {
+                preference.setSummary(hexdd);
+            }
+            int intHexdd = ColorPickerPreference.convertToColorInt(hexdd);
+            Settings.System.putInt(getContentResolver(),
+                    "IDC_QS_TRANSCLOCK_BG_GRADIENTB", intHexdd);
+            return true;
+        } else if (preference == mBackee) {
+            String hexee = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(objValue)));
+            if (hexee.equals("#FFFFFFFF")) {
+                preference.setSummary(R.string.color_default);
+            } else {
+                preference.setSummary(hexee);
+            }
+            int intHexee = ColorPickerPreference.convertToColorInt(hexee);
+            Settings.System.putInt(getContentResolver(),
+                    "IDC_QS_TRANSCLOCK_BG_GRADIENTC", intHexee);
             return true;
         } else if (preference == idcSbBrightStyle) {
             int sbBrightStyle = Integer.valueOf((String) objValue);

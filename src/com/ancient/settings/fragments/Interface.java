@@ -65,6 +65,7 @@ public class Interface extends SettingsPreferenceFragment implements OnPreferenc
     
     private static final String HOMEPAGE_THEME_OVERLAY = "com.idc.settings.hompage.stock";
     private static final String HOMEPAGE_THEME_ANDROID_OVERLAY = "com.idc.android.hompage.stock";   
+    private static final String HOMEPAGE_THEME_SETTINGS_OVERLAY = "com.idc.ganteng.hompage.stock";   
 
     private Context mContext;
     
@@ -122,12 +123,19 @@ public class Interface extends SettingsPreferenceFragment implements OnPreferenc
                    try {
                       mOverlayService.setEnabled(HOMEPAGE_THEME_OVERLAY, false, USER_CURRENT);
                       mOverlayService.setEnabled(HOMEPAGE_THEME_ANDROID_OVERLAY, false, USER_CURRENT); 
+                      mOverlayService.setEnabled(HOMEPAGE_THEME_SETTINGS_OVERLAY, false, USER_CURRENT); 
                    } catch (RemoteException re) {
                       throw re.rethrowFromSystemServer();
                    }
             } else if (smhomeStyle == 2) {
                    try {
                       mOverlayService.setEnabledExclusiveInCategory(HOMEPAGE_THEME_ANDROID_OVERLAY, USER_CURRENT);   
+                   } catch (RemoteException re) {
+                      throw re.rethrowFromSystemServer();
+                   }
+            } else if (smhomeStyle == 3) {
+                   try {
+                      mOverlayService.setEnabledExclusiveInCategory(HOMEPAGE_THEME_SETTINGS_OVERLAY, USER_CURRENT);   
                    } catch (RemoteException re) {
                       throw re.rethrowFromSystemServer();
                    }

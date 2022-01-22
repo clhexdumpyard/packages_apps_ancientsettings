@@ -503,6 +503,8 @@
     <string name="status_bar_battery_style_landscapep">Fake Battery Buddy</string>
     <string name="status_bar_battery_style_landscapeq">Rainbow Fake Battery Buddy</string>
     <string name="status_bar_battery_style_landscaper">Miui V2</string>
+    <string name="status_bar_battery_style_landscapes">Dappa JI</string>
+    <string name="status_bar_battery_style_landscapet">Dappa LER</string>
     <string name="status_bar_battery_style_text">Text</string>
     <string name="status_bar_battery_style_hidden">Hidden</string>
 
@@ -665,9 +667,13 @@
     <string name="custom_blend_color_title">Custom Color Battery Level</string>
     <string name="custom_blend_color_summary">switch on-off if no effect</string>
     <string name="custom_perim_opacy_title">Perimeter Alpha</string>
-    <string name="custom_perim_opacy_summary">for Miui V2 only</string>
+    <string name="fill_opacy_color_summary">for Dappa only</string>
+    <string name="fill_opacy_title">Fill Alpha</string>
+    <string name="custom_perim_opacy_summary">for Miui V2 and Dappa only</string>
     <string name="custom_rainbow_title">Rainbow Color</string>
     <string name="custom_rainbow_summary">for Miui V2 only</string>
+    <string name="custom_color_pwsave_title">PowerSave Color for Dappa</string>
+    <string name="custom_fillcolor_pwsave_title">PowerSave Fill Color for Dappa</string>
 	
     <!-- OOS style material dismiss all button for notifications -->
     <string name="notification_material_dismiss_button_title">Material dimiss button</string>
@@ -766,8 +772,9 @@
     <string name="homepage_theme_title">Settings Homepage Theme</string>
     <string name="homepage_theme_summary">switch this off to back to stock aosp look</string>
     <string name="homepage_theme_default">Default</string>
-    <string name="homepage_theme_stock">Stock aosp A12 look</string>
+    <string name="homepage_theme_stock">Stock AOSP A12 look</string>
     <string name="homepage_theme_anci11">Collapse Anci A11</string>
+    <string name="homepage_theme_stock_collapse">Stock AOSP A12 Collapsing</string>
 	
     <!-- custom batre dimen -->
     <string name="custom_battery_dimension_title">Battery Custom Dimension</string>
@@ -952,5 +959,69 @@
     <string name="mic_camera_privacy_indicator_summary">Show separate indicator when an any app uses mic or camera</string>
     <string name="location_privacy_indicator_title">Location privacy indicator</string>
     <string name="location_privacy_indicator_summary">Show separate indicator when an any app uses location</string>
+	
+    <!-- transclock style -->
+    <string name="transclock_switch_title">Transparent Clock</string>
+    <string name="transclock_switch_summary">show trnasparent clock with background</string>
+    <string name="transclock_clock_switch_title">Transparent Clock Style</string>
+    <string name="transclock_clock_left">Left</string>
+    <string name="transclock_clock_center">Center</string>
+    <string name="transclock_clock_right">Right</string>
+	
+    <string name="transclockbg_switch_title">Transparent Clock Background</string>
+    <string name="transclockbg_switch_summary">use custom background</string>
+	
+    <string name="transclockbg_clock_switch_title">Transparent Clock Background Style</string>
+    <string name="transclockbg_clock_accent">Accent</string>
+    <string name="transclockbg_clock_color">Custom Color</string>
+    <string name="transclockbg_clock_gradient">Gradient</string>
+	
+    <string name="transclockgr_clock_switch_title">Gradient Background Style</string>
+    <string name="transclockgr_clock_1">Bottomleft to Topright</string>
+    <string name="transclockgr_clock_2">Bottomright to Topleft</string>
+    <string name="transclockgr_clock_3">Topleft to Bottomright</string>
+    <string name="transclockgr_clock_4">Topright to Bottomleft</string>
+    <string name="transclockgr_clock_5">Bottom to Top</string>
+    <string name="transclockgr_clock_6">Top to Bottom</string>
+    <string name="transclockgr_clock_7">Left to Right</string>
+    <string name="transclockgr_clock_8">Right to Left</string>
+	
+    <string name="transclockgrm_clock_switch_title">Gradient Background Value</string>
+    <string name="transclockgrm_clock_2">2 Colors</string>
+    <string name="transclockgrm_clock_3">3 Colors</string>
+	
+    <string name="transclock_clock_topleft_title">TopLeft Corner</string>
+    <string name="transclock_clock_topright_title">TopRight Corner</string>
+    <string name="transclock_clock_botleft_title">BottomLeft Corner</string>
+    <string name="transclock_clock_botright_title">BottomRight Corner</string>
+	
+    <string name="transclock_clock_top_title">Top Padding</string>
+    <string name="transclock_clock_bot_title">Bottom Padding</string>
+    <string name="transclock_clock_side_title">Side Padding</string>
+    <string name="transclock_clock_stroke_title">Stroke</string>
+	
+    <string name="transclock_color_stroke_title">Stroke Color</string>
+    <string name="transclock_color_single_title">Custom Color</string>
+    <string name="transclock_color_grad1_title">Gradient First Color</string>
+    <string name="transclock_color_grad2_title">Gradient Second Color</string>
+    <string name="transclock_color_grad3_title">Gradient Third Color</string>
+	
+    <!-- navbar -->
+    <string name="navbar_icon_style_title">Navbar Icon Style</string>
+    <string name="navbar_icon_default">Default</string>
+    <string name="navbar_icon_style1">Android</string>
+    <string name="navbar_icon_style2">Asus</string>
+    <string name="navbar_icon_style3">Motorola</string>
+    <string name="navbar_icon_style4">Nexus</string>
+    <string name="navbar_icon_style5">Old</string>
+    <string name="navbar_icon_style6">Oneplus</string>
+    <string name="navbar_icon_style7">ONEUI</string>
+    <string name="navbar_icon_style8">Sammy</string>
+    <string name="navbar_icon_style9">Techno</string>
+    <string name="navbar_icon_style10">Anci 1</string>
+    <string name="navbar_icon_style11">Anci 2</string>
+    <string name="navbar_icon_style12">Anci 3</string>
+    <string name="navbar_icon_style13">Anci 4</string>
+    <string name="navbar_icon_style14">Anci 5</string>
 
 </resources>

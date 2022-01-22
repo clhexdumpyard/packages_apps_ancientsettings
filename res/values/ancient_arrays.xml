@@ -370,7 +370,9 @@
         <item>@string/status_bar_battery_style_landscapeo</item>    
         <item>@string/status_bar_battery_style_landscapep</item>   
         <item>@string/status_bar_battery_style_landscapeq</item>   
-	<item>@string/status_bar_battery_style_landscaper</item>         
+        <item>@string/status_bar_battery_style_landscaper</item>    
+        <item>@string/status_bar_battery_style_landscapes</item>   
+        <item>@string/status_bar_battery_style_landscapet</item>         
         <item>@string/status_bar_battery_style_text</item>
         <item>@string/status_bar_battery_style_hidden</item>
     </string-array>
@@ -400,7 +402,9 @@
         <item>21</item> 
         <item>22</item>
         <item>23</item> 
-        <item>24</item>            
+        <item>24</item>
+        <item>25</item> 
+        <item>26</item>              
     </string-array>
 	
     <!-- carging symbol -->
@@ -583,12 +587,14 @@
         <item>@string/homepage_theme_stock</item>
         <item>@string/homepage_theme_default</item>  
         <item>@string/homepage_theme_anci11</item>
+        <item>@string/homepage_theme_stock_collapse</item>
     </string-array>   
 
     <string-array name="homepage_theme_values" translatable="false">
         <item>0</item>
         <item>1</item>
         <item>2</item>
+        <item>3</item>
     </string-array>
 
     <!-- FOD pressed color -->
@@ -747,6 +753,110 @@
         <item>0</item>
         <item>1</item>
         <item>2</item>
+    </string-array>
+
+    <!-- transclock style -->
+    <string-array name="transclock_clock_switch_entries" translatable="false">
+        <item>@string/transclock_clock_left</item>
+        <item>@string/transclock_clock_center</item>
+        <item>@string/transclock_clock_right</item>
+    </string-array>
+
+    <string-array name="transclock_clock_switch_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+    <string-array name="transclockbg_clock_switch_entries" translatable="false">
+        <item>@string/transclockbg_clock_accent</item>
+        <item>@string/transclockbg_clock_color</item>
+        <item>@string/transclockbg_clock_gradient</item>
+    </string-array>
+
+    <string-array name="transclockbg_clock_switch_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+    <string-array name="transclockgr_clock_switch_entries" translatable="false">
+        <item>@string/transclockgr_clock_1</item>
+        <item>@string/transclockgr_clock_2</item>
+        <item>@string/transclockgr_clock_3</item>
+        <item>@string/transclockgr_clock_4</item>
+        <item>@string/transclockgr_clock_5</item>
+        <item>@string/transclockgr_clock_6</item>
+        <item>@string/transclockgr_clock_7</item>
+        <item>@string/transclockgr_clock_8</item>
+    </string-array>
+
+    <string-array name="transclockgr_clock_switch_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+    </string-array>
+
+    <string-array name="transclockgrm_clock_switch_entries" translatable="false">
+        <item>@string/transclockgrm_clock_2</item>
+        <item>@string/transclockgrm_clock_3</item>
+    </string-array>
+
+    <string-array name="transclockgrm_clock_switch_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+
+    <string-array name="transclockgrm_clock_stroke_entries" translatable="false">
+        <item>@string/transclockbg_clock_color</item>
+        <item>@string/transclockbg_clock_accent</item>
+    </string-array>
+
+    <string-array name="transclockgrm_clock_stroke_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+
+    <!-- navbar -->
+    <string-array name="navbar_icon_style_entries" translatable="false">
+        <item>@string/navbar_icon_default</item>
+        <item>@string/navbar_icon_style1</item>
+        <item>@string/navbar_icon_style2</item>
+        <item>@string/navbar_icon_style3</item>
+        <item>@string/navbar_icon_style4</item>
+        <item>@string/navbar_icon_style5</item>
+        <item>@string/navbar_icon_style6</item>
+        <item>@string/navbar_icon_style7</item>
+        <item>@string/navbar_icon_style8</item>
+        <item>@string/navbar_icon_style9</item>
+        <item>@string/navbar_icon_style10</item>
+        <item>@string/navbar_icon_style11</item>
+        <item>@string/navbar_icon_style12</item>
+        <item>@string/navbar_icon_style13</item>
+        <item>@string/navbar_icon_style14</item>
+    </string-array>
+
+    <string-array name="navbar_icon_style_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
     </string-array>
 
 </resources>

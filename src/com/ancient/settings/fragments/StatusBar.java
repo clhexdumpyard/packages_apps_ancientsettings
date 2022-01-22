@@ -62,11 +62,14 @@ public class StatusBar extends SettingsPreferenceFragment implements
     private static final String CUSTOM_BLEND_COLOR = "CUSTOM_BLEND_COLOR";
     private static final String OPACY_PERIM_SWITCH = "OPACY_PERIM_SWITCH";
     private static final String RAINBOW_FILL_SWITCH = "RAINBOW_FILL_SWITCH";
+    private static final String POWERSAVE_BLEND_COLOR = "POWERSAVE_BLEND_COLOR";
+    private static final String POWERSAVEFILL_BLEND_COLOR = "POWERSAVEFILL_BLEND_COLOR";
+    private static final String SCALED_FILL_ALPHA = "SCALED_FILL_ALPHA";
     
     private static final int BATTERY_STYLE_PORTRAIT = 0;
     //private static final int BATTERY_STYLE_MIUI = 22;
-    private static final int BATTERY_STYLE_TEXT = 23;
-    private static final int BATTERY_STYLE_HIDDEN = 24;
+    private static final int BATTERY_STYLE_TEXT = 25;
+    private static final int BATTERY_STYLE_HIDDEN = 26;
     private static final int BATTERY_PERCENT_HIDDEN = 0;
 
     private ListPreference mBatteryPercent;
@@ -79,6 +82,9 @@ public class StatusBar extends SettingsPreferenceFragment implements
     private SystemSettingSwitchPreference mblendSwitch;
     private SystemSettingSwitchPreference mpSwitch;
     private SystemSettingSwitchPreference mrSwitch;
+    private SystemSettingSwitchPreference mSSwitch;
+    private ColorPickerPreference mblendPS;
+    private ColorPickerPreference mblendPSF;
     
     private IOverlayManager mOverlayService;  
 
@@ -161,6 +167,37 @@ public class StatusBar extends SettingsPreferenceFragment implements
         "RAINBOW_FILL_SWITCH", 0) == 1));
         mrSwitch.setOnPreferenceChangeListener(this);  
         
+        mSSwitch = (SystemSettingSwitchPreference) findPreference(SCALED_FILL_ALPHA);
+        mSSwitch.setChecked((Settings.System.getInt(getContentResolver(),
+        "SCALED_FILL_ALPHA", 0) == 1));
+        mSSwitch.setOnPreferenceChangeListener(this);  
+        
+        mblendPS = (ColorPickerPreference) findPreference(POWERSAVE_BLEND_COLOR);
+        int blendPS = Settings.System.getInt(getContentResolver(),
+                "POWERSAVE_BLEND_COLOR", 0xFFFFFFFF);
+        mblendPS.setNewPreviewColor(blendPS);
+        mblendPS.setAlphaSliderEnabled(true);
+        String blendPSHex = String.format("#%08x", (0xFFFFFFFF & blendPS));
+        if (blendPSHex.equals("#FFFFFFFF")) {
+            mblendPS.setSummary(R.string.color_default);
+        } else {
+            mblendPS.setSummary(blendPSHex);
+        }
+        mblendPS.setOnPreferenceChangeListener(this);
+        
+        mblendPSF = (ColorPickerPreference) findPreference(POWERSAVEFILL_BLEND_COLOR);
+        int blendPSF = Settings.System.getInt(getContentResolver(),
+                "POWERSAVEFILL_BLEND_COLOR", 0xFFFFFFFF);
+        mblendPSF.setNewPreviewColor(blendPSF);
+        mblendPSF.setAlphaSliderEnabled(true);
+        String blendPSFHex = String.format("#%08x", (0xFFFFFFFF & blendPSF));
+        if (blendPSFHex.equals("#FFFFFFFF")) {
+            mblendPSF.setSummary(R.string.color_default);
+        } else {
+            mblendPSF.setSummary(blendPSFHex);
+        }
+        mblendPSF.setOnPreferenceChangeListener(this);
+        
     }
 
     @Override
@@ -221,6 +258,32 @@ public class StatusBar extends SettingsPreferenceFragment implements
                     "FILL_BLEND_COLOR", intblendFC);
             AncientUtils.showSystemUiRestartDialog(getContext());
             return true; 
+        } else if (preference == mblendPS) {
+            String blendPS = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            if (blendPS.equals("#FFFFFFFF")) {
+                preference.setSummary(R.string.color_default);
+            } else {
+                preference.setSummary(blendPS);
+            }
+            int intblendPS = ColorPickerPreference.convertToColorInt(blendPS);
+            Settings.System.putInt(getContentResolver(),
+                    "POWERSAVE_BLEND_COLOR", intblendPS);
+            AncientUtils.showSystemUiRestartDialog(getContext());
+            return true; 
+        } else if (preference == mblendPSF) {
+            String blendPSF = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            if (blendPSF.equals("#FFFFFFFF")) {
+                preference.setSummary(R.string.color_default);
+            } else {
+                preference.setSummary(blendPSF);
+            }
+            int intblendPSF = ColorPickerPreference.convertToColorInt(blendPSF);
+            Settings.System.putInt(getContentResolver(),
+                    "POWERSAVEFILL_BLEND_COLOR", intblendPSF);
+            AncientUtils.showSystemUiRestartDialog(getContext());
+            return true; 
         } else if  (preference == mblendSwitch) {
             boolean valuecrot = (Boolean) newValue;
             Settings.System.putInt(getActivity().getContentResolver(),
@@ -239,7 +302,13 @@ public class StatusBar extends SettingsPreferenceFragment implements
                     "RAINBOW_FILL_SWITCH", valuemek ? 1 : 0);
             AncientUtils.showSystemUiRestartDialog(getContext());
             return true;
-        } 
+        } else if  (preference == mSSwitch) {
+            boolean valuemekS = (Boolean) newValue;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    "SCALED_FILL_ALPHA", valuemekS ? 1 : 0);
+            AncientUtils.showSystemUiRestartDialog(getContext());
+            return true;
+        }  
         return false;
     }
 
