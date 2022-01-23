@@ -69,7 +69,7 @@
           android:defaultValue="425"
           android:max="1000"
           settings:min="0"
-          settings:interval="100"/>
+          settings:interval="25"/>
 
       <com.ancient.settings.preferences.SecureSettingSwitchPreference
           android:key="monet_engine_accurate_shades"
@@ -82,7 +82,7 @@
           android:defaultValue="100"
           android:max="400"
           settings:min="50"
-          settings:interval="50"/>
+          settings:interval="25"/>
 
       <com.ancient.settings.preferences.SecureSettingSwitchPreference
           android:key="monet_engine_linear_lightness"
