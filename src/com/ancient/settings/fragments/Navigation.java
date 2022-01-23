@@ -50,6 +50,8 @@ import com.android.internal.util.ancient.AncientUtils;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settingslib.search.SearchIndexable;
 
 import com.ancient.settings.preferences.SystemSettingSwitchPreference;
 import com.ancient.settings.preferences.SystemSettingListPreference;
@@ -58,6 +60,7 @@ import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+@SearchIndexable(forTarget = SearchIndexable.ALL & ~SearchIndexable.ARC)
 public class Navigation extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener {
 
@@ -270,4 +273,11 @@ public class Navigation extends SettingsPreferenceFragment
     public int getMetricsCategory() {
         return MetricsProto.MetricsEvent.ANCIENT_SETTINGS;
     }
+
+    /**
+     * For Search.
+     */
+
+    public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+            new BaseSearchIndexProvider(R.xml.ancient_settings_navigation);
 }
