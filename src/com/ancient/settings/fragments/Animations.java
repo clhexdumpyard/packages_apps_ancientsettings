@@ -51,6 +51,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 
+@SearchIndexable(forTarget = SearchIndexable.ALL & ~SearchIndexable.ARC)
 public class Animations extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
     private static final String PREF_TILE_ANIM_STYLE = "qs_tile_animation_style";
@@ -155,4 +156,11 @@ public class Animations extends SettingsPreferenceFragment implements OnPreferen
     public int getMetricsCategory() {
         return MetricsProto.MetricsEvent.ANCIENT_SETTINGS;
     }
+
+    /**
+     * For Search.
+     */
+
+    public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+            new BaseSearchIndexProvider(R.xml.ancient_settings_animations);
 }

@@ -51,12 +51,16 @@ import com.android.internal.util.ancient.AncientUtils;
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 import com.ancient.settings.preferences.SystemSettingListPreference;
 
+import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settingslib.search.SearchIndexable;
+
 import com.android.settings.R;
 
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
+@SearchIndexable(forTarget = SearchIndexable.ALL & ~SearchIndexable.ARC)
 public class Addon extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
     public static final String TAG = "Addon";
@@ -837,4 +841,11 @@ public class Addon extends SettingsPreferenceFragment implements OnPreferenceCha
     public int getMetricsCategory() {
         return MetricsProto.MetricsEvent.ANCIENT_SETTINGS;
     }
+
+    /**
+     * For Search.
+     */
+
+    public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+            new BaseSearchIndexProvider(R.xml.ancient_settings_addon);
 }
