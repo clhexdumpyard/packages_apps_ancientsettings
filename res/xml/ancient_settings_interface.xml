@@ -32,6 +32,19 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:key="general_category"
+        android:title="@string/general">
+
+        <Preference
+            android:key="dark_ui_mode"
+            android:title="@string/dark_ui_mode"
+            android:summary="@string/dark_ui_mode_summary"
+            android:fragment="com.android.settings.display.darkmode.DarkModeSettingsFragment"
+            settings:controller="com.android.settings.display.DarkUIPreferenceController" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:key="theme_customization_category"
         android:title="@string/theme_customization_category">
 
