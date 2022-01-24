@@ -17,6 +17,28 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
 	android:title="@string/misc_title" >
+	
+    <PreferenceCategory
+        android:key="corners_category"
+        android:title="@string/corners_category" >
+
+        <com.ancient.settings.preferences.SecureSettingSwitchPreference
+            android:key="SYSUI_ROUNDED_FWVALS"
+            android:title="@string/corner_fwvals"
+            android:summary="@string/corner_fwvals_summary"
+            android:defaultValue="true"
+            android:disableDependentsState="true" />
+
+        <com.ancient.settings.preferences.CustomSecureSeekBarPreference 
+            android:key="SYSUI_ROUNDED_SIZE"
+            android:title="@string/corner_radius"
+            android:max="60"
+            settings:min="0"
+            settings:units="dp"
+            android:persistent="false"
+            android:dependency="SYSUI_ROUNDED_FWVALS" />
+	    
+    </PreferenceCategory>
 
     <PreferenceCategory
         android:key="general_category"
