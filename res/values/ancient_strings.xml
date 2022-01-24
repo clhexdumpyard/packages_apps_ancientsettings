@@ -90,6 +90,7 @@
     <string name="unit_seconds">Second(s)</string>
     <string name="general">General</string>
     <string name="frame_rate">Frame Rate</string>
+    <string name="dark_ui_mode_summary">Browse the dark theme options</string>
 
     <!-- Color Picker -->
     <string name="dialog_color_picker">Color Picker</string>
