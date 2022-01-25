@@ -40,11 +40,6 @@
             android:fragment="com.ancient.settings.fragments.CarrierLabel"
             android:title="@string/carrier_label_settings_title" />
 
-        <Preference
-            android:key="traffic"
-            android:fragment="com.ancient.settings.fragments.Traffic"
-            android:title="@string/traffic_title" />
-
     </PreferenceCategory>
 
     <PreferenceCategory
