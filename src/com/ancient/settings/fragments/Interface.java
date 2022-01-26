@@ -72,15 +72,21 @@ public class Interface extends DashboardFragment implements OnPreferenceChangeLi
     private String MONET_ENGINE_COLOR_OVERRIDE = "monet_engine_color_override";
     
     private static final String HOMEPAGE_THEME = "HOMEPAGE_THEME";
+    private static final String CORNER_RADIUS_STYLE = "CORNER_RADIUS_STYLE";
     
     private static final String HOMEPAGE_THEME_OVERLAY = "com.idc.settings.hompage.stock";
     private static final String HOMEPAGE_THEME_ANDROID_OVERLAY = "com.idc.android.hompage.stock";   
     private static final String HOMEPAGE_THEME_SETTINGS_OVERLAY = "com.idc.ganteng.hompage.stock";   
 
+    private static final String CORNER_RADIUS_STYLE_ZERO = "com.idc.rounded.corner.zero";
+    private static final String CORNER_RADIUS_STYLE_MEDIUM = "com.idc.rounded.corner.medium";     
+    private static final String CORNER_RADIUS_STYLE_BIG = "com.idc.rounded.corner.big"; 
+
     private Context mContext;
     
     private SystemSettingListPreference mhomeSwitch;
     private ColorPickerPreference mMonetColor;
+    private SystemSettingListPreference idcCornStyle;
     
     private IOverlayManager mOverlayService;  
 
@@ -108,6 +114,14 @@ public class Interface extends DashboardFragment implements OnPreferenceChangeLi
         mhomeSwitch.setValueIndex(valueIndexh >= 0 ? valueIndexh : 0);
         mhomeSwitch.setSummary(mhomeSwitch.getEntry());
         mhomeSwitch.setOnPreferenceChangeListener(this);
+
+        idcCornStyle = (SystemSettingListPreference) findPreference("CORNER_RADIUS_STYLE");
+        int nvCornStyle = Settings.System.getIntForUser(getContentResolver(),
+                "CORNER_RADIUS_STYLE", 2, UserHandle.USER_CURRENT);
+        int valueIndexnvCorn = idcCornStyle.findIndexOfValue(String.valueOf(nvCornStyle));
+        idcCornStyle.setValueIndex(valueIndexnvCorn >= 0 ? valueIndexnvCorn : 0);
+        idcCornStyle.setSummary(idcCornStyle.getEntry());
+        idcCornStyle.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -149,6 +163,39 @@ public class Interface extends DashboardFragment implements OnPreferenceChangeLi
             } else {
                    try {
                       mOverlayService.setEnabledExclusiveInCategory(HOMEPAGE_THEME_OVERLAY, USER_CURRENT); 
+                   } catch (RemoteException re) {
+                      throw re.rethrowFromSystemServer();
+                   }
+            }
+            return true;
+        } else if  (preference == idcCornStyle) {
+            int idccornnStyle = Integer.valueOf((String) newValue);
+            Settings.System.putIntForUser(getContentResolver(),
+                    "CORNER_RADIUS_STYLE", idccornnStyle, UserHandle.USER_CURRENT);
+            idcCornStyle.setSummary(idcCornStyle.getEntries()[idccornnStyle]);
+            if (idccornnStyle == 1) {
+                   try {
+                      mOverlayService.setEnabledExclusiveInCategory(CORNER_RADIUS_STYLE_MEDIUM, USER_CURRENT);  
+                   } catch (RemoteException re) {
+                      throw re.rethrowFromSystemServer();
+                   }
+            } else if (idccornnStyle == 2) {
+                   try {
+                      mOverlayService.setEnabled(CORNER_RADIUS_STYLE_ZERO, false, USER_CURRENT);
+                      mOverlayService.setEnabled(CORNER_RADIUS_STYLE_MEDIUM, false, USER_CURRENT); 
+                      mOverlayService.setEnabled(CORNER_RADIUS_STYLE_BIG, false, USER_CURRENT);    
+                   } catch (RemoteException re) {
+                      throw re.rethrowFromSystemServer();
+                   }
+            } else if (idccornnStyle == 3) {
+                   try {
+                      mOverlayService.setEnabledExclusiveInCategory(CORNER_RADIUS_STYLE_BIG, USER_CURRENT);   
+                   } catch (RemoteException re) {
+                      throw re.rethrowFromSystemServer();
+                   }
+            } else {
+                   try {
+                      mOverlayService.setEnabledExclusiveInCategory(CORNER_RADIUS_STYLE_ZERO, USER_CURRENT); 
                    } catch (RemoteException re) {
                       throw re.rethrowFromSystemServer();
                    }
