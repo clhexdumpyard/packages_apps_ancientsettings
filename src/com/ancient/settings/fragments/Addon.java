@@ -102,7 +102,8 @@ public class Addon extends SettingsPreferenceFragment implements OnPreferenceCha
     private static final String SIGNAL_OVERLAY_STYLE13 = "com.custom.overlay.systemui.icon13";        
     private static final String SIGNAL_OVERLAY_STYLE14 = "com.custom.overlay.systemui.icon14"; 
     private static final String SIGNAL_OVERLAY_STYLE15 = "com.custom.overlay.systemui.icon15"; 
-    private static final String SIGNAL_OVERLAY_STYLE16 = "com.custom.overlay.systemui.icon16";      
+    private static final String SIGNAL_OVERLAY_STYLE16 = "com.custom.overlay.systemui.icon16"; 
+    private static final String SIGNAL_OVERLAY_STYLE17 = "com.custom.overlay.systemui.icon17";        
     
     private static final String BRIGHTNESS_OVERLAY_STYLE1 = "com.custom.overlay.systemui.brightness1";
     private static final String BRIGHTNESS_OVERLAY_STYLE2 = "com.custom.overlay.systemui.brightness2"; 
@@ -413,7 +414,8 @@ public class Addon extends SettingsPreferenceFragment implements OnPreferenceCha
                       mOverlayService.setEnabled(SIGNAL_OVERLAY_STYLE13, false, USER_CURRENT);
                       mOverlayService.setEnabled(SIGNAL_OVERLAY_STYLE14, false, USER_CURRENT);
                       mOverlayService.setEnabled(SIGNAL_OVERLAY_STYLE15, false, USER_CURRENT); 
-                      mOverlayService.setEnabled(SIGNAL_OVERLAY_STYLE16, false, USER_CURRENT);    
+                      mOverlayService.setEnabled(SIGNAL_OVERLAY_STYLE16, false, USER_CURRENT);     
+                      mOverlayService.setEnabled(SIGNAL_OVERLAY_STYLE17, false, USER_CURRENT);  
                    } catch (RemoteException re) {
                       throw re.rethrowFromSystemServer();
                    }
@@ -513,7 +515,13 @@ public class Addon extends SettingsPreferenceFragment implements OnPreferenceCha
                    } catch (RemoteException re) {
                       throw re.rethrowFromSystemServer();
                    }
-                }               
+                } else if (sbIconStyle == 17) {
+                   try {
+                      mOverlayService.setEnabledExclusiveInCategory(SIGNAL_OVERLAY_STYLE17, USER_CURRENT);     
+                   } catch (RemoteException re) {
+                      throw re.rethrowFromSystemServer();
+                   }
+                }                  
             return true;
         } else if (preference == idcSbDataStyle) {
             int sbDataStyle = Integer.valueOf((String) objValue);
