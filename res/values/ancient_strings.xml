@@ -1060,4 +1060,11 @@
     <string name="statusbar_network_traffic_rate_text_scale_factor_title">Network traffic rate text scale factor</string>
     <string name="statusbar_network_traffic_rate_text_scale_factor_dialog_title">Scale factor</string>
 
+    <!-- radius -->
+    <string name="corner_radius_style_title">Corner Radius Style</string>
+    <string name="corner_radius_default">Default</string>
+    <string name="corner_radius_zero">No Corner Radius</string>
+    <string name="corner_radius_medium">Medium Corner Radius</string>
+    <string name="corner_radius_big">Big Corner Radius</string>
+
 </resources>

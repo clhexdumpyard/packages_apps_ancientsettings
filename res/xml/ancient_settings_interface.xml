@@ -58,6 +58,15 @@
             android:key="android.theme.customization.icon_pack"
             android:title="@string/theme_customization_icon_pack_title"/>
 
+        <com.ancient.settings.preferences.SystemSettingListPreference
+            android:key="CORNER_RADIUS_STYLE"                                                   
+            android:title="@string/corner_radius_style_title"
+            android:summary="%s"
+            android:dialogTitle="@string/corner_radius_style_title"
+            android:entries="@array/corner_radius_style_entries"
+            android:entryValues="@array/corner_radius_style_values"
+            android:defaultValue="2" />
+
     </PreferenceCategory>
 
     <PreferenceCategory
