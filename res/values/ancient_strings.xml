@@ -1060,4 +1060,8 @@
     <string name="corner_radius_medium">Medium Corner Radius</string>
     <string name="corner_radius_big">Big Corner Radius</string>
 
+    <!-- Fingerprint Ripple Effect -->
+    <string name="enable_fingerprint_ripple_effect_title">Ripple effect</string>
+    <string name="enable_fingerprint_ripple_effect_summary">Show ripple effect on unlock with fingerprint</string>
+
 </resources>
