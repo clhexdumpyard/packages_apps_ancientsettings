@@ -63,6 +63,7 @@ import com.ancient.settings.fragments.UdfpsIconPicker;
 public class LockScreen extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
+    private static final String FINGERPRINT_CATEGORY = "lockscreen_ui_finterprint_category";
     private static final String FINGERPRINT_SUCCESS_VIB = "fingerprint_success_vib";
     private static final String FINGERPRINT_ERROR_VIB = "fingerprint_error_vib";
     private static final String UDFPS_HAPTIC_FEEDBACK = "udfps_haptic_feedback";
@@ -73,6 +74,7 @@ public class LockScreen extends SettingsPreferenceFragment implements
     private static final String AOD_SCHEDULE_KEY = "always_on_display_schedule";
 
     private Preference mCustomFPImage;
+    private PreferenceCategory mFingerprintCategory;
     private SystemSettingSwitchPreference mCustomFodIcon;
     private Preference mUdfpsIconPicker;
     private FingerprintManager mFingerprintManager;
@@ -100,6 +102,7 @@ public class LockScreen extends SettingsPreferenceFragment implements
         final PreferenceCategory fpCategory = (PreferenceCategory)
                 findPreference("lockscreen_ui_finterprint_category");
 
+        mFingerprintCategory = (PreferenceCategory) findPreference(FINGERPRINT_CATEGORY);
         mFingerprintManager = (FingerprintManager)
                 getActivity().getSystemService(Context.FINGERPRINT_SERVICE);
         mFingerprintSuccessVib = (SwitchPreference) findPreference(FINGERPRINT_SUCCESS_VIB);
@@ -128,8 +131,7 @@ public class LockScreen extends SettingsPreferenceFragment implements
         if (mPm.hasSystemFeature(PackageManager.FEATURE_FINGERPRINT) &&
                  mFingerprintManager != null) {
             if (!mFingerprintManager.isHardwareDetected()){
-                prefSet.removePreference(mFingerprintSuccessVib);
-                prefSet.removePreference(mFingerprintErrorVib);
+                prefSet.removePreference(mFingerprintCategory);
                 prefSet.removePreference(fpCategory);
             } else {
                 mFingerprintSuccessVib.setChecked((Settings.System.getInt(getContentResolver(),
@@ -148,8 +150,7 @@ public class LockScreen extends SettingsPreferenceFragment implements
                 }
             }
         } else {
-            prefSet.removePreference(mFingerprintSuccessVib);
-            prefSet.removePreference(mFingerprintErrorVib);
+            prefSet.removePreference(mFingerprintCategory);
             prefSet.removePreference(fpCategory);
         }
 
