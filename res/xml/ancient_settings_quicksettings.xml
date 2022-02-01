@@ -120,7 +120,7 @@
             android:title="@string/qs_columns_portrait_title"
             android:max="5"
             android:min="2"
-            android:defaultValue="2"
+            android:defaultValue="3"
             settings:units="" />
 
         <com.ancient.settings.preferences.SystemSettingSeekBarPreference
