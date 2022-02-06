@@ -69,8 +69,6 @@ public class Interface extends DashboardFragment implements OnPreferenceChangeLi
 
     public static final String TAG = "Interface";
 
-    private String MONET_ENGINE_COLOR_OVERRIDE = "monet_engine_color_override";
-    
     private static final String HOMEPAGE_THEME = "HOMEPAGE_THEME";
     private static final String CORNER_RADIUS_STYLE = "CORNER_RADIUS_STYLE";
     
@@ -85,7 +83,6 @@ public class Interface extends DashboardFragment implements OnPreferenceChangeLi
     private Context mContext;
     
     private SystemSettingListPreference mhomeSwitch;
-    private ColorPickerPreference mMonetColor;
     private SystemSettingListPreference idcCornStyle;
     
     private IOverlayManager mOverlayService;  
@@ -99,14 +96,7 @@ public class Interface extends DashboardFragment implements OnPreferenceChangeLi
 
         mOverlayService = IOverlayManager.Stub
                 .asInterface(ServiceManager.getService(Context.OVERLAY_SERVICE));
-        
-        mMonetColor = (ColorPickerPreference) screen.findPreference(MONET_ENGINE_COLOR_OVERRIDE);
-        int intColor = Settings.Secure.getInt(resolver, MONET_ENGINE_COLOR_OVERRIDE, Color.WHITE);
-        String hexColor = String.format("#%08x", (0xffffff & intColor));
-        mMonetColor.setNewPreviewColor(intColor);
-        mMonetColor.setSummary(hexColor);
-        mMonetColor.setOnPreferenceChangeListener(this);
-        
+
         mhomeSwitch = (SystemSettingListPreference) findPreference("HOMEPAGE_THEME");
         int smhomeStyle = Settings.System.getIntForUser(getContentResolver(),
                 "HOMEPAGE_THEME", 1, UserHandle.USER_CURRENT);
@@ -127,15 +117,7 @@ public class Interface extends DashboardFragment implements OnPreferenceChangeLi
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         ContentResolver resolver = getActivity().getContentResolver();
-        if (preference == mMonetColor) {
-            String hex = ColorPickerPreference.convertToARGB(Integer
-                .parseInt(String.valueOf(newValue)));
-            preference.setSummary(hex);
-            int intHex = ColorPickerPreference.convertToColorInt(hex);
-            Settings.Secure.putInt(resolver,
-                MONET_ENGINE_COLOR_OVERRIDE, intHex);
-            return true;
-        } else if  (preference == mhomeSwitch) {
+        if  (preference == mhomeSwitch) {
             int smhomeStyle = Integer.valueOf((String) newValue);
             Settings.System.putIntForUser(getContentResolver(),
                     "HOMEPAGE_THEME", smhomeStyle, UserHandle.USER_CURRENT);
