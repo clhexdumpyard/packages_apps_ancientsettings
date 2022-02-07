@@ -40,58 +40,13 @@
             android:fragment="com.ancient.settings.fragments.CarrierLabel"
             android:title="@string/carrier_label_settings_title" />
 
-    </PreferenceCategory>
-
-    <PreferenceCategory
+        <Preference
             android:key="network_traffic_category"
-            android:title="@string/network_traffic_category_title" >
-
-        <com.android.settingslib.widget.TopIntroPreference
-            android:key="network_traffic_intro"
-            android:title="@string/network_traffic_intro_text"
-            android:selectable="false"
-            android:persistent="false" />
-
-        <com.anci.settings.preferences.SystemSettingMainSwitchPreference
-            android:key="network_traffic_enabled"
-            android:title="@string/enable_network_traffic"
-            android:defaultValue="false" />
-
-        <com.anci.settings.preferences.SystemSettingSeekBarPreference
-            android:key="network_traffic_auto_hide_threshold_tx"
-            android:title="@string/statusbar_network_traffic_threshold_tx_title"
-            android:defaultValue="0"
-            android:max="1024"
-            settings:min="0"
-            settings:interval="128"
-            settings:units="KiB/s" />
-
-        <com.anci.settings.preferences.SystemSettingSeekBarPreference
-            android:key="network_traffic_auto_hide_threshold_rx"
-            android:title="@string/statusbar_network_traffic_threshold_rx_title"
-            android:defaultValue="0"
-            android:max="1024"
-            settings:min="0"
-            settings:interval="128"
-            settings:units="KiB/s" />
-
-        <com.anci.settings.preferences.SystemSettingSeekBarPreference
-            android:key="network_traffic_unit_text_size"
-            android:title="@string/statusbar_network_traffic_unit_text_size_title"
-            android:defaultValue="21"
-            android:max="25"
-            settings:min="15"
-            settings:units="px" />
-
-        <com.anci.settings.preferences.SystemSettingSeekBarPreference
-            android:key="network_traffic_rate_text_scale_factor"
-            android:title="@string/statusbar_network_traffic_rate_text_scale_factor_title"
-            android:defaultValue="15"
-            android:max="20"
-            settings:min="10" />
-
+            android:title="@string/network_traffic_category_title"
+            android:fragment="com.ancient.network.settings.NetSpeedPreference" />
+        
     </PreferenceCategory>
-
+    
     <PreferenceCategory
         android:key="battery_style_category"
         android:title="@string/battery_style_category_title" >
