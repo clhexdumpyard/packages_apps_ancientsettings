@@ -103,7 +103,7 @@
             android:summary="@string/brightness_icon_summary"
             android:defaultValue="false" />
          
-        <com.xtended.support.preferences.SystemSettingSwitchPreference
+        <com.ancient.settings.preferences.SystemSettingSwitchPreference
             android:key="QS_TILE_VERTICAL_LAYOUT"
             android:title="@string/qs_tile_vertical_layout_title"
             android:summary="@string/qs_tile_vertical_layout_summary"
