@@ -476,6 +476,8 @@ public class Addon extends SettingsPreferenceFragment implements OnPreferenceCha
                 if (sbHeightStyle == 0) {
                    try {
                       mOverlayService.setEnabled(TIGALIMA_OVERLAY_SBHEIGHT, false, USER_CURRENT);
+                      mOverlayService.setEnabled(EMPATPULUH_OVERLAY_SBHEIGHT, false, USER_CURRENT);
+                      mOverlayService.setEnabled(EMPATLIMA_OVERLAY_SBHEIGHT, false, USER_CURRENT);
                       mOverlayService.setEnabled(LIMAPULUH_OVERLAY_SBHEIGHT, false, USER_CURRENT);
                       mOverlayService.setEnabled(ENAMPULUH_OVERLAY_SBHEIGHT, false, USER_CURRENT);
                       mOverlayService.setEnabled(DELAPANPULUH_OVERLAY_SBHEIGHT, false, USER_CURRENT);    
@@ -490,22 +492,35 @@ public class Addon extends SettingsPreferenceFragment implements OnPreferenceCha
                    }
                } else if (sbHeightStyle == 2) {
                    try {
-                      mOverlayService.setEnabledExclusiveInCategory(LIMAPULUH_OVERLAY_SBHEIGHT, USER_CURRENT);   
+                      mOverlayService.setEnabledExclusiveInCategory(EMPATPULUH_OVERLAY_SBHEIGHT, USER_CURRENT);   
                    } catch (RemoteException re) {
                       throw re.rethrowFromSystemServer();
                    }
-                } else if (sbHeightStyle == 3) {
+               } else if (sbHeightStyle == 3) {
                    try {
-                      mOverlayService.setEnabledExclusiveInCategory(ENAMPULUH_OVERLAY_SBHEIGHT, USER_CURRENT);     
+                      mOverlayService.setEnabledExclusiveInCategory(EMPATLIMA_OVERLAY_SBHEIGHT, USER_CURRENT);   
                    } catch (RemoteException re) {
                       throw re.rethrowFromSystemServer();
                    }
                 } else if (sbHeightStyle == 4) {
                    try {
+                      mOverlayService.setEnabledExclusiveInCategory(LIMAPULUH_OVERLAY_SBHEIGHT, USER_CURRENT);   
+                   } catch (RemoteException re) {
+                      throw re.rethrowFromSystemServer();
+                   }
+                } else if (sbHeightStyle == 5) {
+                   try {
+                      mOverlayService.setEnabledExclusiveInCategory(ENAMPULUH_OVERLAY_SBHEIGHT, USER_CURRENT);     
+                   } catch (RemoteException re) {
+                      throw re.rethrowFromSystemServer();
+                   }
+                } else if (sbHeightStyle == 6) {
+                   try {
                       mOverlayService.setEnabledExclusiveInCategory(DELAPANPULUH_OVERLAY_SBHEIGHT, USER_CURRENT);     
                    } catch (RemoteException re) {
                       throw re.rethrowFromSystemServer();
                    }
+                }  
                 }  
             return true;
         } else if (preference == idcVolumeBackgroundColor) {
