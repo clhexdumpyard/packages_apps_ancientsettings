@@ -104,7 +104,7 @@
             android:defaultValue="false" />
          
         <com.ancient.settings.preferences.SystemSettingSwitchPreference
-            android:key="QS_TILE_VERTICAL_LAYOUT"
+            android:key="OMNI_QS_TILE_VERTICAL_LAYOUT"
             android:title="@string/qs_tile_vertical_layout_title"
             android:summary="@string/qs_tile_vertical_layout_summary"
             android:defaultValue="false" />
