@@ -114,6 +114,8 @@ public class Addon extends SettingsPreferenceFragment implements OnPreferenceCha
     private static final String DATA_OVERLAY_STYLE5 = "com.custom.overlay.systemui.data5";
         
     private static final String TIGALIMA_OVERLAY_SBHEIGHT = "com.custom.overlay.systemui.hight.tigalima";
+    private static final String EMPATPULUH_OVERLAY_SBHEIGHT = "com.custom.overlay.systemui.hight.empatpuluh"; 
+    private static final String EMPATLIMA_OVERLAY_SBHEIGHT = "com.custom.overlay.systemui.hight.empatlima";  
     private static final String LIMAPULUH_OVERLAY_SBHEIGHT = "com.custom.overlay.systemui.hight.limapuluh"; 
     private static final String ENAMPULUH_OVERLAY_SBHEIGHT = "com.custom.overlay.systemui.hight.enampuluh";  
     private static final String DELAPANPULUH_OVERLAY_SBHEIGHT = "com.custom.overlay.systemui.hight.delapanpuluh";     
