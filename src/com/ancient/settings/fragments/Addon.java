@@ -521,7 +521,6 @@ public class Addon extends SettingsPreferenceFragment implements OnPreferenceCha
                       throw re.rethrowFromSystemServer();
                    }
                 }  
-                }  
             return true;
         } else if (preference == idcVolumeBackgroundColor) {
             String cVolumeBackgroundColor = ColorPickerPreference.convertToARGB(
