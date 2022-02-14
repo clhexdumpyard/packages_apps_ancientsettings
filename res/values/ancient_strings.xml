@@ -38,6 +38,7 @@
     <string name="battery_title">Battery</string>
     <string name="interface_title">Themes</string>
     <string name="udfps_category">Fingerprint On Display</string>
+    <string name="spoof_title">Spoofing</string>
 
     <!-- About -->
     <string name="developers_category_title">Developers</string>
@@ -1078,7 +1079,7 @@
 
     <!-- Unlimited g00gle ph0t0s st0rage -->
     <string name="use_photos_spoof_title">Unlimited Photos storage</string>
-    <string name="use_photos_spoof_summary">Your device will be identified as a Pixel XL by the Photos app to get unlimited photo storage at original quality</string>
+    <string name="use_photos_spoof_summary">Spoof your device as Pixel XL for Google Photos app only to provide unlimited storage for backup</string>
 
     <!-- Alert Slider Notifications (OnePlus devices) -->
     <string name="alert_slider_notifications_title">Alert slider notifications</string>

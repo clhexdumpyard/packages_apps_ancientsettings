@@ -23,13 +23,6 @@
         android:title="@string/general">
 
         <com.ancient.settings.preferences.SystemSettingSwitchPreference
-            android:key="use_photos_spoof"
-            android:title="@string/use_photos_spoof_title"
-            android:summary="@string/use_photos_spoof_summary"
-            android:defaultValue="true"
-            android:persistent="false" />
-
-        <com.ancient.settings.preferences.SystemSettingSwitchPreference
             android:key="wake_when_plugged_or_unplugged"
             android:title="@string/wake_when_plugged_or_unplugged_title"
             android:summary="@string/wake_when_plugged_or_unplugged_summary"
@@ -40,6 +33,19 @@
             android:title="@string/toast_icon_title"
             android:summary="@string/toast_icon_summary"
             android:defaultValue="false" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="spoof_category"
+        android:title="@string/spoof_title">
+
+        <!-- Unlimited Photos storage -->
+        <SwitchPreference
+            android:key="use_photos_spoof"
+            android:title="@string/use_photos_spoof_title"
+            android:summary="@string/use_photos_spoof_summary"
+            android:defaultValue="true" />
 
     </PreferenceCategory>
 

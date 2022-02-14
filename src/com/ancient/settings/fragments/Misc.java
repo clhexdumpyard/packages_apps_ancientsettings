@@ -49,10 +49,10 @@ public class Misc extends SettingsPreferenceFragment
 
     public static final String TAG = "Misc";
 
-    private static final String KEY_SPOOF = "use_photos_spoof";
-    private static final String SYS_SPOOF = "persist.sys.photo";
+    private static final String KEY_PHOTOS_SPOOF = "use_photos_spoof";
+    private static final String SYS_PHOTOS_SPOOF = "persist.sys.pixelprops.gphotos";
 
-    private SwitchPreference mSpoof;
+    private SwitchPreference mPhotosSpoof;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -62,20 +62,16 @@ public class Misc extends SettingsPreferenceFragment
         final ContentResolver resolver = getActivity().getContentResolver();
         final PreferenceScreen prefSet = getPreferenceScreen();
 
-        final String useSpoof = SystemProperties.get(SYS_SPOOF, "1");
-        mSpoof = (SwitchPreference) findPreference(KEY_SPOOF);
-        mSpoof.setChecked("1".equals(useSpoof));
-        mSpoof.setOnPreferenceChangeListener(this);
+        mPhotosSpoof = (SwitchPreference) findPreference(KEY_PHOTOS_SPOOF);
+        mPhotosSpoof.setChecked(SystemProperties.getBoolean(SYS_PHOTOS_SPOOF, true));
+        mPhotosSpoof.setOnPreferenceChangeListener(this);
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        if (preference == mSpoof) {
+        if (preference == mPhotosSpoof) {
             boolean value = (Boolean) newValue;
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.USE_PHOTOS_SPOOF, value ? 1 : 0);
-            SystemProperties.set(SYS_SPOOF, value ? "1" : "0");
-            AncientUtils.showSystemUiRestartDialog(getContext());
+            SystemProperties.set(SYS_PHOTOS_SPOOF, value ? "true" : "false");
             return true;
         }
         return false;
