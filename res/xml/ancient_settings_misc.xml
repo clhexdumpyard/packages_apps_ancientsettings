@@ -22,6 +22,14 @@
         android:key="general_category"
         android:title="@string/general">
 
+        <!-- Display Cutout -->
+        <Preference
+            android:key="display_cutout_force_fullscreen_settings"
+            android:title="@string/display_cutout_force_fullscreen_title"
+            android:summary="@string/display_cutout_force_fullscreen_summary"
+            android:fragment="com.ancient.settings.fragments.DisplayCutoutForceFullscreenSettings"
+            settings:controller="com.ancient.settings.fragments.DisplayCutoutForceFullscreenPreferenceController" />
+
         <com.ancient.settings.preferences.SystemSettingSwitchPreference
             android:key="wake_when_plugged_or_unplugged"
             android:title="@string/wake_when_plugged_or_unplugged_title"
