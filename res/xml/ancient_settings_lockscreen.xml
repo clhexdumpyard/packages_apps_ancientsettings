@@ -77,7 +77,7 @@
             android:persistent="true" />
 
         <com.ancient.settings.preferences.SystemSettingSwitchPreference
-            android:key="udfps_haptic_feedback"
+            android:key="enable_udfps_start_haptic_feedback"
             android:title="@string/udfps_haptic_feedback_title"
             android:summary="@string/udfps_haptic_feedback_summary"
             android:defaultValue="true" />
