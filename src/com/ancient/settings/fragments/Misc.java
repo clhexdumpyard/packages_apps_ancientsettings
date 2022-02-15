@@ -24,6 +24,7 @@ import android.os.Bundle;
 import android.os.SystemProperties;
 import android.os.UserHandle;
 import android.provider.Settings;
+import android.text.TextUtils;
 
 import androidx.preference.*;
 import androidx.preference.ListPreference;
@@ -43,12 +44,16 @@ import com.android.settingslib.search.SearchIndexable;
 import com.android.internal.util.ancient.AncientUtils;
 import com.ancient.settings.preferences.SystemSettingSwitchPreference;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @SearchIndexable(forTarget = SearchIndexable.ALL & ~SearchIndexable.ARC)
 public class Misc extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener {
 
     public static final String TAG = "Misc";
 
+    private static final String KEY_FORCE_FULL_SCREEN = "display_cutout_force_fullscreen_settings";
     private static final String KEY_GAMES_SPOOF = "use_games_spoof";
     private static final String KEY_PHOTOS_SPOOF = "use_photos_spoof";
     private static final String KEY_STREAM_SPOOF = "use_stream_spoof";
@@ -57,6 +62,7 @@ public class Misc extends SettingsPreferenceFragment
     private static final String SYS_PHOTOS_SPOOF = "persist.sys.pixelprops.gphotos";
     private static final String SYS_STREAM_SPOOF = "persist.sys.pixelprops.streaming";
 
+    private Preference mShowCutoutForce;
     private SwitchPreference mGamesSpoof;
     private SwitchPreference mPhotosSpoof;
     private SwitchPreference mStreamSpoof;
@@ -68,6 +74,14 @@ public class Misc extends SettingsPreferenceFragment
 
         final ContentResolver resolver = getActivity().getContentResolver();
         final PreferenceScreen prefSet = getPreferenceScreen();
+        Context mContext = getActivity().getApplicationContext();
+
+        final String displayCutout =
+                mContext.getResources().getString(com.android.internal.R.string.config_mainBuiltInDisplayCutout);
+        mShowCutoutForce = (Preference) findPreference(KEY_FORCE_FULL_SCREEN);
+        if (TextUtils.isEmpty(displayCutout)) {
+            prefSet.removePreference(mShowCutoutForce);
+        }
 
         mGamesSpoof = (SwitchPreference) findPreference(KEY_GAMES_SPOOF);
         mGamesSpoof.setChecked(SystemProperties.getBoolean(SYS_GAMES_SPOOF, false));
@@ -110,5 +124,19 @@ public class Misc extends SettingsPreferenceFragment
      */
 
     public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-            new BaseSearchIndexProvider(R.xml.ancient_settings_misc);
+            new BaseSearchIndexProvider(R.xml.ancient_settings_misc) {
+
+                @Override
+                public List<String> getNonIndexableKeys(Context context) {
+                    List<String> keys = super.getNonIndexableKeys(context);
+                    final String displayCutout =
+                        context.getResources().getString(com.android.internal.R.string.config_mainBuiltInDisplayCutout);
+
+                    if (TextUtils.isEmpty(displayCutout)) {
+                        keys.add(KEY_FORCE_FULL_SCREEN);
+                    }
+
+                    return keys;
+                }
+            };
 }
