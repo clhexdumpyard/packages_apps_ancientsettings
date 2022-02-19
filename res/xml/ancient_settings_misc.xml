@@ -44,6 +44,13 @@
             android:summary="@string/toast_icon_summary"
             android:defaultValue="false" />
 
+        <!-- Launch music player when headset is connected -->
+        <com.ancient.settings.preferences.SystemSettingSwitchPreference
+            android:key="headset_connect_player"
+            android:title="@string/headset_connect_player_title"
+            android:summary="@string/headset_connect_player_summary"
+            android:defaultValue="false" />
+
     </PreferenceCategory>
 
     <PreferenceCategory
