@@ -92,6 +92,8 @@
     <string name="general">General</string>
     <string name="frame_rate">Frame Rate</string>
     <string name="dark_ui_mode_summary">Browse the dark theme options</string>
+    <string name="search">Search</string>
+    <string name="search_apps">Search apps</string>
 
     <!-- Color Picker -->
     <string name="dialog_color_picker">Color Picker</string>
