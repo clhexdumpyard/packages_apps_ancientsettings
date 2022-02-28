@@ -34,6 +34,12 @@
             android:summary="@string/ancient_idle_manager_summary"
             android:defaultValue="false" />
 
+        <com.ancient.settings.preferences.SystemSettingSwitchPreference
+            android:key="ancient_gms_killer"
+            android:title="@string/ancient_gms_killer_title"
+            android:summary="@string/ancient_gms_killer_title_summary"
+            android:defaultValue="false" />
+
     </PreferenceCategory>
 
 </PreferenceScreen>

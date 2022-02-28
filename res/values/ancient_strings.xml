@@ -1111,4 +1111,8 @@
     <string name="ancient_idle_manager_title">Ancient Idle Manager</string>
     <string name="ancient_idle_manager_summary">Stop all non-essential background processes when the device is idle</string>
 
+    <!-- Ancient GMS Killer -->
+    <string name="ancient_gms_killer_title">Kill Google Services</string>
+    <string name="ancient_gms_killer_title_summary">This needs to be disabled when using google-oriented services/apps. Turning this feature enabled may break Google services such as smartspace/playstore etc.</string>
+
 </resources>
