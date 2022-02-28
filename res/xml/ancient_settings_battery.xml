@@ -28,6 +28,12 @@
             android:summary="@string/powersave_summary"
             android:fragment="com.ancient.settings.fragments.PowerSaving" />
 
+        <com.ancient.settings.preferences.SystemSettingSwitchPreference
+            android:key="ancient_idle_manager"
+            android:title="@string/ancient_idle_manager_title"
+            android:summary="@string/ancient_idle_manager_summary"
+            android:defaultValue="false" />
+
     </PreferenceCategory>
 
 </PreferenceScreen>

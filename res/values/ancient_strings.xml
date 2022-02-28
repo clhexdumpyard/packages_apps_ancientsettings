@@ -1107,4 +1107,8 @@
     <string name="headset_connect_player_title">Launch music app on headset connection</string>
     <string name="headset_connect_player_summary">Launch the default music app when headset is connected</string>
 
+    <!-- Ancient Idle Manager -->
+    <string name="ancient_idle_manager_title">Ancient Idle Manager</string>
+    <string name="ancient_idle_manager_summary">Stop all non-essential background processes when the device is idle</string>
+
 </resources>
