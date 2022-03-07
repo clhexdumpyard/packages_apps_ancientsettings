@@ -23,12 +23,6 @@
         android:title="@string/general">
 
         <com.ancient.settings.preferences.SystemSettingSwitchPreference
-            android:key="alert_slider_notifications"
-            android:title="@string/alert_slider_notifications_title"
-            android:summary="@string/alert_slider_notifications_summary"
-            android:defaultValue="true" />
-
-        <com.ancient.settings.preferences.SystemSettingSwitchPreference
             android:key="pulse_on_new_tracks"
             android:title="@string/pulse_on_new_tracks_title"
             android:summary="@string/pulse_on_new_tracks_summary"
